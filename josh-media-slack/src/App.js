@@ -26,7 +26,7 @@ const App = () => {
         </div>
       </div>
       <div className="mid-page">
-        <div>What can we do for you?</div>
+        <h3 className="mid-des">What can we do for you?</h3>
         <div className="mid-3boxes">
           <div className="midbox">
             <h4>Build brand awareness</h4>
