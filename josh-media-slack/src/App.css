@@ -2,6 +2,9 @@
   max-width: 1200px;
   margin: 0px auto;
 }
+.main-wrap {
+  background-color: aqua;
+}
 .detail-image {
   display: flex;
   flex-direction: row;
@@ -9,18 +12,36 @@
 .h1-p-btn-div {
   display: flex;
   flex-direction: column;
+  margin: 50px auto;
 }
 h1 {
-  display: flex;
-  justify-items: flex-start;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 62px;
+  margin: 10px 0px;
+}
+span {
+  color: blue;
+}
+p {
+  height: 72px;
+
+  /* Text Large */
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  /* margin: 10px 0px; */
+  /* line-height: 24px; */
+  /* or 133% */
 }
 button {
-  padding: 16px 32px;
-
   width: 148px;
   height: 60px;
   border: #1d1dd8;
-  color: beige;
+  color: white;
+  margin: 10px 0px;
 
   /* Primary Color */
 
@@ -29,9 +50,39 @@ button {
 
   /* Inside auto layout */
 }
-.Mentor-Image {
+img {
   width: 643px;
   height: 464.75px;
 
   border-radius: 4px;
+}
+.mid-page {
+  display: flex;
+  flex-direction: column;
+  /* margin: 20px 0px; */
+}
+/* .mid-3boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+.mid-3boxes {
+  display: flex;
+  justify-content: space-between;
+  width: 1312px;
+}
+.midbox {
+  border: 1px solid black;
+  height: 150px;
+  width: 300px;
+  padding: 20px;
+
+  /* margin: 20px; */
+}
+h4 {
+  height: 30px;
+  align-items: center;
+  padding: 0 10%;
+}
+.midbox p {
 }
