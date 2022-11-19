@@ -1,0 +1,33 @@
+ .pagination {
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+        
+ }
+
+ .pagination__item {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  .pagination__item-active {
+    color: #4343DF;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    background: #EDEDFF;
+border: 1px solid #4343DF;
+border-radius: 2px;
+  }
+
+  .pagination button {
+    color: #4343DF;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    background: white;
+border: 1px solid #EDEDFF;
+border-radius: 2px;
+  }

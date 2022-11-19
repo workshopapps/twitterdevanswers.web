@@ -1,0 +1,14 @@
+
+
+  .dev__flex-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+  } 
+
+
+  .dev__ask-widgets{
+    display: flex;
+    justify-content: space-between;
+  }
