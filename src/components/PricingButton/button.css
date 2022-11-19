@@ -1,0 +1,17 @@
+.Verify-Icon {
+    width: 20.01px;
+    height: 20px;
+    margin-left: 12.01px;
+    margin-top: 13px;
+  }
+
+
+  @media only screen  and (max-width: 768px) {
+  .Verify-Icon {
+    width: 11.44px;
+    height: 11.43px;
+    margin-left: 12.01px;
+    margin-top: 8.8px;
+  }
+}
+

@@ -1,0 +1,196 @@
+
+.Payment-Card {
+    width: 350px;
+    /* height: 497.42px; */
+    height: 580px;
+    background: #F7F7FE;
+    box-shadow: 0px 1px 2px 0.5px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    margin-left: 48px;
+  }
+
+  .Top-SectionWrapper {
+    height: 220px;
+  }
+  
+  .Card-Header-1 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 72px;
+    color: #282828;
+    position: relative;
+    top: 40px;
+    left: 24px;
+  }
+  
+  .Card-Header-2 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 32px;
+    color: #282828;
+    opacity: 0.6;
+    position: relative;
+    top: 6px;
+    left: 24px;
+  }
+  
+  .Card-Header-3 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 32px;
+    color: #282828;
+    position: relative;
+    top: 4px;
+    left: 24px;
+  }
+  
+  .Card-Vector {
+    width: 140px;
+    height: 147.66px;
+    position: relative;
+    left: 210.5px;
+    bottom: 256.5px;
+    border-radius: 16px;
+  }
+
+  .Card-Content-Wrapper {
+    margin-top: 20px;
+  }
+
+  .Card-Sub-Header {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 32px;
+    color: #282828;
+    margin-left: 24px;
+  }
+  
+  .Card-Option-1 {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 32px;
+  color: #000000;
+  opacity: 0.6;
+  margin-top: 8px;
+  margin-left: 24px;
+  }
+  
+  .Card-Option-Wrapper {
+    display: flex;
+    margin-left: 34px;
+    margin-top: 10px;
+    /* justify-content: space-around; */
+  }
+  
+  .Card-Option-Square {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+  }
+  
+  .Card-Option {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 32px;
+  color: #282828;
+  opacity: 0.6;
+  margin-left: 18px;
+  }
+
+  @media only screen  and (max-width: 768px) {
+    .Payment-Card  {
+        width: 200.04px;
+        height: 284.29px;
+        background: #F2F2FF;
+        box-shadow: 0px 0.571536px 1.14307px 0.285768px rgba(0, 0, 0, 0.15);
+        border-radius: 9.14457px;
+       }
+    
+       .Top-SectionWrapper {
+        height: 81px;
+      }
+    
+       .Card-Header-1 {
+        font-size: 19.1658px;
+        line-height: 41px;
+        left: 6.86%;
+        top: 8.04%;
+        margin-bottom: 0px;
+        /* margin-top: 0px; */
+       }
+
+       .Card-Header-2 {
+        left: 6.86%;
+        top: 23.48%;
+        font-size: 7.98574px;
+        line-height: 18px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+       }
+    
+       .Card-Header-3 {
+        font-size: 7.98574px;
+        line-height: 18px;
+        left: 6.86%;
+        top: 30.72%;
+       }
+    
+       .Card-Vector {
+        width: 80.02px;
+        height: 84.39px;
+        left: 61.14%;
+        bottom: 106px;
+       }
+
+       .Card-Content-Wrapper {
+        margin-top: 0px;
+      }
+    
+      .Card-Sub-Header {
+        font-size: 7.98574px;
+        line-height: 18px;
+        margin-left: 13.72px;
+      }
+    
+      .Card-Option-1 {
+        font-size: 7.98574px;
+        line-height: 13px;
+        margin-left: 12.52px;
+      }
+    
+      .Card-Option-Wrapper {
+        margin-left: 19.7px;
+      }
+    
+      .Card-Option-Square {
+        width: 11.43px;
+        height: 11.43px;
+        margin-top: 2px;
+      }
+    
+      .Card-Option {
+        font-size: 7.98574px;
+        line-height: 18px;
+        margin-left: 10.3px;
+      }
+  }
+
+
+@media only screen  and (max-width: 450px) {
+    .Payment-Card  {
+        margin-top: 32.71px;
+        margin-left: 74px;
+      }
+}

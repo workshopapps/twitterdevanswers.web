@@ -1,0 +1,250 @@
+
+.Pricing-Header-Text {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 56px;
+    margin-left: 270px;
+    margin-top: 80px;
+    color: #282828;
+  }
+  
+  .Pricing-Header-Sub-Text {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    margin-left: 350px;
+    margin-top: 32px;
+    color: #282828;
+    opacity: 0.6;
+  }
+  
+  .Icons-Wrapper {
+    margin-left: 490px;
+    margin-top: 100px;
+  }
+  
+  .Month-text {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #282828;
+    opacity: 0.6;
+    margin-bottom: 100px;
+    
+  }
+  
+  .Slider-Icon {
+   position: absolute; 
+    margin-left: 40px;
+    top: 337px;
+  }
+  
+  .Year-text {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    color: #282828;
+    margin-left: 135.5px;
+  }
+  
+  .Percent-Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 72px;
+    height: 24px;
+    position: relative;
+    bottom: 65px;
+    left: 720px;
+    background: #1D1DD8;
+    border-radius: 4px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: capitalize;
+    color: #FEFEFE;
+  }
+  
+  .Arrow-Icon {
+    position: absolute;
+    top: 305px;
+    left: 800px;
+  }
+  
+  .PaymentCard-Wrapper {
+    display: flex;
+    margin-left: 10px;
+    margin-top: 100px;
+    padding-bottom: 10px;
+    /* justify-content: center; */
+  }
+
+  
+  .Payment-Button-1 {
+    width: 302px;
+    height: 48px;
+    margin-left: 24px;
+    border-radius: 4px;
+    border: 1px solid blue;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #1D1DD8;
+    display: flex;
+    justify-content: center;
+  
+  }
+
+  .Payment-Button-2 {
+    width: 302px;
+    height: 48px;
+    margin-left: 24px;
+    border-radius: 4px;
+    background: #1D1DD8;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #FEFEFE;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media only screen  and (max-width: 768px) {
+    .Pricing-Header-Text {
+        font-size: 32px;
+        line-height: 72px;
+        margin-left: 125px;
+        margin-top: 48px;
+        margin-bottom: 0px;
+      }
+    
+      .Pricing-Header-Sub-Text {
+        font-size: 16px;
+        line-height: 32px;
+        margin-left: 183px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      } 
+
+      .Icons-Wrapper {
+        margin-left: 270px;
+        margin-top: 39.92px;
+      }  
+    
+      .Month-text {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    
+      .Slider-Icon {
+        width: 39.42px;
+        height: 17.6px;
+        top: 194px;
+      }
+    
+      .Year-text {
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      .Percent-Button {
+        width: 50.68px;
+        height: 16.89px;
+        bottom: 35px;
+        left: 450px;
+        border-radius: 2.81545px;
+        font-size: 8px;
+        line-height: 11px;
+      }
+    
+      .Arrow-Icon {
+        top: 177px;
+        left: 500px;
+        width: 25.59px;
+        height: 40.74px;
+      }
+
+      .PaymentCard-Wrapper {
+        margin-left: 0px;
+        margin-top: 50.35px;
+      }
+
+      .Payment-Button-1 {
+        width: 172.49px;
+        height: 27.72px;
+        margin-left: 13.98px;
+        margin-top: 5.76px;
+        border-radius: 2.28614px;
+        font-size: 7.98574px;
+        line-height: 14px;
+       }
+
+       .Payment-Button-2 {
+        width: 172.49px;
+        height: 27.72px;
+        margin-left: 13.98px;
+        margin-top: 5.76px;
+        border-radius: 2.28614px;
+        font-size: 7.98574px;
+        line-height: 14px;
+      }
+  }
+
+  @media only screen  and (max-width: 450px) {
+    .Pricing-Header-Text {
+        font-size: 18px;
+        line-height: 24px;
+        margin-left: 41px;
+        margin-top: 28px;
+        margin-bottom: 0px;
+      }
+    
+      .Pricing-Header-Sub-Text {
+        font-size: 12px;
+        line-height: 16px;
+        margin-left: 35px;
+        margin-top: 8px;
+      } 
+
+      .Icons-Wrapper {
+        margin-left: 74.87px;
+        margin-top: 51.92px;
+      } 
+    
+      .Slider-Icon {
+        top: 131px;
+      }
+    
+      .Percent-Button {
+        bottom: 35px;
+        left: 250px;
+      }
+    
+      .Arrow-Icon {
+        top: 112px;
+        left: 300px;
+      }
+    
+      .PaymentCard-Wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 41.37px;
+      }
+  }
