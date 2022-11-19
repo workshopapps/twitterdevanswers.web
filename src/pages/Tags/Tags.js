@@ -4,9 +4,9 @@ import Devask2 from '../components/Devask2'
 import {Data} from '../components/assets/Data'
 import {Data2} from '../components/assets/Data2'
 
-import Pagination from '../components/Tags/Pagination.jsx'
-import Button from '../components/Tags/Button/Button'
-import {BUTTON_TYPES} from '../components/Tags/Button/Data'
+import Pagination from '../../components/Tags/Pagination.jsx'
+import Button from '../../components/Tags/Button/Button'
+import {BUTTON_TYPES} from '../../components/Tags/Button/Data'
 import './Tag.css'
  import { useState } from 'react'
 
