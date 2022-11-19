@@ -1,0 +1,140 @@
+.settings{
+    width: fit-content;
+    height: 939px;
+}
+.settingstab{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    
+}
+.settingstab h1{
+    margin-left: 0;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #1D1DD8;
+}
+
+.settings .settings-page-list .settingstab h1{
+  
+
+}
+.Reactsearchbar{
+    display: none;
+}
+
+:global h2{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #252D2A;
+}
+:global h1{
+    margin-left: 23px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #1D1DD8;
+}
+:global p{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(37 ,45 , 42 , 0.81);
+}
+ .subtab{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+        padding: 16px;
+        width: 90%;
+        height: 150px;
+        margin: 0;
+        border-bottom: 1px solid rgba(29,29,216,0.45);
+        background-color: white;
+        cursor: pointer;
+}
+ .appearancesubtab{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+        padding: 16px;
+        width: 90%;
+        height: 150px;
+        margin: 0;
+        border-bottom: none;
+        background-color: white;
+        cursor: pointer;
+}
+ .subtab:active{
+    background-color: #D2D2F7;
+  
+}
+ .subtab:focus{
+    background-color: #D2D2F7;
+  
+}
+ 
+ .subtab[data-expanded="true"]{
+    background-color: #D2D2F7;
+  
+}
+.settings .settings-page-list .sub-tabs .sub-tab .text h2{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #252D2A;
+}
+.settings .settings-page-list .sub-tabs .sub-tab .text p{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(37 ,45 , 42 , 0.81);
+
+}
+.settings .settings-page-list .sub-tabs .account-sub-tab{
+        width: 97%;
+        height: 150px;
+        background-color: #D2D2F7;
+}
+.settings .settings-page-list .sub-tabs .appearance-sub-tab{
+       border-bottom: none;
+}
+ @media screen and (max-width: 1000px){
+
+
+.Reactsearchbar{
+    margin: 34px 0;
+    width: 100%;
+    padding: 8.5px 54px;
+    height: 56px;
+    border-radius: 12px;
+    border: 0.5px solid #B4B4B4;
+    background: url("./assets/search-normal.png");
+    background-repeat: no-repeat;
+    background-size:2em;
+    background-position: 10px;
+    font-size: 14px;
+    font-family: 'Rubik';
+    font-weight: 400;
+    color: rgba(37 ,45 , 42 , 0.66);
+}
+.searchinput{
+    width: 93%;
+
+}
+.subtab[data-expanded="true"]{
+    background-color: white;
+  
+}
+.subtab[data-expanded="true"]:active{
+    background-color: #D2D2F7;
+  
+}
+
+ }
+
