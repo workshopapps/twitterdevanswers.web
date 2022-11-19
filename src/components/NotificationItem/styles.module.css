@@ -1,0 +1,48 @@
+.unread {
+  background: rgba(210, 210, 247, 0.25);
+}
+
+.from_section {
+  display: flex;
+  position: relative;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  aspect-ratio: 1;
+  margin-right: 20px;
+}
+
+.notifications_list {
+  margin-top: 10px;
+}
+
+.notifications_list h2 {
+  font-size: 1em;
+}
+
+.name {
+  margin-top: 0;
+}
+
+.more_icon {
+  width: 1.3em;
+  height: 1.3em;
+  position: absolute;
+  left: 96%;
+}
+
+.question_section {
+  margin-bottom: 25px;
+}
+
+@media (min-width: 610px) {
+  .main {
+    width: 65vw;
+  }
+
+  .more_icon {
+    left: 98%;
+  }
+}
