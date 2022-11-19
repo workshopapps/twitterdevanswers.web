@@ -5,50 +5,47 @@ import Hero from '../../CareersComp/Hero/Hero';
 import Content from '../../CareersComp/Content/Content';
 import OpenPOS from '../../CareersComp/OpenPOS/OpenPOS';
 
-function Careers  () {
-
+function Careers() {
 	return (
-		
-			<div className={classes.Careers}>
-				<Hero />
+		<div className={classes.Careers}>
+			<Hero />
 
-				{/* Selection section */}
+			{/* Selection section */}
 
-				<div className={classes.selection}>
-					<div className={classes.selectbox}>
-						<select>
-							<option hidden selected disabled>
-								Choose Job Category
-							</option>
-							<option>Choose Job Category</option>
-							<option>Choose Job Category</option>
-						</select>
-						<select>
-							<option hidden selected disabled>
-								Choose Location{' '}
-							</option>
-							<option>Choose Job Category</option>
-							<option>Choose Job Category</option>
-						</select>
-						<button type='button'>Search</button>
-					</div>
-					<p>
-						We solve problems across all boarders of the globe, with our remote
-						work culture. join us today!
-					</p>
+			<div className={classes.selection}>
+				<div className={classes.selectbox}>
+					<select>
+						<option hidden selected disabled>
+							Choose Job Category
+						</option>
+						<option>Choose Job Category</option>
+						<option>Choose Job Category</option>
+					</select>
+					<select>
+						<option hidden selected disabled>
+							Choose Location{' '}
+						</option>
+						<option>Choose Job Category</option>
+						<option>Choose Job Category</option>
+					</select>
+					<button type="button">Search</button>
 				</div>
-
-				{/* Contents */}
-				<Content />
-
-				{/* open position */}
-
-				<section>
-					<OpenPOS />
-				</section>
+				<p>
+					We solve problems across all boarders of the globe, with our remote
+					work culture. join us today!
+				</p>
 			</div>
-		
+
+			{/* Contents */}
+			<Content />
+
+			{/* open position */}
+
+			<section>
+				<OpenPOS />
+			</section>
+		</div>
 	);
-};
+}
 
 export default Careers;
