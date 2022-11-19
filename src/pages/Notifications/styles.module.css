@@ -1,0 +1,94 @@
+.main {
+  width: 90vw;
+  text-align: left;
+  margin: 30px auto 40px;
+  font-family: 'Rubik';
+  color: #06062B;
+  overflow-x: hidden;
+}
+
+.main_heading {
+  font-size: 24px;
+}
+
+.main img {
+  border-radius: 50%;
+}
+
+.main a {
+  text-decoration: none;
+  color: black;
+}
+
+.tab {
+  border: none;
+  line-height: 24px;
+  margin: 20px 0;
+  margin-right: 15px;
+  background: transparent;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0;
+}
+
+.active_tab {
+  border-bottom: 2px solid #131390;
+}
+
+.notification_item {
+  padding: 30px 20px 20px;
+  border-bottom: 0.5px solid #D2D2F7;
+}
+
+.notification_item:last-of-type {
+  border-bottom: none;
+}
+
+.unread {
+  background: rgba(210, 210, 247, 0.25);
+}
+
+.from_section {
+  display: flex;
+  position: relative;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  aspect-ratio: 1;
+  margin-right: 20px;
+}
+
+.notifications_list {
+  margin-top: 10px;
+}
+
+.notifications_list h2 {
+  font-size: 1em;
+}
+
+.name {
+  margin-top: 0;
+}
+
+.more_icon {
+  width: 1.3em;
+  height: 1.3em;
+  position: absolute;
+  left: 96%;
+}
+
+.question_section {
+  margin-bottom: 25px;
+}
+
+@media (min-width: 610px) {
+  .main {
+    width: 65vw;
+  }
+
+  .more_icon {
+    left: 98%;
+  }
+}
