@@ -1,4 +1,4 @@
-export const notifications = [ //  TODO: To be gotten directly from the notifications api / backend endpoint
+const notifications = [ //  TODO: To be gotten directly from the notifications api / backend endpoint
 {
   id: 1,
   type: "like",
@@ -87,3 +87,5 @@ export const notifications = [ //  TODO: To be gotten directly from the notifica
   timestamp: new Date(),
 },
 ];
+
+export default notifications;
