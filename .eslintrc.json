@@ -12,5 +12,14 @@
 		"sourceType": "module"
 	},
 	"plugins": ["react"],
-	"rules": {}
+	"ignorePatterns": ["*.test.js"],
+	"rules": {
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/function-component-definition": [
+			2,
+			{
+				"namedComponenets": "function-declaration"
+			}
+		]
+	}
 }
