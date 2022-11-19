@@ -1,7 +1,7 @@
 .main {
   width: 90vw;
   text-align: left;
-  margin: 30px auto;
+  margin: 30px auto 40px;
   font-family: 'Rubik';
   color: #06062B;
   overflow-x: hidden;
@@ -35,7 +35,7 @@
 }
 
 .notification_item {
-  padding: 30px 20px;
+  padding: 30px 20px 20px;
   border-bottom: 0.5px solid #D2D2F7;
 }
 
@@ -76,6 +76,10 @@
   height: 1.3em;
   position: absolute;
   left: 96%;
+}
+
+.question_section {
+  margin-bottom: 25px;
 }
 
 @media (min-width: 610px) {

@@ -21,9 +21,10 @@ export const notifications = [ //  TODO: To be gotten directly from the notifica
 },
 {
   id: 2,
-  type: "wallet-add",
-  amount: 0.15,
+  type: "for-you",
   unread: false,
+  title: "3 new Questions",
+  tag: "python",
   timestamp: new Date(),
 },
 {
@@ -45,10 +46,9 @@ export const notifications = [ //  TODO: To be gotten directly from the notifica
 },
 {
   id: 4,
-  type: "for-you",
+  type: "wallet-add",
+  amount: 0.15,
   unread: true,
-  title: "3 new Questions",
-  tag: "python",
   timestamp: new Date(),
 },
 {
