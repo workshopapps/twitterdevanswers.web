@@ -1,0 +1,73 @@
+.react-tel-input{
+    width:100%;
+    background-color: transparent;
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 16px;
+    
+}
+.react-tel-input .selected-flag .arrow {
+
+    left: 50px;
+ 
+}
+.react-tel-input .form-control {
+    background: #EFEFEF;
+    width:50%;
+    height: 42px;
+    padding-left: 0;
+}
+.react-tel-input .flag-dropdown {
+    position: unset; 
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    background-color: #EFEFEF;
+    border: 1px solid none;
+     border-radius: 8px;
+     width: 50%;
+
+}
+:global input[type="tel"]{
+    width: 50%;
+    gap: 20px;
+ }
+.react-tel-input .flag-dropdown.open .selected-flag {
+    background: #EFEFEF;
+    border-radius: 8px ;
+}
+.react-tel-input .flag-dropdown.open {
+    z-index: 2;
+    background: #EFEFEF;
+    border-radius: 8px ;
+}
+.react-tel-input .selected-flag {
+    outline: none;
+    position: unset;
+    width: 38px;
+    height: 100%;
+    padding: 0 0 0 8px;
+    border-radius: 8px ;
+}
+ @media screen and (max-width: 1000px){
+        
+    .react-tel-input {
+        width: 91.5%;
+        
+    }
+    .react-tel-input .flag-dropdown {
+        
+        width: 30%;
+    
+    }
+    :global input[type="tel"]{
+        width: 50%;
+        gap: 20px;
+     }
+     .react-tel-input .form-control {
+        
+        width: 70%;
+        background: #EFEFEF;
+    
+    }
+}
