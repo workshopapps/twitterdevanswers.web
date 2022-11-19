@@ -49,6 +49,7 @@
 
 .from_section {
   display: flex;
+  position: relative;
 }
 
 .avatar {
@@ -73,10 +74,16 @@
 .more_icon {
   width: 1.3em;
   height: 1.3em;
+  position: absolute;
+  left: 96%;
 }
 
 @media (min-width: 610px) {
   .main {
     width: 65vw;
+  }
+
+  .more_icon {
+    left: 98%;
   }
 }

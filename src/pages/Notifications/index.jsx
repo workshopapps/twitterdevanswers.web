@@ -40,11 +40,7 @@ const Notifications = () => {
           const { question, type, amount, tag, title, unread } = notification;
           const username = notification?.from?.username || question?.from?.username;
           const displayName = notification?.from?.displayName || question?.from?.displayName;
-          const questionDisplayName = question?.from?.displayName;
-          //const questionUsername = question?.from?.username;
           const avatar = notification?.from?.avatar || question?.from?.avatar;
-
-          //console.log(questionDisplayName, displayName);
 
           const typeText =
             type === 'like' ?
@@ -75,7 +71,7 @@ const Notifications = () => {
                     {avatar ? <img src={avatar} alt="User's avatar" className={styles.avatar} /> : null}
                     <div>
                       <p className={styles.name}>
-                        <b>{displayName}</b>
+                        <b>{displayName}</b>&nbsp;
                         <span style={{color: `${unread ? '#1818B4' : '#989898'}`, fontWeight: 400}}>
                           @{username}
                         </span>
@@ -83,8 +79,8 @@ const Notifications = () => {
                       {typeText}
                       {question ? 
                         <div>
-                          <h2>{question.title?.substring(0, 180)}...</h2>
-                          <p>{question.body?.substring(0, 180)}...</p>
+                          <h2>{question?.title?.length > 180 ? `${question.title.substring(0, 180)}...}` : question?.title}</h2>
+                          <p>{question?.body?.length > 180 ? `${question.body.substring(0, 180)}...` : question?.body}</p>
                         </div>
                       : null}
                     </div>
