@@ -3,6 +3,8 @@
   text-align: left;
   margin: 30px auto;
   font-family: 'Rubik';
+  color: #06062B;
+  overflow-x: hidden;
 }
 
 .main_heading {
@@ -33,8 +35,12 @@
 }
 
 .notification_item {
-  padding: 30px;
-  border-bottom: 0.5px solid #D2D2F7
+  padding: 30px 20px;
+  border-bottom: 0.5px solid #D2D2F7;
+}
+
+.notification_item:last-of-type {
+  border-bottom: none;
 }
 
 .unread {
@@ -45,7 +51,7 @@
   display: flex;
 }
 
-.from_section img {
+.avatar {
   width: 40px;
   height: 40px;
   aspect-ratio: 1;
@@ -57,15 +63,20 @@
 }
 
 .notifications_list h2 {
-  font-size: 20px;
+  font-size: 1em;
 }
 
 .name {
   margin-top: 0;
 }
 
+.more_icon {
+  width: 1.3em;
+  height: 1.3em;
+}
+
 @media (min-width: 610px) {
   .main {
-    width: 60vw;
+    width: 65vw;
   }
 }

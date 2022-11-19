@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { notifications } from './constants';
 import CoinIcon from '../../assets/coin.svg';
+import HorizontalMoreIcon from '../../assets/more-icon.svg';
 import styles from './styles.module.css';
 
 const Notifications = () => {
@@ -43,7 +44,7 @@ const Notifications = () => {
           //const questionUsername = question?.from?.username;
           const avatar = notification?.from?.avatar || question?.from?.avatar;
 
-          console.log(questionDisplayName, displayName);
+          //console.log(questionDisplayName, displayName);
 
           const typeText =
             type === 'like' ?
@@ -71,19 +72,23 @@ const Notifications = () => {
               {question && !type.includes('wallet') ?
                 <div>
                   <div className={styles.from_section}>
-                    {avatar ? <img src={avatar} alt="User's avatar" /> : null}
+                    {avatar ? <img src={avatar} alt="User's avatar" className={styles.avatar} /> : null}
                     <div>
                       <p className={styles.name}>
-                        <b>{displayName}</b> <span style={{color: `${unread ? '#1818B4' : 'initial'}`}}>@{username}</span>
+                        <b>{displayName}</b>
+                        <span style={{color: `${unread ? '#1818B4' : '#989898'}`, fontWeight: 400}}>
+                          @{username}
+                        </span>
                       </p>
                       {typeText}
                       {question ? 
                         <div>
-                          <h2>{question.title}</h2>
-                          <p>{question.body}</p>
+                          <h2>{question.title?.substring(0, 180)}...</h2>
+                          <p>{question.body?.substring(0, 180)}...</p>
                         </div>
                       : null}
                     </div>
+                    <img src={HorizontalMoreIcon} alt="Horizontal more icon" className={styles.more_icon} />
                   </div>
                 </div>
               : typeText}
