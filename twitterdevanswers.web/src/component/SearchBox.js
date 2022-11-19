@@ -5,7 +5,7 @@ import FilterBy from "./FilterBy";
 const SearchBox = () => {
     return (
         <>
-            <div div className={styles.search_container}>
+            <div className={styles.search_container}>
 
 
                 <div className={styles.searchbox_container}>
@@ -30,11 +30,6 @@ const SearchBox = () => {
                 </div>
 
                 <FilterBy />
-
-
-
-
-
 
             </div>
         </>

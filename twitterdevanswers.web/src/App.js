@@ -1,13 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
- import UserPage from './user-page/pages/userPage/usePage';
-// import UserProfileCard from './component/UserProfileCard';
+import UserPage from './pages/userPage/usePage';
+
 
 function App() {
   return (
     <div className="App">
-
-<UserPage/>
+      <UserPage />
     </div>
   );
 }

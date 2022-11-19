@@ -1,9 +1,10 @@
 import styles from '../pages/userPage/userPage.module.css';
+import PropTypes from 'prop-types'
 
 
 const UserProfileCard = ({ user }) => {
     const { img, userName, userStack, followers, userFavoriteLanguage } = user
-    // console.log(user.userName)
+    
     return (
         <>
 
@@ -33,6 +34,9 @@ const UserProfileCard = ({ user }) => {
             </div>
         </>
     );
+}
+UserProfileCard.propTypes = {
+    user: PropTypes.object
 }
 
 export default UserProfileCard;
