@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    color: #3C4458;
+
+}
+
+.terms-of-use{
+    height: 1064px;
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    margin: 64px auto;
+    background-color: white;
+}
+.heading{
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    text-align: left;
+}
+.requirements-section{
+    display: flex;
+}
+.requirements-section h2{
+    width: 30%;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
+} 
+.requirements-section p{
+    width: 70%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+
+}
+ .agreement-section{
+    display: flex;
+ } 
+ .agreement-section h2{
+    width: 30%;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
+} 
+.agreement-section p{
+    width: 70%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+
+} 
+.standard-section{
+    display: flex;
+} 
+.standard-section h2{
+    width: 30%;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
+} 
+.standard-section p{
+    width: 70%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+}
+.copyright-section{
+    display: flex;
+} 
+.copyright-section h2{
+    width: 30%;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
+}
+.copyright-section p{
+    width: 70%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+}
+.billing-section{
+    display: flex;
+}
+ .billing-section h2{
+    width: 30%;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
+}
+.billing-section p{
+    width: 70%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+}
+.billing-section-par{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+@media screen and (max-width:768px) {
+    .requirements-section h2, .agreement-section h2, .standard-section h2, .copyright-section h2, .billing-section h2{
+        font-size: 18px;
+    }
+    .requirements-section p, .agreement-section p, .standard-section p, .copyright-section p, .billing-section p{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .heading{
+        margin-top: 32px;
+    }
+    .requirements-section, .agreement-section, .standard-section, .copyright-section, .billing-section{
+        display: flex;
+        flex-direction: column;
+    }
+    .requirements-section h2, .agreement-section h2, .standard-section h2, .copyright-section h2, .billing-section h2{
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 32px;
+        letter-spacing: 0px;
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+
+    .requirements-section p, .agreement-section p, .standard-section p, .copyright-section p, .billing-section p, .update{
+        margin-top: 16px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 25px;
+        text-align: left;
+        margin-bottom: 0;
+
+    }
+    /* .agreement-section {
+        margin-left: 5%;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 25px;
+        text-align: left;
+    }
+    .update{
+        margin-top: 32px;
+        font-size: 14px;
+    } */
+}
