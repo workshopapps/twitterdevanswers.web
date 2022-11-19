@@ -1,14 +1,16 @@
 import React from 'react';
 
 import classes from './Careers.module.css';
-import Hero from '../../CareersComp/Hero/Hero';
-import Content from '../../CareersComp/Content/Content';
-import OpenPOS from '../../CareersComp/OpenPOS/OpenPOS';
+
+import Hero from '../../components/CareersComp/Hero';
+import Content from '../../components/CareersComp/Content';
+import OpenPOS from '../../components/CareersComp/OpenPOS';
 
 function Careers() {
 	return (
 		<div className={classes.Careers}>
 			<Hero />
+			
 
 			{/* Selection section */}
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './OpenPOS.module.css';
 
-import careersArrowup from '../../careers_images/careers_arrowup.svg';
+import careersArrowup from '../../../assets/careers_images/careers_arrowup.svg';
+
 
 function OpenPOS() {
 	return (

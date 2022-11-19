@@ -17,9 +17,9 @@
 	font-size: 1rem;
 }
 
-.mainly{
+.mainly {
 	position: relative;
-  }
+}
 
 .Hero .frame {
 	border: 1px solid black;
@@ -36,7 +36,7 @@
 }
 .Hero main {
 	text-align: center;
-	background-image: url(../../careers_images/careers_heroimage.svg);
+	background-image: url(../../../assets/careers_images/careers_heroimage.svg);
 	/* background-color: red; */
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -107,7 +107,7 @@
 	}
 	.maintag section {
 		text-align: center;
-		background-image: url(../../careers_images/careers_heroimage.svg);
+		background-image: url(../../../assets/careers_images/careers_heroimage.svg);
 		background-repeat: no-repeat;
 		background-size: cover;
 		margin: 2rem 0;

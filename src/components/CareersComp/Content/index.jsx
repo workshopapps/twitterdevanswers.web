@@ -1,9 +1,10 @@
 import React from 'react';
 
 import classes from './Content.module.css';
-import careersCultureimage from '../../careers_images/careers_cultureimage.svg';
-import careersValueimage from '../../careers_images/careers_valueimage.svg';
-import careersBenefitimage from '../../careers_images/careers_benefitimage.svg';
+
+import careersCultureimage from '../../../assets/careers_images/careers_cultureimage.svg';
+import careersValueimage from '../../../assets/careers_images/careers_valueimage.svg';
+import careersBenefitimage from '../../../assets/careers_images/careers_benefitimage.svg';
 
 function Content() {
 	return (
