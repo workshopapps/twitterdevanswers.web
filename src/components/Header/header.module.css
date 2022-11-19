@@ -1,0 +1,111 @@
+.header {
+  background: #fff;
+  padding: 24px 64px 20px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  color: #1d1dd8;
+  font-weight: 700;
+  font-size: 33.9202px;
+  line-height: 40px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  list-style: none;
+}
+
+.link,
+.link:link,
+.link:visited {
+  text-decoration: none;
+  color: #303030;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.btns {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  padding: 16px 32px;
+  font-size: 16px;
+  line-height: 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.signUp {
+  color: #1d1dd8;
+  background: #fff;
+  border: 1px solid #1d1dd8;
+}
+
+.signUp:hover {
+  background: #7070fc;
+  color: #fefefe;
+}
+
+.signUp:active {
+  background: #131390;
+  color: #fefefe;
+}
+
+.login {
+  color: #fefefe;
+  background: #1d1dd8;
+}
+
+.login:hover {
+  background: #7070fc;
+}
+
+.login:active {
+  background: #131390;
+}
+
+.hamburger {
+  display: none;
+}
+
+/* media queries */
+@media only screen and (max-width: 1024px) {
+  .brand {
+    gap: 16px;
+    font-size: 22.0259px;
+    line-height: 26px;
+  }
+
+  .links,
+  .btn {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    padding: 24px 40px 20px 40px;
+  }
+}
