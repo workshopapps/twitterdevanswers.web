@@ -1,14 +1,14 @@
 import React from 'react'
-
+import Head from '../../components/Head/Head';
+import Subheading from '../../components/Subheading/Subheading';
 
 function Cookies() {
   return (
-    <div>
-    <h1>hey</h1>
-        
-
-    </div>
-  )
+		<div>
+			<Head />
+      <Subheading />
+		</div>
+	);
 }
 
 export default Cookies
