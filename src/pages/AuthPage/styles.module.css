@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');
+
+.auth-page * {
+	margin: 0;
+	padding: 0;
+  font-family: 'Rubik', sans-serif;
+}
+
+.auth-page {
+	background: url('../../assets/auth-page-bg.png') center center/cover;
+	padding: 50px 20px;
+	color: #121212;
+}
+
+.auth-container {
+	background-color: #fff;
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 80px 30px;
+}
+
+.auth-content {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.auth-title {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.auth-options {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.auth-alt-option {
+	font-size: 16px;
+	margin-top: 30px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+@media (max-width: 55em) {
+	.auth-page {
+		background: #fff;
+		padding: 50px 20px;
+	}
+}
