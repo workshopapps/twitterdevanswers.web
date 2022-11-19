@@ -39,9 +39,11 @@
 }
 .searchbox_container {
   width: 100%;
+  margin: 0 auto;
+
   display: flex;
-  align-self: center;
   align-items: center;
+  justify-content: center;
   padding: 5px 25px;
   height: 52px;
 }
