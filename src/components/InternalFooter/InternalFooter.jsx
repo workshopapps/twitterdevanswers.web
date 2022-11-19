@@ -1,7 +1,7 @@
 import styles from './internalFooter.module.css';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/home.svg';
-import { ReactComponent as TagIcon } from '../../assets/tag.svg';
+import { ReactComponent as TagIcon } from '../../assets/tagIcon.svg';
 import { ReactComponent as UsersIcon } from '../../assets/user.svg';
 import { ReactComponent as WalletIcon } from '../../assets/wallet.svg';
 import { ReactComponent as SettingsIcon } from '../../assets/settings.svg';

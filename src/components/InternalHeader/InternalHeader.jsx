@@ -1,5 +1,5 @@
 import { ReactComponent as HomeIcon } from '../../assets/home.svg';
-import { ReactComponent as TagIcon } from '../../assets/tag.svg';
+import { ReactComponent as TagIcon } from '../../assets/tagIcon.svg';
 import { ReactComponent as UsersIcon } from '../../assets/user.svg';
 import { ReactComponent as WalletIcon } from '../../assets/wallet.svg';
 import { ReactComponent as SortIcon } from '../../assets/sort.svg';
