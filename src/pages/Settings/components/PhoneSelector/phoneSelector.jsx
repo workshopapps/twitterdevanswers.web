@@ -6,7 +6,7 @@ import './style.css';
 function PhoneSelector() {
 	const [value, setValue] = useState();
 	return (
-		<div>
+		
 			<PhoneInput
 				id="numberInput"
 				placeholder="Enter phone number"
@@ -14,7 +14,7 @@ function PhoneSelector() {
 				value={value}
 				onChange={setValue}
 			/>
-		</div>
+		
 	);
 }
 

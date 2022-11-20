@@ -47,17 +47,17 @@
 }
 @media screen and (max-width: 1000px) {
 	.react-tel-input {
-		width: 100%;
+		width: 80%;
 	}
 	.react-tel-input .flag-dropdown {
-		width: 56%;
+		width: 42%;
 	}
 	:global input[type='tel'] {
 		width: 50%;
 		gap: 20px;
 	}
 	.react-tel-input .form-control {
-		width: 70%;
+		width: 56%;
 		background: #efefef;
 	}
 }

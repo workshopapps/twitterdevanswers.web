@@ -1,16 +1,28 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import StyleCSS from './styles.module.css';
+import EditAccount from '../components/EditAccount'
+import CountrySelector from '../components/CountrySelector/CountrySelector';
+import PhoneSelector from '../components/PhoneSelector/phoneSelector';
+import TestImage from './test-img.jfif';
+
 
 function Settings() {
-	const [changeSettings, setChangeSettings] = useState('StyleCSS.settings');
+	const [changeSettings, setChangeSettings] = useState(StyleCSS.settings);
+    const[editState,setEditState]=useState(StyleCSS.editaccounthide)
 
 	function handleclick() {
-		setChangeSettings('StyleCSS.settingshide');
+        if(changeSettings===(StyleCSS.settings)){
+            setChangeSettings(StyleCSS.settingshide);
+            setEditState(StyleCSS.editaccount)
+        }
+		
 	}
 
 	return (
-		<div className={changeSettings}>
+        <div className={StyleCSS.flexcontainer}>
+                <div className={changeSettings}>
 			<div className="settings-page-list">
 				<div className={StyleCSS.settingstab}>
 					<svg
@@ -203,9 +215,107 @@ function Settings() {
 							</p>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+                    </div>
+                </div>
+                <EditAccount/>
+            </div>
+            <div className={editState}>
+                <div className={StyleCSS.tabheading}>
+                <a href='settings'>
+                        <svg
+                            width="24"
+                            height="25"
+                            viewBox="0 0 24 25"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M15.0001 20.42L8.48009 13.9C7.71009 13.13 7.71009 11.87 8.48009 11.1L15.0001 4.57996"
+                                stroke="#1D1DD8"
+                                strokeWidth="2"
+                                strokeMiterlimit="10"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </a>
+                    <h2>Edit Account</h2>
+                    
+                </div>
+
+                <div className={StyleCSS.userinfo}>
+                    <div className={StyleCSS.userprofile}>
+                        <img
+                            className={StyleCSS.profileimg}
+                            alt="profile "
+                            src={TestImage}
+                        />
+                        <div className={StyleCSS.editsvg}>
+                            <svg
+                                width="17"
+                                height="18"
+                                viewBox="0 0 17 18"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M12.25 1.91661C12.447 1.71963 12.6808 1.56337 12.9382 1.45676C13.1956 1.35016 13.4714 1.29529 13.75 1.29529C14.0286 1.29529 14.3044 1.35016 14.5618 1.45676C14.8192 1.56337 15.053 1.71963 15.25 1.91661C15.447 2.11359 15.6032 2.34744 15.7098 2.60481C15.8165 2.86218 15.8713 3.13803 15.8713 3.41661C15.8713 3.69518 15.8165 3.97103 15.7098 4.2284C15.6032 4.48577 15.447 4.71963 15.25 4.91661L5.125 15.0416L1 16.1666L2.125 12.0416L12.25 1.91661Z"
+                                    stroke="white"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <div className="user-details-form">
+                        <form>
+                            <label>
+                                Full name
+                                <input
+                                    id="nameinput"
+                                    className="textinput"
+                                    type="text"
+                                    value="Ayoola Faisal"
+                                />
+                            </label>
+
+                            <label>
+                                Email address
+                                <input
+                                    id="emailinput"
+                                    className="textinput"
+                                    type="email"
+                                    value="ayoolafaisal@gmail.com"
+                                />
+                            </label>
+
+                            <label htmlFor="phoneinput">
+                                Phone number
+                                <div className={StyleCSS.phonenumberinputs}>
+                                    <PhoneSelector id="phoneinput" />
+                                </div>
+                            </label>
+
+                            <label>
+                                Location
+                                <CountrySelector id="countryinput" />
+                            </label>
+
+                            <div className={StyleCSS.buttons}>
+                                <button className={StyleCSS.mobilesavebtn} type="button">
+                                    Save Changes
+                                </button>
+                                <button className={StyleCSS.mobilediscardbtn} type="button">
+                                    Discard Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+		    </div>
+        </div>
+		
 	);
 }
 
