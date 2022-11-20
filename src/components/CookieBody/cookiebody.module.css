@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+h5,
+p {
+	margin-block: 0;
+}
+.subheading {
+	padding-inline: 222px;
+	font-family: 'Rubik', sans-serif;
+}
+
+.subheading h5 {
+	font-family: 'Rubik', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0px;
+	text-align: left;
+	color: #1d1dd8;
+	margin-bottom: 12px;
+}
+
+.subheading p {
+	font-family: 'Rubik', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0px;
+	text-align: left;
+	color: #77838f;
+}
+
+.listheading {
+	padding-inline: 25px;
+}
+
+li {
+	font-size: 30px;
+	color: #1d1dd8;
+}
+
+p {
+	margin-bottom: 22px;
+}
+
+h5 {
+	margin-bottom: 12px;
+}
+
+@media screen and (max-width: 1200px) {
+	.subheading {
+		padding-inline: 170px;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.subheading {
+		padding-inline: 150px;
+	}
+}
+@media screen and (max-width: 800px) {
+	.subheading {
+		padding-inline: 80px;
+	}
+}
+@media screen and (max-width: 600px) {
+	.subheading {
+		padding-inline: 50px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.subheading {
+		padding-inline: 22px;
+	}
+}
