@@ -1,6 +1,9 @@
-.header {
+.headerContainer {
+	padding: 24px 0 20px 0;
 	background: #fff;
-	padding: 24px 64px 20px 64px;
+}
+
+.header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -101,11 +104,5 @@
 	.hamburger {
 		display: block;
 		cursor: pointer;
-	}
-}
-
-@media only screen and (max-width: 500px) {
-	.header {
-		padding: 24px 40px 20px 40px;
 	}
 }
