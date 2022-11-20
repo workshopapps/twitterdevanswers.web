@@ -1,4 +1,4 @@
-.card-extra__btn {
+.cardextra__btn {
 	display: flex;
 	gap: 10px;
 	width: 16rem;
@@ -10,12 +10,12 @@
 	padding: 0.5rem 1.625rem;
 	border-radius: 8px;
 }
-.card-extra {
+.cardextra {
 	padding: 0.5rem 3.25rem;
 }
 
 @media (max-width: 600px) {
-	.card-extra__btn {
+	.cardextra__btn {
 		margin: auto;
 		width: 100%;
 	}

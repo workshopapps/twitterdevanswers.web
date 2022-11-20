@@ -1,16 +1,16 @@
-.stats-row {
+.statsrow {
 	display: flex;
 	gap: 40px;
 	width: 16rem;
 	justify-content: center;
 }
-.stats-col {
+.statscol {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-.stats-col * {
+.statscol * {
 	padding: 0.5rem 0;
 }
 .stats__value {
@@ -27,19 +27,19 @@
 	text-align: center;
 }
 @media (max-width: 600px) {
-	.stats-row {
+	.statsrow {
 		margin: auto;
 	}
 	.stats__value {
 		font-size: 1.125rem;
 	}
 	.stats__txt {
-		font-size: 0.75rem;
+		font-size: 0.75em;
 	}
-	.stats-row {
+	.statsrow {
 		width: 100%;
 	}
-	.stats-col * {
+	.statscol * {
 		padding: 0.2rem 0;
 	}
 }
