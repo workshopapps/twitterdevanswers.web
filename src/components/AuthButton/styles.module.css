@@ -1,14 +1,14 @@
 .auth-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  padding: 5px 15px;
-  gap: 10px;
-  border-radius: 10px;
-  font-size: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	padding: 5px 15px;
+	gap: 10px;
+	border-radius: 10px;
+	font-size: 16px;
 }
 
 .auth-button:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
