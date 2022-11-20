@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Rose&family=Roboto:wght@100&family=Rubik:wght@300&display=swap');
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Rubik', sans-serif;
+.profile {
+	font-size: 16px;
 }
+
 @media (max-width: 600px) {
-	:root {
+	.profile {
 		font-size: 12px;
 	}
 }

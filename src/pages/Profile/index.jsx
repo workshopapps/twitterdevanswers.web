@@ -5,7 +5,7 @@ import Profile from './index.module.css';
 
 function App() {
 	return (
-		<div className={Profile}>
+		<div className={Profile.profile}>
 			<Section1 />
 			<Section2 />
 		</div>

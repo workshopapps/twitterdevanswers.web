@@ -38,6 +38,9 @@
 	.card {
 		width: 100%;
 	}
+	.card * {
+		font-size: 0.75rem;
+	}
 	.stats__data {
 		display: flex;
 		align-items: center;
