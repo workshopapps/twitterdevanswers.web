@@ -1,12 +1,13 @@
 import React from 'react';
 // import Notifications from './pages/Notifications';
-import Profile from './pages/Profile';
+// import Profile from './pages/Profile';
+import Careers from "./pages/Careers";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Profile />
+      <Careers />
     </div>
   );
 }
