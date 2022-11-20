@@ -1,8 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
-import Profile from './pages/Profile';
+// import Profile from './pages/Profile';
 import API from './pages/API';
+// import PostQuestion from './pages/PostQuestion';
 // import Header from './pages/Header';
 // import Footer from './pages/Footer';
 import Login from './pages/AuthPage/Login';
@@ -26,12 +27,12 @@ import SignUp from './pages/AuthPage/SignUp';
 // import Advertising from './pages/Advertising';
 import Tags from './pages/Tags';
 // import Terms from './pages/Terms';
-// import PostQuestion from './pages/PostQuestion';
 
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
+import Pricing from './pages/Pricing';
 
 function App() {
 	return (
@@ -39,11 +40,12 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
-				<Route path="profile" element={<Profile />} />
+				{/* <Route path="profile" element={<Profile />} /> */}
 				<Route path="notification-page" element={<Notifications />} />
 				<Route path="tags-page" element={<Tags />} />
 
 				<Route path="API" element={<API />} />
+				<Route path="pricing-page" element={<Pricing />} />
 				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
 				{/* 
@@ -60,12 +62,11 @@ function App() {
       <Route path='notification-page' element={<CookiePolicy/>}/>
       <Route path='users-page' element={<Users/>}/>
       <Route path='frequently-asked-questions' element={<FAQ/>}/>
-      <Route path='pricing-page' element={<Pricing/>}/>
       <Route path='about-page' element={<About/>}/>
       <Route path='how-it-works' element={<HowItWorks/>}/>
       <Route path='advertising-page' element={<Advertising/>}/>
       <Route path='terms-of-use' element={<Terms/>}/>
-      <Route path='post-question' element={<PostQuestion/>}/>
+     
       <Route path='*' element={<404Page/>}/> */}
 			</Routes>
 			<Footer />
