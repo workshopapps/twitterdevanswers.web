@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
 import Profile from './pages/Profile';
+import API from './pages/API';
 // import Header from './pages/Header';
 // import Footer from './pages/Footer';
 import Login from './pages/AuthPage/Login';
@@ -10,7 +11,7 @@ import SignUp from './pages/AuthPage/SignUp';
 // import Dashboard from './pages/Dashboard';
 // import Teams from './pages/Teams';
 // import WalletPage from './pages/WalletPage';
-// import API from './pages/API';
+
 // import CookiePolicy from './pages/CookiePolicy';
 // import Career from './pages/Career';
 // import Settings from './pages/Settings';
@@ -38,6 +39,7 @@ function App() {
 				{/* <Route path='/' element={<LandingPage/>}/> */}
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
+				<Route path="API" element={<API />} />
         <Route path='login' element={<Login/>}/>
 				<Route path="sign-up" element={<SignUp />} />
 				{/* 
@@ -45,7 +47,7 @@ function App() {
       <Route path='dashboard' element={<Dashboard/>}/>
       <Route path='teams-page' element={<Teams/>}/>
       <Route path='wallet' element={<WalletPage/>}/>
-      <Route path='API' element={<API/>}/>
+     
       <Route path='career' element={<Career/>}/>
       <Route path='settings' element={<Settings/>}/>
       <Route path='blog-page' element={<Blog/>}/>
