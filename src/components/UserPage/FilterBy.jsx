@@ -1,19 +1,14 @@
-import styles from "../../pages/UserPage/userPage.module.css";
-
+import styles from '../../pages/UserPage/userPage.module.css';
 
 const FiterBy = () => {
-    return (
-
-        <section className={styles.filter_options}>
-            <p>Filter</p>
-            <button>Stack</button>
-            <button>Followers</button>
-            <button>Job title</button>
-            
-
-        </section>
-
-    );
-}
+	return (
+		<section className={styles.filter_options}>
+			<p>Filter</p>
+			<button>Stack</button>
+			<button>Followers</button>
+			<button>Job title</button>
+		</section>
+	);
+};
 
 export default FiterBy;
