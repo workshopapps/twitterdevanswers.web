@@ -1,0 +1,17 @@
+.form-button {
+	background-color: #1d1dd8;
+	border: unset;
+	color: #fefefe;
+	font-size: 16px;
+	padding: 10px 20px;
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 15px;
+	border-radius: 4px;
+}
+
+.form-button:hover {
+	cursor: pointer;
+}
