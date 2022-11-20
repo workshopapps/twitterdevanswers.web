@@ -26,7 +26,7 @@
 	border-radius: 0;
 	margin: 0;
 	border-bottom: none;
-	background-color: white;
+	background-color: transparent;
 	cursor: pointer;
 }
 .accountbutton:hover {
@@ -39,6 +39,7 @@
 	display: flex;
 	align-items: center;
 	gap: 8px;
+	padding: 35px;
 }
 .settingstab h1 {
 	margin-left: 0;
@@ -138,16 +139,20 @@
 .flexcontainer {
 	display: flex;
 	justify-content: center;
+	background: rgba(217, 217, 217, 0.4);
+	padding-bottom: 15em;
+	padding-left: 2em;
 }
 .editaccount {
 	display: flex;
 	flex-direction: column;
 	height: unset;
-	background-color: rgba(255, 255, 255, 0.41);
+	background-color: unset;
 	padding: unset;
 	box-shadow: none;
 	align-items: flex-start;
 	width: 100%;
+	margin-top: 108px;
 }
 .editaccounthide {
 	display: none;
@@ -156,6 +161,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	margin-bottom: 37.5px;
 }
 .tabheading h2 {
 	font-family: 'Rubik', sans-serif;
@@ -171,6 +177,7 @@
 	display: flex;
 	justify-content: center;
 	position: relative;
+	width: 82%;
 }
 
 .profileimg {
@@ -211,7 +218,7 @@
 	width: 100%;
 }
 
-:global .textinput {
+:global .mobiletextinput {
 	display: flex;
 	flex-direction: column;
 	padding-left: 10px;
@@ -290,7 +297,11 @@
 }
 
 @media screen and (max-width: 1300px) {
-	:global .textinput {
+	.flexcontainer {
+		background: rgba(255, 255, 255, 0.8);
+		padding-bottom: 15em;
+	}
+	:global .mobiletextinput {
 		display: flex;
 		flex-direction: column;
 		padding-left: 10px;

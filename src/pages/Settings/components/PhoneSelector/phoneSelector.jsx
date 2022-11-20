@@ -6,15 +6,13 @@ import './style.css';
 function PhoneSelector() {
 	const [value, setValue] = useState();
 	return (
-		
-			<PhoneInput
-				id="numberInput"
-				placeholder="Enter phone number"
-				country="ng"
-				value={value}
-				onChange={setValue}
-			/>
-		
+		<PhoneInput
+			id="numberInput"
+			placeholder="Enter phone number"
+			country="ng"
+			value={value}
+			onChange={setValue}
+		/>
 	);
 }
 
