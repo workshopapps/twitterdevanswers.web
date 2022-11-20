@@ -1,0 +1,355 @@
+input::-moz-placeholder {
+	font-family: 'Rubik', san-serif;
+	font-weight: 400;
+	color: #989898;
+}
+
+input:-ms-input-placeholder {
+	font-family: 'Rubik', san-serif;
+	font-weight: 400;
+	color: #989898;
+}
+
+input::placeholder {
+	font-family: 'Rubik', san-serif;
+	font-weight: 400;
+	color: #989898;
+}
+
+textarea {
+	resize: none;
+	min-height: 130px;
+	padding: 4em 1.5em;
+}
+@media (min-width: 850px) {
+	textarea {
+		min-height: 180px;
+	}
+}
+
+.header {
+	background: white;
+	padding: 1.5em 1em;
+}
+@media (min-width: 850px) {
+	.header div {
+		margin: 0 auto;
+		max-width: 1000px;
+	}
+}
+.header div h1 {
+	font-size: 1.8rem;
+	color: #0a0a0a;
+}
+.header div p {
+	font-size: 1.1rem;
+	color: #0a0a0a;
+	line-height: 1.5;
+	font-weight: 400;
+	padding: 0.5em 0em;
+}
+@media (min-width: 850px) {
+	.header div p {
+		margin: 0 auto;
+		max-width: 83%;
+		line-height: 1.6;
+		font-weight: 500;
+	}
+}
+.header .steps {
+	text-align: left;
+}
+@media (min-width: 850px) {
+	.header .steps {
+		margin: 1.4em;
+		max-width: 1000px;
+		display: inline-block;
+		margin-left: -8em;
+	}
+}
+@media (min-width: 1000px) {
+	.header .steps {
+		margin-left: -18em;
+	}
+}
+@media (min-width: 1200px) {
+	.header .steps {
+		margin-left: -20em;
+	}
+}
+.header .steps h2 {
+	font-size: 1.4rem;
+	color: #0a0a0a;
+}
+.header .steps ul li {
+	font-size: 1.1rem;
+	line-height: 1.6;
+}
+
+.container {
+	background: #f7f7fe;
+	padding: 2em 0em;
+}
+.container .titleWrapper {
+	background: #ffffff;
+	padding: 1em 0em 0em 1em;
+	display: flex;
+	flex-direction: column;
+	margin: 1em;
+}
+@media (min-width: 850px) {
+	.container .titleWrapper {
+		max-width: 1000px;
+		margin: 1.5em auto;
+	}
+}
+.container .titleWrapper div {
+	text-align: left;
+	padding: 0em 1em 0em 0em;
+}
+@media (min-width: 850px) {
+	.container .titleWrapper div {
+		padding: 1.2em 0em 0em 1.5em;
+	}
+}
+.container .titleWrapper div h3 {
+	font-size: 1.1rem;
+	color: #303030;
+}
+.container .titleWrapper div p {
+	color: #757575;
+	font-size: 0.85rem;
+	line-height: 1.5;
+	text-transform: capitalize;
+	padding-right: 1em;
+	padding: 1em 0em;
+}
+.container .titleWrapper div input {
+	border-radius: 8px;
+	border: 1px solid #989898;
+	padding: 1em;
+	width: 90%;
+	margin-bottom: 1.2em;
+}
+.container .titleWrapper button {
+	background: #1d1dd8;
+	padding: 1em;
+	color: #ffffff;
+	align-self: flex-end;
+	border-radius: 4px;
+	border: none;
+}
+.container .problemWrapper {
+	background: #ffffff;
+	margin: 1em 0em;
+	padding: 1em 0em 0em 1em;
+	display: flex;
+	flex-direction: column;
+	margin: 1em;
+}
+@media (min-width: 850px) {
+	.container .problemWrapper {
+		max-width: 1000px;
+		margin: 1.5em auto;
+	}
+}
+.container .problemWrapper div {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	padding: 0em 1em 0em 0em;
+}
+@media (min-width: 850px) {
+	.container .problemWrapper div {
+		padding: 1.2em 0em 0em 1.5em;
+	}
+}
+.container .problemWrapper div .textIcons {
+	display: flex;
+	max-width: 65%;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: -2.4em;
+	position: relative;
+	margin-left: 0.4em;
+}
+@media (min-width: 850px) {
+	.container .problemWrapper div .textIcons {
+		max-width: 27%;
+	}
+}
+.container .problemWrapper div h3 {
+	font-size: 1.1rem;
+	color: #303030;
+	text-align: left;
+	margin: 0em;
+	padding: 0.5em 0em 0em 0em;
+}
+.container .problemWrapper div p {
+	color: #757575;
+	font-size: 0.85rem;
+	line-height: 1.5;
+	padding-right: 1em;
+	padding: 1em 0em;
+}
+.container .problemWrapper div textarea {
+	border-radius: 8px;
+	border: 1px solid #989898;
+	width: 90%;
+	margin-bottom: 1.2em;
+}
+.container .problemWrapper button {
+	background: #1d1dd8;
+	padding: 1em;
+	color: #ffffff;
+	align-self: flex-end;
+	border-radius: 4px;
+	border: none;
+}
+.container .detailWrapper {
+	background: #ffffff;
+	margin: 1em;
+}
+@media (min-width: 850px) {
+	.container .detailWrapper {
+		max-width: 1015px;
+		margin: 1.5em auto;
+	}
+}
+.container .detailWrapper .content {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	padding: 1em 1em 1em 1em;
+}
+@media (min-width: 850px) {
+	.container .detailWrapper .content {
+		padding: 1.2em 0em 0em 2em;
+	}
+}
+.container .detailWrapper .content .textIcons {
+	display: flex;
+	max-width: 65%;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: -2.4em;
+	position: relative;
+	margin-left: 1.4em;
+}
+@media (min-width: 850px) {
+	.container .detailWrapper .content .textIcons {
+		max-width: 27%;
+	}
+}
+.container .detailWrapper .content h3 {
+	font-size: 1.1rem;
+	color: #303030;
+	margin: 0em;
+	padding: 0.5em 0em 0em 0em;
+}
+.container .detailWrapper .content p {
+	color: #757575;
+	font-size: 0.85rem;
+	line-height: 1.5;
+	padding-right: 1em;
+	margin-bottom: 2.2em;
+	padding: 1em 0em;
+}
+.container .detailWrapper .content textarea {
+	border-radius: 8px;
+	border: 1px solid #989898;
+	width: 88%;
+}
+.container .detailWrapper .content button {
+	background: #1d1dd8;
+	padding: 1em;
+	color: #ffffff;
+	align-self: flex-end;
+	border-radius: 4px;
+	border: none;
+}
+.container .tagWrapper {
+	display: flex;
+	flex-direction: row;
+	border-top: 1px solid #d6d6d6;
+	border-bottom: 1px solid #d6d6d6;
+	justify-content: space-between;
+	margin: 1em 0em;
+}
+.container .tagWrapper .tagContent {
+	display: flex;
+	flex-direction: row;
+	padding: 0.7em 1em;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+}
+@media (min-width: 850px) {
+	.container .tagWrapper .tagContent {
+		flex: 0 0 50%;
+	}
+}
+.container .tagWrapper .tagContent:nth-child(1) {
+	border-right: 1px solid #d6d6d6;
+}
+.container .tagWrapper .tagContent .text {
+	font-size: 0.8rem;
+	color: #757575;
+}
+.container .tagWrapper .allTags {
+	width: 100%;
+	justify-content: flex-start;
+	display: flex;
+	padding-left: 1.5em;
+	flex-wrap: wrap;
+}
+@media (min-width: 850px) {
+	.container .tagWrapper .allTags {
+		padding-left: 4em;
+		display: flex;
+		align-items: center;
+	}
+}
+.container .tagWrapper .allTags p {
+	border-radius: 18px;
+	background: #d2d2f7;
+	color: #757575;
+	padding: 0.6em 1.2em;
+	font-size: 0.7rem;
+	align-items: center;
+	display: flex;
+}
+.container .tagWrapper .allTags p img {
+	margin-left: 0.4em;
+}
+
+.buttonWrapper {
+	background: #ffffff;
+	padding: 1em;
+	margin: 1em 0em;
+	text-align: left;
+}
+@media (min-width: 850px) {
+	.buttonWrapper div {
+		max-width: 1030px;
+		margin: 0 auto;
+	}
+}
+.buttonWrapper div button {
+	padding: 1em;
+	border-radius: 4px;
+	margin: 1em;
+	outline: none;
+}
+.buttonWrapper div .review {
+	background: #1d1dd8;
+	color: #ffffff;
+	border: none;
+}
+.buttonWrapper div .discard {
+	background: #ffffff;
+	color: #1d1dd8;
+	border: 1px solid #1d1dd8;
+}
