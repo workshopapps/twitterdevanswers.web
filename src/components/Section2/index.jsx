@@ -1,14 +1,14 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import Statuscard from '../CardData/StatsCard/stats';
-import Communitycard from '../CardData/CommunityCard/community';
+import Statuscard from '../StatsCard/stats';
+import Communitycard from '../CommunityCard/community';
 import CardHeader from '../CardHeader/index';
 import messge from '../../assets/message.png';
 import bookmark from '../../assets/bookmark.png';
 import clipboard from '../../assets/clipboard-text.png';
 import Section2 from './index.module.css';
-import CardExtra from '../CardData/ExtraCard/Extracard';
-import CardPost from '../CardData/PostCard/Postcard';
+import CardExtra from '../ExtraCard/Extracard';
+import CardPost from '../PostCard/Postcard';
 
 function ProfileCard() {
 	return (

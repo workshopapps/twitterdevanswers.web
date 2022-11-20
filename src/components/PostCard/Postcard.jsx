@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './postcard.module.css';
 import posts from './posts.json';
-import search from '../../../assets/search-normal.png';
+import search from '../../assets/search-normal.png';
 import PostData from './Postdata';
 
 function CardPost() {
