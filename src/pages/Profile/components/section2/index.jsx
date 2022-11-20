@@ -1,21 +1,21 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import Statuscard from '../card-data/statscard/stats';
-import Communitycard from '../card-data/communitycard/community';
-import CardHeader from '../card-header/index';
+import Statuscard from '../CardData/StatsCard/stats';
+import Communitycard from '../CardData/CommunityCard/community';
+import CardHeader from '../CardHeader/index';
 import messge from '../../assets/message.png';
 import bookmark from '../../assets/bookmark.png';
 import clipboard from '../../assets/clipboard-text.png';
-import './section2.css';
-import CardExtra from '../card-data/extracard/Extracard';
-import CardPost from '../card-data/postcard/Postcard';
+import Section2 from './index.module.css';
+import CardExtra from '../CardData/ExtraCard/Extracard';
+import CardPost from '../CardData/PostCard/Postcard';
 
 function ProfileCard() {
 	return (
-		<div className="profile__card-wrapper">
-			<div className="card">
+		<div className={Section2.profile__cardwrapper}>
+			<div className={Section2.card}>
 				<CardHeader header="stats" />
-				<div className="stats__data">
+				<div className={Section2.stats__data}>
 					<Statuscard
 						first={{ value: 45, text: 'Questions' }}
 						second={{ value: 1500, text: 'Answers' }}
@@ -26,16 +26,16 @@ function ProfileCard() {
 					/>
 				</div>
 			</div>
-			<div className="card posts__wrapper">
+			<div className={`${Section2.card} ${Section2.posts__wrapper}`}>
 				<CardHeader header="Top posts" />
 				<CardPost />
 			</div>
-			<div className="card">
+			<div className={Section2.card}>
 				<CardHeader header="Communities" />
 				<Communitycard />
 			</div>
-			<div className="card">
-				<div className="card-btn__wrapper">
+			<div className={Section2.card}>
+				<div className={Section2.cardbtn__wrapper}>
 					<CardExtra text="Topics" image={messge} />
 					<CardExtra text="Bookmarks" image={bookmark} />
 					<CardExtra text="Lists" image={clipboard} />

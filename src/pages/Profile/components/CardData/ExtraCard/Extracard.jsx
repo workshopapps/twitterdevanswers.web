@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import './extracard.css';
 import PropTypes from 'prop-types';
+import Extra from './extracard.module.css';
 
 function CardExtra({ image, text }) {
 	return (
-		<div className="card-extra">
-			<div className="card-extra__btn">
-				<div className="card-extra__icon-wrapper">
-					<img src={image} alt="" className="card-extra__icon" />
+		<div className={Extra.cardextra}>
+			<div className={Extra.cardextra__btn}>
+				<div className={Extra.cardextra__iconwrapper}>
+					<img src={image} alt="" className={Extra.cardextra__icon} />
 				</div>
-				<div className="card-extra__txt">{text}</div>
+				<div className={Extra.cardextra__txt}>{text}</div>
 			</div>
 		</div>
 	);
