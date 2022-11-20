@@ -5,7 +5,7 @@ import CookieHead from '../../components/CookieHead/CookieHead';
 function CookiePolicy() {
 	return (
 		<div>
-			 <CookieHead />
+			<CookieHead />
 			{/* <CookieBody /> */}
 		</div>
 	);
