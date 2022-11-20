@@ -9,7 +9,7 @@ import Profile from './pages/Profile';
 // import Contact from './pages/Contact';
 // import Dashboard from './pages/Dashboard';
 // import Teams from './pages/Teams';
-import WalletPage from './pages/Wallet';
+// import WalletPage from './pages/WalletPage';
 // import API from './pages/API';
 // import CookiePolicy from './pages/CookiePolicy';
 // import Career from './pages/Career';
@@ -38,13 +38,12 @@ function App() {
 				{/* <Route path='/' element={<LandingPage/>}/> */}
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
-				<Route path="wallet" element={<WalletPage />} />
 				{/* <Route path='login' element={<Login/>}/>
       <Route path='sign-up' element={<SignUp/>}/>
       <Route path='contact' element={<Contact/>}/>
       <Route path='dashboard' element={<Dashboard/>}/>
       <Route path='teams-page' element={<Teams/>}/>
-      
+      <Route path='wallet' element={<WalletPage/>}/>
       <Route path='API' element={<API/>}/>
       <Route path='career' element={<Career/>}/>
       <Route path='settings' element={<Settings/>}/>
