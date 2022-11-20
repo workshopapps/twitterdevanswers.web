@@ -1,0 +1,21 @@
+.btn,
+.btn:link,
+.btn:visited {
+	color: #fefefe;
+	background: #1d1dd8;
+	padding: 16px 32px;
+	font-size: 16px;
+	line-height: 28px;
+	border-radius: 4px;
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
+}
+
+.btn:hover,
+.btn:active {
+	background: #7070fc;
+}
+
+.btn:active {
+	background: #131390;
+}

@@ -1,0 +1,27 @@
+.footerContainer {
+	padding: 18px;
+	background: #fff;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	display: none;
+}
+
+.icon {
+	stroke: #7d7d92;
+	color: transparent;
+}
+
+.isActive .icon {
+	color: #4343de;
+	fill: #4343de;
+}
+
+@media only screen and (max-width: 500px) {
+	.footer {
+		display: flex;
+	}
+}

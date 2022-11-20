@@ -1,0 +1,62 @@
+.ctaContainer {
+	padding: 50px 0;
+	background: #eae9e9;
+}
+
+.cta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.text {
+	width: 50%;
+}
+
+.text h2 {
+	font-weight: 600;
+	font-size: 48px;
+	line-height: 56px;
+	color: #0a0a0a;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+}
+
+.text p {
+	width: 80%;
+	font-size: 16px;
+	line-height: 28px;
+	color: #989898;
+	margin-bottom: 24px;
+}
+
+.img {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.img img {
+	width: 90%;
+}
+
+@media only screen and (max-width: 1024px) {
+	.cta {
+		flex-direction: column;
+		row-gap: 44px;
+	}
+
+	.text {
+		width: 100%;
+	}
+
+	.img {
+		justify-content: center;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.text h2 {
+		font-size: 24px;
+		line-height: 32px;
+	}
+}
