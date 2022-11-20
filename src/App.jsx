@@ -42,7 +42,7 @@ function App() {
 				<Route path="/" element={<LandingPage />} />
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
-        <Route path='tags-page' element={<Tags/>}/>
+                <Route path='tags-page' element={<Tags/>}/>
 
 				<Route path="API" element={<API />} />
         <Route path='login' element={<Login/>}/>
@@ -52,7 +52,7 @@ function App() {
       <Route path='dashboard' element={<Dashboard/>}/>
       <Route path='teams-page' element={<Teams/>}/>
       <Route path='wallet' element={<WalletPage/>}/>
-     
+      
       <Route path='career' element={<Career/>}/>
       <Route path='settings' element={<Settings/>}/>
       <Route path='blog-page' element={<Blog/>}/>

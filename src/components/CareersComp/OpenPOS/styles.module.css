@@ -1,0 +1,72 @@
+.OpenPOS {
+	width: 80%;
+	margin: 1.6rem auto;
+	text-align: left;
+}
+
+.OpenPOS h1 {
+	margin: 2rem 0;
+}
+
+.OpenPOS .sen {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.OpenPOS .senior {
+	display: flex;
+	align-items: center;
+	width: 50%;
+}
+
+.OpenPOS .senior a {
+	text-decoration: none;
+	color: #1d1dd8;
+	font-size: 1.3rem;
+}
+
+.OpenPOS .remote {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 50%;
+}
+.OpenPOS p {
+	font-size: 1.3rem;
+}
+
+/* Responsiveness */
+
+@media (max-width: 768px) {
+	.OpenPOS .senior a {
+		font-size: 0.9rem;
+	}
+	.OpenPOS p {
+		font-size: 0.9rem;
+	}
+	.OpenPOS h1 {
+		text-align: center;
+	}
+	.OpenPOS {
+		width: 90%;
+	}
+	.OpenPOS .senior img {
+		width: 10%;
+	}
+}
+
+@media (max-width: 600px) {
+	.OpenPOS .senior {
+		width: 60%;
+	}
+	.OpenPOS .senior a {
+		font-size: 0.7;
+	}
+	.OpenPOS p {
+		font-size: 0.7rem;
+	}
+	.OpenPOS .remote {
+		width: 40%;
+	}
+}
