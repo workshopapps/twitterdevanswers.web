@@ -1,27 +1,26 @@
-  .dev__ask  img{
-    display: flex;
-    align-items: flex-start;
-  }
-
-  .comp {
-    text-align: start;
-  }
-
-  .comp h2 {
-    font-weight: 600px;
-  }
-
-  .dev__flexitem {
-    display: flex;
-    gap: 20px;
-    
-  } 
-.dev__flexclock {
-  display: flex;
-  min-height: 0
+.dev__ask img {
+	display: flex;
+	align-items: flex-start;
 }
 
-  .dev__askwidgets{
-    display: flex;
-    justify-content: space-between;
-  }
+.comp {
+	text-align: start;
+}
+
+.comp h2 {
+	font-weight: 600px;
+}
+
+.dev__flexitem {
+	display: flex;
+	gap: 20px;
+}
+.dev__flexclock {
+	display: flex;
+	min-height: 0;
+}
+
+.dev__askwidgets {
+	display: flex;
+	justify-content: space-between;
+}

@@ -43,5 +43,5 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  canBeHidden: false
-}
+	canBeHidden: false,
+};
