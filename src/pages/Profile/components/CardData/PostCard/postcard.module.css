@@ -13,7 +13,7 @@
 	gap: 1rem;
 }
 .links {
-	padding: 0.65rem 1.07rem;
+	padding: 0.65em 1.07em;
 	border-radius: 16px;
 }
 .linksactive {
@@ -34,6 +34,9 @@
 .search__input {
 	border: none;
 	outline: none;
+}
+.text {
+	text-align: left;
 }
 .postbtn__wrapper {
 	padding: 0.9rem 1rem;
@@ -101,6 +104,10 @@
 	}
 }
 @media (max-width: 600px) {
+	.links {
+		padding: 0.65em 0.87em;
+		border-radius: 16px;
+	}
 	.cardpost {
 		width: 100%;
 	}
