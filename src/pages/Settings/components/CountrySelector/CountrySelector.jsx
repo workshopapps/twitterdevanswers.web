@@ -1,16 +1,16 @@
-import React ,{ useState, useMemo }from 'react'
-import Select from 'react-select'
-import countryList from 'react-select-country-list'
+import React, { useState, useMemo } from 'react';
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
 
 function CountrySelector() {
-  const [value, setValue] = useState('')
-  const options = useMemo(() => countryList().getData(), [])
+	const [value, setValue] = useState('');
+	const options = useMemo(() => countryList().getData(), []);
 
-  const changeHandler = () => {
-    setValue(value)
-  }
+	const changeHandler = () => {
+		setValue(value);
+	};
 
-  return <Select  options={options} value={value} onChange={changeHandler} />
+	return <Select options={options} value={value} onChange={changeHandler} />;
 }
 
-export default CountrySelector
+export default CountrySelector;

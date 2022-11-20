@@ -14,7 +14,7 @@ import Settings from './pages/Settings';
 // import API from './pages/API';
 // import CookiePolicy from './pages/CookiePolicy';
 // import Career from './pages/Career';
-// 
+//
 // import Blog from './pages/Blog';
 // import Help from './pages/Help';
 // import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -38,9 +38,8 @@ function App() {
 			<Routes>
 				{/* <Route path='/' element={<LandingPage/>}/> */}
 				<Route path="profile" element={<Profile />} />
-				<Route path="notification-page" element={<Notifications />}
-         />
-         <Route path='settings' element={<Settings/>}/>
+				<Route path="notification-page" element={<Notifications />} />
+				<Route path="settings" element={<Settings />} />
 				{/* <Route path='login' element={<Login/>}/>
       <Route path='sign-up' element={<SignUp/>}/>
       <Route path='contact' element={<Contact/>}/>
