@@ -24,7 +24,7 @@ import Profile from './pages/Profile';
 // import About from './pages/About';
 // import HowItWorks from './pages/HowItWorks';
 // import Advertising from './pages/Advertising';
-// import Tags from './pages/Tags';
+  import Tags from './pages/Tags';
 // import Terms from './pages/Terms';
 // import PostQuestion from './pages/PostQuestion';
 
@@ -38,6 +38,8 @@ function App() {
 				{/* <Route path='/' element={<LandingPage/>}/> */}
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
+        <Route path='tags-page' element={<Tags/>}/>
+
 				{/* <Route path='login' element={<Login/>}/>
       <Route path='sign-up' element={<SignUp/>}/>
       <Route path='contact' element={<Contact/>}/>
@@ -57,7 +59,6 @@ function App() {
       <Route path='about-page' element={<About/>}/>
       <Route path='how-it-works' element={<HowItWorks/>}/>
       <Route path='advertising-page' element={<Advertising/>}/>
-      <Route path='tags-page' element={<Tags/>}/>
       <Route path='terms-of-use' element={<Terms/>}/>
       <Route path='post-question' element={<PostQuestion/>}/>
       <Route path='*' element={<404Page/>}/> */}
