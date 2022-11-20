@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
-import Profile from './pages/Profile';
+// import Profile from './pages/Profile';
 import API from './pages/API';
 // import Header from './pages/Header';
 // import Footer from './pages/Footer';
@@ -25,7 +25,7 @@ import SignUp from './pages/AuthPage/SignUp';
 // import About from './pages/About';
 // import HowItWorks from './pages/HowItWorks';
 // import Advertising from './pages/Advertising';
-  import Tags from './pages/Tags';
+import Tags from './pages/Tags';
 // import Terms from './pages/Terms';
 // import PostQuestion from './pages/PostQuestion';
 
@@ -40,12 +40,12 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
-				<Route path="profile" element={<Profile />} />
+				{/* <Route path="profile" element={<Profile />} /> */}
 				<Route path="notification-page" element={<Notifications />} />
-                <Route path='tags-page' element={<Tags/>}/>
+				<Route path="tags-page" element={<Tags />} />
 
 				<Route path="API" element={<API />} />
-        <Route path='login' element={<Login/>}/>
+				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
 				{/* 
       <Route path='contact' element={<Contact/>}/>
