@@ -4,13 +4,13 @@
 // import { Link } from 'react-router-dom';
 
 // const Header = ({ pathname }) => {
-  // header component for excternal pages
+// header component for excternal pages
 
-  // the pathname prop is the value of pathname property from the object returend by useLocation hook
+// the pathname prop is the value of pathname property from the object returend by useLocation hook
 
-  // for login and signup pages, i have set up this component to expect the pathname prop to be /login or /signup so that only the signup button is rendered if the user is on the login page and vice versa
+// for login and signup pages, i have set up this component to expect the pathname prop to be /login or /signup so that only the signup button is rendered if the user is on the login page and vice versa
 
-  // for other external pages, both login and signup buttons would be present on the header
+// for other external pages, both login and signup buttons would be present on the header
 
 //   return (
 //     <div className={styles.header}>

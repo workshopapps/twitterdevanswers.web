@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
 import Profile from './pages/Profile';
 // import Header from './pages/Header';
@@ -31,14 +31,14 @@ import Profile from './pages/Profile';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      {/* <Header/> */}
-      <Routes>
-      {/* <Route path='/' element={<LandingPage/>}/> */}
-      <Route path='profile' element={<Profile/>}/>
-      <Route path='notification-page' element={<Notifications/>}/>
-      {/* <Route path='login' element={<Login/>}/>
+	return (
+		<div className="App">
+			{/* <Header/> */}
+			<Routes>
+				{/* <Route path='/' element={<LandingPage/>}/> */}
+				<Route path="profile" element={<Profile />} />
+				<Route path="notification-page" element={<Notifications />} />
+				{/* <Route path='login' element={<Login/>}/>
       <Route path='sign-up' element={<SignUp/>}/>
       <Route path='contact' element={<Contact/>}/>
       <Route path='dashboard' element={<Dashboard/>}/>
@@ -61,12 +61,10 @@ function App() {
       <Route path='terms-of-use' element={<Terms/>}/>
       <Route path='post-question' element={<PostQuestion/>}/>
       <Route path='*' element={<404Page/>}/> */}
-      </Routes>
-      {/* <Footer/> */}
-
-
-    </div>
-  );
+			</Routes>
+			{/* <Footer/> */}
+		</div>
+	);
 }
 
 export default App;
