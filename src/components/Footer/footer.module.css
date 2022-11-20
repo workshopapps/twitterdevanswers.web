@@ -1,9 +1,12 @@
+.footerContainer {
+	background: #1d1dd8;
+	padding: 69px 0 143px 0;
+}
+
 .footer {
-	background: #4343de;
 	color: #fefefe;
 	display: grid;
 	grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-	padding: 69px 64px 143px 64px;
 }
 
 .brandSocials {
@@ -99,7 +102,7 @@
 @media only screen and (max-width: 500px) {
 	.footer {
 		grid-template-columns: 1fr;
-		padding: 24px;
+		padding: 24px 0 24px 0;
 	}
 
 	.brand span {

@@ -1,0 +1,85 @@
+.Careers hr {
+	border: 0.4px solid #979797;
+	background-color: #979797;
+}
+
+.Careers .selection {
+	background-color: #1d1dd8;
+	padding: 2rem 0;
+}
+.Careers .selectbox {
+	display: flex;
+	width: 60%;
+	margin: 0 auto;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 10px;
+	border: 1px solid #ffffff;
+	border-radius: 8px;
+}
+
+.Careers select {
+	/* appearance: none;
+  background-image: url(../../careers_images/select.svg);
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  padding-right: 1px; */
+	width: 30%;
+	font-size: 14px;
+	margin: 10px auto 20px;
+	border-radius: 8px;
+	background-color: #1d1dd8;
+	color: white;
+	font-weight: 500;
+	outline: none;
+	padding: 20px 24px;
+	border: 1px solid #fefefe;
+}
+
+.Careers .selection button {
+	font-family: 'Rubik', sans-serif;
+	margin: 10px auto 20px;
+	width: 20%;
+	padding: 23px 10px;
+	border: 0.5px solid #1d1dd8;
+	align-items: center;
+	justify-content: center;
+	background: #fefefe;
+	border-radius: 8px;
+	color: #1d1dd8;
+}
+
+.Careers .selection p {
+	text-align: center;
+	width: 48%;
+	color: white;
+	margin: 2rem auto;
+}
+
+/* Responsiveness */
+
+@media (max-width: 1024px) {
+	.Careers .selectbox {
+		width: 75%;
+	}
+	.Careers select {
+		width: 35%;
+	}
+}
+
+@media (max-width: 768px) {
+	.Careers .selectbox {
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+	}
+	.Careers select {
+		width: 75%;
+	}
+	.Careers .selection button {
+		width: 50%;
+	}
+	.Careers .selection p {
+		width: 70%;
+	}
+}

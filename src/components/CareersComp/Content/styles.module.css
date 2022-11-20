@@ -1,0 +1,54 @@
+.content .culture {
+	display: flex;
+	width: 90%;
+	margin: 3rem auto;
+	justify-content: space-between;
+	align-items: center;
+	text-align: left;
+}
+
+.cultureimage {
+	width: 48%;
+}
+.cultureimage img {
+	width: 95%;
+}
+.culturetext {
+	width: 52%;
+}
+.culturetext h3 {
+	margin: 2.5rem 0;
+	width: 60%;
+}
+.culturetext p {
+	width: 100%;
+}
+
+.content .culture:nth-child(2) {
+	flex-direction: row-reverse;
+}
+
+.content .culture:nth-child(2) .culturetext {
+	width: 48%;
+}
+
+@media (max-width: 768px) {
+	.content .culture {
+		display: block;
+	}
+	.cultureimage {
+		width: 80%;
+		margin: 0 auto;
+	}
+	.culturetext {
+		width: 80%;
+		margin: 0 auto;
+	}
+	.content .culture:nth-child(2) .culturetext {
+		width: 80%;
+		margin: 0 auto;
+	}
+	.culturetext h3 {
+		width: 100%;
+	}
+}
