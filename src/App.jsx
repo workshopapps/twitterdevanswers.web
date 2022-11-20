@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
 import Profile from './pages/Profile';
 import API from './pages/API';
+import PostQuestion from './pages/PostQuestion';
 // import Header from './pages/Header';
 // import Footer from './pages/Footer';
 // import Login from './pages/Login';
@@ -27,7 +28,6 @@ import API from './pages/API';
 // import Advertising from './pages/Advertising';
 // import Tags from './pages/Tags';
 // import Terms from './pages/Terms';
-// import PostQuestion from './pages/PostQuestion';
 
 import './App.css';
 
@@ -40,6 +40,7 @@ function App() {
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
 				<Route path="API" element={<API />} />
+				<Route path="post-question" element={<PostQuestion />} />
 				{/* <Route path='login' element={<Login/>}/>
       <Route path='sign-up' element={<SignUp/>}/>
       <Route path='contact' element={<Contact/>}/>
@@ -61,7 +62,7 @@ function App() {
       <Route path='advertising-page' element={<Advertising/>}/>
       <Route path='tags-page' element={<Tags/>}/>
       <Route path='terms-of-use' element={<Terms/>}/>
-      <Route path='post-question' element={<PostQuestion/>}/>
+     
       <Route path='*' element={<404Page/>}/> */}
 			</Routes>
 			{/* <Footer/> */}
