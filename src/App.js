@@ -1,10 +1,11 @@
-import Notifications from './pages/Notifications';
+// import Notifications from './pages/Notifications';
+import Profile from './pages/Profile/index';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Notifications />
+      <Profile />
     </div>
   );
 }

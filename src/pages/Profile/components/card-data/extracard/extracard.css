@@ -1,0 +1,22 @@
+.card-extra__btn {
+  display: flex;
+  gap: 10px;
+  width: 16rem;
+  color: #4343df;
+  border: 1px solid #4343df;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 0.5rem 1.625rem;
+  border-radius: 8px;
+}
+.card-extra {
+  padding: 0.5rem 3.25rem;
+}
+
+@media (max-width: 600px) {
+  .card-extra__btn {
+    margin: auto;
+    width: 100%;
+  }
+}
