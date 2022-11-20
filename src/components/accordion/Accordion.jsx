@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import arrowdown from '../../assets/images/arrowdown1.png';
+import arrowdown from '../../assets/arrowdown1.png';
 
 import './Accordion.css';
 

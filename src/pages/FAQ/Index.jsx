@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import web from '../../assets/images/web.png';
-import email from '../../assets/images/email.png';
-import folder from '../../assets/images/folder.png';
-import search from '../../assets/images/search-normal.png';
-import arrowleft from '../../assets/images/arrowleft.png';
-import arrowdown from '../../assets/images/Vector@2x.png';
+import web from '../../assets/web.png';
+import email from '../../assets/email.png';
+import folder from '../../assets/folder.png';
+import search from '../../assets/searchnormal.png';
+import arrowleft from '../../assets/arrowleft.png';
+import arrowdown from '../../assets/Vector@2x.png';
 import './Style.css';
 import Accordion from '../../components/accordion/Accordion';
 
