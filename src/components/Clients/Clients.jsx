@@ -9,18 +9,18 @@ import { ReactComponent as Html } from '../../assets/html-logo.svg';
 import styles from './clients.module.css';
 
 function Clients() {
-  return (
-    <div className={`${styles.clients} lpContainer`}>
-      <h3>Meet our favourite clients</h3>
-      <div className={styles.brands}>
-        <StackOverflow />
-        <Twitter />
-        <Figma />
-        <Css />
-        <Html />
-      </div>
-    </div>
-  );
+	return (
+		<div className={`${styles.clients} lpContainer`}>
+			<h3>Meet our favourite clients</h3>
+			<div className={styles.brands}>
+				<StackOverflow />
+				<Twitter />
+				<Figma />
+				<Css />
+				<Html />
+			</div>
+		</div>
+	);
 }
 
 export default Clients;
