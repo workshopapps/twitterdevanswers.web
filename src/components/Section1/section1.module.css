@@ -2,7 +2,7 @@
 	position: relative;
 }
 .profile__bannerimg {
-	background-image: url('../../../../../public/banner.jpg');
+	background-image: url('../../../public/banner.jpg');
 	width: 100%;
 	height: 13.5rem;
 	background-position: center;
