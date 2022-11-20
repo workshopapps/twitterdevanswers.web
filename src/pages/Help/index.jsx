@@ -1,5 +1,6 @@
 
 import React from "react";
+import {Link} from "react-router-dom"
 import styles from './style.module.css';
 import img from './Assets/message-question.png'
 import img2 from './Assets/setting-2.png'
@@ -23,24 +24,24 @@ function Help() {
             </div>
             <div className={styles.grid}>
 
-                <a href='#home' className={styles.btn}> <img src={img} alt="" />Asking & Answering <br />a Question</a>
-                <a href='#home' className={styles.btn}><img src={img2} alt="" />Accout settings</a>
-                <a href='#home' className={styles.btn}><img src={img3} alt="" />Dashboard</a>
-                <a href='#home' className={styles.btn}><img src={img4} alt="" />Safety and security</a>
-                <a href='#home' className={styles.btn}><img src={img5} alt="" />Rules and policy</a>
-                <a href='#home' className={styles.btn}><img src={img6} alt="" />Wallet</a>
+                <Link to="/frequently-asked-questions" className={styles.btn}> <img src={img} alt="" />Asking & Answering <br />a Question</Link>
+                <Link to="/settings" className={styles.btn}><img src={img2} alt="" />Accout settings</Link>
+                <Link to="/dashboard" className={styles.btn}><img src={img3} alt="" />Dashboard</Link>
+                <Link to='terms-of-use' className={styles.btn}><img src={img4} alt="" />Safety and security</Link>
+                <aLink to='terms-of-use' className={styles.btn}><img src={img5} alt="" />Rules and policy</aLink>
+                <Link to="/wallet" className={styles.btn}><img src={img6} alt="" />Wallet</Link>
 
             </div>
             <div className={styles.lowerbody}>
                 <h4>Frequently Asked Questions on DevAsk</h4>
                 <ul className={styles.lowerul}>
-                    <li><a href="/">How do I ask or answer homework questions?</a></li>
-                    <li><a href="/">How much research effort is expected of DevAsk users?</a></li>
-                    <li><a href="/">Why is “can someone help me” not an actual question?</a></li>
-                    <li><a href="/">What is the proper way to approach DevAsk as <br />somone completely new to programming?</a></li>
-                    <li><a href="/">Something in my website or projeoct doesn`t <br />work, canI just paste a link to it?</a></li>
-                    <li><a href="/">Is it okay to search for code optimizationm help?</a></li>
-                    <li><a href="/"><span>See also</span> FAQ index</a></li>
+                    <li><Link to="/frequently-asked-questions">How do I ask or answer homework questions?</Link></li>
+                    <li><Link to="/frequently-asked-questions">How much research effort is expected of DevAsk users?</Link></li>
+                    <li><Link to="/frequently-asked-questions">Why is “can someone help me” not an actual question?</Link></li>
+                    <li><Link to="/frequently-asked-questions">What is the proper way to approach DevAsk as <br />somone completely new to programming?</Link></li>
+                    <li><Link to="/frequently-asked-questions">Something in my website or projeoct doesn`t <br />work, canI just paste a link to it?</Link></li>
+                    <li><Link to="/frequently-asked-questions">Is it okay to search for code optimizationm help?</Link></li>
+                    <li><Link to="/frequently-asked-questions"><span>See also</span> FAQ index</Link></li>
                 </ul>
             </div>
             <div className={styles.lowerdivhelp}>
