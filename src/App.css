@@ -36,3 +36,9 @@
 		transform: rotate(360deg);
 	}
 }
+
+.lpContainer {
+	max-width: 1400px;
+	width: 95%;
+	margin: 0 auto;
+}
