@@ -40,6 +40,7 @@ textarea {
 .header div h1 {
 	font-size: 1.8rem;
 	color: #0a0a0a;
+	text-align: center;
 }
 .header div p {
 	font-size: 1.1rem;
@@ -58,23 +59,30 @@ textarea {
 }
 .header .steps {
 	text-align: left;
+	margin-top: 1em;
 }
 @media (min-width: 850px) {
 	.header .steps {
 		margin: 1.4em;
 		max-width: 1000px;
 		display: inline-block;
-		margin-left: -8em;
+		margin-left: 1em;
 	}
 }
 @media (min-width: 1000px) {
 	.header .steps {
-		margin-left: -18em;
+		margin-left: 3em;
 	}
 }
 @media (min-width: 1200px) {
 	.header .steps {
-		margin-left: -20em;
+		margin-left: 8em;
+	}
+}
+
+@media (min-width: 1400px) {
+	.header .steps {
+		margin-left: 14em;
 	}
 }
 .header .steps h2 {
