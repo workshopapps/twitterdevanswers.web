@@ -1,0 +1,102 @@
+ 
+.container {
+    background-color: #F7F7FE;
+  }
+  
+  h1 {
+     font-weight: 600px;
+     font-size: 32px
+  }
+  .container1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F7F7FE;
+  }
+  .container3{
+    display: flex;
+    gap: 5px;
+    margin-left:15px;
+  }
+  
+    .searchfield {
+      display: flex;
+      align-items: center;
+    }
+  
+    .search {
+      position: relative;
+  
+    display: flex;
+    align-items: center;
+    }
+  
+    .search__icon {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      left: 12px;
+      top: 22px;
+      height: 70%;
+    }
+  
+    .searchbox {
+          padding: 4px;
+          border: 1px solid;
+          display: hidden;
+    }
+  
+    input {
+      border: none;
+      
+    }
+  
+    input:focus {
+      outline: none;
+    }
+    
+    .button__field {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+   }
+   .hid {
+    display: flex;
+    gap: 10px;
+  }
+
+   .button{
+    background: #EDEDFF;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #4343DF;
+    border-radius: 4px;
+   }
+  
+    .button__field button {
+      background: inherit;
+      padding: 8px 16px;
+      text-decoration: none;
+      color: #757575;
+     border: 1px  solid #757575;
+     border-radius: 4px;
+    }
+     
+  
+  
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+  @media screen and (max-width: 600px) {
+    .grid {
+      display: block;
+    }
+  
+   .hid {
+     display: none
+   }
+  }
