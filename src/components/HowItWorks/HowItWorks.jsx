@@ -1,5 +1,5 @@
 import React from 'react';
-import HiwText from './../HiwText/HiwText';
+import HiwText from '../HiwText/HiwText';
 import image from '../../assets/how-it-works.png';
 import imageOne from '../../assets/how-it-works2.png';
 import imageTwo from '../../assets/how-it-works3.png';
