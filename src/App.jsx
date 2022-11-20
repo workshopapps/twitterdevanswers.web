@@ -4,8 +4,8 @@ import Notifications from './pages/Notifications';
 import Profile from './pages/Profile';
 // import Header from './pages/Header';
 // import Footer from './pages/Footer';
-// import Login from './pages/Login';
-// import SignUp from './pages/SignUp';
+import Login from './pages/AuthPage/Login';
+import SignUp from './pages/AuthPage/SignUp';
 // import Contact from './pages/Contact';
 // import Dashboard from './pages/Dashboard';
 // import Teams from './pages/Teams';
@@ -38,8 +38,9 @@ function App() {
 				{/* <Route path='/' element={<LandingPage/>}/> */}
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
-				{/* <Route path='login' element={<Login/>}/>
-      <Route path='sign-up' element={<SignUp/>}/>
+        <Route path='login' element={<Login/>}/>
+				<Route path="sign-up" element={<SignUp />} />
+				{/* 
       <Route path='contact' element={<Contact/>}/>
       <Route path='dashboard' element={<Dashboard/>}/>
       <Route path='teams-page' element={<Teams/>}/>
