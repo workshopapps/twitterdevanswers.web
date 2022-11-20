@@ -1,25 +1,25 @@
-.card-post {
+.cardpost {
 	max-width: 52.5rem;
 	width: 45.5rem;
 	height: fit-content;
 	padding: 1.5rem;
 }
-.post-topnav {
+.posttopnav {
 	display: flex;
 	justify-content: space-around;
 }
-.post-nav {
+.postnav {
 	display: flex;
 	gap: 1rem;
 }
 .links {
-	padding: 0.65rem 1.07rem;
+	padding: 0.65em 1.07em;
 	border-radius: 16px;
 }
-.links--active {
+.linksactive {
 	background-color: #d2d2f7;
 }
-.links--notactive {
+.linksnotactive {
 	border: 0.6px solid #303030;
 }
 .search {
@@ -35,12 +35,15 @@
 	border: none;
 	outline: none;
 }
-.post-btn__wrapper {
+.text {
+	text-align: left;
+}
+.postbtn__wrapper {
 	padding: 0.9rem 1rem;
 	display: flex;
 	justify-content: space-between;
 }
-.post__btn--disable {
+.post__btndisable {
 	background: #d6d6d6;
 	border: 0.6px solid #d6d6d6;
 	color: #989898;
@@ -52,7 +55,7 @@
 	font-size: 0.875rem;
 	line-height: 1.5rem;
 }
-.post__btn--active {
+.post__btnactive {
 	border: 0.6px solid #1d1dd8;
 	color: #1d1dd8;
 }
@@ -86,7 +89,7 @@
 	flex-wrap: wrap;
 }
 @media (max-width: 1200px) {
-	.card-post {
+	.cardpost {
 		width: 80vw;
 	}
 }
@@ -101,10 +104,14 @@
 	}
 }
 @media (max-width: 600px) {
-	.card-post {
+	.links {
+		padding: 0.65em 0.87em;
+		border-radius: 16px;
+	}
+	.cardpost {
 		width: 100%;
 	}
-	.post-nav {
+	.postnav {
 		gap: 0.25rem;
 	}
 }

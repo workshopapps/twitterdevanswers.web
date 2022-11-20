@@ -1,9 +1,9 @@
 import React from 'react';
-import './cardHeader.css';
 import PropTypes from 'prop-types';
+import Header from './cardHeader.module.css';
 
 function CardHeader({ header }) {
-	return <div className="card__header">{header}</div>;
+	return <div className={Header.card__header}> {header}</div>;
 }
 CardHeader.propTypes = {
 	header: PropTypes.string.isRequired,
