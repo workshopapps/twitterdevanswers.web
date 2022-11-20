@@ -30,13 +30,16 @@ import API from './pages/API';
 // import PostQuestion from './pages/PostQuestion';
 
 import './App.css';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import LandingPage from './pages/LandingPage/LandingPage';
 
 function App() {
 	return (
 		<div className="App">
-			{/* <Header/> */}
+			<Header />
 			<Routes>
-				{/* <Route path='/' element={<LandingPage/>}/> */}
+				<Route path="/" element={<LandingPage />} />
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
 				<Route path="API" element={<API />} />
@@ -64,7 +67,7 @@ function App() {
       <Route path='post-question' element={<PostQuestion/>}/>
       <Route path='*' element={<404Page/>}/> */}
 			</Routes>
-			{/* <Footer/> */}
+			<Footer />
 		</div>
 	);
 }
