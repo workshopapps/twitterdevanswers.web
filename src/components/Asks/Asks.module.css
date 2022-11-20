@@ -1,0 +1,346 @@
+.ask {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	background-color: #ffffff;
+	padding: 40px;
+	width: 60%;
+}
+
+.back {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+	font-weight: 400;
+	font-size: 16px;
+	color: #1d1dd8;
+	text-decoration: none;
+	width: 15%;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.aboutUser {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.aboutUser > img {
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+}
+
+.aboutUser > div {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.askName {
+	font-weight: 500;
+	font-size: 18px;
+	color: #303030;
+}
+
+.timeDate {
+	display: flex;
+	gap: 0.5rem;
+	font-weight: 400;
+	font-size: 14px;
+	color: #757575;
+}
+
+.edit {
+	font-weight: 400;
+	font-size: 18px;
+	color: #1d1dd8;
+	cursor: pointer;
+}
+
+.options {
+	display: none;
+}
+
+.editMobile {
+	display: none;
+}
+
+.question {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.title {
+	font-weight: 600;
+	font-size: 20px;
+	color: #303030;
+}
+
+.description {
+	font-weight: 400;
+	font-size: 18px;
+	color: #757575;
+}
+
+.snippet {
+	font-weight: 400;
+	font-size: 18px;
+	color: #535353;
+	background-color: rgba(237, 237, 255, 0.61);
+	border-radius: 16px;
+	padding: 20px 25px;
+}
+
+.tag {
+	font-weight: 400;
+	font-size: 12px;
+	color: #1d1dd8;
+	background-color: #ededff;
+	border-radius: 4px;
+	padding: 8px;
+	width: 15%;
+	text-align: center;
+}
+
+.stats {
+	display: flex;
+	gap: 2rem;
+}
+
+.stats > p {
+	font-weight: 400;
+	font-size: 16px;
+	color: #1f1f1f;
+	cursor: pointer;
+}
+
+.icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+	padding: 0.5rem 0;
+	border-top: 1px solid #b4b4b4;
+	border-bottom: 1px solid #b4b4b4;
+	cursor: pointer;
+}
+
+.typeReply {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 1rem;
+	border-bottom: 1px solid #b4b4b4;
+	margin-top: 3rem;
+	cursor: pointer;
+}
+
+.writeReply {
+	outline: none;
+	border: none;
+	resize: none;
+	overflow: hidden;
+	width: 70%;
+	margin: 1em 0;
+	font-weight: 400;
+	font-size: 24px;
+}
+
+.writeReply::placeholder {
+	font-weight: 400;
+	font-size: 24px;
+	color: rgba(117, 117, 117, 0.75);
+}
+
+.typeReply > button {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	background-color: #4343de;
+	color: #fefefe;
+	border: 1px solid #4343de;
+	padding: 12px 24px;
+	border-radius: 54px;
+	cursor: pointer;
+}
+
+.answers {
+	width: 100%;
+}
+
+.cardContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	background-color: #ffffff;
+	margin: 1rem 0;
+	width: 100%;
+}
+
+.cardHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+.cardHeader > div {
+	display: flex;
+	gap: 1rem;
+}
+
+.cardHeader > div > div {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.profilePicture {
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+}
+
+.userInfo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+}
+
+.askName {
+	font-weight: 500;
+	font-size: 18px;
+	color: #1f1f1f;
+}
+
+.userName,
+.time {
+	font-weight: 400;
+	font-size: 18px;
+	color: #979797;
+}
+
+.optionsReply {
+	cursor: pointer;
+}
+
+.replying {
+	font-weight: 500;
+	font-size: 14px;
+	color: #8f8f8f;
+}
+
+.reply {
+	font-weight: 400;
+	font-size: 18px;
+	color: #757575;
+	cursor: pointer;
+}
+
+.replyPageIcons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+	padding: 0.5rem 0;
+	border-bottom: 1.5px solid #b4b4b4;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+	.ask {
+		padding: 16px;
+		width: 100%;
+	}
+
+	.back {
+		font-size: 16px;
+	}
+
+	.aboutUser > img {
+		width: 40px;
+		height: 40px;
+	}
+
+	.askName {
+		font-size: 14px;
+	}
+
+	.options {
+		display: block;
+		cursor: pointer;
+	}
+
+	.edit {
+		display: none;
+	}
+
+	.editMobile {
+		display: block;
+		color: #1d1dd8;
+		font-size: 14px;
+		cursor: pointer;
+	}
+
+	.title,
+	.snippet {
+		font-size: 16px;
+	}
+
+	.tagEdit {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.description,
+	.stats > p {
+		font-size: 14px;
+	}
+
+	:is(.icons, .replyPageIcons) img {
+		width: 12px;
+		height: 12px;
+	}
+
+	.typeReply {
+		gap: 0.4rem;
+	}
+
+	.writeReply,
+	.writeReply::placeholder {
+		font-size: 14px;
+	}
+
+	.typeReply > button {
+		font-size: 14px;
+		padding: 8px;
+		border-radius: 20px;
+		width: 45%;
+	}
+
+	.cardHeader > div > div,
+	.userInfo {
+		gap: 0.4rem;
+	}
+
+	.askName,
+	.userName,
+	.time,
+	.replying {
+		font-size: 16px;
+	}
+
+	.reply {
+		font-size: 14px;
+	}
+}
