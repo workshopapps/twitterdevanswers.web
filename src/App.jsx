@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
 // import Profile from './pages/Profile';
 import API from './pages/API';
-import PostQuestion from './pages/PostQuestion';
+// import PostQuestion from './pages/PostQuestion';
 // import Header from './pages/Header';
 // import Footer from './pages/Footer';
 import Login from './pages/AuthPage/Login';
