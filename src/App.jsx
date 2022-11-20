@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
 // import Profile from './pages/Profile';
 import API from './pages/API';
+import PostQuestion from './pages/PostQuestion';
 // import Header from './pages/Header';
 // import Footer from './pages/Footer';
 import Login from './pages/AuthPage/Login';
@@ -27,7 +28,6 @@ import SignUp from './pages/AuthPage/SignUp';
 // import Advertising from './pages/Advertising';
 import Tags from './pages/Tags';
 // import Terms from './pages/Terms';
-// import PostQuestion from './pages/PostQuestion';
 
 import './App.css';
 import Header from './components/Header/Header';
@@ -66,7 +66,7 @@ function App() {
       <Route path='how-it-works' element={<HowItWorks/>}/>
       <Route path='advertising-page' element={<Advertising/>}/>
       <Route path='terms-of-use' element={<Terms/>}/>
-      <Route path='post-question' element={<PostQuestion/>}/>
+     
       <Route path='*' element={<404Page/>}/> */}
 			</Routes>
 			<Footer />
