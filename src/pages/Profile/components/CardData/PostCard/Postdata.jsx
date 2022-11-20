@@ -6,9 +6,8 @@ function PostData({ posts }) {
 	const Count = 2;
 	return (
 		<div className={Post.posts}>
-			{posts.map((a,b) => (
-				
-				<div key={`${a} ${Count+b}`} className={Post.data}>
+			{posts.map((a, b) => (
+				<div key={`${a} ${Count + b}`} className={Post.data}>
 					{a.type === 'question' ? (
 						<div className={`${Post.type} ${Post.question}`}>Q</div>
 					) : (
