@@ -1,0 +1,8 @@
+.settingscontainer {
+	margin: 0 77.5px 0 77.5px;
+}
+@media screen and (max-width: 1000px) {
+	.settingscontainer {
+		margin: 21px;
+	}
+}
