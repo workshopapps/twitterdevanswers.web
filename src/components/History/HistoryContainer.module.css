@@ -1,0 +1,47 @@
+.history__container {
+	justify-content: space-between;
+	gap: 3rem;
+	color: #303030;
+	align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+	.history__container {
+		display: flex;
+	}
+}
+
+.history__header_text {
+	width: 100%;
+}
+
+@media (min-width: 1024px) {
+	.history__header_text {
+		width: 65%;
+	}
+}
+
+.header__container {
+	margin-bottom: 2rem;
+	width: 100%;
+}
+
+.header {
+	display: flex;
+
+	margin-bottom: 1.5rem;
+	justify-content: space-between;
+}
+
+.label {
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.label__text {
+	color: #1d1dd8;
+	font-size: 18px;
+}

@@ -1,0 +1,87 @@
+.container {
+	display: flex;
+	padding: 1rem;
+	/* margin-top: 3rem; */
+	flex-direction: column;
+	border-radius: 1rem;
+	border-width: 2px;
+	border: 1px solid #000000;
+	border-color: #000000;
+	background-color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+	.container {
+		width: 33.333333%;
+	}
+}
+
+.transaction_header {
+	display: flex;
+	margin-bottom: 1rem;
+	justify-content: space-between;
+}
+
+.header_title {
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+	font-weight: 600;
+}
+
+.header_button {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.date_time {
+	margin-bottom: 1rem;
+}
+
+.date {
+	padding-bottom: 1rem;
+
+	text-align: left;
+}
+
+.time {
+	text-align: left;
+}
+
+.history_container {
+	display: flex;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	justify-content: space-between;
+	border-bottom: 0.5px solid #757575;
+}
+
+.history_container_img {
+	height: 2rem;
+}
+
+@media (min-width: 768px) {
+	.history_container {
+		align-items: center;
+		gap: 2rem;
+	}
+}
+
+.history__grouping {
+	text-align: right;
+	font-size: medium;
+}
+
+@media (min-width: 768px) {
+	.history__grouping {
+		display: flex;
+		justify-content: space-between;
+		gap: 6rem;
+		font-size: smaller;
+	}
+}
+@media (min-width: 1024px) {
+	.history__grouping {
+		display: block;
+	}
+}
