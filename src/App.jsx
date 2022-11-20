@@ -33,6 +33,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
+import Pricing from './pages/Pricing';
 
 function App() {
 	return (
@@ -45,6 +46,7 @@ function App() {
 				<Route path="tags-page" element={<Tags />} />
 
 				<Route path="API" element={<API />} />
+        <Route path='pricing-page' element={<Pricing/>}/>
 				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
 				{/* 
@@ -61,7 +63,6 @@ function App() {
       <Route path='notification-page' element={<CookiePolicy/>}/>
       <Route path='users-page' element={<Users/>}/>
       <Route path='frequently-asked-questions' element={<FAQ/>}/>
-      <Route path='pricing-page' element={<Pricing/>}/>
       <Route path='about-page' element={<About/>}/>
       <Route path='how-it-works' element={<HowItWorks/>}/>
       <Route path='advertising-page' element={<Advertising/>}/>
