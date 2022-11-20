@@ -14,7 +14,7 @@ import googleRespo from './assets/google_respo.svg';
 import metaRespo from './assets/meta_respo.svg';
 import twitterRespo from './assets/twitter_respo.svg';
 import githubRespo from './assets/github_respo.svg';
-import { Link } from 'react-router-dom';
+
 
 function HowItWorks() {
 	return (
