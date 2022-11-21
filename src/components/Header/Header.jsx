@@ -29,7 +29,7 @@ export default function Header({ pathname }) {
 						</Link>
 					</li>
 					<li>
-						<Link className={styles.link} to="/blog">
+						<Link className={styles.link} to="/blog-page">
 							Blog
 						</Link>
 					</li>
