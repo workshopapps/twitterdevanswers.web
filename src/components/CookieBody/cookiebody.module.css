@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-h5,
-p {
+.cookiebody h5,
+.cookiebody p {
 	margin-block: 0;
 }
-.subheading {
+.cookiebody {
 	padding-inline: 222px;
 	font-family: 'Rubik', sans-serif;
 }
 
-.subheading h5 {
+.cookiebody h5 {
 	font-family: 'Rubik', sans-serif;
 	font-size: 18px;
 	font-weight: 400;
@@ -20,7 +20,7 @@ p {
 	margin-bottom: 12px;
 }
 
-.subheading p {
+.cookiebody p {
 	font-family: 'Rubik', sans-serif;
 	font-size: 18px;
 	font-weight: 400;
@@ -34,43 +34,43 @@ p {
 	padding-inline: 25px;
 }
 
-li {
+.cookiebody li {
 	font-size: 30px;
 	color: #1d1dd8;
 }
 
-p {
+.cookiebody p {
 	margin-bottom: 22px;
 }
 
-h5 {
+.cookiebody h5 {
 	margin-bottom: 12px;
 }
 
 @media screen and (max-width: 1200px) {
-	.subheading {
+	.cookiebody {
 		padding-inline: 170px;
 	}
 }
 
 @media screen and (max-width: 1000px) {
-	.subheading {
+	.cookiebody {
 		padding-inline: 150px;
 	}
 }
 @media screen and (max-width: 800px) {
-	.subheading {
+	.cookiebody {
 		padding-inline: 80px;
 	}
 }
 @media screen and (max-width: 600px) {
-	.subheading {
+	.cookiebody {
 		padding-inline: 50px;
 	}
 }
 
 @media screen and (max-width: 400px) {
-	.subheading {
+	.cookiebody {
 		padding-inline: 22px;
 	}
 }
