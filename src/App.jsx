@@ -17,7 +17,7 @@ import Profile from './pages/Profile';
 // import Blog from './pages/Blog';
 // import Help from './pages/Help';
 // import PrivacyPolicy from './pages/PrivacyPolicy';
-// import 404Page from './pages/404Page';
+ import ErrorPage from './pages/ErrorPage';
 // import Users from './pages/Users';
 // import FAQ from './pages/FAQ';
 // import Pricing from './pages/Pricing';
@@ -38,6 +38,7 @@ function App() {
 				{/* <Route path='/' element={<LandingPage/>}/> */}
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
+        <Route path='*' element={<ErrorPage/>}/> 
 				{/* <Route path='login' element={<Login/>}/>
       <Route path='sign-up' element={<SignUp/>}/>
       <Route path='contact' element={<Contact/>}/>
