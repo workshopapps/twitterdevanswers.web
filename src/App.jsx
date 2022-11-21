@@ -15,7 +15,7 @@ import SignUp from './pages/AuthPage/SignUp';
 
 // import CookiePolicy from './pages/CookiePolicy';
 // import Career from './pages/Career';
-// import Settings from './pages/Settings';
+import Settings from './pages/Settings';
 // import Blog from './pages/Blog';
 // import Help from './pages/Help';
 // import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -44,6 +44,7 @@ function App() {
 				{/* <Route path="profile" element={<Profile />} /> */}
 				<Route path="notification-page" element={<Notifications />} />
 				<Route path="tags-page" element={<Tags />} />
+        <Route path='settings' element={<Settings/>}/>
 
 				<Route path="API" element={<API />} />
         <Route path='pricing-page' element={<Pricing/>}/>
@@ -56,7 +57,6 @@ function App() {
       <Route path='wallet' element={<WalletPage/>}/>
       
       <Route path='career' element={<Career/>}/>
-      <Route path='settings' element={<Settings/>}/>
       <Route path='blog-page' element={<Blog/>}/>
       <Route path='help-center' element={<Help/>}/>
       <Route path='privacy-policy' element={<PrivacyPolicy/>}/>
