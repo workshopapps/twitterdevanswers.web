@@ -7,7 +7,7 @@ import API from './pages/API';
 // import Footer from './pages/Footer';
 import Login from './pages/AuthPage/Login';
 import SignUp from './pages/AuthPage/SignUp';
-// import Contact from './pages/Contact';
+import Contact from './pages/Contact/index';
 // import Dashboard from './pages/Dashboard';
 // import Teams from './pages/Teams';
 // import WalletPage from './pages/WalletPage';
@@ -47,8 +47,9 @@ function App() {
 				<Route path="API" element={<API />} />
 				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
+        <Route path='contact' element={<Contact/>}/>
 				{/* 
-      <Route path='contact' element={<Contact/>}/>
+      
       <Route path='dashboard' element={<Dashboard/>}/>
       <Route path='teams-page' element={<Teams/>}/>
       <Route path='wallet' element={<WalletPage/>}/>
