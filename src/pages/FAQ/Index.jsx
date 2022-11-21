@@ -8,7 +8,7 @@ import arrowdown from '../../assets/Vector@2x.png';
 import './Style.css';
 import Accordion from '../../components/accordion/Accordion';
 
-function Index() {
+function FAQ() {
 	const [isOpen2, setIsOpen2] = useState(false);
 	const [isOpen3, setIsOpen3] = useState(false);
 	const [setHeight, setHeightActive] = useState('0px');
@@ -122,4 +122,4 @@ function Index() {
 	);
 }
 
-export default Index;
+export default FAQ;

@@ -5,7 +5,7 @@ import Editor from '../../components/Editor/Editor';
 import AskCards from '../../components/AskCards/AskCards';
 import Asks from '../../components/Asks/Asks';
 
-function App() {
+function Dashboard() {
 	return (
 		<div className={styles.appContainer}>
 			<Routes>
@@ -24,4 +24,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Dashboard;
