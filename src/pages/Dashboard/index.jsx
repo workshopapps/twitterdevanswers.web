@@ -18,7 +18,7 @@ function App() {
 						</>
 					}
 				/>
-				<Route path="/questionPage" element={<Asks />} />
+				<Route path="/QuestionPage" element={<Asks />} />
 			</Routes>
 		</div>
 	);

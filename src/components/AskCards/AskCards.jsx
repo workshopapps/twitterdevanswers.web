@@ -21,7 +21,7 @@ function AskCards() {
 					<img src={askCardData.options} alt="" className={styles.options} />
 				</section>
 				<h4>
-					<Link to="/questionPage" className={styles.question}>
+					<Link to="/QuestionPage" className={styles.question}>
 						{askCardData.question}
 					</Link>
 				</h4>
