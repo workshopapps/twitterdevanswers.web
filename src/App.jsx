@@ -16,6 +16,7 @@ import Career from './pages/Career';
 import CookiePolicy from './pages/CookiePolicy';
 import Dashboard from './pages/Dashboard';
 import FAQ from './pages/FAQ/Index';
+import Profile from './pages/Profile/index';
 import Help from './pages/Help';
 import HowItWorks from './components/HowItWorks/HowItWorks';
 import PostQuestion from './pages/PostQuestion';
@@ -29,7 +30,9 @@ function App() {
 		<div className="App">
 			<Header />
 			<Routes>
+				
 				<Route path="/" element={<LandingPage />} />
+				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
 				<Route path="tags-page" element={<Tags />} />
 				<Route path="advertising" element={<Advert />} />
