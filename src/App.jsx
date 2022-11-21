@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
-import Profile from './pages/Profile';
+// import Profile from './pages/Profile';
 // import Header from './pages/Header';
 // import Footer from './pages/Footer';
 // import Login from './pages/Login';
@@ -35,8 +35,9 @@ function App() {
 		<div className="App">
 			{/* <Header/> */}
 			<Routes>
-				{/* <Route path='/' element={<LandingPage/>}/> */}
-				<Route path="profile" element={<Profile />} />
+				{/* <Route path='/' element={<LandingPage/>}/> 
+        <Route path="profile" element={<Profile />} /> */}
+				
 				<Route path="notification-page" element={<Notifications />} />
         <Route path='*' element={<ErrorPage/>}/> 
 				{/* <Route path='login' element={<Login/>}/>
