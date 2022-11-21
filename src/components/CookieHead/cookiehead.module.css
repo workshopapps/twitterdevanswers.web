@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-.head {
+.cookiehead {
 	font-family: 'Nunito', sans-serif;
 	font-style: normal;
 	color: #1d1dd8;
 	text-align: center;
 }
 
-.head h1 {
+.cookiehead h1 {
 	font-size: 38px;
 	font-weight: 400;
 	line-height: 48px;
 	letter-spacing: 1.4249999523162842px;
 	/* margin-bottom: 0; */
 }
-.head h5 {
+.cookiehead h5 {
 	font-size: 17px;
 	font-weight: 400;
 	line-height: 27px;
@@ -23,24 +23,24 @@
 }
 
 @media screen and (max-width: 800px) {
-	.head {
+	.cookiehead {
 		padding-inline: 170px;
 	}
 }
 @media screen and (max-width: 750px) {
-	.head {
+	.cookiehead {
 		padding-inline: 100px;
 	}
 }
 
 @media screen and (max-width: 500px) {
-	.head {
+	.cookiehead {
 		padding-inline: 70px;
 	}
 }
 
 @media screen and (max-width: 300px) {
-	.head {
+	.cookiehead {
 		padding-inline: 50px;
 	}
 }
