@@ -33,6 +33,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
+import About from './pages/About/index';
 
 function App() {
 	return (
@@ -47,6 +48,7 @@ function App() {
 				<Route path="API" element={<API />} />
 				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
+        <Route path="about" element={<About />} />
 				{/* 
       <Route path='contact' element={<Contact/>}/>
       <Route path='dashboard' element={<Dashboard/>}/>
