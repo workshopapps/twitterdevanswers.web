@@ -18,12 +18,15 @@ import Dashboard from './pages/Dashboard';
 import FAQ from './pages/FAQ/Index';
 import Profile from './pages/Profile/index';
 import Help from './pages/Help';
-import HowItWorks from './components/HowItWorks/HowItWorks';
+import HowItWorks from './pages/HowItWorks';
 import PostQuestion from './pages/PostQuestion';
 import Teams from './pages/Team/Team';
 import TermsOfUse from './pages/TermsOfUse';
 import WalletPage from './pages/Wallet';
 import UserPage from './pages/UserPage/userPage';
+import ErrorPage from './pages/ErrorPage/index';
+import Settings from './pages/Settings';
+
 
 function App() {
 	return (
@@ -39,7 +42,7 @@ function App() {
 				<Route path="blog-page" element={<Blog />} />
 				<Route path="career" element={<Career />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
-				<Route path="dashboard" element={<Dashboard />} />
+				<Route path="dashboard" element={<Dashboard />}/>
 				<Route path="faq" element={<FAQ />} />
 				<Route path="help-center" element={<Help />} />
 				<Route path="teams-page" element={<Teams />} />
@@ -52,6 +55,9 @@ function App() {
 				<Route path="pricing-page" element={<Pricing />} />
 				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
+				<Route path="*" element={<ErrorPage />} />
+				<Route path="settings" element={<Settings />} />
+				
 			</Routes>
 			<Footer />
 		</div>

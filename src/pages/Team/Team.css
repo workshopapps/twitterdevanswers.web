@@ -156,6 +156,10 @@
 @media screen and (min-width: 600px) {
 }
 @media screen and (max-width: 600px) {
+	#team-10123 {
+		width: 95%;
+
+	}
 	#second-10123 > h1 {
 		display: flex;
 		flex-direction: column;
@@ -187,6 +191,7 @@
 		flex-wrap: wrap;
 		height: 100%;
 		width: 100%;
+		margin-bottom: 10%;
 	}
 
 	#role-10123 {
