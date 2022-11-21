@@ -47,7 +47,7 @@ function App() {
 				<Route path="API" element={<API />} />
 				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
-        <Route path='contact' element={<Contact/>}/>
+				<Route path="contact" element={<Contact />} />
 				{/* 
       
       <Route path='dashboard' element={<Dashboard/>}/>

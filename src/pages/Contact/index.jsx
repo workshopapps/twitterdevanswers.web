@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import styles from './styles.module.css';
 
 export const descriptionText = [
@@ -52,7 +52,7 @@ const contactLogo = [
 		src: '/assets/contact-box-logo.svg',
 	},
 ];
-function Contact () {
+function Contact() {
 	return (
 		<div className={styles.contact_wrap}>
 			<div className={styles.contact_first_wrap}>
@@ -86,36 +86,33 @@ function Contact () {
 			<ContactMarketing />
 		</div>
 	);
-};
+}
 export default Contact;
 
+export function ContactUsForm() {
+	// function for when api is ready for sending message
 
-export function ContactUsForm () {
-  
-// function for when api is ready for sending message
+	// 	const [firstName, setFirstName] = useState('')
+	//   const [lastName, setLastName] = useState('')
+	//   const [companyName, setCompanyName] = useState('')
+	//   const [businessName, setBusinessName] = useState('')
+	//   const [phoneNumber, setPhoneNumber] = useState('')
+	//   const [message, setMessage] = useState('')
 
-
-// 	const [firstName, setFirstName] = useState('')
-//   const [lastName, setLastName] = useState('')
-//   const [companyName, setCompanyName] = useState('')
-//   const [businessName, setBusinessName] = useState('')
-//   const [phoneNumber, setPhoneNumber] = useState('')
-//   const [message, setMessage] = useState('')
-
-// 	const handleChange = (e) => {
-// 		const { name, value } = e.target;
-// 		setContactForm((prevValue) => {
-// 			return {
-// 				...prevValue,
-// 				[name]: value,
-// 			};
-// 		});
-// 	};
-//   const handleChange = (setFunction, e) => {
-//     setFunction(e.target.value)
-//     }
-// 	const handleContactSendMessage = (e) => {
-// 		e.preventDefault();
+	// 	const handleChange = (e) => {
+	// 		const { name, value } = e.target;
+	// 		setContactForm((prevValue) => {
+	// 			return {
+	// 				...prevValue,
+	// 				[name]: value,
+	// 			};
+	// 		});
+	// 	};
+	//   const handleChange = (setFunction, e) => {
+	//     setFunction(e.target.value)
+	//     }
+	// 	const handleContactSendMessage = (e) => {
+	// 		e.preventDefault();
 
 	// };
 	return (
@@ -180,9 +177,9 @@ export function ContactUsForm () {
 			</button>
 		</form>
 	);
-};
+}
 
-export function ContactMarketing  () {
+export function ContactMarketing() {
 	return (
 		<div className={styles.contact_marketing_wrap}>
 			<div>
@@ -233,4 +230,4 @@ export function ContactMarketing  () {
 			</div>
 		</div>
 	);
-};
+}
