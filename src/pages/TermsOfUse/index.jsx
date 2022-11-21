@@ -25,7 +25,7 @@ function TermsOfUse() {
 					DevAsk Terms And Conditions (these &quot;Terms&quot; or these
 					&quot;Terms and Conditions&quot;) contained in this Agreement shall
 					govern your use of this Website and all its content (collectively
-					referred to herein as this "Website"). These Terms outline the rules
+					referred to herein as this `Website`). These Terms outline the rules
 					and regulations guiding the use of DevAsk located at
 					https://www.devask.com All materials/information/documents/services or
 					all other entities (collectively referred to as content) that appear
