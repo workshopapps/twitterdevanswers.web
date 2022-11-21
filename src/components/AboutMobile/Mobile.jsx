@@ -8,21 +8,18 @@
 // import twitter from "../../assets/about-images/twitter.png"
 // import stack from "../../assets/about-images/stack.png"
 
-
-
 // function Mobile (){
 //   return(
-    
+
 //     <div>
 //         <h4 className={styles.header}>What we <span style={{color: "#1D1DD8"}}>do?</span></h4>
 //         <p className={styles.intro}>
 //         Join a community of over 100+ tech<br /> professionals available to work with you.<br /> Get Started -CTA<br />
-//         -<span style={{color: "#1D1DD8"}}>No credit card required.</span><br /> 
-//         - Free trial tokens.<br /> 
+//         -<span style={{color: "#1D1DD8"}}>No credit card required.</span><br />
+//         - Free trial tokens.<br />
 //         -<span style={{color: "#1D1DD8"}}>Cancel anytime.</span><br />
 //         </p>
 //         <img className={styles.about} src={about} alt="about"/>
-   
 
 //         <h4 className={styles.secondHeader}><span style={{color: "#1D1DD8"}}>Fostering Innovation</span> with the<br /> right solution
 //         </h4>
@@ -70,9 +67,8 @@
 //             <img className={styles.principle5}  src={twitter} alt="twitter logo"/>
 //         </div>
 //     </div>
-    
+
 //   )
 // }
-
 
 // export default Mobile
