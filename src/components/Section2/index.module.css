@@ -14,7 +14,11 @@
 	width: fit-content;
 }
 .card-btn__wrapper {
+
 	padding: 1rem 3.2rem;
+=======
+	padding: 1rem 3.2rem;
+
 }
 .posts__wrapper {
 	position: absolute;
