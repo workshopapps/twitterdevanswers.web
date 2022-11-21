@@ -1,0 +1,32 @@
+.pagination {
+	display: flex;
+	justify-content: center;
+	padding: 40px;
+}
+
+.pagination__item {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.pagination__itemactive {
+	color: #4343df;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	background: #ededff;
+	border: 1px solid #4343df;
+	border-radius: 2px;
+}
+
+.pagination button {
+	color: #4343df;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	background: inherit;
+	border: 1px solid #ededff;
+	border-radius: 2px;
+}

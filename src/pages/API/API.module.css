@@ -248,7 +248,7 @@ button {
 		max-width: 90%;
 	}
 }
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
 	.featureItems {
 		display: flex;
 		flex-wrap: wrap;
@@ -264,7 +264,6 @@ button {
 	background: #f7f7fe;
 	padding: 1em;
 	margin: 3em 0em;
-	min-width: 340px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -272,7 +271,7 @@ button {
 }
 @media (min-width: 800px) {
 	.featureItems article {
-		flex: 0 0 43%;
+		flex: 0 0 48%;
 		background: #ffffff;
 	}
 }
@@ -361,6 +360,7 @@ button {
 }
 .docWrapper div .left {
 	align-self: flex-start;
+	text-align: center;
 }
 .docWrapper div .left .links:hover {
 	background: #c47aff;
@@ -374,6 +374,7 @@ button {
 }
 .docWrapper div .right {
 	align-self: flex-end;
+	text-align: center;
 }
 .docWrapper div .right .links:hover {
 	background: #c47aff;
@@ -387,6 +388,7 @@ button {
 }
 .docWrapper div .center {
 	align-self: flex-start;
+	text-align: center;
 }
 @media (min-width: 800px) {
 	.docWrapper div .center {
@@ -413,6 +415,7 @@ button {
 }
 .ctaSection .topWrapper {
 	margin: 2em 1em;
+	text-align: center;
 }
 @media (min-width: 800px) {
 	.ctaSection .topWrapper {
@@ -468,6 +471,7 @@ button {
 
 .partners {
 	margin-top: 3em;
+	text-align: center;
 }
 .partners h2 {
 	font-size: 1.8rem;
@@ -538,6 +542,7 @@ button {
 
 .faqSection {
 	padding: 1.5em 1em;
+	text-align: center;
 }
 .faqSection .links:hover {
 	background: #c47aff;
@@ -552,6 +557,7 @@ button {
 .faqSection h2 {
 	font-size: 1.6rem;
 	padding: 1.2em 0em;
+	text-align: center;
 }
 @media (min-width: 800px) {
 	.faqSection h2 {
@@ -576,7 +582,7 @@ button {
 .faqSection .accordion div .accordionBody {
 	text-align: left;
 	line-height: 1.8;
-	padding: 1em 0.5em;
+	padding: 1em 0.2em;
 	max-width: 93%;
 }
 
@@ -617,6 +623,7 @@ button {
 .safetySection h2 {
 	font-size: 2rem;
 	padding: 1.5em 0.5em;
+	text-align: center;
 }
 @media (min-width: 800px) {
 	.safetySection h2 {

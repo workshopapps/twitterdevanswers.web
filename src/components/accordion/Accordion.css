@@ -1,0 +1,55 @@
+.accordion__section {
+	display: flex;
+	flex-direction: column;
+
+	border-radius: 10px;
+	background: #ffffff;
+	box-shadow: 0px 90px 36px rgba(169, 162, 162, 0.01),
+		0px 51px 30px rgba(169, 162, 162, 0.05),
+		0px 23px 23px rgba(169, 162, 162, 0.09),
+		0px 6px 12px rgba(169, 162, 162, 0.1), 0px 0px 0px rgba(169, 162, 162, 0.1);
+	/* height: 336px; */
+}
+.accordion__section .toggle {
+	border: unset;
+	cursor: pointer;
+	padding: 0.5rem;
+	border-radius: 10px;
+	box-shadow: 0px 40px 16px rgba(169, 162, 162, 0.01),
+		0px 22px 13px rgba(169, 162, 162, 0.05),
+		0px 10px 10px rgba(169, 162, 162, 0.09),
+		0px 2px 5px rgba(169, 162, 162, 0.1), 0px 0px 0px rgba(169, 162, 162, 0.1);
+	background: #ffffff;
+	font-size: 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.accordion__section p {
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 600;
+	padding: 10px;
+}
+.accordion__section .content {
+	background: #ffffff;
+	border-radius: 10px;
+}
+.accordion__section .content-parent {
+	height: 0px;
+	overflow: hidden;
+	transition: height ease 0.3s;
+}
+.rotate {
+	transform: rotate(180deg);
+}
+
+@media (max-width: 400px) {
+	.accordion__section p {
+		font-size: 15px;
+	}
+	.accordion__section .toggle {
+		font-size: 12px;
+	}
+}

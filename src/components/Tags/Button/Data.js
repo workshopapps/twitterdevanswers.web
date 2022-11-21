@@ -1,0 +1,7 @@
+const BUTTON_TYPES = {
+	PRIMARY: 'PRIMARY',
+	SECONDARY: 'SECONDARY',
+	TETIARY: 'TETIARY',
+};
+
+export default BUTTON_TYPES;

@@ -2,8 +2,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Rubik', sans-serif;
-	color: #3c4458;
 }
 
 .terms-of-use {
@@ -13,6 +11,8 @@
 	flex-direction: column;
 	gap: 64px;
 	margin: 64px auto;
+	font-family: 'Rubik', sans-serif;
+	color: #3c4458;
 	background-color: white;
 }
 .heading {

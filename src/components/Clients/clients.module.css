@@ -1,0 +1,29 @@
+.clients {
+	padding: 72px 48px;
+	background: #1d1dd8;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.clients h3 {
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 40px;
+	color: #fefefe;
+	margin-bottom: 24px;
+}
+
+.brands {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	row-gap: 24px;
+}
+
+@media only screen and (max-width: 500px) {
+	.clients h3 {
+		font-size: 18px;
+		line-height: 24px;
+	}
+}
