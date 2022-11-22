@@ -21,7 +21,7 @@ function Advert() {
 						your ads. DevAsk puts your brand in the faces of thousands of
 						developers to boost your ad conversion
 					</p>
-					<a id="btn-20234"> Get Started</a>
+					<a id="btn-20234" href='/'> Get Started</a>
 				</div>
 				<div id="img-20234">
 					<img src={Devs} alt="group of developers" />
@@ -52,7 +52,7 @@ function Advert() {
 						</p>
 					</div>
 				</div>
-				<a id="btn-20234"> Get Started</a>
+				<a id="btn-20234" href='/'> Get Started</a>
 			</div>
 
 			<div id="section3-20234">
@@ -67,8 +67,8 @@ function Advert() {
 			</div>
 			<div id="section4-20234">
 				<h2>Are you ready to get conversion? </h2>
-				<p>Let's get you started </p>
-				<a id="btn-20234"> Get Started</a>
+				<p>Let us get you started </p>
+				<a id="btn-20234" href='/'> Get Started</a>
 			</div>
 		</div>
 	);
