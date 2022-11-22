@@ -8,7 +8,7 @@
 	background: #fefefe;
 	border-bottom: 1px solid #d6d6d6;
 }
-:global a {
+.settingsnav a {
 	text-decoration: none;
 }
 
@@ -30,7 +30,7 @@
 	gap: 24px;
 }
 
-:global button {
+.settingsnav button {
 	width: 162px;
 	height: 53px;
 	border: 1px solid #4343df;
@@ -43,7 +43,7 @@
 	color: #4343df;
 	cursor: pointer;
 }
-:global button:hover {
+.settingsnav button:hover {
 	background: #7070fc;
 	color: #fefefe;
 }
