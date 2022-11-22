@@ -13,7 +13,7 @@
 }
 
 .contact_wrap {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
 	
 }
@@ -26,11 +26,13 @@
 	align-items: center;
 	flex-direction: column;
 	text-align: center;
+	justify-content: center;
 }
 .contact_first_wrap p {
 	font-size: 64px;
 	font-weight: 400;
-	line-height: 40px;
+	line-height: 80px;
+	color: #ffffff;
 }
 .contact_first_wrap span {
 	width: 55%;
@@ -43,6 +45,7 @@
 	padding: 100px 0 ;
 	margin: 0 auto;
 	display: flex;
+	justify-content : space-between ;
 }
 .contact_text_wrap {
 	padding-bottom: 20px;
@@ -57,16 +60,17 @@
 	
 }
 .contactus_form_wrap {
-	width: 40%;
+	width: 50%;
 	padding: 0 5%;
 }
 .contactus_form_wrap1 {
 	width: 100%;
+	padding:  20px 0;
 }
 
 .contactus_form_wrap1 span {
 	font-size: 16px;
-	line-height: 30px;
+	line-height: 40px;
 	font-weight: 400;
 }
 .contact_logo_images {
@@ -81,9 +85,8 @@
 	height: 25px;
 }
 .form_wrap {
-	width: 40%;
+	width: 45%;
 	padding: 0 5% 30px 5%;
-	margin: 0 0 30px 0;
 	background: #ffffff;
 	box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.1);
 	border-radius: 20px;
@@ -102,18 +105,18 @@
 }
 .form_wrap input {
 	width: 95%;
-	height: 30px;
+	height: 50px;
 	padding: 2px 2.5%;
 	border: 1px solid rgba(10, 10, 10, 0.2);
 	background-color: #ffffff;
 	border-radius: 8px;
 	outline: none;
 	color: #757575;
-	margin: 20px 0;
+	margin: 0;
 }
 .contact_input_message {
 	width: 95%;
-	height: 60px;
+	
 	padding: 7px 2.5%;
 	border: 1px solid rgba(10, 10, 10, 0.2);
 	background-color: #ffffff;
@@ -127,7 +130,7 @@
 	width: 40%;
 	padding: 0 0 5vh 7.5%;
 	position: relative;
-	top: -300px;
+	top: -500px;
 	left: 0;
 }
 .contact_team_wrap p {
@@ -150,12 +153,12 @@
 }
 .contact_marketing_wrap {
 	width: 90%;
-	padding: 0 5%;
+	margin: 0 auto;
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	position: relative;
-	top: -200px;
+	top: -300px;
 	left: 0;
 }
 .contact_marketing_wrap div {
