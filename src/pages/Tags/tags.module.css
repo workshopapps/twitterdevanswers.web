@@ -2,7 +2,7 @@
 	background-color: #f7f7fe;
 }
 
-h1 {
+.container h1 {
 	font-weight: 600px;
 	font-size: 32px;
 }
@@ -46,11 +46,11 @@ h1 {
 	display: hidden;
 }
 
-input {
+.container input {
 	border: none;
 }
 
-input:focus {
+.container input:focus {
 	outline: none;
 }
 
