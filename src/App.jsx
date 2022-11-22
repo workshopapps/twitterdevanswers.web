@@ -15,6 +15,9 @@ import Blog from './pages/Blog';
 import Career from './pages/Career';
 import CookiePolicy from './pages/CookiePolicy';
 import Dashboard from './pages/Dashboard';
+import Asks from './components/Asks/Asks';
+import AskCards from './components/AskCards/AskCards';
+import Editor from './components/Editor/Editor';
 import FAQ from './pages/FAQ/Index';
 import Help from './pages/Help';
 import HowItWorks from './components/HowItWorks/HowItWorks';
@@ -36,7 +39,18 @@ function App() {
 				<Route path="blog-page" element={<Blog />} />
 				<Route path="career" element={<Career />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
-				<Route path="dashboard" element={<Dashboard />} />
+				<Route path="/" element={<Dashboard />}>
+					<Route
+						path="dashboard"
+						element={
+							<>
+								<Editor />
+								<AskCards />
+							</>
+						}
+					/>
+					<Route path="/dashboard/QuestionPage" element={<Asks />} />
+				</Route>
 				<Route path="faq" element={<FAQ />} />
 				<Route path="help-center" element={<Help />} />
 				<Route path="teams-page" element={<Teams />} />

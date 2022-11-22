@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './Asks.module.css';
 import arrowLeft from '../../assets/arrowLeft.webp';
 import prosper from '../../assets/prosper.webp';
@@ -12,6 +12,7 @@ import questionPageData from './questionPageData';
 
 function Asks() {
 	const [reply, setReply] = useState({ text: '' });
+	const navigate = useNavigate();
 
 	function handleReply(event) {
 		setReply({
@@ -54,10 +55,14 @@ function Asks() {
 
 	return (
 		<div className={styles.ask}>
-			<Link to="/" className={styles.back}>
+			<button
+				type="button"
+				className={styles.back}
+				onClick={() => navigate(-1)}
+			>
 				<img src={arrowLeft} alt="" />
 				<p>Go back</p>
-			</Link>
+			</button>
 			<section className={styles.header}>
 				<div className={styles.aboutUser}>
 					<img src={prosper} alt="" />

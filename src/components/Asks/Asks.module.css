@@ -10,13 +10,18 @@
 .back {
 	display: flex;
 	justify-content: flex-start;
-	align-items: center;
 	gap: 1rem;
 	font-weight: 400;
-	font-size: 16px;
-	color: #1d1dd8;
+	font-size: 18px;
 	text-decoration: none;
-	width: 15%;
+	border: none;
+	cursor: pointer;
+	width: 30%;
+}
+
+.back > p {
+	color: #1d1dd8;
+	font-size: 18px;
 }
 
 .header {
