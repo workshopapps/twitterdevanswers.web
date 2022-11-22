@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	color: #3c4458;
 	}
 
 .TermsOfUse {
@@ -11,7 +12,6 @@
 	gap: 64px;
 	margin: 64px auto;
 	font-family: 'Rubik', sans-serif;
-	color: #3c4458;
 	background-color: white;
 }
 .Heading {
@@ -19,6 +19,9 @@
 	font-weight: 600;
 	line-height: 40px;
 	text-align: left;
+	color: #3c4458;
+	margin: 0;
+	
 }
 .RequirementsSection {
 	display: flex;
