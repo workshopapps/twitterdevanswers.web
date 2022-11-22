@@ -166,11 +166,11 @@ function API() {
 				</div>
 
 				<div className={styles.buttonWrapper}>
-					<a href="/" className={styles.links}>
+					<a href="/sign-up" className={styles.links}>
 						Sign Up
 					</a>
 
-					<a href="/" className={styles.links}>
+					<a href="/login" className={styles.links}>
 						Log in
 					</a>
 				</div>

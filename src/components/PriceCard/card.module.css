@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+
+.PaymentCard {
+    width: 350px;
+    /* height: 497.42px; */
+    height: 510px;
+    /* height: 570px; */
+    background: #F7F7FE;
+    box-shadow: 0px 1px 2px 0.5px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    margin-left: 3rem;
+    /* overflow: hidden; */
+  }
+
+  .TopSectionWrapper {
+    height: 220px;
+  }
+  
+  .CardHeader1 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 72px;
+    color: #282828;
+    position: relative;
+    top: 3rem;
+    left: 20px;
+  }
+  
+  .CardHeader2 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 32px;
+    color: #282828;
+    opacity: 0.6;
+    position: relative;
+    top: 4rem;
+    left: 1.7rem;
+  }
+  
+  .CardHeader3 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 32px;
+    color: #282828;
+    position: relative;
+    top: 4.5rem;
+    left: 1.3rem;
+  }
+  
+  .CardVector {
+    width: 140px;
+    height: 147.66px;
+    position: relative;
+    left: 210.5px;
+    bottom: 8.6rem;
+    border-radius: 16px;
+  }
+
+  .CardContentWrapper {
+    /* margin-top: -10rem; */
+  }
+
+  .CardSubHeader {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 32px;
+    color: #282828;
+    margin-left: 2rem;
+  }
+  
+  .CardOption1 {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 32px;
+  color: #000000;
+  opacity: 0.6;
+  margin-top: 8px;
+  margin-left: 2rem;
+  }
+  
+  .CardOptionWrapper {
+    display: flex;
+    margin-left: 34px;
+    margin-top: 10px;
+    /* justify-content: space-around; */
+  }
+  
+  .CardOptionSquare {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+  }
+  
+  .CardOption {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 32px;
+  color: #282828;
+  opacity: 0.6;
+  margin-left: 18px;
+  }
+
+  @media only screen  and (max-width: 1029px) {
+    .PaymentCard  {
+        width:315px;
+        margin-left: 3%;
+        
+    }
+
+    .CardHeader1{
+        margin-left: 2rem;
+    }
+
+    .CardVector {
+        left: 11rem;
+        bottom: 8.54rem;
+    }
+
+    .CardSubHeader {
+        margin-left: -12rem;
+    }
+
+    .CardOption1 {
+        margin-left: -2rem;
+    }
+
+  }
+
+  @media only screen  and (max-width: 1015px) {
+    .PaymentCard  {
+      width: 200.04px;
+      height: 284.29px;
+      background: #F2F2FF;
+      box-shadow: 0px 0.571536px 1.14307px 0.285768px rgba(0, 0, 0, 0.15);
+      border-radius: 9.14457px;
+      margin-left: 40px;
+     }
+  
+     .TopSectionWrapper {
+      height: 81px;
+    }
+  
+     .CardHeader1 {
+      font-size: 19.1658px;
+      line-height: 41px;
+      left: -1rem;
+      top: 8.04%;
+      margin-bottom: 0px;
+      /* margin-top: 0px; */
+     }
+
+     .CardHeader2 {
+      left: 1rem;
+      top: 23.48%;
+      font-size: 7.98574px;
+      line-height: 18px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+     }
+  
+     .CardHeader3 {
+      font-size: 7.98574px;
+      line-height: 18px;
+      left: 1rem;
+      top: 30.72%;
+     }
+  
+     .CardVector {
+      width: 80.02px;
+      height: 84.39px;
+      left: 61.14%;
+      bottom: 84px;
+     }
+
+     .CardContentWrapper {
+      margin-top: 10px;
+    }
+  
+    .CardSubHeader {
+      font-size: 7.98574px;
+      line-height: 18px;
+      margin-left: 1rem;
+    }
+  
+    .CardOption1 {
+      font-size: 7.98574px;
+      line-height: 13px;
+      margin-left: 1rem;
+    }
+  
+    .CardOptionWrapper {
+      margin-left: 19.7px;
+    }
+  
+    .CardOptionSquare {
+      width: 11.43px;
+      height: 11.43px;
+      margin-top: 2px;
+    }
+  
+    .CardOption {
+      font-size: 7.98574px;
+      line-height: 18px;
+      margin-left: 10.3px;
+    }
+  }
+
+  @media only screen  and (max-width: 768px) {
+    .PaymentCard  {
+        width: 200.04px;
+        height: 284.29px;
+        background: #F2F2FF;
+        box-shadow: 0px 0.571536px 1.14307px 0.285768px rgba(0, 0, 0, 0.15);
+        border-radius: 9.14457px;
+        margin-left: 40px;
+       }
+    
+       .TopSectionWrapper {
+        height: 81px;
+      }
+    
+       .CardHeader1 {
+        font-size: 19.1658px;
+        line-height: 41px;
+        left: -1rem;
+        top: 8.04%;
+        margin-bottom: 0px;
+        /* margin-top: 0px; */
+       }
+
+       .CardHeader2 {
+        left: 1rem;
+        top: 23.48%;
+        font-size: 7.98574px;
+        line-height: 18px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+       }
+    
+       .CardHeader3 {
+        font-size: 7.98574px;
+        line-height: 18px;
+        left: 1rem;
+        top: 30.72%;
+       }
+    
+       .CardVector {
+        width: 80.02px;
+        height: 84.39px;
+        left: 61.14%;
+        bottom: 83px;
+       }
+
+       .CardContentWrapper {
+        margin-top: 0px;
+      }
+    
+      .CardSubHeader {
+        font-size: 7.98574px;
+        line-height: 18px;
+        margin-left: 1rem;
+      }
+    
+      .CardOption1 {
+        font-size: 7.98574px;
+        line-height: 13px;
+        margin-left: 1rem;
+      }
+    
+      .CardOptionWrapper {
+        margin-left: 19.7px;
+      }
+    
+      .CardOptionSquare {
+        width: 11.43px;
+        height: 11.43px;
+        margin-top: 2px;
+      }
+    
+      .CardOption {
+        font-size: 7.98574px;
+        line-height: 18px;
+        margin-left: 10.3px;
+      }
+  }
+
+@media only screen  and (max-width: 740px) {
+  .PaymentCard  {
+    margin-top: 32.71px;
+  }
+}
+
+
+@media only screen  and (max-width: 450px) {
+    .PaymentCard  {
+        margin-top: 32.71px;
+        margin-left: 5rem;
+      }
+}

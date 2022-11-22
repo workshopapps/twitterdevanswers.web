@@ -1,0 +1,184 @@
+.cards {
+	width: 60%;
+}
+
+.cardContainer {
+	display: flex;
+	gap: 1rem;
+	background-color: #ffffff;
+	border: 1px solid #ececfb;
+	border-radius: 8px;
+	padding: 24px 16px 24px 16px;
+	margin: 0.4rem 0;
+	width: 100%;
+}
+
+.cardContainer > div {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.profilePicture {
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+}
+
+.cardHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.userInfo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+}
+
+.askName {
+	font-weight: 500;
+	font-size: 18px;
+	color: #303030;
+}
+
+.userName,
+.time {
+	font-weight: 400;
+	font-size: 18px;
+	color: #989898;
+}
+
+.options {
+	cursor: pointer;
+}
+
+.question {
+	font-weight: 500;
+	font-size: 20px;
+	color: #303030;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.reply {
+	font-weight: 400;
+	font-size: 16px;
+	color: #535353;
+	cursor: pointer;
+}
+
+.tag {
+	font-weight: 400;
+	font-size: 12px;
+	color: #1d1dd8;
+	background-color: #ededff;
+	border-radius: 4px;
+	padding: 8px 16px;
+	width: 15%;
+	text-align: center;
+}
+
+.cardFooter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.icons {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2rem;
+}
+
+.viewReplies {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.4rem;
+	font-weight: 400;
+	font-size: 16px;
+	color: #535353;
+	cursor: pointer;
+}
+
+.likes {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.4rem;
+	font-weight: 400;
+	font-size: 16px;
+	color: #535353;
+	cursor: pointer;
+}
+
+.share {
+	font-weight: 400;
+	width: 16px;
+	height: 16px;
+	color: #535353;
+	cursor: pointer;
+}
+
+.reward {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.4rem;
+	font-weight: 500;
+	font-size: 16px;
+	color: #535353;
+}
+
+@media only screen and (max-width: 768px) {
+	.cards {
+		width: 100%;
+	}
+
+	.cardContainer,
+	.cardContainer > div {
+		gap: 0.5rem;
+	}
+
+	.profilePicture {
+		width: 30px;
+		height: 30px;
+	}
+
+	.askName,
+	.userName,
+	.time {
+		font-size: 10px;
+	}
+
+	.question {
+		font-size: 16px;
+	}
+
+	.reply,
+	.viewReplies,
+	.likes,
+	.reward {
+		font-size: 12px;
+	}
+
+	:is(.viewReplies, .likes, .reward) img,
+	.options .share {
+		width: 12px;
+		height: 12px;
+	}
+
+	.tag {
+		font-size: 8px;
+		width: 20%;
+	}
+
+	.userInfo,
+	.icons {
+		gap: 0.5rem;
+	}
+}
