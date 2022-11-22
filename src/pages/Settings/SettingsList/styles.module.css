@@ -55,23 +55,23 @@
 	display: none;
 }
 
-:global h2 {
+.headingtwo {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 600;
 	font-size: 24px;
 	color: #252d2a;
 }
-:global h1 {
+.hero-text {
 	margin-left: 23px;
 	font-family: 'Rubik', sans-serif;
 	font-weight: 600;
 	font-size: 32px;
 	color: #1d1dd8;
 }
-:global p {
+.paragraph {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 16px;
 	color: rgba(37, 45, 42, 0.81);
 }
 .subtab {
@@ -105,6 +105,9 @@
 	border-bottom: none;
 	background-color: white;
 	cursor: pointer;
+}
+.appearancesubtab svg {
+	max-width:unset ;
 }
 .subtab:active {
 	background-color: #d2d2f7;
@@ -201,7 +204,7 @@
 	cursor: pointer;
 }
 
-:global form {
+.mobileform {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -209,7 +212,7 @@
 	width: 100%;
 }
 
-:global label {
+.label {
 	text-align: left;
 	display: flex;
 	flex-direction: column;
@@ -217,12 +220,39 @@
 	font-weight: 400;
 	width: 100%;
 }
+.flagimage{
+	width: 49%;
+	background-image: url("../assets/flag.png");
+	background-repeat: no-repeat;
+	background-position: 19px;
+	background-color: #ffffff;
+	border: none;
+	border-radius: 8px;
+}
 
-:global .mobiletextinput {
+.mobiletextinput {
 	display: flex;
 	flex-direction: column;
 	padding-left: 10px;
-	width: 81%;
+	width: 98%;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+.phonenumber{
+	display: flex;
+	gap: 16px;
+	width: 98%;
+}
+.mobileformcontrol{
+	display: flex;
+	writing-mode: horizontal-tb;
+	flex-direction: column;
+	padding-top: 10px;
+	padding-left: 10px;
+	width: 98%;
 	height: 42px;
 	border: none;
 	border-radius: 8px;
@@ -230,25 +260,21 @@
 	cursor: pointer;
 }
 
-.phonenumberinputs {
-    display: flex;
+.phoneinput{
+	display: flex;
 	flex-direction: column;
 	padding-left: 10px;
-	width: 81%;
+	width: 49%;
 	height: 42px;
 	border: none;
 	border-radius: 8px;
 	background-color: #ffffff;
 	cursor: pointer;}
 
-:global input[type='number'] {
-	width: 90%;
-}
 
-:global select {
-	width: 88px;
-	height: 42px;
-}
+
+
+
 
 .userinfo {
 	display: flex;
@@ -261,7 +287,7 @@
 }
 
 .mobilesavebtn {
-	width: 38%;
+	width: 44%;
 	height: 56px;
 	border: none;
 	border-radius: 8px;
@@ -274,7 +300,7 @@
 	cursor: pointer;
 }
 .mobilediscardbtn {
-	width: 38%;
+	width: 44%;
 	height: 56px;
 	border-radius: 8px;
 	background-color: transparent;
@@ -305,16 +331,23 @@
 		background: rgba(255, 255, 255, 0.8);
 		padding-bottom: 7em;
 	}
-	:global .mobiletextinput {
-		display: flex;
-		flex-direction: column;
-		padding-left: 10px;
-		width: 81%;
-		height: 42px;
+	.mobiletextinput {
+		
+		background-color: #efefef;
+	}
+	.phoneinput{
+
+		background-color: #efefef;
+}
+	
+	.flagimage{
+		width: 49%;
+		background-image: url("../assets/flag.png");
+		background-repeat: no-repeat;
+		background-position: 19px;
+		background-color: #efefef;
 		border: none;
 		border-radius: 8px;
-		background-color: #efefef;
-		cursor: pointer;
 	}
     .phonenumberinputs {
         display: flex;
@@ -326,6 +359,10 @@
         border-radius: 8px;
 		background-color: #efefef;
         cursor: pointer;}
+		.mobileformcontrol{
+
+			background-color: #efefef;
+		}
 	.edit-account
 		.user-info
 		.user-details-form
@@ -340,9 +377,31 @@
 	}
 }
 @media screen and (max-width: 680px) {
+	.headingtwo {
+		font-family: 'Rubik', sans-serif;
+		font-weight: 600;
+		font-size: 21px;
+		color: #252d2a;
+	}
+	.hero-text {
+		margin-left: 23px;
+		font-family: 'Rubik', sans-serif;
+		font-weight: 600;
+		font-size: 32px;
+		color: #1d1dd8;
+	}
+	.paragraph {
+		font-family: 'Rubik', sans-serif;
+		font-weight: 400;
+		font-size: 13px;
+		color: rgba(37, 45, 42, 0.81);
+	}
 }
 
 @media screen and (max-width: 1000px) {
+	.flexcontainer {
+		padding-left: 10px;
+	}
 	.Reactsearchbar {
 		display: block;
 		margin: 34px 0;
