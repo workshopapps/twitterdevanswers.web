@@ -1,18 +1,8 @@
-nav {
-	display: flex;
-	justify-content: space-between;
-	width: auto;
-}
-
-main {
+.devask_main {
 	background: white;
 	margin: 20px;
 	margin-bottom: 20px;
 	padding: 15px;
-}
-
-hr {
-	width: 100% !important;
 }
 
 .dev__ask h2 {

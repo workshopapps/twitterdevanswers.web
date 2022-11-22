@@ -11,7 +11,7 @@ export default function Devask({ Data }) {
 	const { image, user, title, tweet, likes, comments, date } = Data;
 
 	return (
-		<main>
+		<main className={styles.devask_main}>
 			<div className={styles.dev__ask}>
 				<h2 className>{title}</h2>
 				<p>{tweet}</p>
