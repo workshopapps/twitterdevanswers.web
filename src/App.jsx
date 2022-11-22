@@ -47,6 +47,7 @@ import WalletPage from './pages/Wallet';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
+import Contact from './pages/Contact/index';
 
 function App() {
 	return (
@@ -77,6 +78,8 @@ function App() {
 				<Route path="about" element={<About />} />
 				<Route path="*" element={<ErrorPage />} />
 				<Route path="settings" element={<Settings />} />
+				<Route path="contact" element={<Contact />} />
+			
 			</Routes>
 			<Footer />
 		</div>

@@ -6,6 +6,32 @@
 	padding: 111px 116px 104px 16px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+.formcontrol{
+	display: flex;
+	writing-mode: horizontal-tb;
+	flex-direction: column;
+	padding-top: 10px;
+	padding-left: 10px;
+	width: 566px;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background-color: #efefef;
+	cursor: pointer;
+}
+.phonenumber{
+	display: flex;
+	gap: 16px;
+}
+.flagimage{
+	width: 88px;
+	background-image: url("../assets/flag.png");
+	background-repeat: no-repeat;
+	background-position: 19px;
+	background-color: #efefef;
+	border: none;
+	border-radius: 8px;
+}
 .tabheading h2 {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 500;
@@ -42,14 +68,14 @@
 	cursor: pointer;
 }
 
-:global form {
+.form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	gap: 33.67px;
 }
 
-:global label {
+.label {
 	text-align: left;
 	display: flex;
 	flex-direction: column;
@@ -58,7 +84,7 @@
 	width: 100%;
 }
 
-:global .textinput {
+ .textinput {
 	display: flex;
 	flex-direction: column;
 	padding-left: 10px;
@@ -70,11 +96,11 @@
 	cursor: pointer;
 }
 
-.phonenumberinputs {
+.phoneinput{
 	display: flex;
 	flex-direction: column;
 	padding-left: 10px;
-	width: 566px;
+	width: 90%;
 	height: 42px;
 	border: none;
 	border-radius: 8px;
@@ -83,10 +109,7 @@
 
 
 
-:global select {
-	width: 88px;
-	height: 42px;
-}
+
 
 .userinfo {
 	display: flex;
@@ -124,9 +147,7 @@
 	font-size: 12px;
 	cursor: pointer;
 }
-:global input [type='number']{
-	width: 100%;
-}
+
 .edit-account
 	.user-info
 	.user-details-form
@@ -144,7 +165,18 @@
 	.editaccount {
 		display: none;
 	}
-	:global input {
+	.textinput {
+		display: flex;
+		flex-direction: column;
+		padding-left: 10px;
+		width: 98%;
+		height: 42px;
+		border: none;
+		border-radius: 8px;
+		background-color: #efefef;
+		cursor: pointer;
+	}
+	.phonetinput {
 		display: flex;
 		flex-direction: column;
 		padding-left: 10px;
