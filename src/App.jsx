@@ -9,6 +9,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
+import About from './pages/About/index';
 import Pricing from './pages/Pricing';
 import Advert from './pages/Advert/Advert';
 import Blog from './pages/Blog';
@@ -27,13 +28,11 @@ import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
 
-
 function App() {
 	return (
 		<div className="App">
 			<Header />
-			<Routes>
-				
+			<Routes>				
 				<Route path="/" element={<LandingPage />} />
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
@@ -55,9 +54,9 @@ function App() {
 				<Route path="pricing-page" element={<Pricing />} />
 				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
+				<Route path="about" element={<About />} />
 				<Route path="*" element={<ErrorPage />} />
 				<Route path="settings" element={<Settings />} />
-				
 			</Routes>
 			<Footer />
 		</div>
