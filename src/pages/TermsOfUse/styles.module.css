@@ -1,10 +1,10 @@
-* {
+.TermsOfUseBody{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
+	}
 
-.terms-of-use {
+.TermsOfUse {
 	width: 88%;
 	display: flex;
 	flex-direction: column;
@@ -14,106 +14,106 @@
 	color: #3c4458;
 	background-color: white;
 }
-.heading {
+.Heading {
 	font-size: 32px;
 	font-weight: 600;
 	line-height: 40px;
 	text-align: left;
 }
-.requirements-section {
+.RequirementsSection {
 	display: flex;
 }
-.requirements-section h2 {
+.RequirementsSection h2 {
 	width: 30%;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 32px;
 }
-.requirements-section p {
+.RequirementsSection p {
 	width: 70%;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 28px;
 }
-.agreement-section {
+.AgreementSection {
 	display: flex;
 }
-.agreement-section h2 {
+.AgreementSection h2 {
 	width: 30%;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 32px;
 }
-.agreement-section p {
+.AgreementSection p {
 	width: 70%;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 28px;
 }
-.standard-section {
+.StandardSection {
 	display: flex;
 }
-.standard-section h2 {
+.StandardSection h2 {
 	width: 30%;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 32px;
 }
-.standard-section p {
+.StandardSection p {
 	width: 70%;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 28px;
 }
-.copyright-section {
+.CopyrightSection {
 	display: flex;
 }
-.copyright-section h2 {
+.CopyrightSection h2 {
 	width: 30%;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 32px;
 }
-.copyright-section p {
+.CopyrightSection p {
 	width: 70%;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 28px;
 }
-.billing-section {
+.BillingSection {
 	display: flex;
 }
-.billing-section h2 {
+.BillingSection h2 {
 	width: 30%;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 32px;
 }
-.billing-section p {
+.BillingSection p {
 	width: 70%;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 28px;
 }
-.billing-section-par {
+.BillingSectionPar {
 	display: flex;
 	flex-direction: column;
 	gap: 32px;
 }
 
 @media screen and (max-width: 768px) {
-	.requirements-section h2,
-	.agreement-section h2,
-	.standard-section h2,
-	.copyright-section h2,
-	.billing-section h2 {
+	.RequirementsSection h2,
+	.AgreementSection h2,
+	.StandardSection h2,
+	.CopyrightSection h2,
+	.BillingSection h2 {
 		font-size: 18px;
 	}
-	.requirements-section p,
-	.agreement-section p,
-	.standard-section p,
-	.copyright-section p,
-	.billing-section p {
+	.RequirementsSection p,
+	.AgreementSection p,
+	.StandardSection p,
+	.CopyrightSection p,
+	.BillingSection p {
 		font-size: 14px;
 	}
 }
@@ -121,19 +121,19 @@
 	.heading {
 		margin-top: 32px;
 	}
-	.requirements-section,
-	.agreement-section,
-	.standard-section,
-	.copyright-section,
-	.billing-section {
+	.RequirementsSection,
+	.AgreementSection,
+	.StandardSection,
+	.CopyrightSection,
+	.BillingSection {
 		display: flex;
 		flex-direction: column;
 	}
-	.requirements-section h2,
-	.agreement-section h2,
-	.standard-section h2,
-	.copyright-section h2,
-	.billing-section h2 {
+	.RequirementsSection h2,
+	.AgreementSection h2,
+	.StandardSection h2,
+	.CopyrightSection h2,
+	.BillingSection h2 {
 		width: 100%;
 		font-size: 16px;
 		font-weight: bold;
@@ -143,11 +143,11 @@
 		margin-bottom: 0;
 	}
 
-	.requirements-section p,
-	.agreement-section p,
-	.standard-section p,
-	.copyright-section p,
-	.billing-section p,
+	.RequirementsSection p,
+	.AgreementSection p,
+	.StandardSection p,
+	.CopyrightSection p,
+	.BillingSection p,
 	.update {
 		margin-top: 16px;
 		width: 100%;
