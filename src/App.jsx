@@ -4,26 +4,6 @@ import Notifications from './pages/Notifications';
 import API from './pages/API';
 import Login from './pages/AuthPage/Login';
 import SignUp from './pages/AuthPage/SignUp';
-<<<<<<< HEAD
-// import Contact from './pages/Contact';
-// import Dashboard from './pages/Dashboard';
-// import Teams from './pages/Teams';
-// import WalletPage from './pages/WalletPage';
-// import CookiePolicy from './pages/CookiePolicy';
-// import Career from './pages/Career';
-// import Settings from './pages/Settings';
-// import Blog from './pages/Blog';
-// import Help from './pages/Help';
-// import PrivacyPolicy from './pages/PrivacyPolicy';
-// import 404Page from './pages/404Page';
-// import Users from './pages/Users';
-// import FAQ from './pages/FAQ';
-// import Pricing from './pages/Pricing';
-// import About from './pages/About';
-// import HowItWorks from './pages/HowItWorks';
-// import Advertising from './pages/Advertising';
-=======
->>>>>>> 11b3ab70ec51142a4a8c574dd0b58e074a23a09b
 import Tags from './pages/Tags';
 import './App.css';
 import Header from './components/Header/Header';
@@ -43,7 +23,7 @@ import HowItWorks from './pages/HowItWorks';
 import PostQuestion from './pages/PostQuestion';
 import Teams from './pages/Team/Team';
 import TermsOfUse from './pages/TermsOfUse';
-import WalletPage from './pages/Wallet';
+import WalletPage from './pages/WalletPage';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
@@ -53,7 +33,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
-			<Routes>				
+			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
@@ -62,7 +42,7 @@ function App() {
 				<Route path="blog-page" element={<Blog />} />
 				<Route path="career" element={<Career />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
-				<Route path="dashboard" element={<Dashboard />}/>
+				<Route path="dashboard" element={<Dashboard />} />
 				<Route path="faq" element={<FAQ />} />
 				<Route path="help-center" element={<Help />} />
 				<Route path="teams-page" element={<Teams />} />
@@ -79,7 +59,6 @@ function App() {
 				<Route path="*" element={<ErrorPage />} />
 				<Route path="settings" element={<Settings />} />
 				<Route path="contact" element={<Contact />} />
-			
 			</Routes>
 			<Footer />
 		</div>
