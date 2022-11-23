@@ -1,0 +1,202 @@
+.editaccount {
+	display: flex;
+	flex-direction: column;
+	height: 939px;
+	background-color: rgba(255, 255, 255, 0.41);
+	padding: 111px 116px 104px 16px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.formcontrol{
+	display: flex;
+	writing-mode: horizontal-tb;
+	flex-direction: column;
+	padding-top: 10px;
+	padding-left: 10px;
+	width: 566px;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background-color: #efefef;
+	cursor: pointer;
+}
+.phonenumber{
+	display: flex;
+	gap: 16px;
+}
+.flagimage{
+	width: 88px;
+	background-image: url("../../assets/settings-image/flag.png");
+	background-repeat: no-repeat;
+	background-position: 19px;
+	background-color: #efefef;
+	border: none;
+	border-radius: 8px;
+}
+.tabheading h2 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+	color: #1d1dd8;
+}
+.userinfo {
+	gap: 33.67px;
+}
+
+.userprofile {
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.profileimg {
+	border-radius: 100px;
+	aspect-ratio: 1;
+	scale: 1;
+	width: 130px;
+}
+.editsvg {
+	z-index: 100;
+	left: 50%;
+	bottom: 0;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(29, 29, 216, 0.86);
+	border-radius: 100px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 33.67px;
+}
+
+.label {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	width: 100%;
+}
+
+ .textinput {
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+	width: 566px;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background-color: #efefef;
+	cursor: pointer;
+}
+
+.phoneinput{
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+	width: 90%;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background-color: #efefef;
+	cursor: pointer;}
+
+
+
+
+
+.userinfo {
+	display: flex;
+	flex-direction: column;
+}
+.buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+}
+
+.savebtn {
+	width: 265px;
+	height: 56px;
+	border: none;
+	border-radius: 8px;
+	background: #1d1dd8;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	color: #fefefe;
+	text-transform: capitalize;
+	font-size: 14px;
+	cursor: pointer;
+}
+.discardbtn {
+	width: 265px;
+	height: 56px;
+	border-radius: 8px;
+	background-color: transparent;
+	border: 1px solid #1d1dd8;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	color: #1d1dd8;
+	text-transform: capitalize;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.edit-account
+	.user-info
+	.user-details-form
+	form
+	label
+	.phonenumberinputs
+	input[type='number'] {
+	width: 100%;
+	padding: 12px 24px;
+	grid-gap: 20px;
+	gap: 20px;
+}
+
+@media screen and (max-width: 1300px) {
+	.editaccount {
+		display: none;
+	}
+	.textinput {
+		display: flex;
+		flex-direction: column;
+		padding-left: 10px;
+		width: 98%;
+		height: 42px;
+		border: none;
+		border-radius: 8px;
+		background-color: #efefef;
+		cursor: pointer;
+	}
+	.phonetinput {
+		display: flex;
+		flex-direction: column;
+		padding-left: 10px;
+		width: 98%;
+		height: 42px;
+		border: none;
+		border-radius: 8px;
+		background-color: #efefef;
+		cursor: pointer;
+	}
+	.edit-account
+		.user-info
+		.user-details-form
+		form
+		label
+		.phonenumberinputs
+		input[type='number'] {
+		width: 100%;
+		padding: 12px 24px;
+		grid-gap: 20px;
+		gap: 20px;
+	}
+}

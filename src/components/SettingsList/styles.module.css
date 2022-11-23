@@ -1,0 +1,463 @@
+.settings {
+	width: fit-content;
+	height: 939px;
+	display: flex;
+	justify-content: center;
+	gap: 18px;
+}
+.settingshide {
+	display: none;
+}
+.accountbuttoncontainer {
+	width: 100%;
+}
+.accountbutton {
+	display: flex;
+	text-align: left;
+	flex-direction: row;
+	align-items: center;
+	gap: 25px;
+	padding: 0;
+	width: 100%;
+	height: 11.4em;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-radius: 0;
+	margin: 0;
+	border-bottom: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+.accountbutton:hover {
+	background-color: unset;
+}
+.settings-hide {
+	display: none;
+}
+.settingstab {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 35px 35px 35px 0;
+}
+.settingstab h1 {
+	margin-left: 0;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 600;
+	font-size: 32px;
+	color: #1d1dd8;
+}
+
+.settings .settings-page-list .settingstab h1 {
+}
+.Reactsearchbar {
+	display: none;
+}
+
+.headingtwo {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 600;
+	font-size: 24px;
+	color: #252d2a;
+}
+.hero-text {
+	margin-left: 23px;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 600;
+	font-size: 32px;
+	color: #1d1dd8;
+}
+.paragraph {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	color: rgba(37, 45, 42, 0.81);
+}
+.subtab {
+	display: flex;
+	text-align: left;
+	flex-direction: row;
+	align-items: center;
+	gap: 25px;
+	padding: 16px;
+	width: 100%;
+	height: 11.4em;
+	margin: 0;
+	border-bottom: 1px solid rgba(29, 29, 216, 0.45);
+	background-color: white;
+	cursor: pointer;
+}
+.subtab svg {
+	max-width: unset;
+}
+.appearancesubtab {
+	text-align: left;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 25px;
+	padding: 16px;
+	width: 100%;
+	height: 11.4em;
+	margin: 0;
+	border-bottom: none;
+	background-color: white;
+	cursor: pointer;
+}
+.appearancesubtab svg {
+	max-width:unset ;
+}
+.subtab:active {
+	background-color: #d2d2f7;
+}
+.subtab:focus {
+	background-color: #d2d2f7;
+}
+
+.subtab[data-expanded='true'] {
+	background-color: #d2d2f7;
+}
+.settings .settings-page-list .sub-tabs .sub-tab .text h2 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 600;
+	font-size: 24px;
+	color: #252d2a;
+}
+.settings .settings-page-list .sub-tabs .sub-tab .text p {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	color: rgba(37, 45, 42, 0.81);
+}
+.settings .settings-page-list .sub-tabs .account-sub-tab {
+	width: 97%;
+	height: 150px;
+	background-color: #d2d2f7;
+}
+.settings .settings-page-list .sub-tabs .appearance-sub-tab {
+	border-bottom: none;
+}
+.flexcontainer {
+	display: flex;
+	justify-content: center;
+	background: rgba(217, 217, 217, 0.4);
+	padding-bottom: 2em;
+	padding-left: 2em;
+}
+.editaccount {
+	display: flex;
+	flex-direction: column;
+	height: unset;
+	background-color: unset;
+	padding: unset;
+	box-shadow: none;
+	align-items: flex-start;
+	width: 100%;
+	margin-top: 108px;
+}
+.editaccounthide {
+	display: none;
+}
+.tabheading {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 37.5px;
+}
+.tabheading h2 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+	color: #1d1dd8;
+}
+.userinfo {
+	gap: 33.67px;
+	width: 100%;
+}
+
+.userprofile {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	width: 82%;
+}
+
+.profileimg {
+	border-radius: 100px;
+	aspect-ratio: 1;
+	scale: 1;
+	width: 130px;
+}
+.editsvg {
+	z-index: 100;
+	left: 50%;
+	bottom: 0;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(29, 29, 216, 0.86);
+	border-radius: 100px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.mobileform {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 33.67px;
+	width: 100%;
+}
+
+.label {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	width: 100%;
+}
+.flagimage{
+	width: 49%;
+	background-image: url("../../assets/settings-image/flag.png");
+	background-repeat: no-repeat;
+	background-position: 19px;
+	background-color: #ffffff;
+	border: none;
+	border-radius: 8px;
+}
+
+.mobiletextinput {
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+	width: 98%;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+.phonenumber{
+	display: flex;
+	gap: 16px;
+	width: 98%;
+}
+.mobileformcontrol{
+	display: flex;
+	writing-mode: horizontal-tb;
+	flex-direction: column;
+	padding-top: 10px;
+	padding-left: 10px;
+	width: 98%;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background-color: #ffffff;
+	cursor: pointer;
+}
+
+.phoneinput{
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+	width: 49%;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background-color: #ffffff;
+	cursor: pointer;}
+
+
+
+
+
+
+.userinfo {
+	display: flex;
+	flex-direction: column;
+}
+.buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 35px;
+}
+
+.mobilesavebtn {
+	width: 44%;
+	height: 56px;
+	border: none;
+	border-radius: 8px;
+	background: #1d1dd8;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	color: #fefefe;
+	text-transform: capitalize;
+	font-size: 14px;
+	cursor: pointer;
+}
+.mobilediscardbtn {
+	width: 44%;
+	height: 56px;
+	border-radius: 8px;
+	background-color: transparent;
+	border: 1px solid #1d1dd8;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	color: #1d1dd8;
+	text-transform: capitalize;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.edit-account
+	.user-info
+	.user-details-form
+	form
+	label
+	.phone-number-inputs
+	input[type='tel'] {
+	width: 90%;
+	padding: 12px 24px;
+	grid-gap: 20px;
+	gap: 20px;
+}
+
+@media screen and (max-width: 1300px) {
+	.flexcontainer {
+		background: rgba(255, 255, 255, 0.8);
+		padding-bottom: 7em;
+	}
+	.mobiletextinput {
+		
+		background-color: #efefef;
+	}
+	.phoneinput{
+
+		background-color: #efefef;
+}
+	
+	.flagimage{
+		width: 49%;
+		background-image: url("../../assets/settings-image/flag.png");
+		background-repeat: no-repeat;
+		background-position: 19px;
+		background-color: #efefef;
+		border: none;
+		border-radius: 8px;
+	}
+    .phonenumberinputs {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+        width: 81%;
+        height: 42px;
+        border: none;
+        border-radius: 8px;
+		background-color: #efefef;
+        cursor: pointer;}
+		.mobileformcontrol{
+
+			background-color: #efefef;
+		}
+	.edit-account
+		.user-info
+		.user-details-form
+		form
+		label
+		.phone-number-inputs
+		input[type='tel'] {
+		width: 90%;
+		padding: 12px 24px;
+		grid-gap: 20px;
+		gap: 20px;
+	}
+}
+@media screen and (max-width: 680px) {
+	.headingtwo {
+		font-family: 'Rubik', sans-serif;
+		font-weight: 600;
+		font-size: 21px;
+		color: #252d2a;
+	}
+	.hero-text {
+		margin-left: 23px;
+		font-family: 'Rubik', sans-serif;
+		font-weight: 600;
+		font-size: 32px;
+		color: #1d1dd8;
+	}
+	.paragraph {
+		font-family: 'Rubik', sans-serif;
+		font-weight: 400;
+		font-size: 13px;
+		color: rgba(37, 45, 42, 0.81);
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.flexcontainer {
+		padding-left: 10px;
+	}
+	.Reactsearchbar {
+		display: block;
+		margin: 34px 0;
+		width: 100%;
+		padding: 8.5px 54px;
+		height: 56px;
+		border-radius: 12px;
+		border: 0.5px solid #b4b4b4;
+		background: url('../../assets/search-normal.png');
+		background-repeat: no-repeat;
+		background-size: 2em;
+		background-position: 10px;
+		font-size: 14px;
+		font-family: 'Rubik';
+		font-weight: 400;
+		color: rgba(37, 45, 42, 0.66);
+	}
+	.searchinput {
+		width: 93%;
+	}
+	.subtab svg {
+		max-width: unset;
+	}
+	.subtab[data-expanded='true'] {
+		background-color: #d2d2f7;
+	}
+	.subtab[data-expanded='true']:active {
+		background-color: #d2d2f7;
+	}
+	.subtab {
+		display: flex;
+		text-align: left;
+		flex-direction: row;
+		align-items: center;
+		gap: 25px;
+		padding: 16px;
+		width: 95%;
+		height: 11.4em;
+		margin: 0;
+		border-bottom: 1px solid rgba(29, 29, 216, 0.45);
+		background-color: white;
+		cursor: pointer;
+	}
+	.appearancesubtab {
+		text-align: left;
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 25px;
+		padding: 16px;
+		width: 95%;
+		height: 11.4em;
+		margin: 0;
+		border-bottom: none;
+		background-color: white;
+		cursor: pointer;
+	}
+}

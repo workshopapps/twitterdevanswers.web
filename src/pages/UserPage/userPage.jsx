@@ -1,6 +1,6 @@
 import React from 'react';
 import UserProfileCard from '../../components/UserPage/UserProfileCard';
-import users from './users';
+import users from './constants/users';
 import styles from './userPage.module.css';
 import SearchBox from '../../components/UserPage/SearchBox';
 import FilterBy from '../../components/UserPage/FilterBy';

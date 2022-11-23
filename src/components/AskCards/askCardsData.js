@@ -1,13 +1,13 @@
 import { nanoid } from 'nanoid';
-import prosper from '../../assets/prosper.webp';
-import darrell from '../../assets/darrell.webp';
+import prosper from '../../assets/dashboard-images/prosper.webp';
+import darrell from '../../assets/dashboard-images/darrell.webp';
 import jacob from '../../assets/jacob.webp';
-import options from '../../assets/options.webp';
-import message from '../../assets/message.webp';
-import heartBold from '../../assets/heartBold.webp';
-import heart from '../../assets/heart.webp';
-import share from '../../assets/share.webp';
-import dollarCircle from '../../assets/dollarCircle.webp';
+import options from '../../assets/dashboard-images/options.webp';
+import message from '../../assets/dashboard-images/message.webp';
+import heartBold from '../../assets/dashboard-images/heartBold.webp';
+import heart from '../../assets/dashboard-images/heart.webp';
+import share from '../../assets/dashboard-images/share.webp';
+import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
 const askCardsData = [
 	{

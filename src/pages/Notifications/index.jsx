@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import notifications from './constants';
+import notifications from './constants/constants';
 import styles from './styles.module.css';
 import NotificationItem from '../../components/NotificationItem';
 
