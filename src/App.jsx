@@ -33,7 +33,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
-			<Routes>				
+			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="profile" element={<Profile />} />
 				<Route path="notification-page" element={<Notifications />} />
@@ -42,7 +42,7 @@ function App() {
 				<Route path="blog-page" element={<Blog />} />
 				<Route path="career" element={<Career />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
-				<Route path="dashboard" element={<Dashboard />}/>
+				<Route path="dashboard" element={<Dashboard />} />
 				<Route path="faq" element={<FAQ />} />
 				<Route path="help-center" element={<Help />} />
 				<Route path="teams-page" element={<Teams />} />
@@ -59,7 +59,6 @@ function App() {
 				<Route path="*" element={<ErrorPage />} />
 				<Route path="settings" element={<Settings />} />
 				<Route path="contact" element={<Contact />} />
-			
 			</Routes>
 			<Footer />
 		</div>
