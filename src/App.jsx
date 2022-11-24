@@ -28,6 +28,7 @@ import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
 import Contact from './pages/Contact/index';
+import ProtectedRoutes from './ProtectedRoutes';
 
 function App() {
 	return (
@@ -35,30 +36,32 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
-				<Route path="profile" element={<Profile />} />
-				<Route path="notification-page" element={<Notifications />} />
-				<Route path="tags-page" element={<Tags />} />
+				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
 				<Route path="blog-page" element={<Blog />} />
-				<Route path="career" element={<Career />} />
-				<Route path="cookie-policy" element={<CookiePolicy />} />
-				<Route path="dashboard" element={<Dashboard />} />
 				<Route path="faq" element={<FAQ />} />
 				<Route path="help-center" element={<Help />} />
-				<Route path="teams-page" element={<Teams />} />
-				<Route path="how-it-works" element={<HowItWorks />} />
 				<Route path="terms-of-use" element={<TermsOfUse />} />
-				<Route path="wallet" element={<WalletPage />} />
-				<Route path="users-page" element={<UserPage />} />
-				<Route path="post-questions" element={<PostQuestion />} />
-				<Route path="API" element={<API />} />
 				<Route path="pricing-page" element={<Pricing />} />
-				<Route path="login" element={<Login />} />
-				<Route path="sign-up" element={<SignUp />} />
+				<Route path="career" element={<Career />} />
+				<Route path="how-it-works" element={<HowItWorks />} />
+				<Route path="API" element={<API />} />
 				<Route path="about" element={<About />} />
-				<Route path="*" element={<ErrorPage />} />
-				<Route path="settings" element={<Settings />} />
-				<Route path="contact" element={<Contact />} />
+				<ProtectedRoutes>
+					<Route path="profile" element={<Profile />} />
+					<Route path="notification-page" element={<Notifications />} />
+					<Route path="tags-page" element={<Tags />} />
+					<Route path="dashboard" element={<Dashboard />} />
+					<Route path="teams-page" element={<Teams />} />
+					<Route path="wallet" element={<WalletPage />} />
+					<Route path="users-page" element={<UserPage />} />
+					<Route path="post-questions" element={<PostQuestion />} />
+					<Route path="login" element={<Login />} />
+					<Route path="sign-up" element={<SignUp />} />
+					<Route path="settings" element={<Settings />} />
+					<Route path="contact" element={<Contact />} />
+					<Route path="*" element={<ErrorPage />} />
+				</ProtectedRoutes>
 			</Routes>
 			<Footer />
 		</div>
