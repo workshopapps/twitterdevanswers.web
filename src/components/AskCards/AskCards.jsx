@@ -34,18 +34,27 @@ function AskCards() {
 					</div>
 					<img src={options} alt="" className={styles.options} />
 				</section>
-				<h4>
-					<Link to="/questionPage" className={styles.title}>
-						{question.question}
-					</Link>
-				</h4>
-				<h6 className={styles.reply}>{question.detail}</h6>
+
+				<Link
+					to={`/dashboard/questions/${question.id}`}
+					style={{ textDecoration: 'none' }}
+				>
+					<h4 className={styles.title}> {question.title}</h4>
+					<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+						{question.detail}
+					</p>
+				</Link>
 
 				<div className={styles.tagWrapper}>
 					{question.tags.map((tag) => (
-						<p className={styles.tag} key={tag}>
-							{tag}
-						</p>
+						<Link
+							to="/tags-page"
+							style={{ textDecoration: 'none', display: 'flex' }}
+						>
+							<p className={styles.tag} key={tag}>
+								{tag}
+							</p>
+						</Link>
 					))}
 				</div>
 
