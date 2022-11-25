@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "id_str": "1",
+    "name": "Prosperoo",
+    "screen_name": "prosper",
+    "location": "India",
+    "url": "https://developer.twitter.com",
+    "description": "I'm a frontend developer",
+    "verified": true,
+    "created_at": "Wed May 23 06:01:13 +0000 2007",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/942858479592554497/BbazLO9L_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
+  },
+  {
+    "id": 2,
+    "id_str": "2",
+    "name": "Darell Stewart",
+    "screen_name": "prosper",
+    "location": "Atlanta, US",
+    "url": "https://developer.twitter.com",
+    "description": "I'm a backend developer",
+    "verified": true,
+    "created_at": "Wed May 23 06:01:13 +0000 2022",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/942858479592554497/BbazLO9L_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
+  },
+  {
+    "id": 3,
+    "id_str": "3",
+    "name": "Jacob Jones",
+    "screen_name": "jacob",
+    "location": "Michigan, Darlington",
+    "url": "https://developer.twitter.com",
+    "description": "I'm a backend developer",
+    "verified": true,
+    "created_at": "Wed May 23 06:01:13 +0000 2022",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/942858479592554497/BbazLO9L_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
+  },
+  {
+    "id": 6253282,
+    "id_str": "6253282",
+    "name": "Ann Brown",
+    "screen_name": "annbrown-dev",
+    "location": "San Francisco, CA",
+    "profile_location": null,
+    "description": "Software developer|Dog mum|Coding is life",
+    "url": "be.net/annbrown",
+    "created_at": "Wed May 23 06:01:13 +0000 2022",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/942858479592554497/BbazLO9L_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
+  }
+]
