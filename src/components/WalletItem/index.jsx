@@ -17,12 +17,12 @@ function WalletItem({ label, ammount }) {
 }
 WalletItem.defaultProps = {
 	label: ' Current Balance',
-	ammount: '100000',
+	ammount: 100000,
 };
 
 WalletItem.propTypes = {
 	label: PropTypes.string,
-	ammount: PropTypes.string,
+	ammount: PropTypes.number,
 };
 
 export default WalletItem;
