@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import styles from './styles.module.css';
 import Editor from '../../components/Editor/Editor';
 import AskCards from '../../components/AskCards/AskCards';
-import Asks from '../../components/Asks/Asks';
 
 function Dashboard() {
 	return (
@@ -18,7 +17,6 @@ function Dashboard() {
 						</>
 					}
 				/>
-				<Route path="/questionPage" element={<Asks />} />
 			</Routes>
 		</div>
 	);

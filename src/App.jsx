@@ -31,6 +31,7 @@ import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
+import Asks from './components/Asks';
 
 function App() {
 	return (
@@ -54,10 +55,10 @@ function App() {
 				<Route path="sign-up" element={<SignUp />} />
 				<Route element={<ProtectedRoutes />}>
 					<Route path="dashboard" element={<Dashboard />} />
+					<Route path="dashboard/questions/:id" element={<Asks />} />
 					<Route path="profile/:id" element={<Profile />} />
 					<Route path="notification-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
-
 					<Route path="teams-page" element={<Teams />} />
 					<Route path="wallet" element={<WalletPage />} />
 					<Route path="users-page" element={<UserPage />} />
