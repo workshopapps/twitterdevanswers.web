@@ -1,30 +1,30 @@
 export default function appReducer(state, { type, payload }) {
-  switch (type) {
-    case 'userLoggedIn': {
-      return {
-        ...state,
-        user: payload,
-        isAuth: true,
-      };
-    }
+	switch (type) {
+		case 'USER_LOGGED_IN': {
+			return {
+				...state,
+				user: payload,
+				isAuth: true,
+			};
+		}
 
-    case 'userLoggedOut': {
-      return {
-        ...state,
-        user: {},
-        isAuth: false,
-      };
-    }
+		case 'USER_LOGGED_OUT': {
+			return {
+				...state,
+				user: {},
+				isAuth: false,
+			};
+		}
 
-    case 'loading': {
-      return {
-        ...state,
-        loading: payload,
-      };
-    }
+		case 'LOADING': {
+			return {
+				...state,
+				loading: payload,
+			};
+		}
 
-    default: {
-      return state;
-    }
-  }
+		default: {
+			return state;
+		}
+	}
 }
