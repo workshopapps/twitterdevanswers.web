@@ -6,8 +6,8 @@ import Login from './pages/AuthPage/Login';
 import SignUp from './pages/AuthPage/SignUp';
 import Tags from './pages/Tags';
 import './App.css';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+// import Header from './components/Header/Header';
+// import Footer from './components/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
 import About from './pages/About/index';
 import Pricing from './pages/Pricing';
@@ -29,11 +29,14 @@ import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
+import InternalHeader from './components/InternalHeader/InternalHeader';
+import InternalFooter from './components/InternalFooter/InternalFooter';
 
 function App() {
 	return (
 		<div className="App">
-			<Header />
+			<InternalHeader />
+			{/* <Header /> */}
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
@@ -47,7 +50,9 @@ function App() {
 				<Route path="how-it-works" element={<HowItWorks />} />
 				<Route path="API" element={<API />} />
 				<Route path="about" element={<About />} />
-				<ProtectedRoutes>
+				<Route path="login" element={<Login />} />
+				<Route path="sign-up" element={<SignUp />} />
+				<Route element={<ProtectedRoutes />}>
 					<Route path="profile" element={<Profile />} />
 					<Route path="notification-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
@@ -56,14 +61,12 @@ function App() {
 					<Route path="wallet" element={<WalletPage />} />
 					<Route path="users-page" element={<UserPage />} />
 					<Route path="post-questions" element={<PostQuestion />} />
-					<Route path="login" element={<Login />} />
-					<Route path="sign-up" element={<SignUp />} />
 					<Route path="settings" element={<Settings />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="*" element={<ErrorPage />} />
-				</ProtectedRoutes>
+				</Route>
 			</Routes>
-			<Footer />
+			<InternalFooter />
 		</div>
 	);
 }

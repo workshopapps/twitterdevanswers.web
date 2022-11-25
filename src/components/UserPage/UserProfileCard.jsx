@@ -31,8 +31,8 @@ UserProfileCard.propTypes = {
 		img: PropTypes.string.isRequired,
 		userName: PropTypes.string.isRequired,
 		userStack: PropTypes.string.isRequired,
-		followers: PropTypes.number.isRequired,
-		userFavoriteLanguage: PropTypes.string.isRequired
+		followers: PropTypes.string.isRequired,
+		userFavoriteLanguage: PropTypes.string.isRequired,
 	}).isRequired,
 };
 

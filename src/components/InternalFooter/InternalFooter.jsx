@@ -23,7 +23,7 @@ export default function InternalFooter() {
 
 	return (
 		<div className={styles.footerContainer}>
-			<ul className={`${styles.footer} lpContainer`}>
+			<ul className={`${styles.footer} `}>
 				<li>
 					<NavLink to="/" style={linkStyle} className={activeStyle}>
 						<HomeIcon className={styles.icon} />
