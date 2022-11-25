@@ -1,5 +1,6 @@
 const users = [
 	{
+		id: 1,
 		img: '../assets/userPageAssets/Ellipse0.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -7,6 +8,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 2,
 		img: '../assets/userPageAssets/Ellipse1.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -14,6 +16,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 3,
 		img: '../assets/userPageAssets/Ellipse2.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -21,6 +24,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 4,
 		img: '../assets/userPageAssets/Ellipse3.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -28,6 +32,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 5,
 		img: '../assets/userPageAssets/Ellipse4.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -35,6 +40,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 6,
 		img: '../assets/userPageAssets/Ellipse5.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -42,6 +48,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 7,
 		img: '../assets/userPageAssets/Ellipse6.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -49,6 +56,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 8,
 		img: '../assets/userPageAssets/Ellipse7.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -56,6 +64,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 9,
 		img: '../assets/userPageAssets/Ellipse8.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -63,6 +72,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 10,
 		img: '../assets/userPageAssets/Ellipse16.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -70,6 +80,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 11,
 		img: '../assets/userPageAssets/Ellipse11.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -77,6 +88,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 12,
 		img: '../assets/userPageAssets/Ellipse10.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -84,6 +96,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 13,
 		img: '../assets/userPageAssets/Ellipse12.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -91,6 +104,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 14,
 		img: '../assets/userPageAssets/Ellipse1.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -98,6 +112,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 15,
 		img: '../assets/userPageAssets/Ellipse5.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -105,6 +120,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 16,
 		img: '../assets/userPageAssets/Ellipse11.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -112,6 +128,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 17,
 		img: '../assets/userPageAssets/Ellipse15.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -119,6 +136,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 18,
 		img: '../assets/userPageAssets/Ellipse14.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -126,6 +144,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 19,
 		img: '../assets/userPageAssets/Ellipse10.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -133,6 +152,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 20,
 		img: '../assets/userPageAssets/Ellipse17.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -140,6 +160,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 21,
 		img: '../assets/userPageAssets/Ellipse7.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -147,6 +168,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 22,
 		img: '../assets/userPageAssets/Ellipse14.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -154,6 +176,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 23,
 		img: '../assets/userPageAssets/Ellipse1.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -161,6 +184,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 24,
 		img: '../assets/userPageAssets/Ellipse3.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -169,6 +193,7 @@ const users = [
 	},
 
 	{
+		id: 25,
 		img: '../assets/userPageAssets/Ellipse21.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -176,6 +201,7 @@ const users = [
 		userFavoriteLanguage: 'sql, oracle, windows-options',
 	},
 	{
+		id: 26,
 		img: '../asssts/userPageAssets/Ellipse19.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',
@@ -184,6 +210,7 @@ const users = [
 	},
 
 	{
+		id: 27,
 		img: '../assets/userPageAssets/Ellipse20.png',
 		userName: 'Ada Stevens',
 		userStack: 'Senior Product Designer',

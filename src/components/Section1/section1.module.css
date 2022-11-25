@@ -80,7 +80,7 @@
 	background-color: 2px solid red;
 }
 @media (max-width: 600px) {
-	.back__icon{
+	.back__icon {
 		left: 2rem;
 		top: 1rem;
 	}
@@ -91,4 +91,10 @@
 	.profile__datawrapper {
 		top: -20px;
 	}
+}
+
+.backarrow {
+	background: none;
+	border: none;
+	cursor: pointer;
 }

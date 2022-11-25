@@ -1,20 +1,64 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './pagination.module.css';
 
-export default function Pagination() {
+export const tagsPerPage = 12;
+export default function Pagination({ data, prev, next, currentPage }) {
+	const totalPages = Math.ceil(data.length / tagsPerPage);
+
 	return (
 		<div className={styles.pagination}>
-			<button className={styles.pagination__item} type="button">
-				Prev
-			</button>
-			<div className={styles.pagination__item}>1</div>
-			<div className={styles.pagination__itemactive}>2</div>
-			<div className={styles.pagination__item}>3</div>
-			<span className={styles.pagination__item}>...</span>
-			<div className={styles.pagination__item}>942</div>
-			<button className={styles.pagination__item} type="button">
-				Next
-			</button>
+			{currentPage === 1 ? (
+				''
+			) : (
+				<button
+					className={styles.pagination__item}
+					type="button"
+					onClick={prev}
+				>
+					Prev
+				</button>
+			)}
+			<div
+				className={`${styles.pagination__item} ${
+					currentPage === 1 ? styles.current : ''
+				}`}
+			>
+				1
+			</div>
+			{(currentPage === 1 || currentPage === totalPages) && (
+				<span className={styles.pagination__item}>...</span>
+			)}
+			{currentPage > 1 && currentPage < totalPages && (
+				<div className={`${styles.pagination__item} ${styles.current}`}>
+					{currentPage}
+				</div>
+			)}
+			<div
+				className={`${styles.pagination__item} ${
+					currentPage === totalPages ? styles.current : ''
+				}`}
+			>
+				{totalPages}
+			</div>
+			{currentPage === totalPages ? (
+				''
+			) : (
+				<button
+					className={styles.pagination__item}
+					type="button"
+					onClick={next}
+				>
+					Next
+				</button>
+			)}
 		</div>
 	);
 }
+
+Pagination.propTypes = {
+	data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+	prev: PropTypes.func.isRequired,
+	next: PropTypes.func.isRequired,
+	currentPage: PropTypes.number.isRequired,
+};

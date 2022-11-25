@@ -4,16 +4,19 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppContextProvider from './store/AppContext';
 import { WalletContextProvider } from './pages/WalletPage/WalletContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<WalletContextProvider>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</WalletContextProvider>
+		<AppContextProvider>
+			<WalletContextProvider>
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
+			</WalletContextProvider>
+		</AppContextProvider>
 	</React.StrictMode>
 );
 
