@@ -11,7 +11,10 @@ export default {
 	},
 };
 
-const Template = (args) => <Header {...args} />;
+function Template(args) {
+	// eslint-disable-next-line react/jsx-props-no-spreading
+	return <Header {...args} />;
+}
 
 export const LoggedIn = Template.bind({});
 LoggedIn.args = {

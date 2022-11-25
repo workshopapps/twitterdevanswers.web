@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { within, userEvent } from '@storybook/testing-library';
 
 import { Page } from './Page';
@@ -12,7 +13,10 @@ export default {
 	},
 };
 
-const Template = (args) => <Page {...args} />;
+function Template(args) {
+	// eslint-disable-next-line react/jsx-props-no-spreading
+	return <Page {...args} />;
+}
 
 // More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
 export const LoggedOut = Template.bind({});

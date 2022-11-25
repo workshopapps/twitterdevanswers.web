@@ -23,7 +23,7 @@ import HowItWorks from './pages/HowItWorks';
 import PostQuestion from './pages/PostQuestion';
 import Teams from './pages/Team/Team';
 import TermsOfUse from './pages/TermsOfUse';
-import WalletPage from './pages/Wallet';
+import WalletPage from './pages/WalletPage';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
