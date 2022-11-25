@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/home.svg';
 import { ReactComponent as TagIcon } from '../../assets/tagIcon.svg';
@@ -12,11 +13,25 @@ import avatar from '../../assets/avatar.svg';
 import brandLogo from '../../assets/brand-logo.svg';
 import styles from './internalHeader.module.css';
 
+//  header component for internal pages
 export default function InternalHeader() {
-	//  header component for internal pages
+	const [sidenav, setSidenav] = useState(false);
 
+	// prevent scroll if sidenav is open
+	useEffect(() => {
+		if (!sidenav) {
+			document.body.style.overflowY = 'scroll';
+		} else {
+			document.body.style.overflowY = 'hidden';
+		}
+	}, [sidenav]);
+
+	// add isActive classname if Navlink is active to style active state
 	const activeStyle = ({ isActive }) =>
 		isActive ? styles.isActive : undefined;
+
+	// open and close sidenav
+	const hadnleClick = () => setSidenav((prev) => !prev);
 
 	const linkStyle = {
 		textDecoration: 'none',
@@ -102,6 +117,77 @@ export default function InternalHeader() {
 								<span>Online</span>
 							</div>
 						</div>
+						<HiBars3CenterLeft
+							className={styles.hamburger}
+							onClick={hadnleClick}
+						/>
+					</div>
+
+					{/* SideNav for small laptops and tabs */}
+					<div className={`${styles.sidenav} ${sidenav && styles.active}`}>
+						<div className={styles.snBrand}>
+							<Link to="/" className={styles.brand}>
+								<img src={brandLogo} alt="brand logo" />
+								<span>DevAsk</span>
+							</Link>
+
+							<span className={styles.close}>
+								<HiOutlineXCircle onClick={hadnleClick} />
+							</span>
+						</div>
+
+						<ul className={styles.snLinks}>
+							<li>
+								<NavLink to="/" style={linkStyle} className={activeStyle}>
+									<div className={styles.snLink}>
+										<HomeIcon className={styles.snIcon} />
+										<span>Home</span>
+									</div>
+								</NavLink>
+							</li>
+
+							<li>
+								<NavLink
+									to="/tags-page"
+									style={linkStyle}
+									className={activeStyle}
+								>
+									<div className={styles.snLink}>
+										<TagIcon className={styles.snIcon} /> <span>Tag</span>
+									</div>
+								</NavLink>
+							</li>
+							<li>
+								<NavLink
+									style={linkStyle}
+									to="/users-page"
+									className={activeStyle}
+								>
+									<div className={styles.snLink}>
+										<UsersIcon className={styles.snIcon} /> <span>Users</span>
+									</div>
+								</NavLink>
+							</li>
+							<li>
+								<NavLink to="/wallet" style={linkStyle} className={activeStyle}>
+									<div className={styles.snLink}>
+										<WalletIcon className={styles.snIcon} /> <span>Wallet</span>
+									</div>
+								</NavLink>
+							</li>
+							<li>
+								<NavLink
+									to="/settings"
+									style={linkStyle}
+									className={activeStyle}
+								>
+									<div className={styles.snLink}>
+										<SettingsIcon className={styles.snIcon} />{' '}
+										<span>Settings</span>
+									</div>
+								</NavLink>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
