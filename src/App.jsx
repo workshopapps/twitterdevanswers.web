@@ -32,6 +32,7 @@ import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
 import Asks from './components/Asks';
+// import Privacy from './pages/Privacy';
 
 function App() {
 	return (
@@ -52,6 +53,7 @@ function App() {
 				<Route path="API" element={<API />} />
 				<Route path="about" element={<About />} />
 				<Route path="login" element={<Login />} />
+				{/* <Route path="privacy" element={<Privacy />} />   */}
 				<Route path="sign-up" element={<SignUp />} />
 				<Route element={<ProtectedRoutes />}>
 					<Route path="dashboard" element={<Dashboard />} />
@@ -66,7 +68,7 @@ function App() {
 					<Route path="settings" element={<Settings />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="*" element={<ErrorPage />} />
-				</Route>
+					</Route>
 			</Routes>
 			<InternalFooter />
 		</div>
