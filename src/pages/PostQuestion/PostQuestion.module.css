@@ -1,32 +1,3 @@
-input::-moz-placeholder {
-	font-family: 'Rubik', san-serif;
-	font-weight: 400;
-	color: #989898;
-}
-
-input:-ms-input-placeholder {
-	font-family: 'Rubik', san-serif;
-	font-weight: 400;
-	color: #989898;
-}
-
-input::placeholder {
-	font-family: 'Rubik', san-serif;
-	font-weight: 400;
-	color: #989898;
-}
-
-textarea {
-	resize: none;
-	min-height: 130px;
-	padding: 4em 1.5em;
-}
-@media (min-width: 850px) {
-	textarea {
-		min-height: 180px;
-	}
-}
-
 .header {
 	background: white;
 	padding: 1.5em 1em;
@@ -91,13 +62,44 @@ textarea {
 }
 .header .steps ul li {
 	font-size: 1.1rem;
-	line-height: 1.6;
+	line-height: 1.8;
+	list-style: disc;
 }
 
 .container {
 	background: #f7f7fe;
 	padding: 2em 0em;
 }
+
+.container input::-moz-placeholder {
+	font-family: 'Rubik', san-serif;
+	font-weight: 400;
+	color: #989898;
+}
+
+.container input:-ms-input-placeholder {
+	font-family: 'Rubik', san-serif;
+	font-weight: 400;
+	color: #989898;
+}
+
+.container input::placeholder {
+	font-family: 'Rubik', san-serif;
+	font-weight: 400;
+	color: #989898;
+}
+
+.container textarea {
+	resize: none;
+	min-height: 130px;
+	padding: 4em 1.5em;
+}
+@media (min-width: 850px) {
+	.container textarea {
+		min-height: 180px;
+	}
+}
+
 .container .titleWrapper {
 	background: #ffffff;
 	padding: 1em 0em 0em 1em;
@@ -146,6 +148,7 @@ textarea {
 	align-self: flex-end;
 	border-radius: 4px;
 	border: none;
+	cursor: pointer;
 }
 .container .problemWrapper {
 	background: #ffffff;
@@ -214,6 +217,7 @@ textarea {
 	align-self: flex-end;
 	border-radius: 4px;
 	border: none;
+	cursor: pointer;
 }
 .container .detailWrapper {
 	background: #ffffff;
@@ -277,6 +281,7 @@ textarea {
 	align-self: flex-end;
 	border-radius: 4px;
 	border: none;
+	cursor: pointer;
 }
 .container .tagWrapper {
 	display: flex;
@@ -324,13 +329,18 @@ textarea {
 	border-radius: 18px;
 	background: #d2d2f7;
 	color: #757575;
-	padding: 0.6em 1.2em;
-	font-size: 0.7rem;
+	padding: 0.8em 1.4em;
+	font-size: 0.8rem;
 	align-items: center;
 	display: flex;
+	margin: 0.7em;
 }
-.container .tagWrapper .allTags p img {
+.container .tagWrapper .allTags p button {
 	margin-left: 0.4em;
+	background: none;
+	border: none;
+	cursor: pointer;
+	flex: 0 0 50%;
 }
 
 .buttonWrapper {
@@ -350,6 +360,7 @@ textarea {
 	border-radius: 4px;
 	margin: 1em;
 	outline: none;
+	cursor: pointer;
 }
 .buttonWrapper div .review {
 	background: #1d1dd8;
@@ -360,4 +371,100 @@ textarea {
 	background: #ffffff;
 	color: #1d1dd8;
 	border: 1px solid #1d1dd8;
+}
+
+.containerWrapper {
+	padding: 1em 0em;
+	position: relative;
+}
+
+.overlay {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.8);
+	min-height: 180vh;
+	max-width: 100vw;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 2;
+	padding: 10em 1em;
+}
+
+.response {
+	text-align: center;
+}
+
+.response p {
+	margin: 1em 0em;
+}
+
+.modal {
+	position: relative;
+	background: white;
+	border-radius: 7px;
+	margin-top: 100%;
+	padding: 1rem 2rem;
+	right: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 60%;
+	max-width: 600px;
+	margin: 0 auto;
+	border: 1px solid #989898;
+}
+
+.modal div {
+	padding: 1.5em 0em;
+}
+
+.modalButton {
+	padding: 1em;
+	color: #ffffff;
+	align-self: flex-end;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	margin-right: 1.5em;
+}
+
+.modalButtonWrapper {
+}
+
+.modalSubmit {
+	background: #1d1dd8;
+	color: #ffffff;
+}
+
+.modalCancel {
+	background: red;
+	color: #ffffff;
+}
+
+.tagsButton {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.tagsWrapper {
+	display: flex;
+	flex-direction: column;
+	background: white;
+	border-radius: 5px;
+	padding: 1em 3.5em;
+	position: absolute;
+	margin-top: 26em;
+	margin-left: 19em;
+	border: 1px solid #d6d6d6;
+}
+
+.tagsWrapper button {
+	cursor: pointer;
+	background: white;
+	color: #0a0a0a;
+	padding: 1em;
+	border: none;
+	outline: none;
 }

@@ -1,15 +1,23 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import Section1 from '../../components/Section1/index';
 import Section2 from '../../components/Section2/index';
-import Profile from './index.module.css';
+import styles from './index.module.css';
+import testUser from '../../utils/testUser.json';
 
-function App() {
+function Profile() {
+	const routeParams = useParams();
+
 	return (
-		<div className={Profile.profile}>
-			<Section1 />
-			<Section2 />
+		<div className={styles.profile}>
+			<Section1
+				user={testUser.find((user) => user.id_str === routeParams.id)}
+			/>
+			<Section2
+				user={testUser.find((user) => user.id_str === routeParams.id)}
+			/>
 		</div>
 	);
 }
 
-export default App;
+export default Profile;

@@ -1,19 +1,28 @@
-.button {
-}
-
-.primaryBtn {
+.btn {
 	background: inherit;
 	padding: 8px 16px;
 	text-decoration: none;
-	color: black;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.btn:hover {
+	color: #4343df;
+	border-color: #4343df;
+}
+
+.btn.active {
+	color: #4343df;
+	border-color: #4343df;
+}
+
+.primaryBtn {
+	color: #333;
 	border: 1px;
 	border-radius: 4px;
 }
 
 .secondaryBtn {
-	background: inherit;
-	padding: 8px 16px;
-	text-decoration: none;
 	color: #757575;
 	border: 1px solid #757575;
 	border-radius: 4px;
