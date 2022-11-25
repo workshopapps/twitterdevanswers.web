@@ -52,19 +52,19 @@ function App() {
 				<Route path="about" element={<About />} />
 				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
-				<Route element={<ProtectedRoutes />}>
-					<Route path="profile" element={<Profile />} />
-					<Route path="notification-page" element={<Notifications />} />
-					<Route path="tags-page" element={<Tags />} />
-					<Route path="dashboard" element={<Dashboard />} />
-					<Route path="teams-page" element={<Teams />} />
-					<Route path="wallet" element={<WalletPage />} />
-					<Route path="users-page" element={<UserPage />} />
-					<Route path="post-questions" element={<PostQuestion />} />
-					<Route path="settings" element={<Settings />} />
-					<Route path="contact" element={<Contact />} />
-					<Route path="*" element={<ErrorPage />} />
-				</Route>
+				{/* <Route element={<ProtectedRoutes />}> */}
+				<Route path="profile" element={<Profile />} />
+				<Route path="notification-page" element={<Notifications />} />
+				<Route path="tags-page" element={<Tags />} />
+				<Route path="dashboard" element={<Dashboard />} />
+				<Route path="teams-page" element={<Teams />} />
+				<Route path="wallet" element={<WalletPage />} />
+				<Route path="users-page" element={<UserPage />} />
+				<Route path="post-questions" element={<PostQuestion />} />
+				<Route path="settings" element={<Settings />} />
+				<Route path="contact" element={<Contact />} />
+				<Route path="*" element={<ErrorPage />} />
+				{/* </Route> */}
 			</Routes>
 			<InternalFooter />
 		</div>
