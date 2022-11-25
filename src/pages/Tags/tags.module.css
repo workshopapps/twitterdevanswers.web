@@ -1,18 +1,27 @@
-.container {
+.tags-section {
 	background-color: #f7f7fe;
+	padding: 40px 20px;
 }
 
-.container h1 {
+.tags-container {
+	max-width: 1250px;
+	margin: 0 auto;
+}
+
+.header-title {
 	font-weight: 600px;
 	font-size: 32px;
 }
-.container1 {
+
+.tags-header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #f7f7fe;
+	margin-bottom: 30px;
+	padding: 0 7px;
 }
-.container3 {
+
+.tags-header__btn-container {
 	display: flex;
 	gap: 5px;
 	margin-left: 15px;
@@ -46,19 +55,21 @@
 	display: hidden;
 }
 
-.container input {
+.tags-container input {
 	border: none;
 }
 
-.container input:focus {
+.tags-container input:focus {
 	outline: none;
 }
 
-.button__field {
+.tags-nav {
 	display: flex;
-	justify-content: center;
-	gap: 10px;
+	justify-content: space-between;
+	padding: 0 15px;
+	margin-bottom: 30px;
 }
+
 .hid {
 	display: flex;
 	gap: 10px;
@@ -71,9 +82,10 @@
 	color: black;
 	border: 1px solid #4343df;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
-.button__field button {
+.tags-nav button {
 	background: inherit;
 	padding: 8px 16px;
 	text-decoration: none;
@@ -84,15 +96,82 @@
 
 .grid {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(4, calc(100% / 4 - 20px));
+	justify-content: space-between;
+	row-gap: 20px;
 }
 
-@media screen and (max-width: 600px) {
+.list {
+	display: grid;
+	justify-content: space-between;
+	grid-template-columns: 1fr;
+}
+
+@media screen and (max-width: 1150px) {
 	.grid {
-		display: block;
+		grid-template-columns: repeat(3, calc(100% / 3 - 20px));
+	}
+	.hidden_1 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 930px) {
+	.grid {
+		grid-template-columns: repeat(2, calc(100% / 2 - 15px));
+	}
+	.hidden_1 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 870px) {
+	.hidden_2 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 730px) {
+	.hidden_3 {
+		display: none;
 	}
 
-	.hid {
+	.header-title {
+		font-size: 28px;
+	}
+}
+
+@media screen and (max-width: 590px) {
+	.grid {
+		grid-template-columns: 100%;
+	}
+
+	.hidden_4 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 590px) {
+	.hidden_5,
+	.button {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.hidden_6 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.hidden_7 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 305px) {
+	.hidden_8 {
 		display: none;
 	}
 }
