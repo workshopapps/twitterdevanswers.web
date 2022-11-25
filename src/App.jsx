@@ -53,10 +53,11 @@ function App() {
 				<Route path="login" element={<Login />} />
 				<Route path="sign-up" element={<SignUp />} />
 				<Route element={<ProtectedRoutes />}>
-					<Route path="profile" element={<Profile />} />
+					<Route path="dashboard" element={<Dashboard />} />
+					<Route path="profile/:id" element={<Profile />} />
 					<Route path="notification-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
-					<Route path="dashboard" element={<Dashboard />} />
+
 					<Route path="teams-page" element={<Teams />} />
 					<Route path="wallet" element={<WalletPage />} />
 					<Route path="users-page" element={<UserPage />} />
