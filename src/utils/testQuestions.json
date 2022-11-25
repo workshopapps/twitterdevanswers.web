@@ -3,9 +3,9 @@
 		"created_at": "Wed Nov 23 20:19:24 +0000 2022",
 		"id": 1,
 		"id_str": "1",
-		"title": "Why does the NoReverse match error pop up when I'm trying to marginate my django website?",
-		"detail": "I actually have no idea why this happens but i feel like if we all come together we can think of something that could work so i’m placing a bounty on this question thanks.",
-		"description": "This is how I fixed it",
+		"title": "Loop through csv files in folder and perform spatial intersect.",
+		"detail": "Though I have seen similar questions here about looping through and performing operations on csv files within a directory, the code I have written for my particular case is not working. I have ~100 csv files in a directory, which are spatial datasets (all have identical columns including lat/lon coordinates and other data, but different number of rows). I am trying to clip each of them using a bounding box. Here is what I have so far:",
+		"description": "Though I have seen similar questions here about looping through and performing operations on csv files within a directory, the code I have written for my particular case is not working. I have ~100 csv files in a directory, which are spatial datasets (all have identical columns including lat/lon coordinates and other data, but different number of rows). I am trying to clip each of them using a bounding box. Here is what I have so far: Thanks anyone out there who can see my mistake!",
 		"comments_count": 17,
 		"likes_count": 30,
 		"token_value": "0.0025",
@@ -25,10 +25,10 @@
 			"description": "I'm a frontend developer",
 			"verified": true,
 			"created_at": "Wed May 23 06:01:13 +0000 2007",
-			"profile_image_url_https": "https://www.dropbox.com/s/kzq4ahy1yf0ar9s/Ellipse%201.svg?raw=1",
+			"profile_image_url_https": "https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -171,7 +171,7 @@
 			"id": 2,
 			"id_str": "2",
 			"name": "Darell Stewart",
-			"screen_name": "prosper",
+			"screen_name": "darell-stewart",
 			"location": "Atlanta, US",
 			"url": "https://developer.twitter.com",
 			"description": "I'm a backend developer",
@@ -180,7 +180,7 @@
 			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -329,10 +329,10 @@
 			"description": "I'm a backend developer",
 			"verified": true,
 			"created_at": "Wed May 23 06:01:13 +0000 2022",
-			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
+			"profile_image_url_https": "https://www.dropbox.com/s/kzq4ahy1yf0ar9s/Ellipse%201.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython", "JavaScript"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -481,10 +481,10 @@
 			"description": "I'm a backend developer",
 			"verified": true,
 			"created_at": "Wed May 23 06:01:13 +0000 2022",
-			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
+			"profile_image_url_https": "https://www.dropbox.com/s/kzq4ahy1yf0ar9s/Ellipse%201.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython", "JavaScript"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -633,10 +633,10 @@
 			"description": "I'm a backend developer",
 			"verified": true,
 			"created_at": "Wed May 23 06:01:13 +0000 2022",
-			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
+			"profile_image_url_https": "https://www.dropbox.com/s/kzq4ahy1yf0ar9s/Ellipse%201.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython", "JavaScript"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -785,10 +785,10 @@
 			"description": "I'm a backend developer",
 			"verified": true,
 			"created_at": "Wed May 23 06:01:13 +0000 2022",
-			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
+			"profile_image_url_https": "https://www.dropbox.com/s/kzq4ahy1yf0ar9s/Ellipse%201.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython", "JavaScript"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -937,10 +937,10 @@
 			"description": "I'm a frontend developer",
 			"verified": true,
 			"created_at": "Wed May 23 06:01:13 +0000 2007",
-			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
+			"profile_image_url_https": "https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -1089,10 +1089,10 @@
 			"description": "I'm a frontend developer",
 			"verified": true,
 			"created_at": "Wed May 23 06:01:13 +0000 2007",
-			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
+			"profile_image_url_https": "https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -1235,16 +1235,16 @@
 			"id": 2,
 			"id_str": "2",
 			"name": "Darell Stewart",
-			"screen_name": "prosper",
+			"screen_name": "darell-stewart",
 			"location": "Atlanta, US",
 			"url": "https://developer.twitter.com",
 			"description": "I'm a backend developer",
 			"verified": true,
 			"created_at": "Wed May 23 06:01:13 +0000 2022",
-			"profile_image_url_https": "https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1",
+			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -1387,7 +1387,7 @@
 			"id": 2,
 			"id_str": "2",
 			"name": "Darell Stewart",
-			"screen_name": "prosper",
+			"screen_name": "darell-stewart",
 			"location": "Atlanta, US",
 			"url": "https://developer.twitter.com",
 			"description": "I'm a backend developer",
@@ -1396,7 +1396,7 @@
 			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
@@ -1539,15 +1539,16 @@
 			"id": 2,
 			"id_str": "2",
 			"name": "Darell Stewart",
-			"screen_name": "prosper",
+			"screen_name": "darell-stewart",
 			"location": "Atlanta, US",
 			"url": "https://developer.twitter.com",
 			"description": "I'm a backend developer",
 			"verified": true,
 			"created_at": "Wed May 23 06:01:13 +0000 2022",
+			"profile_image_url_https": "https://www.dropbox.com/s/4nyjaq5gb3mqppz/Ellipse%201%20%282%29.svg?raw=1",
 			"profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515"
 		},
-		"tags": ["Phython"],
+		"tags": ["Python"],
 		"comments": [
 			{
 				"postId": 1,
