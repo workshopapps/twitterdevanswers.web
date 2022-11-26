@@ -32,7 +32,7 @@ import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
 import Asks from './components/Asks';
-import Privacy from './pages/Privacy';
+import Privacy from './pages/Privacy/Privacy';
 import { AppContext } from './store/AppContext';
 
 function App() {
