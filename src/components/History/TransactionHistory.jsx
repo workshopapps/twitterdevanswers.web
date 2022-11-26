@@ -7,7 +7,6 @@ import WalletContext from '../../pages/WalletPage/WalletContext';
 
 function TransactionHistory() {
 	const { loading, data } = useContext(WalletContext);
-	console.log(data);
 
 	return loading ? (
 		<TransactionHistorySkeleton />

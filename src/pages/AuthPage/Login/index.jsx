@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
@@ -6,6 +5,7 @@ import Googleicon from '../../../assets/google.svg';
 import GithubIcon from '../../../assets/github.svg';
 import Microsoficon from '../../../assets/microsoft.svg';
 import AuthPage from '..';
+
 
 const signInOptions = [
 	{
@@ -42,6 +42,7 @@ const inputs = [
 ];
 
 function InputCheckbox() {
+
 	return (
 		<div className={` ${styles['form-group__checkbox']}`}>
 			<input
@@ -49,10 +50,11 @@ function InputCheckbox() {
 				className={styles.input__checkbox}
 				id="keep-logged-in"
 			/>
-			<label
+			<label aria-controls='label'
 				htmlFor="keep-logged-in"
 				className={styles['form-group__checkbox-label']}
 			>
+				<input/>
 				Keep me logged in
 			</label>
 		</div>
