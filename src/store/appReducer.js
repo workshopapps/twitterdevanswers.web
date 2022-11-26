@@ -16,6 +16,14 @@ export default function appReducer(state, { type, payload }) {
 			};
 		}
 
+		case 'USER_SIGNED_UP': {
+			return {
+				...state,
+				user: payload,
+				isAuth: true,
+			};
+		}
+
 		case 'LOADING': {
 			return {
 				...state,
