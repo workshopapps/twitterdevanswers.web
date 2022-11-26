@@ -1,10 +1,10 @@
-/* eslint-disable */
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Button.css';
 import BUTTON_TYPES from './Data';
 
-const Button = (props) => {
-	const { type, btnText } = props;
+function Button(props) {
+	const { type, btnText, onClick } = props;
 
 	const getButtonClass = () => {
 		switch (type) {
@@ -18,7 +18,25 @@ const Button = (props) => {
 		}
 	};
 
-	return <button className={`${getButtonClass()}`}>{btnText}</button>;
-};
+	return (
+		<button
+			type="button"
+			onClick={onClick}
+			className={`${getButtonClass()} btn`}
+		>
+			{btnText}
+		</button>
+	);
+}
 
 export default Button;
+
+Button.propTypes = {
+	type: PropTypes.string.isRequired,
+	btnText: PropTypes.string.isRequired,
+	onClick: PropTypes.func,
+};
+
+Button.defaultProps = {
+	onClick: undefined,
+};

@@ -1,6 +1,7 @@
 @media (min-width: 1024px) {
 	.history__container {
 		width: 75%;
+		margin-bottom: 2rem;
 	}
 }
 
@@ -38,7 +39,8 @@
 	border-radius: 1rem;
 	border-width: 1px;
 	border-bottom-width: 1px;
-
+	margin-bottom: 4rem;
+	margin-bottom: 2rem;
 	background: #fefefe;
 }
 
