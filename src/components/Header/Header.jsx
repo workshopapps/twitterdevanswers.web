@@ -19,11 +19,6 @@ export default function Header({ pathname }) {
 
 	const ref = useRef();
 
-	// const observer = new IntersectionObserver((function () {}), {
-	// 	root: null,
-	// });
-	// observer.observe(ref.current);
-
 	// prevent scroll if sidenav is open
 	useEffect(() => {
 		if (!sidenav) {

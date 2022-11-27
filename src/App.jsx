@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
 import API from './pages/API';
@@ -32,8 +32,8 @@ import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
 import Asks from './components/Asks';
-import Privacy from './pages/Privacy';
-import {AppContext} from './store/AppContext';
+import Privacy from './pages/Privacy/Privacy';
+import { AppContext } from './store/AppContext';
 
 function App() {
 	const {
@@ -74,9 +74,9 @@ function App() {
 					<Route path="settings" element={<Settings />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="*" element={<ErrorPage />} />
-					</Route>
+				</Route>
 			</Routes>
-			{user || isAuth ? <InternalFooter /> : <Footer/>}
+			{user || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }
