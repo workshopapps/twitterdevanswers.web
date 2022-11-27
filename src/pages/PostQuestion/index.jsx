@@ -144,6 +144,35 @@ function PostQuestion() {
 		localStorage.setItem('questions', JSON.stringify(questions));
 	}, [questions]);
 
+	const [enabled, setEnabled] = useState(true);
+	const [isEnabled, setIsEnabled] = useState(true);
+ 
+ 
+	const handleClick = () => {
+		const inputLength = document.getElementById("firstinput").value
+		if (inputLength.length > 0)
+		setEnabled(!enabled)
+ 
+		
+	}
+	const handleClicking = () => {
+		const inputLength2 = document.getElementById("secondinput").value
+		if (inputLength2.length > 0)
+		setIsEnabled(!isEnabled)
+	}
+ 
+ 
+	const discard = () => {
+		const inputLength = document.getElementById("firstinput")
+		const inputLength2 = document.getElementById("secondinput")
+		const inputLength3 = document.getElementById("thirdinput")
+		inputLength.value = ""
+		inputLength2.value = ""
+		inputLength3.value = ""
+	}
+ 
+ 
+
 	return (
 		<main className={styles.containerWrapper}>
 			{isModalOpen && (
@@ -157,7 +186,7 @@ function PostQuestion() {
 									type="button"
 									className={`${styles.modalButton} ${styles.modalCancel}`}
 									onClick={() => {
-										setIsSuccessful(false);
+										setIsSuccessful(true);
 										setIsModalOpen(false);
 									}}
 								>
@@ -247,6 +276,7 @@ function PostQuestion() {
 							</p>
 							<input
 								type="text"
+								id="firstinput"
 								placeholder="Type your title here"
 								value={questionData.title}
 								name="title"
@@ -254,7 +284,9 @@ function PostQuestion() {
 							/>
 						</div>
 
-						<button type="button">Next</button>
+						<button type="button" onClick={handleClick}>
+							Next
+						</button>
 					</section>
 
 					{/* problem */}
@@ -293,15 +325,19 @@ function PostQuestion() {
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
 							</div>
-							<textarea
+							<textarea required
 								value={questionData.detail}
 								name="detail"
+								id="secondinput"
+								disabled={enabled}
 								onChange={handleChange}
 							>
 								*Placeholder*
 							</textarea>
 						</div>
-						<button type="button">Next</button>
+						<button type="button" onClick={handleClicking}>
+							Next
+						</button>
 					</section>
 
 					{/* detail */}
@@ -342,6 +378,8 @@ function PostQuestion() {
 							<textarea
 								value={questionData.description}
 								name="description"
+								id="thirdinput"
+								disabled={isEnabled}
 								onChange={handleChange}
 							>
 								*Placeholder*
@@ -401,7 +439,11 @@ function PostQuestion() {
 								Review your question
 							</button>
 
-							<button className={styles.discard} type="button">
+							<button
+								onClick={discard}
+								className={styles.discard}
+								type="button"
+							>
 								Discard draft
 							</button>
 						</div>
