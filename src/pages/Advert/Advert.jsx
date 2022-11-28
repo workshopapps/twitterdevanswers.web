@@ -1,11 +1,11 @@
 import React from 'react';
 import './Advert.css';
-import Devs from '../../components/Advert/img/Devs.png';
-import Cn from '../../components/Advert/img/Cn.png';
-import Css from '../../components/Advert/img/CSS.png';
-import Figma from '../../components/Advert/img/Figma.png';
-import Google from '../../components/Advert/img/Google.png';
-import Html from '../../components/Advert/img/HTML5.png';
+import Devs from '../../assets/advert-images/Devs.png';
+import Cn from '../../assets/advert-images/Cn.png';
+import Css from '../../assets/advert-images/CSS.png';
+import Figma from '../../assets/advert-images/Figma.png';
+import Google from '../../assets/advert-images/Google.png';
+import Html from '../../assets/advert-images/HTML5.png';
 
 function Advert() {
 	return (
