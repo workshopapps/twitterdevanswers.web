@@ -285,6 +285,7 @@
 .container .tagWrapper {
 	display: flex;
 	flex-direction: row;
+
 	border-top: 1px solid #d6d6d6;
 	border-bottom: 1px solid #d6d6d6;
 	justify-content: space-between;

@@ -325,7 +325,8 @@ function PostQuestion() {
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
 							</div>
-							<textarea required
+							<textarea
+								required
 								value={questionData.detail}
 								name="detail"
 								id="secondinput"
@@ -387,6 +388,45 @@ function PostQuestion() {
 						</div>
 
 						{/* Add tag */}
+						<section className={styles.tagWrapper}>
+							<div className={styles.tagContent}>
+								<span className={styles.text}>Add tag </span>
+
+								<button
+									type="button"
+									onClick={() => setIsOpen(!isOpen)}
+									className={styles.tagsButton}
+								>
+									<img src="/post-question/down-arrow.svg" alt="Down Arrow" />
+								</button>
+
+								{isOpen && (
+									<div className={styles.tagsWrapper}>
+										{isOpen &&
+											tags.map((tag) => (
+												<button
+													key={tag}
+													type="button"
+													onClick={() => handleTagClick(tag)}
+												>
+													{tag}
+												</button>
+											))}
+									</div>
+								)}
+							</div>
+
+							<div className={styles.allTags}>
+								{questionData.tags.map((tag) => (
+									<p key={tag}>
+										{tag}
+										<button type="button" onClick={() => handleTagRemoval(tag)}>
+											<img src="/post-question/cancel.svg" alt="Cancel Icon" />
+										</button>
+									</p>
+								))}
+							</div>
+						</section>
 						<section className={styles.tagWrapper}>
 							<div className={styles.tagContent}>
 								<span className={styles.text}>Add tag </span>
