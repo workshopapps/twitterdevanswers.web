@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import ArrowUp from '../../assets/arrow-up.svg';
-import ArrowRight from '../../assets/arrow-right.svg';
+import ArrowUp from '../../assets/wallet-images/arrow-up.svg';
+import ArrowRight from '../../assets/wallet-images/arrow-right.svg';
 import styles from './TransactionHistory.module.css';
 import TransactionHistorySkeleton from './TransactionHistorySkeleton';
 import WalletContext from '../../pages/WalletPage/WalletContext';
