@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 
-import brandLogo from '../../assets/brand-logo.svg';
+import brandLogo from '../../assets/settings-images/brand-logo.svg';
 import styles from './header.module.css';
 
 export default function Header({ pathname }) {

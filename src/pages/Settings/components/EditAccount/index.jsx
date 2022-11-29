@@ -5,7 +5,7 @@ import React,{useState} from 'react';
 // import EditAccountCSS from "./style.module.css"
 
 import EditAccountCSS from './style.module.css';
-import TestImage from '../assets/test-img.jfif';
+import TestImage from '../../../../assets/settings-images/test-img.jfif';
 
 function EditAcccount() {
 	const [status, setStatus] = useState("");

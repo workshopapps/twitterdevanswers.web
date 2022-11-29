@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
-import { ReactComponent as HomeIcon } from '../../assets/footer-images/home.svg';
-import { ReactComponent as TagIcon } from '../../assets/footer-images/tagIcon.svg';
-import { ReactComponent as UsersIcon } from '../../assets/footer-images/user.svg';
-import { ReactComponent as WalletIcon } from '../../assets/footer-images/wallet.svg';
-import { ReactComponent as SortIcon } from '../../assets/sort.svg';
-import { ReactComponent as SettingsIcon } from '../../assets/footer-images/settings.svg';
-import { ReactComponent as NotificationIcon } from '../../assets/footer-images/notification.svg';
-import { ReactComponent as SearchIcon } from '../../assets/search.svg';
-import avatar from '../../assets/footer-images/avatar.svg';
-import brandLogo from '../../assets/footer-images/brand-logo.svg';
+import { ReactComponent as HomeIcon } from '../../assets/header-images/home.svg';
+import { ReactComponent as TagIcon } from '../../assets/header-images/tagIcon.svg';
+import { ReactComponent as UsersIcon } from '../../assets/header-images/user.svg';
+import { ReactComponent as WalletIcon } from '../../assets/header-images/wallet.svg';
+import { ReactComponent as SortIcon } from '../../assets/header-images/sort.svg';
+import { ReactComponent as SettingsIcon } from '../../assets/header-images/settings.svg';
+import { ReactComponent as NotificationIcon } from '../../assets/header-images/notification.svg';
+import { ReactComponent as SearchIcon } from '../../assets/header-images/search.svg';
+import avatar from '../../assets/header-images/avatar.svg';
+import brandLogo from '../../assets/header-images/brand-logo.svg';
 import styles from './internalHeader.module.css';
 
 //  header component for internal pages
