@@ -14,7 +14,11 @@ function AuthPage({
 	inputCheckbox,
 	buttonLabel,
 	children,
+	onChange,
+	onSubmit,
 }) {
+	
+
 	return (
 		<main className={styles['auth-page']}>
 			<section className={styles['auth-container']}>
@@ -34,7 +38,7 @@ function AuthPage({
 
 					<h3 className={styles['auth-alt-option']}>{authAltText}</h3>
 
-					<form className={styles['auth-form']}>
+					<form onSubmit={onSubmit} className={styles['auth-form']}>
 						{inputs.map((input) => (
 							<Input
 								label={input.label}
@@ -43,6 +47,8 @@ function AuthPage({
 								placeholder={input.placeholder}
 								canBeHidden={input.canBeHidden}
 								key={input.id}
+								onChange={onChange}
+								name={input.name}
 							/>
 						))}
 
@@ -67,4 +73,6 @@ AuthPage.propTypes = {
 	inputCheckbox: PropTypes.node.isRequired,
 	buttonLabel: PropTypes.string.isRequired,
 	children: PropTypes.node.isRequired,
+	onChange: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
 };

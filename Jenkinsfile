@@ -7,13 +7,13 @@ pipeline {
         stage('Build') { 
             steps { 
                 sh 'npm i'
-                sh 'npm run'
+               
                 
             }
         }
         stage('Test'){
             steps {
-                sh 'echo Test stage'
+               sh 'npm run build'
             }
         }
 
@@ -23,14 +23,14 @@ pipeline {
                 ok "OK"
             }
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no deployment-user@52.203.249.167 "
-                cd devask;\
-                cd frontend;\
+                sh 'ssh -o StrictHostKeyChecking=no deployment-user@52.203.249.167 "\
+                cd ;\
+                cd project/frontend;\
                 git pull origin dev; \
+                npm run build;\
                 cd ..;\
-                docker compose down --remove-orphans;\
-                docker compose up
-                "'
+                sudo cp -r project/frontend/build /var/www/;\
+                sudo systemctl reload nginx "'
             }
         }
     }

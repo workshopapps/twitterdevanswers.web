@@ -18,7 +18,7 @@ function UserPage() {
 			<main>
 				<div className={styles.user_grid_container}>
 					{users.map((user) => (
-						<UserProfileCard key={user.img} user={user} />
+						<UserProfileCard key={user.id} user={user} />
 					))}
 				</div>
 
