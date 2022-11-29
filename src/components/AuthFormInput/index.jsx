@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
-import UserIcon from '../../assets/user-icon.svg';
-import EyeslashIcon from '../../assets/eye-slash.svg';
+import UserIcon from '../../assets/auth-images/user-icon.svg';
+import EyeslashIcon from '../../assets/auth-images/eye-slash.svg';
 
 function Input({ label, id, type, placeholder, canBeHidden = false }) {
 	return (
