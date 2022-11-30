@@ -7,14 +7,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 sh 'npm i'
-               
-                
-            }
-        }
-        stage('Test'){
-            steps {
-               sh 'npm run build'
-            }
+              }
         }
 
         stage('Deploy to Production') {
@@ -23,13 +16,11 @@ pipeline {
                 ok "OK"
             }
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no deployment-user@52.203.249.167 "\
-                cd ;\
-                cd project/frontend;\
+                sh 'ssh -o StrictHostKeyChecking=no abell205@65.108.237.42 "\
+                cd frontend ;\
                 git pull origin dev; \
                 npm run build;\
-                cd ..;\
-                sudo cp -r project/frontend/build /var/www/;\
+                pm2 serve build 2201;\
                 sudo systemctl reload nginx "'
             }
         }

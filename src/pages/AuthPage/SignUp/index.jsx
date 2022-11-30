@@ -1,9 +1,9 @@
 import React, {useState, useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
-import Googleicon from '../../../assets/google.svg';
-import GithubIcon from '../../../assets/github.svg';
-import Microsoficon from '../../../assets/microsoft.svg';
+import Googleicon from '../../../assets/auth-images/google.svg';
+import GithubIcon from '../../../assets/auth-images/github.svg';
+import Microsoficon from '../../../assets/auth-images/microsoft.svg';
 import { AppContext } from '../../../store/AppContext';
 import { USER_SIGNED_UP } from '../../../store/actionTypes';
 import AuthPage from '..';
