@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AskCards.module.css';
 import testQuestions from '../../utils/testQuestions.json';
-import options from '../../assets/options.webp';
-import message from '../../assets/message.webp';
-import heartBold from '../../assets/heartBold.webp';
-import share from '../../assets/share.webp';
-import dollarCircle from '../../assets/dollarCircle.webp';
+import options from '../../assets/dashboard-images/options.webp';
+import message from '../../assets/dashboard-images/message.webp';
+import heartBold from '../../assets/dashboard-images/heartBold.webp';
+import share from '../../assets/dashboard-images/share.webp';
+import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
 function AskCards() {
 	const askCard = testQuestions.map((question) => (

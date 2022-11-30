@@ -1,6 +1,6 @@
-import ellipse from '../../assets/user-1.svg';
-import ellipse1 from '../../assets/user-2.svg';
-import ellipse2 from '../../assets/user-3.svg';
+import ellipse from '../../assets/tag-images/user-1.svg';
+import ellipse1 from '../../assets/tag-images/user-2.svg';
+import ellipse2 from '../../assets/tag-images/user-3.svg';
 
 const Data = [
 	{

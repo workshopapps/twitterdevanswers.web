@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import likeicon from '../../assets/Vector.png';
-import commenticon from '../../assets/message.png';
-import clock from '../../assets/clock.png';
+import likeicon from '../../assets/tag-images/Vector.png';
+import commenticon from '../../assets/tag-images/message.png';
+import clock from '../../assets/tag-images/clock.png';
 
 import styles from './Tag.module.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './HistoryContainer.module.css';
-import ArrowRight from '../../assets/arrow-right.svg';
+import ArrowRight from '../../assets/wallet-images/arrow-right.svg';
 
 import TransactionHistory from './TransactionHistory';
 import History from './History';

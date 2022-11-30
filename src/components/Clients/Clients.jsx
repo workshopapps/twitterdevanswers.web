@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { ReactComponent as StackOverflow } from '../../assets/stackoverflow-logo.svg';
-import { ReactComponent as Twitter } from '../../assets/twitter-logo.svg';
-import { ReactComponent as Figma } from '../../assets/figma-logo.svg';
-import { ReactComponent as Css } from '../../assets/css-logo.svg';
-import { ReactComponent as Html } from '../../assets/html-logo.svg';
+import { ReactComponent as StackOverflow } from '../../assets/landing-images/stackoverflow-logo.svg';
+import { ReactComponent as Twitter } from '../../assets/landing-images/twitter-logo.svg';
+import { ReactComponent as Figma } from '../../assets/landing-images/figma-logo.svg';
+import { ReactComponent as Css } from '../../assets/landing-images/css-logo.svg';
+import { ReactComponent as Html } from '../../assets/landing-images/html-logo.svg';
 
 import styles from './clients.module.css';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import AuthButton from '.';
-import GoogleIcon from '../../assets/google.svg';
-import GithubIcon from '../../assets/github.svg';
-import MicrosoftIcon from '../../assets/microsoft.svg';
+import GoogleIcon from '../../assets/auth-images/google.svg';
+import GithubIcon from '../../assets/auth-images/github.svg';
+import MicrosoftIcon from '../../assets/auth-images/microsoft.svg';
 
 export default {
 	title: 'components/AuthButton',

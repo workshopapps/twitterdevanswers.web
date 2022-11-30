@@ -1,6 +1,6 @@
 import React from 'react';
 import LpButton from '../LpButton/LpButton';
-import heroImg from '../../assets/hero-img.png';
+import heroImg from '../../assets/landing-images/hero-img.png';
 import styles from './hero.module.css';
 
 function Hero() {
