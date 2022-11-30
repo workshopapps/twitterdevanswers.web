@@ -8,12 +8,38 @@ function Notifications() {
 	const [notificationsToDisplay, setNotificationsToDisplay] =
 		useState(notifications);
 
+	// const [allNotifications, setAllNotifications] = useState([]);
+
 	useEffect(() => {
 		if (activeTab === 'all') {
 			setNotificationsToDisplay(notifications);
 		} else if (activeTab === 'unread') {
 			setNotificationsToDisplay(notifications.filter((n) => n.unread));
 		}
+
+		const sse = new EventSource(
+			'https://pacific-peak-54505.herokuapp.com/notification?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE2Njk4MTEzNTd9.WzEb7VTH87OxHfrKH0aC9eqwemkGwss7P4ELbTO4Pq0'
+			// { withCredentials: true }
+		);
+
+		console.log(sse);
+
+		function handleStream(e) {
+			console.log(e);
+			// setData(e.data);
+		}
+
+		sse.onmessage = (e) => {
+			handleStream(e);
+		};
+
+		sse.onerror = () => {
+			sse.close();
+		};
+
+		return () => {
+			sse.close();
+		};
 	}, [activeTab]);
 
 	return (
