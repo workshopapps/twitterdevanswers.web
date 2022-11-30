@@ -146,32 +146,24 @@ function PostQuestion() {
 
 	const [enabled, setEnabled] = useState(true);
 	const [isEnabled, setIsEnabled] = useState(true);
- 
- 
+
 	const handleClick = () => {
-		const inputLength = document.getElementById("firstinput").value
-		if (inputLength.length > 0)
-		setEnabled(!enabled)
- 
-		
-	}
+		const inputLength = document.getElementById('firstinput').value;
+		if (inputLength.length > 0) setEnabled(!enabled);
+	};
 	const handleClicking = () => {
-		const inputLength2 = document.getElementById("secondinput").value
-		if (inputLength2.length > 0)
-		setIsEnabled(!isEnabled)
-	}
- 
- 
+		const inputLength2 = document.getElementById('secondinput').value;
+		if (inputLength2.length > 0) setIsEnabled(!isEnabled);
+	};
+
 	const discard = () => {
-		const inputLength = document.getElementById("firstinput")
-		const inputLength2 = document.getElementById("secondinput")
-		const inputLength3 = document.getElementById("thirdinput")
-		inputLength.value = ""
-		inputLength2.value = ""
-		inputLength3.value = ""
-	}
- 
- 
+		const inputLength = document.getElementById('firstinput');
+		const inputLength2 = document.getElementById('secondinput');
+		const inputLength3 = document.getElementById('thirdinput');
+		inputLength.value = '';
+		inputLength2.value = '';
+		inputLength3.value = '';
+	};
 
 	return (
 		<main className={styles.containerWrapper}>
@@ -388,45 +380,6 @@ function PostQuestion() {
 						</div>
 
 						{/* Add tag */}
-						<section className={styles.tagWrapper}>
-							<div className={styles.tagContent}>
-								<span className={styles.text}>Add tag </span>
-
-								<button
-									type="button"
-									onClick={() => setIsOpen(!isOpen)}
-									className={styles.tagsButton}
-								>
-									<img src="/post-question/down-arrow.svg" alt="Down Arrow" />
-								</button>
-
-								{isOpen && (
-									<div className={styles.tagsWrapper}>
-										{isOpen &&
-											tags.map((tag) => (
-												<button
-													key={tag}
-													type="button"
-													onClick={() => handleTagClick(tag)}
-												>
-													{tag}
-												</button>
-											))}
-									</div>
-								)}
-							</div>
-
-							<div className={styles.allTags}>
-								{questionData.tags.map((tag) => (
-									<p key={tag}>
-										{tag}
-										<button type="button" onClick={() => handleTagRemoval(tag)}>
-											<img src="/post-question/cancel.svg" alt="Cancel Icon" />
-										</button>
-									</p>
-								))}
-							</div>
-						</section>
 						<section className={styles.tagWrapper}>
 							<div className={styles.tagContent}>
 								<span className={styles.text}>Add tag </span>
