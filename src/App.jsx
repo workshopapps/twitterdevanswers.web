@@ -1,4 +1,7 @@
-import React, { useContext } from 'react';
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/self-closing-comp */
+import React, { useContext,useEffect ,useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
 import API from './pages/API';
@@ -36,15 +39,69 @@ import Privacy from './pages/Privacy/Privacy';
 import { AppContext } from './store/AppContext';
 
 function App() {
+	const [active, setActive] = useState(true);
 	const {
 		state: { isAuth },
 	} = useContext(AppContext);
 	const data = localStorage.getItem('user');
 	const user = JSON.parse(data);
 
+	const checkForInactivity =() =>{
+		const expiredTime = localStorage.getItem('expireTime')
+
+		if(expiredTime< Date.now()){
+			
+			setActive(false)
+			localStorage.setItem('userActivity',('offline'))
+
+		}else if(expiredTime> Date.now()) {
+			setActive(true)
+			localStorage.setItem('userActivity',('online'))
+			const inactiveTimeStamp=Date()
+			localStorage.setItem('lastSeen',JSON.stringify(inactiveTimeStamp))
+
+		}
+	}
+
+	const updateExpiredTime = ()=>{
+		if(active === true){
+			const timer = Date.now() + 5000;
+			localStorage.setItem("expireTime",timer)
+			
+		}
+	}
+
+	useEffect(()=>{
+
+		const interval = setInterval(() =>{
+			checkForInactivity();
+
+		},[1000])
+
+		return()=> clearInterval(interval)
+	},[])
+
+	useEffect(()=>{
+		updateExpiredTime();
+
+		window.addEventListener("click",updateExpiredTime);
+		window.addEventListener("keypress",updateExpiredTime);
+		window.addEventListener("scroll",updateExpiredTime);
+		window.addEventListener("mousemove",updateExpiredTime)
+
+		return ()=>{
+			window.removeEventListener("click",updateExpiredTime);
+			window.removeEventListener("keypress",updateExpiredTime);
+			window.removeEventListener("scroll",updateExpiredTime);
+			window.removeEventListener("mousemove",updateExpiredTime)
+	
+		}
+	},[])
+
+
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader /> : <Header />}
+			{user || isAuth ? <InternalHeader activeState={active} /> : <Header />}
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React, { useEffect, useState } from 'react';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
@@ -14,8 +16,9 @@ import brandLogo from '../../assets/brand-logo.svg';
 import styles from './internalHeader.module.css';
 
 //  header component for internal pages
-export default function InternalHeader() {
+export default function InternalHeader(props) {
 	const [sidenav, setSidenav] = useState(false);
+	const[userState,setUserState]=useState('online')
 
 	// prevent scroll if sidenav is open
 	useEffect(() => {
@@ -40,6 +43,19 @@ export default function InternalHeader() {
 		lineHeight: '28px',
 		color: '#4343de',
 	};
+
+	useEffect(()=>{
+		const activity = setInterval(() =>{
+			if(props.activeState === true){
+				const activityState = localStorage.getItem('userActivity')
+			setUserState(activityState)
+		}
+			
+		},[400])
+
+		return()=> clearInterval(activity)
+		
+	},[])
 
 	return (
 		<div className={styles.headerContainer}>
@@ -109,12 +125,12 @@ export default function InternalHeader() {
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
 						<div className={styles.user}>
-							<div className={styles.avatar}>
-								<img src={avatar} alt="avatar" />
+							<div className={styles.avatar} aria-hidden={props.activeState} >
+								<img src={avatar}  alt="avatar" />
 							</div>
 							<div className={styles.nameStatus}>
 								<p>Kayla Nicole</p>
-								<span>Online</span>
+								<span>{userState}</span>
 							</div>
 						</div>
 						<HiBars3CenterLeft

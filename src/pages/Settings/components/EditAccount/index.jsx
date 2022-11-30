@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -9,6 +10,21 @@ import TestImage from '../assets/test-img.jfif';
 
 function EditAcccount() {
 	const [status, setStatus] = useState("");
+	const[nameState,setNameState]=useState(localStorage.getItem('name'),'')
+	const[update,setupdate]=useState()
+
+	const handleNameInput = (e) =>{
+			setupdate(e.target.value)
+	}
+	const handleSaveBtn = () =>{
+		localStorage.setItem("name",update)
+	}
+	const handleDiscardBtn = () =>{
+		setNameState('')
+		localStorage.setItem("name","")
+
+		
+	}
 	return (
 		<div className={EditAccountCSS.editaccount}>
 			<div className={EditAccountCSS.tabheading}>
@@ -48,7 +64,8 @@ function EditAcccount() {
 								id="nameinput"
 								className={EditAccountCSS.textinput}
 								type="text"
-								value="Ayoola Faisal"
+								defaultValue={nameState}
+								onChange={handleNameInput}
 							/>
 						</label>
 
@@ -324,10 +341,10 @@ function EditAcccount() {
 							</select>						
 						</label>
 						<div className={EditAccountCSS.buttons}>
-							<button className={EditAccountCSS.savebtn} type="button">
+							<button className={EditAccountCSS.savebtn} onClick={handleSaveBtn} type="button">
 								Save Changes
 							</button>
-							<button className={EditAccountCSS.discardbtn} type="button">
+							<button className={EditAccountCSS.discardbtn} onClick={handleDiscardBtn} type="button">
 								Discard Changes
 							</button>
 						</div>
