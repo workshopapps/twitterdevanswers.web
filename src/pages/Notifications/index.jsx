@@ -8,7 +8,7 @@ function Notifications() {
 	const [notificationsToDisplay, setNotificationsToDisplay] =
 		useState(notifications);
 
-	// const [allNotifications, setAllNotifications] = useState([]);
+	const [allNotifications, setAllNotifications] = useState([]);
 
 	useEffect(() => {
 		if (activeTab === 'all') {
@@ -22,11 +22,9 @@ function Notifications() {
 			// { withCredentials: true }
 		);
 
-		console.log(sse);
-
 		function handleStream(e) {
 			console.log(e);
-			// setData(e.data);
+			setAllNotifications(e.data.notifications);
 		}
 
 		sse.onmessage = (e) => {
@@ -37,10 +35,12 @@ function Notifications() {
 			sse.close();
 		};
 
+		console.log(allNotifications, 'allNotifications');
+
 		return () => {
 			sse.close();
 		};
-	}, [activeTab]);
+	}, [activeTab, allNotifications]);
 
 	return (
 		<main className={styles.main}>

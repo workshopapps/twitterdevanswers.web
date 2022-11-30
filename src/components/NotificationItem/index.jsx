@@ -93,13 +93,11 @@ const Notification = PropTypes.shape({
 		body: PropTypes.string,
 	}),
 });
-
-NotificationItem.defaultProps = {
-	notification: {},
-};
-
 NotificationItem.propTypes = {
 	notification: PropTypes.shape(Notification),
+};
+NotificationItem.defaultProps = {
+	notification: {},
 };
 
 export default NotificationItem;
