@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Section1 from './section1.module.css';
-import backIcon from '../../assets/profile-images/arrow-left.png';
 import link from '../../assets/profile-images/link-2.png';
 import locationIcon from '../../assets/profile-images/location.png';
 import twitter from '../../assets/profile-images/twitter.png';
 import github from '../../assets/profile-images/github.png';
-import wallet from '../../assets/profile-images/wallet.png';
+import profilepic from '../../assets/profile-images/framepics.png';
+import calendarIcon from '../../assets/profile-images/calendar.png';
 
 function ProfileTopSection({ user }) {
 	const {
@@ -17,51 +17,35 @@ function ProfileTopSection({ user }) {
 		location,
 		description,
 		url,
-		profile_image_url_https,
+		// profile_image_url_https,
 	} = user;
 
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 	return (
-		<div className="profile__top-section">
-			<div className={Section1.profile__banner}>
-				<div className={Section1.back__icon}>
-					<button
-						className={Section1.backarrow}
-						type="button"
-						onClick={() => navigate(-1)}
-					>
-						<img src={backIcon} alt="Back icon" />
-					</button>
+		<div className={Section1.profile__datawrapper}>
+			<div className={Section1.profile__datatxt}>
+				<div className={Section1.profile__imagewrapper}>
+					<img
+						// src={`${profile_image_url_https}`}
+						src={profilepic}
+						alt=""
+						className={Section1.profile__image}
+					/>
 				</div>
-				<div className={Section1.profile__bannerimg} />
-			</div>
-			<div className={Section1.profile__datawrapper}>
-				<div className={Section1.profile__userdata}>
-					<div className={Section1.profile__datawrapper}>
-						<div className={Section1.profile__imagewrapper}>
-							<img
-								src={`${profile_image_url_https}`}
-								alt=""
-								className={Section1.profile__image}
-							/>
-						</div>
-					</div>
-					<div className={Section1.profile__btns}>
-						<div className={Section1.profile__btnwrapper}>
-							<div className={Section1.btn1}>
-								<img src={wallet} alt="" className={Section1.btn__img} />
-							</div>
-							<button className={Section1.btn2} type="button">
-								Edit Profile
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className={Section1.profile__datatxt}>
+				<div className={Section1.profile__info}>
 					<div className={Section1.profile__name}>{name}</div>
-					<div className={Section1.profile__username}>{screen_name}</div>
+					<div className={Section1.profile__username}>@{screen_name}</div>
 					<div className={Section1.profile__status}>{description}</div>
+				</div>
+				<div className={Section1.profile__address}>
 					<div className={Section1.profile__datejoined}>
+						<div className={Section1.profile__iconwrapper}>
+							<img
+								src={calendarIcon}
+								alt=""
+								className={Section1.profile__icon}
+							/>
+						</div>{' '}
 						Joined spetember 2019
 					</div>
 					<div className={Section1.profile__location}>
@@ -83,10 +67,21 @@ function ProfileTopSection({ user }) {
 					<div className={Section1.profile__socials}>
 						<div className={Section1.profile__iconwrapper}>
 							<img src={github} alt="" className={Section1.profile__icon} />
-						</div>
+						</div>{' '}
+						ayemma
+					</div>
+					<div className={Section1.profile__socials}>
 						<div className={Section1.profile__iconwrapper}>
 							<img src={twitter} alt="" className={Section1.profile__icon} />
-						</div>
+						</div>{' '}
+						ayemma
+					</div>
+				</div>
+				<div className={Section1.profile__btns}>
+					<div className={Section1.profile__btnwrapper}>
+						<button className={Section1.btn2} type="button">
+							Edit Profile
+						</button>
 					</div>
 				</div>
 			</div>

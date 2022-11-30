@@ -20,12 +20,22 @@
 	justify-content: center;
 	align-items: center;
 }
+
+.profile__top-section {
+	display: flex;
+}
+
+.profile__datawrapper {
+	display: flex;
+	flex-basis: auto;
+}
 .profile__name {
 	font-style: normal;
 	font-weight: 600;
 	font-size: 2em;
 	line-height: 40px;
 }
+.profile__datejoined,
 .profile__location,
 .profile__link,
 .profile__socials {
@@ -44,9 +54,9 @@
 	position: relative;
 	top: -30px;
 }
-.profile__datatxt {
-	padding: 1.0738rem 1.2rem;
-}
+
+
+.profile__
 .profile__link {
 	color: #4343df;
 	cursor: pointer;
@@ -68,13 +78,12 @@
 	margin-top: 1rem;
 }
 .btn2 {
-	background: #1d1dd8;
+	border: 1px solid #1d1dd8;
 	border-radius: 4px;
 	font-size: 0.875em;
-	border: none;
-	outline: none;
+	background-color: white;
 	padding: 0.75rem 1.5rem;
-	color: white;
+	color: #1d1dd8;
 }
 * {
 	background-color: 2px solid red;
@@ -98,3 +107,30 @@
 	border: none;
 	cursor: pointer;
 }
+
+.profile__datatxt {
+	display: flex;
+	/* gap: 30px; */
+	padding: 1.0738rem 1.2rem;
+}
+
+.profile__imagewrapper {
+	flex-basis: 18%;
+}
+
+.profile__info {
+	flex-basis: 30%;
+	
+	margin-right: 100px;
+}
+
+.profile__address {
+	flex-basis: 25%;
+	margin-right: 200px;
+}
+
+.profile__btns {
+	flex-basis: 25%;
+	justify-self: right;
+}
+
