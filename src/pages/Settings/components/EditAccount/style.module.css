@@ -25,7 +25,7 @@
 }
 .flagimage{
 	width: 88px;
-	background-image: url("../assets/flag.png");
+	background-image: url("../../../../assets/settings-images/flag.png");
 	background-repeat: no-repeat;
 	background-position: 19px;
 	background-color: #efefef;

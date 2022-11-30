@@ -1,66 +1,199 @@
 import { React, useState } from 'react';
-import Devask from '../../components/Tags/Devask';
-import Devask2 from '../../components/Tags/Devask2';
-
+import Tag from '../../components/Tags/Tag';
 import Data from '../../components/Tags/Data';
-import Data2 from '../../components/Tags/Data2';
-
-import Pagination from '../../components/Tags/Pagination';
+import Pagination, { tagsPerPage } from '../../components/Tags/Pagination';
 import Button from '../../components/Tags/Button/Button';
 import BUTTON_TYPES from '../../components/Tags/Button/Data';
 
 import styles from './tags.module.css';
 
+const defaultPage = {
+	start: 0,
+	end: tagsPerPage,
+	currentPage: 1,
+};
+
 export default function Tags() {
-	const [show, setShow] = useState(false);
 	const [grid, setGrid] = useState(true);
+	const [page, setPage] = useState(defaultPage);
+
+	const nextPageHandler = () => {
+		setPage((prevVal) => ({
+			start: prevVal.start + tagsPerPage,
+			end: prevVal.end + tagsPerPage,
+			currentPage: prevVal.currentPage + 1,
+		}));
+		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+	};
+
+	const prevPageHandler = () => {
+		setPage((prevVal) => ({
+			start: prevVal.start - tagsPerPage,
+			end: prevVal.end - tagsPerPage,
+			currentPage: prevVal.currentPage - 1,
+		}));
+		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+	};
+
 	const handleClick = () => {
-		setShow(!show);
-		setGrid(!grid);
+		setGrid((prevVal) => !prevVal);
+	};
+
+	const [tags, setTags] = useState(Data);
+
+	const setActiveBtn = (event) => {
+		const btns = document.querySelectorAll('.btn');
+		btns.forEach((btn) => btn.classList.remove('active'));
+		event.target.classList.add('active');
+	};
+
+	const filterTagsHandler = (event) => {
+		setActiveBtn(event);
+		const filter = event.target.textContent.toLowerCase();
+		let filteredTags;
+
+		if (filter === 'view all') {
+			filteredTags = Data.filter((tag) => tag.tag !== filter);
+			setTags(filteredTags);
+			return setPage(defaultPage);
+		}
+
+		filteredTags = Data.filter((tag) => tag.tag === filter);
+		setTags(filteredTags);
+		return setPage(defaultPage);
 	};
 
 	return (
-		<div className={styles.container}>
-			<div className={styles.container1}>
-				<h1>Tags</h1>
+		<section className={styles['tags-section']}>
+			<div className={styles['tags-container']}>
+				<header className={styles['tags-header']}>
+					<h1 className={styles['header-title']}>Tags</h1>
 
-				<div className={styles.container3}>
-					<Button type={BUTTON_TYPES.SECONDARY} btnText="Popular" />
-					<button className={styles.button} type="button" onClick={handleClick}>
-						{grid ? 'Grid' : 'List'}
-					</button>
-				</div>
-			</div>
+					<div className={styles['tags-header__btn-container']}>
+						<Button type={BUTTON_TYPES.SECONDARY} btnText="Popular" />
+						<button
+							className={styles.button}
+							type="button"
+							onClick={handleClick}
+						>
+							{grid ? 'Grid' : 'List'}
+						</button>
+					</div>
+				</header>
 
-			<div className={styles.button__field}>
-				<Button type={BUTTON_TYPES.SECONDARY} btnText="Java" />
-				<Button type={BUTTON_TYPES.PRIMARY} btnText="Python" />
-				<Button type={BUTTON_TYPES.PRIMARY} btnText="Android" />
-				<div className={styles.hid}>
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="Php" />
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="C++" />
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="ajax" />
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="mySQL" />
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="Node.js" />
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="C#" />
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="React.js" />
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="Swift" />
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="Linux" />
-					<Button type={BUTTON_TYPES.PRIMARY} btnText="r" />
-				</div>
-				<Button type={BUTTON_TYPES.PRIMARY} btnText="View all" />
-			</div>
-
-			<div>
-				<div className={styles.grid}>
-					{!show && Data.map((item) => <Devask key={item.id} Data={item} />)}
-				</div>
+				<nav className={styles['tags-nav']}>
+					<Button
+						type={BUTTON_TYPES.SECONDARY}
+						onClick={filterTagsHandler}
+						btnText="Java"
+					/>
+					<span className={styles.hidden_8}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="Python"
+						/>
+					</span>
+					<span className={styles.hidden_7}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="Android"
+						/>
+					</span>
+					<span className={styles.hidden_6}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="Php"
+						/>
+					</span>
+					<span className={styles.hidden_5}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="C++"
+						/>
+					</span>
+					<span className={styles.hidden_4}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="Ajax"
+						/>
+					</span>
+					<span className={styles.hidden_3}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="MySQL"
+						/>
+					</span>
+					<span className={styles.hidden_3}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="Node.js"
+						/>
+					</span>
+					<span className={styles.hidden_2}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="C#"
+						/>
+					</span>
+					<span className={styles.hidden_2}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="React.js"
+						/>
+					</span>
+					<span className={styles.hidden_1}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="Swift"
+						/>
+					</span>
+					<span className={styles.hidden_1}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="Linux"
+						/>
+					</span>
+					<span className={styles.hidden_1}>
+						<Button
+							type={BUTTON_TYPES.PRIMARY}
+							onClick={filterTagsHandler}
+							btnText="R"
+						/>
+					</span>
+					<Button
+						type={BUTTON_TYPES.PRIMARY}
+						onClick={filterTagsHandler}
+						btnText="View all"
+					/>
+				</nav>
 
 				<div>
-					{show && Data2.map((item) => <Devask2 key={item.id} Data2={item} />)}
+					<div className={grid ? styles.grid : styles.list}>
+						{tags.slice(page.start, page.end).map((item) => (
+							<Tag key={item.id} isGridView={grid} Data={item} />
+						))}
+					</div>
 				</div>
+				{tags.length > tagsPerPage && (
+					<Pagination
+						currentPage={page.currentPage}
+						next={nextPageHandler}
+						prev={prevPageHandler}
+						data={tags}
+					/>
+				)}
 			</div>
-			<Pagination />
-		</div>
+		</section>
 	);
 }

@@ -19,6 +19,23 @@
   } */
 }
 
+.wallet_container_skeleton {
+	margin-top: 2rem;
+	/* margin-bottom: 2rem; */
+	color: #ffffff;
+	border-radius: 1rem;
+
+	/* display: flex; */
+
+	width: 100%;
+
+	/* @media (min-width: 768px) {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+  } */
+}
+
 @media (min-width: 768px) {
 	.wallet_container {
 		padding-top: 3rem;

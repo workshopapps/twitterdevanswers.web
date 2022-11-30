@@ -1,20 +1,37 @@
-/* eslint-disable react/button-has-type */
+/* eslint-disable camelcase */
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Section1 from './section1.module.css';
-import avatar from '../../assets/avatar.png';
-import backIcon from '../../assets/arrow-left.png';
-import link from '../../assets/link-2.png';
-import location from '../../assets/location.png';
-import twitter from '../../assets/twitter.png';
-import github from '../../assets/github.png';
-import wallet from '../../assets/wallet.png';
+import backIcon from '../../assets/profile-images/arrow-left.png';
+import link from '../../assets/profile-images/link-2.png';
+import locationIcon from '../../assets/profile-images/location.png';
+import twitter from '../../assets/profile-images/twitter.png';
+import github from '../../assets/profile-images/github.png';
+import wallet from '../../assets/profile-images/wallet.png';
 
-function ProfileTopSection() {
+function ProfileTopSection({ user }) {
+	const {
+		name,
+		screen_name,
+		location,
+		description,
+		url,
+		profile_image_url_https,
+	} = user;
+
+	const navigate = useNavigate();
 	return (
 		<div className="profile__top-section">
 			<div className={Section1.profile__banner}>
 				<div className={Section1.back__icon}>
-					<img src={backIcon} alt="" className={Section1.backarrow} />
+					<button
+						className={Section1.backarrow}
+						type="button"
+						onClick={() => navigate(-1)}
+					>
+						<img src={backIcon} alt="Back icon" />
+					</button>
 				</div>
 				<div className={Section1.profile__bannerimg} />
 			</div>
@@ -22,7 +39,11 @@ function ProfileTopSection() {
 				<div className={Section1.profile__userdata}>
 					<div className={Section1.profile__datawrapper}>
 						<div className={Section1.profile__imagewrapper}>
-							<img src={avatar} alt="" className={Section1.profile__image} />
+							<img
+								src={`${profile_image_url_https}`}
+								alt=""
+								className={Section1.profile__image}
+							/>
 						</div>
 					</div>
 					<div className={Section1.profile__btns}>
@@ -30,30 +51,34 @@ function ProfileTopSection() {
 							<div className={Section1.btn1}>
 								<img src={wallet} alt="" className={Section1.btn__img} />
 							</div>
-							<button className={Section1.btn2}>Edit Profile</button>
+							<button className={Section1.btn2} type="button">
+								Edit Profile
+							</button>
 						</div>
 					</div>
 				</div>
 				<div className={Section1.profile__datatxt}>
-					<div className={Section1.profile__name}>Ann Brown</div>
-					<div className={Section1.profile__username}>@annbrown-dev</div>
-					<div className={Section1.profile__status}>
-						Software developer|Dog mum|Coding is life
-					</div>
+					<div className={Section1.profile__name}>{name}</div>
+					<div className={Section1.profile__username}>{screen_name}</div>
+					<div className={Section1.profile__status}>{description}</div>
 					<div className={Section1.profile__datejoined}>
 						Joined spetember 2019
 					</div>
 					<div className={Section1.profile__location}>
 						<div className={Section1.profile__iconwrapper}>
-							<img src={location} alt="" className={Section1.profile__icon} />
+							<img
+								src={locationIcon}
+								alt=""
+								className={Section1.profile__icon}
+							/>
 						</div>{' '}
-						los angeles carlifonia
+						{location}
 					</div>
 					<div className={Section1.profile__link}>
 						<div className={Section1.profile__iconwrapper}>
 							<img src={link} alt="" className={Section1.profile__icon} />
 						</div>{' '}
-						be.net/annbrown
+						{url}
 					</div>
 					<div className={Section1.profile__socials}>
 						<div className={Section1.profile__iconwrapper}>
@@ -70,3 +95,14 @@ function ProfileTopSection() {
 }
 
 export default ProfileTopSection;
+
+ProfileTopSection.propTypes = {
+	user: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		url: PropTypes.string.isRequired,
+		screen_name: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+		profile_image_url_https: PropTypes.string.isRequired,
+		location: PropTypes.string.isRequired,
+	}).isRequired,
+};

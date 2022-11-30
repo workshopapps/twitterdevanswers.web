@@ -21,6 +21,10 @@
 	border-radius: 2px;
 }
 
+.current {
+	border: 1px solid #4343df;
+}
+
 .pagination button {
 	color: #4343df;
 	float: left;
@@ -29,4 +33,11 @@
 	background: inherit;
 	border: 1px solid #ededff;
 	border-radius: 2px;
+	transition: border 0.3s;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.pagination button:hover {
+	border-color: #4343df;
 }

@@ -62,7 +62,8 @@
 }
 .header .steps ul li {
 	font-size: 1.1rem;
-	line-height: 1.6;
+	line-height: 1.8;
+	list-style: disc;
 }
 
 .container {
@@ -374,7 +375,7 @@
 }
 
 .containerWrapper {
-	padding: 1em;
+	padding: 1em 0em;
 	position: relative;
 }
 

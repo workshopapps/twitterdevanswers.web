@@ -1,10 +1,11 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState, useContext} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
-import Googleicon from '../../../assets/google.svg';
-import GithubIcon from '../../../assets/github.svg';
-import Microsoficon from '../../../assets/microsoft.svg';
+import Googleicon from '../../../assets/auth-images/google.svg';
+import GithubIcon from '../../../assets/auth-images/github.svg';
+import Microsoficon from '../../../assets/auth-images/microsoft.svg';
+import { AppContext } from '../../../store/AppContext';
+import { USER_SIGNED_UP } from '../../../store/actionTypes';
 import AuthPage from '..';
 
 const signUpOptions = [
@@ -31,12 +32,14 @@ const inputs = [
 		id: 'username',
 		type: 'text',
 		placeholder: '@Maryjoe1',
+		name: 'username'
 	},
 	{
 		label: 'Email',
 		id: 'email',
 		type: 'email',
 		placeholder: 'example@gmail.com',
+		name: 'email'
 	},
 	{
 		label: 'Password',
@@ -44,6 +47,7 @@ const inputs = [
 		type: 'password',
 		placeholder: '*******',
 		canBeHidden: true,
+		name: 'password'
 	},
 	{
 		label: 'Confirm Password',
@@ -51,6 +55,7 @@ const inputs = [
 		type: 'password',
 		placeholder: '*******',
 		canBeHidden: true,
+		name: 'confirm_password'
 	},
 ];
 
@@ -65,7 +70,7 @@ function InputCheckbox() {
 			<label
 				className={styles['form-group__checkbox-label']}
 				htmlFor="subscribe"
-			>
+			 > <input/>
 				I want to receive updates, User Research invitations, Company
 				announcements, Newsletters and Digest
 			</label>
@@ -74,6 +79,40 @@ function InputCheckbox() {
 }
 
 function SignUp() {
+	const [input, setInput] = useState({
+		username: '',
+		email: '',
+		password: '',
+		confirm_password: '',
+	});
+
+	const { dispatch } = useContext(AppContext);
+	const navigate = useNavigate();
+
+	const changeHandler = (event) => {
+		setInput((prev) => ({
+			...prev,
+			[event.target.name]: event.target.value,
+		}));
+	};
+
+	const handleLogIn = async (event) => {
+		event.preventDefault();
+		try {
+			localStorage.setItem('user', JSON.stringify(input));
+
+			dispatch({
+				type: USER_SIGNED_UP,
+				payload: input,
+			});
+
+			navigate('/');
+			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
 	return (
 		<AuthPage
 			pageTitle="Create an Account"
@@ -82,6 +121,8 @@ function SignUp() {
 			authOptions={signUpOptions}
 			inputCheckbox={<InputCheckbox />}
 			buttonLabel="Sign up"
+			onChange={changeHandler}
+			onSubmit={handleLogIn}
 		>
 			<p className={styles['alt-auth']}>
 				Already a member?{' '}

@@ -1,3 +1,4 @@
+import React from 'react';
 import Wallet from '../pages/WalletPage/index';
 
 export default {

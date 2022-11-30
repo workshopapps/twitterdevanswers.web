@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as HomeIcon } from '../../assets/home.svg';
-import { ReactComponent as TagIcon } from '../../assets/tagIcon.svg';
-import { ReactComponent as UsersIcon } from '../../assets/user.svg';
-import { ReactComponent as WalletIcon } from '../../assets/wallet.svg';
-import { ReactComponent as SettingsIcon } from '../../assets/settings.svg';
+import { ReactComponent as HomeIcon } from '../../assets/footer-images/home.svg';
+import { ReactComponent as TagIcon } from '../../assets/footer-images/tagIcon.svg';
+import { ReactComponent as UsersIcon } from '../../assets/footer-images/user.svg';
+import { ReactComponent as WalletIcon } from '../../assets/footer-images/wallet.svg';
+import { ReactComponent as SettingsIcon } from '../../assets/footer-images/settings.svg';
 import styles from './internalFooter.module.css';
 
 export default function InternalFooter() {
@@ -23,7 +23,7 @@ export default function InternalFooter() {
 
 	return (
 		<div className={styles.footerContainer}>
-			<ul className={`${styles.footer} lpContainer`}>
+			<ul className={`${styles.footer} `}>
 				<li>
 					<NavLink to="/" style={linkStyle} className={activeStyle}>
 						<HomeIcon className={styles.icon} />

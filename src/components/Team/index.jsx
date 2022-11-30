@@ -1,10 +1,10 @@
 import React from 'react';
-import coded from './img/coded.png';
-import miracle from './img/miracle.png';
-import mangoes from './img/mango.png';
-import popoola from './img/popo.png';
-import contact from './img/contact.png';
-import mcontact from './img/mobileCont.png';
+import coded from '../../assets/team-images/coded.png';
+import miracle from '../../assets/team-images/miracle.png';
+import mangoes from '../../assets/team-images/mango.png';
+import popoola from '../../assets/team-images/popo.png'
+import contact from '../../assets/team-images/contact.png';
+import mcontact from '../../assets/team-images/mobileCont.png';
 
 function Meet() {
 	return (
@@ -59,8 +59,9 @@ function Meet() {
 					<span id="question-bold-10123">
 						How would you describe what you do to a 5Y/O ?
 					</span>
-					I`&apos;`m helping front end Developers on this team wrote codes that changes
-					to a fine layout and non-Developers understand and work together.
+					I`&apos;`m helping front end Developers on this team wrote codes that
+					changes to a fine layout and non-Developers understand and work
+					together.
 				</p>
 				<img id="cont-10123" src={contact} alt="web contact" />
 				<img id="mcont-10123" src={mcontact} alt="mobile contacts" />
@@ -98,8 +99,8 @@ function Meet() {
 					<span id="question-bold-10123">
 						What is the one thing you have learnt working on DevAsk?
 					</span>
-					It`&apos;`s better to have a small team that is lean and sharp towards our
-					goals than to have a large team. Also, constant communication and
+					It`&apos;`s better to have a small team that is lean and sharp towards
+					our goals than to have a large team. Also, constant communication and
 					clarity are so important no matter the size of your team.
 				</p>
 
@@ -107,7 +108,8 @@ function Meet() {
 					<span id="question-bold-10123">
 						How would you describe what you do to a 5Y/O?
 					</span>
-					I`&apos;`m helping Developers on this team and non-Developers work together.
+					I`&apos;`m helping Developers on this team and non-Developers work
+					together.
 				</p>
 				<img id="cont-10123" src={contact} alt="web contact" />
 				<img id="mcont-10123" src={mcontact} alt="mobile contacts" />
@@ -123,8 +125,8 @@ function Meet() {
 				</div>
 				<p id="text-wrap-10123">
 					<span id="question-bold-10123">What do you do at DevAsk?</span>
-					I`&apos;`m Product manager with team Mallet. I supervise the marketing team
-					project .
+					I`&apos;`m Product manager with team Mallet. I supervise the marketing
+					team project .
 				</p>
 
 				<p id="text-wrap-10123">
