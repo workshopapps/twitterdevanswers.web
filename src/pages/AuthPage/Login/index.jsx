@@ -121,7 +121,10 @@ function Login() {
 				navigate('/');
 				window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 			} catch (error) {
-				setServerResponse(error.response.data.detail);
+				setServerResponse(
+					error?.response?.data?.detail ||
+						'server error, please try again later'
+				);
 				showModal();
 				input.email = input.username;
 				delete input.username;
