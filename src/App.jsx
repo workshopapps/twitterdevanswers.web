@@ -46,68 +46,13 @@ import { AppContext } from './store/AppContext';
 function App() {
 	const [active, setActive] = useState(true);
 	const {
-		state: { isAuth },
+		state: { token },
 	} = useContext(AppContext);
-	const data = localStorage.getItem('user');
-	const user = JSON.parse(data);
-
-	const checkForInactivity =() =>{
-		const expiredTime = localStorage.getItem('expireTime')
-
-		if(expiredTime< Date.now()){
-			
-			setActive(false)
-			localStorage.setItem('userActivity',('offline'))
-
-		}else if(expiredTime> Date.now()) {
-			setActive(true)
-			localStorage.setItem('userActivity',('online'))
-			const today = new Date();
-			const inactiveTimeStamp= `${today.getFullYear()  }-${  today.getMonth()+1}-${today.getDate()}   ${today.getHours()}:${today.getMinutes()}`
-			localStorage.setItem('lastSeen',JSON.stringify(inactiveTimeStamp))
-
-		}
-	}
-
-	const updateExpiredTime = ()=>{
-		if(active === true){
-			const timer = Date.now() + 5000;
-			localStorage.setItem("expireTime",timer)
-			
-		}
-	}
-
-	useEffect(()=>{
-
-		const interval = setInterval(() =>{
-			checkForInactivity();
-
-		},[1000])
-
-		return()=> clearInterval(interval)
-	},[])
-
-	useEffect(()=>{
-		updateExpiredTime();
-
-		window.addEventListener("click",updateExpiredTime);
-		window.addEventListener("keypress",updateExpiredTime);
-		window.addEventListener("scroll",updateExpiredTime);
-		window.addEventListener("mousemove",updateExpiredTime)
-
-		return ()=>{
-			window.removeEventListener("click",updateExpiredTime);
-			window.removeEventListener("keypress",updateExpiredTime);
-			window.removeEventListener("scroll",updateExpiredTime);
-			window.removeEventListener("mousemove",updateExpiredTime)
-	
-		}
-	},[])
-
+	const lsToken = localStorage.getItem('user');
 
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader activeState={active} /> : <Header />}
+			{token || lsToken ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="admin/*" element={<Admin />}>
@@ -144,7 +89,7 @@ function App() {
 					<Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
-			{user || isAuth ? <InternalFooter /> : <Footer />}
+			{token || lsToken ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }

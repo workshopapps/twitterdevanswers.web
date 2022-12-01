@@ -220,7 +220,7 @@ li {
 		pointer-events: auto;
 		visibility: visible;
 		transform: translateX(0);
-		box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.8);
+		box-shadow: 0 0 10px 100vw rgba(0, 0, 0, 0.8);
 	}
 
 	.snBrand {
