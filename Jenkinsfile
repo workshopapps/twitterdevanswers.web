@@ -20,7 +20,7 @@ pipeline {
                 cd frontend ;\
                 git pull origin dev; \
                 npm run build;\
-                pm2 serve build 2201;\
+                pm2 serve build 2202;\
                 sudo systemctl reload nginx "'
             }
         }
