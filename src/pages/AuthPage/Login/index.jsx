@@ -83,7 +83,7 @@ function Login() {
 	const changeHandler = (event) => {
 		const { value, name } = event.target;
 
-		setErrors((prev) => ({ ...prev, [name]: '' }));
+		if (errors) setErrors((prev) => ({ ...prev, [name]: '' }));
 
 		setInput((prev) => ({
 			...prev,
@@ -94,7 +94,11 @@ function Login() {
 	const handleLogIn = async (event) => {
 		event.preventDefault();
 
+		console.log('input', input);
+
 		const formErrors = validate(input);
+
+		console.log('errors', formErrors);
 
 		if (!formErrors) {
 			input.username = input.email;
@@ -124,6 +128,8 @@ function Login() {
 			} catch (error) {
 				setServerResponse(error.response.data.detail);
 				showModal();
+				input.email = input.username;
+				delete input.username;
 			}
 		} else {
 			setErrors(formErrors);
