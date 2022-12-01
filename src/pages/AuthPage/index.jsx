@@ -16,9 +16,8 @@ function AuthPage({
 	children,
 	onChange,
 	onSubmit,
+	errors,
 }) {
-	
-
 	return (
 		<main className={styles['auth-page']}>
 			<section className={styles['auth-container']}>
@@ -49,12 +48,13 @@ function AuthPage({
 								key={input.id}
 								onChange={onChange}
 								name={input.name}
+								error={errors ? errors[input.name] : ''}
 							/>
 						))}
 
 						{inputCheckbox}
 
-						<Button label={buttonLabel} />
+						<Button label={buttonLabel} errors={errors} />
 					</form>
 					{children}
 				</div>
@@ -68,6 +68,7 @@ export default AuthPage;
 AuthPage.propTypes = {
 	inputs: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 	authOptions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+	errors: PropTypes.objectOf(PropTypes.string),
 	pageTitle: PropTypes.string.isRequired,
 	authAltText: PropTypes.string.isRequired,
 	inputCheckbox: PropTypes.node.isRequired,
@@ -75,4 +76,8 @@ AuthPage.propTypes = {
 	children: PropTypes.node.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
+};
+
+AuthPage.defaultProps = {
+	errors: null,
 };

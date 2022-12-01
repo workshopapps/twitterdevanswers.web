@@ -6,7 +6,8 @@ export const AppContext = createContext(null);
 
 function AppContextProvider({ children }) {
 	const initialState = {
-		user: {},
+		user: JSON.parse(localStorage.getItem('user')),
+		token: localStorage.getItem('token'),
 		isAuth: false,
 		loading: false,
 	};

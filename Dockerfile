@@ -19,4 +19,5 @@ RUN npm run build
 FROM node:19-alpine
 COPY --from=Stage /frontend/build /frontend/build
 COPY . .
+#dont use a docker file
 # CMD ["npm", "start"]

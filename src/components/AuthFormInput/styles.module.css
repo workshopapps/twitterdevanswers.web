@@ -1,5 +1,6 @@
 .form-group {
 	margin-bottom: 20px;
+	transition: all 200ms ease-in-out;
 }
 
 .form-label {
@@ -18,6 +19,10 @@
 	border-radius: 10px;
 }
 
+.form-input-container.error {
+	border-color: #f89687;
+}
+
 .form-input {
 	border: none;
 	width: 100%;
@@ -27,4 +32,11 @@
 
 .form-input:focus {
 	outline: none;
+}
+
+.error-msg {
+	font-size: 14px;
+	line-height: 20px;
+	color: #f83f23;
+	margin-top: 5px;
 }
