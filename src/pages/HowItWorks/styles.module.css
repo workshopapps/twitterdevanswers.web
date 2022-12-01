@@ -10,7 +10,7 @@
 	font-family: 'Rubik';
 }
 .bgimage {
-	background-image: url('./assets/rectangle.png');
+	background-image: url('../../assets/howitworks-images/rectangle.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Googleicon from '../../../assets/google.svg';
-import GithubIcon from '../../../assets/github.svg';
+import Googleicon from '../../../assets/auth-images/google.svg';
+import GithubIcon from '../../../assets/auth-images/github.svg';
 import AuthPage from '..';
 import { AppContext } from '../../../store/AppContext';
 import { USER_LOGGED_IN } from '../../../store/actionTypes';

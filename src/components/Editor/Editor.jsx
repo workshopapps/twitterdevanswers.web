@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styles from './Editor.module.css';
-import profilePicture from '../../assets/profilePicture.webp';
-import attach from '../../assets/attach.webp';
-import quoteDown from '../../assets/quoteDown.webp';
-import curlyBraces from '../../assets/curlyBraces.webp';
-import image from '../../assets/image.webp';
-import documentCode from '../../assets/documentCode.webp';
+import profilePicture from '../../assets/dashboard-images/profilePicture.webp';
+import attach from '../../assets/dashboard-images/attach.webp';
+import quoteDown from '../../assets/dashboard-images/quoteDown.webp';
+import curlyBraces from '../../assets/dashboard-images/curlyBraces.webp';
+import image from '../../assets/dashboard-images/image.webp';
+import documentCode from '../../assets/dashboard-images/documentCode.webp';
 
 function Editor() {
 	const [question, setQuestion] = useState({ text: '' });
