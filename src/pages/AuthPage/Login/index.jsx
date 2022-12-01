@@ -65,7 +65,6 @@ function Login() {
 		password: '',
 		email: '',
 	});
-
 	const [errors, setErrors] = useState(null);
 	const [serverResponse, setServerResponse] = useState('');
 	const [modal, setModal] = useState(false);
@@ -94,11 +93,7 @@ function Login() {
 	const handleLogIn = async (event) => {
 		event.preventDefault();
 
-		console.log('input', input);
-
 		const formErrors = validate(input);
-
-		console.log('errors', formErrors);
 
 		if (!formErrors) {
 			input.username = input.email;

@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 
 import brandLogo from '../../assets/settings-images/brand-logo.svg';
 import styles from './header.module.css';
 
-export default function Header({ pathname }) {
+export default function Header() {
 	// header component for excternal pages
 
 	// the pathname prop is the value of pathname property from the object returend by useLocation hook
@@ -14,6 +13,8 @@ export default function Header({ pathname }) {
 	// for login and signup pages, i have set up this component to expect the pathname prop to be /login or /signup so that only the signup button is rendered if the user is on the login page and vice versa
 
 	// for other external pages, both login and signup buttons would be present on the header
+
+	const { pathname } = useLocation();
 
 	const [sidenav, setSidenav] = useState(false);
 
@@ -68,7 +69,7 @@ export default function Header({ pathname }) {
 					</li>
 				</ul>
 
-				{pathname ? (
+				{pathname !== '/' ? (
 					<div className={styles.btns}>
 						{pathname === '/login' && (
 							<Link className={`${styles.btn} ${styles.signUp}`} to="/sign-up">
@@ -157,11 +158,3 @@ export default function Header({ pathname }) {
 		</div>
 	);
 }
-
-Header.propTypes = {
-	pathname: PropTypes.string,
-};
-
-Header.defaultProps = {
-	pathname: '',
-};
