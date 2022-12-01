@@ -3,11 +3,6 @@
 /* eslint-disable react/self-closing-comp */
 import React, { useContext,useEffect ,useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Admin from './pages/Admin';
-import Overview from './pages/AdminOverview';
-import Users from './pages/AdminUsers';
-import Questions from './pages/AdminQuestions';
-
 import Notifications from './pages/Notifications';
 import API from './pages/API';
 import Login from './pages/AuthPage/Login';
@@ -109,11 +104,6 @@ function App() {
 			{token || lsToken ? <InternalHeader activeState={active} /> : <Header />}
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
-				<Route path="admin/*" element={<Admin />}>
-					<Route path='overview' element={<Overview/>}/>
-					<Route path='users' element={<Users/>}/>
-					<Route path='questions' element={<Questions/>}/>
-				</Route>
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
 				<Route path="blog-page" element={<Blog />} />
