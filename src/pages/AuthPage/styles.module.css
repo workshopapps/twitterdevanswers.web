@@ -7,7 +7,8 @@
 }
 
 .auth-page {
-	background: url('../../assets/auth-images/auth-page-bg.png') center center/cover;
+	background: url('../../assets/auth-images/auth-page-bg.png') center
+		center/cover;
 	padding: 50px 20px;
 	color: #121212;
 	text-align: left;
@@ -41,6 +42,21 @@
 	margin-top: 30px;
 	margin-bottom: 40px;
 	text-align: center;
+}
+
+.modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #1d1dd8;
+	color: #fff;
+	border-radius: 12px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 0 10px 100vw rgba(0, 0, 0, 0.8);
+	padding: 20px;
 }
 
 @media (max-width: 55em) {

@@ -37,14 +37,13 @@ import { AppContext } from './store/AppContext';
 
 function App() {
 	const {
-		state: { isAuth },
+		state: { token },
 	} = useContext(AppContext);
-	const data = localStorage.getItem('user');
-	const user = JSON.parse(data);
+	const lsToken = localStorage.getItem('user');
 
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader /> : <Header />}
+			{token || lsToken ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
@@ -76,7 +75,7 @@ function App() {
 					<Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
-			{user || isAuth ? <InternalFooter /> : <Footer />}
+			{token || lsToken ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }
