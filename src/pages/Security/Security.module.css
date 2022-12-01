@@ -1,7 +1,6 @@
 .Security{
     margin: 32px auto;
     width: 100%;
-    font-family: 'Rubik, sans';
     background-color: #DADADA;
 }
 .Security p{
@@ -38,16 +37,24 @@
 .LeftSection div{
     height: 150px;
     border-bottom: 1px solid blue;
-    background-color: white;
+    
 }
 .LeftSection section{
     margin: 2%;
 }
-.AccountSelector, .SecuritySelector, .NotificationSelector, .AppearanceSelector{
+.AccountSelector, .NotificationSelector, .AppearanceSelector{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
+.SecuritySelector{
+    display: flex;
+    background-color: #F7F7FE;
+    justify-content: center;
+    align-items: center;
+}
+
 .RightSection{
     margin-top: 62px;
     width: 50%;
