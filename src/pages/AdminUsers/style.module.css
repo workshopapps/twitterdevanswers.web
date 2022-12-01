@@ -1,0 +1,33 @@
+.table_container{
+    width: 90%;
+}
+.table{
+    background-color: black;
+    border-spacing: 1px;
+    width: 95%;
+}
+.tablehead{
+    margin-top: 1em;
+    border-bottom: 1px solid gray;
+    background-color: white;
+}
+.edbutton{
+    background-color: rgb(8, 212, 212);
+    border: none;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.button_container{
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.dlbutton{
+    background-color: rgb(248, 108, 108);
+    border: none;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}

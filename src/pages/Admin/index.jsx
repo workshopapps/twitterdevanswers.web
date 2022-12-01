@@ -1,17 +1,21 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-undef */
 import React from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { Route,Routes,Outlet } from 'react-router-dom';
+import Overview from '../AdminOverview';
+import styleCSS from './style.module.css'
+
+
 import Sidebar from '../../components/AdminSidebar/Sidebar'
 
 function Admin() {
   return (
-    <div>
+    <div className={styleCSS.page}>
         <Sidebar/>
         <Routes>
-            <Route path='/admin/overview' element={
-                <Overview/>
-            }/>
+            <Route path='/' element={<Overview/>}/>
         </Routes>
+       <Outlet/>
     </div>
   )
 }

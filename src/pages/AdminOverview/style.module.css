@@ -1,0 +1,60 @@
+.dashboard{
+    width: 100%;
+}
+
+.rowone{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.questions{
+    width: 42%;
+    margin: 1em;
+    background-color: rgb(107, 107, 231);
+    padding: 2em 8em 2em 2em;
+    border-radius: 8px;
+    color: white;
+}
+.users{
+    width: 42%;
+    margin: 1em;
+    background-color: rgb(107, 217, 231);
+    padding: 2em 8em 2em 2em;
+    border-radius: 8px;
+    color: white;
+}
+.wallet{
+    width: 42%;
+    margin: 1em;
+    background-color: rgb(107, 231, 117);
+    padding: 2em 8em 2em 2em;
+    border-radius: 8px;
+    color: white;
+}
+.LatestQuestions{
+    width: 90%;
+    margin: 2em;
+    background-color: rgb(186, 107, 231);
+    padding: 2em 8em 2em 2em;
+    border-radius: 8px;
+    color: white;
+}
+.tags{
+    width: 90%;
+    margin: 2em;
+    background-color: rgb(241, 198, 216);
+    padding: 2em 8em 2em 2em;
+    border-radius: 8px;
+    color: white;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.questionList{
+    border-bottom: 1px solid black;
+}
+.points{
+    font-weight: 700;
+}

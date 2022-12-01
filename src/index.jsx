@@ -14,6 +14,7 @@ root.render(
 			<WalletContextProvider>
 				<BrowserRouter>
 					<App />
+					
 				</BrowserRouter>
 			</WalletContextProvider>
 		</AppContextProvider>

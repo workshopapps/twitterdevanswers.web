@@ -1,0 +1,22 @@
+.link{
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    font-family: 'Rubik';
+    width: 100%;
+}
+.nav_container{
+    position: relative;
+    width: 25vw;
+}
+.nav{
+    box-shadow: 1px 1px 1px 1px gray;
+    padding: 2em;
+    width: 20vw;
+    background-color: rgb(199, 216, 216);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+    position: fixed;
+}

@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 60%;
+}
+.question_container{
+    margin-bottom: 2em;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.questionscontainer{
+    
+}
+.questionList{
+    border-bottom: 1px solid black;
+}
+.points{
+    font-weight: 700;
+}
