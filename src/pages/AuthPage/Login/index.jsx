@@ -6,7 +6,7 @@ import GithubIcon from '../../../assets/auth-images/github.svg';
 import AuthPage from '..';
 import { AppContext } from '../../../store/AppContext';
 import { USER_LOGGED_IN } from '../../../store/actionTypes';
-import { validate } from '../utils';
+import { formInputHandler, useModal, validate } from '../utils';
 import styles from './styles.module.css';
 import AuthModal from '../AuthModal';
 
@@ -67,28 +67,11 @@ function Login() {
 	});
 	const [errors, setErrors] = useState(null);
 	const [serverResponse, setServerResponse] = useState('');
-	const [modal, setModal] = useState(false);
 
 	const { dispatch } = useContext(AppContext);
 	const navigate = useNavigate();
 
-	const showModal = () => {
-		setModal(true);
-		setTimeout(() => {
-			setModal(false);
-		}, 3000);
-	};
-
-	const changeHandler = (event) => {
-		const { value, name } = event.target;
-
-		if (errors) setErrors((prev) => ({ ...prev, [name]: '' }));
-
-		setInput((prev) => ({
-			...prev,
-			[name]: value,
-		}));
-	};
+	const { modal, showModal } = useModal();
 
 	const handleLogIn = async (event) => {
 		event.preventDefault();
@@ -144,7 +127,7 @@ function Login() {
 				authAltText="Or Log in with"
 				inputCheckbox={<InputCheckbox />}
 				buttonLabel="Login"
-				onChange={changeHandler}
+				onChange={(event) => formInputHandler(event, setErrors, setInput)}
 				onSubmit={handleLogIn}
 				errors={errors}
 			>

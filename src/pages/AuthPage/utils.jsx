@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 function isEmailValid(email) {
 	const emailRegexp =
 		// eslint-disable-next-line
@@ -26,4 +28,26 @@ export const validate = (inputs) => {
 	return Object.keys(formErrors).length === 0 ? null : formErrors;
 };
 
-export const showModal = () => {};
+export const useModal = () => {
+	const [modal, setModal] = useState(false);
+
+	function showModal() {
+		setModal(true);
+		setTimeout(() => {
+			setModal(false);
+		}, 2000);
+	}
+
+	return { modal, showModal };
+};
+
+export const formInputHandler = (event, setErrors, setInput) => {
+	const { value, name } = event.target;
+
+	setErrors((prev) => ({ ...prev, [name]: '' }));
+
+	setInput((prev) => ({
+		...prev,
+		[name]: value,
+	}));
+};

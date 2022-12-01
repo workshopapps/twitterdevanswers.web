@@ -7,7 +7,7 @@ import GithubIcon from '../../../assets/auth-images/github.svg';
 import { AppContext } from '../../../store/AppContext';
 import { USER_SIGNED_UP } from '../../../store/actionTypes';
 import AuthPage from '..';
-import { validate } from '../utils';
+import { formInputHandler, useModal, validate } from '../utils';
 import AuthModal from '../AuthModal';
 
 const signUpOptions = [
@@ -84,30 +84,14 @@ function SignUp() {
 		confirmPassword: '',
 	});
 
+	// form errors
 	const [errors, setErrors] = useState(null);
 	const [serverResponse, setServerResponse] = useState('');
-	const [modal, setModal] = useState(false);
 
 	const { dispatch } = useContext(AppContext);
 	const navigate = useNavigate();
 
-	const showModal = () => {
-		setModal(true);
-		setTimeout(() => {
-			setModal(false);
-		}, 2000);
-	};
-
-	const changeHandler = (event) => {
-		const { value, name } = event.target;
-
-		setErrors((prev) => ({ ...prev, [name]: '' }));
-
-		setInput((prev) => ({
-			...prev,
-			[name]: value,
-		}));
-	};
+	const { modal, showModal } = useModal();
 
 	const handleSignUp = async (event) => {
 		event.preventDefault();
@@ -129,7 +113,8 @@ function SignUp() {
 					return;
 				}
 
-				setServerResponse(data.Message);
+				setServerResponse(data?.Message);
+
 				showModal();
 
 				localStorage.setItem('user', JSON.stringify(data.data));
@@ -165,7 +150,7 @@ function SignUp() {
 				authOptions={signUpOptions}
 				inputCheckbox={<InputCheckbox />}
 				buttonLabel="Sign up"
-				onChange={changeHandler}
+				onChange={(event) => formInputHandler(event, setErrors, setInput)}
 				onSubmit={handleSignUp}
 				errors={errors}
 			>

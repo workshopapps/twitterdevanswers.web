@@ -126,7 +126,7 @@ export default function Header() {
 							</NavLink>
 						</li>
 					</ul>
-					{pathname ? (
+					{pathname !== '/' ? (
 						<div className={styles.mnBtns}>
 							{pathname === '/login' && (
 								<Link
