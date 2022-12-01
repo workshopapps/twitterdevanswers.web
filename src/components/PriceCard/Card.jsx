@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import vector from "../../pages/Pricing/assets/card-vector.png"
-import tickSquare from "../../pages/Pricing/assets/tick-square.png"
+import vector from "../../assets/pricing-images/card-vector.png"
+import tickSquare from '../../assets/pricing-images/tick-square.png';
 import Button from "../PriceButton/Button"
 import styles from "./card.module.css"
 

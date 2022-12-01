@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styles from './Asks.module.css';
-import arrowLeft from '../../assets/arrowLeft.webp';
-import message from '../../assets/message.webp';
-import heart from '../../assets/heart.webp';
-import share from '../../assets/share.webp';
-import options from '../../assets/options.webp';
-import user from '../../assets/user.webp';
-import mugiwara from '../../assets/mugiwara.webp';
+import arrowLeft from '../../assets/dashboard-images/arrowLeft.webp';
+import message from '../../assets/dashboard-images/message.webp';
+import heart from '../../assets/dashboard-images/heart.webp';
+import share from '../../assets/dashboard-images/share.webp';
+import options from '../../assets/dashboard-images/options.webp';
+import user from '../../assets/dashboard-images/user.webp';
+import mugiwara from '../../assets/dashboard-images/mugiwara.webp';
 import testQuestions from '../../utils/testQuestions.json';
 
 function Asks() {

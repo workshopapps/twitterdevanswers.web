@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './style.module.css';
-import img from './Assets/message-question.png';
-import img2 from './Assets/setting-2.png';
-import img3 from './Assets/grid-3.png';
-import img4 from './Assets/shield-tick.png';
-import img5 from './Assets/receipt-edit.png';
-import img6 from './Assets/empty-wallet.png';
-import img7 from './Assets/messages-3.png';
+import img from '../../assets/help-images/message-question.png';
+import img2 from '../../assets/help-images/setting-2.png';
+import img3 from '../../assets/help-images/grid-3.png';
+import img4 from '../../assets/help-images/shield-tick.png';
+import img5 from '../../assets/help-images/receipt-edit.png';
+import img6 from '../../assets/help-images/empty-wallet.png';
+import img7 from '../../assets/help-images/messages-3.png';
 
 function Help() {
 	return (
