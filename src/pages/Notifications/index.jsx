@@ -8,8 +8,6 @@ function Notifications() {
 	const [notificationsToDisplay, setNotificationsToDisplay] =
 		useState(notifications);
 
-	const [allNotifications, setAllNotifications] = useState([]);
-
 	useEffect(() => {
 		if (activeTab === 'all') {
 			setNotificationsToDisplay(notifications);
@@ -17,30 +15,30 @@ function Notifications() {
 			setNotificationsToDisplay(notifications.filter((n) => n.unread));
 		}
 
-		const sse = new EventSource(
-			'https://pacific-peak-54505.herokuapp.com/notification?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE2Njk4MTEzNTd9.WzEb7VTH87OxHfrKH0aC9eqwemkGwss7P4ELbTO4Pq0'
-			// { withCredentials: true }
-		);
+		// const sse = new EventSource(
+		// 	'https://pacific-peak-54505.herokuapp.com/notification?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE2Njk4MTEzNTd9.WzEb7VTH87OxHfrKH0aC9eqwemkGwss7P4ELbTO4Pq0'
+		// 	// { withCredentials: true }
+		// );
 
-		function handleStream(e) {
-			console.log(e);
-			setAllNotifications(e.data.notifications);
-		}
+		// function handleStream(e) {
+		// 	console.log(e);
+		// 	setAllNotifications(e.data.notifications);
+		// }
 
-		sse.onmessage = (e) => {
-			handleStream(e);
-		};
+		// sse.onmessage = (e) => {
+		// 	handleStream(e);
+		// };
 
-		sse.onerror = () => {
-			sse.close();
-		};
+		// sse.onerror = () => {
+		// 	sse.close();
+		// };
 
-		console.log(allNotifications, 'allNotifications');
+		// console.log(allNotifications, 'allNotifications');
 
-		return () => {
-			sse.close();
-		};
-	}, [activeTab, allNotifications]);
+		// return () => {
+		// 	sse.close();
+		// };
+	}, [activeTab]);
 
 	return (
 		<main className={styles.main}>
