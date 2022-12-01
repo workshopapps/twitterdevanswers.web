@@ -16,7 +16,7 @@ pipeline {
                 ok "OK"
             }
             steps {
-                    sh "sudo cp -rf backend /home/judgejudy/addictionsupportroom.web/backend"
+                    sh "sudo cp -rf frontend /home/judgejudy/twitterdevanswers.web/backend"
                     sh "sudo cp -fr ${WORKSPACE}/frontend/build/* /home/judgejudy/addictionsupportroom.web/frontend"
                     sh "sudo su - judgejudy && whoami"
                  #  sh "sudo pm2 stop soberpal"
