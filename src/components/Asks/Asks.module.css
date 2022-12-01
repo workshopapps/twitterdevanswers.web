@@ -133,6 +133,12 @@
 	cursor: pointer;
 }
 
+.icons > button {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
 .typeReply {
 	display: flex;
 	justify-content: space-between;

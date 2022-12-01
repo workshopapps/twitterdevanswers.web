@@ -9,10 +9,22 @@ import options from '../../assets/options.webp';
 import user from '../../assets/user.webp';
 import mugiwara from '../../assets/mugiwara.webp';
 import testQuestions from '../../utils/testQuestions.json';
+import Modal from '../Modal/Modal';
 
 function Asks() {
 	const paramValues = useParams();
 	const [reply, setReply] = useState({ text: '' });
+	const [showShare, setShowShare] = useState(false);
+
+	function showShareModal() {
+		setShowShare(true);
+	}
+
+	function hideShareModal() {
+		setShowShare(false);
+	}
+
+	const hideShare = hideShareModal();
 
 	function handleReply(event) {
 		setReply({
@@ -35,7 +47,7 @@ function Asks() {
 						<div>
 							<div className={styles.userInfo}>
 								<h5 className={styles.askName}>
-									{comment.name.slice(0, 1).toUpperCase()}
+									{comment.name.slice(0, 1).toUpperCase()}0{' '}
 									{comment.name.slice(1, 30)}
 								</h5>
 								<p className={styles.userName}>{comment.email}</p>
@@ -117,7 +129,15 @@ function Asks() {
 			<section className={styles.icons}>
 				<img src={message} alt="" />
 				<img src={heart} alt="" />
-				<img src={share} alt="" />
+				<Modal
+					onClose={hideShare}
+					show={showShare}
+					hide={hideShare}
+					className={styles.modal}
+				/>
+				<button type="button" onClick={showShareModal}>
+					<img src={share} alt="" />
+				</button>
 			</section>
 			<section className={styles.typeReply}>
 				<img src={user} alt="" />
