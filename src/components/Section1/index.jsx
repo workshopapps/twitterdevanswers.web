@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import React from 'react';
-// import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Section1 from './section1.module.css';
 import link from '../../assets/profile-images/link-2.png';
@@ -9,6 +8,7 @@ import twitter from '../../assets/profile-images/twitter.png';
 import github from '../../assets/profile-images/github.png';
 import profilepic from '../../assets/profile-images/framepics.png';
 import calendarIcon from '../../assets/profile-images/calendar.png';
+import clockIcon from '../../assets/profile-images/clock.png'
 
 function ProfileTopSection({ user }) {
 	const {
@@ -18,9 +18,20 @@ function ProfileTopSection({ user }) {
 		description,
 		url,
 		// profile_image_url_https,
+		// git
 	} = user;
+// const [userInfo, setUserInfo] = useState({
+// 	name : user.name,
+// 	screen_name: user.screen_name,
+// 	description : user.description,
+// 	location: user.location,
+// 	link : user.url,
+// 	profilepics: user.profile_image_url_https,
+// 	github : user.github_username,
 
-	// const navigate = useNavigate();
+
+// })
+	
 	return (
 		<div className={Section1.profile__datawrapper}>
 			<div className={Section1.profile__datatxt}>
@@ -37,7 +48,9 @@ function ProfileTopSection({ user }) {
 					<div className={Section1.profile__username}>@{screen_name}</div>
 					<div className={Section1.profile__status}>{description}</div>
 				</div>
-				<div className={Section1.profile__address}>
+			</div>
+			<div className={Section1.profile__address}>
+				<div className={Section1.profile__addressinner}>
 					<div className={Section1.profile__datejoined}>
 						<div className={Section1.profile__iconwrapper}>
 							<img
@@ -76,7 +89,14 @@ function ProfileTopSection({ user }) {
 						</div>{' '}
 						ayemma
 					</div>
+					<div className={Section1.profile__socials}>
+						<div className={Section1.profile__iconwrapper}>
+							<img src={clockIcon} alt="" className={Section1.profile__icon} />
+						</div>{' '}
+						Last seen 12 hours ago
+					</div>
 				</div>
+
 				<div className={Section1.profile__btns}>
 					<div className={Section1.profile__btnwrapper}>
 						<button className={Section1.btn2} type="button">

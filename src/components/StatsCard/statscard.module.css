@@ -1,8 +1,8 @@
 .statsrow {
-	/* display: flex; */
 	gap: 40px;
 	width: 16rem;
-	justify-content: center;
+	justify-content: left;
+	text-align: left;
 	
 }
 .statscol {
