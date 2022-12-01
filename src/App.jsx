@@ -60,9 +60,10 @@ function App() {
 
 		}else if(expiredTime> Date.now()) {
 			setActive(true)
+			const today = new Date()
 			localStorage.setItem('userActivity',('online'))
-			const inactiveTimeStamp=Date()
-			localStorage.setItem('lastSeen',JSON.stringify(inactiveTimeStamp))
+			const inactiveTimeStamp=`${today.getFullYear()}-${(today.getMonth() + 1)}-${today.getDate()}  ${today.getHours()}: ${today.getMinutes()} `
+			localStorage.setItem('lastSeen',inactiveTimeStamp)
 
 		}
 	}
