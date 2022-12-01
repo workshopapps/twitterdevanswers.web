@@ -112,8 +112,6 @@ function Login() {
 					formData
 				);
 
-				console.log(response);
-
 				localStorage.setItem('token', response.data.access_token);
 
 				dispatch({
