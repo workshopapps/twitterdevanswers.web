@@ -39,7 +39,15 @@ function Questions() {
                     <div className={styleCSS.questionscontainer} key={i}>
                         <div className={styleCSS.question_container}>
                             {record.body}
-                            <div className={styleCSS.points}>Amount Allocated: {record.id}</div>
+                            <div className={styleCSS.action_row}>
+                                <div className={styleCSS.points}>
+                                    Amount Allocated: {record.id}
+                                </div>
+                                <div className={styleCSS.actions}>
+                                        <button type='button'>Edit</button>
+                                        <button type='button'>Delete</button>
+                                </div>
+                            </div>
                         </div>
                     </div> 
                     

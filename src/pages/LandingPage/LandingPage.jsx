@@ -6,6 +6,9 @@ import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import NewsletterSub from '../../components/NewsletterSub/NewsletterSub';
 
 function LandingPage() {
+
+
+
 	return (
 		<>
 			<Hero />

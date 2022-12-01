@@ -22,3 +22,8 @@
 .points{
     font-weight: 700;
 }
+.action_row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

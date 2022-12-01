@@ -66,7 +66,7 @@ export default function InternalHeader(props) {
 			setUserState(activityState)
 			
 		}
-		},[400])
+		},[100])
 
 		return()=> clearInterval(activity)
 	},[])

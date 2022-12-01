@@ -50,9 +50,62 @@ function App() {
 	} = useContext(AppContext);
 	const lsToken = localStorage.getItem('user');
 
+	const checkForInactivity =() =>{
+		const expiredTime = localStorage.getItem('expireTime')
+
+		if(expiredTime< Date.now()){
+
+			setActive(false)
+			localStorage.setItem('userActivity',('offline'))
+
+		}else if(expiredTime> Date.now()) {
+			setActive(true)
+			localStorage.setItem('userActivity',('online'))
+			const inactiveTimeStamp=Date()
+			localStorage.setItem('lastSeen',JSON.stringify(inactiveTimeStamp))
+
+		}
+	}
+
+	const updateExpiredTime = ()=>{
+		if(active === true){
+			const timer = Date.now() + 5000;
+			localStorage.setItem("expireTime",timer)
+
+		}
+	}
+
+	useEffect(()=>{
+
+		const interval = setInterval(() =>{
+			checkForInactivity();
+
+		},[500])
+
+		return()=> clearInterval(interval)
+	},[])
+
+	useEffect(()=>{
+		updateExpiredTime();
+
+		window.addEventListener("click",updateExpiredTime);
+		window.addEventListener("keypress",updateExpiredTime);
+		window.addEventListener("scroll",updateExpiredTime);
+		window.addEventListener("mousemove",updateExpiredTime)
+
+		return ()=>{
+			window.removeEventListener("click",updateExpiredTime);
+			window.removeEventListener("keypress",updateExpiredTime);
+			window.removeEventListener("scroll",updateExpiredTime);
+			window.removeEventListener("mousemove",updateExpiredTime)
+
+		}
+	},[])
+
+
 	return (
 		<div className="App">
-			{token || lsToken ? <InternalHeader /> : <Header />}
+			{token || lsToken ? <InternalHeader activeState={active} /> : <Header />}
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="admin/*" element={<Admin />}>
