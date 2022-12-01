@@ -11,10 +11,6 @@ pipeline {
         }
 
         stage('Deploy to Production') {
-            input{
-                message "Click OK! to deploy to Production?"
-                ok "OK"
-            }
             steps {
                     sh "sudo cp -fr ${WORKSPACE}/build/* /home/judgejudy/addictionsupportroom.web/frontend"
                     sh "sudo su - judgejudy && whoami"
