@@ -1,3 +1,7 @@
+/* eslint-disable consistent-return */
+/* eslint-disable react/style-prop-object */
+/* eslint-disable no-empty */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { useEffect, useState } from 'react';
@@ -19,6 +23,7 @@ import styles from './internalHeader.module.css';
 export default function InternalHeader(props) {
 	const [sidenav, setSidenav] = useState(false);
 	const[userState,setUserState]=useState('online')
+	const[lastSeen,setLastSeen]=useState('')
 
 	// prevent scroll if sidenav is open
 	useEffect(() => {
@@ -43,18 +48,38 @@ export default function InternalHeader(props) {
 		lineHeight: '28px',
 		color: '#4343de',
 	};
+	const lastSeenVisibleTimer = (2*10000)
+	function handleLastSeen(){
+		if(props.activeState === false){
 
+				const lastSeenTimer = setTimeout(() => {
+				setLastSeen(`Last seen ${localStorage.getItem('lastSeen')}`)
+		  },[lastSeenVisibleTimer])				
+		  return () => clearTimeout(lastSeenTimer)
+		}
+		}
+		
 	useEffect(()=>{
 		const activity = setInterval(() =>{
 			if(props.activeState === true){
 				const activityState = localStorage.getItem('userActivity')
 			setUserState(activityState)
-		}
 			
+		}
 		},[400])
 
 		return()=> clearInterval(activity)
-		
+	},[])
+
+	useEffect(()=>{
+		const seenState = setInterval(() =>{
+			if(localStorage.getItem('userActivity')==='online'){
+				setLastSeen('')
+			
+		}
+		},[100])
+
+		return()=> clearInterval(seenState)
 	},[])
 
 	return (
@@ -130,7 +155,8 @@ export default function InternalHeader(props) {
 							</div>
 							<div className={styles.nameStatus}>
 								<p>Kayla Nicole</p>
-								<span>{userState}</span>
+								<span onChange={handleLastSeen()}>{userState}</span>
+								<span>{lastSeen}</span>
 							</div>
 						</div>
 						<HiBars3CenterLeft

@@ -3,6 +3,7 @@
 /* eslint-disable react/self-closing-comp */
 import React, { useContext,useEffect ,useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Admin from './pages/Admin';
 import Notifications from './pages/Notifications';
 import API from './pages/API';
 import Login from './pages/AuthPage/Login';
@@ -57,7 +58,8 @@ function App() {
 		}else if(expiredTime> Date.now()) {
 			setActive(true)
 			localStorage.setItem('userActivity',('online'))
-			const inactiveTimeStamp=Date()
+			const today = new Date();
+			const inactiveTimeStamp= `${today.getFullYear()  }-${  today.getMonth()+1}-${today.getDate()}   ${today.getHours()}:${today.getMinutes()}`
 			localStorage.setItem('lastSeen',JSON.stringify(inactiveTimeStamp))
 
 		}
@@ -104,6 +106,7 @@ function App() {
 			{user || isAuth ? <InternalHeader activeState={active} /> : <Header />}
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
+				<Route path="/admin/*" element={<Admin />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
 				<Route path="blog-page" element={<Blog />} />
