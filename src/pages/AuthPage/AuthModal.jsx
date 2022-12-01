@@ -4,9 +4,9 @@ import styles from './styles.module.css';
 
 function AuthModal({ text }) {
 	return (
-		<div className={styles.modal}>
+		<span className={styles.modal}>
 			<p>{text}</p>
-		</div>
+		</span>
 	);
 }
 
