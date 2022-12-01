@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps { 
-                sh 'npm i'
+                sh "npm i --force && CI=false npm run build"
               }
         }
 
@@ -16,12 +16,13 @@ pipeline {
                 ok "OK"
             }
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no abell205@65.108.237.42 "\
-                cd frontend ;\
-                git pull origin dev; \
-                npm run build;\
-                pm2 serve build 2202;\
-                sudo systemctl reload nginx "'
+                    sh "sudo cp -rf backend /home/judgejudy/addictionsupportroom.web/backend"
+                    sh "sudo cp -fr ${WORKSPACE}/frontend/build/* /home/judgejudy/addictionsupportroom.web/frontend"
+                    sh "sudo su - judgejudy && whoami"
+                 #  sh "sudo pm2 stop soberpal"
+                 #  sh "sudo pm2 stop server"
+                    sh "sudo pm2 serve /home/judgejudy/frontend/build --port 3344"
+                    sh "sudo pm2 start /home/judgejudy/backend/app/server.py --interpreter python3"
             }
         }
     }
