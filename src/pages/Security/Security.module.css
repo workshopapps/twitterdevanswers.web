@@ -26,20 +26,22 @@
     flex-direction: column;
 }
 .LeftSection img{
-    height: 25px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
 }
 .LeftSection h1{
     font-size: 24px;
     font-weight: 600;
     line-height: 32px;
     text-align: left;
-
 }
 .LeftSection div{
     height: 150px;
     border-bottom: 1px solid blue;
     background-color: white;
+}
+.LeftSection section{
+    margin: 2%;
 }
 .AccountSelector, .SecuritySelector, .NotificationSelector, .AppearanceSelector{
     display: flex;

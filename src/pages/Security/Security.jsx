@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Security.module.css";
-import account from "../assets/security-images/account.svg";
-import security from "../assets/security-images/security.svg";
-import notification from "../assets/security-images/notification.svg";
-import appearance from "../assets/security-images/appearance.svg"
+import account from "../../assets/security-images/account.png";
+import security from "../../assets/security-images/security.png";
+import notification from "../../assets/security-images/notification.png";
+import appearance from "../../assets/security-images/appearance.png"
 
 function Security() {
     return(
