@@ -43,6 +43,22 @@
 	text-align: center;
 }
 
+.modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #1d1dd8;
+	color: #fff;
+	width: 30%;
+	border-radius: 12px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 0 10px 100vw rgba(0, 0, 0, 0.8);
+	padding: 20px;
+}
+
 @media (max-width: 55em) {
 	.auth-page {
 		background: #fff;
