@@ -17,13 +17,17 @@
 	width: 72.2%;
 
 }
+.list{
+	width: 100%;
+}
 .list_container{
-	width: 306px;
+	width: 100%;
+	min-width: 289px;
 	height: 338px;
 	display: flex;
 	flex-direction: column;
 	gap: 32px;
-	padding-left: 32px;
+	padding: 0;
 }
 .directory{
 	font-weight: 400;
@@ -132,6 +136,42 @@
 	margin-bottom: 16px;
 
 }
+.link{
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 30px;
+	font-family: 'Rubik';
+	padding-left: 32px;
+	color: #535353;
+}
+.link:visited{
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: 'Rubik';
+	border-left: 2px solid #1D1DD8;
+	color: #535353;
+}
+.link[data-expanded='true']{
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: 'Rubik';
+	border-left: 2px solid #1D1DD8;
+	color: #535353;
+}
+/* .link:link{
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: 'Rubik';
+	border-left: 2px solid #1D1DD8;
+	color: #535353;
+} */
 
 .helpsupport{
 	background: #1D1DD8;
@@ -152,145 +192,54 @@
 
 
 
-@media (max-width: 800px) {
-	.helpheader {
-		margin-left: 15px;
-
-		border-bottom: 0.5px solid #282828;
-		width: 70%;
+@media (max-width: 930px) {
+	.list{
+		display: none;
 	}
-
 	.helpheader h2 {
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
 		font-size: 32px;
-		line-height: 40px;
-		color: #303030;
+		line-height: 540x;
 	}
-
+	.articlehead{
+		padding-top: 0;
+		width: 100%;
+	
+	}
+	.help_center_page{
+		margin: 15px;
+	}
 	.helpheader p {
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 18px;
+		font-size: 14px;
 		line-height: 180%;
 	}
-
-	.helpbody {
-		margin-right: 15px;
-	}
-
-	.helpbody h3 {
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 18px;
-		line-height: 24px;
-	}
-
-	.helpbody h4 {
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
+	.article h3 {
+		width: 100%;
 		font-size: 16px;
 		line-height: 24px;
-	}
 
-	.helpbody p {
-		font-family: 'Rubik';
-		font-style: normal;
+	}
+	.lowerdivhelp {
+		margin-top: 40px;
+	}
+	.lowerdivsupport{
+		margin-bottom: 8px;
+	
+	}
+	.lowerdivsupport h3{
+		font-size: 18px;
+	}
+	.helpsupport{
+		font-size: 16px;
+		line-height: 28px;
+		padding: 12px 24px;
+		color: #FEFEFE;
+		border: none;
+	}
+	.directory{
 		font-weight: 400;
 		font-size: 14px;
 		line-height: 24px;
-		color: #535353;
-	}
-
-	.btn {
-		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 40px 81px;
-		width: 300px;
-		height: 160px;
-		border: 1px solid #989898;
-		border-radius: 4px;
-	}
-
-	.grid :hover {
-		border: 1px solid #989898;
-		box-shadow: 0px 2px 14px rgba(130, 130, 205, 0.5);
-		border-radius: 4px;
-	}
-
-	.grid a {
 		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 13px;
-		line-height: 15px;
-
-		color: #535353;
-	}
-
-	.lowerbody {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 5px;
-		padding-top: 50px;
-	}
-
-	.lowerbody h4 {
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 18px;
-		line-height: 24px;
-		color: #535353;
-	}
-
-	.lowerul {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 16px;
-	}
-
-	.lowerul li a {
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 13px;
-		color: #6868e5;
-		display: block;
-	}
-
-	.lowerul li a br {
-		display: inline;
-	}
-
-	.lowerdivhelp {
-		flex-direction: column;
-		align-items: center;
-		width: 70%;
-		height: 50%;
-		background: #1d1dd8;
-		border-radius: 4px;
-		margin-bottom: 60px;
-		padding-bottom: 80px;
-		margin-right: 120px;
-	}
-	.helpsupport {
-		margin-top: 40px;
-	}
-	.lowerdivsupport {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.lowerimg {
-		height: 60px;
-		width: 60px;
+		color: #535353;	
 	}
 }
