@@ -16,6 +16,7 @@ pipeline {
                     sh "sudo su - judgejudy && whoami"
                     sh "sudo pm2 stop devaskweb"
                     sh "sudo pm2 serve /home/judgejudy/twitterdevanswers.web/build -f --port 4456 --name devaskweb"
+                    sh "sudo pm2 save"
             }
         }
     }
