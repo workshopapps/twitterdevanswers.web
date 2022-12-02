@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import Googleicon from '../../../assets/auth-images/google.svg';
 import GithubIcon from '../../../assets/auth-images/github.svg';
 import { AppContext } from '../../../store/AppContext';
-import { USER_SIGNED_UP } from '../../../store/actionTypes';
+import { LOADING, USER_SIGNED_UP } from '../../../store/actionTypes';
 import AuthPage from '..';
 import { formInputHandler, useModal, validate } from '../utils';
 import AuthModal from '../AuthModal';
@@ -88,13 +88,20 @@ function SignUp() {
 	const [errors, setErrors] = useState(null);
 	const [serverResponse, setServerResponse] = useState('');
 
-	const { dispatch } = useContext(AppContext);
+	const {
+		dispatch,
+		state: { loading },
+	} = useContext(AppContext);
 	const navigate = useNavigate();
 
 	const { modal, showModal } = useModal();
 
 	const handleSignUp = async (event) => {
 		event.preventDefault();
+		dispatch({
+			type: LOADING,
+			payload: true,
+		});
 
 		const formErrors = validate(input);
 
@@ -110,11 +117,14 @@ function SignUp() {
 						data?.detail?.msg || 'server error, please try again later'
 					);
 					showModal();
+					dispatch({
+						type: LOADING,
+						payload: false,
+					});
 					return;
 				}
 
 				setServerResponse(data?.Message);
-
 				showModal();
 
 				localStorage.setItem('user', JSON.stringify(data.data));
@@ -123,6 +133,10 @@ function SignUp() {
 				dispatch({
 					type: USER_SIGNED_UP,
 					payload: data,
+				});
+				dispatch({
+					type: LOADING,
+					payload: false,
 				});
 
 				navigate('/');
@@ -133,9 +147,17 @@ function SignUp() {
 						'server error, please try again later'
 				);
 				showModal();
+				dispatch({
+					type: LOADING,
+					payload: false,
+				});
 			}
 		} else {
 			setErrors(formErrors);
+			dispatch({
+				type: LOADING,
+				payload: false,
+			});
 		}
 	};
 
@@ -149,7 +171,7 @@ function SignUp() {
 				inputs={inputs}
 				authOptions={signUpOptions}
 				inputCheckbox={<InputCheckbox />}
-				buttonLabel="Sign up"
+				buttonLabel={loading ? 'please wait' : 'Sign up'}
 				onChange={(event) => formInputHandler(event, setErrors, setInput)}
 				onSubmit={handleSignUp}
 				errors={errors}

@@ -5,7 +5,7 @@ import Googleicon from '../../../assets/auth-images/google.svg';
 import GithubIcon from '../../../assets/auth-images/github.svg';
 import AuthPage from '..';
 import { AppContext } from '../../../store/AppContext';
-import { USER_LOGGED_IN } from '../../../store/actionTypes';
+import { LOADING, USER_LOGGED_IN } from '../../../store/actionTypes';
 import { formInputHandler, useModal, validate } from '../utils';
 import styles from './styles.module.css';
 import AuthModal from '../AuthModal';
@@ -25,11 +25,11 @@ const signInOptions = [
 
 const inputs = [
 	{
-		label: 'Username/Email',
-		id: 'email',
+		label: 'Username',
+		id: 'username',
 		type: 'text',
-		placeholder: 'name/test@gmail.com',
-		name: 'email',
+		placeholder: 'Username',
+		name: 'username',
 	},
 	{
 		label: 'Password',
@@ -63,12 +63,15 @@ function InputCheckbox() {
 function Login() {
 	const [input, setInput] = useState({
 		password: '',
-		email: '',
+		username: '',
 	});
 	const [errors, setErrors] = useState(null);
 	const [serverResponse, setServerResponse] = useState('');
 
-	const { dispatch } = useContext(AppContext);
+	const {
+		dispatch,
+		state: { loading },
+	} = useContext(AppContext);
 	const navigate = useNavigate();
 
 	const { modal, showModal } = useModal();
@@ -76,12 +79,14 @@ function Login() {
 	const handleLogIn = async (event) => {
 		event.preventDefault();
 
+		dispatch({
+			type: LOADING,
+			payload: true,
+		});
+
 		const formErrors = validate(input);
 
 		if (!formErrors) {
-			input.username = input.email;
-			delete input.email;
-
 			const formData = new FormData();
 
 			Object.keys(input).forEach((key) => {
@@ -101,6 +106,11 @@ function Login() {
 					payload: response.data,
 				});
 
+				dispatch({
+					type: LOADING,
+					payload: false,
+				});
+
 				navigate('/');
 				window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 			} catch (error) {
@@ -109,11 +119,17 @@ function Login() {
 						'server error, please try again later'
 				);
 				showModal();
-				input.email = input.username;
-				delete input.username;
+				dispatch({
+					type: LOADING,
+					payload: false,
+				});
 			}
 		} else {
 			setErrors(formErrors);
+			dispatch({
+				type: LOADING,
+				payload: false,
+			});
 		}
 	};
 
@@ -126,7 +142,7 @@ function Login() {
 				pageTitle="Welcome back!"
 				authAltText="Or Log in with"
 				inputCheckbox={<InputCheckbox />}
-				buttonLabel="Login"
+				buttonLabel={loading ? 'please wait' : 'Login'}
 				onChange={(event) => formInputHandler(event, setErrors, setInput)}
 				onSubmit={handleLogIn}
 				errors={errors}
