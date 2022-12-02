@@ -14,9 +14,8 @@ pipeline {
             steps {
                     sh "sudo cp -fr ${WORKSPACE}/build/* /home/judgejudy/addictionsupportroom.web/frontend"
                     sh "sudo su - judgejudy && whoami"
-                    //sh "sudo pm2 stop soberpal"
-                    //sh "sudo pm2 stop server"
-                    sh "sudo pm2 serve /home/judgejudy/twitterdevanswers.web/build -f --port 4456"
+                    sh "sudo pm2 stop static-page-server-4456"
+                    sh "sudo pm2 serve /home/judgejudy/twitterdevanswers.web/build -f --port 4456 --name devaskweb"
             }
         }
     }
