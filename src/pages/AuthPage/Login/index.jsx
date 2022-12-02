@@ -65,7 +65,6 @@ function Login() {
 		password: '',
 		email: '',
 	});
-
 	const [errors, setErrors] = useState(null);
 	const [serverResponse, setServerResponse] = useState('');
 	const [modal, setModal] = useState(false);
@@ -83,7 +82,7 @@ function Login() {
 	const changeHandler = (event) => {
 		const { value, name } = event.target;
 
-		setErrors((prev) => ({ ...prev, [name]: '' }));
+		if (errors) setErrors((prev) => ({ ...prev, [name]: '' }));
 
 		setInput((prev) => ({
 			...prev,
@@ -122,8 +121,13 @@ function Login() {
 				navigate('/');
 				window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 			} catch (error) {
-				setServerResponse(error.response.data.detail);
+				setServerResponse(
+					error?.response?.data?.detail ||
+						'server error, please try again later'
+				);
 				showModal();
+				input.email = input.username;
+				delete input.username;
 			}
 		} else {
 			setErrors(formErrors);

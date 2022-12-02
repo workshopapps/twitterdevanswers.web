@@ -122,7 +122,9 @@ function SignUp() {
 				);
 
 				if (data.status_code && data.status_code === 400) {
-					setServerResponse(data.detail.msg);
+					setServerResponse(
+						data?.detail?.msg || 'server error, please try again later'
+					);
 					showModal();
 					return;
 				}
@@ -141,8 +143,11 @@ function SignUp() {
 				navigate('/');
 				window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 			} catch (error) {
-				// setServerResponse(error.response.data.detail);
-				// showModal();
+				setServerResponse(
+					error?.response?.data?.detail ||
+						'server error, please try again later'
+				);
+				showModal();
 			}
 		} else {
 			setErrors(formErrors);
