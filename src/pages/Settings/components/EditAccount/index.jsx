@@ -4,7 +4,7 @@ import React,
 		 useContext
 		} from 'react';
 import EditAccountCSS from './style.module.css';
-import TestImage from '../assets/test-img.jfif';
+import TestImage from '../../../../assets/settings-images/test-img.jfif';
 import Experience from "./dataExperience"
 import Stack from './dataStack';
 import { AppContext } from '../../../../store/AppContext';

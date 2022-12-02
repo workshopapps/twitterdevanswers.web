@@ -3,12 +3,12 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Section1 from './section1.module.css';
-import backIcon from '../../assets/arrow-left.png';
-import link from '../../assets/link-2.png';
-import locationIcon from '../../assets/location.png';
-import twitter from '../../assets/twitter.png';
-import github from '../../assets/github.png';
-import wallet from '../../assets/wallet.png';
+import backIcon from '../../assets/profile-images/arrow-left.png';
+import link from '../../assets/profile-images/link-2.png';
+import locationIcon from '../../assets/profile-images/location.png';
+import twitter from '../../assets/profile-images/twitter.png';
+import github from '../../assets/profile-images/github.png';
+import wallet from '../../assets/profile-images/wallet.png';
 
 
 function ProfileTopSection({ user }) {

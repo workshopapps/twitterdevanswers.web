@@ -1,6 +1,6 @@
 import React from 'react';
 import LpButton from '../LpButton/LpButton';
-import ctaImg from '../../assets/cta-img.png';
+import ctaImg from '../../assets/landing-images/cta-img.png';
 import styles from './cta.module.css';
 
 function Cta() {

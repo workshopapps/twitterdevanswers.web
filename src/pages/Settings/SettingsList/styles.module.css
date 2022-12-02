@@ -234,7 +234,7 @@
 }
 .flagimage{
 	width: 49%;
-	background-image: url("../assets/flag.png");
+	background-image: url("../../../assets/settings-images/flag.png");
 	background-repeat: no-repeat;
 	background-position: 19px;
 	background-color: #ffffff;
@@ -354,7 +354,7 @@
 	
 	.flagimage{
 		width: 49%;
-		background-image: url("../assets/flag.png");
+		background-image: url("../../../assets/settings-images/flag.png");
 		background-repeat: no-repeat;
 		background-position: 19px;
 		background-color: #efefef;
@@ -422,7 +422,7 @@
 		height: 56px;
 		border-radius: 12px;
 		border: 0.5px solid #b4b4b4;
-		background: url('../assets/search-normal.png');
+		background: url('../../../assets/settings-images/search-normal.png');
 		background-repeat: no-repeat;
 		background-size: 2em;
 		background-position: 10px;

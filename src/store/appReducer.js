@@ -3,7 +3,8 @@ export default function appReducer(state, { type, payload }) {
 		case 'USER_LOGGED_IN': {
 			return {
 				...state,
-				user: payload,
+				user: payload.data,
+				token: payload.access_token,
 				isAuth: true,
 			};
 		}
@@ -19,7 +20,8 @@ export default function appReducer(state, { type, payload }) {
 		case 'USER_SIGNED_UP': {
 			return {
 				...state,
-				user: payload,
+				user: payload.data,
+				token: payload.Token,
 				isAuth: true,
 			};
 		}
