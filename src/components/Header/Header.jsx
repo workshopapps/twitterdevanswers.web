@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 
 import brandLogo from '../../assets/settings-images/brand-logo.svg';
@@ -15,6 +16,7 @@ export default function Header() {
 	// for other external pages, both login and signup buttons would be present on the header
 
 	const { pathname } = useLocation();
+	const navigate = useNavigate();
 
 	const [sidenav, setSidenav] = useState(false);
 
@@ -72,25 +74,41 @@ export default function Header() {
 				{pathname !== '/' ? (
 					<div className={styles.btns}>
 						{pathname === '/login' && (
-							<Link className={`${styles.btn} ${styles.signUp}`} to="/sign-up">
+							<button
+								type="button"
+								className={`${styles.btn} ${styles.signUp}`}
+								onClick={() => navigate('/sign-up')}
+							>
 								Sign Up
-							</Link>
+							</button>
 						)}
 						{pathname === '/sign-up' && (
-							<Link className={`${styles.btn} ${styles.login}`} to="/login">
+							<button
+								type="button"
+								className={`${styles.btn} ${styles.login}`}
+								onClick={() => navigate('/login')}
+							>
 								Login
-							</Link>
+							</button>
 						)}
 					</div>
 				) : (
 					<div className={styles.btns}>
-						<Link className={`${styles.btn} ${styles.signUp}`} to="/sign-up">
+						<button
+							type="button"
+							className={`${styles.btn} ${styles.signUp}`}
+							onClick={() => navigate('/sign-up')}
+						>
 							Sign Up
-						</Link>
+						</button>
 
-						<Link className={`${styles.btn} ${styles.login}`} to="/login">
+						<button
+							type="button"
+							className={`${styles.btn} ${styles.login}`}
+							onClick={() => navigate('/login')}
+						>
 							Login
-						</Link>
+						</button>
 					</div>
 				)}
 
@@ -101,7 +119,7 @@ export default function Header() {
 				{/* mobile sidenav */}
 				<div className={`${styles.mobileNav} ${sidenav && styles.active}  `}>
 					<div className={styles.mnBrand}>
-						<Link to="/" className={styles.brand}>
+						<Link to="/" className={styles.brand} onClick={handleClick}>
 							<img src={brandLogo} alt="brand logo" />
 							<span>DevAsk</span>
 						</Link>
@@ -111,17 +129,32 @@ export default function Header() {
 
 					<ul className={styles.mnLinks}>
 						<li>
-							<NavLink className={activeStyle} style={linkStyle} to="/about">
+							<NavLink
+								className={activeStyle}
+								style={linkStyle}
+								to="/about"
+								onClick={handleClick}
+							>
 								<div> About Us</div>
 							</NavLink>
 						</li>
 						<li>
-							<NavLink className={activeStyle} style={linkStyle} to="/blog">
+							<NavLink
+								className={activeStyle}
+								style={linkStyle}
+								to="/blog-page"
+								onClick={handleClick}
+							>
 								<div> Blog</div>
 							</NavLink>
 						</li>
 						<li>
-							<NavLink className={activeStyle} style={linkStyle} to="/contact">
+							<NavLink
+								className={activeStyle}
+								style={linkStyle}
+								to="/contact"
+								onClick={handleClick}
+							>
 								<div> Contact Us</div>
 							</NavLink>
 						</li>
@@ -129,28 +162,53 @@ export default function Header() {
 					{pathname !== '/' ? (
 						<div className={styles.mnBtns}>
 							{pathname === '/login' && (
-								<Link
+								<button
+									type="button"
 									className={`${styles.btn} ${styles.signUp}`}
-									to="/sign-up"
+									onClick={() => {
+										handleClick();
+										navigate('/sign-up');
+									}}
 								>
 									Sign Up
-								</Link>
+								</button>
 							)}
 							{pathname === '/sign-up' && (
-								<Link className={`${styles.btn} ${styles.login}`} to="/login">
+								<button
+									type="button"
+									className={`${styles.btn} ${styles.login}`}
+									onClick={() => {
+										handleClick();
+										navigate('/login');
+									}}
+								>
 									Login
-								</Link>
+								</button>
 							)}
 						</div>
 					) : (
 						<div className={styles.mnBtns}>
-							<Link className={`${styles.btn} ${styles.signUp} `} to="/sign-up">
+							<button
+								type="button"
+								className={`${styles.btn} ${styles.signUp} `}
+								onClick={() => {
+									handleClick();
+									navigate('/sign-up');
+								}}
+							>
 								Sign Up
-							</Link>
+							</button>
 
-							<Link className={`${styles.btn} ${styles.login}`} to="/login">
+							<button
+								type="button"
+								className={`${styles.btn} ${styles.login}`}
+								onClick={() => {
+									handleClick();
+									navigate('/login');
+								}}
+							>
 								Login
-							</Link>
+							</button>
 						</div>
 					)}
 				</div>
