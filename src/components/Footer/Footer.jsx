@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import brandLogo from '../../assets/brand-logo-footer.svg';
-import facebook from '../../assets/facebook.svg';
-import twitter from '../../assets/twitter.svg';
-import instagram from '../../assets/instagram.svg';
+import brandLogo from '../../assets/footer-images/brand-logo-footer.svg';
+import facebook from '../../assets/footer-images/facebook.svg';
+import twitter from '../../assets/footer-images/twitter.svg';
+import instagram from '../../assets/footer-images/instagram.svg';
 import styles from './footer.module.css';
 
 export default function Footer() {

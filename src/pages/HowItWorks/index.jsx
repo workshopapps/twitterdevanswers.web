@@ -1,19 +1,19 @@
 import React from 'react';
 import styles from './styles.module.css';
-import answerImage from './assets/answer_image.png';
-import getRewarded from './assets/get_rewarded.png';
+import answerImage from '../../assets/howitworks-images/answer_image.png';
+import getRewarded from '../../assets/howitworks-images/get_rewarded.png';
 
-import microsoft from './assets/microsoft.svg';
-import google from './assets/google.svg';
-import meta from './assets/meta.svg';
-import twitter from './assets/twitter.svg';
-import github from './assets/github.svg';
+import microsoft from '../../assets/howitworks-images/microsoft.svg';
+import google from '../../assets/howitworks-images/google.svg';
+import meta from '../../assets/howitworks-images/meta.svg';
+import twitter from '../../assets/howitworks-images/twitter.svg';
+import github from '../../assets/howitworks-images/github.svg';
 
-import microsoftRespo from './assets/microsoft_respo.svg';
-import googleRespo from './assets/google_respo.svg';
-import metaRespo from './assets/meta_respo.svg';
-import twitterRespo from './assets/twitter_respo.svg';
-import githubRespo from './assets/github_respo.svg';
+import microsoftRespo from '../../assets/howitworks-images/microsoft_respo.svg';
+import googleRespo from '../../assets/howitworks-images/google_respo.svg';
+import metaRespo from '../../assets/howitworks-images/meta_respo.svg';
+import twitterRespo from '../../assets/howitworks-images/twitter_respo.svg';
+import githubRespo from '../../assets/howitworks-images/github_respo.svg';
 
 
 function HowItWorks() {

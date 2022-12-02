@@ -206,6 +206,12 @@
 	line-height: 1.7;
 	color: #757575;
 }
+
+@media (max-width: 1100px) {
+	.subscribeSection .textWrapper p {
+		text-align: center;
+	}
+}
 @media (min-width: 1100px) {
 	.subscribeSection .textWrapper p {
 		font-size: 1rem;
@@ -216,6 +222,13 @@
 	align-items: center;
 	margin: 1em 0em;
 }
+
+@media (max-width: 1100px) {
+	.subscribeSection .textWrapper .linkWrapper {
+		flex-direction: column;
+	}
+}
+
 @media (min-width: 1100px) {
 	.subscribeSection .textWrapper .linkWrapper {
 		flex-direction: row;
@@ -226,9 +239,9 @@
 	color: #1d1dd8;
 	border: 1px solid #1d1dd8;
 	padding: 1em 1em;
-	width: -webkit-fit-content;
-	width: -moz-fit-content;
-	width: fit-content;
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
 	text-decoration: none;
 	display: inline-block;
 	margin: 1em 0em;

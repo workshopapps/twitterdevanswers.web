@@ -1,7 +1,7 @@
 import React from 'react';
-import i4g from '../../assets/i4g.png';
-import hng from '../../assets/hng.png';
-import devask from '../../assets/devask.png';
+import i4g from '../../assets/community-images/i4g.png';
+import hng from '../../assets/community-images/hng.png';
+import devask from '../../assets/community-images/devask.png';
 import Community from './community.module.css';
 
 function CommunityCard() {
