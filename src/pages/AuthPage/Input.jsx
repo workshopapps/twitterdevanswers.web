@@ -13,7 +13,7 @@ function Input({
 	handleInputChange,
 	error,
 }) {
-	const errorStyles = error ? 'error' : '';
+	const errorStyles = error ? styles.error : '';
 
 	return (
 		<div className={`${styles.input} ${errorStyles}`}>

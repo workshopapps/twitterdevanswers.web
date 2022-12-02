@@ -1,21 +1,38 @@
 import { useState } from 'react';
 
-function isEmailValid(email) {
+export function isEmailValid(email) {
 	const emailRegexp =
 		// eslint-disable-next-line
 		/^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
 	return emailRegexp.test(email);
 }
 
-export const validate = (inputs) => {
+export const validateLogIn = (inputs) => {
 	const formErrors = {};
 
-	const { username, email, password, confirmPassword } = inputs;
+	const { username, password } = inputs;
+
+	if (username?.trim() === '')
+		formErrors.username = `please enter your username or email`;
+
+	if (password === '') formErrors.password = `please enter a password`;
+
+	return Object.keys(formErrors).length === 0 ? null : formErrors;
+};
+
+export const validateSignUp = (inputs) => {
+	const formErrors = {};
+
+	const { username, email, password, confirmPassword, verificationCode } =
+		inputs;
 
 	if (username?.trim() === '')
 		formErrors.username = `please enter your username`;
 
-	if (email && !isEmailValid(email)) {
+	if (verificationCode?.trim() === '')
+		formErrors.verificationCode = `please input verification code`;
+
+	if (!isEmailValid(email)) {
 		formErrors.email = `please enter a valid email address`;
 	}
 

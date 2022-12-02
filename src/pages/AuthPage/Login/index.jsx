@@ -6,7 +6,7 @@ import Googleicon from '../../../assets/auth-images/google.svg';
 import GithubIcon from '../../../assets/auth-images/github.svg';
 import { AppContext } from '../../../store/AppContext';
 import { LOADING, USER_LOGGED_IN } from '../../../store/actionTypes';
-import { formInputHandler, useModal, validate } from '../utils';
+import { formInputHandler, useModal, validateLogIn } from '../utils';
 import styles from './styles.module.css';
 import AuthModal from '../AuthModal';
 import Input from '../Input';
@@ -37,7 +37,7 @@ function Login() {
 			payload: true,
 		});
 
-		const formErrors = validate(input);
+		const formErrors = validateLogIn(input);
 
 		if (!formErrors) {
 			const formData = new FormData();
@@ -129,7 +129,7 @@ function Login() {
 				</div>
 				<div className={styles.bottomText}>
 					<p>
-						Already have an account?{' '}
+						Don&apos;t have an account?{' '}
 						<Link className={styles.link} to="/sign-up">
 							Sign Up
 						</Link>

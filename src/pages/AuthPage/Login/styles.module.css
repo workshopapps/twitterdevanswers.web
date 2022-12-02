@@ -50,3 +50,16 @@
 .link:visited {
 	color: #1d1dd8;
 }
+
+@media only screen and (max-width: 768px) {
+	.login {
+		padding: 40px 55px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.login {
+		padding: 20px 27.5px;
+		width: 100%;
+	}
+}

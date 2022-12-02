@@ -2,90 +2,32 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import styles from './styles.module.css';
 import Googleicon from '../../../assets/auth-images/google.svg';
 import GithubIcon from '../../../assets/auth-images/github.svg';
 import { AppContext } from '../../../store/AppContext';
 import { LOADING, USER_SIGNED_UP } from '../../../store/actionTypes';
-import { formInputHandler, useModal, validate } from '../utils';
+import {
+	formInputHandler,
+	isEmailValid,
+	useModal,
+	validateSignUp,
+} from '../utils';
 import AuthModal from '../AuthModal';
-
-const signUpOptions = [
-	{
-		src: Googleicon,
-		alt: 'Google icon',
-		text: 'Sign in with Google',
-	},
-	{
-		src: GithubIcon,
-		alt: 'Github icon',
-		text: 'Sign in with Github',
-	},
-];
-
-const inputs = [
-	{
-		label: 'Username',
-		id: 'username',
-		type: 'text',
-		placeholder: '@Maryjoe1',
-		name: 'username',
-	},
-	{
-		label: 'Email',
-		id: 'email',
-		type: 'text',
-		placeholder: 'example@gmail.com',
-		name: 'email',
-	},
-	{
-		label: 'Password',
-		id: 'password',
-		type: 'password',
-		placeholder: '*******',
-		canBeHidden: true,
-		name: 'password',
-	},
-	{
-		label: 'Confirm Password',
-		id: 'confirm-password',
-		type: 'password',
-		placeholder: '*******',
-		canBeHidden: true,
-		name: 'confirmPassword',
-	},
-];
-
-function InputCheckbox() {
-	return (
-		<div className={` ${styles['form-group__checkbox']}`}>
-			<input
-				type="checkbox"
-				className={styles.input__checkbox}
-				id="subscribe"
-			/>
-			<label
-				className={styles['form-group__checkbox-label']}
-				htmlFor="subscribe"
-			>
-				{' '}
-				I want to receive updates, User Research invitations, Company
-				announcements, Newsletters and Digest
-			</label>
-		</div>
-	);
-}
+import Button from '../../../components/AuthFormButton';
+import Input from '../Input';
+import styles from './styles.module.css';
 
 function SignUp() {
 	const [input, setInput] = useState({
 		username: '',
 		email: '',
+		verificationCode: '',
 		password: '',
 		confirmPassword: '',
 	});
 
 	// form errors
-	const [errors, setErrors] = useState(null);
+	const [errors, setErrors] = useState({});
 	const [serverResponse, setServerResponse] = useState('');
 
 	const {
@@ -96,14 +38,14 @@ function SignUp() {
 
 	const { modal, showModal } = useModal();
 
-	const handleSignUp = async (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 		dispatch({
 			type: LOADING,
 			payload: true,
 		});
 
-		const formErrors = validate(input);
+		const formErrors = validateSignUp(input);
 
 		if (!formErrors) {
 			try {
@@ -161,11 +103,124 @@ function SignUp() {
 		}
 	};
 
+	const handleVerification = async () => {
+		if (!isEmailValid(input.email)) {
+			setErrors((prev) => ({
+				...prev,
+				email: `please enter a valid email address`,
+			}));
+		} else {
+			const response = await axios.post(
+				'https://pacific-peak-54505.herokuapp.com/auth/send-email-code',
+				JSON.stringify({ email: input.email })
+			);
+
+			console.log(response);
+		}
+	};
+
 	return (
 		<>
 			{modal && <AuthModal text={serverResponse} />}
 
-			<div>signup</div>
+			<form className={styles.signup} onSubmit={handleSubmit}>
+				<div className={styles.header}>
+					<h3>Hello!</h3>
+					<p>Welcome to a whole new technical experience.</p>
+				</div>
+				<div className={styles.input}>
+					<div>
+						<Input
+							id="email"
+							label="Email Address"
+							name="email"
+							placeholder="janedoe@example.com"
+							type="text"
+							value={input.email}
+							handleInputChange={(event) =>
+								formInputHandler(event, setErrors, setInput)
+							}
+							error={errors && errors.email}
+						/>
+					</div>
+					<div className={styles.verification}>
+						<div className={styles.verificationInput}>
+							<Input
+								label="Verification code"
+								id="verificationCode"
+								name="verificationCode"
+								placeholder=""
+								type="text"
+								value={input.verificationCode}
+								handleInputChange={(event) =>
+									formInputHandler(event, setErrors, setInput)
+								}
+								error={errors && errors.verificationCode}
+							/>
+						</div>
+						<button
+							className={styles.verificationBtn}
+							type="button"
+							onClick={handleVerification}
+						>
+							send code
+						</button>
+					</div>
+					<div>
+						<Input
+							id="username"
+							label="Username"
+							name="username"
+							placeholder="Username"
+							type="text"
+							value={input.username}
+							handleInputChange={(event) =>
+								formInputHandler(event, setErrors, setInput)
+							}
+							error={errors && errors.username}
+						/>
+					</div>
+					<div>
+						<Input
+							id="password"
+							label="Password"
+							name="password"
+							placeholder="********"
+							type="password"
+							value={input.password}
+							handleInputChange={(event) =>
+								formInputHandler(event, setErrors, setInput)
+							}
+							error={errors && errors.password}
+						/>
+					</div>
+					<div>
+						<Input
+							id="confirmPassword"
+							label="Confirm Password"
+							name="confirmPassword"
+							placeholder="********"
+							type="password"
+							value={input.confirmPassword}
+							handleInputChange={(event) =>
+								formInputHandler(event, setErrors, setInput)
+							}
+							error={errors && errors.confirmPassword}
+						/>
+					</div>
+				</div>
+				<div className={styles.btn}>
+					<Button label={loading ? 'please wait' : 'Create Account'} />
+				</div>
+				<div className={styles.bottomText}>
+					<p>
+						Already have an account?{' '}
+						<Link className={styles.link} to="/login">
+							Log In
+						</Link>
+					</p>
+				</div>
+			</form>
 		</>
 	);
 }
