@@ -126,7 +126,7 @@ export default function InternalHeader() {
 					{/* SideNav for small laptops and tabs */}
 					<div className={`${styles.sidenav} ${sidenav && styles.active}`}>
 						<div className={styles.snBrand}>
-							<Link to="/" className={styles.brand}>
+							<Link to="/" className={styles.brand} onClick={hadnleClick}>
 								<img src={brandLogo} alt="brand logo" />
 								<span>DevAsk</span>
 							</Link>
@@ -138,7 +138,12 @@ export default function InternalHeader() {
 
 						<ul className={styles.snLinks}>
 							<li>
-								<NavLink to="/" style={linkStyle} className={activeStyle}>
+								<NavLink
+									to="/"
+									style={linkStyle}
+									className={activeStyle}
+									onClick={hadnleClick}
+								>
 									<div className={styles.snLink}>
 										<HomeIcon className={styles.snIcon} />
 										<span>Home</span>
@@ -151,6 +156,7 @@ export default function InternalHeader() {
 									to="/tags-page"
 									style={linkStyle}
 									className={activeStyle}
+									onClick={hadnleClick}
 								>
 									<div className={styles.snLink}>
 										<TagIcon className={styles.snIcon} /> <span>Tag</span>
@@ -162,6 +168,7 @@ export default function InternalHeader() {
 									style={linkStyle}
 									to="/users-page"
 									className={activeStyle}
+									onClick={hadnleClick}
 								>
 									<div className={styles.snLink}>
 										<UsersIcon className={styles.snIcon} /> <span>Users</span>
@@ -169,7 +176,12 @@ export default function InternalHeader() {
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to="/wallet" style={linkStyle} className={activeStyle}>
+								<NavLink
+									to="/wallet"
+									style={linkStyle}
+									className={activeStyle}
+									onClick={hadnleClick}
+								>
 									<div className={styles.snLink}>
 										<WalletIcon className={styles.snIcon} /> <span>Wallet</span>
 									</div>
@@ -180,6 +192,7 @@ export default function InternalHeader() {
 									to="/settings"
 									style={linkStyle}
 									className={activeStyle}
+									onClick={hadnleClick}
 								>
 									<div className={styles.snLink}>
 										<SettingsIcon className={styles.snIcon} />{' '}
