@@ -9,6 +9,7 @@ import Experience from "./dataExperience"
 import Stack from './dataStack';
 import { AppContext } from '../../../../store/AppContext';
 import { EDIT_USER } from '../../../../store/actionTypes';
+import updateUser from '../../../../utils/api';
 
 
 
@@ -22,16 +23,16 @@ function EditAcccount() {
 			[event.target.name]: event.target.value,
 		}));
 	};
-	
+	console.log(state)
   
-	const onSubmit=(event)=>{	
+	const onSubmit=async (event)=>{	
 		event.preventDefault();
 		try {
 			localStorage.setItem('user', JSON.stringify(user));
-
+		const updatedUser= await	updateUser(user.user_id, user)
 			dispatch({
 				type: EDIT_USER,
-				payload: user,
+				payload: updatedUser,
 			});
 
 			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
