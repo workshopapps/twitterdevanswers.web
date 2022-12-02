@@ -56,7 +56,7 @@ function Contact() {
 	return (
 		<div className={styles.contact_wrap}>
 			<div className={styles.contact_first_wrap}>
-				<p>Contact Us</p>
+				<h1>Contact Us</h1>
 				<span>
 					Speak with a wide array of service professionals to answer your
 					plethora of questions on any subject matter
@@ -67,23 +67,25 @@ function Contact() {
 					<div className={styles.contact_text_wrap}>
 						{descriptionText.map((item) => (
 							<div className={styles.contactus_form_wrap1} key={item.key}>
-								<p>{item.header}</p>
-								<span>{item.text}</span>
+								<h3>{item.header}</h3>
+								<p>{item.text}</p>
 							</div>
 						))}
+					</div>
+					<hr />
+					<div className={styles.contact_team_wrap}>
+						<h3>Teams that excel with DevAsk</h3>
+						<div className={styles.contact_logo_images}>
+							{contactLogo.map((item) => (
+								<img key={item.key} src={item.src} alt="img" />
+							))}
+						</div>
 					</div>
 				</div>
 				<ContactUsForm />
 			</div>
-			<div className={styles.contact_team_wrap}>
-				<p>Teams that excel with DevAsk</p>
-				<div className={styles.contact_logo_images}>
-					{contactLogo.map((item) => (
-						<img key={item.key} src={item.src} alt="img" />
-					))}
-				</div>
-			</div>
-			<ContactMarketing />
+
+			{/* <ContactMarketing /> */}
 		</div>
 	);
 }
@@ -117,12 +119,12 @@ export function ContactUsForm() {
 	// };
 	return (
 		<form className={styles.form_wrap}>
-			<p>Talk to an Expert</p>
+			<h2>Talk to an Expert</h2>
 			<input
 				name="firstName"
 				type="text"
 				className={styles.contact_name_input}
-				placeholder="First name"
+				placeholder="First Name *"
 				// onChange={(e) => handleChange(setFirstName, e)}
 				// value={contactUsForm.firstName}
 			/>
@@ -130,7 +132,7 @@ export function ContactUsForm() {
 				name="lastName"
 				type="text"
 				className={styles.contact_name_input}
-				placeholder="Last name"
+				placeholder="Last Name *"
 				// onChange={(e) => handleChange(setLastName, e)}
 				// value={contactUsForm.lastName}
 			/>
@@ -138,7 +140,7 @@ export function ContactUsForm() {
 				name="companyName"
 				type="text"
 				className={styles.contact_name_input}
-				placeholder="Company Name"
+				placeholder="Company Name *"
 				// onChange={(e) => handleChange(setCompanyName, e)}
 				// value={contactUsForm.companyName}
 			/>
@@ -162,18 +164,20 @@ export function ContactUsForm() {
 				name="message"
 				type="textarea"
 				className={styles.contact_input_message}
-				placeholder="Message"
+				placeholder="Message *"
+				rows="7"
+				cols="50"
 				// onChange={(e) => handleChange(setMessage, e)}
 				// value={contactUsForm.mesage}
 			/>
-			<span>3000 characters remaining</span>
+			<p>3000 characters remaining</p>
 			<button
 				id="btn__submit"
 				type="submit"
 				className={styles.send_message_button}
 				// onClick={handleContactSendMessage}
 			>
-				Send Message
+				Submit
 			</button>
 		</form>
 	);
