@@ -21,7 +21,7 @@ function SignUp() {
 	const [input, setInput] = useState({
 		username: '',
 		email: '',
-		verificationCode: '',
+		email_verification_code: '',
 		password: '',
 		confirmPassword: '',
 	});
@@ -110,12 +110,13 @@ function SignUp() {
 				email: `please enter a valid email address`,
 			}));
 		} else {
-			const response = await axios.post(
-				'https://pacific-peak-54505.herokuapp.com/auth/send-email-code',
-				JSON.stringify({ email: input.email })
+			const { data } = await axios.post(
+				'https://pacific-peak-54505.herokuapp.com/auth/send_email_code',
+				{ email: input.email }
 			);
 
-			console.log(response);
+			setServerResponse(data.msg);
+			showModal();
 		}
 	};
 
@@ -147,15 +148,15 @@ function SignUp() {
 						<div className={styles.verificationInput}>
 							<Input
 								label="Verification code"
-								id="verificationCode"
-								name="verificationCode"
+								id="email_verification_code"
+								name="email_verification_code"
 								placeholder=""
 								type="text"
-								value={input.verificationCode}
+								value={input.email_verification_code}
 								handleInputChange={(event) =>
 									formInputHandler(event, setErrors, setInput)
 								}
-								error={errors && errors.verificationCode}
+								error={errors && errors.email_verification_code}
 							/>
 						</div>
 						<button

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useState } from 'react';
 
 export function isEmailValid(email) {
@@ -23,14 +24,19 @@ export const validateLogIn = (inputs) => {
 export const validateSignUp = (inputs) => {
 	const formErrors = {};
 
-	const { username, email, password, confirmPassword, verificationCode } =
-		inputs;
+	const {
+		username,
+		email,
+		password,
+		confirmPassword,
+		email_verification_code,
+	} = inputs;
 
 	if (username?.trim() === '')
 		formErrors.username = `please enter your username`;
 
-	if (verificationCode?.trim() === '')
-		formErrors.verificationCode = `please input verification code`;
+	if (email_verification_code?.trim() === '')
+		formErrors.email_verification_code = `please input verification code`;
 
 	if (!isEmailValid(email)) {
 		formErrors.email = `please enter a valid email address`;
