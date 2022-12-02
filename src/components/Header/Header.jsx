@@ -71,7 +71,7 @@ export default function Header() {
 					</li>
 				</ul>
 
-				{pathname !== '/' ? (
+				{pathname === '/login' || pathname === '/sign-up' ? (
 					<div className={styles.btns}>
 						{pathname === '/login' && (
 							<button
@@ -159,7 +159,7 @@ export default function Header() {
 							</NavLink>
 						</li>
 					</ul>
-					{pathname !== '/' ? (
+					{pathname === '/login' || pathname === '/sign-up' ? (
 						<div className={styles.mnBtns}>
 							{pathname === '/login' && (
 								<button
