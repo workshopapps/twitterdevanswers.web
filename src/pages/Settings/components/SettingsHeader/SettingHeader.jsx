@@ -1,8 +1,10 @@
 import React from 'react';
 import SettingsHeaderCSS from './SettingsHeader.module.css';
-import AvatarImage from '../assets/avatar.png';
+// import AvatarImage from '../assets/avatar.png';
 
 function SettingHeader() {
+
+	
 	return (
 		<div className={SettingsHeaderCSS.settingsnav}>
 			<div className={SettingsHeaderCSS.searchinput}>
@@ -12,13 +14,13 @@ function SettingHeader() {
 					placeholder="Search for a settings"
 				/>
 			</div>
-			<div className={SettingsHeaderCSS.profilewallet}>
+			{/* <div className={SettingsHeaderCSS.profilewallet}>
 				<div className={SettingsHeaderCSS.connectwallet}>
 					<button type="button" id="connect-wallet">
 						Connect Wallet
 					</button>
-				</div>
-				<div className={SettingsHeaderCSS.profile}>
+				</div> */}
+				{/* <div className={SettingsHeaderCSS.profile}>
 					<div className={SettingsHeaderCSS.NotificationsSvg}>
 						<a href="notifications-page">
 							<svg
@@ -51,8 +53,8 @@ function SettingHeader() {
 								/>
 							</svg>
 						</a>
-					</div>
-					<div className={SettingsHeaderCSS.ProfilePictureTxt}>
+					</div> */}
+					{/* <div className={SettingsHeaderCSS.ProfilePictureTxt}>
 						<div className={SettingsHeaderCSS.ProfileContainer}>
 							<img
 								className={SettingsHeaderCSS.Avatar}
@@ -77,13 +79,14 @@ function SettingHeader() {
 						</div>
 
 						<a href="profile" className={SettingsHeaderCSS.profiletxt}>
-							<h3>Kayle Nicole</h3>
+							<h3
+						>full name</h3>
 							<span>online</span>
 						</a>
-					</div>
+					</div> */}
 				</div>
-			</div>
-		</div>
+			// </div>
+		// </div>
 	);
 }
 

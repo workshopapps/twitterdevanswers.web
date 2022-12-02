@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useState, useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
@@ -108,6 +109,7 @@ function SignUp() {
 
 			navigate('/');
 			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+			console.log(input)
 		} catch (error) {
 			throw new Error(error);
 		}

@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Section1 from './section1.module.css';
 import backIcon from '../../assets/arrow-left.png';
@@ -9,6 +9,7 @@ import locationIcon from '../../assets/location.png';
 import twitter from '../../assets/twitter.png';
 import github from '../../assets/github.png';
 import wallet from '../../assets/wallet.png';
+
 
 function ProfileTopSection({ user }) {
 	const {
@@ -51,9 +52,9 @@ function ProfileTopSection({ user }) {
 							<div className={Section1.btn1}>
 								<img src={wallet} alt="" className={Section1.btn__img} />
 							</div>
-							<button className={Section1.btn2} type="button">
+							<Link to="/settings" className={Section1.btn2} type="button">
 								Edit Profile
-							</button>
+							</Link>
 						</div>
 					</div>
 				</div>
