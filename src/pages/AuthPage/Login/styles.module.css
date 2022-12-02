@@ -1,37 +1,52 @@
-.form-group__checkbox {
+.login {
+	max-width: 864px;
+	width: 95%;
+	background: #f7f7fe;
+	padding: 80px 110px;
+	margin: 53px auto;
+}
+
+.header {
+	margin-bottom: 56px;
+}
+
+.input {
 	display: flex;
-	gap: 10px;
-	margin-bottom: 40px;
+	flex-direction: column;
+	gap: 24px;
 }
 
-.form-group__checkbox-label {
-	font-size: 15px;
-	width: 85%;
-	font-weight: 400;
-	line-height: 1.4;
-}
-
-.input__checkbox {
-	display: inline-block;
-	flex-shrink: 0;
-}
-
-.alt-auth {
-	text-align: center;
-	font-size: 15px;
-	margin-top: 25px;
-}
-
-.alt-auth-link:link,
-.alt-auth-link:visited {
-	text-decoration: none;
+.header h3 {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 32px;
 	color: #1d1dd8;
 }
 
-@media (max-width: 55em) {
-	.form-group__checkbox-label {
-		font-size: 15px;
-		width: 100%;
-		font-weight: 400;
-	}
+.btn {
+	margin-top: 64px;
+}
+
+.bottomText {
+	text-align: center;
+	margin-top: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.bottomText p {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 32px;
+}
+
+.link {
+	color: #1d1dd8;
+	text-decoration: none;
+}
+
+.link:active,
+.link:visited {
+	color: #1d1dd8;
 }

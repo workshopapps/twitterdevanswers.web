@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -6,7 +7,6 @@ import Googleicon from '../../../assets/auth-images/google.svg';
 import GithubIcon from '../../../assets/auth-images/github.svg';
 import { AppContext } from '../../../store/AppContext';
 import { LOADING, USER_SIGNED_UP } from '../../../store/actionTypes';
-import AuthPage from '..';
 import { formInputHandler, useModal, validate } from '../utils';
 import AuthModal from '../AuthModal';
 
@@ -165,30 +165,7 @@ function SignUp() {
 		<>
 			{modal && <AuthModal text={serverResponse} />}
 
-			<AuthPage
-				pageTitle="Create an Account"
-				authAltText="Or Sign up with"
-				inputs={inputs}
-				authOptions={signUpOptions}
-				inputCheckbox={<InputCheckbox />}
-				buttonLabel={loading ? 'please wait' : 'Sign up'}
-				onChange={(event) => formInputHandler(event, setErrors, setInput)}
-				onSubmit={handleSignUp}
-				errors={errors}
-			>
-				<p className={styles['alt-auth']}>
-					Already a member?{' '}
-					<Link className={styles['alt-auth-link']} to="/login">
-						Log In
-					</Link>
-				</p>
-
-				<h3 className={styles['privacy-text']}>
-					By signing in you agree to our{' '}
-					<span className={styles['primary-text']}>Privacy Terms</span> and{' '}
-					<span className={styles['primary-text']}>Conditions</span>
-				</h3>
-			</AuthPage>
+			<div>signup</div>
 		</>
 	);
 }
