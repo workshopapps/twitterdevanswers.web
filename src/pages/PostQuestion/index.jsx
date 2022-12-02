@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styles from './PostQuestion.module.css';
 import Questions from './constants/Questions';
+import { AppContext } from '../../store/AppContext';
 
 function PostQuestion() {
 	const navigate = useNavigate();
 	const [isDetailDisabled, setIsDetailDisabled] = useState(true);
 	const [isDescriptionDisabled, setIsDescriptionDisabled] = useState(true);
 	const [isTokenError, setIsTokenError] = useState('');
+
+	const { state } = useContext(AppContext);
 
 	const handleClickScroll = () => {
 		const element = document.getElementById('root');
@@ -32,8 +35,6 @@ function PostQuestion() {
 		token: 0,
 	});
 
-	const [questions, setQuestions] = useState([]);
-
 	const [tags, setTags] = useState([
 		'Python',
 		'JavaScript',
@@ -55,13 +56,19 @@ function PostQuestion() {
 	const handleTagClick = (tagName) => {
 		setTags(
 			[
-				'Python',
-				'JavaScript',
-				'React',
-				'Git/Github',
-				'C#',
-				'C++',
 				'Java',
+				'Python',
+				'Android',
+				'Php',
+				'C++',
+				'Ajax',
+				'MYSQL',
+				'Node.js',
+				'C#',
+				'React.js',
+				'Swift',
+				'Linux',
+				'R',
 				'Golang',
 				'CSS',
 				'Tailwind',
@@ -174,24 +181,21 @@ function PostQuestion() {
 		}
 	};
 
-	useEffect(() => {
-		localStorage.setItem('questions', JSON.stringify(questions));
-	}, [questions]);
-
 	const postNewQuestion = async () => {
 		const details = {
 			owner_id: 2,
 			content_id: questionData.id,
 			title: questionData.title,
-			content: `${questionData.detail} 
-			${questionData.description}`,
+			content: `${questionData.detail}`,
+			expected_result: `${questionData.description}`,
+			payment_amount: `${questionData.token}`,
 			answered: false,
 			created_at: Date.now(),
 			updated_at: Date.now(),
 		};
 
 		const headers = {
-			Authorization: `fyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwcmFpc2VvYmVuZGVAeWFob28uY29tIiwiZXhwIjoxNjY5ODk1NDcyfQ.Y56KS8P7VQjRcdsuZAlSeHEVSkV7rMya0NeigYV1ztY`,
+			Authorization: `Bearer ${state.token}`,
 			'Content-Type': 'application/json',
 		};
 
@@ -208,24 +212,16 @@ function PostQuestion() {
 
 				setTimeout(() => {
 					navigate('/dashboard');
-				}, 3000);
+				}, 5000);
 			}
 		} catch (err) {
-			setIsTokenError('Token has expired. Refresh Token');
+			setIsTokenError('Cannot complete request now. Try again later...');
 		}
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		postNewQuestion();
-
-		if (
-			questionData.title !== '' &&
-			questionData.detail !== '' &&
-			questionData.description !== ''
-		) {
-			setQuestions((prevState) => [questionData, ...prevState]);
-		}
 	};
 
 	return (
@@ -250,53 +246,66 @@ function PostQuestion() {
 							</div>
 						) : (
 							<section className={styles.modalContent}>
-								{isTokenError && (
+								{isTokenError ? (
 									<div>
 										<p className={styles.ErrorBody}>{isTokenError}</p>
+										<div className={styles.modalButtonWrapper}>
+											<button
+												type="button"
+												className={`${styles.modalButton} ${styles.modalCancel}`}
+												onClick={() => setIsModalOpen(false)}
+											>
+												Close
+											</button>
+										</div>
 									</div>
+								) : (
+									<>
+										<div>
+											<h3 className={styles.modalHeader}>Title</h3>
+											<p className={styles.modalBody}>{questionData.title}</p>
+										</div>
+
+										<div>
+											<h3 className={styles.modalHeader}>Details</h3>
+											<p className={styles.modalBody}>{questionData.detail}</p>
+										</div>
+
+										<div>
+											<h3 className={styles.modalHeader}>Description</h3>
+											<p className={styles.modalBody}>
+												{questionData.description}
+											</p>
+										</div>
+
+										<div>
+											<h3 className={styles.modalHeader}>Tag</h3>
+											<p className={styles.modalBody}>{questionData.tag}</p>
+										</div>
+
+										<div>
+											<h3 className={styles.modalHeader}>Tokens</h3>
+											<p className={styles.modalBody}>{questionData.token}</p>
+										</div>
+
+										<div className={styles.modalButtonWrapper}>
+											<button
+												type="button"
+												className={`${styles.modalButton} ${styles.modalSubmit}`}
+												onClick={handleSubmit}
+											>
+												Submit Question
+											</button>
+											<button
+												type="button"
+												className={`${styles.modalButton} ${styles.modalCancel}`}
+												onClick={() => setIsModalOpen(false)}
+											>
+												Cancel
+											</button>
+										</div>
+									</>
 								)}
-
-								<div>
-									<h3 className={styles.modalHeader}>Title</h3>
-									<p className={styles.modalBody}>{questionData.title}</p>
-								</div>
-
-								<div>
-									<h3 className={styles.modalHeader}>Details</h3>
-									<p className={styles.modalBody}>{questionData.detail}</p>
-								</div>
-
-								<div>
-									<h3 className={styles.modalHeader}>Description</h3>
-									<p className={styles.modalBody}>{questionData.description}</p>
-								</div>
-
-								<div>
-									<h3 className={styles.modalHeader}>Tag</h3>
-									<p className={styles.modalBody}>{questionData.tag}</p>
-								</div>
-
-								<div>
-									<h3 className={styles.modalHeader}>Tokens</h3>
-									<p className={styles.modalBody}>{questionData.token}</p>
-								</div>
-
-								<div className={styles.modalButtonWrapper}>
-									<button
-										type="button"
-										className={`${styles.modalButton} ${styles.modalSubmit}`}
-										onClick={handleSubmit}
-									>
-										Submit Question
-									</button>
-									<button
-										type="button"
-										className={`${styles.modalButton} ${styles.modalCancel}`}
-										onClick={() => setIsModalOpen(false)}
-									>
-										Cancel
-									</button>
-								</div>
 							</section>
 						)}
 					</div>
@@ -342,6 +351,7 @@ function PostQuestion() {
 								onChange={handleChange}
 								required
 								onBlur={handleNextDetail}
+								autoComplete
 							/>
 						</div>
 
