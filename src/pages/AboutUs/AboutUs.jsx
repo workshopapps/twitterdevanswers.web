@@ -22,7 +22,7 @@ function AboutUs (){
                     <p>Join a community of over 100+ tech professionals available to work with you. 
                         Ever got stuck on a line of code which took you a few minutes to resolve? Devask is bridging that gap with over 100+ tech professionals available to answer your questions realtime.
                         No credit card required - Free trial tokens - Cancel anytime.</p>
-                    <Link to={<SignUp />}><button type="submit">Get Started</button></Link>
+                    <Link to="sign-up"><button type="submit">Get Started</button></Link>
                 </div>
                 <div className={styles.ImageDiv}>
                     <img className={styles.FirstImage} src={first} alt="first" />
@@ -89,7 +89,7 @@ function AboutUs (){
                 </section>
                 <section className={styles.NewsLetter}>
                     <h1>Subscribe to our newsletter</h1>
-                    <p>Stay updated on our daily design and coding tips, to keep <br></br>your on track!</p>
+                    <p>Stay updated on our daily design and coding tips, to keep <br />your on track!</p>
                     <div className={styles.NewsLetterDiv2}>
                         <input type="email" name="email" id="email" required placeholder="Enter your email address" />
                         <button type="submit">Subscribe</button>
