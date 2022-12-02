@@ -1,0 +1,263 @@
+.AboutUs{
+    width: 100%;
+}
+.AboutMainSection{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.Header{
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 80px;
+    text-align: left;
+
+}
+.AboutMainSection h1{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+
+}
+.AboutMainSection p{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+
+}
+.FirstSection{
+    margin-top: 80px;
+    display: flex;
+    margin-bottom: 160px;
+}
+.FirstImage{
+    width: 100%;
+    height: 100%;
+}
+.TextArea{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.TextArea button{
+    background-color: #1D1DD8;
+    color: white;
+    width: 140px;
+    height: 60px;
+    border: none;
+    border-radius: 4px;
+}
+.TextArea button:hover{
+    border: 1px solid#1D1DD8;
+    color: #1D1DD8;
+    background-color: white;
+}
+.SecondSection{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 160px;
+    gap: 16px;
+}
+.OurStory, .OurPrinciples{
+    text-align: center;
+}
+.SecondSectionDiv2{
+    display: flex;
+}
+.SecondSectionPar{
+    width: 54%;
+}
+.ThirdSection{
+    
+    background-color: #1D1DD8;
+    margin-bottom: 160px;
+}
+.ThirdSection div{
+    height: 192px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.ThirdSection div img{
+    width: 15%;
+}
+.FourthSection{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    margin-bottom: 190px;
+}
+.FourthSectionDiv2{
+    display: flex;
+    justify-content: space-evenly;
+}
+.FourthSectionDiv2 section{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.FourthSectionDiv2 section h1{
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 1000px;
+}
+.One img, .Two img, .Three img{
+    height: 100px;
+    width: 100px;
+}
+.FifthSection{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+.HowFar{
+    text-align: center;
+}
+.FifthSectionDiv2{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.NewsLetter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.NewsLetter p{
+    text-align: center;
+}
+.NewsLetterDiv2{
+    display: flex;
+    gap: 4%;
+}
+.NewsLetterDiv2 input{
+    width: 300px;
+    padding-left: 10px;
+    border-radius: 4px;
+    border: 1px solid grey;
+}
+.NewsLetterDiv2 button{
+    background-color: #1D1DD8;
+    color: white;
+    width: 140px;
+    height: 60px;
+    border: none;
+    border-radius: 4px;
+}
+.NewsLetterDiv2 button:hover{
+    border: 1px solid#1D1DD8;
+    color: #1D1DD8;
+    background-color: white;
+}
+@media screen and (max-width:850px) {
+    .Header{
+        font-size: 36px;
+    }
+    .AboutMainSection h1{
+        font-size: 24px;
+    }
+    .AboutMainSection p{
+        font-size: 16px;
+    }
+    .FirstSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .TextArea{
+        width: 100%;
+    }
+    .FirstImage, .SecondImage{
+        height: 200px;
+        width: 300px;
+    }
+    .SecondSectionDiv2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .SecondSectionPar{
+        width: 100%;
+    }
+}
+@media screen and (max-width:480px) {
+    .Header{
+        font-size: 36px;
+        line-height: 40px;
+    }
+    .AboutMainSection h1{
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .AboutMainSection p{
+        font-size: 16px;
+    }
+    .FirstImage, .SecondImage{
+        height: 100px;
+        width: 150px;
+    }
+    .ThirdSection div{
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+    }
+    .ThirdSection div img{
+        height: 80px;
+        width: 150px;
+    }
+    .FourthSection{
+        display: flex;
+        flex-direction: column;
+    }
+    .FourthSectionDiv2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .FourthSectionDiv2 section{
+        width: 100%;
+    }
+    .FifthSectionDiv2{
+        display: flex;
+        flex-direction: column;
+    }
+    .NewsLetter{
+        align-items: center;
+        text-align: center;
+    }
+    .NewsLetterDiv2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .NewsLetterDiv2 input{
+        width: 100%;
+        height: 60px;
+    }
+}
+@media screen and (max-width:220px) {
+    .AboutMainSection{
+        margin: 0;
+    }
+    .AboutMainSection b{
+        font-size: 18px;
+    }
+    .AboutMainSection h1{
+        font-size: 14px;
+    }
+    .AboutMainSection p{
+        font-size: 12px;
+    }
+    .ThirdSection div img{
+        height: 50px;
+        width: 100px;
+    }
+}
