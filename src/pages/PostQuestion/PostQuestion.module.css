@@ -66,6 +66,10 @@
 	list-style: disc;
 }
 
+.TagsUnorderedList {
+	padding: 0em;
+}
+
 .container {
 	background: #f7f7fe;
 	padding: 2em 0em;
@@ -141,7 +145,7 @@
 	width: 90%;
 	margin-bottom: 1.2em;
 }
-.container .titleWrapper button {
+.container .titleWrapper a {
 	background: #1d1dd8;
 	padding: 1em;
 	color: #ffffff;
@@ -149,6 +153,7 @@
 	border-radius: 4px;
 	border: none;
 	cursor: pointer;
+	text-decoration: none;
 }
 .container .problemWrapper {
 	background: #ffffff;
@@ -209,10 +214,13 @@
 	border: 1px solid #989898;
 	width: 90%;
 	margin-bottom: 1.2em;
+	padding: 1em;
+	line-height: 1.6;
 }
-.container .problemWrapper button {
+.container .problemWrapper a {
 	background: #1d1dd8;
 	padding: 1em;
+	text-decoration: none;
 	color: #ffffff;
 	align-self: flex-end;
 	border-radius: 4px;
@@ -266,21 +274,24 @@
 	font-size: 0.85rem;
 	line-height: 1.5;
 	padding-right: 1em;
-	margin-bottom: 2.2em;
+	margin-bottom: 0.2em;
 	padding: 1em 0em;
 }
 .container .detailWrapper .content textarea {
 	border-radius: 8px;
 	border: 1px solid #989898;
 	width: 88%;
+	padding: 1em;
+	line-height: 1.6;
 }
-.container .detailWrapper .content button {
+.container .detailWrapper .content a {
 	background: #1d1dd8;
 	padding: 1em;
 	color: #ffffff;
 	align-self: flex-end;
 	border-radius: 4px;
 	border: none;
+	text-decoration: none;
 	cursor: pointer;
 }
 .container .tagWrapper {
@@ -289,13 +300,14 @@
 	border-top: 1px solid #d6d6d6;
 	border-bottom: 1px solid #d6d6d6;
 	justify-content: space-between;
-	margin: 1em 0em;
+	margin: 3em 0em;
 }
+
 .container .tagWrapper .tagContent {
 	display: flex;
 	flex-direction: row;
-	padding: 0.7em 1em;
-	justify-content: space-evenly;
+	padding: 1em 2em;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
 }
@@ -304,6 +316,23 @@
 		flex: 0 0 50%;
 	}
 }
+
+@media (max-width: 1100px) {
+	.container .tagWrapper .tagContent {
+		justify-content: center;
+	}
+}
+
+@media (max-width: 1100px) {
+	.container .tagWrapper {
+		flex-direction: column;
+	}
+
+	.container .tagWrapper .tagContent:nth-child(2) {
+		border-top: 1px solid #d6d6d6;
+	}
+}
+
 .container .tagWrapper .tagContent:nth-child(1) {
 	border-right: 1px solid #d6d6d6;
 }
@@ -325,7 +354,8 @@
 		align-items: center;
 	}
 }
-.container .tagWrapper .allTags p {
+
+.allTagsText {
 	border-radius: 18px;
 	background: #d2d2f7;
 	color: #757575;
@@ -335,8 +365,8 @@
 	display: flex;
 	margin: 0.7em;
 }
-.container .tagWrapper .allTags p button {
-	margin-left: 0.4em;
+.allTagsButton {
+	margin-left: 2.4em;
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -387,7 +417,7 @@
 	right: 0;
 	top: 0;
 	z-index: 2;
-	padding: 10em 1em;
+	padding: 6em 1em;
 }
 
 .response {
@@ -402,7 +432,6 @@
 	position: relative;
 	background: white;
 	border-radius: 7px;
-	margin-top: 100%;
 	padding: 1rem 2rem;
 	right: 0;
 	left: 0;
@@ -416,7 +445,8 @@
 }
 
 .modal div {
-	padding: 1.5em 0em;
+	padding: 0.7em 0em;
+	flex: 0 0 90%;
 }
 
 .modalButton {
@@ -427,9 +457,6 @@
 	border: none;
 	cursor: pointer;
 	margin-right: 1.5em;
-}
-
-.modalButtonWrapper {
 }
 
 .modalSubmit {
@@ -446,6 +473,7 @@
 	background: none;
 	border: none;
 	cursor: pointer;
+	padding: 2em 4em;
 }
 
 .tagsWrapper {
@@ -455,9 +483,11 @@
 	border-radius: 5px;
 	padding: 1em 3.5em;
 	position: absolute;
-	margin-top: 26em;
-	margin-left: 19em;
+	margin-top: -21em;
+	margin-left: 5em;
 	border: 1px solid #d6d6d6;
+	max-height: 300px;
+	overflow-y: scroll;
 }
 
 .tagsWrapper button {
@@ -467,4 +497,21 @@
 	padding: 1em;
 	border: none;
 	outline: none;
+}
+
+.modalContent {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.modalContent div:nth-child(4),
+.modalContent div:nth-child(5) {
+	flex: 0 0 50%;
+}
+.ErrorBody {
+	color: red;
+	font-weight: 600;
+	font-size: 1rem;
+	font-style: italic;
 }
