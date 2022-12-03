@@ -1,16 +1,12 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Googleicon from '../../../assets/auth-images/google.svg';
-import GithubIcon from '../../../assets/auth-images/github.svg';
 import { AppContext } from '../../../store/AppContext';
 import { LOADING, USER_LOGGED_IN } from '../../../store/actionTypes';
 import { formInputHandler, useModal, validateLogIn } from '../utils';
 import styles from './styles.module.css';
 import AuthModal from '../AuthModal';
 import Input from '../Input';
-import AuthOptions from '../AuthOptions';
 import Button from '../../../components/AuthFormButton';
 
 function Login() {

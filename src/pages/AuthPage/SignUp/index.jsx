@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Googleicon from '../../../assets/auth-images/google.svg';
-import GithubIcon from '../../../assets/auth-images/github.svg';
 import { AppContext } from '../../../store/AppContext';
 import { LOADING, USER_SIGNED_UP } from '../../../store/actionTypes';
 import {
