@@ -424,6 +424,9 @@
         grid-gap: 20px;
         gap: 20px;
     }
+    .tabheading2 span{
+        font-size: 14px;
+    }
     
 }
 
