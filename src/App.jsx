@@ -33,6 +33,7 @@ import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
 import Asks from './components/Asks';
 import Privacy from './pages/Privacy/Privacy';
+import NotificationSettings from "./pages/NotificationSettings/index";
 import { AppContext } from './store/AppContext';
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
 					<Route path="settings" element={<Settings />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="*" element={<ErrorPage />} />
+					<Route path="/notification-settings" element={<NotificationSettings />} />
 				</Route>
 			</Routes>
 			{token || lsToken ? <InternalFooter /> : <Footer />}
