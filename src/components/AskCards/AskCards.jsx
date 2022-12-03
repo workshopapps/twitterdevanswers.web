@@ -71,11 +71,10 @@ function AskCards() {
 							style={{ display: 'flex', textDecoration: 'none' }}
 						>
 							<h5 className={styles.askName}>
-								{/* {filterUser(question.owner_id)?.first_name}{' '} */}
-								{/* {filterUser(question.owner_id)?.last_name} */}
+								
 								{findUser(question.owner_id)?.username}
 							</h5>
-							{/* <p className={styles.userName}>{question.user?.username}</p> */}
+							
 						</Link>
 
 						<p className={styles.time}>{formatDate(question.created_at)}</p>
@@ -93,18 +92,7 @@ function AskCards() {
 					</p>
 				</Link>
 
-				{/* <div className={styles.tagWrapper}>
-					{testQuestions[i].tags.map((tag) => (
-						<Link
-							to="/tags-page"
-							style={{ textDecoration: 'none', display: 'flex' }}
-						>
-							<p className={styles.tag} key={tag}>
-								{tag}
-							</p>
-						</Link>
-					))}
-				</div> */}
+				
 
 				<section className={styles.cardFooter}>
 					<div className={styles.icons}>
