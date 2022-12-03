@@ -12,7 +12,7 @@ function Editor() {
 
 	function handleQuestion(event) {
 		setQuestion(event.target.value);
-		console.log(event.target.value);
+		
 	}
 
 	function submitHandler() {
@@ -37,7 +37,7 @@ function Editor() {
 				}
 			);
 
-			console.log(response.data);
+	
 			setQuestion('');
 			return response.data;
 		}
