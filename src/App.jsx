@@ -33,17 +33,19 @@ import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
 import Asks from './components/Asks';
 import Privacy from './pages/Privacy/Privacy';
+import SubmitBlog from './pages/SubmitBlog';
 import { AppContext } from './store/AppContext';
 
 function App() {
 	const {
-		state: { token },
+		state: { isAuth },
 	} = useContext(AppContext);
-	const lsToken = localStorage.getItem('user');
+	const data = localStorage.getItem('user');
+	const user = JSON.parse(data);
 
 	return (
 		<div className="App">
-			{token || lsToken ? <InternalHeader /> : <Header />}
+			{user || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
@@ -53,7 +55,7 @@ function App() {
 				<Route path="help-center" element={<Help />} />
 				<Route path="terms-of-use" element={<TermsOfUse />} />
 				<Route path="pricing-page" element={<Pricing />} />
-				<Route path="career" element={<Career />} />
+				<Route pat h="career" element={<Career />} />
 				<Route path="how-it-works" element={<HowItWorks />} />
 				<Route path="API" element={<API />} />
 				<Route path="about" element={<About />} />
@@ -72,10 +74,11 @@ function App() {
 					<Route path="post-questions" element={<PostQuestion />} />
 					<Route path="settings" element={<Settings />} />
 					<Route path="contact" element={<Contact />} />
+					<Route path="submit-blog" element={<SubmitBlog />} />
 					<Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
-			{token || lsToken ? <InternalFooter /> : <Footer />}
+			{user || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }

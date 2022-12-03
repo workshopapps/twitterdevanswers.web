@@ -473,8 +473,8 @@ function PostQuestion() {
 						</div>
 
 						{/* Add tag */}
-						<section className={styles.tagWrapper}>
-							<div className={styles.tagContent}>
+						<section className={styles.postWrapper}>
+							<div className={styles.postContent}>
 								<span className={styles.text}>Add tag </span>
 
 								<button

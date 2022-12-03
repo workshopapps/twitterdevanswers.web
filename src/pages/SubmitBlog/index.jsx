@@ -1,21 +1,46 @@
 import React, {useState, useContext} from 'react'
 import { nanoid } from 'nanoid';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import styles from './submitBlog.module.css';
+// import { useNavigate } from 'react-router-dom';
+import styles from './submitblog.module.css';
 import { AppContext } from '../../store/AppContext';
 
 function SubmitBlog() {
-    const navigate = useNavigate();
-  //  const [isTokenError, setIsTokenError] = useState('');
+  //  const navigate = useNavigate();
+    // const [isTokenError, setIsTokenError] = useState('');
     const { state } = useContext(AppContext);
-    const [blogData, setBlogData] = useState({
-		id: '',
-		title: '',
-		content: '',
-		email: '',
-	});
+    // console.log(state)
+    const [postCategories, setPostCategories] = useState([
+		'NFTs',
+		'Lifestyle',
+		'Tech News',
+		'Programming',
+	]);
 
+    const [blogData, setBlogData] = useState({
+        author: state.user.userName,
+		user_id: state.user.user_id,
+        blog_user_id: '',
+		title: '',
+		body: '',
+        image_url: '',
+        post_category: `${postCategories}`,
+	});
+    const [isPostCatOpen, setIsPostCatOpen] = useState(false);
+  
+    const handlePostCategory = (postCat) => {
+		setPostCategories(
+			[
+				'Java',
+				'Python',
+				'Android',
+				'Php',
+				'C++',
+				'Ajax',
+				'MYSQL',
+			].filter((post) => post !== postCat)
+		);
+    }
     const handleChange = (e) => {
 		const { name, value } = e.target;
 
@@ -24,8 +49,8 @@ function SubmitBlog() {
 			id: nanoid(),
 			[name]: value,
 		}));
-
-	};
+    }
+	
     const Toast = () => {
         const x = document.getElementById("snackbar");
         x.className = "show";
@@ -35,12 +60,13 @@ function SubmitBlog() {
       
    const submitNewBlog = async () => {
 		const details = {
-			owner_id: 2,
-			blog_id: blogData.id,
-			title: blogData.title,
-			content: `${blogData.content}`,
-			created_at: Date.now(),
-			updated_at: Date.now(),
+            author: blogData.author,
+            user_id: blogData.user_id,
+            blog_user_id: 2,
+            title: blogData.title,
+            body: blogData.body,
+            image_url: 'https://devask-mallet.netlify.app/blog/nft-mobile.svg',
+            post_category: blogData.post_category,
 		};
         const headers = {
 			Authorization: `Bearer ${state.token}`,
@@ -48,7 +74,7 @@ function SubmitBlog() {
 		};
         try {
 			const data = await axios.post(
-				'https://pacific-peak-54505.herokuapp.com/blog',
+				`https://pacific-peak-54505.herokuapp.com/blog/?user_id=${blogData.user_id}`,
 				details,
 				{
 					headers,
@@ -56,13 +82,11 @@ function SubmitBlog() {
 			);
 			if (data) {
 			//	setIsSuccessful(true);
-
-				setTimeout(() => {
-					navigate('/blog-page');
-				}, 5000);
+                console.log(data)
 			}
 		} catch (err) {
-//			setIsTokenError('Cannot complete request now. Try again later...');
+            console.error(err)
+		// setIsTokenError('Cannot complete request now. Try again later...');
 		}
     }
 
@@ -75,39 +99,28 @@ function SubmitBlog() {
   return (
     <main className={styles.containerWrapper}>
         <div id="snackbar">Blog Successfully Sent</div>
-        <section className={styles.detailWrapper} id="detail">
-			<div className={styles.content}>
-            <h3>Full Name</h3>
-            <input
-				type="text"
-				placeholder=""
-				value={blogData.title}
-				name="name"
-				onChange={handleChange}
-				disabled
-				autoComplete
-				/>            
-            </div>
-        </section>
-        <section className={styles.detailWrapper} id="detail">
-			<div className={styles.content}>
-            <h3>Email</h3>
-            <input
-				type="text"
-				placeholder=""
-				value={blogData.title}
-				name="email"
-				onChange={handleChange}
-				disabled
-				autoComplete
-				/>            
-            </div>
-        </section>
-        <section className={styles.detailWrapper} id='content'>
+
+        <section className={styles.container}>
+            <form>
+            <section className={styles.titleWrapper} id="detail">
+                <div>
+                <h3>Title</h3>
+                <input
+                    type="text"
+                    placeholder=""
+                    value={blogData.title}
+                    name="title"
+                    onChange={handleChange}
+                    required
+                    />            
+                </div>
+            </section>
+        <section className={styles.detailWrapper} id='blog'>
             <div className={styles.content}>
+            <h3>Blog Content</h3>
             <textarea
-                value={blogData.detail}
-                name="content"
+                value={blogData.body}
+                name="body"
                 onChange={handleChange}
                 minLength={20}
                 required
@@ -115,7 +128,37 @@ function SubmitBlog() {
                 *Placeholder*
             </textarea>
 			</div>
+
+        <section className={styles.postsWrapper}>
+			<div className={styles.postsContent}>
+				<span className={styles.text}>Post Category </span>
+
+					<button
+						type="button"
+						onClick={() => setIsPostCatOpen(!isPostCatOpen)}
+						className={styles.tagsButton}
+                        >
+									<img src="/post-question/down-arrow.svg" alt="Down Arrow" />
+								</button>
+
+								{isPostCatOpen && (
+									<div className={styles.postsWrapper}>
+										{isPostCatOpen &&
+											postCategories.map((postCategory) => (
+												<button
+													key={postCategory}
+													type="button"
+													onClick={() => handlePostCategory(postCategory)}
+												>
+													{postCategory}
+												</button>
+											))}
+									</div>
+                                )}
+                </div>
+            </section>
         </section>
+                            
         <section className={styles.buttonWrapper}>
 			<div>
 			<button
@@ -128,8 +171,11 @@ function SubmitBlog() {
 			<button className={styles.discard} type="button">
 				Discard draft
 			</button>
-						</div>
-					</section>
+
+			</div>
+		</section>
+        </form>
+        </section>
     </main>
   )
 }
