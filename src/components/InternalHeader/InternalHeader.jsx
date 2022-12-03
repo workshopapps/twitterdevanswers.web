@@ -48,12 +48,12 @@ export default function InternalHeader(props) {
 		lineHeight: '28px',
 		color: '#4343de',
 	};
-	const lastSeenVisibleTimer = (2*10000)
+	const lastSeenVisibleTimer = (5*10000)
 	function handleLastSeen(){
 		if(props.activeState === false){
 
 				const lastSeenTimer = setTimeout(() => {
-				setLastSeen(`Last seen ${localStorage.getItem('lastSeen')}`)
+				setLastSeen(`Last seen: ${sessionStorage.getItem('lastSeen')}`)
 		  },[lastSeenVisibleTimer])				
 		  return () => clearTimeout(lastSeenTimer)
 		}
@@ -62,7 +62,7 @@ export default function InternalHeader(props) {
 	useEffect(()=>{
 		const activity = setInterval(() =>{
 			if(props.activeState === true){
-				const activityState = localStorage.getItem('userActivity')
+				const activityState = sessionStorage.getItem('userActivity')
 			setUserState(activityState)
 			
 		}
@@ -73,7 +73,7 @@ export default function InternalHeader(props) {
 
 	useEffect(()=>{
 		const seenState = setInterval(() =>{
-			if(localStorage.getItem('userActivity')==='online'){
+			if(sessionStorage.getItem('userActivity')==='online'){
 				setLastSeen('')
 			
 		}
@@ -153,11 +153,14 @@ export default function InternalHeader(props) {
 							<div className={styles.avatar} aria-hidden={props.activeState} >
 								<img src={avatar}  alt="avatar" />
 							</div>
-							<div className={styles.nameStatus}>
-								<p>Kayla Nicole</p>
-								<span onChange={handleLastSeen()}>{userState}</span>
-								<span>{lastSeen}</span>
-							</div>
+							<div className={styles.flex} >
+								<div className={styles.nameStatus}>
+									<p>Kayla Nicole</p>
+									<span onChange={handleLastSeen()}>{userState}</span>
+								</div>
+								<span className={styles.lastseen}>{lastSeen}</span>
+							</div><br/>
+
 						</div>
 						<HiBars3CenterLeft
 							className={styles.hamburger}

@@ -6,6 +6,11 @@
 }
 .help_center_page{
 	margin: 64px;
+	display: flex;
+	justify-content: center;
+}
+.help_center_contents{
+	max-width: 1340px;
 }
 .content{
 	display: flex;
@@ -206,7 +211,7 @@
 	
 	}
 	.help_center_page{
-		margin: 15px;
+		margin: 15px 15px 25px 15px;
 	}
 	.helpheader p {
 		font-size: 14px;

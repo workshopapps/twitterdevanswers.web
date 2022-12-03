@@ -15,6 +15,16 @@
 	align-items: center;
 	gap: 26px;
 }
+.flex{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.lastseen{
+	color: #1f1f1f;
+	font-size: 10px;
+}
 
 .search {
 	padding: 16px;
@@ -193,6 +203,10 @@ li {
 
 	.nameStatus {
 		display: none;
+	}
+	.lastseen{
+		display: none;
+
 	}
 
 	.sidenav {

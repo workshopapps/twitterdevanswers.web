@@ -43,22 +43,22 @@ function App() {
 	const {
 		state: { token },
 	} = useContext(AppContext);
-	const lsToken = localStorage.getItem('user');
+	const lsToken = sessionStorage.getItem('user');
 
 	const checkForInactivity =() =>{
-		const expiredTime = localStorage.getItem('expireTime')
+		const expiredTime = sessionStorage.getItem('expireTime')
 
 		if(expiredTime< Date.now()){
 
 			setActive(false)
-			localStorage.setItem('userActivity',('offline'))
+			sessionStorage.setItem('userActivity',('offline'))
 
 		}else if(expiredTime> Date.now()) {
 			setActive(true)
 			const today = new Date()
-			localStorage.setItem('userActivity',('online'))
-			const inactiveTimeStamp=`${today.getFullYear()}-${(today.getMonth() + 1)}-${today.getDate()}  ${today.getHours()}: ${today.getMinutes()} `
-			localStorage.setItem('lastSeen',inactiveTimeStamp)
+			sessionStorage.setItem('userActivity',('online'))
+			const inactiveTimeStamp=`${today.getFullYear()}-${(today.getMonth() + 1)}-${today.getDate()},${today.getHours()}:${today.getMinutes()} `
+			sessionStorage.setItem('lastSeen',inactiveTimeStamp)
 
 		}
 	}
@@ -66,7 +66,7 @@ function App() {
 	const updateExpiredTime = ()=>{
 		if(active === true){
 			const timer = Date.now() + 5000;
-			localStorage.setItem("expireTime",timer)
+			sessionStorage.setItem("expireTime",timer)
 
 		}
 	}
