@@ -60,15 +60,13 @@ function EditAcccount() {
 						className={EditAccountCSS.profileimg}
 						alt="profile "
 						src={TestImage}
-						
-									required
-									id="nameinput"
-									type="image"
-									placeholder="John "
-									value={user.firstName}
-									name="firstName"
-									onChange={changeHandler}
-								/>
+								id="imageinput"
+								type="image"
+								placeholder="John "
+								value={user.image}
+								name="profilepicture"
+								onChange={changeHandler}
+						/>
 					
 					<div className={EditAccountCSS.editsvg}>
 						<svg
@@ -157,7 +155,7 @@ function EditAcccount() {
 									placeholder="07012345678 "
 									maxLength="11"
 									value={user.phonenumber}
-									name="Phnenumber"
+									name="Phonenumber"
 									onChange={changeHandler}
 								/>
 							</label>
@@ -165,7 +163,7 @@ function EditAcccount() {
 								Bio:
 								<input
 									required
-									id="nameinput"
+									id="bioinput"
 									className={EditAccountCSS.textinput}
 									type="text"
 									placeholder="Cool developer, ready to collaborate..."
@@ -243,7 +241,7 @@ function EditAcccount() {
 								Twitter:
 								<input
 									required
-									id="usernameinput"
+									id="twitterinput"
 									className={EditAccountCSS.textinput}
 									type="text"
 									placeholder="https://twitter.com/Johndoe"

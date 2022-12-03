@@ -13,6 +13,8 @@ export default function Stack(){
             <option value="flutter for web">Flutter For Web</option>
             <option value="kotlin">Kotlin</option>
             <option value="Lamp stack">Lamp Stack</option>
+            <option value="pern stack">Pern Stack</option>
+
 
            
         </>
