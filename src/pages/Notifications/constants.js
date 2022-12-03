@@ -24,11 +24,10 @@ const notifications = [
 		timestamp: new Date(),
 	},
 	{
-		id: 2,
-		type: 'for-you',
-		unread: false,
-		title: '3 new Questions',
-		tag: 'python',
+		id: 4,
+		type: 'wallet-add',
+		amount: 0.15,
+		unread: true,
 		timestamp: new Date(),
 	},
 	{
@@ -52,12 +51,14 @@ const notifications = [
 		timestamp: new Date(),
 	},
 	{
-		id: 4,
-		type: 'wallet-add',
-		amount: 0.15,
-		unread: true,
+		id: 2,
+		type: 'for-you',
+		unread: false,
+		title: '3 new Questions',
+		tag: 'python',
 		timestamp: new Date(),
 	},
+
 	{
 		id: 5,
 		type: 'marked-as-correct',
@@ -77,7 +78,7 @@ const notifications = [
 	{
 		id: 6,
 		type: 'for-you',
-		unread: true,
+		unread: false,
 		question: {
 			from: {
 				displayName: 'Libra',

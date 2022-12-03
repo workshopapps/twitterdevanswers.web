@@ -48,7 +48,7 @@ function NotificationItem({ notification }) {
 							</p>
 						</div>
 					) : null}
-					<p
+					{/* <p
 						className={styles.timestamp}
 						style={{
 							color: `${unread ? '#1818B4' : '#989898'}`,
@@ -56,7 +56,7 @@ function NotificationItem({ notification }) {
 						}}
 					>
 						{unread ? '36 secs' : '1 hr ago'}
-					</p>
+					</p> */}
 				</div>
 			</div>
 			<img
