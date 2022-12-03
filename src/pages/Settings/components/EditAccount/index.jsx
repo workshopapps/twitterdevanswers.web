@@ -1,4 +1,4 @@
-/* eslint-disable no-alert */
+
 import React,
 		{useState,
 		 useContext
@@ -9,14 +9,15 @@ import Experience from "./dataExperience"
 import Stack from './dataStack';
 import { AppContext } from '../../../../store/AppContext';
 import { EDIT_USER } from '../../../../store/actionTypes';
-import updateUser from '../../../../utils/api';
+import updateUser from './api';
+import Location from './Location';
 
 
 
 
 function EditAcccount() {
 	const {state, dispatch} = useContext(AppContext);
-	const [user, setUser] = useState(state.user);
+	const [user, setUser] = useState(state.user); 
 	const changeHandler = (event) => {
 		setUser((prev) => ({
 			...prev,
@@ -54,11 +55,21 @@ function EditAcccount() {
 			</div>
 			<div className={EditAccountCSS.userinfo}>
 				<div className={EditAccountCSS.userprofile}>
+				
 					<img
 						className={EditAccountCSS.profileimg}
 						alt="profile "
 						src={TestImage}
-					/>
+						
+									required
+									id="nameinput"
+									type="image"
+									placeholder="John "
+									value={user.firstName}
+									name="firstName"
+									onChange={changeHandler}
+								/>
+					
 					<div className={EditAccountCSS.editsvg}>
 						<svg
 							width="17"
@@ -82,20 +93,35 @@ function EditAcccount() {
 
 						<div className={EditAccountCSS.container}>
 							<label htmlFor className={EditAccountCSS.label}>
-								Full name:
+								First name:
 								<input
 									required
 									id="nameinput"
 									className={EditAccountCSS.textinput}
 									type="text"
-									placeholder="John Doe"
-									value={user.fullName}
-									name="fullName"
+									placeholder="John "
+									value={user.firstName}
+									name="firstName"
 									onChange={changeHandler}
 								/>
 							</label>
-
-							<label htmlFor className={EditAccountCSS.label} >
+							<label htmlFor className={EditAccountCSS.label}>
+								Last name:
+								<input
+									required
+									id="nameinput"
+									className={EditAccountCSS.textinput}
+									type="text"
+									placeholder=" Doe"
+									value={user.lastName}
+									name="lastName"
+									onChange={changeHandler}
+								/>
+								</label>	
+						</div>
+						<div className={EditAccountCSS.container}>
+						
+						<label htmlFor className={EditAccountCSS.label} >
 								User name:
 								<input
 									required
@@ -107,8 +133,49 @@ function EditAcccount() {
 									name="userName"
 									onChange={changeHandler}
 								/>
-							</label>		
+							</label>
+
+						<label htmlFor="locale" className={EditAccountCSS.label}>
+                                Location
+                                <select
+								className={EditAccountCSS.textinput}
+								value={user.location}
+                                > 
+								<Location />
+								 </select>						
+						</label>
+						
 						</div>
+						<div className={EditAccountCSS.container}>
+							<label htmlFor className={EditAccountCSS.label}>
+								Phone Number:
+								<input
+									required
+									id="nameinput"
+									className={EditAccountCSS.textinput}
+									type="text"
+									placeholder="07012345678 "
+									maxLength="11"
+									value={user.phonenumber}
+									name="Phnenumber"
+									onChange={changeHandler}
+								/>
+							</label>
+							<label htmlFor className={EditAccountCSS.label}>
+								Bio:
+								<input
+									required
+									id="nameinput"
+									className={EditAccountCSS.textinput}
+									type="text"
+									placeholder="Cool developer, ready to collaborate..."
+									value={user.description}
+									name="bio"
+									onChange={changeHandler}
+								/>
+								</label>	
+						</div>
+					
 
 						<div className={EditAccountCSS.container}> 
 

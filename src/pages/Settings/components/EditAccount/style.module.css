@@ -3,8 +3,9 @@
 	flex-direction: column;
 	height: 939px;
 	background-color: rgba(255, 255, 255, 0.41);
-	padding: 111px 116px 104px 16px;
+	padding: 40px 116px 104px 16px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	height: 1300px;
 }
 .formcontrol{
 	display: flex;
@@ -202,6 +203,7 @@
 @media screen and (max-width: 1300px) {
 	.editaccount {
 		display: none;
+		
 	}
 	.textinput {
 		display: flex;
