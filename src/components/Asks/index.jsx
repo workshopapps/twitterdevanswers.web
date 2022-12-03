@@ -8,8 +8,8 @@ import heart from '../../assets/dashboard-images/heart.webp';
 import share from '../../assets/dashboard-images/share.webp';
 import options from '../../assets/dashboard-images/options.webp';
 import user from '../../assets/dashboard-images/user.webp';
-// import mugiwara from '../../assets/dashboard-images/mugiwara.webp';
-// import testQuestions from '../../utils/testQuestions.json';
+
+
 
 const token = localStorage.getItem('token');
 
@@ -71,7 +71,7 @@ function Asks() {
 
 	function handleReply(event) {
 		setReply(event.target.value);
-		console.log(event.target.value);
+		
 	}
 
 	function submitHandler() {
@@ -92,16 +92,16 @@ function Asks() {
 				}
 			);
 
-			console.log(response.data);
+
 			setReply('');
 			return response.data;
 		}
 		postAnswer();
 	}
 
-	// const selectQuestion = testQuestions.find(
-	// 	(question) => question.id_str === paramValues.id
-	// );
+
+
+	
 
 	const answerss = answers?.map((answer) => (
 		<div className={styles.cardContainer} key={answer.answer_id}>
@@ -116,10 +116,10 @@ function Asks() {
 						<div className={styles.userInfo}>
 							<h5 className={styles.askName}>
 								{findUser(answer.owner_id)?.username}
-								{/* {answer.name.slice(0, 1).toUpperCase()} */}
-								{/* {answer.name.slice(1, 30)} */}
+					
+								
 							</h5>
-							{/* <p className={styles.userName}>{answer.email}</p> */}
+						
 							<p className={styles.time}>
 								{answer.created_at && formatDate(answer.created_at)}
 							</p>
@@ -129,16 +129,10 @@ function Asks() {
 						</p>
 					</div>
 				</div>
-				{/* <img src={answer.options} alt="" className={styles.optionsReply} /> */}
+	
 			</section>
 			<h6 className={styles.reply}>{answer.content}</h6>
 			<section className={styles.cardFooter}>
-				{/* <div className={styles.replyPageIcons}>
-					<img src={answer.viewReplies} alt="" />
-					<img src={answer.likes} alt="" />
-					<img src={answer.correct} alt="" />
-					<img src={answer.share} alt="" className={styles.share} />
-				</div> */}
 			</section>
 		</div>
 	));
@@ -160,7 +154,7 @@ function Asks() {
 							{findUser(question.owner)?.username}
 						</h4>
 						<div className={styles.timeDate}>
-							{/* <p>11:03</p> */}
+							
 							<p>{question.createdAt && formatDate(question.createdAt)}</p>
 						</div>
 					</div>
@@ -171,23 +165,10 @@ function Asks() {
 			<section className={styles.question}>
 				<h4 className={styles.title}> {question.title}</h4>
 				<p className={styles.description}>{question.content}</p>
-				{/* <p className={styles.snippet}>{selectQuestion.description}</p> */}
-				{/* <p className={styles.description}>
-					Thanks anyone out there who can see my mistake!
-				</p> */}
+				
 			</section>
 			<div className={styles.tagEdit}>
-				{/* <div className={styles.tagWrapper}>
-					{question.tags.map((tag) => (
-						<Link
-							to="/tags-page"
-							style={{ textDecoration: 'none', display: 'flex', width: '100%' }}
-							key={tag}
-						>
-							<p className={styles.tag}>{tag}</p>
-						</Link>
-					))}
-				</div> */}
+				
 
 				<p className={styles.editMobile}>Edit</p>
 			</div>
