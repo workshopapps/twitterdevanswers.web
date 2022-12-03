@@ -47,7 +47,7 @@ function SignUp() {
 		if (!formErrors) {
 			try {
 				const { data } = await axios.post(
-					'https://pacific-peak-54505.herokuapp.com/auth/signup',
+					'https://api.devask.hng.tech/auth/signup',
 					input
 				);
 
@@ -108,7 +108,7 @@ function SignUp() {
 			}));
 		} else {
 			const { data } = await axios.post(
-				'https://pacific-peak-54505.herokuapp.com/auth/send_email_code',
+				'https://api.devask.hng.tech/auth/send_email_code',
 				{ email: input.email }
 			);
 

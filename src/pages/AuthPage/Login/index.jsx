@@ -44,7 +44,7 @@ function Login() {
 
 			try {
 				const response = await axios.post(
-					'https://pacific-peak-54505.herokuapp.com/auth/signin',
+					'https://api.devask.hng.tech/auth/signin',
 					formData
 				);
 
