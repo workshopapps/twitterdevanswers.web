@@ -16,6 +16,7 @@ function AskCards() {
 		state: { user: userInformation },
 	} = useContext(AppContext);
 	console.log(userInformation);
+	
 	const askCard = testQuestions.map((question) => (
 		<div className={styles.cardContainer} key={question.id}>
 			<Link to={`/profile/${question.id}`}>
