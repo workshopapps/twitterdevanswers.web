@@ -29,16 +29,6 @@ function WalletItem({ label, ammount, frame, compare, css}) {
 				<img src={rightarrowwhite} alt="rightarrowwhite" />
 			</div>
 
-
-
-
-			{/* <p className={styles.wallet_label_text}>{label}</p>
-
-			<div className={styles.ammount_tokens}>
-				<p className={styles.wallet_ammount_text}>{ammount}</p>
-
-				<span className={styles.wallet_token}>Tokens</span>
-			</div> */}
 		</div>
 	);
 }
@@ -48,7 +38,6 @@ WalletItem.defaultProps = {
 	frame:false,
 	compare: "15% compared to last month",
 	css:"css",
-	// image1: "image"
 };
 
 WalletItem.propTypes = {
@@ -57,7 +46,6 @@ WalletItem.propTypes = {
 	frame: PropTypes.string,
 	compare: PropTypes.string,
 	css: PropTypes.string,
-	// image1: PropTypes.string,
 };
 
 export default WalletItem;

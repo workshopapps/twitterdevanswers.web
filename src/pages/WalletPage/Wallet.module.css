@@ -138,41 +138,6 @@
 	
 }
 
-
-
-
-/* @media (min-width: 768px) {
-	.wallet_page_container {
-		margin-left: 2rem;
-		margin-right: 2rem;
-	}
-} */
-/* @media (min-width: 1024px) {
-	.wallet_page_container {
-		margin-left: 3rem;
-		margin-right: 3rem;
-	}
-} */
-/* .button_positon {
-	display: flex;
-	gap: 2rem;
-	justify-content: flex-end;
-} */
-
-/* .wallet_container {
-	gap: none;
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 4rem;
-} */
-
-/* @media (min-width: 768px) {
-	.wallet_container {
-		gap: 2rem;
-		flex-direction: row;
-	}
-} */
-
 .btn__primary {
 	color: #ffffff;
 	background: #1d1dd8;

@@ -1,42 +1,15 @@
-import React from // { useContext }
-'react';
+import React from 'react';
 import WalletItem from '../../components/WalletItem';
 import styles from './Wallet.module.css';
 import TransactionHistory from '../../components/History/TransactionHistory';
-// import WalletContext from './WalletContext';
 import Viewall from '../../assets/wallet-images/Viewall.svg';
 
 function WalletPage() {
-	// const { data, withdraw, /* loading */ } = useContext(WalletContext);
 
 	return (
 		<div className={styles.wallet_page_container_main}>
 			<div className={styles.wallet_page_container}>
-				{/* <div className={styles.wallet_container}>
-					{loading ? (
-						<>
-							<WalletItemSkeleton />
-							<WalletItemSkeleton />
-							<WalletItemSkeleton />
-						</>
-					) : (
-						<>
-							<WalletItem
-								ammount={data.currentBalance}
-								label="Current Balance"
-							/>
-							<WalletItem
-								label="Total Earned"
-								ammount={data.totalAmmountEarned}
-							/>
-							<WalletItem
-								ammount={data.totalAmmountEarned - data.currentBalance}
-								label="Total Spent"
-							/>
-						</>
-					)}
-				</div> */}
-
+			
 				<main className={styles.wallet_container}>
 					<div className={styles.walletTag}>
 						<h1 className={styles.Overview}>Overview</h1>
@@ -44,10 +17,8 @@ function WalletPage() {
 							<WalletItem
 								ammount="10000"
 								frame="true"
-								// ammount={data.currentBalance}
 								label="Current Balance"
 							/>
-							{/* image1={arrowwhite} */}
 							<WalletItem
 								label="Total Spent"
 								compare="2% compared to last month"
@@ -55,7 +26,6 @@ function WalletPage() {
 								css="box"
 							/>
 							<WalletItem
-								// ammount={data.totalAmmountEarned - data.currentBalance}
 								label="Total Earned"
 								compare="10% compared to last month"
 								ammount="50000"
@@ -131,10 +101,6 @@ function WalletPage() {
 							</div>
 							</div>
 						</section>
-
-
-
-						{/* SPENT section */}
 
 						<section className={styles.sect}>
 							<div className={styles.total}>

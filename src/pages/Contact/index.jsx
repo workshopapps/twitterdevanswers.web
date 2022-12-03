@@ -85,38 +85,13 @@ function Contact() {
 				<ContactUsForm />
 			</div>
 
-			{/* <ContactMarketing /> */}
 		</div>
 	);
 }
 export default Contact;
 
 export function ContactUsForm() {
-	// function for when api is ready for sending message
-
-	// 	const [firstName, setFirstName] = useState('')
-	//   const [lastName, setLastName] = useState('')
-	//   const [companyName, setCompanyName] = useState('')
-	//   const [businessName, setBusinessName] = useState('')
-	//   const [phoneNumber, setPhoneNumber] = useState('')
-	//   const [message, setMessage] = useState('')
-
-	// 	const handleChange = (e) => {
-	// 		const { name, value } = e.target;
-	// 		setContactForm((prevValue) => {
-	// 			return {
-	// 				...prevValue,
-	// 				[name]: value,
-	// 			};
-	// 		});
-	// 	};
-	//   const handleChange = (setFunction, e) => {
-	//     setFunction(e.target.value)
-	//     }
-	// 	const handleContactSendMessage = (e) => {
-	// 		e.preventDefault();
-
-	// };
+	
 	return (
 		<form className={styles.form_wrap}>
 			<h2>Talk to an Expert</h2>
@@ -125,40 +100,30 @@ export function ContactUsForm() {
 				type="text"
 				className={styles.contact_name_input}
 				placeholder="First Name *"
-				// onChange={(e) => handleChange(setFirstName, e)}
-				// value={contactUsForm.firstName}
 			/>
 			<input
 				name="lastName"
 				type="text"
 				className={styles.contact_name_input}
 				placeholder="Last Name *"
-				// onChange={(e) => handleChange(setLastName, e)}
-				// value={contactUsForm.lastName}
 			/>
 			<input
 				name="companyName"
 				type="text"
 				className={styles.contact_name_input}
 				placeholder="Company Name *"
-				// onChange={(e) => handleChange(setCompanyName, e)}
-				// value={contactUsForm.companyName}
 			/>
 			<input
 				name="businessName"
 				type="text"
 				className={styles.contact_name_input}
 				placeholder="Business Name (optional)"
-				// onChange={(e) => handleChange(setBusinessName, e)}
-				// value={contactUsForm.businessName}
 			/>
 			<input
 				name="phoneNumber"
 				type="text"
 				className={styles.contact_name_input}
 				placeholder="Phone Number (optional)"
-				// onChange={(e) => handleChange(setPhoneNumber, e)}
-				// value={contactUsForm.phoneNumber}
 			/>
 			<textarea
 				name="message"
@@ -167,15 +132,12 @@ export function ContactUsForm() {
 				placeholder="Message *"
 				rows="7"
 				cols="50"
-				// onChange={(e) => handleChange(setMessage, e)}
-				// value={contactUsForm.mesage}
 			/>
 			<p>3000 characters remaining</p>
 			<button
 				id="btn__submit"
 				type="submit"
 				className={styles.send_message_button}
-				// onClick={handleContactSendMessage}
 			>
 				Submit
 			</button>
