@@ -48,6 +48,10 @@
     align-items: center;
     background-color: white;
 }
+.TextSection a{
+    text-decoration: none;
+    color: black;
+}
 .SecuritySelector{
     display: flex;
     background-color: #F7F7FE;

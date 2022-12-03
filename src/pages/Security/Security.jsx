@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Security.module.css";
 import account from "../../assets/security-images/account.png";
 import security from "../../assets/security-images/security.png";
@@ -6,6 +7,17 @@ import notification from "../../assets/security-images/notification.png";
 import appearance from "../../assets/security-images/appearance.png"
 
 function Security() {
+    const [isEnabled, setIsEnabled] = useState(false);
+    const [isVerified, setIsVerified] = useState(false);
+
+        const handleEnable = () => {
+                setIsEnabled(!isEnabled);  
+        }
+        const handleIsVerified = () => {
+            setIsVerified(!isVerified);
+        }
+
+
     return(
         <div className={styles.Security}>
             <main className={styles.MainSection}>
@@ -17,8 +29,11 @@ function Security() {
                         <img src={account} alt="account" />
                     </section>
                     <section className={styles.TextSection}>
+                        <Link to="/settings">
                         <h1> Account</h1>
+                        </Link>
                         <p>You can manage your account settigs at any time. Update your account details , change your username etc</p>
+                        
                     </section>
                 </div>
                 <div className={styles.SecuritySelector}>
@@ -26,7 +41,9 @@ function Security() {
                         <img src={security} alt="security" />
                     </section>
                     <section className={styles.TextSection}>
+                    <Link to="/security-settings">
                         <h1> Security</h1>
+                    </Link>
                         <p>Make the most of your activities, the security features protect you from malware and dangerous sites</p>
                     </section>
                 </div>
@@ -35,7 +52,9 @@ function Security() {
                         <img src={notification} alt="notification" />
                     </section>
                     <section className={styles.TextSection}>
+                    <Link to="/notification-page">
                         <h1> Notification</h1>
+                    </Link>
                         <p>Notification are updates about your activity . You can go to your notification settings to change what you will be notified about and how you are notified.</p>
                     </section>
                 </div>
@@ -44,8 +63,10 @@ function Security() {
                         <img src={appearance} alt="notificaton" />
                     </section>
                     <section className={styles.TextSection}>
+                    <Link to="/#">
                         <h1> Appearance</h1>
                         <p>Choose your viewing options, select light to display light mode, select dark to display dark mode</p>
+                    </Link>
                     </section>
                 </div>
                 </div>
@@ -60,14 +81,14 @@ function Security() {
                         <h1>Two-Factor Authentication</h1>
                         <p>Enabling Two-factor Authentication help protect your account better by sending you OTP on each login</p>
                     </section>
-                    <button type="submit">Enable</button>
+                    <button type="submit" onClick={handleEnable} > { isEnabled ? "Disable": "Enable" }</button>
                 </div>
                 <div className={styles.VerifyEmail}>
                     <section>
                         <h1>Verify E-mail</h1>
                         <p>Confirmation email has been sent to the e-mail address provided, check mail to confirm</p>
                     </section>
-                    <button type="submit">Verify</button>
+                    <button type="submit" onClick={handleIsVerified} > { isVerified ? "Verified": "Verify" }</button>
                 </div>
                 <form className={styles.SecurityForm}>
                     <section className={styles.WalletSection}>

@@ -9,7 +9,8 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
-import About from './pages/About/index';
+// import About from './pages/About/index';
+import AboutUs from './pages/AboutUs/AboutUs';
 import Pricing from './pages/Pricing';
 import Advert from './pages/Advert/Advert';
 import Blog from './pages/Blog';
@@ -27,6 +28,7 @@ import WalletPage from './pages/WalletPage';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
+import Security from "./pages/Security/Security"
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
@@ -56,7 +58,7 @@ function App() {
 				<Route path="career" element={<Career />} />
 				<Route path="how-it-works" element={<HowItWorks />} />
 				<Route path="API" element={<API />} />
-				<Route path="about" element={<About />} />
+				<Route path="about" element={<AboutUs />} />
 				<Route path="login" element={<Login />} />
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
@@ -71,6 +73,7 @@ function App() {
 					<Route path="users-page" element={<UserPage />} />
 					<Route path="post-questions" element={<PostQuestion />} />
 					<Route path="settings" element={<Settings />} />
+					<Route path="security-settings" element={<Security />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="*" element={<ErrorPage />} />
 				</Route>
