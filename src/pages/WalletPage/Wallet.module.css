@@ -3,43 +3,175 @@
 }
 
 .wallet_page_container {
-	padding-left: 2rem;
-	padding-right: 2rem;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	padding-top: 2rem;
+	width: 95%;
+	margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+.wallet_container{
+	display: flex;
+	justify-content: space-between;
+	/* align-items: center; */
+}
+
+.walletTag{
+	width: 54%;
+	background-color: white;
+	padding: 25px 20px ;
+	border-radius: 16px;
+}
+.transTag{
+	width: 40%;
+	display: flex;
+	/* justify-content: space-between; */
+}
+.Overview{
+	font-size: 1.7rem;
+	color: #333333;
+	margin-bottom: 20px;
+}
+.walletGrid{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+	gap: 30px;
+}
+.transHist{
+	width: 65%;
+}
+.button_positon{
+	width: 20%;
+	margin-left: 60px;
+}
+
+.histories {
+	margin: 1.5rem 0;
+	padding-bottom: 2rem;
+}
+.histories h4{
+	margin: 1rem 0;
+	color: #131390;
+	font-size: 1.1rem;
+}
+.tablehist{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.sect{
+	width: 45%;
+	background-color: #ffffff;
+	padding: 1rem;
+	border-radius: 16px;
+}
+.nov p{
+	font-size: 0.9rem;
+	margin: 0.5rem 0;
+}
+.total{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+.total h5{
+	font-size: 1.1rem;
+}
+.view{
+	display: flex;
+	font-size: 0.9rem;
+	align-items: center;
+}
+.view img{
+	margin-left: 10px;
+}
+.earn{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 0.9rem;
+	margin: 0.7rem 0;
+}
+
+.sect hr{
+	border: 0.5px solid #989898;
+	background-color: #989898;
+	margin: 2rem 0;
+}
+
+
+
+@media (max-width:768px){
+	.wallet_container{
+		display: block;
+	}
+	
+	.walletTag{
+		width: 90%;
+		margin: 1.5rem auto;
+
+	}
+	.transTag{
+		width: 90%;
+		margin: 0 auto;
+		display: block;
+	}
+	.tablehist{
+		display: block;
+	}
+	.sect{
+		width: 90%;
+		margin: 1rem auto;
+	}
+	.transHist{
+		width: 90%;
+		margin: 0 auto;
+	}
+	.button_positon{
+		width: 50%;
+		margin: 1rem auto;
+		display: flex;
+		justify-content: center;
+	}
+	.earn p{
+		margin-left: 10px;
+	}
+	
+}
+
+
+
+
+/* @media (min-width: 768px) {
 	.wallet_page_container {
 		margin-left: 2rem;
 		margin-right: 2rem;
 	}
-}
-@media (min-width: 1024px) {
+} */
+/* @media (min-width: 1024px) {
 	.wallet_page_container {
 		margin-left: 3rem;
 		margin-right: 3rem;
 	}
-}
-.button_positon {
+} */
+/* .button_positon {
 	display: flex;
 	gap: 2rem;
 	justify-content: flex-end;
-}
+} */
 
-.wallet_container {
+/* .wallet_container {
 	gap: none;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 4rem;
-}
+} */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 	.wallet_container {
 		gap: 2rem;
 		flex-direction: row;
 	}
-}
+} */
 
 .btn__primary {
 	color: #ffffff;
