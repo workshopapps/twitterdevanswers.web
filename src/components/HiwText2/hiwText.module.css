@@ -1,0 +1,25 @@
+.text {
+	width: 70%;
+}
+
+.text h3 {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 32px;
+	color: #000000;
+	margin-bottom: 16px;
+}
+
+.text p {
+	font-size: 16px;
+	line-height: 28px;
+	color: #989898;
+	margin-bottom: 24px;
+}
+
+@media only screen and (max-width: 1200px) {
+	.text {
+		width: 100%;
+	}
+}
