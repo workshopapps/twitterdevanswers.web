@@ -1,6 +1,14 @@
 .profile__datawrapper {
 	display: flex;
 }
+
+
+.profile__image {
+	width: 200px;
+	border-radius: 50%;
+	vertical-align: top;
+	margin-top: -25px;
+}
 .profile__name {
 	font-style: normal;
 	font-weight: 600;
@@ -83,11 +91,11 @@
 		flex-direction: column;
 	}
 
-	.profile__btns {
+	/* .profile__btns {
 		position: absolute;
 		top: 0;
 		right: 0;
-	}
+	} */
 	
 
 }
@@ -98,24 +106,29 @@
 	cursor: pointer;
 }
 
-.profile__datatxt, .profile__address {
+.profile__datatxt{
 	display: flex;
-	gap: 30px;
-	flex-basis: 50%;
+	/* gap: 10px; */
+	/* flex-basis: 25%; */
 	padding: 1.0738rem 1.2rem;
 }
 
-.profile__imagewrapper {
-	flex-basis: 100%;
+
+.profile__sociallinks {
+	
 }
 
 
-.profile__address {
-	padding-left: 5%;
-	justify-content: space-between;
-}
 
 .profile__btns {
-	flex-basis: 25%;
+	flex-basis: 50%;
+		position: absolute;
+		top: 0;
+		right: 70px;
+}
+/* .profile__datelocation, */
+.profile__followingwallet {
+	display: flex;
+	gap: 10px;
 }
 

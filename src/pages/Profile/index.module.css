@@ -1,7 +1,14 @@
+
+
 .profile {
 	font-size: 16px;
 	padding-block: 4%;
-	padding-inline: 8%;
+	padding-inline: 10%;
+	background-color: #E5E5E5;
+}
+
+.askcard {
+	width: 100%;
 }
 
 @media (max-width: 600px) {
