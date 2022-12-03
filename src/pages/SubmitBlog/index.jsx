@@ -1,21 +1,14 @@
 import React, {useState, useContext} from 'react'
 import { nanoid } from 'nanoid';
 import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './submitblog.module.css';
 import { AppContext } from '../../store/AppContext';
 
 function SubmitBlog() {
-  //  const navigate = useNavigate();
-    // const [isTokenError, setIsTokenError] = useState('');
+    const navigate = useNavigate();
     const { state } = useContext(AppContext);
-    // console.log(state)
-    const [postCategories, setPostCategories] = useState([
-		'NFTs',
-		'Lifestyle',
-		'Tech News',
-		'Programming',
-	]);
+    const [isTokenError, setIsTokenError] = useState('');
 
     const [blogData, setBlogData] = useState({
         author: state.user.userName,
@@ -24,23 +17,10 @@ function SubmitBlog() {
 		title: '',
 		body: '',
         image_url: '',
-        post_category: `${postCategories}`,
+        post_category: 'NFTs',
 	});
-    const [isPostCatOpen, setIsPostCatOpen] = useState(false);
   
-    const handlePostCategory = (postCat) => {
-		setPostCategories(
-			[
-				'Java',
-				'Python',
-				'Android',
-				'Php',
-				'C++',
-				'Ajax',
-				'MYSQL',
-			].filter((post) => post !== postCat)
-		);
-    }
+
     const handleChange = (e) => {
 		const { name, value } = e.target;
 
@@ -51,12 +31,12 @@ function SubmitBlog() {
 		}));
     }
 	
-    const Toast = () => {
-        const x = document.getElementById("snackbar");
-        x.className = "show";
-        // After 3 seconds, remove the show class from DIV
-        setTimeout(()=>{ x.className = x.className.replace("show", ""); }, 3000);
-      }
+    // function Toast() {
+    //     const x = document.getElementById("snackbar");
+    //     x.className = "show";
+    //     // After 3 seconds, remove the show class from DIV
+    //     setTimeout(()=> { x.className = x.className.replace("show", ""); }, 3000);
+    //   }
       
    const submitNewBlog = async () => {
 		const details = {
@@ -81,25 +61,25 @@ function SubmitBlog() {
 				}
 			);
 			if (data) {
-			//	setIsSuccessful(true);
-                console.log(data)
+            setTimeout(() => {
+                navigate('/blog-page');
+            }, 3000);
 			}
 		} catch (err) {
-            console.error(err)
-		// setIsTokenError('Cannot complete request now. Try again later...');
-		}
+            setIsTokenError('Cannot complete request now. Try again later...');
+        }
     }
 
     const handleSubmit = (e) => {
 		e.preventDefault();
 		submitNewBlog();
-        Toast();
 	};
 
   return (
     <main className={styles.containerWrapper}>
-        <div id="snackbar">Blog Successfully Sent</div>
-
+        {isTokenError? alert(`${isTokenError}`)
+            : ""
+        }
         <section className={styles.container}>
             <form>
             <section className={styles.titleWrapper} id="detail">
@@ -127,37 +107,8 @@ function SubmitBlog() {
                 >
                 *Placeholder*
             </textarea>
-			</div>
-
-        <section className={styles.postsWrapper}>
-			<div className={styles.postsContent}>
-				<span className={styles.text}>Post Category </span>
-
-					<button
-						type="button"
-						onClick={() => setIsPostCatOpen(!isPostCatOpen)}
-						className={styles.tagsButton}
-                        >
-									<img src="/post-question/down-arrow.svg" alt="Down Arrow" />
-								</button>
-
-								{isPostCatOpen && (
-									<div className={styles.postsWrapper}>
-										{isPostCatOpen &&
-											postCategories.map((postCategory) => (
-												<button
-													key={postCategory}
-													type="button"
-													onClick={() => handlePostCategory(postCategory)}
-												>
-													{postCategory}
-												</button>
-											))}
-									</div>
-                                )}
-                </div>
+			</div>    
             </section>
-        </section>
                             
         <section className={styles.buttonWrapper}>
 			<div>
