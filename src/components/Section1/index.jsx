@@ -1,7 +1,5 @@
-/* eslint-disable camelcase */
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-// import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { AppContext } from '../../store/AppContext';
 import Section1 from './section1.module.css';
@@ -16,7 +14,6 @@ function ProfileTopSection() {
 	const [info, setInfo] = useState({});
 	const { state } = useContext(AppContext);
 	const [isLoading, setIsLoading] = useState(false);
-	console.log(state);
 
 	
 
@@ -26,7 +23,7 @@ function ProfileTopSection() {
 			try {
 				setIsLoading(true);
 				const data = await axios.get(
-					`https://pacific-peak-54505.herokuapp.com/users/${state.user.userName}`,
+					`https://api.devask.hng.tech/users/${state.user.userName}`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,
@@ -36,12 +33,12 @@ function ProfileTopSection() {
 				);
 				setInfo(data.data.data);
 			} catch (err) {
-				console.error(err);
+				// console.error(err);
 			}
 		};
 
 		fetchUser();
-		console.log(info)
+		// console.log(info)
 	}, [isLoading]);
 
 
@@ -61,7 +58,7 @@ function ProfileTopSection() {
 					<div className={Section1.profile__name}>{info.username}</div>
 					<div className={Section1.profile__username}>@{info.username}</div>
 					<div className={Section1.profile__status}>
-						Frontend Developer (REACT)
+						{/* Frontend Developer (REACT) */}
 					</div>
 				</div>
 				<div className={Section1.profile__addressinner}>
@@ -115,7 +112,7 @@ function ProfileTopSection() {
 									className={Section1.profile__icon}
 								/>
 							</div>{' '}
-							Last seen 12 hours ago
+							Last seen
 						</div>
 					</div>
 					<div className={Section1.profile__followingwallet}>
@@ -136,17 +133,12 @@ function ProfileTopSection() {
 							{} Token
 						</div>
 					</div>
-					{/* <div className={Section1.profile__socials}>
-						<div className={Section1.profile__iconwrapper}>
-							<img src={clockIcon} alt="" className={Section1.profile__icon} />
-						</div>{' '}
-						Last seen 12 hours ago
-					</div> */}
+					
 				</div>
 			</div>
 			<div className={Section1.profile__btns}>
-				{/* <div className={Section1.profile__btnwrapper}>
-					{userInformation.user_id ? (
+				<div className={Section1.profile__btnwrapper}>
+					{info.user_id ? (
 						<button className={Section1.btn2} type="button">
 							Edit Profile
 						</button>
@@ -155,7 +147,7 @@ function ProfileTopSection() {
 							Follow
 						</button>
 					)}
-				</div> */}
+				</div>
 			</div>
 		</div>
 	);
