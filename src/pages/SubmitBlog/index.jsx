@@ -81,10 +81,27 @@ function SubmitBlog() {
             : ""
         }
         <section className={styles.container}>
+           
             <form>
+            <section className={styles.titleWrapper} id="content">
+            <h2>Submit an Article</h2>
+            <br/>
+            <h5>You are required to signup to enable you submit an article</h5>
+                <div>
+                <h3>Name*</h3>
+                <input
+                    type="text"
+                    placeholder=""
+                    value={blogData.author}
+                    name="author"
+                    onChange={handleChange}
+                    disabled
+                    />            
+                </div>
+            </section>
             <section className={styles.titleWrapper} id="detail">
                 <div>
-                <h3>Title</h3>
+                <h3>Title*</h3>
                 <input
                     type="text"
                     placeholder=""
@@ -97,7 +114,7 @@ function SubmitBlog() {
             </section>
         <section className={styles.detailWrapper} id='blog'>
             <div className={styles.content}>
-            <h3>Blog Content</h3>
+            <h3>Content*</h3>
             <textarea
                 value={blogData.body}
                 name="body"
