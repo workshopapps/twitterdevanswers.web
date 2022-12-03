@@ -83,7 +83,7 @@ function Asks() {
 					headers: {
 						'Content-Type': 'application/json',
 						accept: 'application/json',
-						Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXlvYmF5b0BnbWFpbC5jb20iLCJleHAiOjE2NzAxMjMwMjF9.BEysvyjtWGl_rrIHHPgbPb7BStTGb5lKlLj3YR1LZnU`,
+						Authorization: `Bearer ${token}`,
 					},
 					body: JSON.stringify({
 						question_id: paramValues.id,
