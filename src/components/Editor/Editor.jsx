@@ -7,9 +7,6 @@ import curlyBraces from '../../assets/dashboard-images/curlyBraces.webp';
 import image from '../../assets/dashboard-images/image.webp';
 import documentCode from '../../assets/dashboard-images/documentCode.webp';
 
-
-
-
 const token = localStorage.getItem('token');
 
 function Editor() {
@@ -17,10 +14,10 @@ function Editor() {
 
 	function handleQuestion(event) {
 		setQuestion(event.target.value);
-		
 	}
 
 	function submitHandler() {
+		if (question.trim() === '') return;
 		async function postAnswer() {
 			const response = await fetch(
 				`https://pacific-peak-54505.herokuapp.com/questions/`,
@@ -42,8 +39,8 @@ function Editor() {
 				}
 			);
 
-	
 			setQuestion('');
+			window.location.reload(false);
 			return response.data;
 		}
 		postAnswer();
@@ -55,9 +52,9 @@ function Editor() {
 				<img src={profilePicture} alt="" className={styles.profilePicture} />
 				<textarea
 					name="text"
-					value={question.text}
+					value={question}
 					onChange={handleQuestion}
-					placeholder="Write a question"
+					placeholder="Start a discussion"
 					className={styles.writeQuestion}
 					rows={5}
 				/>
@@ -71,7 +68,7 @@ function Editor() {
 					<img src={documentCode} alt="" className={styles.editorIcons} />
 				</div>
 				<button type="button" onClick={submitHandler}>
-					Post Question
+					Post
 				</button>
 			</div>
 		</div>
