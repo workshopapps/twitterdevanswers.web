@@ -1,4 +1,3 @@
-import snakecaseKeys from 'snakecase-keys'
 import axios from 'axios';
 
 
@@ -14,7 +13,7 @@ const updateUser = async (userId, user) =>{
     try {
         const { data } = await axios.patch(
             `https://pacific-peak-54505.herokuapp.com/users/edit/${userId}`,
-            snakecaseKeys(user), {
+                  (user), {
                  headers,
               });
         
