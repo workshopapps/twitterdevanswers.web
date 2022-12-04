@@ -9,12 +9,16 @@ pipeline {
                 
                 sh "rm -rf ${WORKSPACE}/twitterdevanswers.web"
                 sh "git clone https://github.com/workshopapps/twitterdevanswers.web.git"
+            }
+        }
+    }
                 
         stage('Build') { 
             steps { 
-                dir('twitterdevanswers.web')
+                dir('twitterdevanswers.web') {
                 sh "npm i --force && CI=false npm run build"
               }
+        }
         }
 
         stage('Deploy to Production') {
@@ -27,6 +31,5 @@ pipeline {
             }
         }
     }
-}
 }
 }
