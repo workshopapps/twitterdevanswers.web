@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Link, NavLink } from 'react-router-dom';
+
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 
 import brandLogo from '../../assets/settings-images/brand-logo.svg';
 import styles from './header.module.css';
 
-export default function Header({ pathname }) {
+export default function Header() {
 	// header component for excternal pages
 
 	// the pathname prop is the value of pathname property from the object returend by useLocation hook
@@ -14,6 +14,9 @@ export default function Header({ pathname }) {
 	// for login and signup pages, i have set up this component to expect the pathname prop to be /login or /signup so that only the signup button is rendered if the user is on the login page and vice versa
 
 	// for other external pages, both login and signup buttons would be present on the header
+
+	const { pathname } = useLocation();
+	const navigate = useNavigate();
 
 	const [sidenav, setSidenav] = useState(false);
 
@@ -68,28 +71,44 @@ export default function Header({ pathname }) {
 					</li>
 				</ul>
 
-				{pathname ? (
+				{pathname === '/login' || pathname === '/sign-up' ? (
 					<div className={styles.btns}>
 						{pathname === '/login' && (
-							<Link className={`${styles.btn} ${styles.signUp}`} to="/sign-up">
+							<button
+								type="button"
+								className={`${styles.btn} ${styles.signUp}`}
+								onClick={() => navigate('/sign-up')}
+							>
 								Sign Up
-							</Link>
+							</button>
 						)}
 						{pathname === '/sign-up' && (
-							<Link className={`${styles.btn} ${styles.login}`} to="/login">
+							<button
+								type="button"
+								className={`${styles.btn} ${styles.login}`}
+								onClick={() => navigate('/login')}
+							>
 								Login
-							</Link>
+							</button>
 						)}
 					</div>
 				) : (
 					<div className={styles.btns}>
-						<Link className={`${styles.btn} ${styles.signUp}`} to="/sign-up">
+						<button
+							type="button"
+							className={`${styles.btn} ${styles.signUp}`}
+							onClick={() => navigate('/sign-up')}
+						>
 							Sign Up
-						</Link>
+						</button>
 
-						<Link className={`${styles.btn} ${styles.login}`} to="/login">
+						<button
+							type="button"
+							className={`${styles.btn} ${styles.login}`}
+							onClick={() => navigate('/login')}
+						>
 							Login
-						</Link>
+						</button>
 					</div>
 				)}
 
@@ -100,7 +119,7 @@ export default function Header({ pathname }) {
 				{/* mobile sidenav */}
 				<div className={`${styles.mobileNav} ${sidenav && styles.active}  `}>
 					<div className={styles.mnBrand}>
-						<Link to="/" className={styles.brand}>
+						<Link to="/" className={styles.brand} onClick={handleClick}>
 							<img src={brandLogo} alt="brand logo" />
 							<span>DevAsk</span>
 						</Link>
@@ -110,46 +129,86 @@ export default function Header({ pathname }) {
 
 					<ul className={styles.mnLinks}>
 						<li>
-							<NavLink className={activeStyle} style={linkStyle} to="/about">
+							<NavLink
+								className={activeStyle}
+								style={linkStyle}
+								to="/about"
+								onClick={handleClick}
+							>
 								<div> About Us</div>
 							</NavLink>
 						</li>
 						<li>
-							<NavLink className={activeStyle} style={linkStyle} to="/blog">
+							<NavLink
+								className={activeStyle}
+								style={linkStyle}
+								to="/blog-page"
+								onClick={handleClick}
+							>
 								<div> Blog</div>
 							</NavLink>
 						</li>
 						<li>
-							<NavLink className={activeStyle} style={linkStyle} to="/contact">
+							<NavLink
+								className={activeStyle}
+								style={linkStyle}
+								to="/contact"
+								onClick={handleClick}
+							>
 								<div> Contact Us</div>
 							</NavLink>
 						</li>
 					</ul>
-					{pathname ? (
+					{pathname === '/login' || pathname === '/sign-up' ? (
 						<div className={styles.mnBtns}>
 							{pathname === '/login' && (
-								<Link
+								<button
+									type="button"
 									className={`${styles.btn} ${styles.signUp}`}
-									to="/sign-up"
+									onClick={() => {
+										handleClick();
+										navigate('/sign-up');
+									}}
 								>
 									Sign Up
-								</Link>
+								</button>
 							)}
 							{pathname === '/sign-up' && (
-								<Link className={`${styles.btn} ${styles.login}`} to="/login">
+								<button
+									type="button"
+									className={`${styles.btn} ${styles.login}`}
+									onClick={() => {
+										handleClick();
+										navigate('/login');
+									}}
+								>
 									Login
-								</Link>
+								</button>
 							)}
 						</div>
 					) : (
 						<div className={styles.mnBtns}>
-							<Link className={`${styles.btn} ${styles.signUp} `} to="/sign-up">
+							<button
+								type="button"
+								className={`${styles.btn} ${styles.signUp} `}
+								onClick={() => {
+									handleClick();
+									navigate('/sign-up');
+								}}
+							>
 								Sign Up
-							</Link>
+							</button>
 
-							<Link className={`${styles.btn} ${styles.login}`} to="/login">
+							<button
+								type="button"
+								className={`${styles.btn} ${styles.login}`}
+								onClick={() => {
+									handleClick();
+									navigate('/login');
+								}}
+							>
 								Login
-							</Link>
+							</button>
 						</div>
 					)}
 				</div>
@@ -157,11 +216,3 @@ export default function Header({ pathname }) {
 		</div>
 	);
 }
-
-Header.propTypes = {
-	pathname: PropTypes.string,
-};
-
-Header.defaultProps = {
-	pathname: '',
-};

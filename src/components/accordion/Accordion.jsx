@@ -12,27 +12,27 @@ function Accordion(props) {
 
 	const [setHeight, setHeightActive] = useState('0px');
 
-	const [setRotate, setRotateActive] = useState('arrowUp');
 
 	const parentRef = useRef(null);
 
 	const handleClick = () => {
 		setIsOpen(!isOpen);
-		setHeightActive(!isOpen ? '0px' : `${parentRef.current.scrollHeight}px`);
-		setRotateActive(setIsOpen === isOpen ? 'arrowUp' : 'arrowUp rotate');
+		setHeightActive(isOpen ? '0px' : `${parentRef.current.scrollHeight}px`);		
 	};
 
 	return (
 		<div className="accordion__section">
 			<button type="button" className="toggle" onClick={handleClick}>
-				{label}
-				<img src={arrowdown} alt="arrowdown" className={`${setRotate}`} />
+				<p className = 'text_label' >{label}</p>
+				<div className = 'arrowdown_container'>
+				<img src={arrowdown} alt="arrowdown" className={isOpen && 'rotate'} />
+				</div>
 			</button>
 			<div
 				className="content-parent"
 				ref={parentRef}
 				style={{ height: `${setHeight}` }}
-			>
+			> <hr className = 'horizon' />
 				<div className="content">{children}</div>
 			</div>
 		</div>
