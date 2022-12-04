@@ -1,4 +1,6 @@
 import React, { useState, useContext } from 'react';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -26,11 +28,11 @@ function PostQuestion() {
 	const [isSuccessful, setIsSuccessful] = useState(false);
 	const [isTagsOpen, setIsTagsOpen] = useState(false);
 	const [isTokensOpen, setIsTokensOpen] = useState(false);
+	const [detail, setDetail] = useState({text: ''});
+	const [description, setDescription] = useState({text: ''});
 	const [questionData, setQuestionData] = useState({
 		id: '',
 		title: '',
-		detail: '',
-		description: '',
 		tag: '',
 		token: 0,
 	});
@@ -143,7 +145,7 @@ function PostQuestion() {
 			setIsDescriptionDisabled(true);
 		}
 
-		if (questionData.detail === '') {
+		if (detail.text === '') {
 			setIsDescriptionDisabled(true);
 		}
 	};
@@ -160,12 +162,22 @@ function PostQuestion() {
 		handleDisabling();
 	};
 
+	const handleDetail = (value) => {
+		setDetail((prev) => ({ ...prev, text: value,}));
+		handleDisabling();	
+	}
+
+	const handleDescription = (value) => {
+		setDescription((prev) => ({ ...prev, text: value,}));
+		handleDisabling();	
+	}
+
 	const handleReview = (event) => {
 		event.preventDefault();
 		if (
 			questionData.title !== '' &&
-			questionData.detail !== '' &&
-			questionData.description !== '' &&
+			detail.text !== '' &&
+			description.text !== '' &&
 			questionData.tag !== ''
 		) {
 			setIsModalOpen(true);
@@ -184,8 +196,8 @@ function PostQuestion() {
 	const handleNextDescription = () => {
 		if (
 			questionData.title !== '' &&
-			questionData.detail !== '' &&
-			questionData.detail.length > 20
+			detail.text !== '' &&
+			detail.text.length > 20
 		) {
 			setIsDescriptionDisabled(false);
 		} else {
@@ -198,8 +210,8 @@ function PostQuestion() {
 			owner_id: 2,
 			content_id: questionData.id,
 			title: questionData.title,
-			content: `${questionData.detail}`,
-			expected_result: `${questionData.description}`,
+			content: `${detail.text}`,
+			expected_result: `${description.text}`,
 			payment_amount: `${questionData.token}`,
 			answered: false,
 			created_at: Date.now(),
@@ -280,14 +292,12 @@ function PostQuestion() {
 
 										<div>
 											<h3 className={styles.modalHeader}>Details</h3>
-											<p className={styles.modalBody}>{questionData.detail}</p>
+											<p className={styles.modalBody} dangerouslySetInnerHTML={{__html: detail.text}}/>
 										</div>
 
 										<div>
 											<h3 className={styles.modalHeader}>Description</h3>
-											<p className={styles.modalBody}>
-												{questionData.description}
-											</p>
+											<p className={styles.modalBody} dangerouslySetInnerHTML={{__html: description.text}}/>
 										</div>
 
 										<div>
@@ -374,41 +384,13 @@ function PostQuestion() {
 
 					{/* problem */}
 					<section className={styles.problemWrapper} id="problem">
-						<div>
+						<div className={styles.problemContent}>
 							<h3>What are the detail of your problem?</h3>
 							<p>
 								Introduce the problem and expand on what you put in the title.
 								Minimum 20 characters
 							</p>
-
-							{/* <div className={styles.textIcons}>
-								<span>
-									<img src="/post-question/caseIcon.svg" alt="case Icon" />
-								</span>
-								<span>
-									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
-								</span>
-
-								<span>
-									<img src="/post-question/italic.svg" alt="italic Icon" />
-								</span>
-
-								<span>
-									<img src="/post-question/linkIcon.svg" alt="link Icon" />
-								</span>
-
-								<span>
-									<img
-										src="/post-question/unknown-text.svg"
-										alt="unknown-text Icon"
-									/>
-								</span>
-
-								<span>
-									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
-								</span>
-							</div> */}
-							<textarea
+							{/* <textarea
 								value={questionData.detail}
 								name="detail"
 								onChange={handleChange}
@@ -418,7 +400,21 @@ function PostQuestion() {
 								onBlur={handleNextDescription}
 							>
 								*Placeholder*
-							</textarea>
+							</textarea> */}
+							<ReactQuill 
+							    className={styles.textEditor}
+								placeholder='Write Something'
+								theme='snow'
+								defaultValue=""
+								modules={PostQuestion.modules}
+								formats={PostQuestion.formats }
+								onChange={handleDetail}
+								value={detail.text}
+								minLength={20}
+								disabled={isDetailDisabled}
+								required
+								onBlur={handleNextDescription}
+							/>
 						</div>
 						<a href="#detail" onClick={handleNextDescription}>
 							Next
@@ -433,34 +429,7 @@ function PostQuestion() {
 								Describe what you tried, what you expect to happen, and what
 								actually resulted. Minimum 20 characters
 							</p>
-							{/* <div className={styles.textIcons}>
-								<span>
-									<img src="/post-question/caseIcon.svg" alt="case Icon" />
-								</span>
-								<span>
-									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
-								</span>
-
-								<span>
-									<img src="/post-question/italic.svg" alt="italic Icon" />
-								</span>
-
-								<span>
-									<img src="/post-question/linkIcon.svg" alt="link Icon" />
-								</span>
-
-								<span>
-									<img
-										src="/post-question/unknown-text.svg"
-										alt="unknown-text Icon"
-									/>
-								</span>
-
-								<span>
-									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
-								</span>
-							</div> */}
-							<textarea
+							{/* <textarea
 								value={questionData.description}
 								name="description"
 								onChange={handleChange}
@@ -469,7 +438,20 @@ function PostQuestion() {
 								required
 							>
 								*Placeholder*
-							</textarea>
+							</textarea> */}
+							<ReactQuill 
+							    className={styles.textEditor}
+								placeholder='Write Something'
+								theme='snow'
+								defaultValue=""
+								modules={PostQuestion.modules}
+								formats={PostQuestion.formats }
+								onChange={handleDescription}
+								value={description.text}
+								minLength={20}
+								disabled={isDescriptionDisabled}
+								required
+							/>
 						</div>
 
 						{/* Add tag */}
@@ -577,5 +559,23 @@ function PostQuestion() {
 		</main>
 	);
 }
+
+PostQuestion.modules = {
+	syntax: true,
+	toolbar: [
+		[{ size: [] },"bold", "italic", "underline", "strike", "blockquote","link",],
+		[{ 'code-block': true }]
+	],
+};
+PostQuestion.formats = [
+ "size",
+ "bold",
+ "italic",
+ "underline",
+ "strike",
+ "blockquote",
+ "link",
+ "code-block",
+];
 
 export default PostQuestion;
