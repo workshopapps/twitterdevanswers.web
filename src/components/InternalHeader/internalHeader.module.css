@@ -17,7 +17,7 @@
 }
 
 .search {
-	padding: 16px;
+	padding: 10px;
 	background: #ffffff;
 	border: 0.5px solid #b4b4b4;
 	border-radius: 16px;
@@ -92,7 +92,7 @@ li {
 .rest {
 	display: flex;
 	align-items: center;
-	gap: 32px;
+	gap: 19px;
 	border-left: 1px solid #b4b4b4;
 	padding-left: 20px;
 }
@@ -145,6 +145,21 @@ li {
 	display: none;
 }
 
+.header-button {
+	text-decoration: none;
+	color: #4343de;
+	border: 1px solid #4343de;
+	background-color: #fff;
+	padding: 10px 17px;
+	border-radius: 1000px;
+	text-align: center;
+	margin: 0 auto;
+	display: inline-block;
+}
+
+.header-button__small-screen {
+	padding: 10px 20px;
+}
 /*  */
 /* mobile */
 /*  */
@@ -230,13 +245,14 @@ li {
 		flex-direction: column;
 		gap: 28px;
 		margin-top: 24px;
+		align-items: center;
 	}
 
 	.snLink {
 		display: flex;
 		color: #303030;
 		column-gap: 18.77px;
-		padding: 14px 0 14px 64px;
+		padding: 14px 0;
 	}
 
 	.snIcon {
@@ -259,6 +275,10 @@ li {
 		display: block;
 		font-size: 27px;
 		cursor: pointer;
+	}
+
+	.header-button.header-button__large-screen {
+		display: none;
 	}
 }
 
