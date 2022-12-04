@@ -213,7 +213,7 @@ function PostQuestion() {
 
 		try {
 			const data = await axios.post(
-				'https://pacific-peak-54505.herokuapp.com/questions',
+				'https://api.devask.hng.tech/questions',
 				details,
 				{
 					headers,
@@ -363,7 +363,7 @@ function PostQuestion() {
 								onChange={handleChange}
 								required
 								onBlur={handleNextDetail}
-								autoComplete
+								autoComplete="true"
 							/>
 						</div>
 
