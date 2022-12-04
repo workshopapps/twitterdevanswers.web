@@ -56,7 +56,7 @@ function Contact() {
 	return (
 		<div className={styles.contact_wrap}>
 			<div className={styles.contact_first_wrap}>
-				<p>Contact Us</p>
+				<h1>Contact Us</h1>
 				<span>
 					Speak with a wide array of service professionals to answer your
 					plethora of questions on any subject matter
@@ -67,113 +67,79 @@ function Contact() {
 					<div className={styles.contact_text_wrap}>
 						{descriptionText.map((item) => (
 							<div className={styles.contactus_form_wrap1} key={item.key}>
-								<p>{item.header}</p>
-								<span>{item.text}</span>
+								<h3>{item.header}</h3>
+								<p>{item.text}</p>
 							</div>
 						))}
+					</div>
+					<hr />
+					<div className={styles.contact_team_wrap}>
+						<h3>Teams that excel with DevAsk</h3>
+						<div className={styles.contact_logo_images}>
+							{contactLogo.map((item) => (
+								<img key={item.key} src={item.src} alt="img" />
+							))}
+						</div>
 					</div>
 				</div>
 				<ContactUsForm />
 			</div>
-			<div className={styles.contact_team_wrap}>
-				<p>Teams that excel with DevAsk</p>
-				<div className={styles.contact_logo_images}>
-					{contactLogo.map((item) => (
-						<img key={item.key} src={item.src} alt="img" />
-					))}
-				</div>
-			</div>
-			<ContactMarketing />
+
 		</div>
 	);
 }
 export default Contact;
 
 export function ContactUsForm() {
-	// function for when api is ready for sending message
-
-	// 	const [firstName, setFirstName] = useState('')
-	//   const [lastName, setLastName] = useState('')
-	//   const [companyName, setCompanyName] = useState('')
-	//   const [businessName, setBusinessName] = useState('')
-	//   const [phoneNumber, setPhoneNumber] = useState('')
-	//   const [message, setMessage] = useState('')
-
-	// 	const handleChange = (e) => {
-	// 		const { name, value } = e.target;
-	// 		setContactForm((prevValue) => {
-	// 			return {
-	// 				...prevValue,
-	// 				[name]: value,
-	// 			};
-	// 		});
-	// 	};
-	//   const handleChange = (setFunction, e) => {
-	//     setFunction(e.target.value)
-	//     }
-	// 	const handleContactSendMessage = (e) => {
-	// 		e.preventDefault();
-
-	// };
+	
 	return (
 		<form className={styles.form_wrap}>
-			<p>Talk to an Expert</p>
+			<h2>Talk to an Expert</h2>
 			<input
 				name="firstName"
 				type="text"
 				className={styles.contact_name_input}
-				placeholder="First name"
-				// onChange={(e) => handleChange(setFirstName, e)}
-				// value={contactUsForm.firstName}
+				placeholder="First Name *"
 			/>
 			<input
 				name="lastName"
 				type="text"
 				className={styles.contact_name_input}
-				placeholder="Last name"
-				// onChange={(e) => handleChange(setLastName, e)}
-				// value={contactUsForm.lastName}
+				placeholder="Last Name *"
 			/>
 			<input
 				name="companyName"
 				type="text"
 				className={styles.contact_name_input}
-				placeholder="Company Name"
-				// onChange={(e) => handleChange(setCompanyName, e)}
-				// value={contactUsForm.companyName}
+				placeholder="Company Name *"
 			/>
 			<input
 				name="businessName"
 				type="text"
 				className={styles.contact_name_input}
 				placeholder="Business Name (optional)"
-				// onChange={(e) => handleChange(setBusinessName, e)}
-				// value={contactUsForm.businessName}
 			/>
 			<input
 				name="phoneNumber"
 				type="text"
 				className={styles.contact_name_input}
 				placeholder="Phone Number (optional)"
-				// onChange={(e) => handleChange(setPhoneNumber, e)}
-				// value={contactUsForm.phoneNumber}
 			/>
 			<textarea
 				name="message"
 				type="textarea"
 				className={styles.contact_input_message}
-				placeholder="Message"
-				// onChange={(e) => handleChange(setMessage, e)}
-				// value={contactUsForm.mesage}
+				placeholder="Message *"
+				rows="7"
+				cols="50"
 			/>
-			<span>3000 characters remaining</span>
+			<p>3000 characters remaining</p>
 			<button
 				id="btn__submit"
 				type="submit"
 				className={styles.send_message_button}
-				// onClick={handleContactSendMessage}
 			>
-				Send Message
+				Submit
 			</button>
 		</form>
 	);

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/header-images/home.svg';
 import { ReactComponent as TagIcon } from '../../assets/header-images/tagIcon.svg';
 import { ReactComponent as UsersIcon } from '../../assets/header-images/user.svg';
@@ -17,6 +17,7 @@ import { AppContext } from '../../store/AppContext';
 //  header component for internal pages
 export default function InternalHeader() {
 	const [sidenav, setSidenav] = useState(false);
+	const { pathname } = useLocation();
 
 	const {
 		state: { user },
@@ -126,6 +127,15 @@ export default function InternalHeader() {
 							className={styles.hamburger}
 							onClick={hadnleClick}
 						/>
+
+						{pathname === '/dashboard' && (
+							<NavLink
+								to="/post-questions"
+								className={`${styles['header-button']} ${styles['header-button__large-screen']}`}
+							>
+								Ask a question
+							</NavLink>
+						)}
 					</div>
 
 					{/* SideNav for small laptops and tabs */}
@@ -204,6 +214,16 @@ export default function InternalHeader() {
 										<span>Settings</span>
 									</div>
 								</NavLink>
+							</li>
+							<li>
+								{pathname === '/dashboard' && (
+									<NavLink
+										to="/post-questions"
+										className={`${styles['header-button']} ${styles['header-button__small-screen']}`}
+									>
+										Ask a question
+									</NavLink>
+								)}
 							</li>
 						</ul>
 					</div>

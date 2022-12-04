@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Stat from './statscard.module.css';
 
-function Statuscard({ first, second, third }) {
+function Statuscard({ first, second }) {
 	return (
 		<div className={Stat.stats__txtwrapper}>
 			<div className={Stat.statsrow}>
@@ -14,10 +14,6 @@ function Statuscard({ first, second, third }) {
 				<div className={Stat.statscol}>
 					<div className={Stat.stats__value}>{second.value}</div>
 					<div className={Stat.stat__txt}>{second.text}</div>
-				</div>
-				<div className={Stat.statscol}>
-					<div className={Stat.stats__value}>{third.value}</div>
-					<div className={Stat.stat__txt}>{third.text}</div>
 				</div>
 			</div>
 		</div>

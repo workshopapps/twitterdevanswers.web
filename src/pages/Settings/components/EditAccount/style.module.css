@@ -3,8 +3,9 @@
 	flex-direction: column;
 	height: 939px;
 	background-color: rgba(255, 255, 255, 0.41);
-	padding: 111px 116px 104px 16px;
+	padding: 40px 116px 104px 16px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	height: 1300px;
 }
 .formcontrol{
 	display: flex;
@@ -23,6 +24,7 @@
 	display: flex;
 	gap: 16px;
 }
+
 .flagimage{
 	width: 88px;
 	background-image: url("../../../../assets/settings-images/flag.png");
@@ -32,6 +34,17 @@
 	border: none;
 	border-radius: 8px;
 }
+
+.flagtext{
+	display: flex;
+	text-align: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	width: 20%;
+}
+
 .tabheading h2 {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 500;
@@ -49,9 +62,8 @@
 
 .profileimg {
 	border-radius: 100px;
-	aspect-ratio: 1;
-	scale: 1;
-	width: 130px;
+	width: 140px;
+   height: 130px;
 }
 .editsvg {
 	z-index: 100;
@@ -74,6 +86,30 @@
 	justify-content: center;
 	gap: 33.67px;
 }
+.container{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	width: 100%;
+	gap: 10px;
+}
+.textinputfull {
+	flex-direction: column;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 12px;
+	gap: 10px;
+	height: 44px;
+	background: #FFFFFF;
+	border: 0.5px solid #CCCCCC;
+	border-radius: 4px;
+}
 
 .label {
 	text-align: left;
@@ -84,17 +120,19 @@
 	width: 100%;
 }
 
+
  .textinput {
 	display: flex;
-	flex-direction: column;
-	padding-left: 10px;
-	width: 566px;
-	height: 42px;
-	border: none;
-	border-radius: 8px;
-	background-color: #efefef;
-	cursor: pointer;
-}
+	flex-direction: row;
+	align-items: center;
+	padding: 12px;
+	gap: 10px;
+	width: 320px;
+	height: 44px;
+	background: #FFFFFF;
+	border: 0.5px solid #CCCCCC;
+	border-radius: 4px;
+	}
 
 .phoneinput{
 	display: flex;
@@ -119,6 +157,7 @@
 	display: flex;
 	flex-direction: row;
 	gap: 40px;
+	justify-content: center;
 }
 
 .savebtn {
@@ -164,6 +203,7 @@
 @media screen and (max-width: 1300px) {
 	.editaccount {
 		display: none;
+		
 	}
 	.textinput {
 		display: flex;

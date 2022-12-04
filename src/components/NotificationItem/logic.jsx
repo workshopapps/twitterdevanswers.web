@@ -23,7 +23,7 @@ function getNotificationBody(notification) {
 			<span style={{ display: 'flex', alignItems: 'center' }}>
 				<img src={CoinIcon} alt="Coin icon" style={{ marginRight: 10 }} />
 				<span style={{ fontWeight: 300 }}>
-					<span style={{ fontWeight: 600 }}>{amount}ETH</span> added to your{' '}
+					<span style={{ fontWeight: 600 }}>{amount}Tokens</span> added to your{' '}
 					<span style={{ fontWeight: 400 }}>Wallet</span>
 				</span>
 			</span>
@@ -34,7 +34,7 @@ function getNotificationBody(notification) {
 			<span style={{ display: 'flex', alignItems: 'center' }}>
 				<img src={CoinIcon} alt="Coin icon" style={{ marginRight: 10 }} />
 				<span style={{ fontWeight: 300 }}>
-					<span style={{ fontWeight: 600 }}>{amount}ETH</span> removed from your{' '}
+					<span style={{ fontWeight: 600 }}>{amount}Tokens</span> removed from your{' '}
 					<span style={{ fontWeight: 400 }}>Wallet</span>
 				</span>
 			</span>

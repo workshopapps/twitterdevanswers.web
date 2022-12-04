@@ -9,8 +9,8 @@ import link from '../../assets/profile-images/link-2.png';
 import locationIcon from '../../assets/profile-images/location.png';
 import twitter from '../../assets/profile-images/twitter.png';
 import github from '../../assets/profile-images/github.png';
-import calendarIcon from '../../assets/profile-images/calendar.png';
-import clockIcon from '../../assets/profile-images/clock.png';
+import calendarIcon from '../../assets/profile-images/wallet.png';
+import clockIcon from '../../assets/profile-images/clipboard-text.png';
 
 function ProfileTopSection() {
 	const navigate = useNavigate();
