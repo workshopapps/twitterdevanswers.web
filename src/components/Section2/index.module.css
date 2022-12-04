@@ -1,10 +1,12 @@
 .stats__data {
-	padding: 3.25rem;
+	padding-block: 3.25rem;
+	justify-content: left;
 }
 .profile__cardwrapper {
 	padding: 0 2.5rem 2.5rem 2.5rem;
 	position: relative;
 	height: fit-content;
+	margin-bottom: 100px;
 }
 .card {
 	margin-top: 1.5rem;

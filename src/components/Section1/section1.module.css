@@ -1,24 +1,13 @@
-.profile__banner {
-	position: relative;
-}
-.profile__bannerimg {
-	background-image: url('../../../public/banner.jpg');
-	width: 100%;
-	height: 13.5rem;
-	background-position: center;
-	background-size: 100%;
-}
-.back__icon {
-	position: absolute;
-	top: 1.5rem;
-	left: 4rem;
-	width: 3.5rem;
-	aspect-ratio: 1/1;
-	border-radius: 100%;
-	background: rgba(48, 48, 48, 0.7);
+.profile__datawrapper {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+}
+
+
+.profile__image {
+	width: 200px;
+	border-radius: 50%;
+	vertical-align: top;
+	margin-top: -25px;
 }
 .profile__name {
 	font-style: normal;
@@ -26,6 +15,7 @@
 	font-size: 2em;
 	line-height: 40px;
 }
+.profile__datejoined,
 .profile__location,
 .profile__link,
 .profile__socials {
@@ -44,9 +34,9 @@
 	position: relative;
 	top: -30px;
 }
-.profile__datatxt {
-	padding: 1.0738rem 1.2rem;
-}
+
+
+.profile__
 .profile__link {
 	color: #4343df;
 	cursor: pointer;
@@ -68,16 +58,23 @@
 	margin-top: 1rem;
 }
 .btn2 {
-	background: #1d1dd8;
+	border: 1px solid #1d1dd8;
 	border-radius: 4px;
 	font-size: 0.875em;
-	border: none;
-	outline: none;
+	background-color: white;
 	padding: 0.75rem 1.5rem;
-	color: white;
+	color: #1d1dd8;
+	cursor: pointer;
 }
 * {
 	background-color: 2px solid red;
+}
+
+@media (max-width: 1000px) {
+	.profile__datatxt, .profile__info, .profile__address {
+		flex-direction: column;
+	}
+	
 }
 @media (max-width: 600px) {
 	.back__icon {
@@ -91,6 +88,17 @@
 	.profile__datawrapper {
 		top: -20px;
 	}
+	.profile__datatxt, .profile__info, .profile__address, .profile__datawrapper {
+		flex-direction: column;
+	}
+
+	/* .profile__btns {
+		position: absolute;
+		top: 0;
+		right: 0;
+	} */
+	
+
 }
 
 .backarrow {
@@ -98,3 +106,29 @@
 	border: none;
 	cursor: pointer;
 }
+
+.profile__datatxt{
+	display: flex;
+	/* gap: 10px; */
+	/* flex-basis: 25%; */
+	padding: 1.0738rem 1.2rem;
+}
+
+
+
+
+
+
+
+.profile__btns {
+	flex-basis: 50%;
+		position: absolute;
+		top: 0;
+		right: 70px;
+}
+/* .profile__datelocation, */
+.profile__followingwallet {
+	display: flex;
+	gap: 10px;
+}
+
