@@ -27,7 +27,7 @@ function ProfileTopSection() {
 			try {
 				setIsLoading(true);
 				const data = await axios.get(
-					`https://pacific-peak-54505.herokuapp.com/users/${user}`,
+					`https://api.devask.hng.tech/users/${user}`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,
@@ -47,7 +47,7 @@ function ProfileTopSection() {
 			try {
 				setIsLoading(true);
 				const res = await axios.get(
-					`https://pacific-peak-54505.herokuapp.com/following/followers/${state.user.userName}`,
+					`https://api.devask.hng.tech/following/followers/${state.user.userName}`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,
