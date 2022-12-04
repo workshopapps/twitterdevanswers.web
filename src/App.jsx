@@ -8,6 +8,7 @@ import Tags from './pages/Tags';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Home from './pages/Home';
 import SecondLandingPage from './pages/SecondLandingPage/SecondLandingPage';
 import ThirdLandingPage from './pages/ThirdLandingPage/ThirdLandingPage';
 import FirstLandingPage from './pages/FirstLandingPage/FirstLandingPage';
@@ -35,19 +36,22 @@ import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
 import Asks from './components/Asks';
 import Privacy from './pages/Privacy/Privacy';
+import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from "./pages/NotificationSettings/index";
 import { AppContext } from './store/AppContext';
 
 function App() {
 	const {
-		state: { token },
+		state: { isAuth },
 	} = useContext(AppContext);
-	const lsToken = localStorage.getItem('user');
+	const data = localStorage.getItem('user');
+	const user = JSON.parse(data);
 
 	return (
 		<div className="App">
-			{token || lsToken ? <InternalHeader /> : <Header />}
+			{user || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
+				<Route path="/" element={<Home/>} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
 				<Route path="/second-landing" element={<SecondLandingPage />} />
 				<Route path="/first-landing" element={<FirstLandingPage />} />
@@ -69,7 +73,7 @@ function App() {
 					<Route path="dashboard/*" element={<Dashboard />} />
 					<Route path="dashboard/questions/:id" element={<Asks />} />
 					<Route path="profile/:id" element={<Profile />} />
-					<Route path="notification-page" element={<Notifications />} />
+					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
 					<Route path="teams-page" element={<Teams />} />
 					<Route path="wallet" element={<WalletPage />} />
@@ -77,11 +81,12 @@ function App() {
 					<Route path="post-questions" element={<PostQuestion />} />
 					<Route path="settings" element={<Settings />} />
 					<Route path="contact" element={<Contact />} />
+					<Route path="submit-blog" element={<SubmitBlog />} />
 					<Route path="*" element={<ErrorPage />} />
-					<Route path="/notification-settings" element={<NotificationSettings />} />
+					<Route path="notification-settings" element={<NotificationSettings />} />
 				</Route>
 			</Routes>
-			{token || lsToken ? <InternalFooter /> : <Footer />}
+			{user || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }
