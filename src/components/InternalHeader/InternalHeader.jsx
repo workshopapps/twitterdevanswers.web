@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/header-images/home.svg';
@@ -12,10 +12,15 @@ import { ReactComponent as SearchIcon } from '../../assets/header-images/search.
 import avatar from '../../assets/header-images/avatar.svg';
 import brandLogo from '../../assets/header-images/brand-logo.svg';
 import styles from './internalHeader.module.css';
+import { AppContext } from '../../store/AppContext';
 
 //  header component for internal pages
 export default function InternalHeader() {
 	const [sidenav, setSidenav] = useState(false);
+
+	const {
+		state: { user },
+	} = useContext(AppContext);
 
 	// prevent scroll if sidenav is open
 	useEffect(() => {
@@ -113,7 +118,7 @@ export default function InternalHeader() {
 								<img src={avatar} alt="avatar" />
 							</div>
 							<div className={styles.nameStatus}>
-								<p>Kayla Nicole</p>
+								<p>{user?.userName}</p>
 								<span>Online</span>
 							</div>
 						</div>
@@ -126,7 +131,7 @@ export default function InternalHeader() {
 					{/* SideNav for small laptops and tabs */}
 					<div className={`${styles.sidenav} ${sidenav && styles.active}`}>
 						<div className={styles.snBrand}>
-							<Link to="/" className={styles.brand}>
+							<Link to="/" className={styles.brand} onClick={hadnleClick}>
 								<img src={brandLogo} alt="brand logo" />
 								<span>DevAsk</span>
 							</Link>
@@ -138,7 +143,12 @@ export default function InternalHeader() {
 
 						<ul className={styles.snLinks}>
 							<li>
-								<NavLink to="/" style={linkStyle} className={activeStyle}>
+								<NavLink
+									to="/"
+									style={linkStyle}
+									className={activeStyle}
+									onClick={hadnleClick}
+								>
 									<div className={styles.snLink}>
 										<HomeIcon className={styles.snIcon} />
 										<span>Home</span>
@@ -151,6 +161,7 @@ export default function InternalHeader() {
 									to="/tags-page"
 									style={linkStyle}
 									className={activeStyle}
+									onClick={hadnleClick}
 								>
 									<div className={styles.snLink}>
 										<TagIcon className={styles.snIcon} /> <span>Tag</span>
@@ -162,6 +173,7 @@ export default function InternalHeader() {
 									style={linkStyle}
 									to="/users-page"
 									className={activeStyle}
+									onClick={hadnleClick}
 								>
 									<div className={styles.snLink}>
 										<UsersIcon className={styles.snIcon} /> <span>Users</span>
@@ -169,7 +181,12 @@ export default function InternalHeader() {
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to="/wallet" style={linkStyle} className={activeStyle}>
+								<NavLink
+									to="/wallet"
+									style={linkStyle}
+									className={activeStyle}
+									onClick={hadnleClick}
+								>
 									<div className={styles.snLink}>
 										<WalletIcon className={styles.snIcon} /> <span>Wallet</span>
 									</div>
@@ -180,6 +197,7 @@ export default function InternalHeader() {
 									to="/settings"
 									style={linkStyle}
 									className={activeStyle}
+									onClick={hadnleClick}
 								>
 									<div className={styles.snLink}>
 										<SettingsIcon className={styles.snIcon} />{' '}
