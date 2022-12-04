@@ -19,25 +19,22 @@ function Editor() {
 	function submitHandler() {
 		if (question.trim() === '') return;
 		async function postAnswer() {
-			const response = await fetch(
-				`https://pacific-peak-54505.herokuapp.com/questions/`,
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						accept: 'application/json',
-						Authorization: `Bearer ${token}`,
-					},
-					body: JSON.stringify({
-						title: '',
-						content: question,
-						expected_result: '',
-						payment_amount: 0,
-						answered: true,
-						tag: 'string',
-					}),
-				}
-			);
+			const response = await fetch(`https://api.devask.hng.tech/questions/`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					accept: 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({
+					title: '',
+					content: question,
+					expected_result: '',
+					payment_amount: 0,
+					answered: true,
+					tag: 'string',
+				}),
+			});
 
 			setQuestion('');
 			window.location.reload(false);

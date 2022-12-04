@@ -11,26 +11,20 @@ import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 const token = localStorage.getItem('token');
 
 async function getUser() {
-	const response = await axios.get(
-		`https://pacific-peak-54505.herokuapp.com/users/`,
-		{
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		}
-	);
+	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
 	return response.data.data;
 }
 
 async function getTotalReplies(id) {
-	const response = await axios.get(
-		`https://pacific-peak-54505.herokuapp.com/answer/${id}`,
-		{
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		}
-	);
+	const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
 	return response.data.length;
 }
 
@@ -51,7 +45,7 @@ function AskCards() {
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
-				'https://pacific-peak-54505.herokuapp.com/questions/',
+				'https://api.devask.hng.tech/questions/',
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,

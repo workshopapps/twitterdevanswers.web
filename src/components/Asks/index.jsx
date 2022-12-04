@@ -12,26 +12,20 @@ import user from '../../assets/dashboard-images/user.webp';
 const token = localStorage.getItem('token');
 
 async function getUser() {
-	const response = await axios.get(
-		`https://pacific-peak-54505.herokuapp.com/users/`,
-		{
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		}
-	);
+	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
 	return response.data.data;
 }
 
 async function getTotalReplies(id) {
-	const response = await axios.get(
-		`https://pacific-peak-54505.herokuapp.com/answer/${id}`,
-		{
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		}
-	);
+	const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
 	return response.data.length;
 }
 
@@ -53,7 +47,7 @@ function Asks() {
 	const [answers, setAnswers] = useState([]);
 	async function getAnswers(id) {
 		const response = await axios.get(
-			`https://pacific-peak-54505.herokuapp.com/answer/${id}`,
+			`https://api.devask.hng.tech/answer/${id}`,
 			{
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -66,7 +60,7 @@ function Asks() {
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
-				`https://pacific-peak-54505.herokuapp.com/questions/${paramValues.id}`,
+				`https://api.devask.hng.tech/questions/${paramValues.id}`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -87,21 +81,18 @@ function Asks() {
 
 	function submitHandler() {
 		async function postAnswer() {
-			const response = await fetch(
-				`https://pacific-peak-54505.herokuapp.com/answer/`,
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						accept: 'application/json',
-						Authorization: `Bearer ${token}`,
-					},
-					body: JSON.stringify({
-						question_id: paramValues.id,
-						content: reply,
-					}),
-				}
-			);
+			const response = await fetch(`https://api.devask.hng.tech/answer/`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					accept: 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({
+					question_id: paramValues.id,
+					content: reply,
+				}),
+			});
 
 			setReply('');
 			window.location.reload(false);
