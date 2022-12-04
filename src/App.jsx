@@ -9,6 +9,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
+import Home from './pages/Home';
 import About from './pages/About/index';
 import Pricing from './pages/Pricing';
 import Advert from './pages/Advert/Advert';
@@ -46,6 +47,7 @@ function App() {
 			{token || lsToken ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
+				<Route path='home' element={<Home/>}/>
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
 				<Route path="blog-page" element={<Blog />} />
