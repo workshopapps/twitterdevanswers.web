@@ -6,7 +6,6 @@ import React,
 import EditAccountCSS from './style.module.css';
 import TestImage from '../../../../assets/settings-images/test-img.jfif';
 import Experience from "./dataExperience"
-import Stack from './dataStack';
 import { AppContext } from '../../../../store/AppContext';
 import { EDIT_USER } from '../../../../store/actionTypes';
 import updateUser from './api';
@@ -179,16 +178,14 @@ function EditAcccount() {
 
 							<label htmlFor className={EditAccountCSS.label}>
 								Preffered Stack :
-								<select
+								<input
 									className={EditAccountCSS.textinput}
 									required
 									value={user.stack}
+									placeholder="Javascript, React js, Golang Developer"
 									name="stack"
 									onChange={changeHandler}
-								>
-									<Stack />
-									
-								</select>						
+								/>						
 							</label>
 
 							<label htmlFor className={EditAccountCSS.label}>
