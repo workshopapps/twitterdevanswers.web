@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import styles from './Asks.module.css';
 import arrowLeft from '../../assets/dashboard-images/arrowLeft.webp';
@@ -7,59 +8,128 @@ import heart from '../../assets/dashboard-images/heart.webp';
 import share from '../../assets/dashboard-images/share.webp';
 import options from '../../assets/dashboard-images/options.webp';
 import user from '../../assets/dashboard-images/user.webp';
-import mugiwara from '../../assets/dashboard-images/mugiwara.webp';
-import testQuestions from '../../utils/testQuestions.json';
+
+const token = localStorage.getItem('token');
+
+async function getUser() {
+	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+	return response.data.data;
+}
+
+async function getTotalReplies(id) {
+	const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+	return response.data.length;
+}
 
 function Asks() {
+	const formatDate = (date) =>
+		new Intl.DateTimeFormat(navigator.language, {
+			day: '2-digit',
+			month: 'long',
+			hour: 'numeric',
+			minute: 'numeric',
+		}).format(new Date(date));
+
 	const paramValues = useParams();
-
-	const [reply, setReply] = useState({ text: '' });
-
-	function handleReply(event) {
-		setReply({
-			...reply,
-			[event.target.name]: event.target.value,
-		});
+	const [reply, setReply] = useState('');
+	const [question, setQuestion] = useState([]);
+	const [totalReplies, setTootalReplies] = useState([]);
+	const [users, setUsers] = useState([]);
+	const findUser = (id) => users.find((userr) => userr.user_id === id);
+	const [answers, setAnswers] = useState([]);
+	async function getAnswers(id) {
+		const response = await axios.get(
+			`https://api.devask.hng.tech/answer/${id}`,
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
+		return response.data;
 	}
 
-	const selectQuestion = testQuestions.find(
-		(question) => question.id_str === paramValues.id
-	);
+	useEffect(() => {
+		(async function getData() {
+			const response = await axios.get(
+				`https://api.devask.hng.tech/questions/${paramValues.id}`,
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+			const fetchedQuestions = await response.data.data;
+			setQuestion(fetchedQuestions);
+			setUsers(await getUser());
+			setAnswers(await getAnswers(paramValues.id));
+			setTootalReplies(await getTotalReplies(paramValues.id));
+		})();
+	}, []);
 
-	const answers = testQuestions
-		.find((question) => paramValues.id === question.id_str)
-		.comments.map((comment) => (
-			<div className={styles.cardContainer} key={comment.id}>
-				<section className={styles.cardHeader}>
+	function handleReply(event) {
+		setReply(event.target.value);
+	}
+
+	function submitHandler() {
+		async function postAnswer() {
+			const response = await fetch(`https://api.devask.hng.tech/answer/`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					accept: 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({
+					question_id: paramValues.id,
+					content: reply,
+				}),
+			});
+
+			setReply('');
+			window.location.reload(false);
+			return response.data;
+		}
+		postAnswer();
+	}
+
+	const answerss = answers?.map((answer) => (
+		<div className={styles.cardContainer} key={answer.answer_id}>
+			<section className={styles.cardHeader}>
+				<div>
+					<img
+						src="https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1"
+						alt=""
+						className={styles.profilePicture}
+					/>
 					<div>
-						<img src={mugiwara} alt="" className={styles.profilePicture} />\
-						<div>
-							<div className={styles.userInfo}>
-								<h5 className={styles.askName}>
-									{comment.name.slice(0, 1).toUpperCase()}
-									{comment.name.slice(1, 30)}
-								</h5>
-								<p className={styles.userName}>{comment.email}</p>
-								<p className={styles.time}>1hr</p>
-							</div>
-							<p className={styles.replying}>
-								replying to {selectQuestion.user.name}
+						<div className={styles.userInfo}>
+							<h5 className={styles.askName}>
+								{findUser(answer.owner_id)?.username}
+							</h5>
+
+							<p className={styles.time}>
+								{answer.created_at && formatDate(answer.created_at)}
 							</p>
 						</div>
+						<p className={styles.replying}>
+							replying to {findUser(question.owner)?.username}
+						</p>
 					</div>
-					{/* <img src={answer.options} alt="" className={styles.optionsReply} /> */}
-				</section>
-				<h6 className={styles.reply}>{comment.body}</h6>
-				<section className={styles.cardFooter}>
-					{/* <div className={styles.replyPageIcons}>
-					<img src={answer.viewReplies} alt="" />
-					<img src={answer.likes} alt="" />
-					<img src={answer.correct} alt="" />
-					<img src={answer.share} alt="" className={styles.share} />
-				</div> */}
-				</section>
-			</div>
-		));
+				</div>
+			</section>
+			<h6 className={styles.reply}>{answer.content}</h6>
+			<section className={styles.cardFooter}></section>
+		</div>
+	));
 
 	return (
 		<div className={styles.ask}>
@@ -70,49 +140,34 @@ function Asks() {
 			<section className={styles.header}>
 				<div className={styles.aboutUser}>
 					<img
-						src={`${selectQuestion.user.profile_image_url_https}`}
+						src="https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1"
 						alt="Profile Avatar"
 					/>
 					<div>
-						<h4 className={styles.askName}>{selectQuestion.user.name}</h4>
+						<h4 className={styles.askName}>
+							{findUser(question.owner)?.username}
+						</h4>
 						<div className={styles.timeDate}>
-							<p>11:03</p>
-							<p>10 Nov 22</p>
+							<p>{question.createdAt && formatDate(question.createdAt)}</p>
 						</div>
 					</div>
 				</div>
-				<p className={styles.edit}>Edit</p>
+				{/* <p className={styles.edit}>Edit</p> */}
 				<img src={options} alt="" className={styles.options} />
 			</section>
 			<section className={styles.question}>
-				<h4 className={styles.title}> {selectQuestion.title}</h4>
-				<p className={styles.description}>{selectQuestion.detail}</p>
-				<p className={styles.snippet}>{selectQuestion.description}</p>
-				<p className={styles.description}>
-					Thanks anyone out there who can see my mistake!
-				</p>
+				<h4 className={styles.title}> {question.title}</h4>
+				<p className={styles.description}>{question.content}</p>
 			</section>
 			<div className={styles.tagEdit}>
-				<div className={styles.tagWrapper}>
-					{selectQuestion.tags.map((tag) => (
-						<Link
-							to="/tags-page"
-							style={{ textDecoration: 'none', display: 'flex', width: '100%' }}
-							key={tag}
-						>
-							<p className={styles.tag}>{tag}</p>
-						</Link>
-					))}
-				</div>
-
 				<p className={styles.editMobile}>Edit</p>
 			</div>
 			<section className={styles.stats}>
 				<p>
-					<strong>15</strong> Replies
+					<strong>{totalReplies}</strong> Replies
 				</p>
 				<p>
-					<strong>{selectQuestion.likes_count}</strong> Likes
+					<strong>0</strong> Likes
 				</p>
 			</section>
 			<section className={styles.icons}>
@@ -124,15 +179,17 @@ function Asks() {
 				<img src={user} alt="" />
 				<textarea
 					name="text"
-					value={reply.text}
+					value={reply}
 					onChange={handleReply}
 					placeholder="Type your reply"
 					className={styles.writeReply}
 					rows={2}
 				/>
-				<button type="button">Post Reply</button>
+				<button type="button" onClick={submitHandler}>
+					Post Reply
+				</button>
 			</section>
-			<div className={styles.answers}>{answers}</div>
+			<div className={styles.answers}>{answerss}</div>
 		</div>
 	);
 }

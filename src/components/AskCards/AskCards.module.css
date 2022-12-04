@@ -1,5 +1,6 @@
 .title {
-	color: #551a8b;
+	font-size: 18px;
+	text-transform: capitalize;
 	padding: 0.5em 0em;
 }
 
@@ -74,7 +75,6 @@
 	font-weight: 400;
 	font-size: 16px;
 	color: #535353;
-	cursor: pointer;
 	line-height: 1.7;
 }
 

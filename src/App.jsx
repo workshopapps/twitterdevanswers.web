@@ -70,7 +70,7 @@ function App() {
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
 				<Route element={<ProtectedRoutes />}>
-					<Route path="dashboard" element={<Dashboard />} />
+					<Route path="dashboard/*" element={<Dashboard />} />
 					<Route path="dashboard/questions/:id" element={<Asks />} />
 					<Route path="profile/:id" element={<Profile />} />
 					<Route path="notifications-page" element={<Notifications />} />
