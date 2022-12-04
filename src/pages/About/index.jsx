@@ -12,7 +12,7 @@ import one from "../../assets/aboutus-images/one.png";
 import two from "../../assets/aboutus-images/two.png";
 import three from "../../assets/aboutus-images/three.png";
 
-function AboutUs (){
+function About (){
     return(
         <div className={styles.AboutUs}>
             <main className={styles.AboutMainSection}>
@@ -101,4 +101,4 @@ function AboutUs (){
     )
 }
 
-export default AboutUs;
+export default About;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Security.module.css";
 import account from "../../assets/security-images/account.png";
@@ -7,11 +7,19 @@ import notification from "../../assets/security-images/notification.png";
 import appearance from "../../assets/security-images/appearance.png"
 
 function Security() {
-    const [isEnabled, setIsEnabled] = useState(false);
-    const [isVerified, setIsVerified] = useState(false);
+    const [isEnabled, setIsEnabled] = useState(JSON.parse(localStorage.getItem("Enable")) || false);
+    const [isVerified, setIsVerified] = useState(JSON.parse(localStorage.getItem("Verify")) || false);
+
+    useEffect(() => {
+        localStorage.setItem("Enable", JSON.stringify(isEnabled))
+    }, [isEnabled]);
+    useEffect(() => {
+        localStorage.setItem("Verify", JSON.stringify(isVerified))
+    }, [isVerified]);
 
         const handleEnable = () => {
                 setIsEnabled(!isEnabled);  
+                
         }
         const handleIsVerified = () => {
             setIsVerified(!isVerified);
