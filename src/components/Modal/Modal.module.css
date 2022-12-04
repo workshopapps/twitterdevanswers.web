@@ -4,11 +4,11 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(64, 64, 64, 0.3);
+	background: #1f1f1f0f;
 	padding: 5px;
 }
 
-.modal-main {
+.modalMain {
 	position: fixed;
 	background: #ffffff;
 	border-radius: 16px;
@@ -19,75 +19,64 @@
 	transform: translate(-50%, -50%);
 }
 
-.show-modal {
+.showModal {
 	display: block;
 }
 
-.hide-modal {
+.hideModal {
 	display: none;
 }
 
-.modal-header {
+.modalHeader {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 	border-bottom: 1px solid #cfd8dc;
 	padding: 1rem 1.5rem;
 }
 
-.modal-header > p {
-	font-weight: 700;
-	font-size: 24px;
-	color: #333333;
-}
-
-.close-modal {
+.closeModal {
+	font-size: 12px;
 	cursor: pointer;
 }
 
-.modal-body {
+.modalBody {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
-	gap: 1rem;
+	align-items: center;
+	gap: 2rem;
 	padding: 1.5rem;
 }
 
-.modal-body > p {
-	font-weight: 400;
-	font-size: 12px;
-	color: #333333;
-}
-
-.modal-select-btn {
-	font-family: 'Red Rose', cursive;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: #f8f9fa;
-	border: 1px solid #cfd8dc;
-	border-radius: 12px;
-	width: 100%;
-	padding: 0.5rem 1rem;
+.socialShare {
+	border: none;
+	background-color: transparent;
 	cursor: pointer;
 }
 
-.modal-select-btn > div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 0.8rem;
+.facebook {
+	color: #1877f2;
+	font-size: 20px;
 }
 
-.modal-select-btn > div > img {
-	width: 1.5rem;
+.linkedin {
+	color: #0077b5;
+	font-size: 20px;
 }
 
-.modal-select-btn > div > p {
-	font-weight: 600;
-	font-size: 14px;
-	color: #000000;
+.pinterest {
+	color: #e60023;
+	font-size: 20px;
+}
+
+.twitter {
+	color: #1da1f2;
+	font-size: 20px;
+}
+
+.whatsapp {
+	color: #25d366;
+	font-size: 20px;
 }
 
 @media only screen and (max-width: 768px) {

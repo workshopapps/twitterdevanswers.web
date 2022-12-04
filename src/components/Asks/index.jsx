@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './Asks.module.css';
 import arrowLeft from '../../assets/arrowLeft.webp';
 import message from '../../assets/message.webp';
@@ -11,20 +12,9 @@ import mugiwara from '../../assets/mugiwara.webp';
 import testQuestions from '../../utils/testQuestions.json';
 import Modal from '../Modal/Modal';
 
-function Asks() {
+function Asks({ onClose, show, hide, showShare }) {
 	const paramValues = useParams();
 	const [reply, setReply] = useState({ text: '' });
-	const [showShare, setShowShare] = useState(false);
-
-	function showShareModal() {
-		setShowShare(true);
-	}
-
-	function hideShareModal() {
-		setShowShare(false);
-	}
-
-	const hideShare = hideShareModal();
 
 	function handleReply(event) {
 		setReply({
@@ -129,13 +119,8 @@ function Asks() {
 			<section className={styles.icons}>
 				<img src={message} alt="" />
 				<img src={heart} alt="" />
-				<Modal
-					onClose={hideShare}
-					show={showShare}
-					hide={hideShare}
-					className={styles.modal}
-				/>
-				<button type="button" onClick={showShareModal}>
+				<Modal onClose={onClose} show={show} hide={hide} />
+				<button type="button" onClick={showShare}>
 					<img src={share} alt="" />
 				</button>
 			</section>
@@ -155,5 +140,12 @@ function Asks() {
 		</div>
 	);
 }
+
+Asks.propTypes = {
+	onClose: PropTypes.func.isRequired,
+	show: PropTypes.bool.isRequired,
+	hide: PropTypes.func.isRequired,
+	showShare: PropTypes.func.isRequired,
+};
 
 export default Asks;

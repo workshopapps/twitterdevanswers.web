@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './AskCards.module.css';
 import testQuestions from '../../utils/testQuestions.json';
 import options from '../../assets/options.webp';
@@ -7,8 +8,9 @@ import message from '../../assets/message.webp';
 import heartBold from '../../assets/heartBold.webp';
 import share from '../../assets/share.webp';
 import dollarCircle from '../../assets/dollarCircle.webp';
+import Modal from '../Modal/Modal';
 
-function AskCards() {
+function AskCards({ onClose, show, hide, showShare }) {
 	const askCard = testQuestions.map((question) => (
 		<div className={styles.cardContainer} key={question.id}>
 			<Link to={`/profile/${question.id}`}>
@@ -66,7 +68,10 @@ function AskCards() {
 						<span className={styles.likes}>
 							<img src={heartBold} alt="" /> 30
 						</span>
-						<img src={share} alt="" className={styles.share} />
+						<Modal onClose={onClose} show={show} hide={hide} />
+						<button type="button" onClick={showShare}>
+							<img src={share} alt="" />
+						</button>
 					</div>
 					<span className={styles.reward}>
 						<img src={dollarCircle} alt="" /> 0.0025eth
@@ -78,5 +83,12 @@ function AskCards() {
 
 	return <div className={styles.cards}>{askCard}</div>;
 }
+
+AskCards.propTypes = {
+	onClose: PropTypes.func.isRequired,
+	show: PropTypes.bool.isRequired,
+	hide: PropTypes.func.isRequired,
+	showShare: PropTypes.func.isRequired,
+};
 
 export default AskCards;

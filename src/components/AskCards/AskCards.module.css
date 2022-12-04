@@ -101,6 +101,12 @@
 	gap: 2rem;
 }
 
+.icons > button {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
 .viewReplies {
 	display: flex;
 	justify-content: flex-start;
