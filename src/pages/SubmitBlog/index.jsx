@@ -9,14 +9,6 @@ function SubmitBlog() {
     const navigate = useNavigate();
     const { state } = useContext(AppContext);
     const [isTokenError, setIsTokenError] = useState('');
-    const [isPostCatsOpen, setIsPostCatsOpen] = useState(false);
-
-    const [postCats, setPostCats] = useState([
-		'Fitness/Health',
-		'Lifestyle',
-		'Programming',
-		'NFTs',
-	]);
 
     const [blogData, setBlogData] = useState({
         author: state.user.userName,
@@ -25,38 +17,8 @@ function SubmitBlog() {
 		title: '',
 		body: '',
         image_url: '',
-        post_category: `${postCats}`,
+        post_category: '',
 	});
-
-    const handlePostCatRemoval = () => {
-		setBlogData((prevState) => ({
-			...prevState,
-			postCat: '',
-		}));
-		setPostCats([
-            'Fitness/Health',
-            'Lifestyle',
-            'Programming',
-            'NFTs',
-		]);
-		setIsPostCatsOpen(false);
-	};
-    
-	const handlePostCatsClick = (postCatsName) => {
-		setPostCats(
-			[
-                'Fitness/Health',
-                'Lifestyle',
-                'Programming',
-                'NFTs',
-			].filter((postCat) => postCat !== postCatsName)
-		);
-		setBlogData((prevState) => ({
-			...prevState,
-			postCat: postCatsName,
-		}));
-		setIsPostCatsOpen(!isPostCatsOpen);
-	};
     const handleChange = (e) => {
 		const { name, value } = e.target;
 
@@ -66,7 +28,29 @@ function SubmitBlog() {
 			[name]: value,
 		}));
     }
-      
+    const options = [
+        {
+            label: "Select Post Category",
+            value: "post_category",
+        },
+        {
+          label: "NFTs",
+          value: "nfts",
+        },
+        {
+          label: "Fitness/Health",
+          value: "fitness-health",
+        },
+        {
+          label: "Lifestyle",
+          value: "lifestyle",
+        },
+        {
+          label: "Programming",
+          value: "programming",
+        },
+      ];
+
    const submitNewBlog = async () => {
 		const details = {
             author: blogData.author,
@@ -83,7 +67,7 @@ function SubmitBlog() {
 		};
         try {
 			const data = await axios.post(
-				`https://pacific-peak-54505.herokuapp.com/blog/?user_id=${blogData.user_id}`,
+				`https://api.devask.hng.tech/blog/?user_id=${blogData.user_id}`,
 				details,
 				{
 					headers,
@@ -142,9 +126,29 @@ function SubmitBlog() {
                     />            
                 </div>
             </section>
+            <section className={styles.titleWrapper}>
+                <div>
+                <label htmlFor="post_category">
+                    <h3>Post Category</h3>
+                <select value="Select Post Category"
+                        onChange={handleChange}
+                        >
+                    {options.map((option) => (
+                    <option name="post_category"
+                    value={option.value}
+                    key={option.value}>
+                        {option.label}
+                    </option>
+                    ))}
+                </select>
+                </label>
+                </div>
+            </section>
+
         <section className={styles.detailWrapper} id='blog'>
             <div className={styles.content}>
             <h3>Content</h3>
+            <p>You are required to submit the link to your article in doc link format</p>
             <textarea
                 value={blogData.body}
                 name="body"
@@ -156,49 +160,7 @@ function SubmitBlog() {
             </textarea>
 			</div>    
             </section>
-            <section className={styles.tagWrapper}>
-							<div className={styles.tagContent}>
-								<span className={styles.text}>Post Category </span>
 
-								<button
-									type="button"
-									onClick={() => setIsPostCatsOpen(!isPostCatsOpen)}
-									className={styles.tagsButton}
-								>
-									<img src="/post-question/down-arrow.svg" alt="Down Arrow" />
-								</button>
-
-								{isPostCatsOpen && (
-									<div className={styles.tagsWrapper}>
-										{isPostCatsOpen &&
-											postCats.map((postCat) => (
-												<button
-													key={postCat}
-													type="button"
-													onClick={() => handlePostCatsClick(postCat)}
-												>
-													{postCat}
-												</button>
-											))}
-									</div>
-								)}
-
-								{blogData.post_category && (
-									<p className={styles.allTagsText}>
-										{blogData.postCat}
-										<button
-											type="button"
-											onClick={() => handlePostCatRemoval(blogData.postCat)}
-											className={styles.allTagsButton}
-										>
-											<img src="/post-question/cancel.svg" alt="Cancel Icon" />
-										</button>
-									</p>
-								)}
-							</div>
-
-							
-						</section>              
                     <section className={styles.buttonWrapper}>
                         <div>
                         <button
