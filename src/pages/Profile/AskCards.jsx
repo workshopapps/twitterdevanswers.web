@@ -31,7 +31,7 @@ function AskCards() {
 	useEffect(() => {
 		(async function getData() {
 			const userIdResponse = await axios.get(
-				`https://https://api.devask.hng.tech/users/${thisuser}`,
+				`https://api.devask.hng.tech/users/${thisuser}`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -40,7 +40,7 @@ function AskCards() {
 			);
 			const userIdData = await userIdResponse.data.data.user_id;
 			const response = await axios.get(
-				`https://https://api.devask.hng.tech/questions/${userIdData}/user`,
+				`https://api.devask.hng.tech/questions/${userIdData}/user`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
