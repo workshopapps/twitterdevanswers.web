@@ -66,7 +66,7 @@ function App() {
 					<Route path="dashboard" element={<Dashboard />} />
 					<Route path="dashboard/questions/:id" element={<Asks />} />
 					<Route path="profile/:id" element={<Profile />} />
-					<Route path="notification-page" element={<Notifications />} />
+					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
 					<Route path="teams-page" element={<Teams />} />
 					<Route path="wallet" element={<WalletPage />} />
