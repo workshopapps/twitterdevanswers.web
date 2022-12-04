@@ -1,84 +1,62 @@
-.wallet_container {
-	padding: 1rem;
-	margin-top: 2rem;
-	/* margin-bottom: 2rem; */
+.wallet_container{
+	width: 100%;
 	color: #ffffff;
-	border-radius: 1rem;
+	border-radius: 16px;
 	background: #1d1dd8;
-	/* display: flex; */
-
-	width: 100%;
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-	padding-left: 2rem;
-
-	/* @media (min-width: 768px) {
-    padding-top: 1rem;
-    padding-bottom: 3rem;
-    padding-left: 2rem;
-  } */
+	padding: 15px 0;
+}
+.box{
+	color: #333333;
+	border: 1px solid rgba(51, 51, 51, 1);
+	background: #ffffff;
 }
 
-.wallet_container_skeleton {
-	margin-top: 2rem;
-	/* margin-bottom: 2rem; */
-	color: #ffffff;
-	border-radius: 1rem;
-
-	/* display: flex; */
-
-	width: 100%;
-
-	/* @media (min-width: 768px) {
-    padding-top: 1rem;
-    padding-bottom: 3rem;
-    padding-left: 2rem;
-  } */
+.box .compare img{
+	filter:brightness(0) invert(0);
 }
-
-@media (min-width: 768px) {
-	.wallet_container {
-		padding-top: 3rem;
-		padding-bottom: 3rem;
-		padding-left: 2rem;
-		width: 33.333333%;
-		/* margin-top: 3rem;
-    margin-bottom: 3rem; */
-		/* flex-direction: column; */
-	}
+.box .token img{
+	filter:brightness(0) invert(0);
 }
-
-.wallet_label_text {
-	font-weight: 600;
-	font-size: 16px;
-	text-align: left;
+.balance{
+	width: 90%;
+	margin: 10px auto;
+	display: flex;
 }
-
-.wallet_ammount_text {
-	font-weight: 600;
-	font-size: 24px;
-}
-.wallet_label_text {
-	@media (min-width: 1024px) {
-		font-weight: 600;
-		font-size: 16px;
-	}
-}
-
-.ammount_tokens {
+.compare{
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
+	margin: 0.2rem 0;
+	font-size: 0.7rem;
+}
+.balance img{
+	margin-right: 7px;
 }
 
-@media (min-width: 768px) {
-	.ammount_tokens {
-		flex-direction: column;
-		align-items: flex-start;
-	}
+.wallet_container hr{
+	border: 0.5px solid #FFFFFF;
+	background-color: #FFFFFF;
+	width: 98%;
+	margin: 2.2rem auto 0.5rem;
 }
-/* wallet token -> 5  */
-/* .wallet_token {
-    @apply text-base;
-   }
-} */
+.box hr{
+	border: 0.5px solid rgba(51, 51, 51, 0.5);
+	background-color:rgba(51, 51, 51, 0.5);
+}
+
+.token{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 90%;
+	margin: 0 auto;
+}
+.tok{
+	display: flex;
+	align-items: center;
+}
+
+.token span{
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin-left: 8px;
+}
