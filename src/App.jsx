@@ -8,7 +8,9 @@ import Tags from './pages/Tags';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import LandingPage from './pages/LandingPage/LandingPage';
+import SecondLandingPage from './pages/SecondLandingPage/SecondLandingPage';
+import ThirdLandingPage from './pages/ThirdLandingPage/ThirdLandingPage';
+import FirstLandingPage from './pages/FirstLandingPage/FirstLandingPage';
 import About from './pages/About/index';
 import Pricing from './pages/Pricing';
 import Advert from './pages/Advert/Advert';
@@ -48,7 +50,9 @@ function App() {
 		<div className="App">
 			{user || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
-				<Route path="/" element={<LandingPage />} />
+				<Route path="/third-landing" element={<ThirdLandingPage />} />
+				<Route path="/second-landing" element={<SecondLandingPage />} />
+				<Route path="/first-landing" element={<FirstLandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
 				<Route path="blog-page" element={<Blog />} />

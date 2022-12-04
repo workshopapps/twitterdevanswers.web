@@ -1,0 +1,98 @@
+.hero {
+	padding: 120px 0 96px 0;
+	display: flex;
+	justify-content: space-between;
+	color: #303030;
+}
+
+.text {
+	max-width: 623px;
+}
+
+.text h1 {
+	font-weight: 600;
+	font-size: 64px;
+	line-height: 72px;
+	margin-bottom: 24px;
+}
+
+.text h1 span {
+	color: #1d1dd8;
+}
+
+.text p {
+	width: 80%;
+	font-size: 18px;
+	line-height: 24px;
+	color: #303030;
+	margin-bottom: 24px;
+}
+
+.numbers {
+	margin-top: 72px;
+	display: flex;
+	align-items: center;
+	gap: 64px;
+}
+
+.number div {
+	font-weight: 600;
+	font-size: 48px;
+	line-height: 56px;
+}
+
+.number span {
+	font-size: 16px;
+	line-height: 18px;
+}
+
+.img {
+	width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+	.hero {
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.text {
+		max-width: 100%;
+	}
+
+	.img {
+		display: flex;
+		justify-content: center;
+	}
+
+	.img img {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 769px) {
+	.text h1 {
+		font-size: 54px;
+		line-height: 60px;
+	}
+
+	.number div {
+		font-size: 38px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.text h1 {
+		font-size: 24px;
+		line-height: 32px;
+	}
+
+	.numbers {
+		gap: 25px;
+	}
+
+	.number div {
+		font-size: 30px;
+		line-height: 40px;
+	}
+}
