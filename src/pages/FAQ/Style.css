@@ -1,6 +1,7 @@
 .faq__section {
-	width: 90%;
+	
 	margin: auto;
+	padding-bottom: 20px; 
 }
 .section__img_socials {
 	display: flex;
@@ -50,23 +51,26 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 16px;
-	border: 0.5px solid #d2d2f7;
+	border: 1px solid #D9D9D9;
 	padding: 8px 16px;
-	box-shadow: 0px 40px 16px rgba(169, 162, 162, 0.01),
-		0px 23px 14px rgba(169, 162, 162, 0.05),
-		0px 10px 10px rgba(169, 162, 162, 0.09),
-		0px 3px 6px rgba(169, 162, 162, 0.1), 0px 0px 0px rgba(169, 162, 162, 0.1);
 	gap: 0.3rem;
 	margin: 40px 0px;
+	margin-left: 180px;
 	height: 2.5rem;
+	width: 600px;
+}
+.section__search_img {
+     display: flex;
+	 justify-content: flex-end;
 }
 .accordion__sections_main {
 	margin-top: 3rem;
-	position: realtive;
+	margin-bottom: 3rem; 
+	position: relative;
 	display: grid;
 	align-items: flex-start;
-	grid-template-columns: 1fr 1fr;
-	gap: 6rem;
+	grid-template-columns: auto 30px auto ;
+	gap: 4rem;
 }
 .img__inner {
 	display: flex;
@@ -84,28 +88,30 @@
 	align-items: center;
 }
 .arrrowdown__image {
+
 	position: absolute;
-	left: 47%;
-	bottom: 15%;
-	border: 1px solid blue;
-	width: 80px;
-	height: 80px;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 10px;
-	cursor: pointer;
-	background: white;
-	margin: 0px 5px;
+	height: 400px;
+	top: 15px;
+	width: 0px;	
+	border: 2px solid #1D1DD8;
+	left: 50%;
+}
+.ellipse {
+left: 49.2%;	
+position: absolute;	
+width: 20px;
+height: 20px;
+background: #1D1DD8;
+border: 2px solid #1D1DD8;
+border-radius: 50%;
 }
 .arrrowdown__image img {
-	width: 50px;
+	width: 10px;
 }
 /* .section__img_icons .image__down{
  transform: rotate(200deg);
 } */
-@media (max-width: 400px) {
+@media (max-width: 768px) {
 	.section__img_socials {
 		flex-direction: column;
 		align-items: flex-start;
@@ -132,13 +138,15 @@
 	.accordion__sections_main {
 		grid-template-columns: 1fr;
 		margin-top: 2rem;
-		gap: 1rem;
+		gap: 0rem;
 	}
 	.img__inner {
 		display: none;
 	}
 	.section__search {
-		height: 1.5rem;
+		height: 2.5rem;
+		width: 250px;
+		margin-left: 10px;
 	}
 	.text__p {
 		font-size: 15px;

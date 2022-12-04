@@ -1,142 +1,225 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from './styles.module.css';
-import Googleicon from '../../../assets/google.svg';
-import GithubIcon from '../../../assets/github.svg';
-import Microsoficon from '../../../assets/microsoft.svg';
+import axios from 'axios';
 import { AppContext } from '../../../store/AppContext';
-import { USER_SIGNED_UP } from '../../../store/actionTypes';
-import AuthPage from '..';
-
-const signUpOptions = [
-	{
-		src: Googleicon,
-		alt: 'Google icon',
-		text: 'Sign up using Google',
-	},
-	{
-		src: GithubIcon,
-		alt: 'Github icon',
-		text: 'Sign up using Github',
-	},
-	{
-		src: Microsoficon,
-		alt: 'Microsoft icon',
-		text: 'Sign up using Microsoft',
-	},
-];
-
-const inputs = [
-	{
-		label: 'Username',
-		id: 'username',
-		type: 'text',
-		placeholder: '@Maryjoe1',
-		name: 'username'
-	},
-	{
-		label: 'Email',
-		id: 'email',
-		type: 'email',
-		placeholder: 'example@gmail.com',
-		name: 'email'
-	},
-	{
-		label: 'Password',
-		id: 'password',
-		type: 'password',
-		placeholder: '*******',
-		canBeHidden: true,
-		name: 'password'
-	},
-	{
-		label: 'Confirm Password',
-		id: 'confirm-password',
-		type: 'password',
-		placeholder: '*******',
-		canBeHidden: true,
-		name: 'confirm_password'
-	},
-];
-
-function InputCheckbox() {
-	return (
-		<div className={` ${styles['form-group__checkbox']}`}>
-			<input
-				type="checkbox"
-				className={styles.input__checkbox}
-				id="subscribe"
-			/>
-			<label
-				className={styles['form-group__checkbox-label']}
-				htmlFor="subscribe"
-			 > <input/>
-				I want to receive updates, User Research invitations, Company
-				announcements, Newsletters and Digest
-			</label>
-		</div>
-	);
-}
+import { LOADING, USER_SIGNED_UP } from '../../../store/actionTypes';
+import {
+	formInputHandler,
+	isEmailValid,
+	useModal,
+	validateSignUp,
+} from '../utils';
+import AuthModal from '../AuthModal';
+import Button from '../../../components/AuthFormButton';
+import Input from '../Input';
+import styles from './styles.module.css';
 
 function SignUp() {
 	const [input, setInput] = useState({
 		username: '',
 		email: '',
+		email_verification_code: '',
 		password: '',
-		confirm_password: '',
+		confirmPassword: '',
 	});
 
-	const { dispatch } = useContext(AppContext);
+	// form errors
+	const [errors, setErrors] = useState({});
+	const [serverResponse, setServerResponse] = useState('');
+
+	const {
+		dispatch,
+		state: { loading },
+	} = useContext(AppContext);
 	const navigate = useNavigate();
 
-	const changeHandler = (event) => {
-		setInput((prev) => ({
-			...prev,
-			[event.target.name]: event.target.value,
-		}));
+	const { modal, showModal } = useModal();
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		dispatch({
+			type: LOADING,
+			payload: true,
+		});
+
+		const formErrors = validateSignUp(input);
+
+		if (!formErrors) {
+			try {
+				const { data } = await axios.post(
+					'https://api.devask.hng.tech/auth/signup',
+					input
+				);
+
+				if (data.status_code && data.status_code === 400) {
+					setServerResponse(
+						data?.detail?.msg || 'server error, please try again later'
+					);
+					showModal();
+					dispatch({
+						type: LOADING,
+						payload: false,
+					});
+					return;
+				}
+
+				setServerResponse(data?.Message);
+				showModal();
+
+				localStorage.setItem('user', JSON.stringify(data.data));
+				localStorage.setItem('token', data.Token);
+
+				dispatch({
+					type: USER_SIGNED_UP,
+					payload: data,
+				});
+				dispatch({
+					type: LOADING,
+					payload: false,
+				});
+
+				navigate('/');
+				window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+			} catch (error) {
+				setServerResponse(
+					error?.response?.data?.detail ||
+						'server error, please try again later'
+				);
+				showModal();
+				dispatch({
+					type: LOADING,
+					payload: false,
+				});
+			}
+		} else {
+			setErrors(formErrors);
+			dispatch({
+				type: LOADING,
+				payload: false,
+			});
+		}
 	};
 
-	const handleLogIn = async (event) => {
-		event.preventDefault();
-		try {
-			localStorage.setItem('user', JSON.stringify(input));
+	const handleVerification = async () => {
+		if (!isEmailValid(input.email)) {
+			setErrors((prev) => ({
+				...prev,
+				email: `please enter a valid email address`,
+			}));
+		} else {
+			const { data } = await axios.post(
+				'https://api.devask.hng.tech/auth/send_email_code',
+				{ email: input.email }
+			);
 
-			dispatch({
-				type: USER_SIGNED_UP,
-				payload: input,
-			});
-
-			navigate('/');
-			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-		} catch (error) {
-			throw new Error(error);
+			setServerResponse(data.msg);
+			showModal();
 		}
 	};
 
 	return (
-		<AuthPage
-			pageTitle="Create an Account"
-			authAltText="Or Sign up with"
-			inputs={inputs}
-			authOptions={signUpOptions}
-			inputCheckbox={<InputCheckbox />}
-			buttonLabel="Sign up"
-			onChange={changeHandler}
-			onSubmit={handleLogIn}
-		>
-			<p className={styles['alt-auth']}>
-				Already a member?{' '}
-				<Link className={styles['alt-auth-link']} to="/login">
-					Log In
-				</Link>
-			</p>
+		<>
+			{modal && <AuthModal text={serverResponse} />}
 
-			<h3 className={styles['privacy-text']}>
-				By signing in you agree to our{' '}
-				<span className={styles['primary-text']}>Privacy Terms</span> and{' '}
-				<span className={styles['primary-text']}>Conditions</span>
-			</h3>
-		</AuthPage>
+			<form className={styles.signup} onSubmit={handleSubmit}>
+				<div className={styles.header}>
+					<h3>Hello!</h3>
+					<p>Welcome to a whole new technical experience.</p>
+				</div>
+				<div className={styles.input}>
+					<div>
+						<Input
+							id="email"
+							label="Email Address"
+							name="email"
+							placeholder="janedoe@example.com"
+							type="text"
+							value={input.email}
+							handleInputChange={(event) =>
+								formInputHandler(event, setErrors, setInput)
+							}
+							error={errors && errors.email}
+						/>
+					</div>
+					<div className={styles.verification}>
+						<div className={styles.verificationInput}>
+							<Input
+								label="Verification code"
+								id="email_verification_code"
+								name="email_verification_code"
+								placeholder=""
+								type="text"
+								value={input.email_verification_code}
+								handleInputChange={(event) =>
+									formInputHandler(event, setErrors, setInput)
+								}
+								error={errors && errors.email_verification_code}
+							/>
+						</div>
+						<button
+							className={styles.verificationBtn}
+							type="button"
+							onClick={handleVerification}
+						>
+							send code
+						</button>
+					</div>
+					<div>
+						<Input
+							id="username"
+							label="Username"
+							name="username"
+							placeholder="Username"
+							type="text"
+							value={input.username}
+							handleInputChange={(event) =>
+								formInputHandler(event, setErrors, setInput)
+							}
+							error={errors && errors.username}
+						/>
+					</div>
+					<div>
+						<Input
+							id="password"
+							label="Password"
+							name="password"
+							placeholder="********"
+							type="password"
+							value={input.password}
+							handleInputChange={(event) =>
+								formInputHandler(event, setErrors, setInput)
+							}
+							error={errors && errors.password}
+						/>
+					</div>
+					<div>
+						<Input
+							id="confirmPassword"
+							label="Confirm Password"
+							name="confirmPassword"
+							placeholder="********"
+							type="password"
+							value={input.confirmPassword}
+							handleInputChange={(event) =>
+								formInputHandler(event, setErrors, setInput)
+							}
+							error={errors && errors.confirmPassword}
+						/>
+					</div>
+				</div>
+				<div className={styles.btn}>
+					<Button label={loading ? 'please wait' : 'Create Account'} />
+				</div>
+				<div className={styles.bottomText}>
+					<p>
+						Already have an account?{' '}
+						<Link className={styles.link} to="/login">
+							Log In
+						</Link>
+					</p>
+				</div>
+			</form>
+		</>
 	);
 }
 

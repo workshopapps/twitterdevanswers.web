@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getNotificationBody from './logic';
 
-import HorizontalMoreIcon from '../../assets/more-icon.svg';
+import HorizontalMoreIcon from '../../assets/notification-images/more-icon.svg';
 import styles from './styles.module.css';
 
 function NotificationItem({ notification }) {
@@ -93,13 +93,11 @@ const Notification = PropTypes.shape({
 		body: PropTypes.string,
 	}),
 });
-
-NotificationItem.defaultProps = {
-	notification: {},
-};
-
 NotificationItem.propTypes = {
 	notification: PropTypes.shape(Notification),
+};
+NotificationItem.defaultProps = {
+	notification: {},
 };
 
 export default NotificationItem;

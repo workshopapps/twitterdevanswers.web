@@ -1,6 +1,6 @@
 import React from 'react';
-import CoinIcon from '../../assets/coin.svg';
-import TagIcon from '../../assets/tag.svg';
+import CoinIcon from '../../assets/notification-images/coin.svg';
+import TagIcon from '../../assets/notification-images/tag.svg';
 
 function getNotificationBody(notification) {
 	const { question, type, amount, tag, title } = notification;

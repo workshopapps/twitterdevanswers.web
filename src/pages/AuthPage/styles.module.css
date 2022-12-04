@@ -1,51 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');
-
-.auth-page * {
-	margin: 0;
-	padding: 0;
-	font-family: 'Rubik', sans-serif;
-}
-
-.auth-page {
-	background: url('../../assets/auth-page-bg.png') center center/cover;
-	padding: 50px 20px;
-	color: #121212;
-	text-align: left;
-}
-
-.auth-container {
-	background-color: #fff;
-	max-width: 700px;
-	margin: 0 auto;
-	padding: 80px 30px;
-}
-
-.auth-content {
-	max-width: 500px;
-	margin: 0 auto;
-}
-
-.auth-title {
-	font-size: 24px;
-	margin-bottom: 20px;
-}
-
-.auth-options {
+.modal {
 	display: flex;
-	flex-direction: column;
-	gap: 20px;
+	justify-content: center;
+	align-items: center;
+	background: #1d1dd8;
+	color: #fff;
+	border-radius: 12px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 0 10px 100vw rgba(0, 0, 0, 0.8);
+	padding: 20px;
 }
 
-.auth-alt-option {
-	font-size: 16px;
-	margin-top: 30px;
-	margin-bottom: 40px;
-	text-align: center;
+.input {
+	width: 100%;
+}
+.input label div {
+	font-size: 20px;
+	line-height: 32px;
+	margin-bottom: 8px;
 }
 
-@media (max-width: 55em) {
-	.auth-page {
-		background: #fff;
-		padding: 50px 20px;
-	}
+.inputField {
+	width: 100%;
+	border: 1px solid #757575;
+	outline: none;
+	border-radius: 8px;
+	padding: 16px;
+	background: transparent;
+	transition: all 200ms ease-in-out;
+}
+.inputField:focus,
+.inputField:hover {
+	border-color: #1d1dd8;
+}
+
+.error .inputField {
+	border-color: #f89687;
+}
+
+.errorMsg {
+	font-size: 14px;
+	line-height: 20px;
+	color: #f83f23;
+	margin-top: 5px;
 }

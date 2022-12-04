@@ -1,6 +1,6 @@
 import React from 'react';
 import SettingsHeaderCSS from './SettingsHeader.module.css';
-import AvatarImage from '../assets/avatar.png';
+import AvatarImage from '../../../../assets/settings-images/avatar.png';
 
 function SettingHeader() {
 	return (

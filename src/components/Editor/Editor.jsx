@@ -1,20 +1,46 @@
 import React, { useState } from 'react';
 import styles from './Editor.module.css';
-import profilePicture from '../../assets/profilePicture.webp';
-import attach from '../../assets/attach.webp';
-import quoteDown from '../../assets/quoteDown.webp';
-import curlyBraces from '../../assets/curlyBraces.webp';
-import image from '../../assets/image.webp';
-import documentCode from '../../assets/documentCode.webp';
+import profilePicture from '../../assets/dashboard-images/profilePicture.webp';
+import attach from '../../assets/dashboard-images/attach.webp';
+import quoteDown from '../../assets/dashboard-images/quoteDown.webp';
+import curlyBraces from '../../assets/dashboard-images/curlyBraces.webp';
+import image from '../../assets/dashboard-images/image.webp';
+import documentCode from '../../assets/dashboard-images/documentCode.webp';
+
+const token = localStorage.getItem('token');
 
 function Editor() {
-	const [question, setQuestion] = useState({ text: '' });
+	const [question, setQuestion] = useState('');
 
 	function handleQuestion(event) {
-		setQuestion({
-			...question,
-			[event.target.name]: event.target.value,
-		});
+		setQuestion(event.target.value);
+	}
+
+	function submitHandler() {
+		if (question.trim() === '') return;
+		async function postAnswer() {
+			const response = await fetch(`https://api.devask.hng.tech/questions/`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					accept: 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({
+					title: '',
+					content: question,
+					expected_result: '',
+					payment_amount: 0,
+					answered: true,
+					tag: 'string',
+				}),
+			});
+
+			setQuestion('');
+			window.location.reload(false);
+			return response.data;
+		}
+		postAnswer();
 	}
 
 	return (
@@ -23,9 +49,9 @@ function Editor() {
 				<img src={profilePicture} alt="" className={styles.profilePicture} />
 				<textarea
 					name="text"
-					value={question.text}
+					value={question}
 					onChange={handleQuestion}
-					placeholder="Write a question"
+					placeholder="Start a discussion"
 					className={styles.writeQuestion}
 					rows={5}
 				/>
@@ -38,7 +64,9 @@ function Editor() {
 					<img src={image} alt="" className={styles.editorIcons} />
 					<img src={documentCode} alt="" className={styles.editorIcons} />
 				</div>
-				<button type="button">Post Question</button>
+				<button type="button" onClick={submitHandler}>
+					Post
+				</button>
 			</div>
 		</div>
 	);
