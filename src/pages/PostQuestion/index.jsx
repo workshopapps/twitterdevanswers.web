@@ -388,18 +388,22 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
 								</span>
+
 								<span>
 									<img src="/post-question/italic.svg" alt="italic Icon" />
 								</span>
+
 								<span>
 									<img src="/post-question/linkIcon.svg" alt="link Icon" />
 								</span>
+
 								<span>
 									<img
 										src="/post-question/unknown-text.svg"
 										alt="unknown-text Icon"
 									/>
 								</span>
+
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
@@ -436,18 +440,22 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
 								</span>
+
 								<span>
 									<img src="/post-question/italic.svg" alt="italic Icon" />
 								</span>
+
 								<span>
 									<img src="/post-question/linkIcon.svg" alt="link Icon" />
 								</span>
+
 								<span>
 									<img
 										src="/post-question/unknown-text.svg"
 										alt="unknown-text Icon"
 									/>
 								</span>
+
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
