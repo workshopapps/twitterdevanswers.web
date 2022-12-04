@@ -12,7 +12,7 @@ const updateUser = async (userId, user) =>{
       }
     try {
         const { data } = await axios.patch(
-            `https://pacific-peak-54505.herokuapp.com/users/edit/${userId}`,
+            ` https://api.devask.hng.tech/users/edit/${userId}`,
                   (user), {
                  headers,
               });
