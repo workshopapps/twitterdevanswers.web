@@ -30,6 +30,7 @@ import WalletPage from './pages/WalletPage';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
+import Security from "./pages/Security/Security"
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
@@ -80,6 +81,7 @@ function App() {
 					<Route path="users-page" element={<UserPage />} />
 					<Route path="post-questions" element={<PostQuestion />} />
 					<Route path="settings" element={<Settings />} />
+					<Route path="security-settings" element={<Security />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
 					<Route path="*" element={<ErrorPage />} />
