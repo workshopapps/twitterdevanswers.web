@@ -7,9 +7,9 @@ import styles from './styles.module.css';
 
 function Home() {
 	const slides =[
-		{id:1,header:"Save Time Troubleshooting a Line of Code", parag: "We connect you with other front end developers to help debug that line of code in the shortest time possible.", btn: "Learn More", path: "fourth-landing"},
-		{id:2, header:"Get instant replies to technical questions.", parag: "DevAsk is a user friendly app that provides instant answers to all of your coding questions at your fingertips. Coding doesn't need to be hard, sign up for DevAsk and find solutions today!", btn: "Learn More", path: "third-landing"},
-		{id:3, header:"Get rewarded for providing solutions to questions", parag: "Devask helps you get answers to your technical questions immediately. You also get rewarded when you provide correct answers to questions.", btn: "Learn More", path:"second-landing"}
+		{id:1,header:"Save Time Troubleshooting a Line of Code", parag: "We connect you with other front end developers to help debug that line of code in the shortest time possible.", btn: "Learn More", path: "/first-landing"},
+		{id:2, header:"Get instant replies to technical questions.", parag: "DevAsk is a user friendly app that provides instant answers to all of your coding questions at your fingertips. Coding doesn't need to be hard, sign up for DevAsk and find solutions today!", btn: "Learn More", path: "/second-landing"},
+		{id:3, header:"Get rewarded for providing solutions to questions", parag: "Devask helps you get answers to your technical questions immediately. You also get rewarded when you provide correct answers to questions.", btn: "Learn More", path:"/third-landing"}
 	]
 	const [currentIndex, setCurrentIndex]= useState(1)
 
