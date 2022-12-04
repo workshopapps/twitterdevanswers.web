@@ -52,8 +52,8 @@ function ProfileTopSection() {
 			<div className={Section1.profile__datatxt}>
 				<div className={Section1.profile__imagewrapper}>
 					<img
-						src={info.image_url}
-						// src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
+						// src={info.image_url} ||
+						src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
 						alt=""
 						className={Section1.profile__image}
 					/>
