@@ -46,10 +46,12 @@ function SignUp() {
 
 		if (!formErrors) {
 			try {
-				const { data } = await axios.post(
-					'https://api.devask.hng.tech/auth/signup',
-					input
-				);
+				const { data } = axios({
+					method: 'post',
+					url: 'https://api.devask.hng.tech/auth/signup',
+					data: input,
+					headers: { 'Access-Control-Allow-Origin': '*' },
+				});
 
 				if (data.status_code && data.status_code === 400) {
 					setServerResponse(
