@@ -1,0 +1,204 @@
+
+.container {
+	background: #fff;
+	padding: 0em
+}
+
+.container input::-moz-placeholder {
+	font-family: 'Rubik', san-serif;
+	font-weight: 400;
+	color: #989898;
+}
+
+.container input:-ms-input-placeholder {
+	font-weight: 400;
+	color: #989898;
+}
+
+.container input::placeholder {
+	font-weight: 400;
+	color: #989898;
+}
+
+.container input {
+	font-weight: 400;
+	color: #989898;
+	width: 70%;
+}
+
+.container textarea {
+	resize: none;
+	min-height: 130px;
+	padding: 4em 1.5em;
+}
+@media (min-width: 850px) {
+	.container textarea {
+		min-height: 180px;
+	}
+}
+
+.container .titleWrapper {
+	background: #ffffff;
+	padding: 1em 0em 0em 1em;
+	display: flex;
+	flex-direction: column;
+	margin: 1em;
+}
+@media (min-width: 850px) {
+	.container .titleWrapper {
+		max-width: 1000px;
+		margin: 1.5em auto;
+	}
+}
+.container .titleWrapper div {
+	text-align: left;
+	padding: 0em 1em 0em 0em;
+}
+@media (min-width: 850px) {
+	.container .titleWrapper div {
+		padding: 1.2em 0em 0em 1.5em;
+	}
+}
+.container .titleWrapper div h3 {
+	font-size: 1.1rem;
+	color: #303030;
+}
+.container .titleWrapper div p {
+	color: #757575;
+	font-size: 0.85rem;
+	line-height: 1.5;
+	text-transform: capitalize;
+	padding-right: 1em;
+	padding: 1em 0em;
+}
+.container .titleWrapper div input {
+	border-radius: 8px;
+	border: 1px solid #989898;
+	padding: 1em;
+	width: 85%;
+	margin-bottom: 1.2em;
+}
+
+.container .detailWrapper {
+	background: #ffffff;
+	margin: 1em;
+}
+@media (min-width: 850px) {
+	.container .detailWrapper {
+		max-width: 1015px;
+		margin: 1.5em auto;
+	}
+}
+.container .detailWrapper .content {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	padding: 1em 1em 1em 1em;
+}
+@media (min-width: 850px) {
+	.container .detailWrapper .content {
+		padding: 1.2em 0em 0em 2em;
+	}
+}
+.container .detailWrapper .content .textIcons {
+	display: flex;
+	max-width: 65%;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: -2.4em;
+	position: relative;
+	margin-left: 1.4em;
+}
+@media (min-width: 850px) {
+	.container .detailWrapper .content .textIcons {
+		max-width: 27%;
+	}
+}
+.container .detailWrapper .content h3 {
+	font-size: 1.1rem;
+	color: #303030;
+	margin: 0em;
+	padding: 0.5em 0em 0em 0em;
+}
+.container .detailWrapper .content p {
+	color: #757575;
+	font-size: 0.85rem;
+	line-height: 1.5;
+	padding-right: 1em;
+	margin-bottom: 0.2em;
+	padding: 1em 0em;
+}
+.container .detailWrapper .content textarea {
+	border-radius: 8px;
+	border: 1px solid #989898;
+	width: 88%;
+	padding: 1em;
+	line-height: 1.6;
+}
+.container .detailWrapper .content a {
+	background: #1d1dd8;
+	padding: 1em;
+	color: #ffffff;
+	align-self: flex-end;
+	border-radius: 4px;
+	border: none;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.buttonWrapper {
+	background: #ffffff;
+	padding: 1em;
+	margin: 1em 0em;
+	text-align: left;
+}
+@media (min-width: 850px) {
+	.buttonWrapper div {
+		max-width: 1030px;
+		margin: 0 auto;
+	}
+}
+.buttonWrapper div button {
+	padding: 1em;
+	border-radius: 4px;
+	margin: 1em;
+	outline: none;
+	cursor: pointer;
+}
+.buttonWrapper div .review {
+	background: #1d1dd8;
+	color: #ffffff;
+	border: none;
+}
+.buttonWrapper div .discard {
+	background: #ffffff;
+	color: #1d1dd8;
+	border: 1px solid #1d1dd8;
+}
+
+.containerWrapper {
+	padding: 1em 0em;
+	position: relative;
+}
+
+select {
+	width: 85%;
+	padding: 16px 20px;
+	border: none;
+	border-radius: 8px;
+	border: 1px solid #989898;
+	background-color: #fff;
+  }
+  input:focus:invalid {
+	background: #FFFFFF;
+	border: 1px solid #F89687;
+	box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.03), 0px 0px 0px 3px #FFD3CC;
+	border-radius: 6px;
+  }
+  textarea:focus:invalid {
+	background: #FFFFFF;
+	border: 1px solid #F89687;
+	box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.03), 0px 0px 0px 3px #FFD3CC;
+	border-radius: 6px;
+  }

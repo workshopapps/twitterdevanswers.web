@@ -213,7 +213,7 @@ function PostQuestion() {
 
 		try {
 			const data = await axios.post(
-				'https://pacific-peak-54505.herokuapp.com/questions',
+				'https://api.devask.hng.tech/questions',
 				details,
 				{
 					headers,
@@ -363,7 +363,7 @@ function PostQuestion() {
 								onChange={handleChange}
 								required
 								onBlur={handleNextDetail}
-								autoComplete
+								autoComplete="true"
 							/>
 						</div>
 
@@ -473,8 +473,8 @@ function PostQuestion() {
 						</div>
 
 						{/* Add tag */}
-						<section className={styles.tagWrapper}>
-							<div className={styles.tagContent}>
+						<section className={styles.postWrapper}>
+							<div className={styles.postContent}>
 								<span className={styles.text}>Add tag </span>
 
 								<button
