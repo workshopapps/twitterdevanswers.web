@@ -8,6 +8,7 @@ import Tags from './pages/Tags';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Home from './pages/Home';
 import SecondLandingPage from './pages/SecondLandingPage/SecondLandingPage';
 import ThirdLandingPage from './pages/ThirdLandingPage/ThirdLandingPage';
 import FirstLandingPage from './pages/FirstLandingPage/FirstLandingPage';
@@ -51,6 +52,7 @@ function App() {
 		<div className="App">
 			{user || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
+				<Route path="/" element={<Home/>} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
 				<Route path="/second-landing" element={<SecondLandingPage />} />
 				<Route path="/first-landing" element={<FirstLandingPage />} />
