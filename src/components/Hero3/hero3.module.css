@@ -1,0 +1,122 @@
+
+.hero {
+    background: url(./Hero3Images/pexels.jpg);
+    opacity: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+width: 883px;
+height: 144px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 600;
+font-size: 64px;
+line-height: 72px;
+text-align: center;
+color: #FEFEFE;
+padding-top: 70px;
+}
+
+.hero p {
+width: 650px;
+height: 64px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 32px;
+text-align: center;
+/* color: #BABABA; */
+color: white;
+margin-top: 90px;
+}
+
+.hero button {
+width: 150px;
+height: 60px;
+background: #1D1DD8;
+border-radius: 4px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+color: #FEFEFE;
+border-color: #1D1DD8;
+margin-top: 32px;
+}
+
+.numbers {
+	margin-top: 72px;
+	display: flex;
+	align-items: center;
+	gap: 64px;
+    padding-bottom: 120px;
+}
+
+.number div {
+	font-weight: 600;
+	font-size: 48px;
+	line-height: 56px;
+    font-family: 'Rubik';
+    font-style: normal;
+    color: #FEFEFE;
+}
+
+.number span {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+	font-size: 16px;
+	line-height: 18px;
+    color: #FEFEFE;
+}
+
+@media only screen and (max-width: 900px) {
+    .hero {
+        height: 100%;
+    }
+    .hero h1 {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 10%;
+    }
+
+    .hero p {
+        width: 100%;
+        margin-bottom: 5%;
+    }
+}
+
+
+@media only screen and (max-width: 580px) {
+    .hero h1 {
+        margin-bottom: 30%;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .number div {
+        font-size: 20px;
+    }
+
+    .number span {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 423px) {
+    .hero h1 {
+        margin-bottom: 50%;
+    }
+
+    .hero p {
+        margin-bottom: 10%;
+    }
+}
+

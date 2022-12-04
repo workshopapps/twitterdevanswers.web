@@ -43,7 +43,7 @@ export function WalletContextProvider({ children }) {
 
 		setData((prevState) => ({
 			...prevState,
-			totalAmmountEarned: actualData1.totalAmmountEarned,
+			totalAmmountEarned: actualData2.totalAmmountEarned,
 			currentBalance: actualData1.currentBalance,
 			earnings: actualData2,
 			spent: actualData3,
