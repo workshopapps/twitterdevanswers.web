@@ -4,18 +4,25 @@ pipeline {
             skipStagesAfterUnstable()
         }
     stages {
+        stage('Pull repo') {
+            steps { 
+                
+                sh "rm -rf ${WORKSPACE}/twitterdevanswers.web"
+                sh "git clone https://github.com/workshopapps/twitterdevanswers.web.git"
+                
         stage('Build') { 
             steps { 
+                dir('twitterdevanswers.web')
                 sh "npm i --force && CI=false npm run build"
               }
         }
 
         stage('Deploy to Production') {
             steps {
-                    sh "sudo cp -fr ${WORKSPACE}/build/* /home/judgejudy/twitterdevanswers.web/"
+                    sh "sudo cp -r ${WORKSPACE}/twitterdevanswers.web /home/judgejudy"
                     sh "sudo su - judgejudy && whoami"
                     //sh "sudo pm2 stop devaskweb"
-                    sh "sudo pm2 serve /home/judgejudy/twitterdevanswers.web/build -f --port 4456 --name devaskweb"
+                    sh "sudo systemctl restart twitterdevanswers.web.service"
                     sh "sudo pm2 save"
             }
         }
