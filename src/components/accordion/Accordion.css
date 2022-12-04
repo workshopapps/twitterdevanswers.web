@@ -1,8 +1,8 @@
 .accordion__section {
+	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
-
-	border-radius: 10px;
+	border-radius: 5px;
 	background: #ffffff;
 	box-shadow: 0px 90px 36px rgba(169, 162, 162, 0.01),
 		0px 51px 30px rgba(169, 162, 162, 0.05),
@@ -13,8 +13,8 @@
 .accordion__section .toggle {
 	border: unset;
 	cursor: pointer;
-	padding: 0.5rem;
-	border-radius: 10px;
+	padding:17px;
+	border-radius: 5px;
 	box-shadow: 0px 40px 16px rgba(169, 162, 162, 0.01),
 		0px 22px 13px rgba(169, 162, 162, 0.05),
 		0px 10px 10px rgba(169, 162, 162, 0.09),
@@ -25,31 +25,64 @@
 	justify-content: space-between;
 	align-items: center;
 }
+.horizon {
+	width : 100%;
+}
+.accordion__section .toggle:hover {
+	color : #1D1DD8;
+}
+.text_label {
+	color: black !important;
+}
+.text_label:hover {
+	color : #1D1DD8 !important;
+}
 .accordion__section p {
 	color: rgba(0, 0, 0, 0.4);
 	font-size: 20px;
 	line-height: 30px;
 	font-weight: 600;
-	padding: 10px;
+	padding: 17px;
 }
 .accordion__section .content {
 	background: #ffffff;
-	border-radius: 10px;
+	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 .accordion__section .content-parent {
 	height: 0px;
 	overflow: hidden;
 	transition: height ease 0.3s;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 .rotate {
 	transform: rotate(180deg);
 }
+.unrotate {
+	transform :rotate(-180deg);
+}
+.arrowdown_container {
+	border: 2px solid;
+	padding: 4px;
+	border-radius: 100%;
+}
 
-@media (max-width: 400px) {
+@media (max-width: 768px) {
 	.accordion__section p {
 		font-size: 15px;
 	}
 	.accordion__section .toggle {
 		font-size: 12px;
+	}
+	.accordion__section .toggle {
+		padding: 5px;
+	}
+	.accordion__section p {
+		padding: 5px;
+	}
+	.ellipse {
+		display: none;
 	}
 }

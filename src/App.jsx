@@ -34,6 +34,7 @@ import InternalFooter from './components/InternalFooter/InternalFooter';
 import Asks from './components/Asks';
 import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
+import NotificationSettings from "./pages/NotificationSettings/index";
 import { AppContext } from './store/AppContext';
 
 function App() {
@@ -55,7 +56,7 @@ function App() {
 				<Route path="help-center" element={<Help />} />
 				<Route path="terms-of-use" element={<TermsOfUse />} />
 				<Route path="pricing-page" element={<Pricing />} />
-				<Route pat h="career" element={<Career />} />
+				<Route path="career" element={<Career />} />
 				<Route path="how-it-works" element={<HowItWorks />} />
 				<Route path="API" element={<API />} />
 				<Route path="about" element={<About />} />
@@ -66,7 +67,7 @@ function App() {
 					<Route path="dashboard" element={<Dashboard />} />
 					<Route path="dashboard/questions/:id" element={<Asks />} />
 					<Route path="profile/:id" element={<Profile />} />
-					<Route path="notification-page" element={<Notifications />} />
+					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
 					<Route path="teams-page" element={<Teams />} />
 					<Route path="wallet" element={<WalletPage />} />
@@ -76,6 +77,7 @@ function App() {
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
 					<Route path="*" element={<ErrorPage />} />
+					<Route path="notification-settings" element={<NotificationSettings />} />
 				</Route>
 			</Routes>
 			{user || isAuth ? <InternalFooter /> : <Footer />}

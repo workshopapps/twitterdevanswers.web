@@ -9,6 +9,14 @@ function SubmitBlog() {
     const navigate = useNavigate();
     const { state } = useContext(AppContext);
     const [isTokenError, setIsTokenError] = useState('');
+    const [isPostCatsOpen, setIsPostCatsOpen] = useState(false);
+
+    const [postCats, setPostCats] = useState([
+		'Fitness/Health',
+		'Lifestyle',
+		'Programming',
+		'NFTs',
+	]);
 
     const [blogData, setBlogData] = useState({
         author: state.user.userName,
@@ -17,10 +25,38 @@ function SubmitBlog() {
 		title: '',
 		body: '',
         image_url: '',
-        post_category: 'NFTs',
+        post_category: `${postCats}`,
 	});
-  
 
+    const handlePostCatRemoval = () => {
+		setBlogData((prevState) => ({
+			...prevState,
+			postCat: '',
+		}));
+		setPostCats([
+            'Fitness/Health',
+            'Lifestyle',
+            'Programming',
+            'NFTs',
+		]);
+		setIsPostCatsOpen(false);
+	};
+    
+	const handlePostCatsClick = (postCatsName) => {
+		setPostCats(
+			[
+                'Fitness/Health',
+                'Lifestyle',
+                'Programming',
+                'NFTs',
+			].filter((postCat) => postCat !== postCatsName)
+		);
+		setBlogData((prevState) => ({
+			...prevState,
+			postCat: postCatsName,
+		}));
+		setIsPostCatsOpen(!isPostCatsOpen);
+	};
     const handleChange = (e) => {
 		const { name, value } = e.target;
 
@@ -30,13 +66,6 @@ function SubmitBlog() {
 			[name]: value,
 		}));
     }
-	
-    // function Toast() {
-    //     const x = document.getElementById("snackbar");
-    //     x.className = "show";
-    //     // After 3 seconds, remove the show class from DIV
-    //     setTimeout(()=> { x.className = x.className.replace("show", ""); }, 3000);
-    //   }
       
    const submitNewBlog = async () => {
 		const details = {
@@ -86,9 +115,10 @@ function SubmitBlog() {
             <section className={styles.titleWrapper} id="content">
             <h2>Submit an Article</h2>
             <br/>
-            <h5>You are required to signup to enable you submit an article</h5>
+            <p>Your article will be reviwed before publishing. Make sure the article is your own.</p>
+            <br/>
                 <div>
-                <h3>Name*</h3>
+                <h3>Author</h3>
                 <input
                     type="text"
                     placeholder=""
@@ -101,7 +131,7 @@ function SubmitBlog() {
             </section>
             <section className={styles.titleWrapper} id="detail">
                 <div>
-                <h3>Title*</h3>
+                <h3>Title</h3>
                 <input
                     type="text"
                     placeholder=""
@@ -114,7 +144,7 @@ function SubmitBlog() {
             </section>
         <section className={styles.detailWrapper} id='blog'>
             <div className={styles.content}>
-            <h3>Content*</h3>
+            <h3>Content</h3>
             <textarea
                 value={blogData.body}
                 name="body"
@@ -126,24 +156,66 @@ function SubmitBlog() {
             </textarea>
 			</div>    
             </section>
-                            
-        <section className={styles.buttonWrapper}>
-			<div>
-			<button
-			    className={styles.review}
-				type="submit"
-				onClick={handleSubmit}>
-					Submit
-			</button>
+            <section className={styles.tagWrapper}>
+							<div className={styles.tagContent}>
+								<span className={styles.text}>Post Category </span>
 
-			<button className={styles.discard} type="button">
-				Discard draft
-			</button>
+								<button
+									type="button"
+									onClick={() => setIsPostCatsOpen(!isPostCatsOpen)}
+									className={styles.tagsButton}
+								>
+									<img src="/post-question/down-arrow.svg" alt="Down Arrow" />
+								</button>
 
-			</div>
-		</section>
-        </form>
-        </section>
+								{isPostCatsOpen && (
+									<div className={styles.tagsWrapper}>
+										{isPostCatsOpen &&
+											postCats.map((postCat) => (
+												<button
+													key={postCat}
+													type="button"
+													onClick={() => handlePostCatsClick(postCat)}
+												>
+													{postCat}
+												</button>
+											))}
+									</div>
+								)}
+
+								{blogData.post_category && (
+									<p className={styles.allTagsText}>
+										{blogData.postCat}
+										<button
+											type="button"
+											onClick={() => handlePostCatRemoval(blogData.postCat)}
+											className={styles.allTagsButton}
+										>
+											<img src="/post-question/cancel.svg" alt="Cancel Icon" />
+										</button>
+									</p>
+								)}
+							</div>
+
+							
+						</section>              
+                    <section className={styles.buttonWrapper}>
+                        <div>
+                        <button
+                            className={styles.review}
+                            type="submit"
+                            onClick={handleSubmit}>
+                                Submit
+                        </button>
+
+                        <button className={styles.discard} type="button">
+                            Discard draft
+                        </button>
+
+                        </div>
+                    </section>
+                </form>
+            </section>
     </main>
   )
 }
