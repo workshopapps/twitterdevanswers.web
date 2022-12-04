@@ -19,7 +19,6 @@ async function getUser() {
 	});
 	return response.data.data;
 }
-
 async function getTotalReplies(id) {
 	const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
 		headers: {
