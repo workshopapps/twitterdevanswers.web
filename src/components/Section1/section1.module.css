@@ -64,6 +64,7 @@
 	background-color: white;
 	padding: 0.75rem 1.5rem;
 	color: #1d1dd8;
+	cursor: pointer;
 }
 * {
 	background-color: 2px solid red;
@@ -114,9 +115,8 @@
 }
 
 
-.profile__sociallinks {
-	
-}
+
+
 
 
 
