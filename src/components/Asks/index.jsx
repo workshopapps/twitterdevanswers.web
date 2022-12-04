@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './Asks.module.css';
 import arrowLeft from '../../assets/dashboard-images/arrowLeft.webp';
 import message from '../../assets/dashboard-images/message.webp';
@@ -8,6 +9,7 @@ import heart from '../../assets/dashboard-images/heart.webp';
 import share from '../../assets/dashboard-images/share.webp';
 import options from '../../assets/dashboard-images/options.webp';
 import user from '../../assets/dashboard-images/user.webp';
+import Modal from '../Modal/Modal';
 
 const token = localStorage.getItem('token');
 
@@ -29,7 +31,7 @@ async function getTotalReplies(id) {
 	return response.data.length;
 }
 
-function Asks() {
+function Asks({ onClose, show, hide, showShare }) {
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
 			day: '2-digit',
@@ -173,7 +175,10 @@ function Asks() {
 			<section className={styles.icons}>
 				<img src={message} alt="" />
 				<img src={heart} alt="" />
-				<img src={share} alt="" />
+				<Modal onClose={onClose} show={show} hide={hide} />
+				<button type="button" onClick={showShare}>
+					<img src={share} alt="" />
+				</button>
 			</section>
 			<section className={styles.typeReply}>
 				<img src={user} alt="" />
@@ -193,5 +198,12 @@ function Asks() {
 		</div>
 	);
 }
+
+Asks.propTypes = {
+	onClose: PropTypes.func.isRequired,
+	show: PropTypes.bool.isRequired,
+	hide: PropTypes.func.isRequired,
+	showShare: PropTypes.func.isRequired,
+};
 
 export default Asks;

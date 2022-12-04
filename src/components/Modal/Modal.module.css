@@ -1,0 +1,124 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #1f1f1f0f;
+	padding: 5px;
+}
+
+.modalMain {
+	position: fixed;
+	background: #ffffff;
+	border-radius: 16px;
+	width: 30%;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.showModal {
+	display: block;
+}
+
+.hideModal {
+	display: none;
+}
+
+.modalHeader {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	border-bottom: 1px solid #cfd8dc;
+	padding: 1rem 1.5rem;
+}
+
+.closeModal {
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.modalBody {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	padding: 1.5rem;
+}
+
+.socialShare {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.facebook {
+	color: #1877f2;
+	font-size: 20px;
+}
+
+.linkedin {
+	color: #0077b5;
+	font-size: 20px;
+}
+
+.pinterest {
+	color: #e60023;
+	font-size: 20px;
+}
+
+.twitter {
+	color: #1da1f2;
+	font-size: 20px;
+}
+
+.whatsapp {
+	color: #25d366;
+	font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+	.modal-main {
+		width: 70%;
+	}
+
+	.modal-header > p {
+		font-size: 18px;
+	}
+
+	.modal-body > p {
+		font-size: 10px;
+	}
+
+	.modal-select-btn > div > img {
+		width: 1rem;
+	}
+
+	.modal-select-btn > div > p {
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+	.modal-main {
+		width: 40%;
+	}
+
+	.modal-header > p {
+		font-size: 18px;
+	}
+
+	.modal-body > p {
+		font-size: 10px;
+	}
+
+	.modal-select-btn > div > img {
+		width: 1rem;
+	}
+
+	.modal-select-btn > div > p {
+		font-size: 12px;
+	}
+}
