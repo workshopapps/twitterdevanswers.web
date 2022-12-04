@@ -8,9 +8,10 @@ import Tags from './pages/Tags';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import LandingPage from './pages/LandingPage/LandingPage';
-// import About from './pages/About/index';
-import AboutUs from './pages/AboutUs/AboutUs';
+import SecondLandingPage from './pages/SecondLandingPage/SecondLandingPage';
+import ThirdLandingPage from './pages/ThirdLandingPage/ThirdLandingPage';
+import FirstLandingPage from './pages/FirstLandingPage/FirstLandingPage';
+import About from './pages/About/index';
 import Pricing from './pages/Pricing';
 import Advert from './pages/Advert/Advert';
 import Blog from './pages/Blog';
@@ -48,7 +49,9 @@ function App() {
 		<div className="App">
 			{token || lsToken ? <InternalHeader /> : <Header />}
 			<Routes>
-				<Route path="/" element={<LandingPage />} />
+				<Route path="/third-landing" element={<ThirdLandingPage />} />
+				<Route path="/second-landing" element={<SecondLandingPage />} />
+				<Route path="/first-landing" element={<FirstLandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
 				<Route path="blog-page" element={<Blog />} />
@@ -59,7 +62,7 @@ function App() {
 				<Route path="career" element={<Career />} />
 				<Route path="how-it-works" element={<HowItWorks />} />
 				<Route path="API" element={<API />} />
-				<Route path="about" element={<AboutUs />} />
+				<Route path="about" element={<About />} />
 				<Route path="login" element={<Login />} />
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
