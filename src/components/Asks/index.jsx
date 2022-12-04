@@ -127,7 +127,7 @@ function Asks() {
 				</div>
 			</section>
 			<h6 className={styles.reply}>{answer.content}</h6>
-			<section className={styles.cardFooter}></section>
+			<section className={styles.cardFooter} />
 		</div>
 	));
 
