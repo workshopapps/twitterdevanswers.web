@@ -14,8 +14,8 @@ import clockIcon from '../../assets/profile-images/clock.png';
 
 function ProfileTopSection() {
 	const navigate = useNavigate();
-	const {pathname} = useLocation()
-	const user = pathname.slice(9)
+	const { pathname } = useLocation();
+	const user = pathname.slice(9);
 	const [info, setInfo] = useState({});
 	const { state } = useContext(AppContext);
 	const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +30,7 @@ function ProfileTopSection() {
 			try {
 				setIsLoading(true);
 				const data = await axios.get(
-					`https://pacific-peak-54505.herokuapp.com/users/${user}`,
+					`https://api.devask.hng.tech/users/${user}`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,
@@ -46,29 +46,28 @@ function ProfileTopSection() {
 
 		fetchUser();
 	}, [isLoading]);
-	// console.log(state);
-useEffect(() => {
-	const fetchFollowers = async () => {
-		try {
-			setIsLoading(true);
-			const res = await axios.get(
-				`https://pacific-peak-54505.herokuapp.com/following/followers/${state.user.userName}`,
-				{
-					headers: {
-						Authorization: `Bearer ${state.token}`,
-						'Content-Type': 'application/json',
-					},
-				}
-			);
-			setFollowers(res.followers.length);
-		} catch (err) {
-			// console.error(err);
-		}
-	};
+	useEffect(() => {
+		const fetchFollowers = async () => {
+			try {
+				setIsLoading(true);
+				const res = await axios.get(
+					`https://api.devask.hng.tech/following/followers/${state.user.userName}`,
+					{
+						headers: {
+							Authorization: `Bearer ${state.token}`,
+							'Content-Type': 'application/json',
+						},
+					}
+				);
+				setFollowers(res.followers.length);
+			} catch (err) {
+				// console.error(err);
+			}
+		};
 
-	fetchFollowers();
-	console.log(followers)
-}, [isLoading]);
+		fetchFollowers();
+		console.log(followers);
+	}, [isLoading]);
 	return (
 		<div className={Section1.profile__datawrapper}>
 			<div className={Section1.profile__datatxt}>
@@ -199,4 +198,3 @@ ProfileTopSection.propTypes = {
 		location: PropTypes.string.isRequired,
 	}).isRequired,
 };
-

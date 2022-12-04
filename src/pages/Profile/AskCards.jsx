@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './AskCards.module.css';
@@ -9,26 +9,20 @@ import heartBold from '../../assets/dashboard-images/heartBold.webp';
 import share from '../../assets/dashboard-images/share.webp';
 import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
-
-
 const token = localStorage.getItem('token');
 
 async function getUser() {
-	const response = await axios.get(
-		`https://pacific-peak-54505.herokuapp.com/users/`,
-		{
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		}
-	);
+	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
 	return response.data.data;
 }
 
 function AskCards() {
-	const {pathname} = useLocation()
-	const thisuser = pathname.slice(9)
-	
+	const { pathname } = useLocation();
+	const thisuser = pathname.slice(9);
 
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
@@ -43,14 +37,14 @@ function AskCards() {
 	useEffect(() => {
 		(async function getData() {
 			const userIdResponse = await axios.get(
-				`https://pacific-peak-54505.herokuapp.com/users/${thisuser}`,
+				`https://api.devask.hng.tech/users/${thisuser}`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
 					},
 				}
 			);
-			const userIdData = await userIdResponse.data.data.user_id
+			const userIdData = await userIdResponse.data.data.user_id;
 			const response = await axios.get(
 				`https://pacific-peak-54505.herokuapp.com/questions/${userIdData}/user`,
 				{
@@ -128,4 +122,3 @@ function AskCards() {
 }
 
 export default AskCards;
-
