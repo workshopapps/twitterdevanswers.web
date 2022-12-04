@@ -1,37 +1,18 @@
 import React, {useState, useContext} from 'react'
 import { nanoid } from 'nanoid';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import styles from './submitblog.module.css';
 import { AppContext } from '../../store/AppContext';
 
 function SubmitBlog() {
-    const navigate = useNavigate();
+   
     const { state } = useContext(AppContext);
     const [isTokenError, setIsTokenError] = useState('');
-
-    const [blogData, setBlogData] = useState({
-        author: state.user.userName,
-		user_id: state.user.user_id,
-        blog_user_id: '',
-		title: '',
-		body: '',
-        image_url: '',
-        post_category: '',
-	});
-    const handleChange = (e) => {
-		const { name, value } = e.target;
-
-		setBlogData((prevState) => ({
-			...prevState,
-			id: nanoid(),
-			[name]: value,
-		}));
-    }
-    const options = [
+    const [error, setError] = useState(false);
+    const postCategories = [
         {
-            label: "Select Post Category",
-            value: "post_category",
+          label: "*Select Post Category*",
+          value: "post-cat",
         },
         {
           label: "NFTs",
@@ -50,6 +31,27 @@ function SubmitBlog() {
           value: "programming",
         },
       ];
+      
+    const [blogData, setBlogData] = useState({
+        author: state.user.userName,
+		user_id: state.user.user_id,
+        blog_user_id: '',
+		title: '',
+		body: '',
+        image_url: '',
+        post_category: 'Select',
+	});
+    const handleChange = (e) => {
+		const { name, value } = e.target;
+
+		setBlogData((prevState) => ({
+			...prevState,
+			id: nanoid(),
+			[name]: value,
+		}));
+        console.log(blogData)
+    }
+
 
    const submitNewBlog = async () => {
 		const details = {
@@ -74,9 +76,9 @@ function SubmitBlog() {
 				}
 			);
 			if (data) {
-            setTimeout(() => {
-                navigate('/blog-page');
-            }, 3000);
+            // setTimeout(() => {
+            //     navigate('/blog-page');
+            // }, 3000);
 			}
 		} catch (err) {
             setIsTokenError('Cannot complete request now. Try again later...');
@@ -85,6 +87,7 @@ function SubmitBlog() {
 
     const handleSubmit = (e) => {
 		e.preventDefault();
+        setError(true);
 		submitNewBlog();
 	};
 
@@ -118,31 +121,39 @@ function SubmitBlog() {
                 <h3>Title</h3>
                 <input
                     type="text"
-                    placeholder=""
+                    placeholder="Enter blog title"
                     value={blogData.title}
                     name="title"
                     onChange={handleChange}
                     required
-                    />            
+                    />      
                 </div>
+            {error&&blogData.title.length<=2 ?
+              <div className="invalid" style={{color: "#F89687"}}> 
+                Please enter a title.
+              </div> : ""} 
             </section>
             <section className={styles.titleWrapper}>
                 <div>
-                <label htmlFor="post_category">
                     <h3>Post Category</h3>
-                <select value="Select Post Category"
+                    <select  
+                        name="post_category"                 
+                        value={blogData.post_category}
                         onChange={handleChange}
                         >
-                    {options.map((option) => (
-                    <option name="post_category"
-                    value={option.value}
-                    key={option.value}>
-                        {option.label}
+                    {postCategories.map((postCategory) => (
+                    <option
+                    value={postCategory.value}
+                    key={postCategory.value}>
+                        {postCategory.label}
                     </option>
                     ))}
                 </select>
-                </label>
                 </div>
+                {error&&blogData.post_category==="" ?
+              <div className="invalid" style={{color: "#F89687"}}> 
+                Please select your Post category.
+              </div> : ""} 
             </section>
 
         <section className={styles.detailWrapper} id='blog'>
@@ -158,7 +169,12 @@ function SubmitBlog() {
                 >
                 *Placeholder*
             </textarea>
+        {error&&blogData.title.length<=2 ?
+            <div className="invalid" style={{color: "#F89687"}}> 
+                Please add your article content.
+            </div> : ""} 
 			</div>    
+
             </section>
 
                     <section className={styles.buttonWrapper}>
