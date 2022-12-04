@@ -58,9 +58,8 @@ function AskCards() {
 			setQuestions(fetchedQuestions);
 
 			setUsers(await getUser());
-			const fetchedReplies = fetchedQuestions.map(
-				async (fetchedQuestion) =>
-					 getTotalReplies(fetchedQuestion.question_id)
+			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
+				getTotalReplies(fetchedQuestion.question_id)
 			);
 
 			Promise.all([...fetchedReplies].reverse()).then((reply) =>
