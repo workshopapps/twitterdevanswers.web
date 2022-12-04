@@ -12,6 +12,7 @@ import testQuestions from '../../utils/testQuestions.json';
 
 function Asks() {
 	const paramValues = useParams();
+
 	const [reply, setReply] = useState({ text: '' });
 
 	function handleReply(event) {
