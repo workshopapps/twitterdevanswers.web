@@ -9,8 +9,6 @@ import share from '../../assets/dashboard-images/share.webp';
 import options from '../../assets/dashboard-images/options.webp';
 import user from '../../assets/dashboard-images/user.webp';
 
-
-
 const token = localStorage.getItem('token');
 
 async function getUser() {
@@ -25,6 +23,18 @@ async function getUser() {
 	return response.data.data;
 }
 
+async function getTotalReplies(id) {
+	const response = await axios.get(
+		`https://pacific-peak-54505.herokuapp.com/answer/${id}`,
+		{
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		}
+	);
+	return response.data.length;
+}
+
 function Asks() {
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
@@ -37,6 +47,7 @@ function Asks() {
 	const paramValues = useParams();
 	const [reply, setReply] = useState('');
 	const [question, setQuestion] = useState([]);
+	const [totalReplies, setTootalReplies] = useState([]);
 	const [users, setUsers] = useState([]);
 	const findUser = (id) => users.find((userr) => userr.user_id === id);
 	const [answers, setAnswers] = useState([]);
@@ -66,12 +77,12 @@ function Asks() {
 			setQuestion(fetchedQuestions);
 			setUsers(await getUser());
 			setAnswers(await getAnswers(paramValues.id));
+			setTootalReplies(await getTotalReplies(paramValues.id));
 		})();
 	}, []);
 
 	function handleReply(event) {
 		setReply(event.target.value);
-		
 	}
 
 	function submitHandler() {
@@ -92,16 +103,12 @@ function Asks() {
 				}
 			);
 
-
 			setReply('');
+			window.location.reload(false);
 			return response.data;
 		}
 		postAnswer();
 	}
-
-
-
-	
 
 	const answerss = answers?.map((answer) => (
 		<div className={styles.cardContainer} key={answer.answer_id}>
@@ -116,10 +123,8 @@ function Asks() {
 						<div className={styles.userInfo}>
 							<h5 className={styles.askName}>
 								{findUser(answer.owner_id)?.username}
-					
-								
 							</h5>
-						
+
 							<p className={styles.time}>
 								{answer.created_at && formatDate(answer.created_at)}
 							</p>
@@ -129,11 +134,9 @@ function Asks() {
 						</p>
 					</div>
 				</div>
-	
 			</section>
 			<h6 className={styles.reply}>{answer.content}</h6>
-			<section className={styles.cardFooter}>
-			</section>
+			<section className={styles.cardFooter}></section>
 		</div>
 	));
 
@@ -154,30 +157,26 @@ function Asks() {
 							{findUser(question.owner)?.username}
 						</h4>
 						<div className={styles.timeDate}>
-							
 							<p>{question.createdAt && formatDate(question.createdAt)}</p>
 						</div>
 					</div>
 				</div>
-				<p className={styles.edit}>Edit</p>
+				{/* <p className={styles.edit}>Edit</p> */}
 				<img src={options} alt="" className={styles.options} />
 			</section>
 			<section className={styles.question}>
 				<h4 className={styles.title}> {question.title}</h4>
 				<p className={styles.description}>{question.content}</p>
-				
 			</section>
 			<div className={styles.tagEdit}>
-				
-
 				<p className={styles.editMobile}>Edit</p>
 			</div>
 			<section className={styles.stats}>
 				<p>
-					<strong>{question?.answers?.length}</strong> Replies
+					<strong>{totalReplies}</strong> Replies
 				</p>
 				<p>
-					<strong>2</strong> Likes
+					<strong>0</strong> Likes
 				</p>
 			</section>
 			<section className={styles.icons}>
