@@ -96,10 +96,7 @@ function AskCards() {
 					<img src={options} alt="" className={styles.options} />
 				</section>
 
-				<div
-				// to={`/dashboard/questions/${question.question_id}`}
-				// style={{ textDecoration: 'none' }}
-				>
+				<div>
 					<h4 className={styles.title}>{question.title}</h4>
 					<p className={styles.reply} style={{ lineHeight: '1.8' }}>
 						{question.content}
