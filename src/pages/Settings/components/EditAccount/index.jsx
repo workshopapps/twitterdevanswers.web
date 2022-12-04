@@ -153,7 +153,7 @@ function EditAcccount() {
 									type="text"
 									placeholder="07012345678 "
 									maxLength="11"
-									value={user.phonenumber}
+									value={user.phoneNumber}
 									name="Phonenumber"
 									onChange={changeHandler}
 								/>
@@ -193,7 +193,7 @@ function EditAcccount() {
 								<select
 									className={EditAccountCSS.textinput}
 									required
-									value={user.experience}
+									value={user.workExperience}
 									name="experience"
 									onChange={changeHandler}
 								>
@@ -212,7 +212,7 @@ function EditAcccount() {
 									className={EditAccountCSS.textinputfull}
 									type="text"
 									placeholder="Senior Developer/DevAsk"
-									value={user.company}
+									value={user.position}
 									name="company"
 									onChange={changeHandler}
 								/>
