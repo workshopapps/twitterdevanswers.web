@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Notifications from './pages/Notifications';
 import API from './pages/API';
@@ -48,9 +48,64 @@ function App() {
 	const data = localStorage.getItem('user');
 	const user = JSON.parse(data);
 
+	const[active,setActive]=useState(true)
+	
+	const checkForInactivity =() =>{
+		const expiredTime = sessionStorage.getItem('expireTime')
+
+		if(expiredTime< Date.now()){
+
+			setActive(false)
+			sessionStorage.setItem('userActivity',('offline'))
+
+		}else if(expiredTime> Date.now()) {
+			setActive(true)
+			const today = new Date()
+			sessionStorage.setItem('userActivity',('online'))
+			const inactiveTimeStamp=`${today.getFullYear()}-${(today.getMonth() + 1)}-${today.getDate()},${today.getHours()}:${today.getMinutes()} `
+			sessionStorage.setItem('lastSeen',inactiveTimeStamp)
+
+		}
+	}
+
+	const updateExpiredTime = ()=>{
+		if(active === true){
+			const timer = Date.now() + 5000;
+			sessionStorage.setItem("expireTime",timer)
+
+		}
+	}
+
+	useEffect(()=>{
+
+		const interval = setInterval(() =>{
+			checkForInactivity();
+
+		},[500])
+
+		return()=> clearInterval(interval)
+	},[])
+
+	useEffect(()=>{
+		updateExpiredTime();
+
+		window.addEventListener("click",updateExpiredTime);
+		window.addEventListener("keypress",updateExpiredTime);
+		window.addEventListener("scroll",updateExpiredTime);
+		window.addEventListener("mousemove",updateExpiredTime)
+
+		return ()=>{
+			window.removeEventListener("click",updateExpiredTime);
+			window.removeEventListener("keypress",updateExpiredTime);
+			window.removeEventListener("scroll",updateExpiredTime);
+			window.removeEventListener("mousemove",updateExpiredTime)
+
+		}
+	},[])
+
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader /> : <Header />}
+			{user || isAuth ? <InternalHeader active={active} /> : <Header />}
 			<Routes>
 				<Route path="/" element={<Home/>} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
