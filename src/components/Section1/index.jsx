@@ -2,6 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+
+
+
 import PropTypes from 'prop-types';
 import { AppContext } from '../../store/AppContext';
 import Section1 from './section1.module.css';
@@ -21,10 +24,12 @@ function ProfileTopSection() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [followers, setFollowers] = useState();
 
+
+
+
 	const handleEdit = () => {
 		navigate('/settings');
 	};
-
 	useEffect(() => {
 		const fetchUser = async () => {
 			try {
@@ -43,7 +48,6 @@ function ProfileTopSection() {
 				// console.error(err);
 			}
 		};
-
 		fetchUser();
 	}, [isLoading]);
 	useEffect(() => {
@@ -64,6 +68,9 @@ function ProfileTopSection() {
 				// console.error(err);
 			}
 		};
+
+
+
 
 		fetchFollowers();
 		console.log(followers);
@@ -108,7 +115,6 @@ function ProfileTopSection() {
 							{info.location}
 						</div>
 					</div>
-
 					<div className={Section1.profile__sociallinks}>
 						<div className={Section1.profile__link}>
 							<div className={Section1.profile__iconwrapper}>
@@ -185,9 +191,7 @@ function ProfileTopSection() {
 		</div>
 	);
 }
-
 export default ProfileTopSection;
-
 ProfileTopSection.propTypes = {
 	user: PropTypes.shape({
 		name: PropTypes.string.isRequired,
