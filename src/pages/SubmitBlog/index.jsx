@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import styles from './submitblog.module.css';
@@ -33,7 +33,7 @@ function SubmitBlog() {
 		},
 	];
 
-	const [ body, setBody] = useState({text: ''})
+	const [body, setBody] = useState({ text: '' });
 	const [blogData, setBlogData] = useState({
 		author: '',
 		user_id: state.user.user_id,
@@ -44,9 +44,8 @@ function SubmitBlog() {
 	});
 
 	const handleBody = (value) => {
-		setBody((prev) => ({ ...prev, text: value,}));
-			
-	}
+		setBody((prev) => ({ ...prev, text: value }));
+	};
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -56,8 +55,7 @@ function SubmitBlog() {
 			id: nanoid(),
 			[name]: value,
 		}));
-    }
-
+	};
 
 	const submitNewBlog = async () => {
 		const details = {
@@ -182,18 +180,21 @@ function SubmitBlog() {
 							>
 								*Placeholder*
 							</textarea> */}
-							<ReactQuill 
-							    className={styles.textEditor}
-								placeholder='Write Something'
-								theme='snow'
+							<ReactQuill
+								className={styles.textEditor}
+								placeholder="Write Something"
+								theme="snow"
 								defaultValue=""
 								modules={SubmitBlog.modules}
-								formats={SubmitBlog.formats }
+								formats={SubmitBlog.formats}
 								onChange={handleBody}
 								value={body.text}
 							/>
 							{error && blogData.title.length <= 2 ? (
-								<div className="invalid" style={{ color: '#F89687', paddingTop: '3rem' }}>
+								<div
+									className="invalid"
+									style={{ color: '#F89687', paddingTop: '3rem' }}
+								>
 									Please add your article content.
 								</div>
 							) : (
@@ -226,19 +227,27 @@ function SubmitBlog() {
 SubmitBlog.modules = {
 	syntax: true,
 	toolbar: [
-		[{ size: [] },"bold", "italic", "underline", "strike", "blockquote","link",],
-		[{ 'code-block': true }]
+		[
+			{ size: [] },
+			'bold',
+			'italic',
+			'underline',
+			'strike',
+			'blockquote',
+			'link',
+		],
+		[{ 'code-block': true }],
 	],
 };
 SubmitBlog.formats = [
- "size",
- "bold",
- "italic",
- "underline",
- "strike",
- "blockquote",
- "link",
- "code-block",
+	'size',
+	'bold',
+	'italic',
+	'underline',
+	'strike',
+	'blockquote',
+	'link',
+	'code-block',
 ];
 
 export default SubmitBlog;
