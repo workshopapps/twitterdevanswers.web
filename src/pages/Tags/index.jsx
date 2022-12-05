@@ -59,7 +59,7 @@ export default function Tags() {
 				
 			setQuestions(fetchedQuestions);
 			setTags(fetchedQuestions);
-			
+
 			setUsers(await getUser());
 			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
 			getTotalReplies(fetchedQuestion.question_id)
@@ -233,9 +233,10 @@ export default function Tags() {
 
 				<div>
 					<div className={grid ? styles.grid : styles.list}>
-						{tags.slice(page.start, page.end).map((item, index) => (
+						{tags.length !==0 ? tags.slice(page.start, page.end).map((item, index) => (
 							<Tag key={item.id} isGridView={grid} Data={item} users={users} replies={replies} index={index}/>
-						))}
+						)) : "Selected Tags Record not Available.."
+					}
 					</div>
 				</div>
 				{tags.length > tagsPerPage && (
