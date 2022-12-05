@@ -33,7 +33,7 @@ function UserPage() {
     }
     getUsers()
   }, [])
- 
+  
 const handleSearch = (event) => {
     const query = event.target.value
     setSearchQuery(query)

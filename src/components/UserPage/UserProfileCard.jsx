@@ -15,14 +15,14 @@ function UserProfileCard({ user }) {
 			<section className={styles.user_info_container}>
 				<section>
 					<p className={styles.user_name}> {user.username}</p>
-					<p className={styles.user_stack}>{user.work_experience}</p>
+					<p className={styles.user_stack}>{user.work_experience === " " ? 'user has not filled experience' : user.work_experience}</p>
 				</section>
 
 				<span className={styles.user_extra_info}>
 					<p className={styles.user_followers}>followers</p>
 
 					<p className={styles.user_favorite_language}>
-						{user.stack}
+						{user.stack === " " ? 'user has not filled stack' : user.stack}
 					</p>
 				</span>	
 				<div className = {styles.user_follow_info}>

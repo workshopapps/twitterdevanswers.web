@@ -4,7 +4,7 @@ pipeline {
             skipStagesAfterUnstable()
         }
     stages {
-        stage('Build') { 
+        stage('Build2') { 
             steps { 
                 sh "npm i --force && CI=false npm run build"
               }
