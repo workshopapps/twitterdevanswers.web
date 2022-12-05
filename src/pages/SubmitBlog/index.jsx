@@ -49,7 +49,6 @@ function SubmitBlog() {
 			id: nanoid(),
 			[name]: value,
 		}));
-        console.log(blogData)
     }
 
 
