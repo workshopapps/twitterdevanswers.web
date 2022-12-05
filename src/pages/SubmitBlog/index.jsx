@@ -36,12 +36,12 @@ function SubmitBlog() {
 	const [body, setBody] = useState({ text: '' });
 	const [blogData, setBlogData] = useState({
 		author: '',
-		user_id: state.user.user_id,
 		blog_user_id: '',
 		title: '',
 		image_url: '',
 		post_category: 'Select',
 	});
+	console.log(blogData)
 
 	const handleBody = (value) => {
 		setBody((prev) => ({ ...prev, text: value }));
@@ -60,7 +60,6 @@ function SubmitBlog() {
 	const submitNewBlog = async () => {
 		const details = {
 			author: blogData.author,
-			user_id: blogData.user_id,
 			blog_user_id: 2,
 			title: blogData.title,
 			body: body.text,
