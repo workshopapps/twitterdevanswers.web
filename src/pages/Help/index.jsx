@@ -31,7 +31,7 @@ function Help() {
 							</article>
 							<article className={styles.article}>
 								<h3>Why is “can someone help me” not an actual question?</h3>
-								<p>Because DevAsk is a question & answer site, you may think that you have asked a reasonable, answerable question, but you really haven't.</p>
+								<p>Because DevAsk is a question & answer site, you may think that you have asked a reasonable, answerable question, but you really haven&apos;t.</p>
 								<p>First, a bit of background. This site is intended to create a knowledge repository of solutions to programming problems. This means that a primary characteristic of a good question is that it is likely to be searched by someone else. {`'`}Will you help me do X? {`"`} doesn{`'`}t do that. More than likely, no one will ever be trying to do, and searching for, the exact same thing as you in exactly the same way. On the other hand, questions like: {`"`}How do I convert a string to a number?{`"`} are searched very often.</p>
 								<p>Second, for the sake of argument, let{`'`}s say we don{`'`}t care if it{`'`}s useful to someone else, that we are only here for you (we aren{`'`}t). It{`'`}s still impossible to answer. Imagine what an answer might look like. It would essentially need to be the entire code base. We can appreciate that you only want {`"`}help{`"`}, but with the question you{`'`}ve asked, we can{`'`}t provide it. Compare that to the above question, which has a clear definable answer (or even multiple answers).</p>
 								<p>So, help us help you. When you write a question, make sure to actually ask a question. Answerable questions don{`'`}t ask how to implement a feature, they ask how to accomplish a programming task (among other things).</p>
