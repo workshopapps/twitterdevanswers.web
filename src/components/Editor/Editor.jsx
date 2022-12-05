@@ -1,47 +1,91 @@
 import React, { useState } from 'react';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import styles from './Editor.module.css';
 import profilePicture from '../../assets/dashboard-images/profilePicture.webp';
-import attach from '../../assets/dashboard-images/attach.webp';
-import quoteDown from '../../assets/dashboard-images/quoteDown.webp';
-import curlyBraces from '../../assets/dashboard-images/curlyBraces.webp';
-import image from '../../assets/dashboard-images/image.webp';
-import documentCode from '../../assets/dashboard-images/documentCode.webp';
+
+
+const token = localStorage.getItem('token');
 
 function Editor() {
-	const [question, setQuestion] = useState({ text: '' });
+	const [question, setQuestion] = useState({text: ''});
 
-	function handleQuestion(event) {
-		setQuestion({
-			...question,
-			[event.target.name]: event.target.value,
-		});
+	
+	const handleQuestion = (value) => {
+		setQuestion((prev) => ({ ...prev, text: value,}));
+			
+	}
+
+	function submitHandler() {
+		if (question.trim() === '') return;
+		async function postAnswer() {
+			const response = await fetch(`https://api.devask.hng.tech/questions/`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					accept: 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({
+					title: '',
+					content: question.text,
+					expected_result: '',
+					payment_amount: 0,
+					answered: true,
+					tag: 'string',
+				}),
+			});
+
+			setQuestion('');
+			window.location.reload(false);
+			return response.data;
+		}
+		postAnswer();
 	}
 
 	return (
 		<div className={styles.editorContainer}>
 			<div className={styles.questionArea}>
 				<img src={profilePicture} alt="" className={styles.profilePicture} />
-				<textarea
-					name="text"
-					value={question.text}
-					onChange={handleQuestion}
-					placeholder="Write a question"
+				
+				<ReactQuill 
 					className={styles.writeQuestion}
-					rows={5}
+					placeholder='Start a discussion'
+					theme='snow'
+					defaultValue=""
+					modules={Editor.modules}
+					formats={Editor.formats }
+					onChange={handleQuestion}
+					value={question.text}
 				/>
 			</div>
 			<div className={styles.editorFooter}>
-				<div>
-					<img src={attach} alt="" className={styles.editorIcons} />
-					<img src={quoteDown} alt="" className={styles.editorIcons} />
-					<img src={curlyBraces} alt="" className={styles.editorIcons} />
-					<img src={image} alt="" className={styles.editorIcons} />
-					<img src={documentCode} alt="" className={styles.editorIcons} />
-				</div>
-				<button type="button">Post Question</button>
+			
+				<button type="button" onClick={submitHandler}>
+					Post
+				</button>
 			</div>
 		</div>
 	);
 }
+
+
+Editor.modules = {
+	syntax: true,
+	toolbar: [
+		[{ size: [] },"bold", "italic", "underline", "strike", "blockquote","link",],
+		[{ 'code-block': true }]
+	],
+};
+Editor.formats = [
+ "size",
+ "bold",
+ "italic",
+ "underline",
+ "strike",
+ "blockquote",
+ "link",
+ "code-block",
+];
 
 export default Editor;

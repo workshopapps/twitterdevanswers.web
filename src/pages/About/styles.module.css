@@ -1,445 +1,266 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-@media (min-width: 320px) {
-	.mainHeader {
-		width: 100%;
-		max-width: 300px;
-	}
-
-	.header {
-		width: 40%;
-		position: relative;
-		top: -83px;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 500;
-		font-size: 2rem;
-		color: #303030;
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-	}
-
-	.intro {
-		position: relative;
-		width: 40%;
-		top: -87px;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 1.7rem;
-		color: #303030;
-	}
-
-	.about {
-		position: absolute;
-		width: 180px;
-		height: 141px;
-		left: 190px;
-		top: 302px;
-	}
-
-	.secondHeader {
-		max-width: 700px;
-		height: 67px;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 18px;
-		line-height: 26px;
-		text-align: center;
-		order: 0;
-		margin-left: 0.5rem;
-		margin-top: 5rem;
-		margin-bottom: 8px;
-	}
-
-	.secondIntro {
-		width: 341px;
-		height: 196px;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 32px;
-		text-align: center;
-		color: #303030;
-		flex: none;
-		order: 1;
-		flex-grow: 0;
-		margin-left: 1.5rem;
-	}
-
-	.startedButton {
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 16px;
-		cursor: pointer;
-		line-height: 24px;
-		color: #fefefe;
-		max-width: 342px;
-		height: 56px;
-		background: #1d1dd8;
-		outline: none;
-		margin-left: 1rem;
-		border-radius: 4px;
-		transition: all 0.3s ease-in-out;
-	}
-
-	.storyWrapper {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		gap: 24px;
-		margin-top: 30px;
-	}
-
-	.storyHeader {
-		width: 85px;
-		height: 24px;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 18px;
-		line-height: 24px;
-		color: #000000;
-		margin-left: 9rem;
-		margin-top: 5rem;
-	}
-
-	.storyIntro {
-		width: 341px;
-		height: 726px;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 33px;
-		text-align: center;
-		color: #000000;
-		margin-left: 1rem;
-	}
-
-	.screen {
-		width: 300.03px;
-		height: 192px;
-	}
-
-	.principleHead {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 1.75rem;
-		color: #000000;
-		margin-top: 5rem;
-	}
-
-	.textWrapper {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		gap: 25px;
-		margin-top: 25px;
-		padding: 0 100px;
-	}
-
-	.text {
-		max-width: 360px;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 25px;
-		text-align: center;
-	}
-
-	.journey {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 1.75rem;
-		line-height: 24px;
-		color: #000000;
-		margin: 3rem 20px;
-	}
-
-	.journeyWrapper {
-		display: flex;
-		justify-content: space-around;
-	}
-
-	.box1 {
-		width: 83px;
-		height: 76px;
-		font-family: 'Rubik';
-		font-style: normal;
-		color: #303030;
-	}
-
-	.journeyFigure1 {
-		font-weight: 600;
-		font-size: 32px;
-		line-height: 40px;
-	}
-
-	.journeyWord1 {
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 18px;
-		text-align: center;
-	}
-
-	.box2 {
-		width: 83px;
-		height: 76px;
-		font-family: 'Rubik';
-		font-style: normal;
-		color: #303030;
-	}
-
-	.journeyFigure2 {
-		font-weight: 600;
-		font-size: 32px;
-		line-height: 40px;
-	}
-
-	.journeyWord2 {
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 18px;
-		text-align: center;
-	}
-
-	.box3 {
-		width: 84px;
-		height: 76px;
-		font-family: 'Rubik';
-		font-style: normal;
-		color: #303030;
-	}
-
-	.journeyFigure3 {
-		font-weight: 600;
-		font-size: 32px;
-		line-height: 40px;
-	}
-
-	.journeyWord3 {
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 18px;
-		text-align: center;
-	}
-
-	.clients {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-wrap: wrap;
-		font-family: 'Rubik';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 1.75rem;
-		color: #000000;
-		margin: 30px auto;
-	}
-
-	.principlesWrapper {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		text-align: justify;
-		width: 100%;
-		padding: 20px 35px;
-		background: #1d1dd8;
-		border-radius: 4px;
-		margin-bottom: 30px;
-	}
-
-	.principle1 {
-		width: 107.62px;
-		height: 23.88px;
-		margin-left: 2rem;
-		/* margin-top: 2rem; */
-		margin-bottom: 1rem;
-	}
-
-	.principle2 {
-		width: 59.93px;
-		height: 24px;
-		margin-left: 2rem;
-		/* margin-top: 2rem; */
-	}
-
-	.principle3 {
-		width: 59.93px;
-		height: 24px;
-		margin-left: 2rem;
-		/* margin-top: 2rem; */
-	}
-
-	.principle4 {
-		width: 53.29px;
-		height: 24px;
-		/* margin-left: 5.5rem; */
-	}
-
-	.principle5 {
-		/* width: 102px; */
-		/* height: 24px; */
-		margin-left: 2rem;
-	}
-}
-
-.header {
-	width: 395px;
-	height: 80px;
-	margin-left: 480px;
-	margin-top: 227px;
+.AboutUs{
+    width: 100%;
 	font-family: 'Rubik';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 64px;
-	line-height: 80px;
-	color: #303030;
 }
+.AboutMainSection{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.Header{
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 80px;
+    text-align: left;
 
-.intro {
-	width: 767px;
-	height: 128px;
-	margin-left: 310px;
-	margin-top: 3rem;
-	font-family: 'Rubik';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 32px;
-	text-align: center;
-	color: #303030;
 }
+.AboutMainSection h1{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
 
-.about1 {
-	position: absolute;
-	left: 1rem;
-	top: 170px;
 }
-.about2 {
-	position: absolute;
-	left: 0.1rem;
-	top: 364px;
-}
-.about3 {
-	position: absolute;
-	left: 800px;
-	top: 221.2px;
-}
-.about4 {
-	position: absolute;
-	left: 800px;
-	top: 408.34px;
-}
+.AboutMainSection p{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
 
-.secondHeader {
-	width: 689px;
-	height: 66px;
-	margin-left: 20rem;
-	font-family: 'Rubik';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 32px;
-	line-height: 80px;
 }
-
-.secondIntro {
-	width: 1090px;
-	height: 96px;
-	font-family: 'Rubik';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 32px;
-	/* or 200% */
-	text-align: center;
-	/* Grey/600 */
-	color: #303030;
-	margin-left: 10rem;
+.FirstSection{
+    margin-top: 80px;
+    display: flex;
+    margin-bottom: 160px;
 }
-
-.startedButton {
-	width: 150px;
-	height: 56px;
-	background: #1d1dd8;
-	border-radius: 4px;
-	margin-left: 40rem;
+.FirstImage{
+    width: 100%;
+    height: 100%;
 }
-
-.storyHeader {
-	width: 151px;
-	height: 40px;
-	font-family: 'Rubik';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 32px;
-	line-height: 40px;
-	color: #000000;
-	margin-left: 40rem;
+.TextArea{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
-
-.storyWrapper {
-	display: flex;
+.TextArea button{
+    background-color: #1D1DD8;
+    color: white;
+    width: 140px;
+    height: 60px;
+    border: none;
+    border-radius: 4px;
 }
-
-.storyIntro {
-	width: 710px;
-	height: 363px;
-	font-family: 'Rubik';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 33px;
-	/* or 206% */
-	color: #000000;
+.TextArea button:hover{
+    border: 1px solid#1D1DD8;
+    color: #1D1DD8;
+    background-color: white;
 }
-
-.screen {
-	width: 536px;
-	height: 343px;
+.SecondSection{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 160px;
+    gap: 16px;
 }
-
-.principleHeader {
-	width: 222px;
-	height: 40px;
-	font-family: 'Rubik';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 32px;
-	line-height: 40px;
-	/* identical to box height, or 125% */
-	color: #000000;
-	margin-left: 35rem;
+.OurStory, .OurPrinciples{
+    text-align: center;
 }
-
-.textWrapper {
-	flex-direction: row;
+.SecondSectionDiv2{
+    display: flex;
 }
-
-.text1 {
-	margin-left: -9.8rem;
+.SecondSectionPar{
+    width: 54%;
 }
-
-.text2 {
-	margin-left: 5rem;
+.ThirdSection{
+    
+    background-color: #1D1DD8;
+    margin-bottom: 160px;
+}
+.ThirdSection div{
+    height: 192px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.ThirdSection div img{
+    width: 15%;
+}
+.FourthSection{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    margin-bottom: 190px;
+}
+.FourthSectionDiv2{
+    display: flex;
+    justify-content: space-evenly;
+}
+.FourthSectionDiv2 section{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.FourthSectionDiv2 section h1{
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 1000px;
+}
+.One img, .Two img, .Three img{
+    height: 100px;
+    width: 100px;
+}
+.FifthSection{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+.HowFar{
+    text-align: center;
+}
+.FifthSectionDiv2{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.NewsLetter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.NewsLetter p{
+    text-align: center;
+}
+.NewsLetterDiv2{
+    display: flex;
+    gap: 4%;
+}
+.NewsLetterDiv2 input{
+    width: 300px;
+    padding-left: 10px;
+    border-radius: 4px;
+    border: 1px solid grey;
+}
+.NewsLetterDiv2 button{
+    background-color: #1D1DD8;
+    color: white;
+    width: 140px;
+    height: 60px;
+    border: none;
+    border-radius: 4px;
+}
+.NewsLetterDiv2 button:hover{
+    border: 1px solid#1D1DD8;
+    color: #1D1DD8;
+    background-color: white;
+}
+@media screen and (max-width:850px) {
+    .Header{
+        font-size: 36px;
+    }
+    .AboutMainSection h1{
+        font-size: 24px;
+    }
+    .AboutMainSection p{
+        font-size: 16px;
+    }
+    .FirstSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .TextArea{
+        width: 100%;
+    }
+    .FirstImage, .SecondImage{
+        height: 200px;
+        width: 300px;
+    }
+    .SecondSectionDiv2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .SecondSectionPar{
+        width: 100%;
+    }
+}
+@media screen and (max-width:480px) {
+    .Header{
+        font-size: 36px;
+        line-height: 40px;
+    }
+    .AboutMainSection h1{
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .AboutMainSection p{
+        font-size: 16px;
+    }
+    .FirstImage, .SecondImage{
+        height: 100px;
+        width: 150px;
+    }
+    .ThirdSection div{
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+    }
+    .ThirdSection div img{
+        height: 80px;
+        width: 150px;
+    }
+    .FourthSection{
+        display: flex;
+        flex-direction: column;
+    }
+    .FourthSectionDiv2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .FourthSectionDiv2 section{
+        width: 100%;
+    }
+    .FifthSectionDiv2{
+        display: flex;
+        flex-direction: column;
+    }
+    .NewsLetter{
+        align-items: center;
+        text-align: center;
+    }
+    .NewsLetterDiv2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .NewsLetterDiv2 input{
+        width: 100%;
+        height: 60px;
+    }
+}
+@media screen and (max-width:220px) {
+    .AboutMainSection{
+        margin: 0;
+    }
+    .AboutMainSection b{
+        font-size: 18px;
+    }
+    .AboutMainSection h1{
+        font-size: 14px;
+    }
+    .AboutMainSection p{
+        font-size: 12px;
+    }
+    .ThirdSection div img{
+        height: 50px;
+        width: 100px;
+    }
 }

@@ -83,6 +83,7 @@
 	font-weight: 600;
 	font-size: 20px;
 	color: #303030;
+	text-transform: capitalize;
 }
 
 .description {
@@ -140,7 +141,8 @@
 	gap: 1rem;
 	border-bottom: 1px solid #b4b4b4;
 	cursor: pointer;
-	padding: 0em 0em 6em 0em;
+	/* padding: 0em 0em 6em 0em; */
+	height: 200px;
 }
 
 .writeReply {
@@ -152,6 +154,7 @@
 	margin: 0.5em 0;
 	font-weight: 400;
 	font-size: 24px;
+	height: 90%;
 }
 
 .writeReply::placeholder {
