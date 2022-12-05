@@ -7,8 +7,6 @@ import testUser from '../../utils/testUser.json';
 
 function Profile() {
 	const routeParams = useParams();
-	// console.log(routeParams);
-
 	return (
 		<div className={styles.profile}>
 			<Section1

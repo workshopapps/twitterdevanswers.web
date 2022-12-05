@@ -56,7 +56,7 @@ function SubmitBlog() {
 			id: nanoid(),
 			[name]: value,
 		}));
-	};
+    }
 
 
 	const submitNewBlog = async () => {

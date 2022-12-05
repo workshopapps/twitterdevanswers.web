@@ -1,6 +1,7 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
+import axios from 'axios';
 import Tag from '../../components/Tags/Tag';
-import Data from '../../components/Tags/Data';
+// import Data from '../../components/Tags/Data';
 import Pagination, { tagsPerPage } from '../../components/Tags/Pagination';
 import Button from '../../components/Tags/Button/Button';
 import BUTTON_TYPES from '../../components/Tags/Button/Data';
@@ -14,8 +15,61 @@ const defaultPage = {
 };
 
 export default function Tags() {
+	const token = localStorage.getItem('token');
+	async function getUser() {
+		const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
+		return response.data.data;
+	}
+	
+	async function getTotalReplies(id) {
+		const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
+		return response.data.length;
+	}
+	
 	const [grid, setGrid] = useState(true);
 	const [page, setPage] = useState(defaultPage);
+
+	const [questions, setQuestions] = useState([]);
+	const [users, setUsers] = useState([]);
+	const [replies, setReplies] = useState([]);
+	const [tags, setTags] = useState([]);
+
+
+	useEffect(() => {
+		(async function getData() {
+			const response = await axios.get(
+				'https://api.devask.hng.tech/questions/',
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+
+			const fetchedQuestions = await response.data.data;
+			
+				
+			setQuestions(fetchedQuestions);
+			setTags(fetchedQuestions);
+
+			setUsers(await getUser());
+			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
+			getTotalReplies(fetchedQuestion.question_id)
+		);
+
+			Promise.all([...fetchedReplies].reverse()).then((reply) =>
+				setReplies((prevState) => [...prevState, reply])
+			);
+		})();
+	}, []);
 
 	const nextPageHandler = () => {
 		setPage((prevVal) => ({
@@ -39,7 +93,6 @@ export default function Tags() {
 		setGrid((prevVal) => !prevVal);
 	};
 
-	const [tags, setTags] = useState(Data);
 
 	const setActiveBtn = (event) => {
 		const btns = document.querySelectorAll('.btn');
@@ -53,12 +106,12 @@ export default function Tags() {
 		let filteredTags;
 
 		if (filter === 'view all') {
-			filteredTags = Data.filter((tag) => tag.tag !== filter);
+			filteredTags = questions.filter((tag) => tag.tag !== filter);
 			setTags(filteredTags);
 			return setPage(defaultPage);
 		}
 
-		filteredTags = Data.filter((tag) => tag.tag === filter);
+		filteredTags = questions.filter((tag) => tag.tag === filter);
 		setTags(filteredTags);
 		return setPage(defaultPage);
 	};
@@ -180,9 +233,10 @@ export default function Tags() {
 
 				<div>
 					<div className={grid ? styles.grid : styles.list}>
-						{tags.slice(page.start, page.end).map((item) => (
-							<Tag key={item.id} isGridView={grid} Data={item} />
-						))}
+						{tags.length !==0 ? tags.slice(page.start, page.end).map((item, index) => (
+							<Tag key={item.id} isGridView={grid} Data={item} users={users} replies={replies} index={index}/>
+						)) : "Selected Tags Record not Available.."
+					}
 					</div>
 				</div>
 				{tags.length > tagsPerPage && (
