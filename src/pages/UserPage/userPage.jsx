@@ -1,33 +1,110 @@
-import React from 'react';
+// import React from 'react';
+import { useState, React, useEffect, useContext} from "react";
+import axios from "axios";
 import UserProfileCard from '../../components/UserPage/UserProfileCard';
-import users from './users';
+// import users from './users';
 import styles from './userPage.module.css';
-import SearchBox from '../../components/UserPage/SearchBox';
-import FilterBy from '../../components/UserPage/FilterBy';
+import { AppContext } from '../../store/AppContext';
 
 function UserPage() {
+  
+ const [profile, setProfile] = useState([]);
+ const [filteredList, setFilteredList] = useState([]);
+ const [searchQuery, setSearchQuery] = useState('');
+ const { state } = useContext(AppContext);
+
+
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+         const res = await axios.get("https://api.devask.hng.tech/users/?skip=0&limit=100", {
+			 headers: {
+				'Authorization': `Bearer ${state.token}`
+			 }
+		 })
+             setProfile(res.data.data);
+			// console.log(res.data.data)
+			 setFilteredList(res.data.data)
+      } 
+       
+      catch (err) {
+		  // display err message
+      }
+    }
+    getUsers()
+  }, [])
+ 
+const handleSearch = (event) => {
+    const query = event.target.value
+    setSearchQuery(query)
+
+    const searchList = profile.filter((item) => 
+       item.username.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+	   item.stack.toLowerCase().indexOf(query.toLowerCase()) !== -1 || 
+	   item.work_experience.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    )
+
+    setFilteredList(searchList);
+  }
+
+    const onFilterChange=(event)=>{
+    const query = event.target.value
+    setSearchQuery(query)
+
+    const searchList = profile.filter((item) => 
+       item.stack.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    )
+
+    setFilteredList(searchList)
+  }
+
 	return (
+
+
 		<div className={styles.user_page_container}>
 			<header className={styles.user_header_container}>
 				<p className={styles.user_page_heading}>
 					Connect with other Devask Users
 				</p>
+<div className={styles.search_container}>
+			<div className={styles.searchbox_container}>
+				
+				<input
+					className={styles.search_box}
+					type="text"
+					placeholder="Search for other great minds"
+				    onChange = {handleSearch}
+					value = {searchQuery}
+				/>
+				<section className={styles.search_languages}>
+					<button type = 'button' value = 'django' onClick = {onFilterChange} >Django</button>
+					<button type = 'button' value = 'python' onClick = {onFilterChange} >Python</button>
+					<button type = 'button' value = 'react' onClick = {onFilterChange} >React</button>
+					<button type = 'button' value = 'php' onClick = {onFilterChange} >PHP</button>
+					<button type = 'button' value = 'panda' onClick = {onFilterChange} >Panda</button>
+				</section>
+				
+				<select className={styles.select_lang} name="lang" id="lang" onChange = {onFilterChange} >
+					<option value="python">Python</option>
+					<option value="django">Django</option>
+					<option value="php">PHP</option>
+					<option value="react">React</option>
+					<option value="panda">Panda</option>
+				</select>
+			</div>
 
-				<SearchBox />
+		</div>
 			</header>
 			<main>
 				<div className={styles.user_grid_container}>
-					{users.map((user) => (
-						<UserProfileCard key={user.id} user={user} />
-					))}
+					{ filteredList.map((user) => (
+					<UserProfileCard key = {user.user_id} user = {user} />
+					))  }
 				</div>
 
 				<div className={styles.users_filter}>
-					<div className={styles.filter_hidden}>
-						<FilterBy />
-					</div>
-
-					<section className={styles.more_search}>
+					
+                  	<section className={styles.more_search}>
 						<a href="/">1</a>
 						<a href="/">2</a>
 						<a href="/">3</a>
