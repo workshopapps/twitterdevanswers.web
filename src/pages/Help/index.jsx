@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React ,{ useState } from 'react';
 import styles from './style.module.css';
 
@@ -13,7 +14,7 @@ function Help() {
 				<div className={styles.content}>
 					<div className={styles.list}>
 						<ul className={styles.list_container}>
-							<li><a className={styles.link}    data-Expanded='true' href='help-center'>Asking & Answering a Question</a></li>
+							<li><a className={styles.link}    data-expanded='true' href='help-center'>Asking & Answering a Question</a></li>
 							<li><a className={styles.link} href='settings'>Account Settings</a></li>
 							<li><a className={styles.link} href='dashboard'>DashBoard</a></li>
 							<li><a className={styles.link} href='settings'>Safety & Security</a></li>

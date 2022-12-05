@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+
 import React, { useContext, useEffect, useState } from 'react';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 import { Link, NavLink, useLocation } from 'react-router-dom';
@@ -16,7 +18,13 @@ import { AppContext } from '../../store/AppContext';
 
 //  header component for internal pages
 export default function InternalHeader() {
+
+
+
 	const [sidenav, setSidenav] = useState(false);
+	const[userState,setUserState]=useState('online');
+	const[lastSeen,setLastSeen]=useState();
+
 	const { pathname } = useLocation();
 
 	const {
@@ -24,6 +32,60 @@ export default function InternalHeader() {
 	} = useContext(AppContext);
 
 	// prevent scroll if sidenav is open
+	const[active,setActive]=useState(true)
+	
+	const checkForInactivity =() =>{
+		const expiredTime = sessionStorage.getItem('expireTime')
+
+		if(expiredTime< Date.now()){
+
+			setActive(false)
+			sessionStorage.setItem('userActivity',('offline'))
+
+		}else if(expiredTime> Date.now()) {
+			setActive(true)
+			const today = new Date()
+			sessionStorage.setItem('userActivity',('online'))
+			const inactiveTimeStamp=`${today.getFullYear()}-${(today.getMonth() + 1)}-${today.getDate()},${today.getHours()}:${today.getMinutes()} `
+			sessionStorage.setItem('lastSeen',inactiveTimeStamp)
+
+		}
+	}
+
+	const updateExpiredTime = ()=>{
+		if(active === true){
+			const timer = Date.now() + 10000;
+			sessionStorage.setItem("expireTime",timer)
+
+		}
+	}
+
+	useEffect(()=>{
+
+		const interval = setInterval(() =>{
+			checkForInactivity();
+
+		},[1000])
+
+		return()=> clearInterval(interval)
+	},[])
+
+	useEffect(()=>{
+		updateExpiredTime();
+
+		window.addEventListener("click",updateExpiredTime);
+		window.addEventListener("keypress",updateExpiredTime);
+		window.addEventListener("scroll",updateExpiredTime);
+		window.addEventListener("mousemove",updateExpiredTime)
+
+		return ()=>{
+			window.removeEventListener("click",updateExpiredTime);
+			window.removeEventListener("keypress",updateExpiredTime);
+			window.removeEventListener("scroll",updateExpiredTime);
+			window.removeEventListener("mousemove",updateExpiredTime)
+
+		}
+	},[])
 	useEffect(() => {
 		if (!sidenav) {
 			document.body.style.overflowY = 'scroll';
@@ -31,6 +93,42 @@ export default function InternalHeader() {
 			document.body.style.overflowY = 'hidden';
 		}
 	}, [sidenav]);
+
+	const lastSeenVisibleTimer = (5*30000)
+	function handleLastSeen(){
+		if(active === false){
+				const lastSeenTimer = setTimeout(() => {
+				setLastSeen(`Last seen: ${sessionStorage.getItem('lastSeen')}`)
+		  },[lastSeenVisibleTimer])
+		  return () => clearTimeout(lastSeenTimer)
+		}
+		
+	}
+
+	useEffect(()=>{
+		const activity = setInterval(() =>{
+			if(active === true){
+				const activityState = sessionStorage.getItem('userActivity')
+			setUserState(activityState)
+			
+			}else if(active === false){
+				setUserState(sessionStorage.getItem('userActivity'))
+			}
+		},[100])
+
+		return()=> clearInterval(activity)
+	},[])
+
+	useEffect(()=>{
+		const seenState = setInterval(() =>{
+			if(sessionStorage.getItem('userActivity')==='online'){
+				setLastSeen('')	
+			}
+		},[100])
+
+		return()=> clearInterval(seenState)
+	},[])
+
 
 	// add isActive classname if Navlink is active to style active state
 	const activeStyle = ({ isActive }) =>
@@ -115,12 +213,15 @@ export default function InternalHeader() {
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
 						<div className={styles.user}>
-							<div className={styles.avatar}>
+							<div className={styles.avatar} aria-hidden={active}>
 								<img src={avatar} alt="avatar" />
 							</div>
-							<div className={styles.nameStatus}>
-								<p>{user?.userName}</p>
-								<span>Online</span>
+							<div className={styles.profile} >
+								<div className={styles.nameStatus}>
+									<p>{user?.userName}</p>
+								<span onChange={handleLastSeen()}>{userState}</span>
+								</div>
+								<span className={styles.lastseen}>{lastSeen}</span>
 							</div>
 						</div>
 						<HiBars3CenterLeft

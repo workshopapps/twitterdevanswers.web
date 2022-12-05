@@ -5,7 +5,9 @@ import AskCards from './AskCards';
 import Reaction from '../../components/Reaction/Reaction';
 
 function Profile() {
+
 	
+
 
 	return (
 		<div className={styles.profile}>

@@ -67,6 +67,27 @@
 	border-radius: 0px 22px 22px 0px;
 }
 
+.search_languages > button {
+	background-color: white;
+	border: 0px;
+}
+
+.search_languages > button:hover {
+	background-color: #1D1DD8;
+	color: white;
+	padding: 7px;
+	border-radius: 10px;
+}
+.follow_button {
+	background-color: white;
+	color: #1D1DD8 ;
+	padding: 10px 9px 10px 9px;
+	border :1px solid #1D1DD8;
+	border-radius: 5px;
+}
+.follow_text {
+	color: #8e8eec;
+}
 /* user profile card component styles */
 .user_profile_card {
 	width: 380px;
@@ -85,7 +106,7 @@
 .user_info_container {
 	width: 282px;
 	justify-content: space-between;
-	height: 101px;
+	height: 130px;
 	display: flex;
 	flex-direction: column;
 	padding: 10px 19px;
@@ -93,6 +114,12 @@
 	border: 0.152023px solid #bababa;
 	box-shadow: 0.760116px 2.28035px 3.04046px rgba(0, 0, 0, 0.15);
 	border-radius: 4.56069px;
+}
+
+.user_follow_info {
+	display: flex;
+	gap: 15px;
+    align-items: center;
 }
 
 .user_name {
@@ -133,7 +160,7 @@
 	padding: 1rem;
 	justify-content: center;
 	place-items: center;
-	grid-template-columns: repeat(auto-fill, minmax(422px, 1fr));
+	grid-template-columns: repeat(3, calc(100% / 3 - 20px));
 	gap: 2rem;
 }
 
