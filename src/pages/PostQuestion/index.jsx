@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -28,8 +28,8 @@ function PostQuestion() {
 	const [isSuccessful, setIsSuccessful] = useState(false);
 	const [isTagsOpen, setIsTagsOpen] = useState(false);
 	const [isTokensOpen, setIsTokensOpen] = useState(false);
-	const [detail, setDetail] = useState({text: ''});
-	const [description, setDescription] = useState({text: ''});
+	const [detail, setDetail] = useState({ text: '' });
+	const [description, setDescription] = useState({ text: '' });
 	const [questionData, setQuestionData] = useState({
 		id: '',
 		title: '',
@@ -163,14 +163,14 @@ function PostQuestion() {
 	};
 
 	const handleDetail = (value) => {
-		setDetail((prev) => ({ ...prev, text: value,}));
-		handleDisabling();	
-	}
+		setDetail((prev) => ({ ...prev, text: value }));
+		handleDisabling();
+	};
 
 	const handleDescription = (value) => {
-		setDescription((prev) => ({ ...prev, text: value,}));
-		handleDisabling();	
-	}
+		setDescription((prev) => ({ ...prev, text: value }));
+		handleDisabling();
+	};
 
 	const handleReview = (event) => {
 		event.preventDefault();
@@ -216,6 +216,7 @@ function PostQuestion() {
 			answered: false,
 			created_at: Date.now(),
 			updated_at: Date.now(),
+			tag: questionData.tag,
 		};
 
 		const headers = {
@@ -292,13 +293,18 @@ function PostQuestion() {
 
 										<div>
 											<h3 className={styles.modalHeader}>Details</h3>
-											<p className={styles.modalBody} dangerouslySetInnerHTML={{__html: detail.text}}/>
+											<p
+												className={styles.modalBody}
+												dangerouslySetInnerHTML={{ __html: detail.text }}
+											/>
 										</div>
 
 										<div>
 											<h3 className={styles.modalHeader}>Description</h3>
-											<p className={styles.modalBody} dangerouslySetInnerHTML={{__html: description.text}}/>
-		
+											<p
+												className={styles.modalBody}
+												dangerouslySetInnerHTML={{ __html: description.text }}
+											/>
 										</div>
 
 										<div>
@@ -419,13 +425,13 @@ function PostQuestion() {
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
 							</div> */}
-							<ReactQuill 
-							    className={styles.textEditor}
-								placeholder='Write Something'
-								theme='snow'
+							<ReactQuill
+								className={styles.textEditor}
+								placeholder="Write Something"
+								theme="snow"
 								defaultValue=""
 								modules={PostQuestion.modules}
-								formats={PostQuestion.formats }
+								formats={PostQuestion.formats}
 								onChange={handleDetail}
 								value={detail.text}
 								minLength={20}
@@ -474,13 +480,13 @@ function PostQuestion() {
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
 							</div> */}
-							<ReactQuill 
-							    className={styles.textEditor}
-								placeholder='Write Something'
-								theme='snow'
+							<ReactQuill
+								className={styles.textEditor}
+								placeholder="Write Something"
+								theme="snow"
 								defaultValue=""
 								modules={PostQuestion.modules}
-								formats={PostQuestion.formats }
+								formats={PostQuestion.formats}
 								onChange={handleDescription}
 								value={description.text}
 								minLength={20}
@@ -598,19 +604,27 @@ function PostQuestion() {
 PostQuestion.modules = {
 	syntax: true,
 	toolbar: [
-		[{ size: [] },"bold", "italic", "underline", "strike", "blockquote","link",],
-		[{ 'code-block': true }]
+		[
+			{ size: [] },
+			'bold',
+			'italic',
+			'underline',
+			'strike',
+			'blockquote',
+			'link',
+		],
+		[{ 'code-block': true }],
 	],
 };
 PostQuestion.formats = [
- "size",
- "bold",
- "italic",
- "underline",
- "strike",
- "blockquote",
- "link",
- "code-block",
+	'size',
+	'bold',
+	'italic',
+	'underline',
+	'strike',
+	'blockquote',
+	'link',
+	'code-block',
 ];
 
 export default PostQuestion;
