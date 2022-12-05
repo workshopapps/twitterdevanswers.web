@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import styles from './Editor.module.css';
 import profilePicture from '../../assets/dashboard-images/profilePicture.webp';
-import attach from '../../assets/dashboard-images/attach.webp';
-import quoteDown from '../../assets/dashboard-images/quoteDown.webp';
-import curlyBraces from '../../assets/dashboard-images/curlyBraces.webp';
-import image from '../../assets/dashboard-images/image.webp';
-import documentCode from '../../assets/dashboard-images/documentCode.webp';
+
 
 const token = localStorage.getItem('token');
 
 function Editor() {
-	const [question, setQuestion] = useState('');
+	const [question, setQuestion] = useState({text: ''});
 
-	function handleQuestion(event) {
-		setQuestion(event.target.value);
+	
+	const handleQuestion = (value) => {
+		setQuestion((prev) => ({ ...prev, text: value,}));
+			
 	}
 
 	function submitHandler() {
@@ -28,7 +28,7 @@ function Editor() {
 				},
 				body: JSON.stringify({
 					title: '',
-					content: question,
+					content: question.text,
 					expected_result: '',
 					payment_amount: 0,
 					answered: true,
@@ -47,23 +47,20 @@ function Editor() {
 		<div className={styles.editorContainer}>
 			<div className={styles.questionArea}>
 				<img src={profilePicture} alt="" className={styles.profilePicture} />
-				<textarea
-					name="text"
-					value={question}
-					onChange={handleQuestion}
-					placeholder="Start a discussion"
+				
+				<ReactQuill 
 					className={styles.writeQuestion}
-					rows={5}
+					placeholder='Start a discussion'
+					theme='snow'
+					defaultValue=""
+					modules={Editor.modules}
+					formats={Editor.formats }
+					onChange={handleQuestion}
+					value={question.text}
 				/>
 			</div>
 			<div className={styles.editorFooter}>
-				<div>
-					<img src={attach} alt="" className={styles.editorIcons} />
-					<img src={quoteDown} alt="" className={styles.editorIcons} />
-					<img src={curlyBraces} alt="" className={styles.editorIcons} />
-					<img src={image} alt="" className={styles.editorIcons} />
-					<img src={documentCode} alt="" className={styles.editorIcons} />
-				</div>
+			
 				<button type="button" onClick={submitHandler}>
 					Post
 				</button>
@@ -71,5 +68,24 @@ function Editor() {
 		</div>
 	);
 }
+
+
+Editor.modules = {
+	syntax: true,
+	toolbar: [
+		[{ size: [] },"bold", "italic", "underline", "strike", "blockquote","link",],
+		[{ 'code-block': true }]
+	],
+};
+Editor.formats = [
+ "size",
+ "bold",
+ "italic",
+ "underline",
+ "strike",
+ "blockquote",
+ "link",
+ "code-block",
+];
 
 export default Editor;

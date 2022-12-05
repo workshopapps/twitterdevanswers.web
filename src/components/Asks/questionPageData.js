@@ -5,7 +5,7 @@ import message from '../../assets/dashboard-images/message.webp';
 import checkboxFilled from '../../assets/dashboard-images/checkboxFilled.webp';
 import checkbox from '../../assets/dashboard-images/checkbox.webp';
 import heart from '../../assets/dashboard-images/heart.webp';
-import share from '../../assets/share.webp';
+import share from '../../assets/dashboard-images/share.webp';
 
 const questionPageData = [
 	{

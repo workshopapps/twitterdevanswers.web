@@ -363,7 +363,7 @@ function PostQuestion() {
 								onChange={handleChange}
 								required
 								onBlur={handleNextDetail}
-								autoComplete="true"
+								autoComplete
 							/>
 						</div>
 
@@ -473,7 +473,7 @@ function PostQuestion() {
 						</div>
 
 						{/* Add tag */}
-						<section className={styles.postWrapper}>
+						<section className={styles.tagWrapper}>
 							<div className={styles.tagContent}>
 								<span className={styles.text}>Add tag </span>
 

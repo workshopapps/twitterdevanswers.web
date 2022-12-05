@@ -129,7 +129,7 @@ function Asks({ onClose, show, hide, showShare }) {
 				</div>
 			</section>
 			<h6 className={styles.reply}>{answer.content}</h6>
-			<section className={styles.cardFooter} />
+			{/* <section className={styles.cardFooter} ></section> */}
 		</div>
 	));
 
