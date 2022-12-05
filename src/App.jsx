@@ -50,7 +50,7 @@ function App() {
 
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader /> : <Header />}
+			{user || isAuth ? <InternalHeader/> : <Header />}
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
