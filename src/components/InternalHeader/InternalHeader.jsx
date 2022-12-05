@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
@@ -24,7 +25,9 @@ export default function InternalHeader({activeState}) {
 	  }
 
 	const [sidenav, setSidenav] = useState(false);
-	const[userState,setUserState]=useState('online')
+	const[userState,setUserState]=useState('online');
+	const[lastSeen,setLastSeen]=useState();
+
 	const { pathname } = useLocation();
 
 	const {
@@ -40,6 +43,17 @@ export default function InternalHeader({activeState}) {
 		}
 	}, [sidenav]);
 
+	const lastSeenVisibleTimer = (5*30000)
+	function handleLastSeen(){
+		if(activeState === false){
+				const lastSeenTimer = setTimeout(() => {
+				setLastSeen(`Last seen: ${sessionStorage.getItem('lastSeen')}`)
+		  },[lastSeenVisibleTimer])
+		  return () => clearTimeout(lastSeenTimer)
+		}
+		
+	}
+
 	useEffect(()=>{
 		const activity = setInterval(() =>{
 			if(activeState === true){
@@ -52,6 +66,16 @@ export default function InternalHeader({activeState}) {
 		},[100])
 
 		return()=> clearInterval(activity)
+	},[])
+
+	useEffect(()=>{
+		const seenState = setInterval(() =>{
+			if(sessionStorage.getItem('userActivity')==='online'){
+				setLastSeen('')	
+			}
+		},[100])
+
+		return()=> clearInterval(seenState)
 	},[])
 
 
@@ -141,9 +165,12 @@ export default function InternalHeader({activeState}) {
 							<div className={styles.avatar} aria-hidden={activeState}>
 								<img src={avatar} alt="avatar" />
 							</div>
-							<div className={styles.nameStatus}>
-								<p>{user?.userName}</p>
-								<span>{userState}</span>
+							<div className={styles.profile} >
+								<div className={styles.nameStatus}>
+									<p>{user?.userName}</p>
+								<span onChange={handleLastSeen()}>{userState}</span>
+								</div>
+								<span className={styles.lastseen}>{lastSeen}</span>
 							</div>
 						</div>
 						<HiBars3CenterLeft

@@ -149,6 +149,13 @@ li {
 	font-size: 16px;
 	line-height: 1em;
 }
+.profile{
+	display: flex;
+	flex-direction: column;
+}
+.lastseen{
+	font-size: 10px;
+}
 
 .nameStatus span {
 	font-size: 13px;
