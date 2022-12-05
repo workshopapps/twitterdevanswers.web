@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../../pages/UserPage/userPage.module.css';
 
-// import FilterBy from './FilterBy';
 
 function SearchBox() {
 	return (
