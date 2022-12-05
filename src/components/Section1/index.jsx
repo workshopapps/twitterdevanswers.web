@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
-
-
-
-
 import PropTypes from 'prop-types';
 import { AppContext } from '../../store/AppContext';
 import Section1 from './section1.module.css';
@@ -12,8 +8,8 @@ import link from '../../assets/profile-images/link-2.png';
 import locationIcon from '../../assets/profile-images/location.png';
 import twitter from '../../assets/profile-images/twitter.png';
 import github from '../../assets/profile-images/github.png';
-import calendarIcon from '../../assets/profile-images/wallet.png';
-import clockIcon from '../../assets/profile-images/clipboard-text.png';
+import calendarIcon from '../../assets/profile-images/calendar.png';
+import clockIcon from '../../assets/profile-images/clock.png';
 
 function ProfileTopSection() {
 	const navigate = useNavigate();
@@ -23,10 +19,6 @@ function ProfileTopSection() {
 	const { state } = useContext(AppContext);
 	const [isLoading, setIsLoading] = useState(false);
 	const [followers, setFollowers] = useState();
-
-
-
-
 	const handleEdit = () => {
 		navigate('/settings');
 	};
@@ -68,10 +60,6 @@ function ProfileTopSection() {
 				// console.error(err);
 			}
 		};
-
-
-
-
 		fetchFollowers();
 		console.log(followers);
 	}, [isLoading]);
@@ -173,7 +161,7 @@ function ProfileTopSection() {
 			</div>
 			<div className={Section1.profile__btns}>
 				<div className={Section1.profile__btnwrapper}>
-					{state.user.username === user ? (
+					{state.user.userName === user ? (
 						<button
 							className={Section1.btn2}
 							type="button"
