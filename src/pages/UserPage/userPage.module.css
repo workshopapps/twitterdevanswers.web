@@ -90,7 +90,7 @@
 }
 /* user profile card component styles */
 .user_profile_card {
-	width: 380px;
+	width: 95%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -101,10 +101,11 @@
 	height: 90px;
 	display: block;
 	border-radius: 100%;
+	aspect-ratio: 1;
 }
 
 .user_info_container {
-	width: 282px;
+	width: 100%;
 	justify-content: space-between;
 	height: 130px;
 	display: flex;
@@ -221,7 +222,15 @@
 		width: 45%;
 	}
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
+	.user_profile_image {
+		width: 30%;
+		max-width: 76px;
+		display: block;
+		border-radius: 100%;
+	}
+}
+@media screen and (max-width: 1200px) {
 	.user_page_container {
 		padding: 2rem;
 	}
