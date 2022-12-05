@@ -1,4 +1,6 @@
+
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/header-images/home.svg';
@@ -15,8 +17,14 @@ import styles from './internalHeader.module.css';
 import { AppContext } from '../../store/AppContext';
 
 //  header component for internal pages
-export default function InternalHeader() {
+export default function InternalHeader({activeState}) {
+
+	InternalHeader.propTypes = {
+		activeState: PropTypes.bool.isRequired
+	  }
+
 	const [sidenav, setSidenav] = useState(false);
+	const[userState,setUserState]=useState('online')
 	const { pathname } = useLocation();
 
 	const {
@@ -31,6 +39,21 @@ export default function InternalHeader() {
 			document.body.style.overflowY = 'hidden';
 		}
 	}, [sidenav]);
+
+	useEffect(()=>{
+		const activity = setInterval(() =>{
+			if(activeState === true){
+				const activityState = sessionStorage.getItem('userActivity')
+			setUserState(activityState)
+			
+			}else if(activeState === false){
+				setUserState(sessionStorage.getItem('userActivity'))
+			}
+		},[100])
+
+		return()=> clearInterval(activity)
+	},[])
+
 
 	// add isActive classname if Navlink is active to style active state
 	const activeStyle = ({ isActive }) =>
@@ -115,12 +138,12 @@ export default function InternalHeader() {
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
 						<div className={styles.user}>
-							<div className={styles.avatar}>
+							<div className={styles.avatar} aria-hidden={activeState}>
 								<img src={avatar} alt="avatar" />
 							</div>
 							<div className={styles.nameStatus}>
 								<p>{user?.userName}</p>
-								<span>Online</span>
+								<span>{userState}</span>
 							</div>
 						</div>
 						<HiBars3CenterLeft

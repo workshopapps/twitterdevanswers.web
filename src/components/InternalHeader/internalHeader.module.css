@@ -119,7 +119,7 @@ li {
 	border-radius: 50%;
 }
 
-.avatar::before {
+.avatar[aria-hidden="true"]::before {
 	content: '';
 	display: inline-block;
 	width: 8px;
@@ -131,10 +131,23 @@ li {
 	border-radius: 50%;
 	z-index: 1;
 }
+.avatar[aria-hidden='false']::before {
+	content: '';
+	display: inline-block;
+	width: 8px;
+	padding-bottom: 8px;
+	position: absolute;
+	bottom: 6px;
+	right: -2px;
+	background: #858e8a;
+	border-radius: 50%;
+	z-index: 1;
+}
 
 .nameStatus {
 	color: #1f1f1f;
 	font-size: 16px;
+	line-height: 1em;
 }
 
 .nameStatus span {

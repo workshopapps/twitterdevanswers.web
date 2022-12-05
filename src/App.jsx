@@ -70,7 +70,7 @@ function App() {
 
 	const updateExpiredTime = ()=>{
 		if(active === true){
-			const timer = Date.now() + 5000;
+			const timer = Date.now() + 10000;
 			sessionStorage.setItem("expireTime",timer)
 
 		}
@@ -81,7 +81,7 @@ function App() {
 		const interval = setInterval(() =>{
 			checkForInactivity();
 
-		},[500])
+		},[1000])
 
 		return()=> clearInterval(interval)
 	},[])
@@ -105,7 +105,7 @@ function App() {
 
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader active={active} /> : <Header />}
+			{user || isAuth ? <InternalHeader activeState={active} /> : <Header />}
 			<Routes>
 				<Route path="/" element={<Home/>} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
