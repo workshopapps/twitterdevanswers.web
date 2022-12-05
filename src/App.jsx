@@ -73,7 +73,7 @@ function App() {
 				<Route element={<ProtectedRoutes />}>
 					<Route path="dashboard/*" element={<Dashboard />} />
 					<Route path="dashboard/questions/:id" element={<Asks />} />
-					<Route path="profile/:id" element={<Profile />} />
+					<Route path="profile/:username" element={<Profile />} />
 					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
 					<Route path="teams-page" element={<Teams />} />
