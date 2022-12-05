@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './AskCards.module.css';
-
 import options from '../../assets/dashboard-images/options.webp';
 import message from '../../assets/dashboard-images/message.webp';
 import heartBold from '../../assets/dashboard-images/heartBold.webp';
@@ -10,7 +9,6 @@ import share from '../../assets/dashboard-images/share.webp';
 import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
 const token = localStorage.getItem('token');
-
 async function getUser() {
 	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
 		headers: {
@@ -19,21 +17,21 @@ async function getUser() {
 	});
 	return response.data.data;
 }
-
 function AskCards() {
 	const { pathname } = useLocation();
 	const thisuser = pathname.slice(9);
+
+
+
 
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
 			day: '2-digit',
 			month: 'long',
 		}).format(new Date(date));
-
 	const [questions, setQuestions] = useState([]);
 	const [users, setUsers] = useState([]);
 	const findUser = (id) => users.find((user) => user.user_id === id);
-
 	useEffect(() => {
 		(async function getData() {
 			const userIdResponse = await axios.get(
@@ -46,22 +44,22 @@ function AskCards() {
 			);
 			const userIdData = await userIdResponse.data.data.user_id;
 			const response = await axios.get(
-				`https://pacific-peak-54505.herokuapp.com/questions/${userIdData}/user`,
+
+				`https://api.devask.hng.tech/questions/${userIdData}/user`,
+
+				
+
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
 					},
 				}
 			);
-
 			const fetchedQuestions = await response.data.data;
-
 			setQuestions(fetchedQuestions);
-
 			setUsers(await getUser());
 		})();
 	}, []);
-
 	const askCard = questions.map((question) => (
 		<div className={styles.cardContainer} key={question.question_id}>
 			<Link to={`/profile/${question.owner_id}`}>
@@ -71,7 +69,6 @@ function AskCards() {
 					className={styles.profilePicture}
 				/>
 			</Link>
-
 			<div>
 				<section className={styles.cardHeader}>
 					<div className={styles.userInfo}>
@@ -83,12 +80,10 @@ function AskCards() {
 								{findUser(question.owner_id)?.username}
 							</h5>
 						</Link>
-
 						<p className={styles.time}>{formatDate(question.created_at)}</p>
 					</div>
 					<img src={options} alt="" className={styles.options} />
 				</section>
-
 				<Link
 					to={`/dashboard/questions/${question.question_id}`}
 					style={{ textDecoration: 'none' }}
@@ -98,7 +93,6 @@ function AskCards() {
 						{question.content}
 					</p>
 				</Link>
-
 				<section className={styles.cardFooter}>
 					<div className={styles.icons}>
 						<span className={styles.viewReplies}>
@@ -117,8 +111,6 @@ function AskCards() {
 			</div>
 		</div>
 	));
-
 	return <div className={styles.cards}>{askCard}</div>;
 }
-
 export default AskCards;
