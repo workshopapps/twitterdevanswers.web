@@ -74,6 +74,8 @@ function App() {
 					<Route path="dashboard/*" element={<Dashboard />} />
 					<Route path="dashboard/questions/:id" element={<AskQuestion />} />
 					<Route path="profile/:id" element={<Profile />} />
+					<Route path="profile/:username" element={<Profile />} />
+		
 					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
 					<Route path="teams-page" element={<Teams />} />
