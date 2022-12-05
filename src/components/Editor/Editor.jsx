@@ -17,7 +17,7 @@ function Editor() {
 	}
 
 	function submitHandler() {
-		if (question.trim() === '') return;
+		if (question.text.trim() === '') return;
 		async function postAnswer() {
 			const response = await fetch(`https://api.devask.hng.tech/questions/`, {
 				method: 'POST',
