@@ -1,7 +1,6 @@
 /* eslint-disable consistent-return */
 
 import React, { useContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/header-images/home.svg';
@@ -18,11 +17,9 @@ import styles from './internalHeader.module.css';
 import { AppContext } from '../../store/AppContext';
 
 //  header component for internal pages
-export default function InternalHeader({activeState}) {
+export default function InternalHeader() {
 
-	InternalHeader.propTypes = {
-		activeState: PropTypes.bool.isRequired
-	  }
+
 
 	const [sidenav, setSidenav] = useState(false);
 	const[userState,setUserState]=useState('online');
@@ -35,6 +32,60 @@ export default function InternalHeader({activeState}) {
 	} = useContext(AppContext);
 
 	// prevent scroll if sidenav is open
+	const[active,setActive]=useState(true)
+	
+	const checkForInactivity =() =>{
+		const expiredTime = sessionStorage.getItem('expireTime')
+
+		if(expiredTime< Date.now()){
+
+			setActive(false)
+			sessionStorage.setItem('userActivity',('offline'))
+
+		}else if(expiredTime> Date.now()) {
+			setActive(true)
+			const today = new Date()
+			sessionStorage.setItem('userActivity',('online'))
+			const inactiveTimeStamp=`${today.getFullYear()}-${(today.getMonth() + 1)}-${today.getDate()},${today.getHours()}:${today.getMinutes()} `
+			sessionStorage.setItem('lastSeen',inactiveTimeStamp)
+
+		}
+	}
+
+	const updateExpiredTime = ()=>{
+		if(active === true){
+			const timer = Date.now() + 10000;
+			sessionStorage.setItem("expireTime",timer)
+
+		}
+	}
+
+	useEffect(()=>{
+
+		const interval = setInterval(() =>{
+			checkForInactivity();
+
+		},[1000])
+
+		return()=> clearInterval(interval)
+	},[])
+
+	useEffect(()=>{
+		updateExpiredTime();
+
+		window.addEventListener("click",updateExpiredTime);
+		window.addEventListener("keypress",updateExpiredTime);
+		window.addEventListener("scroll",updateExpiredTime);
+		window.addEventListener("mousemove",updateExpiredTime)
+
+		return ()=>{
+			window.removeEventListener("click",updateExpiredTime);
+			window.removeEventListener("keypress",updateExpiredTime);
+			window.removeEventListener("scroll",updateExpiredTime);
+			window.removeEventListener("mousemove",updateExpiredTime)
+
+		}
+	},[])
 	useEffect(() => {
 		if (!sidenav) {
 			document.body.style.overflowY = 'scroll';
@@ -45,7 +96,7 @@ export default function InternalHeader({activeState}) {
 
 	const lastSeenVisibleTimer = (5*30000)
 	function handleLastSeen(){
-		if(activeState === false){
+		if(active === false){
 				const lastSeenTimer = setTimeout(() => {
 				setLastSeen(`Last seen: ${sessionStorage.getItem('lastSeen')}`)
 		  },[lastSeenVisibleTimer])
@@ -56,11 +107,11 @@ export default function InternalHeader({activeState}) {
 
 	useEffect(()=>{
 		const activity = setInterval(() =>{
-			if(activeState === true){
+			if(active === true){
 				const activityState = sessionStorage.getItem('userActivity')
 			setUserState(activityState)
 			
-			}else if(activeState === false){
+			}else if(active === false){
 				setUserState(sessionStorage.getItem('userActivity'))
 			}
 		},[100])
@@ -162,7 +213,7 @@ export default function InternalHeader({activeState}) {
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
 						<div className={styles.user}>
-							<div className={styles.avatar} aria-hidden={activeState}>
+							<div className={styles.avatar} aria-hidden={active}>
 								<img src={avatar} alt="avatar" />
 							</div>
 							<div className={styles.profile} >
