@@ -61,8 +61,14 @@ function AskCards({ onClose, show, hide, showShare }) {
 
 			setUsers(await getUser());
 			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
+
+
+ 
+       
+
 				getTotalReplies(fetchedQuestion.question_id)
 			);
+
 
 			Promise.all([...fetchedReplies].reverse()).then((reply) =>
 				setReplies((prevState) => [...prevState, reply])
