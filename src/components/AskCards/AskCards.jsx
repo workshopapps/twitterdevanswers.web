@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './AskCards.module.css';
 import options from '../../assets/dashboard-images/options.webp';
 import message from '../../assets/dashboard-images/message.webp';
 import heartBold from '../../assets/dashboard-images/heartBold.webp';
 import share from '../../assets/dashboard-images/share.webp';
 import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
+import Modal from '../Modal/Modal';
 
 const token = localStorage.getItem('token');
 
@@ -28,7 +30,7 @@ async function getTotalReplies(id) {
 	return response.data.length;
 }
 
-function AskCards() {
+function AskCards({ onClose, show, hide, showShare }) {
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
 			day: '2-digit',
@@ -73,7 +75,7 @@ function AskCards() {
 			);
 		})();
 	}, []);
-	
+
 	const askCard = [...questions].reverse().map((question, i) => (
 		<div className={styles.cardContainer} key={question.question_id}>
 			<Link to={`/profile/${question.owner_id}`}>
@@ -122,7 +124,10 @@ function AskCards() {
 						<span className={styles.likes}>
 							<img src={heartBold} alt="" /> {question.total_like}
 						</span>
-						<img src={share} alt="" className={styles.share} />
+						<Modal onClose={onClose} show={show} hide={hide} />
+						<button type="button" onClick={showShare}>
+							<img src={share} alt="" />
+						</button>
 					</div>
 					<span className={styles.reward}>
 						<img src={dollarCircle} alt="" /> {question.payment_amount}token
@@ -134,5 +139,12 @@ function AskCards() {
 
 	return <div className={styles.cards}>{askCard}</div>;
 }
+
+AskCards.propTypes = {
+	onClose: PropTypes.func.isRequired,
+	show: PropTypes.bool.isRequired,
+	hide: PropTypes.func.isRequired,
+	showShare: PropTypes.func.isRequired,
+};
 
 export default AskCards;
