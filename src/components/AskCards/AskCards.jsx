@@ -61,14 +61,8 @@ function AskCards({ onClose, show, hide, showShare }) {
 
 			setUsers(await getUser());
 			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
-
-
- 
-       
-
 				getTotalReplies(fetchedQuestion.question_id)
 			);
-
 
 			Promise.all([...fetchedReplies].reverse()).then((reply) =>
 				setReplies((prevState) => [...prevState, reply])
@@ -78,7 +72,7 @@ function AskCards({ onClose, show, hide, showShare }) {
 
 	const askCard = [...questions].reverse().map((question, i) => (
 		<div className={styles.cardContainer} key={question.question_id}>
-			<Link to={`/profile/${question.owner_id}`}>
+			<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
 				<img
 					src="https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1"
 					alt=""
