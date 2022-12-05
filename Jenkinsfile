@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('Build') { 
             steps { 
-                sh "npm i --force && CI=false npm run build"
+                sh "npm install -g install-peerdeps install-peerdeps --dev eslint-config-airbnb install-peerdeps --dev eslint-config-airbnb-base"
+                sh "CI=false npm run build"
               }
         }
 
