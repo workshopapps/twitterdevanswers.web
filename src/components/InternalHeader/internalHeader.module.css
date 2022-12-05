@@ -130,7 +130,7 @@ li {
 	border-radius: 50%;
 }
 
-.avatar[aria-hidden=true]::before {
+.avatar[aria-hidden="true"]::before {
 	content: '';
 	display: inline-block;
 	width: 8px;
@@ -142,7 +142,7 @@ li {
 	border-radius: 50%;
 	z-index: 1;
 }
-.avatar[aria-hidden=false]::before {
+.avatar[aria-hidden='false']::before {
 	content: '';
 	display: inline-block;
 	width: 8px;
@@ -150,7 +150,7 @@ li {
 	position: absolute;
 	bottom: 6px;
 	right: -2px;
-	background: #b7c3bd;
+	background: #858e8a;
 	border-radius: 50%;
 	z-index: 1;
 }
@@ -158,6 +158,14 @@ li {
 .nameStatus {
 	color: #1f1f1f;
 	font-size: 16px;
+	line-height: 1em;
+}
+.profile{
+	display: flex;
+	flex-direction: column;
+}
+.lastseen{
+	font-size: 10px;
 }
 
 .nameStatus span {

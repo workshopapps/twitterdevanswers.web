@@ -1,11 +1,10 @@
 .title {
-	font-size: 18px;
-	text-transform: capitalize;
+	color: #551a8b;
 	padding: 0.5em 0em;
 }
 
 .cards {
-	width: 60%;
+	width: 100%;
 }
 
 .cardContainer {
@@ -17,6 +16,7 @@
 	padding: 24px 16px 24px 16px;
 	margin: 2rem 0;
 	width: 100%;
+	
 }
 
 .cardContainer > div {
@@ -75,6 +75,7 @@
 	font-weight: 400;
 	font-size: 16px;
 	color: #535353;
+	cursor: pointer;
 	line-height: 1.7;
 }
 

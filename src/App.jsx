@@ -38,10 +38,10 @@ import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
-import Asks from './components/Asks';
+import AskQuestion from './components/AskQuestion/AskQuestion';
 import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
-import NotificationSettings from "./pages/NotificationSettings/index";
+import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
 
 function App() {
@@ -54,9 +54,9 @@ function App() {
 
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader /> : <Header />}
+			{user || isAuth ? <InternalHeader/> : <Header />}
 			<Routes>
-				<Route path="/" element={<Home/>} />
+				<Route path="/" element={<Home />} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
 				<Route path="/second-landing" element={<SecondLandingPage />} />
 				<Route path="/first-landing" element={<FirstLandingPage />} />
@@ -76,7 +76,7 @@ function App() {
 				<Route path="sign-up" element={<SignUp />} />
 				<Route element={<ProtectedRoutes />}>
 					<Route path="dashboard/*" element={<Dashboard />} />
-					<Route path="dashboard/questions/:id" element={<Asks />} />
+					<Route path="dashboard/questions/:id" element={<AskQuestion />} />
 					<Route path="profile/:id" element={<Profile />} />
 					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
@@ -89,7 +89,10 @@ function App() {
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
 					<Route path="*" element={<ErrorPage />} />
-					<Route path="notification-settings" element={<NotificationSettings />} />
+					<Route
+						path="notification-settings"
+						element={<NotificationSettings />}
+					/>
 				</Route>
 			</Routes>
 			{user || isAuth ? <InternalFooter /> : <Footer />}
