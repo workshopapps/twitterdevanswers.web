@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React ,{ useState } from 'react';
 import styles from './style.module.css';
 
@@ -31,28 +32,28 @@ function Help() {
 							</article>
 							<article className={styles.article}>
 								<h3>Why is “can someone help me” not an actual question?</h3>
-								<p>Because DevAsk is a question & answer site, you may think that you have asked a reasonable, answerable question, but you really haven{`'`}t.</p>
-								<p>First, a bit of background. This site is intended to create a knowledge repository of solutions to programming problems. This means that a primary characteristic of a good question is that it is likely to be searched by someone else. {`'`}Will you help me do X? {`"`} doesn{`'`}t do that. More than likely, no one will ever be trying to do, and searching for, the exact same thing as you in exactly the same way. On the other hand, questions like: {`"`}How do I convert a string to a number?{`"`} are searched very often.</p>
-								<p>Second, for the sake of argument, let{`'`}s say we don{`'`}t care if it{`'`}s useful to someone else, that we are only here for you (we aren{`'`}t). It{`'`}s still impossible to answer. Imagine what an answer might look like. It would essentially need to be the entire code base. We can appreciate that you only want {`"`}help{`"`}, but with the question you{`'`}ve asked, we can{`'`}t provide it. Compare that to the above question, which has a clear definable answer (or even multiple answers).</p>
-								<p>So, help us help you. When you write a question, make sure to actually ask a question. Answerable questions don{`'`}t ask how to implement a feature, they ask how to accomplish a programming task (among other things).</p>
-								<p>The good news is, you are trying to learn. So work on the question, edit it into something answerable, or at least make sure your next question is a good one. We{`'`}ll be glad to help!</p>
+								<p>Because DevAsk is a question & answer site, you may think that you have asked a reasonable, answerable question, but you really haven't.</p>
+								<p>First, a bit of background. This site is intended to create a knowledge repository of solutions to programming problems. This means that a primary characteristic of a good question is that it is likely to be searched by someone else. 'Will you help me do X? " doesn't do that. More than likely, no one will ever be trying to do, and searching for, the exact same thing as you in exactly the same way. On the other hand, questions like: "How do I convert a string to a number?" are searched very often.</p>
+								<p>Second, for the sake of argument, let's say we don't care if it's useful to someone else, that we are only here for you (we aren't). It's still impossible to answer. Imagine what an answer might look like. It would essentially need to be the entire code base. We can appreciate that you only want "help", but with the question you've asked, we can't provide it. Compare that to the above question, which has a clear definable answer (or even multiple answers).</p>
+								<p>So, help us help you. When you write a question, make sure to actually ask a question. Answerable questions don't ask how to implement a feature, they ask how to accomplish a programming task (among other things).</p>
+								<p>The good news is, you are trying to learn. So work on the question, edit it into something answerable, or at least make sure your next question is a good one. We'll be glad to help!</p>
 
 							</article>
 							<article className={styles.article}>
 									<h3>What is the proper way to approach DevAsk as a newbie in programming?</h3>
 									<p> A well written and refined question also shows that you care about the site and community, which goes a long way toward receiving a good response.</p>
 									<p>
-										We don{`'`}t frown on beginner questions, we just value our time and want to spend it helping people that will actually get better at what they do as a result. If you can demonstrate that in your question, you{`'`}ll likely have a good experience.
+										We don't frown on beginner questions, we just value our time and want to spend it helping people that will actually get better at what they do as a result. If you can demonstrate that in your question, you'll likely have a good experience.
 									</p>
-									<p>The advice that you see here is good, but it{`'`}s not a substitute for common sense. If you worry that your question would likely be inappropriate, keep talking to the duck until you figure it out, or come up with a question that you feel would be appropriate.</p>
+									<p>The advice that you see here is good, but it's not a substitute for common sense. If you worry that your question would likely be inappropriate, keep talking to the duck until you figure it out, or come up with a question that you feel would be appropriate.</p>
 							</article>
 							<article className={styles.article}>
 								<h3>Is it okay to ask for code optimisation help?</h3>
-								<p>Before you post your question, consider what it is you{`'`}re asking.</p>
-								<p>If you{`'`}ve actually profiled the code, have specific snippets so that everyone can run the same code to see its performance, and you have this library publicly published somewhere, like GitHub, Bitbucket, or another public facing code repository, then asking it on Code Review is acceptable.</p>
-								<p>If you{`'`}re just starting the code but have profiled an exact snippet that exhibits the aberrant performance, then asking it on Stack Overflow is acceptable.</p>
+								<p>Before you post your question, consider what it is you're asking.</p>
+								<p>If you've actually profiled the code, have specific snippets so that everyone can run the same code to see its performance, and you have this library publicly published somewhere, like GitHub, Bitbucket, or another public facing code repository, then asking it on Code Review is acceptable.</p>
+								<p>If you're just starting the code but have profiled an exact snippet that exhibits the aberrant performance, then asking it on Stack Overflow is acceptable.</p>
 								<p>Per the above, including the results from your profiler of choice with identified bottlenecks would go a long way towards keeping it on topic on either site.</p>
-								<p>However, if you{`'`}re looking for someone to help you optimize the code without having done any of the due diligence mentioned prior, reconsider posting your question. It is important that you demonstrate why you believe that your piece of code is not performant, as well as provide as much evidence as you can to back it up.</p>
+								<p>However, if you're looking for someone to help you optimize the code without having done any of the due diligence mentioned prior, reconsider posting your question. It is important that you demonstrate why you believe that your piece of code is not performant, as well as provide as much evidence as you can to back it up.</p>
 							</article>
 					
 						</div>
