@@ -27,5 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: |
-        npm i -g
+        npm i -g install-peerdeps install-peerdeps --dev eslint-config-airbib
+        
     - run: CI=false npm run build --if-present
