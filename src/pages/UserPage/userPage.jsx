@@ -1,8 +1,6 @@
-// import React from 'react';
 import { useState, React, useEffect, useContext} from "react";
 import axios from "axios";
 import UserProfileCard from '../../components/UserPage/UserProfileCard';
-// import users from './users';
 import styles from './userPage.module.css';
 import { AppContext } from '../../store/AppContext';
 
@@ -23,7 +21,6 @@ function UserPage() {
 			 }
 		 })
              setProfile(res.data.data);
-			// console.log(res.data.data)
 			 setFilteredList(res.data.data)
       } 
        
