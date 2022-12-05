@@ -13,7 +13,6 @@ function AppContextProvider({ children }) {
 	};
 
 	const [state, dispatch] = useReducer(appReducer, initialState);
-
 	const appContext = useMemo(() => ({ state, dispatch }), [state]);
 
 	return (

@@ -60,15 +60,20 @@ function AskCards() {
 			setUsers(await getUser());
 			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
 
+
  
-        getTotalReplies(fetchedQuestion.question_id));
+       
+
+				getTotalReplies(fetchedQuestion.question_id)
+			);
+
 
 			Promise.all([...fetchedReplies].reverse()).then((reply) =>
 				setReplies((prevState) => [...prevState, reply])
 			);
 		})();
 	}, []);
-	console.log(replies);
+	
 	const askCard = [...questions].reverse().map((question, i) => (
 		<div className={styles.cardContainer} key={question.question_id}>
 			<Link to={`/profile/${question.owner_id}`}>

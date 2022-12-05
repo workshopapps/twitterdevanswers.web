@@ -363,7 +363,7 @@ function PostQuestion() {
 								onChange={handleChange}
 								required
 								onBlur={handleNextDetail}
-								autoComplete="true"
+								autoComplete
 							/>
 						</div>
 
@@ -388,18 +388,22 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
 								</span>
+
 								<span>
 									<img src="/post-question/italic.svg" alt="italic Icon" />
 								</span>
+
 								<span>
 									<img src="/post-question/linkIcon.svg" alt="link Icon" />
 								</span>
+
 								<span>
 									<img
 										src="/post-question/unknown-text.svg"
 										alt="unknown-text Icon"
 									/>
 								</span>
+
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
@@ -436,18 +440,22 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
 								</span>
+
 								<span>
 									<img src="/post-question/italic.svg" alt="italic Icon" />
 								</span>
+
 								<span>
 									<img src="/post-question/linkIcon.svg" alt="link Icon" />
 								</span>
+
 								<span>
 									<img
 										src="/post-question/unknown-text.svg"
 										alt="unknown-text Icon"
 									/>
 								</span>
+
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
@@ -465,7 +473,7 @@ function PostQuestion() {
 						</div>
 
 						{/* Add tag */}
-						<section className={styles.postWrapper}>
+						<section className={styles.tagWrapper}>
 							<div className={styles.tagContent}>
 								<span className={styles.text}>Add tag </span>
 

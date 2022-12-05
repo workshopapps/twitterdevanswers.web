@@ -142,9 +142,11 @@
 .flexcontainer {
 	display: flex;
 	justify-content: center;
+	margin:auto;
 	background: rgba(217, 217, 217, 0.4);
 	padding-bottom: 2em;
 	padding-left: 2em;
+	height: 1300px;
 }
 .editaccount {
 	display: flex;
@@ -156,7 +158,18 @@
 	align-items: flex-start;
 	width: 100%;
 	margin-top: 108px;
+	margin: auto;
 }
+
+.mainedit{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+   /* margin: auto; */
+   align-self: center;
+   
+}
+
 .editaccounthide {
 	display: none;
 }

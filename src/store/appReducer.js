@@ -32,6 +32,13 @@ export default function appReducer(state, { type, payload }) {
 				loading: payload,
 			};
 		}
+		case 'EDIT_USER': {
+			return {
+				...state,
+				user: payload,
+				
+			};
+		}
 
 		default: {
 			return state;

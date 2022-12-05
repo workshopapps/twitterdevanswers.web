@@ -20,6 +20,10 @@ async function getUser() {
 function AskCards() {
 	const { pathname } = useLocation();
 	const thisuser = pathname.slice(9);
+
+
+
+
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
 			day: '2-digit',
@@ -40,7 +44,11 @@ function AskCards() {
 			);
 			const userIdData = await userIdResponse.data.data.user_id;
 			const response = await axios.get(
+
 				`https://api.devask.hng.tech/questions/${userIdData}/user`,
+
+				
+
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
