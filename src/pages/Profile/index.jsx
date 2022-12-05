@@ -8,7 +8,6 @@ import Reaction from '../../components/Reaction/Reaction';
 
 function Profile() {
 	const routeParams = useParams();
-	console.log(routeParams);
 
 	return (
 		<div className={styles.profile}>
