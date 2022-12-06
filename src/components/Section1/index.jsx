@@ -89,7 +89,7 @@ function ProfileTopSection() {
 									className={Section1.profile__icon}
 								/>
 							</div>{' '}
-							Joined {state.user.created_at.slice(0, 10)}
+							Joined {state.user.wallet.created_at.slice(0, 10)}
 						</div>
 						<div className={Section1.profile__location}>
 							<div className={Section1.profile__iconwrapper}>
