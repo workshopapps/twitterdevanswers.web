@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { AppContext } from '../../store/AppContext';
 import Section1 from './section1.module.css';
 import link from '../../assets/profile-images/link-2.png';
@@ -38,6 +37,7 @@ function ProfileTopSection() {
 				setInfo(data.data.data);
 			} catch (err) {
 				// console.error(err);
+				
 			}
 		};
 		fetchUser();
@@ -47,7 +47,7 @@ function ProfileTopSection() {
 			try {
 				setIsLoading(true);
 				const res = await axios.get(
-					`https://api.devask.hng.tech/following/followers/${state.user.userName}`,
+					`https://api.devask.hng.tech/following/followers/${state.user.user_id}`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,
@@ -61,7 +61,6 @@ function ProfileTopSection() {
 			}
 		};
 		fetchFollowers();
-		console.log(followers);
 	}, [isLoading]);
 	return (
 		<div className={Section1.profile__datawrapper}>
@@ -94,12 +93,13 @@ function ProfileTopSection() {
 						</div>
 						<div className={Section1.profile__location}>
 							<div className={Section1.profile__iconwrapper}>
+						
 								<img
 									src={locationIcon}
 									alt=""
-									className={Section1.profile__icon}
-								/>
-							</div>{' '}
+									className={Section1.profile__icon} 
+								/> 
+							</div> {' '}
 							{info.location}
 						</div>
 					</div>
@@ -144,7 +144,7 @@ function ProfileTopSection() {
 							<div className={Section1.profile__iconwrapper}>
 								{info.followers}
 							</div>{' '}
-							Followers
+							Followers {followers}
 						</div>
 						<div className={Section1.profile__socials}>
 							<div className={Section1.profile__iconwrapper}>
@@ -180,13 +180,3 @@ function ProfileTopSection() {
 	);
 }
 export default ProfileTopSection;
-ProfileTopSection.propTypes = {
-	user: PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		url: PropTypes.string.isRequired,
-		screen_name: PropTypes.string.isRequired,
-		description: PropTypes.string.isRequired,
-		profile_image_url_https: PropTypes.string.isRequired,
-		location: PropTypes.string.isRequired,
-	}).isRequired,
-};
