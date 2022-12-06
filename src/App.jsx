@@ -40,6 +40,8 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
+import * as Sentry from "@sentry/react";
+
 
 function App() {
 	const {
@@ -94,4 +96,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Sentry.withProfiler(App);
