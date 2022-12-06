@@ -9,8 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import AppContextProvider from './store/AppContext';
 
 
-process.env.NODE_ENV === "production" &&
-Sentry.init({
+process.env.NODE_ENV === "production" && Sentry.init({
   dsn: "https://ece3bc8c25c04063b0206f32f71903d2@o4504279440097280.ingest.sentry.io/4504279444094976",
   integrations: [new BrowserTracing()],
 
