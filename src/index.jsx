@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {HashRouter} from 'react-router-dom';
 import './index.css';
+import * as Sentry from "@sentry/react";
+import { BrowserTracing } from "@sentry/tracing";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AppContextProvider from './store/AppContext';
-import * as Sentry from "@sentry/react";
-import { BrowserTracing } from "@sentry/tracing";
 
 
 Sentry.init({
