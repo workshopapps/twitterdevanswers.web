@@ -42,9 +42,7 @@ function Editor() {
 
 	return (
 		<div className={styles.editorContainer}>
-			<div className={styles.questionArea}>
 				<img src={profilePicture} alt="" className={styles.profilePicture} />
-
 				<ReactQuill
 					className={styles.writeQuestion}
 					placeholder="Start a discussion"
@@ -55,12 +53,9 @@ function Editor() {
 					onChange={handleQuestion}
 					value={question.text}
 				/>
-			</div>
-			<div className={styles.editorFooter}>
-				<button type="button" onClick={submitHandler}>
+				<button className={styles.editorFooter} type="button" onClick={submitHandler}>
 					Post
 				</button>
-			</div>
 		</div>
 	);
 }
