@@ -9,14 +9,14 @@ import reportWebVitals from './reportWebVitals';
 import AppContextProvider from './store/AppContext';
 
 
-Sentry.init({
+process.env.NODE_ENV === "production" && Sentry.init({
   dsn: "https://ece3bc8c25c04063b0206f32f71903d2@o4504279440097280.ingest.sentry.io/4504279444094976",
   integrations: [new BrowserTracing()],
 
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
-  tracesSampleRate: 0.2,
+  tracesSampleRate: 1.0,
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
