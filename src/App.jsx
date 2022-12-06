@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import * as Sentry from "@sentry/react";
 import Notifications from './pages/Notifications';
 import API from './pages/API';
 import Login from './pages/AuthPage/Login';
@@ -40,7 +41,7 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
-import * as Sentry from "@sentry/react";
+
 
 
 function App() {
