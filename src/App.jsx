@@ -30,7 +30,7 @@ import WalletPage from './pages/WalletPage';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
-import Security from "./pages/Security/Security"
+import Security from './pages/Security/Security';
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
@@ -50,7 +50,7 @@ function App() {
 
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader/> : <Header />}
+			{user || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
@@ -73,9 +73,8 @@ function App() {
 				<Route element={<ProtectedRoutes />}>
 					<Route path="dashboard/*" element={<Dashboard />} />
 					<Route path="dashboard/questions/:id" element={<AskQuestion />} />
-					<Route path="profile/:id" element={<Profile />} />
 					<Route path="profile/:username" element={<Profile />} />
-		
+
 					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
 					<Route path="teams-page" element={<Teams />} />
