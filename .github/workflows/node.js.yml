@@ -30,5 +30,6 @@ jobs:
         npm install -g install-peerdeps
         install-peerdeps --dev eslint-config-airbnb
         install-peerdeps --dev eslint-config-airbnb-base
+        npm install --save @sentry/react @sentry/tracing
         
     - run: CI=false npm run build --if-present

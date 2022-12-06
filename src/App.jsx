@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import * as Sentry from '@sentry/react';
 import Notifications from './pages/Notifications';
 import API from './pages/API';
 import Login from './pages/AuthPage/Login';
@@ -74,7 +75,6 @@ function App() {
 					<Route path="dashboard/*" element={<Dashboard />} />
 					<Route path="dashboard/questions/:id" element={<AskQuestion />} />
 					<Route path="profile/:username" element={<Profile />} />
-
 					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
 					<Route path="teams-page" element={<Teams />} />
@@ -85,16 +85,17 @@ function App() {
 					<Route path="security-settings" element={<Security />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
-					<Route path="*" element={<ErrorPage />} />
+
 					<Route
 						path="notification-settings"
 						element={<NotificationSettings />}
 					/>
 				</Route>
+				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 			{user || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }
 
-export default App;
+export default Sentry.withProfiler(App);
