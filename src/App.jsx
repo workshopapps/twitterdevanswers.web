@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import * as Sentry from "@sentry/react";
+import * as Sentry from '@sentry/react';
 import Notifications from './pages/Notifications';
 import API from './pages/API';
 import Login from './pages/AuthPage/Login';
@@ -31,7 +31,7 @@ import WalletPage from './pages/WalletPage';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
-import Security from "./pages/Security/Security"
+import Security from './pages/Security/Security';
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
@@ -42,8 +42,6 @@ import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
 
-
-
 function App() {
 	const {
 		state: { isAuth },
@@ -53,7 +51,7 @@ function App() {
 
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader/> : <Header />}
+			{user || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
@@ -88,7 +86,10 @@ function App() {
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
 
-					<Route path="notification-settings" element={<NotificationSettings />} />
+					<Route
+						path="notification-settings"
+						element={<NotificationSettings />}
+					/>
 				</Route>
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>

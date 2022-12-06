@@ -37,7 +37,6 @@ function ProfileTopSection() {
 				setInfo(data.data.data);
 			} catch (err) {
 				// console.error(err);
-				
 			}
 		};
 		fetchUser();
@@ -67,7 +66,11 @@ function ProfileTopSection() {
 			<div className={Section1.profile__datatxt}>
 				<div className={Section1.profile__imagewrapper}>
 					<img
-						src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
+						src={
+							info.image_url === ' '
+								? 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+								: info.image_url
+						}
 						alt=""
 						className={Section1.profile__image}
 					/>
@@ -89,36 +92,39 @@ function ProfileTopSection() {
 									className={Section1.profile__icon}
 								/>
 							</div>{' '}
-							Joined {state.user.wallet.created_at.slice(0, 10)}
+							Joined {state.user?.wallet.created_at.slice(0, 10)}
 						</div>
 						<div className={Section1.profile__location}>
 							<div className={Section1.profile__iconwrapper}>
-						
 								<img
-									src={locationIcon}
+									src={info.location !== ' ' ? { locationIcon } : ''}
 									alt=""
-									className={Section1.profile__icon} 
-								/> 
-							</div> {' '}
+									className={Section1.profile__icon}
+								/>
+							</div>{' '}
 							{info.location}
 						</div>
 					</div>
 					<div className={Section1.profile__sociallinks}>
 						<div className={Section1.profile__link}>
 							<div className={Section1.profile__iconwrapper}>
-								<img src={link} alt="" className={Section1.profile__icon} />
+								<img
+									src={info.links !== ' ' ? { link } : ''}
+									alt=""
+									className={Section1.profile__icon}
+								/>
 							</div>{' '}
 							{info.links}
 						</div>
 						<div className={Section1.profile__socials}>
 							<div className={Section1.profile__iconwrapper}>
-								<img src={github} alt="" className={Section1.profile__icon} />
+								<img src={info.links !== ' ' ? {github} : ''} alt="" className={Section1.profile__icon} />
 							</div>{' '}
 							{info.links}
 						</div>
 						<div className={Section1.profile__socials}>
 							<div className={Section1.profile__iconwrapper}>
-								<img src={twitter} alt="" className={Section1.profile__icon} />
+								<img src={info.links !== ' ' ? {twitter} : ''} alt="" className={Section1.profile__icon} />
 							</div>{' '}
 							{info.links}
 						</div>
@@ -130,7 +136,7 @@ function ProfileTopSection() {
 									className={Section1.profile__icon}
 								/>
 							</div>{' '}
-							Last seen {state.user.wallet.updated_at}
+							Last seen {state.user?.wallet.updated_at}
 						</div>
 					</div>
 					<div className={Section1.profile__followingwallet}>
@@ -154,14 +160,14 @@ function ProfileTopSection() {
 									className={Section1.profile__icon}
 								/>
 							</div>{' '}
-							{state.user.wallet.balance} Token
+							{state.user?.wallet.balance} Token
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className={Section1.profile__btns}>
 				<div className={Section1.profile__btnwrapper}>
-					{state.user.userName === user ? (
+					{state.user?.userName === user ? (
 						<button
 							className={Section1.btn2}
 							type="button"
