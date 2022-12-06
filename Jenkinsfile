@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Build') { 
             steps { 
-                sh "npm i --force && CI=false npm run build"
+                sh "npm i --force"
+                sh "npm install --save @sentry/react @sentry/tracing"
+                sh "CI=false npm run build"
               }
         }
 
