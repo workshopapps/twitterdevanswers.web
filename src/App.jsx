@@ -30,7 +30,7 @@ import WalletPage from './pages/WalletPage';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
-import Security from "./pages/Security/Security"
+import Security from './pages/Security/Security';
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
@@ -38,21 +38,20 @@ import InternalFooter from './components/InternalFooter/InternalFooter';
 import Asks from './components/Asks';
 import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
-import NotificationSettings from "./pages/NotificationSettings/index";
+import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
 
 function App() {
 	const {
 		state: { isAuth },
 	} = useContext(AppContext);
-	const data = localStorage.getItem('user');
-	const user = JSON.parse(data);
+	const token = localStorage.getItem('token');
 
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader /> : <Header />}
+			{token || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
-				<Route path="/" element={<Home/>} />
+				<Route path="/" element={<Home />} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
 				<Route path="/second-landing" element={<SecondLandingPage />} />
 				<Route path="/first-landing" element={<FirstLandingPage />} />
@@ -85,10 +84,13 @@ function App() {
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
 					<Route path="*" element={<ErrorPage />} />
-					<Route path="notification-settings" element={<NotificationSettings />} />
+					<Route
+						path="notification-settings"
+						element={<NotificationSettings />}
+					/>
 				</Route>
 			</Routes>
-			{user || isAuth ? <InternalFooter /> : <Footer />}
+			{token || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }
