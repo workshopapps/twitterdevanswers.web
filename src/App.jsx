@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import * as Sentry from '@sentry/react';
 import Notifications from './pages/Notifications';
 import API from './pages/API';
 import Login from './pages/AuthPage/Login';
@@ -35,7 +36,7 @@ import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
-import Asks from './components/Asks';
+import AskQuestion from './components/AskQuestion/AskQuestion';
 import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
@@ -71,8 +72,8 @@ function App() {
 				<Route path="sign-up" element={<SignUp />} />
 				<Route element={<ProtectedRoutes />}>
 					<Route path="dashboard/*" element={<Dashboard />} />
-					<Route path="dashboard/questions/:id" element={<Asks />} />
-					<Route path="profile/:id" element={<Profile />} />
+					<Route path="dashboard/questions/:id" element={<AskQuestion />} />
+					<Route path="profile/:username" element={<Profile />} />
 					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
 					<Route path="teams-page" element={<Teams />} />
@@ -89,10 +90,11 @@ function App() {
 						element={<NotificationSettings />}
 					/>
 				</Route>
+				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 			{token || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }
 
-export default App;
+export default Sentry.withProfiler(App);

@@ -23,7 +23,6 @@ function EditAcccount() {
 			[event.target.name]: event.target.value,
 		}));
 	};
-	console.log(state)
   
 	const onSubmit=async (event)=>{	
 		event.preventDefault();

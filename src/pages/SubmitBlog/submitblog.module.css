@@ -31,6 +31,14 @@
 	min-height: 130px;
 	padding: 4em 1.5em;
 }
+
+.container .textEditor {
+	height: 9rem;
+	width: 85%;
+	margin-bottom: 2rem; 
+}
+
+
 @media (min-width: 850px) {
 	.container textarea {
 		min-height: 180px;

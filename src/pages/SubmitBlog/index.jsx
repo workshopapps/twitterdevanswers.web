@@ -1,4 +1,6 @@
 import React, { useState, useContext } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import styles from './submitblog.module.css';
@@ -31,15 +33,20 @@ function SubmitBlog() {
 		},
 	];
 
+	const [body, setBody] = useState({ text: '' });
 	const [blogData, setBlogData] = useState({
-		author: state.user.userName,
-		user_id: state.user.user_id,
+		author: '',
 		blog_user_id: '',
 		title: '',
-		body: '',
 		image_url: '',
 		post_category: 'Select',
 	});
+	console.log(blogData)
+
+	const handleBody = (value) => {
+		setBody((prev) => ({ ...prev, text: value }));
+	};
+
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 
@@ -53,10 +60,9 @@ function SubmitBlog() {
 	const submitNewBlog = async () => {
 		const details = {
 			author: blogData.author,
-			user_id: blogData.user_id,
 			blog_user_id: 2,
 			title: blogData.title,
-			body: blogData.body,
+			body: body.text,
 			image_url: 'https://devask-mallet.netlify.app/blog/nft-mobile.svg',
 			post_category: blogData.post_category,
 		};
@@ -105,11 +111,11 @@ function SubmitBlog() {
 							<h3>Author</h3>
 							<input
 								type="text"
-								placeholder=""
+								placeholder="Enter author title"
 								value={blogData.author}
 								name="author"
 								onChange={handleChange}
-								disabled
+								required
 							/>
 						</div>
 					</section>
@@ -164,7 +170,7 @@ function SubmitBlog() {
 								You are required to submit the link to your article in doc link
 								format
 							</p>
-							<textarea
+							{/* <textarea
 								value={blogData.body}
 								name="body"
 								onChange={handleChange}
@@ -172,9 +178,22 @@ function SubmitBlog() {
 								required
 							>
 								*Placeholder*
-							</textarea>
+							</textarea> */}
+							<ReactQuill
+								className={styles.textEditor}
+								placeholder="Write Something"
+								theme="snow"
+								defaultValue=""
+								modules={SubmitBlog.modules}
+								formats={SubmitBlog.formats}
+								onChange={handleBody}
+								value={body.text}
+							/>
 							{error && blogData.title.length <= 2 ? (
-								<div className="invalid" style={{ color: '#F89687' }}>
+								<div
+									className="invalid"
+									style={{ color: '#F89687', paddingTop: '3rem' }}
+								>
 									Please add your article content.
 								</div>
 							) : (
@@ -203,5 +222,31 @@ function SubmitBlog() {
 		</main>
 	);
 }
+
+SubmitBlog.modules = {
+	syntax: true,
+	toolbar: [
+		[
+			{ size: [] },
+			'bold',
+			'italic',
+			'underline',
+			'strike',
+			'blockquote',
+			'link',
+		],
+		[{ 'code-block': true }],
+	],
+};
+SubmitBlog.formats = [
+	'size',
+	'bold',
+	'italic',
+	'underline',
+	'strike',
+	'blockquote',
+	'link',
+	'code-block',
+];
 
 export default SubmitBlog;
