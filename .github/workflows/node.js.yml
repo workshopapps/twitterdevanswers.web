@@ -31,6 +31,6 @@ jobs:
         install-peerdeps --dev eslint-config-airbnb
         install-peerdeps --dev eslint-config-airbnb-base
         npm install --save @sentry/react @sentry/tracing
-        npm install --save atatus-spa
+        npm install --save atatus-js
         
     - run: CI=false npm run build --if-present
