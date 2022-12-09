@@ -49,8 +49,8 @@ function Security() {
                 const myOTP = JSON.stringify(OTP);
                 try {
                     const { data } = await axios.post('https://api.devask.hng.tech/auth/validate-mfa', {
-                            email: emailAddress,
-                            mfa_hash: myOTP
+                            "email": emailAddress,
+                            "mfa_hash": myOTP
                     });
                     if(data){
                         setResponse("Validation Successful");
