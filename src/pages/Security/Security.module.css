@@ -85,6 +85,30 @@
     flex-direction: column;
     gap: 8px;
 }
+.TwoFactorAuthForms input{
+    width: 90%;
+    height: 40px;
+    margin: 5px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    padding-left: 5%;
+    font-weight: bold;
+}
+.TwoFactorAuthForms button{
+    width: 30%;
+    height: 40px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: #1D1DD8;
+    color: white;
+    font-weight: bold;
+}
+.TwoFactorAuthForms button:hover{
+    background-color: rgba(255, 255, 255, 0.41);
+    color: #1D1DD8;
+    border: 1px solid #1D1DD8;
+}
 .TwoFactorAuth button, .VerifyEmail button{
     width: 21%;
     height: 60px;
