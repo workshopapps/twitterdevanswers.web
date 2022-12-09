@@ -292,13 +292,18 @@ function PostQuestion() {
 
 										<div>
 											<h3 className={styles.modalHeader}>Details</h3>
-											<p className={styles.modalBody} dangerouslySetInnerHTML={{__html: detail.text}}/>
+											<p
+												className={styles.modalBody}
+												dangerouslySetInnerHTML={{ __html: detail.text }}
+											/>
 										</div>
 
 										<div>
 											<h3 className={styles.modalHeader}>Description</h3>
-											<p className={styles.modalBody} dangerouslySetInnerHTML={{__html: description.text}}/>
-		
+											<p
+												className={styles.modalBody}
+												dangerouslySetInnerHTML={{ __html: description.text }}
+											/>
 										</div>
 
 										<div>
@@ -337,7 +342,7 @@ function PostQuestion() {
 
 			<section className={styles.header}>
 				<div>
-					<h1>Ask a public question</h1>
+					<h1 className={styles.headerH1}>Ask a public question</h1>
 					<p>
 						You are ready to ask a programming related question and this form
 						will help guild you through the process. Looking to ask a
@@ -392,40 +397,14 @@ function PostQuestion() {
 								Minimum 20 characters
 							</p>
 
-							{/* <div className={styles.textIcons}>
-								<span>
-									<img src="/post-question/caseIcon.svg" alt="case Icon" />
-								</span>
-								<span>
-									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
-								</span>
-
-								<span>
-									<img src="/post-question/italic.svg" alt="italic Icon" />
-								</span>
-
-								<span>
-									<img src="/post-question/linkIcon.svg" alt="link Icon" />
-								</span>
-
-								<span>
-									<img
-										src="/post-question/unknown-text.svg"
-										alt="unknown-text Icon"
-									/>
-								</span>
-
-								<span>
-									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
-								</span>
-							</div> */}
-							<ReactQuill 
-							    className={styles.textEditor}
-								placeholder='Write Something'
-								theme='snow'
+							
+							<ReactQuill
+								className={styles.textEditor}
+								placeholder="Write Something"
+								theme="snow"
 								defaultValue=""
 								modules={PostQuestion.modules}
-								formats={PostQuestion.formats }
+								formats={PostQuestion.formats}
 								onChange={handleDetail}
 								value={detail.text}
 								minLength={20}
@@ -447,40 +426,14 @@ function PostQuestion() {
 								Describe what you tried, what you expect to happen, and what
 								actually resulted. Minimum 20 characters
 							</p>
-							{/* <div className={styles.textIcons}>
-								<span>
-									<img src="/post-question/caseIcon.svg" alt="case Icon" />
-								</span>
-								<span>
-									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
-								</span>
-
-								<span>
-									<img src="/post-question/italic.svg" alt="italic Icon" />
-								</span>
-
-								<span>
-									<img src="/post-question/linkIcon.svg" alt="link Icon" />
-								</span>
-
-								<span>
-									<img
-										src="/post-question/unknown-text.svg"
-										alt="unknown-text Icon"
-									/>
-								</span>
-
-								<span>
-									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
-								</span>
-							</div> */}
-							<ReactQuill 
-							    className={styles.textEditor}
-								placeholder='Write Something'
-								theme='snow'
+							
+							<ReactQuill
+								className={styles.textEditor}
+								placeholder="Write Something"
+								theme="snow"
 								defaultValue=""
 								modules={PostQuestion.modules}
-								formats={PostQuestion.formats }
+								formats={PostQuestion.formats}
 								onChange={handleDescription}
 								value={description.text}
 								minLength={20}
@@ -492,7 +445,7 @@ function PostQuestion() {
 						{/* Add tag */}
 						<section className={styles.tagWrapper}>
 							<div className={styles.tagContent}>
-								<span className={styles.text}>Add tag </span>
+								<span className={styles.text}>Add Tags </span>
 
 								<button
 									type="button"
@@ -531,8 +484,26 @@ function PostQuestion() {
 								)}
 							</div>
 
+							
+						</section>
+					</section>
+
+					<section className={styles.detailWrapper} id="detail">
+						<div className={styles.content}>
+							<h3>Allocate tokens to this question</h3>
+							<p>
+								Assign a minimum of 1 token to the user that profers a fitting
+								solution to your problem.
+							</p>
+							
+							
+						</div>
+
+						{/* Add tag */}
+						<section className={styles.tagWrapper}>
+
 							<div className={styles.tagContent}>
-								<span className={styles.text}>Add tokens </span>
+								<span className={styles.text}>Add Tokens </span>
 
 								<button
 									type="button"
