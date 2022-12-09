@@ -11,14 +11,19 @@ function Security() {
     const [getEmail, setGetEmail] = useState("email");
     const [postEmail, setPostEmail] = useState("email");
     const [OTP, setOTP] = useState("OTP");
+    const [verifyEmail, setVerifyEmail] = useState("email");
     const [isVisible, setIsVisible] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
-    const [response, setResponse] = useState("")
-
+    const [isDisplaying, setIsDisplaying] = useState(false);
+    const [response, setResponse] = useState("");
+    const [verifyResponse, setVerifyResponse] = useState("");
 
 
     function toggleForm(){
         setIsVisible(!isVisible);
+    }
+    function toggleVerificationForm(){
+        setIsDisplaying(!isDisplaying);
     }
     function revealMail(){
         if (getEmail === "email" || getEmail === ""){
@@ -57,6 +62,22 @@ function Security() {
                     }; 
                 } catch (error) {
                     setResponse("Validation Unsuccessful. Please try again!");
+    
+                } 
+            }
+
+            const handleVerifyEmail = async (e) => {
+                e.preventDefault();
+                const emailAddress = JSON.stringify(verifyEmail);
+                try {
+                    const { data } = await axios.post('https://api.devask.hng.tech/auth/send_email_code', {
+                            "email": emailAddress,
+                    });
+                    if(data){
+                        setVerifyResponse("Check your email inbox");
+                    }; 
+                } catch (error) {
+                    setVerifyResponse("Verification failed. Please try again!");
     
                 } 
             }
@@ -146,10 +167,20 @@ function Security() {
                 <div className={styles.VerifyEmail}>
                     <section>
                         <h1>Verify E-mail</h1>
-                        <p>Confirmation email has been sent to the e-mail address provided, check mail to confirm</p>
+                        <p>Click on the button and follow the instructions to verify your email</p>
                     </section>
-                    <button type="submit"> Verify</button>
+                    <button type="submit" onClick={toggleVerificationForm}> Verify</button>
                 </div>
+                {isDisplaying && 
+                <div className={styles.VerifyEmailHiddenForm} id="verify-email-form">
+                <form className={styles.VerifyEmailForm} onSubmit={handleVerifyEmail} method="POST">
+                    <p>Pleae type your email address</p>
+                        <input type="email" name="email" required value={verifyEmail} onChange={(e) => setVerifyEmail(e.target.value)} />
+                        <button type="submit">Submit</button>
+                        <p>{verifyResponse}</p>
+                    </form>
+                </div>
+                }
                 <form className={styles.SecurityForm}>
                     <section className={styles.WalletSection}>
                         <h1>Wallet Address</h1>
