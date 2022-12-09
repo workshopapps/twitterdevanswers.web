@@ -1,16 +1,16 @@
 import React
 // { useContext } 
 from 'react';
+import PropTypes from 'prop-types';
 import ArrowUp from '../../assets/wallet-images/arrow-up.svg';
 import arrowdown from '../../assets/wallet-images/arrowdown.svg';
 import ArrowRight from '../../assets/wallet-images/arrow-right.svg';
 import styles from './TransactionHistory.module.css';
+// import { useWalletContext } from '../../pages/WalletPage/WalletContext'
 // import TransactionHistorySkeleton from './TransactionHistorySkeleton';
 // import WalletContext from '../../pages/WalletPage/WalletContext';
 
-function TransactionHistory() {
-	// const { loading, data } = useContext(WalletContext);
-
+function TransactionHistory({walletId}) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.transaction_header}>
@@ -31,7 +31,7 @@ function TransactionHistory() {
 					<img src={ArrowUp} alt="right arrow " />
 					<h5>5000 token Withdrawn Successfully</h5>
 				</div>
-				<p className={styles.code}>1JiKTG96fYvQ6X8SMLnwk19pKpiWuzbUBR</p>
+				<p className={styles.code}>{walletId}</p>
 				<hr />
 
 				<p>12:07pm</p>
@@ -53,7 +53,7 @@ function TransactionHistory() {
 					<img src={ArrowUp} alt="right arrow " />
 					<h5>5000 token Withdrawn Successfully</h5>
 				</div>
-				<p className={styles.code}>1JiKTG96fYvQ6X8SMLnwk19pKpiWuzbUBR</p>
+				<p className={styles.code}>{walletId}</p>
 				
 			</div>
 		</div>
@@ -102,5 +102,14 @@ function TransactionHistory() {
 	// 	</section>
 	// );
 }
+
+TransactionHistory.defaultProps = {
+	walletId: '1JiKTG96fYvQ6X8SMLnwk19pKpiWuzbUBR',
+};
+
+TransactionHistory.propTypes = {
+	walletId: PropTypes.string,
+};
+
 
 export default TransactionHistory;

@@ -9,9 +9,13 @@ const token = localStorage.getItem('token');
 function Editor() {
 	const [question, setQuestion] = useState({ text: '' });
 
+
 	const handleQuestion = (value) => {
-		setQuestion((prev) => ({ ...prev, text: value }));
+			setQuestion((prev) => ({ ...prev, text: value }));
+		
 	};
+
+	
 
 	function submitHandler() {
 		if (question.text.trim() === '') return;
@@ -57,6 +61,7 @@ function Editor() {
 					Post
 				</button>
 		</div>
+
 	);
 }
 
