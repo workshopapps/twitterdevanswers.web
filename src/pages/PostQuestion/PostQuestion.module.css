@@ -88,11 +88,17 @@
 	display: flex;
 	flex-direction: column;
 	margin: 1em;
+	padding-bottom: 20px;
 }
 
 .container .titleWrapper div {
 	text-align: left;
 	padding: 0em 1em 0em 0em;
+	padding-left: 60px;
+}
+
+.container .problemWrapper {
+	padding-left: 40px;
 }
 
 .container .titleWrapper div h3 {
@@ -205,6 +211,10 @@
 	padding: 1em;
 	line-height: 1.6;
 }
+
+.container .titleWrapper a {
+	margin-left: 30px;
+}
 .container .detailWrapper .content a {
 	background: #1d1dd8;
 	padding: 1em;
@@ -220,15 +230,15 @@
 	border: 1px solid #492b7c;
 	border-radius: 4px;
 	color: #492b7c;
-	margin-bottom: 50px;
+	margin-bottom: 5px;
 	margin-left: 36px;
 }
 
 .container .tagWrapper .tagContent {
-	display: flex;
+	/* display: flex; */
 	flex-direction: row;
 	padding: 1em 2em;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
 	width: 100%;
 }
@@ -246,7 +256,8 @@
 }
 
 .allTagsText {
-	border-radius: 18px;
+	width: 150px;
+	border-radius: 4px;
 	background: #d2d2f7;
 	color: #757575;
 	padding: 0.8em 1.4em;
@@ -254,6 +265,8 @@
 	align-items: center;
 	display: flex;
 	margin: 0.7em;
+	margin-left: 38px;
+	margin-bottom: 50px;
 }
 .allTagsButton {
 	margin-left: 2.4em;
@@ -325,6 +338,8 @@
 	min-height: 60%;
 	margin: 0 auto;
 	border: 1px solid #989898;
+		margin-inline: 15%;
+
 }
 
 .modal div {
@@ -387,10 +402,7 @@
 	flex-wrap: wrap;
 }
 
-.modalContent div:nth-child(4),
-.modalContent div:nth-child(5) {
-	flex: 0 0 50%;
-}
+
 .ErrorBody {
 	color: red;
 	font-weight: 600;
@@ -472,11 +484,11 @@
 		padding: 1.2em 0em 0em 2em;
 	}
 	.container .tagWrapper .tagContent {
-		flex: 0 0 50%;
+		/* flex: 0 0 50%; */
 	}
 	.container .tagWrapper .allTags {
 		padding-left: 4em;
-		display: flex;
+		/* display: flex; */
 		align-items: center;
 	}
 	.container .detailWrapper .content .textIcons {

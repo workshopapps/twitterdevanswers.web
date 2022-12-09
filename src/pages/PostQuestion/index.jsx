@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -28,8 +28,8 @@ function PostQuestion() {
 	const [isSuccessful, setIsSuccessful] = useState(false);
 	const [isTagsOpen, setIsTagsOpen] = useState(false);
 	const [isTokensOpen, setIsTokensOpen] = useState(false);
-	const [detail, setDetail] = useState({text: ''});
-	const [description, setDescription] = useState({text: ''});
+	const [detail, setDetail] = useState({ text: '' });
+	const [description, setDescription] = useState({ text: '' });
 	const [questionData, setQuestionData] = useState({
 		id: '',
 		title: '',
@@ -163,14 +163,14 @@ function PostQuestion() {
 	};
 
 	const handleDetail = (value) => {
-		setDetail((prev) => ({ ...prev, text: value,}));
-		handleDisabling();	
-	}
+		setDetail((prev) => ({ ...prev, text: value }));
+		handleDisabling();
+	};
 
 	const handleDescription = (value) => {
-		setDescription((prev) => ({ ...prev, text: value,}));
-		handleDisabling();	
-	}
+		setDescription((prev) => ({ ...prev, text: value }));
+		handleDisabling();
+	};
 
 	const handleReview = (event) => {
 		event.preventDefault();
@@ -235,7 +235,7 @@ function PostQuestion() {
 				setIsSuccessful(true);
 
 				setTimeout(() => {
-					navigate('/dashboard');
+					navigate('#/dashboard');
 				}, 5000);
 			}
 		} catch (err) {
@@ -397,7 +397,6 @@ function PostQuestion() {
 								Minimum 20 characters
 							</p>
 
-							
 							<ReactQuill
 								className={styles.textEditor}
 								placeholder="Write Something"
@@ -426,7 +425,7 @@ function PostQuestion() {
 								Describe what you tried, what you expect to happen, and what
 								actually resulted. Minimum 20 characters
 							</p>
-							
+
 							<ReactQuill
 								className={styles.textEditor}
 								placeholder="Write Something"
@@ -469,23 +468,20 @@ function PostQuestion() {
 											))}
 									</div>
 								)}
-
-								{questionData.tag && (
-									<p className={styles.allTagsText}>
-										{questionData.tag}
-										<button
-											type="button"
-											onClick={() => handleTagRemoval(questionData.tag)}
-											className={styles.allTagsButton}
-										>
-											<img src="/post-question/cancel.svg" alt="Cancel Icon" />
-										</button>
-									</p>
-								)}
 							</div>
-
-							
 						</section>
+						{questionData.tag && (
+							<p className={styles.allTagsText}>
+								{questionData.tag}
+								<button
+									type="button"
+									onClick={() => handleTagRemoval(questionData.tag)}
+									className={styles.allTagsButton}
+								>
+									<img src="/post-question/cancel.svg" alt="Cancel Icon" />
+								</button>
+							</p>
+						)}
 					</section>
 
 					<section className={styles.detailWrapper} id="detail">
@@ -495,13 +491,10 @@ function PostQuestion() {
 								Assign a minimum of 1 token to the user that profers a fitting
 								solution to your problem.
 							</p>
-							
-							
 						</div>
 
 						{/* Add tag */}
 						<section className={styles.tagWrapper}>
-
 							<div className={styles.tagContent}>
 								<span className={styles.text}>Add Tokens </span>
 
@@ -569,19 +562,27 @@ function PostQuestion() {
 PostQuestion.modules = {
 	syntax: true,
 	toolbar: [
-		[{ size: [] },"bold", "italic", "underline", "strike", "blockquote","link",],
-		[{ 'code-block': true }]
+		[
+			{ size: [] },
+			'bold',
+			'italic',
+			'underline',
+			'strike',
+			'blockquote',
+			'link',
+		],
+		[{ 'code-block': true }],
 	],
 };
 PostQuestion.formats = [
- "size",
- "bold",
- "italic",
- "underline",
- "strike",
- "blockquote",
- "link",
- "code-block",
+	'size',
+	'bold',
+	'italic',
+	'underline',
+	'strike',
+	'blockquote',
+	'link',
+	'code-block',
 ];
 
 export default PostQuestion;
