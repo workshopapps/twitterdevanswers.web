@@ -390,7 +390,7 @@ function PostQuestion() {
 
 					{/* problem */}
 					<section className={styles.problemWrapper} id="problem">
-						<div>
+						<div className={styles.problemdetailhead}>
 							<h3>What are the detail of your problem?</h3>
 							<p>
 								Introduce the problem and expand on what you put in the title.
