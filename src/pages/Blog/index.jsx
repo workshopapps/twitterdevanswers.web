@@ -58,7 +58,6 @@ function Blog() {
 		const response = await fetch("https://api.devask.hng.tech/blog")
 		const data = await response.json()
 		setBlog(data)
-		console.log(data)
 		
 	}
 	
