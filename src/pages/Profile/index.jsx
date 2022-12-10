@@ -7,11 +7,14 @@ import ProfileHeader from '../../components/ProfileHeader';
 
 function Profile() {
 	return (
-		<main className={styles.profile}>
-			<ProfileHeader />
-			{/* <Reaction /> */}
-			{/* <div className={styles.askcard}><AskCards /></div> */}
-		</main>
+		<div className={styles.container}>
+			<main className={styles.profile}>
+				<ProfileHeader />
+				{/* <Reaction /> */}
+				{/* <div className={styles.askcard}><AskCards /></div> */}
+			</main>
+			<aside className={styles.aside}>hello</aside>
+		</div>
 	);
 }
 

@@ -14,8 +14,21 @@ function ProfileHeader() {
 
 				<div className={styles['header-misc']}>
 					<p>
-						<img src={calendarIcon} alt="" />
+						<span>
+							<img src={calendarIcon} alt="calendar icon" />
+							Joined September 2019
+						</span>
+
+						<span>
+							<img src={calendarIcon} alt="Location icon" />
+							Los Angeles, Carlifornia
+						</span>
 					</p>
+					<div>
+						<p><span>200</span>Following</p>
+						<p><span>80</span>Following</p>
+						<p><span>1.5</span>Tokens</p>
+					</div>
 				</div>
 			</div>
 		</header>
