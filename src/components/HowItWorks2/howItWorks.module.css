@@ -1,90 +1,121 @@
 .container {
-    overflow-x: hidden;
-    width: 100%;
-    padding-top: 150px;
+	overflow-x: hidden;
+	width: 100%;
 }
 
 .how {
-	padding: 96px 0;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	row-gap: 96px;
+	width: 90%;
+	margin: 4rem auto;
 }
 
 .steps {
-    display: flex;
-    /* justify-content: center; */
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 20px;
+	background: #f6f0ff;
+	margin: 0 auto;
+	padding: 5%;
 }
 
 .steps h1 {
-font-family: 'Rubik';
-font-style: normal;
-font-weight: 600;
-font-size: 32px;
-line-height: 40px;
-color: #000000;
-padding-bottom: 50px;
-
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 40px;
+	text-align: center;
+	line-height: 48px;
+	color: #000000;
+	margin-bottom: 1rem;
 }
 
-.steps .stepImage {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.steps .stepImage img {
-    width: 300px;
-    height: 231px;
-
-}
-
-.how img {
-	width: 80%;
-}
-
-.text {
+.ProcessCard {
+	background-color: #ffffff;
+	border: 0.5px solid #989898;
+	border-radius: 4px;
+	width: 32%;
+	height: 200px;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.ProcessCard p{
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+}
+.steps .stepImage {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 4rem 0 0;
 }
 
-@media only screen and (max-width: 960px) {
-    .steps .stepImage {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .steps .stepImage img {
-        width: 70%;
-        height: 231px;
-        padding-bottom: 30px;
-    
-    }
+.cardcircle {
+	background: #ffffff;
+	border: 1px solid #989898;
+	width: 65px;
+	height: 65px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	bottom: 85%;
+	left: auto;
+}
+.cardcircle p {
+	font-family: 'Rubik';
+	font-weight: 600;
+	font-size: 1.7rem;
+	color: #492b7c;
+}
+.text {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row-reverse;
+	margin-top: 4rem;
+}
+.textrev {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 4rem;
+}
+.leftside{
+	width: 47%;
+}
+.rightside{
+	width: 45%;
+}
+.leftside img{
+	width: 100%;
 }
 
-@media only screen and (max-width: 1200px) {
-	.how {
-		grid-template-columns: 1fr;
+@media (max-width: 1000px) {
+	.ProcessCard p{
+		width: 70%;
+		margin: 0 auto;
 	}
+}
 
-	.how img {
-		justify-self: center;
+@media (max-width: 768px) {
+	.steps .stepImage {
+		display: block;
 	}
-
-	.text {
+	.ProcessCard {
 		width: 80%;
-		justify-self: center;
-		justify-content: flex-start;
+		height: 150px;
+		margin: 3rem auto;
 	}
-
-	.text:nth-child(3) {
-		grid-row: 4;
+	.textrev, .text{
+		display: block;
+		margin-top: 2rem;
 	}
-
-	.text:nth-child(7) {
-		grid-row: 8;
+	.leftside{
+		width: 80%;
+		margin: 1rem auto;
+	}
+	.rightside{
+		width: 80%;
+		margin: 1rem auto;
 	}
 }
