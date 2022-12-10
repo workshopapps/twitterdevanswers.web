@@ -19,7 +19,6 @@ function PostQuestion() {
 	const handleClickScroll = () => {
 		const element = document.getElementById('root');
 		if (element) {
-			// 👇 Will scroll smoothly to the top of the next section
 			element.scrollIntoView({ behavior: 'smooth' });
 		}
 	};
@@ -28,8 +27,7 @@ function PostQuestion() {
 	const [isSuccessful, setIsSuccessful] = useState(false);
 	const [isTagsOpen, setIsTagsOpen] = useState(false);
 	const [isTokensOpen, setIsTokensOpen] = useState(false);
-	// const [detail, setDetail] = useState({ text: '' });
-	// const [description, setDescription] = useState({ text: '' });
+	
 	const [questionData, setQuestionData] = useState({
 		id: '',
 		title: '',
@@ -166,15 +164,7 @@ function PostQuestion() {
 		handleDisabling();
 	};
 
-	// const handleDetail = (value) => {
-	// 	setDetail((prev) => ({ ...prev, text: value }));
-	// 	handleDisabling();
-	// };
-
-	// const handleDescription = (value) => {
-	// 	setDescription((prev) => ({ ...prev, text: value }));
-	// 	handleDisabling();
-	// };
+	
 
 	const handleReview = (event) => {
 		event.preventDefault();
