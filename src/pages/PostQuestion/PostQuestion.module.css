@@ -105,10 +105,10 @@
 	font-size: 1.1rem;
 	color: #303030;
 	font-family: 'Nunito';
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 32px;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 32px;
 }
 .container .titleWrapper div p {
 	color: #757575;
@@ -118,10 +118,10 @@ line-height: 32px;
 	padding-right: 1em;
 	padding: 1em 0em;
 	font-family: 'Nunito';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 30px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 30px;
 }
 .container .titleWrapper div input {
 	border-radius: 8px;
@@ -131,25 +131,25 @@ line-height: 30px;
 	margin-bottom: 1.2em;
 }
 
-.problemdetailhead h3{
+.problemdetailhead h3 {
 	font-family: 'Nunito';
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 32px;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 32px;
 }
 
-.problemdetailhead p{
-font-family: 'Nunito';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 30px;
+.problemdetailhead p {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 30px;
 }
 
-.container .titleWrapper a,
-.container .problemWrapper a {
-	background: #1d1dd8;
+.container .titleWrapper button,
+.container .problemWrapper button {
+	background: #492b7c;
 	padding: 1em;
 	color: #ffffff;
 	align-self: flex-start;
@@ -187,6 +187,7 @@ line-height: 30px;
 	margin-bottom: 1.2em;
 	padding: 1em;
 	line-height: 1.6;
+	padding-top: 3em;
 }
 
 .container .detailWrapper .content {
@@ -196,7 +197,8 @@ line-height: 30px;
 	padding: 1em 1em 1em 1em;
 }
 
-.container .detailWrapper .content .textIcons {
+.container .detailWrapper .content .textIcons,
+.container .problemWrapper .problemdetailhead .textIcons {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -218,7 +220,8 @@ line-height: 30px;
 	line-height: 32px;
 	color: #303030;
 }
-.container .detailWrapper .content p {
+.container .detailWrapper .content p,
+.container .problemWrapper .problemdetailhead p {
 	color: #303030;
 	font-size: 0.85rem;
 	line-height: 1.5;
@@ -237,13 +240,14 @@ line-height: 30px;
 	width: 88%;
 	padding: 1em;
 	line-height: 1.6;
+	padding-top: 3em;
 }
 
-.container .titleWrapper a {
+.container .titleWrapper button {
 	margin-left: 30px;
 }
-.container .detailWrapper .content a {
-	background: #1d1dd8;
+.container .detailWrapper .content button {
+	background: #492b7c;
 	padding: 1em;
 	color: #ffffff;
 	align-self: flex-end;
@@ -258,6 +262,7 @@ line-height: 30px;
 	border-radius: 4px;
 	color: #492b7c;
 	margin-bottom: 5px;
+	margin-top: 20px;
 	margin-left: 36px;
 }
 
@@ -318,14 +323,14 @@ line-height: 30px;
 	cursor: pointer;
 }
 .buttonWrapper div .review {
-	background: #1d1dd8;
+	background: #492b7c;
 	color: #ffffff;
 	border: none;
 }
 .buttonWrapper div .discard {
 	background: #ffffff;
-	color: #1d1dd8;
-	border: 1px solid #1d1dd8;
+	color: #492b7c;
+	border: 1px solid #492b7c;
 }
 
 .containerWrapper {
@@ -365,8 +370,7 @@ line-height: 30px;
 	min-height: 60%;
 	margin: 0 auto;
 	border: 1px solid #989898;
-		margin-inline: 15%;
-
+	margin-inline: 15%;
 }
 
 .modal div {
@@ -385,7 +389,7 @@ line-height: 30px;
 }
 
 .modalSubmit {
-	background: #1d1dd8;
+	background: #492b7c;
 	color: #ffffff;
 }
 
@@ -429,7 +433,6 @@ line-height: 30px;
 	flex-wrap: wrap;
 }
 
-
 .ErrorBody {
 	color: red;
 	font-weight: 600;
@@ -459,7 +462,6 @@ line-height: 30px;
 	}
 }
 
-
 @media (max-width: 1100px) {
 	.container .tagWrapper {
 		flex-direction: column;
@@ -481,7 +483,6 @@ line-height: 30px;
 	.postWrapper .tagContent:nth-child(2) {
 		margin-left: 5em;
 	}
-	
 }
 
 @media (min-width: 850px) {
@@ -502,23 +503,22 @@ line-height: 30px;
 	.container textarea {
 		min-height: 180px;
 	}
-	
+
 	.container .titleWrapper div {
 		padding: 1.2em 0em 0em 1.5em;
 	}
-	
+
 	.container .detailWrapper .content {
 		padding: 1.2em 0em 0em 2em;
 	}
-	.container .tagWrapper .tagContent {
-		/* flex: 0 0 50%; */
-	}
+
 	.container .tagWrapper .allTags {
 		padding-left: 4em;
 		/* display: flex; */
 		align-items: center;
 	}
-	.container .detailWrapper .content .textIcons {
+	.container .detailWrapper .content .textIcons,
+	.container .problemWrapper .problemdetailhead .textIcons {
 		max-width: 27%;
 	}
 	.containerWrapper {
