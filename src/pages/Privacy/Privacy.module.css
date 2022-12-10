@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    gap: 30px;
+    width: 90%;
+    height: 100%;
+    color: #333333;
+    margin-bottom: 10%;
+}
+.MainHeader{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    margin-top: 5%;
+    line-height: 56px;
+}
+.link{
+    text-decoration: none;
+    color: #333333;
+    
+}
+.SubHead{
+    font-size: 20px;
+    font-weight: 470;
+}
+@media screen and (max-width:600px) {
+    .MainHeader{
+        font-size: 40px;
+
+    }
+
+}
