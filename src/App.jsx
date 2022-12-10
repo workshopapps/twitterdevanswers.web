@@ -41,6 +41,8 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
+import NewDashboard from './pages/NewDashboard/NewDashboard';
+import NewDashboard2 from './pages/NewDashboard/NewDashboard2';
 
 function App() {
 	const {
@@ -52,6 +54,8 @@ function App() {
 		<div className="App">
 			{token || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
+				<Route path="/new-dashboard" element={<NewDashboard />} />
+				<Route path="/new-dashboard2" element={<NewDashboard2 />} />
 				<Route path="/" element={<Home />} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
 				<Route path="/second-landing" element={<SecondLandingPage />} />

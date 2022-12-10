@@ -53,8 +53,6 @@ function SignUp() {
 					headers: { 'Access-Control-Allow-Origin': '*' },
 				});
 
-				console.log(response);
-
 				const { data } = await response;
 
 				if (data.status_code && data.status_code === 400) {
