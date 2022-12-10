@@ -1,0 +1,88 @@
+.card {
+	padding: 24px 24px 24px 16px;
+	background: #ffffff;
+	border: 1px solid #ececfb;
+	border-radius: 8px;
+	display: flex;
+	gap: 16px;
+	color: #303030;
+}
+
+.left {
+	width: 60px;
+	height: 60px;
+}
+
+.top {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.top a:link,
+.top a:visited {
+	color: #303030;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 27px;
+}
+
+.top span {
+	font-size: 18px;
+	line-height: 25px;
+	color: #989898;
+}
+
+.right h3 {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 24px;
+	margin-bottom: 12px;
+}
+
+.right p {
+	font-size: 20px;
+	line-height: 24px;
+	margin-bottom: 16px;
+}
+
+.img {
+	width: 100%;
+}
+
+.tag {
+	padding: 8px 16px;
+	background: #e2d9f2;
+	border-radius: 4px;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 16px;
+	color: #492b7c;
+	margin-bottom: 24px;
+}
+
+.bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.left {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+}
+
+.replies,
+.likes {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.icon {
+	font-size: 20px;
+	max-width: fit-content;
+}
