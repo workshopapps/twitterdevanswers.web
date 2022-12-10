@@ -51,19 +51,19 @@ const blogsContent = [
 
 function Blog() {
 	
-	const [blog, setBlog] = useState([]);
+	// const [blog, setBlog] = useState([]);
 
 
-	const fetchData = async () => {
-		const response = await fetch("https://api.devask.hng.tech/blog")
-		const data = await response.json()
-		setBlog(data)
+	// const fetchData = async () => {
+	// 	const response = await fetch("https://api.devask.hng.tech/blog")
+	// 	const data = await response.json()
+	// 	setBlog(data)
 		
-	}
+	// }
 	
-	useEffect(() => {
-		fetchData()
-	  }, [])
+	// useEffect(() => {
+	// 	fetchData()
+	//   }, [])
 
 	return (
 		<main className={styles.blogContainer}>
@@ -107,7 +107,6 @@ function Blog() {
 						</div>
 						<h3 className={styles.postTitle}>
 						{item.Title}
-						{blog}
 						</h3>
 						<p className={styles.postContent}>
 							{item.Content}
