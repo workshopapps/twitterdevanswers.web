@@ -4,7 +4,6 @@ import {HashRouter} from 'react-router-dom';
 import './index.css';
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
-import * as atatus from 'atatus-js';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AppContextProvider from './store/AppContext';
@@ -21,7 +20,6 @@ Sentry.init({
   tracesSampleRate: 1.0,
 });
 }
-atatus.config('48933a5ad3684b9d9351f3b103e77b8f').install();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
