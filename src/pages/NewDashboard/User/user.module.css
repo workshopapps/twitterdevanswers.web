@@ -1,0 +1,47 @@
+.user {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.info {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.info img {
+	width: 60px;
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.username a:link,
+.username a:visited {
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 27px;
+	color: #1f1f1f;
+}
+
+.followers {
+	font-size: 20px;
+	line-height: 27px;
+	color: #6a6a6a;
+}
+
+.user .btn {
+	font-size: 16px;
+	color: #fefefe;
+	background: #492b7c;
+	border: 1px solid #492b7c;
+	line-height: 22px;
+	border-radius: 4px;
+	padding: 8px 16px;
+	cursor: pointer;
+}
