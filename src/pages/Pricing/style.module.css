@@ -1,613 +1,148 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
-
+.MainSection{
+  display: flex;
+  flex-direction: column;
+}
 .PricingHeaderText {
-    font-family: 'Rubik';
-    font-style: normal;
     font-weight: 600;
     font-size: 48px;
     line-height: 56px;
-    /* margin-left: 270px; */
-    margin-left: 18rem;
-    margin-top: 80px;
+    text-align: center;
     color: #282828;
   }
-  
   .PricingHeaderSubText {
-    font-family: 'Rubik';
-    font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 32px;
-    margin-left: 380px;
-    margin-top: 32px;
+    text-align: center;
     color: #282828;
     opacity: 0.6;
+    margin-bottom: 48px;
   }
-  
-  .IconsWrapper {
-    margin-left: 30rem;
-    margin-top: 100px;
+  .DiscountSection{
+    margin-left: 57%;
   }
-  
-  .Monthtext {
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 400;
+  .Discount{
+    width: 51px;
+    height: 16px;
+    margin-left: -7%;
+  }
+  .Arrow{
+    width: 53px;
+    height: 67px;
+  }
+  .Slider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 24px;
-    line-height: 32px;
-    color: #282828;
-    opacity: 0.6;
-    margin-bottom: 100px;
-    
-  }
-  
-  .SliderIcon {
-   position: absolute; 
-    margin-left: 8rem;
-    top: 25.5rem;
-  }
-  
-  .Yeartext {
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 32px;
-    color: #282828;
-    margin-left: 135.5px;
-  }
-  
-  .PercentButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 72px;
-    height: 24px;
-    position: relative;
-    bottom: 65px;
-    /* bottom: 2rem; */
-    left: 720px;
-    background: #1D1DD8;
-    border-radius: 4px;
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    text-transform: capitalize;
-    color: #FEFEFE;
-  }
-  
-  .ArrowIcon {
-    position: absolute;
-    top: 23.5rem;
-    left: 790px;
-  }
-  
-  .PaymentCardWrapper {
-    display: flex;
-    margin-left: 20px;
-    margin-top: 30px;
-    margin-bottom: 160.58px;
-    padding-bottom: 10px;
-    /* justify-content: center; */
-  }
-
-  
-  .PaymentButton1 {
-    width: 302px;
-    height: 48px;
-    margin-left: 24px;
-    margin-top: 2rem;
-    border-radius: 4px;
-    border: 1px solid blue;
-    font-family: 'Rubik';
-    font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    text-transform: capitalize;
-    color: #1D1DD8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    line-height: 32px;
+    letter-spacing: 0px;
+    margin-top: -60px;
+
+  }
+  .Slider button{
+    background-color: white;
+    border: none;
   
   }
 
-  .PaymentButton2 {
-    width: 302px;
-    height: 48px;
-    margin-left: 24px;
-    margin-top: 2rem;
+  .PlanA{
+    font-size: 48px;
+    color: #492B7C;
+  }
+  .PlanB{
+    font-size: 48px;
+    color: #492B7C;
+  }
+
+.PriceBoxSection{
+  margin: 120px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+.Bronze, .Silver, .Gold{
+    width: 30%;
+    min-height: 476px;
+    padding-left: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+    border: none;
+    border-radius: 24px;
+    background-color: #F6F0FF;
+}
+
+.Bronze button, .Silver button, .Gold button{
+    width: 72%;
+    height: 42px;
     border-radius: 4px;
-    background: #1D1DD8;
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    text-transform: capitalize;
-    color: #FEFEFE;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: none;
+    background-color: #492B7C;
+    color: white;
+}
+.PriceBoxSection i, .PriceBoxSection li{
+  opacity: 60%;
+}
+
+@media screen and (max-width: 900px){
+  .PricingHeaderText{
+    font-size: 36px;
   }
-
-  @media only screen  and (max-width: 1029px) {
-    .PricingHeaderText {
-        margin-left: 13rem;
-    }
-
-    .PricingHeaderSubText {
-        margin-left: 17rem;
-    }
-
-    .IconsWrapper {
-        margin-left: 2rem;
-    }
-
-    .PercentButton {
-        left: 38.5rem;
-    }
-
-    .SliderIcon {
-      margin-left: 30rem;
-    }
-
-    .ArrowIcon {
-        left: 43rem;
-    }
-
-    .PaymentCardWrapper {
-        margin-left: -1.3rem;
-    }
-
-    .PaymentButton1 {
-        width: 80%;
-        height: 8%;
-    }
-
-    .PaymentButton2 {
-        width: 80%;
-        height: 8%;
-    }
-  }
-
-  @media only screen  and (max-width: 1015px) {
-    .PricingHeaderText {
-      font-size: 32px;
-      line-height: 72px;
-      margin-left: 15rem;
-      margin-top: 48px;
-      margin-bottom: 0px;
-    }
-  
-    .PricingHeaderSubText {
-      font-size: 16px;
-      line-height: 32px;
-      margin-left: 16rem;
-      margin-top: 0px;
-      margin-bottom: 0px;
-    } 
-
-    .IconsWrapper {
-      margin-left: 25rem;
-      margin-top: 39.92px;
-    }  
-  
-    .Monthtext {
-      font-size: 12px;
-      line-height: 16px;
-    }
-  
-    .SliderIcon {
-      width: 39.42px;
-      height: 17.6px;
-      top: 268px;
-      left: 1rem;
-    }
-  
-    .Yeartext {
-      font-size: 12px;
-      line-height: 16px;
-    }
-
-    .PercentButton {
-      width: 50.68px;
-      height: 16.89px;
-      bottom: 35px;
-      left: 36.5rem;
-      border-radius: 2.81545px;
-      font-size: 8px;
-      line-height: 11px;
-    }
-  
-    .ArrowIcon {
-      top: 260px;
-      left: 39.5rem;
-      width: 25.59px;
-      height: 40.74px;
-    }
-
-    .PaymentCardWrapper {
-      margin-left: 7rem;
-      margin-top: 50.35px;
-    }
-
-    .PaymentButton1 {
-      width: 172.49px;
-      height: 27.72px;
-      margin-left: 13.98px;
-      margin-top: 1rem;
-      border-radius: 2.28614px;
-      font-size: 7.98574px;
-      line-height: 14px;
-     }
-
-     .PaymentButton2 {
-      width: 172.49px;
-      height: 27.72px;
-      margin-left: 13.98px;
-      margin-top: 1rem;
-      border-radius: 2.28614px;
-      font-size: 7.98574px;
-      line-height: 14px;
-    }
-  }
-
-  @media only screen  and (max-width: 940px) {
-
-    .PricingHeaderText {
-      margin-left: 15rem;
-
-    }
-  
-    .PricingHeaderSubText {
-      margin-left: 16rem;
-
-    } 
-
-
-    .IconsWrapper {
-      margin-left: 22rem;
-
-    } 
-    
-    .SliderIcon {
-      margin-left: 26rem;
-    }
-
-    .PercentButton {
-      left: 33rem;
- 
-    }
-  
-    .ArrowIcon {
-      left: 36rem;
-
-    }
-  
-    .PaymentCardWrapper {
-      margin-left: 5rem; 
-    }
-
-    .PaymentButton1 {
-      margin-top: 1rem;
-    }
-
-    .PaymentButton2 {
-      margin-top: 1rem;
-    }
-  }
-
-  @media only screen  and (max-width: 880px) {
-
-    .PricingHeaderText {
-      margin-left: 15rem;
-
-    }
-  
-    .PricingHeaderSubText {
-      margin-left: 16rem;
-
-    } 
-
-
-    .PercentButton {
-      left: 32rem;
- 
-    }
-  
-    .ArrowIcon {
-      left: 35rem;
-
-    }
-
-    .IconsWrapper {
-      margin-left: 21rem;
-
-    }  
-  
-    .PaymentCardWrapper {
-      margin-left: 3.5rem;
-      
-    }
-  }
-
-  @media only screen  and (max-width: 840px) {
-
-    .PaymentCardWrapper {
-      margin-left: 2.5rem; 
-    }
-
-    .SliderIcon {
-        margin-left: 25rem;
-    }
- 
-    .PercentButton {
-      left: 31rem;
-
-    }
-
-    .IconsWrapper {
-      margin-left: 20rem;
-    } 
-
-    .ArrowIcon {
-      margin-left: -1rem;
-    }
-
-  }
-
-
-@media only screen  and (max-width: 800px) {
-  .PercentButton {
-    left: 30.5rem;
-
-  }
-
-  .ArrowIcon {
-    margin-left: -1.5rem;
+  .DiscountSection{
+    margin-left: 60%;
   }
 }
 
-
-  @media only screen  and (max-width: 768px) {
-    .PricingHeaderText {
-        margin-left: 10rem;
-        
-      }
-    
-      .PricingHeaderSubText {
-        margin-left: 12rem;
-      } 
-
-      .IconsWrapper {
-        margin-left: 17rem;
-      }  
-    
-
-      .PercentButton {
-        left: 455px;
-
-      }
-
-      .SliderIcon {
-        margin-left: 22rem;
-      }
-    
-      .ArrowIcon {
-        top: 260px;
-        left: 530px;
-        width: 25.59px;
-        height: 40.74px;
-      }
-
-      .PaymentCardWrapper {
-        margin-left: 0px;
-      }
-
-      .PaymentButton1 {
-        margin-top: 2rem;
-      }
-
-      .PaymentButton2 {
-        margin-top: 2rem;
-      }
-
-  }
-
-  @media only screen  and (max-width: 740px) {
-    .PricingHeaderText {
-      font-size: 18px;
-      line-height: 24px;
-      margin-left: 15rem;
-      margin-top: 28px;
-      margin-bottom: 0px;
+  @media only screen  and (max-width: 620px) {
+    .PricingHeaderText{
+      font-size: 24px;
     }
-  
-    .PricingHeaderSubText {
-      font-size: 12px;
-      line-height: 16px;
-      margin-left: 16rem;
-      margin-top: 8px;
-    } 
-
-    .IconsWrapper {
-      margin-left: 17rem;
-      margin-top: 51.92px;
-    } 
-  
-    .SliderIcon {
-      top: 210px;
+    .PricingHeaderSubText{
+      font-size: 16px;
     }
-  
-    .PercentButton {
-      bottom: 35px;
-      left: 28rem;
+    .DiscountSection{
+      margin-left: 65%;
     }
-  
-    .ArrowIcon {
-      top: 195px;
-      left: 32.5rem;
-    }
-  
-    .PaymentCardWrapper {
-      display: flex;
+    .PriceBoxSection{
       flex-direction: column;
-      justify-content: center;
-      margin-top: 41.37px;
-      margin-left: 15rem;
+      gap: 16px;
     }
-
-
-
-  }
-
-  @media only screen  and (max-width: 700px) {
-    .PricingHeaderText {
-      margin-left: 13rem;
-    }
-
-    .PricingHeaderSubText {
-      margin-left: 14rem;
-    } 
-
-    .IconsWrapper {
-      margin-left: 14rem;
-    } 
-
-    .PercentButton {
-      
-      left: 25rem;
-    }
-
-    .SliderIcon {
-      margin-left: 19rem;
-    }
-  
-    .ArrowIcon {
-      
-      left: 29.3rem;
-    }
-
-    .PaymentCardWrapper {
-      margin-left: 12rem;
+    .PriceBoxSection div{
+      width: 90%;
+      margin: auto;
     }
   }
-
-  @media only screen  and (max-width: 640px) {
-    .PricingHeaderText {
-      margin-left: 11rem;
+  @media screen and (max-width:480px) {
+    .PricingHeaderText{
+      font-size: 18px;
     }
-
-    .PricingHeaderSubText {
-      margin-left: 12rem;
-    } 
-
-    .IconsWrapper {
-      margin-left: 13rem;
-    } 
-
-    .SliderIcon {
-      margin-left: 18rem;
+    .PricingHeaderSubText{
+      font-size: 14px;
     }
-
-    .PercentButton {
-      
-      left: 24rem;
+    
+    .Slider{
+      font-size: 18px;
+      margin-top: -45px;
     }
-  
-    .ArrowIcon {
-      
-      left: 28.5rem;
-    }
-
-    .PaymentCardWrapper {
-      margin-left: 10rem;
+    .PlanA, .PlanB{
+      font-size: 24px;
     }
   }
-
-  @media only screen  and (max-width: 600px) {
-    .PricingHeaderText {
-      margin-left: 8rem;
+  @media screen and (max-width: 200px) {
+    .MainSection{
+      margin: 0;
+      padding: 0;
     }
+    .Slider{
+      font-size: 16px;
 
-    .PricingHeaderSubText {
-      margin-left: 9rem;
-    } 
-
-    .IconsWrapper {
-      margin-left: 9.5rem;
-    } 
-
-    .SliderIcon {
-      margin-left: 14rem;
     }
-
-    .PercentButton {
-      
-      left: 20.5rem;
+    .Arrow{
+      display: none;
     }
-  
-    .ArrowIcon {
-      
-      left: 25rem;
+    .PlanA, .PlanB{
+      font-size: 24px;
     }
-
-    .PaymentCardWrapper {
-      margin-left: 7rem;
-    }
-  }
-
-  @media only screen  and (max-width: 550px) {
-    .PercentButton {
-      
-      left: 21rem;
-    }
-  
-    .ArrowIcon {
-      
-      left: 25.5rem;
-    }
-  }
-
-
-
-  @media only screen  and (max-width: 450px) {
-    .PricingHeaderText {
-        margin-left: 51px;
-      }
-    
-      .PricingHeaderSubText {
-        margin-left: 45px;
-      } 
-
-      .IconsWrapper {
-        margin-left: 5rem;
-        margin-top: 51.92px;
-      } 
-    
-      .SliderIcon {
-        top: 205px;
-        left: -3rem;
-      }
-    
-      .PercentButton {
-        bottom: 35px;
-        left: 258px;
-      }
-    
-      .ArrowIcon {
-        top: 195px;
-        left: 329px;
-      }
-    
-      .PaymentCardWrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-top: 41.37px;
-        margin-left: 5px;
-      }
   }
