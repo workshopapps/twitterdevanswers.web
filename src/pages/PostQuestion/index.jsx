@@ -520,21 +520,20 @@ function PostQuestion() {
 											))}
 									</div>
 								)}
-
-								{questionData.token !== 0 && (
-									<p className={styles.allTagsText}>
-										{questionData.token}
-										<button
-											type="button"
-											onClick={() => handleTokenRemoval(questionData.token)}
-											className={styles.allTagsButton}
-										>
-											<img src="/post-question/cancel.svg" alt="Cancel Icon" />
-										</button>
-									</p>
-								)}
 							</div>
 						</section>
+						{questionData.token !== 0 && (
+							<p className={styles.allTagsText}>
+								{questionData.token}
+								<button
+									type="button"
+									onClick={() => handleTokenRemoval(questionData.token)}
+									className={styles.allTagsButton}
+								>
+									<img src="/post-question/cancel.svg" alt="Cancel Icon" />
+								</button>
+							</p>
+						)}
 					</section>
 
 					{/* buttons */}
