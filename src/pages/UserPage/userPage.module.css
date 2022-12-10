@@ -172,7 +172,7 @@
 .users_filter {
 	width: 100vw;
 	padding: 2rem 4rem;
-	justify-content: end;
+	justify-content: flex-end;
 	display: flex;
 	align-items: center;
 	margin-right: 130px;
