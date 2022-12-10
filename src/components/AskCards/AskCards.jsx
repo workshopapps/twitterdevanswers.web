@@ -99,9 +99,7 @@ function AskCards({ onClose, show, hide, showShare }) {
 
 				<div>
 					<h4 className={styles.title}>{question.title}</h4>
-					<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-						{question.content}
-					</p>
+					<p className={styles.reply} style={{ lineHeight: '1.8' }} dangerouslySetInnerHTML={{__html: question.content}} />
 				</div>
 
 				<section className={styles.cardFooter}>

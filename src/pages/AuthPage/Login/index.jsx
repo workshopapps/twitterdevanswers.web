@@ -49,6 +49,7 @@ function Login() {
 				);
 
 				localStorage.setItem('token', response.data.access_token);
+				console.log('token', response.data.access_token)
 
 				dispatch({
 					type: USER_LOGGED_IN,
