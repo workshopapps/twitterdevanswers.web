@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
 import options from '../../assets/profile-images/options.png';
@@ -10,18 +10,44 @@ import share from '../../assets/dashboard-images/share.webp';
 import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
 function UserActivities() {
+	let sections;
+	let tabButtons;
+	useEffect(() => {
+		sections = document.querySelectorAll('.section');
+		tabButtons = document.querySelectorAll('.tabButtons');
+	}, []);
+	const toggleView = (event) => {
+		if (event.target.type !== 'button') return;
+		const button = event.target;
+		sections.forEach((section, i) => {
+			section.classList.add(`${styles.hidden}`);
+			tabButtons[i].classList.remove(`${styles.active}`);
+		});
+		document
+			.querySelector(`.${`section-${button.textContent.toLowerCase()}`}`)
+			.classList.remove(`${styles.hidden}`);
+		button.classList.add(`${styles.active}`);
+	};
 	return (
 		<>
-			<header className={styles.header}>
-				<button type="button">Question</button>
-				<button type="button">Replies</button>
-				<button type="button" className={styles.active}>
+			<header className={styles.header} onClick={toggleView}>
+				<button type="button" className={`${styles.active} tabButtons`}>
+					Questions
+				</button>
+				<button className="tabButtons" type="button">
+					Replies
+				</button>
+				<button className="tabButtons" type="button">
 					Likes
 				</button>
-				<button type="button">Rewards</button>
+				<button className="tabButtons" type="button">
+					Rewards
+				</button>
 			</header>
 
-			<section className={`${styles['section-questions']} ${styles.hidden}`}>
+			<section
+				className={`${styles['section-questions']} ${styles.hidde} section section-questions`}
+			>
 				<div className={styles.cardContainer}>
 					<Link to="'profile/">
 						<img
@@ -244,7 +270,9 @@ function UserActivities() {
 				</div>
 			</section>
 
-			<section className={`${styles['section-replies']} ${styles.hidden}`}>
+			<section
+				className={`${styles['section-replies']} ${styles.hidden} section section-replies`}
+			>
 				<div className={styles.cardContainer}>
 					<Link to="'profile/">
 						<img
@@ -578,12 +606,16 @@ function UserActivities() {
 				</div>
 			</section>
 
-			<section className={`${styles['section-likes']} ${styles.hidden}`}>
+			<section
+				className={`${styles['section-likes']} ${styles.hidden} section section-likes`}
+			>
 				<img src={like} alt="heart emoji" />
 				<p>You&apos;ve liked a total number of 800 posts</p>
 			</section>
 
-			<section className={`${styles['section-likes']} ${styles.hidde}`}>
+			<section
+				className={`${styles['section-rewards']} ${styles.hidde} section section-rewards`}
+			>
 				<img src={reward} alt="heart emoji" />
 				<p>You’ve earned a total reward of 1,958 Tokens</p>
 			</section>
