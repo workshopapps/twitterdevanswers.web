@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './styles.module.css';
 import options from '../../assets/profile-images/options.png';
 import reward from '../../assets/profile-images/reward.svg';
@@ -9,13 +10,59 @@ import heartBold from '../../assets/dashboard-images/heartBold.webp';
 import share from '../../assets/dashboard-images/share.webp';
 import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
+const token = localStorage.getItem('token');
+
+async function getUser() {
+	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+	return response.data.data;
+}
+
 function UserActivities() {
 	let sections;
 	let tabButtons;
+	const { pathname } = useLocation();
+	const thisuser = pathname.slice(pathname.lastIndexOf('/') + 1);
+	const formatDate = (date) =>
+		new Intl.DateTimeFormat(navigator.language, {
+			day: '2-digit',
+			month: 'long',
+		}).format(new Date(date));
+
+	const [questions, setQuestions] = useState([]);
+	const [users, setUsers] = useState([]);
+	const findUser = (id) => users.find((user) => user.user_id === id);
 	useEffect(() => {
 		sections = document.querySelectorAll('.section');
 		tabButtons = document.querySelectorAll('.tabButtons');
+
+		(async function getData() {
+			const userIdResponse = await axios.get(
+				`https://api.devask.hng.tech/users/${thisuser}`,
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+			const userIdData = await userIdResponse.data.data.user_id;
+			const response = await axios.get(
+				`https://api.devask.hng.tech/questions/${userIdData}/user`,
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+			const fetchedQuestions = await response.data.data;
+			setQuestions(fetchedQuestions);
+			setUsers(await getUser());
+		})();
 	}, []);
+
 	const toggleView = (event) => {
 		if (event.target.type !== 'button') return;
 		const button = event.target;
@@ -28,9 +75,17 @@ function UserActivities() {
 			.classList.remove(`${styles.hidden}`);
 		button.classList.add(`${styles.active}`);
 	};
+
+	console.log(questions);
 	return (
 		<>
-			<header className={styles.header} onClick={toggleView}>
+			<header
+				className={styles.header}
+				onKeyDown={() => {}}
+				role="menu"
+				tabIndex="0"
+				onClick={toggleView}
+			>
 				<button type="button" className={`${styles.active} tabButtons`}>
 					Questions
 				</button>
@@ -48,7 +103,61 @@ function UserActivities() {
 			<section
 				className={`${styles['section-questions']} ${styles.hidde} section section-questions`}
 			>
-				<div className={styles.cardContainer}>
+				{questions.map((question) => (
+					<div className={styles.cardContainer} key={question.question_id}>
+						<Link to={`/profile/${question.owner_id}`}>
+							<img
+								src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
+								alt=""
+								className={styles.profilePicture}
+							/>
+						</Link>
+						<div>
+							<section className={styles.cardHeader}>
+								<div className={styles.userInfo}>
+									<Link
+										to={`/profile/${question.owner_id}`}
+										style={{ display: 'flex', textDecoration: 'none' }}
+									>
+										<h5 className={styles.askName}>
+											{findUser(question.owner_id)?.username}
+										</h5>
+									</Link>
+									<p className={styles.time}>
+										{formatDate(question.created_at)}
+									</p>
+								</div>
+								<img src={options} alt="" className={styles.options} />
+							</section>
+							<Link
+								to={`/dashboard/questions/${question.question_id}`}
+								style={{ textDecoration: 'none' }}
+							>
+								<h4 className={styles.title}>{question.title}</h4>
+								<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+									{question.content}
+								</p>
+							</Link>
+							<section className={styles.cardFooter}>
+								<div className={styles.icons}>
+									<span className={styles.viewReplies}>
+										<img src={message} alt="" />
+										{'17 '}
+									</span>
+									<span className={styles.likes}>
+										<img src={heartBold} alt="" /> {question.total_like}
+									</span>
+									<img src={share} alt="" className={styles.share} />
+								</div>
+								<span className={styles.reward}>
+									<img src={dollarCircle} alt="" /> {question.payment_amount}
+									token
+								</span>
+							</section>
+						</div>
+					</div>
+				))}
+				{/* <div className={styles.cardContainer}>
 					<Link to="'profile/">
 						<img
 							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
@@ -212,62 +321,7 @@ function UserActivities() {
 							</span>
 						</section>
 					</div>
-				</div>
-				<div className={styles.cardContainer}>
-					<Link to="'profile/">
-						<img
-							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-							alt=""
-							className={styles.profilePicture}
-						/>
-					</Link>
-					<div>
-						<section className={styles.cardHeader}>
-							<div className={styles.userInfo}>
-								<Link
-									to="/profile/"
-									style={{ display: 'flex', textDecoration: 'none' }}
-								>
-									<h5 className={styles.askName}>
-										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
-									</h5>
-								</Link>
-								<p className={styles.time}>36 secs</p>
-							</div>
-							<img src={options} alt="" className={styles.options} />
-						</section>
-						<Link to="/dashboard/questions" style={{ textDecoration: 'none' }}>
-							<h4 className={styles.title}>
-								Why does the NoReverse match error pop up when I’m trying to
-								marginate my django website?
-							</h4>
-							<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-								I actually have no idea why this happens but i feel like if we
-								all come together we can think of something that could work so
-								i’m placing a bounty on this question thanks.
-							</p>
-						</Link>
-						<div className={styles.tags}>
-							<button type="button">Python</button>
-						</div>
-						<section className={styles.cardFooter}>
-							<div className={styles.icons}>
-								<span className={styles.viewReplies}>
-									<img src={message} alt="" />
-									{'17 '}
-								</span>
-								<span className={styles.likes}>
-									<img src={heartBold} alt="" />
-									12
-								</span>
-								<img src={share} alt="" className={styles.share} />
-							</div>
-							<span className={styles.reward}>
-								<img src={dollarCircle} alt="" /> 1200token
-							</span>
-						</section>
-					</div>
-				</div>
+				</div> */}
 			</section>
 
 			<section
@@ -614,7 +668,7 @@ function UserActivities() {
 			</section>
 
 			<section
-				className={`${styles['section-rewards']} ${styles.hidde} section section-rewards`}
+				className={`${styles['section-rewards']} ${styles.hidden} section section-rewards`}
 			>
 				<img src={reward} alt="heart emoji" />
 				<p>You’ve earned a total reward of 1,958 Tokens</p>
