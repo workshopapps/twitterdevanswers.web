@@ -25,12 +25,20 @@ function ProfileHeader() {
 						</span>
 					</p>
 					<div>
-						<p><span>200</span>Following</p>
-						<p><span>80</span>Following</p>
-						<p><span>1.5</span>Tokens</p>
+						<p>
+							<span>200</span>Following
+						</p>
+						<p>
+							<span>80</span>Followers
+						</p>
+						<p>
+							<span>1.5</span>Tokens
+						</p>
 					</div>
 				</div>
 			</div>
+
+			<button type="button">Follow</button>
 		</header>
 	);
 }
