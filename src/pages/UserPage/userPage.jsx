@@ -8,7 +8,7 @@ function UserPage() {
   
  const [profile, setProfile] = useState([]);
  const [filteredList, setFilteredList] = useState([]);
- const [searchQuery, setSearchQuery] = useState('');
+//  const [searchQuery, setSearchQuery] = useState('');
  const { state } = useContext(AppContext);
 
 
@@ -31,28 +31,28 @@ function UserPage() {
     getUsers()
   }, [])
   
-const handleSearch = (event) => {
-    const query = event.target.value
-    setSearchQuery(query)
+// const handleSearch = (event) => {
+//     const query = event.target.value
+//     setSearchQuery(query)
 
-    const searchList = profile.filter((item) => 
-       item.username.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-	   item.stack.toLowerCase().indexOf(query.toLowerCase()) !== -1 || 
-	   item.work_experience.toLowerCase().indexOf(query.toLowerCase()) !== -1
-    )
+//     const searchList = profile.filter((item) => 
+//        item.username.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+// 	   item.stack.toLowerCase().indexOf(query.toLowerCase()) !== -1 || 
+// 	   item.work_experience.toLowerCase().indexOf(query.toLowerCase()) !== -1
+//     )
 
-    setFilteredList(searchList);
-  }
+//     setFilteredList(searchList);
+//   }
 
-    const onFilterChange=(event)=>{
-    const query = event.target.value
-    setSearchQuery(query)
+//     const onFilterChange=(event)=>{
+//     const query = event.target.value
+//     setSearchQuery(query)
 
-    const searchList = profile.filter((item) => 
-       item.stack.toLowerCase().indexOf(query.toLowerCase()) !== -1
-    )
-	setFilteredList(searchList);
-  }
+//     const searchList = profile.filter((item) => 
+//        item.stack.toLowerCase().indexOf(query.toLowerCase()) !== -1
+//     )
+// 	setFilteredList(searchList);
+//   }
 
 
 	return (
@@ -63,7 +63,7 @@ const handleSearch = (event) => {
 				<p className={styles.user_page_heading}>
 					Connect with other Devask Users
 				</p>
-<div className={styles.search_container}>
+{/* <div className={styles.search_container}>
 			<div className={styles.searchbox_container}>
 				
 				<input
@@ -90,17 +90,17 @@ const handleSearch = (event) => {
 				</select>
 			</div>
 
-		</div>
+		</div> */}
 			</header>
 			<main>
 				<div className={styles.user_grid_container}>
-					{ filteredList.length === 0 ? 'User was not found' : filteredList.map((user) => (
+					{ filteredList.length === 0 ? 'Check back for more Users suggestions...' : filteredList.map((user) => (
 					<UserProfileCard key = {user.user_id} user = {user} />
 					))   }
 				</div>
 
 				<div className={styles.users_filter}>
-				
+{/* 				
                  { filteredList.length !== 0 &&	<section className = {styles.more_search}>
 						<a href="/">1</a>
 						<a href="/">2</a>
@@ -109,7 +109,7 @@ const handleSearch = (event) => {
 						<a href="/">...</a>
 						<a href="/">200</a>
 						<button type="button">Next</button>
-					</section> }
+					</section> } */}
 				</div>
 			</main>
 		</div>

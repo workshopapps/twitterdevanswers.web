@@ -1,11 +1,11 @@
 .form-button {
-	background-color: #1d1dd8;
+	background-color: #492B7c;
 	border: unset;
 	color: #fefefe;
 	font-weight: 600;
-	font-size: 16px;
-	line-height: 32px;
-	padding: 16px 16px;
+	font-size: 18px;
+	line-height: 25px;
+	padding: 16px 200px;
 	display: block;
 	width: 100%;
 	border-radius: 8px;

@@ -1,13 +1,30 @@
-.login {
+.loginBg {
+	background-color: #492B7C;
+	height: 100%;
+	width: 100%;
+	padding: 80px 0px;
+	
+}
+	.login {
+	max-width: 864px;
+	width: 100%;
+	background: #FFFFFF;
+	padding: 80px 60px;
+	margin: 20px auto;
+	box-shadow: 4px 8px 24px #704EA9;
+	border-radius: 24px;
+}
+/* .login {
 	max-width: 864px;
 	width: 95%;
-	background: #f7f7fe;
+	background: #fff;
 	padding: 80px 110px;
 	margin: 53px auto;
-}
+} */
 
 .header {
-	margin-bottom: 56px;
+	margin-bottom: 0px;
+	align-items: center;
 }
 
 .input {
@@ -17,14 +34,27 @@
 }
 
 .header h3 {
-	font-weight: 500;
+	font-family: 'Nunito';
+	font-weight: 700;
 	font-size: 24px;
-	line-height: 32px;
-	color: #1d1dd8;
+	line-height: 33px;
+	text-align: center;
+	color: #303030;
+
+}
+.header p {
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 27px;
+	text-align: center;
+	color: #303030;
+	font-family: 'Nunito';
+
 }
 
 .btn {
 	margin-top: 64px;
+	color: #6F42BD;
 }
 
 .bottomText {
@@ -36,19 +66,22 @@
 }
 
 .bottomText p {
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 32px;
-}
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	align-items: center;
+	color: #303030;
+	}
 
 .link {
-	color: #1d1dd8;
+	background: #492B7C;
 	text-decoration: none;
 }
 
 .link:active,
 .link:visited {
-	color: #1d1dd8;
+	background: #6F42BD;
+
 }
 
 @media only screen and (max-width: 768px) {

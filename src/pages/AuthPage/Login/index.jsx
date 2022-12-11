@@ -4,10 +4,12 @@ import axios from 'axios';
 import { AppContext } from '../../../store/AppContext';
 import { LOADING, USER_LOGGED_IN } from '../../../store/actionTypes';
 import { formInputHandler, useModal, validateLogIn } from '../utils';
+import logo from '../../../assets/auth-images/auth-logo.svg'
 import styles from './styles.module.css';
 import AuthModal from '../AuthModal';
 import Input from '../Input';
 import Button from '../../../components/AuthFormButton';
+
 
 function Login() {
 	const [input, setInput] = useState({
@@ -84,12 +86,16 @@ function Login() {
 	};
 
 	return (
-		<>
+		<div className={styles.loginBg}>
 			{modal && <AuthModal text={serverResponse} />}
+
 			<form className={styles.login} onSubmit={handleSubmit}>
 				<div className={styles.header}>
-					<h3>Hello!</h3>
-					<p>Log back into your account.</p>
+					<span>
+						<img src={logo} alt="devask logo" />
+					</span>
+					<h3>Hello again!</h3>
+					<p>Welcome back, please put in your details.</p>
 				</div>
 				<div className={styles.input}>
 					<div>
@@ -122,11 +128,11 @@ function Login() {
 					</div>
 				</div>
 				<div className={styles.btn}>
-					<Button label={loading ? 'please wait' : 'Log In'} />
+					<Button label={loading ? 'Authorizing...' : 'LOGIN'} />
 				</div>
 				<div className={styles.bottomText}>
 					<p>
-						Don&apos;t have an account?{' '}
+						Don&apos;t have a Devask account?
 						<Link className={styles.link} to="/sign-up">
 							Sign Up
 						</Link>
@@ -140,7 +146,7 @@ function Login() {
 					<AuthOptions />
 				</div> */}
 			</form>
-		</>
+		</div>
 	);
 }
 
