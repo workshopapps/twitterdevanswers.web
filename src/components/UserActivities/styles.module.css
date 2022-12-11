@@ -1,0 +1,286 @@
+.header {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.header button {
+	background-color: transparent;
+	border: none;
+	border-bottom: 4px solid transparent;
+	font-weight: 500;
+	font-size: 16px;
+	color: #492b7c;
+	padding-bottom: 10px;
+	display: inline-block;
+}
+
+button.active {
+	border-bottom-color: #492b7c;
+}
+
+.hidden {
+	display: none;
+}
+
+.section-likes {
+	text-align: center;
+	max-width: 300px;
+	margin: 0 auto;
+  margin-top: 70px;
+}
+
+.section-likes > * {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* ********* */
+/* */
+/* ********* */
+.title {
+	color: #551a8b;
+	padding: 0.5em 0em;
+}
+
+.cards {
+	width: 100%;
+}
+
+.replies {
+	border: 1px solid #ececfb;
+	border-radius: 8px;
+}
+
+.replies .cardContainer {
+	border: none;
+	margin: 0;
+}
+
+.replies .thread:not(:last-child) {
+	border-bottom: 1px solid #ccc;
+}
+
+.replies .cardContainer:not(:last-child) {
+	padding-bottom: 0;
+}
+
+.cardContainer {
+	display: flex;
+	gap: 1rem;
+	background-color: #ffffff;
+	border: 1px solid #ececfb;
+	border-radius: 8px;
+	padding: 24px 16px;
+	margin: 2rem 0;
+	width: 100%;
+	position: relative;
+}
+
+.cardContainer:not(:last-child)::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 45px;
+	width: 1px;
+	height: 70%;
+	background-color: #ccc;
+}
+
+.cardContainer > div {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	flex: 0 0 85%;
+}
+
+.profilePicture {
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	border-radius: 50%;
+	z-index: 2;
+}
+
+.cardHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.userInfo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+}
+
+.askName {
+	font-weight: 500;
+	font-size: 18px;
+	color: #303030;
+}
+
+.userName,
+.time {
+	font-weight: 400;
+	font-size: 18px;
+	color: #989898;
+	margin-left: 1em;
+}
+
+.options {
+	cursor: pointer;
+}
+
+.question {
+	font-weight: 500;
+	font-size: 20px;
+	color: #303030;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.reply {
+	font-weight: 400;
+	font-size: 16px;
+	color: #535353;
+	cursor: pointer;
+	line-height: 1.7;
+}
+
+.tag {
+	font-weight: 400;
+	font-size: 12px;
+	color: #1d1dd8;
+	background-color: #ededff;
+	border-radius: 4px;
+	padding: 8px 16px;
+	text-align: center;
+}
+
+.cardFooter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.icons {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2rem;
+}
+
+.viewReplies {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.4rem;
+	font-weight: 400;
+	font-size: 16px;
+	color: #535353;
+	cursor: pointer;
+}
+
+.likes {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.4rem;
+	font-weight: 400;
+	font-size: 16px;
+	color: #535353;
+	cursor: pointer;
+}
+
+.share {
+	font-weight: 400;
+	width: 16px;
+	height: 16px;
+	color: #535353;
+	cursor: pointer;
+}
+
+.reward {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.4rem;
+	font-weight: 500;
+	font-size: 16px;
+	color: #535353;
+}
+
+@media only screen and (max-width: 768px) {
+	.cards {
+		width: 100%;
+	}
+
+	.cardContainer,
+	.cardContainer > div {
+		gap: 0.5rem;
+	}
+
+	.profilePicture {
+		width: 30px;
+		height: 30px;
+	}
+
+	.askName,
+	.userName,
+	.time {
+		font-size: 10px;
+	}
+
+	.question {
+		font-size: 16px;
+	}
+
+	.reply,
+	.viewReplies,
+	.likes,
+	.reward {
+		font-size: 12px;
+	}
+
+	:is(.viewReplies, .likes, .reward) img,
+	.options .share {
+		width: 12px;
+		height: 12px;
+	}
+
+	.tag {
+		font-size: 12px;
+	}
+
+	.userInfo,
+	.icons {
+		gap: 0.5rem;
+	}
+}
+
+.tagWrapper {
+	display: flex;
+}
+
+.tagWrapper p {
+	margin-right: 1.2em;
+}
+
+.tags button {
+	text-transform: capitalize;
+	color: #492b7c;
+	background: #e2d9f2;
+	border-radius: 4px;
+	padding: 8px 16px;
+	border: none;
+	display: inline-block;
+}
+
+.tags button:not(:last-child) {
+	margin-right: 10px;
+}

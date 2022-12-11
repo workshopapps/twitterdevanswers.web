@@ -13,13 +13,10 @@
 	padding: 40px;
 }
 
-.askcard {
-	width: 100%;
-}
-
 .aside {
-	height: 400px;
-	background-color: #e5e5e5;
+	background: #f6f0ff;
+	border-radius: 16px;
+	padding: 25px 30px;
 }
 
 @media (max-width: 600px) {
