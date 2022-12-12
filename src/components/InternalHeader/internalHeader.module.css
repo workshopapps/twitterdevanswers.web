@@ -2,6 +2,8 @@
 	background: #fff;
 	padding: 24px 0 20px 0;
 	position: relative;
+	font-family: 'Nunito';
+	box-shadow: 0px 4px 24px #F2F2F2;
 }
 
 .header {
@@ -19,7 +21,7 @@
 .search {
 	padding: 10px;
 	background: #ffffff;
-	border: 0.5px solid #b4b4b4;
+	/* border: 0.5px solid #b4b4b4; */
 	border-radius: 16px;
 	display: flex;
 	align-items: center;
@@ -35,13 +37,14 @@
 	display: flex;
 	gap: 26px;
 	align-items: center;
-	color: #1d1dd8;
-	font-weight: 700;
+	color: #0a0a48;
+	font-weight: 800;
 	font-size: 33.9202px;
 	line-height: 40px;
 	cursor: pointer;
 	text-decoration: none;
 }
+
 
 .right {
 	display: flex;
@@ -119,7 +122,7 @@ li {
 	border-radius: 50%;
 }
 
-.avatar[aria-hidden="true"]::before {
+.avatar[aria-hidden='true']::before {
 	content: '';
 	display: inline-block;
 	width: 8px;
@@ -146,14 +149,14 @@ li {
 
 .nameStatus {
 	color: #1f1f1f;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1em;
 }
-.profile{
+.profile {
 	display: flex;
 	flex-direction: column;
 }
-.lastseen{
+.lastseen {
 	font-size: 10px;
 }
 
@@ -196,7 +199,7 @@ li {
 	}
 
 	.search {
-		display: none;
+		display: block;
 	}
 
 	.links {
@@ -281,14 +284,14 @@ li {
 	}
 
 	.isActive .snLink {
-		border-right: 8px solid #1d1dd8;
-		color: #1d1dd8;
+		border-right: 8px solid #492b7c;
+		color: #492b7c;
 		background: rgba(67, 67, 222, 0.1);
 	}
 
 	.isActive .snIcon {
-		color: #4343de;
-		stroke: #4343de;
+		color: #492b7c;
+		stroke: #492b7c;
 	}
 
 	.hamburger {
@@ -309,6 +312,9 @@ li {
 
 	.hamburger {
 		display: none;
+	}
+	.brand span {
+		display: block;
 	}
 }
 
