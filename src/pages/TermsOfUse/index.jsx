@@ -4,133 +4,44 @@ import styles from './styles.module.css';
 function TermsOfUse() {
 	return (
 		<div className={styles.TermsOfUseBody}>
-			<div className={styles.TermsOfUse}>
+			
 				<h1 className={styles.Heading}>Terms of Use</h1>
+				<p className={styles.Gap}>
+					The terms and conditions set forth the conditions, clauses, terms and requirements related to using the platform.
+				</p>
+				
 				<section className={styles.RequirementsSection}>
-					<h2>Introduction and Requirements:</h2>
+				<h1 className={styles.subHeader} >Requirements:</h1>
 					<p>
-						Welcome to DevAsk! By using our website and/or by using the services
-						that are provided, you acknowledge that you have read, understood, and
-						agree to be bound by our Terms and Conditions. These Terms and
-						Conditions unconditionally extend and apply to all related
-						applications, internet service, or website extensions. If you are not
-						in agreement with all of these Terms and Conditions, you are
-						prohibited from using this Website, and you may discontinue use
-						immediately. DevAsk recommends that you save or print a copy of these
-						Terms and Conditions for future reference.
+					You must be at least 14 years old to access or use the platform, including without limitation to complete a DevAsk account registration. By accessing or using the Services or the Network in any manner, you represent and warrant that you are at least 14 years of age. If you are under 14 years old, you may not, under any circumstances or for any reason, access or use the Services or Network in any manner, and may not provide any personal information to or on the Services or Network (including, for example, a name, address, telephone number or email address).
+
 					</p>
 				</section>
-				<section className={styles.AgreementSection}>
-					<h2>Agreement to Terms and Conditions:</h2>
+				<br/>
+				<section className={styles.RequirementsSection}>
+					<h1 className={styles.subHeader} >Rules:</h1>
+					<p className={styles.list}>
+						&#x2022; Avoid the use of discriminatory or abusive languages as such could lead to immediate deactivation of your account.
+					</p>
+					<p  className={styles.list}>
+						&#x2022; Any form of fraud or illegal activities are frown upon in the community and will lead to immediate deactivation if found guilty.
+					</p>
+
+					
+				</section>
+				<section  className={styles.RequirementsSection}>
+					<h1 className={styles.subHeader} >Account Deactivation:</h1>
 					<p>
-						DevAsk Terms And Conditions (these &quot;Terms&quot; or these
-						&quot;Terms and Conditions&quot;) contained in this Agreement shall
-						govern your use of this Website and all its content (collectively
-						referred to herein as this `Website`). These Terms outline the rules
-						and regulations guiding the use of DevAsk located at
-						https://www.devask.com All materials/information/documents/services or
-						all other entities (collectively referred to as content) that appear
-						on DevAsk shall be administered subject to these Terms and Conditions.
-						These Terms and Conditions apply in full force and effect to your use
-						of this Website, and the use of this Website constitutes and expresses
-						agreement with all the terms and conditions contained herein in full.
-						Do not continue to use this Website if you have any objection to any
-						of the Terms and Conditions stated on this page
+						Disregard for any of the stated terms will lead to deactivation. Account reactivation can be processed on contact with our customer care depending on the severity of offence.
 					</p>
 				</section>
-				<section className={styles.StandardSection}>
-					<h2>Standards of Using Application:</h2>
+				<section className={styles.RequirementsSection}>
+					<h1 className={styles.subHeader} >Copyright Information:</h1>
 					<p>
-						DevAsk is a social media platform for use by techies. As such, the
-						following should be observed when using this application: Think before
-						you post. Please keep in mind that content posted on DevAsk can be
-						viewed broadly - therefore, users should adhere to community values
-						when engaging in online activities. Know how to engage. Make sure to
-						ask clear and concise questions to ensure you get the best suited
-						solutions for your questions. Be respectful towards other users. Never
-						withhold payment. Respect all users; this is non-negotiable.
-						Collaborate! As any social media platform, you may come across
-						like-minded techies while using our platform. Don&apos;t be afraid to
-						reach out for collaboration on projects. It will help you grow as a
-						developer. Admit when you make a mistake. This is very important as
-						the platform exists to provide instantaneous solutions. However, those
-						solutions need to be correct. So, if you provide an incorrect
-						solution, do reach out and acknowledge as well as apologize.
+						If you believe that content residing or accessible on the Network infringes a copyright, please send a notice of copyright infringement to any of our customer care agents.
+
 					</p>
 				</section>
-				<section className={styles.CopyrightSection}>
-					<h2>Copyright information:</h2>
-					<p>
-						© DevAsk 2022 © DevAsk Press and contributors 2022. <br />
-						<br />
-						Except as permitted by the copyright law applicable to you, you may
-						not reproduce or communicate any of the content on this website,
-						including files downloadable from this website, without the permission
-						of the copyright owner. <br />
-						<br />
-						This Copyright Act allows certain uses of content from the internet
-						without the copyright owner&apos;s permission. This includes uses by
-						educational institutions and State governments, provided fair
-						compensation is paid.
-						<br />
-						<br />
-						The owners of copyright in the content on this website may receive
-						compensation for the use of their content by educational institutions
-						and governments, including from licensing schemes managed by the
-						Copyright Agency.
-						<br />
-						<br />
-						We may change these terms of use from time to time. Check before
-						re-using any content from this website.
-					</p>
-				</section>
-				<section className={styles.BillingSection}>
-					<h2>Billing and Subscription:</h2>
-					<p className={styles.BillingSectionPar}>
-						PREMIUM SUBSCRIBERS:
-						<div>
-							<ul>Iron</ul>
-							<li>$3 For a Monthly Plan</li>
-						</div>
-						<div>
-							<ul>Bronze</ul>
-							<li>$8 For a 3 Month Plan</li>
-						</div>
-						<div>
-							<ul>Silver</ul>
-							<li>$ 15 For a 6 Month Plan</li>
-						</div>
-						<div>
-							<ul>Gold</ul>
-							<li>$40 for an Annual Plan</li>
-						</div>
-						<div>
-							<u>The Packages</u>
-							<ul>Bronze</ul>
-							<li>Ask up to 6 Questions</li>
-							<li>Access to Premium Posts where you can engage</li>
-							<li>Get up to 20 Starter Votes</li>
-						</div>
-						<div>
-							<ul>Silver</ul>
-							<li>Ask up to 15 questions</li>
-							<li>You can post and comment on other people&apos;s posts</li>
-							<li>Get 40 Starter Votes</li>
-							<li>Get access to Follow people you like their posts</li>
-						</div>
-						<div>
-							<ul>Gold Package</ul>
-							<li>Ask an unlimited number of questions</li>
-							<li>Post and comment on other users posts</li>
-							<li>Get unlimited starter votes</li>
-							<li>Get to Build an Audience</li>
-							<li>Access to Send and Receive Direct Messages</li>
-							<li>Get Noticed and Get Followers</li>
-							<li>Get Verified and Outstanding badges</li>
-						</div>
-					</p>
-				</section>
-			</div>
 		</div>
 	);
 }
