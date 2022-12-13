@@ -41,6 +41,7 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
+import BlogPage from "./pages/BlogPage";
 
 function App() {
 	const {
@@ -54,6 +55,7 @@ function App() {
 			{user || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/BlogPage" element={<BlogPage />} />
 				<Route path="/third-landing" element={<ThirdLandingPage />} />
 				<Route path="/second-landing" element={<SecondLandingPage />} />
 				<Route path="/first-landing" element={<FirstLandingPage />} />
