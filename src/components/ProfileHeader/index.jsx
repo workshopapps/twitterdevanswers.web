@@ -1,35 +1,43 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
-import { AppContext } from '../../store/AppContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import avatar from '../../assets/profile-images/avatar.png';
 import calendarIcon from '../../assets/profile-images/calendar.png';
+import locationIcon from '../../assets/profile-images/location.png';
+
+const token = localStorage.getItem('token');
+const userFromStorage = JSON.parse(localStorage.getItem('user'));
 
 function ProfileHeader() {
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	const { pathname } = useLocation();
 	const user = pathname.slice(pathname.lastIndexOf('/') + 1);
-	// const [info, setInfo] = useState({});
-	const [setInfo] = useState({});
-	const { state } = useContext(AppContext);
-	const [isLoading, setIsLoading] = useState(false);
-	// const [followers, setFollowers] = useState();
-	const [setFollowers] = useState();
+	const [info, setInfo] = useState({});
+	// const [setInfo] = useState({});
+	// const [isLoading, setIsLoading] = useState(false);
+	const formatDate = (date) =>
+		new Intl.DateTimeFormat(navigator.language, {
+			month: 'long',
+			year: 'numeric',
+		}).format(new Date(date));
 
-	// const handleEdit = () => {
-	// navigate('/settings');
-	// };
+	const capitalize = (string) =>
+		string?.replace(string[0], string[0].toUpperCase());
+	const isVisitor = userFromStorage?.data?.usename !== user;
+	const handleEdit = () => {
+		navigate('/settings');
+	};
 
 	useEffect(() => {
 		const fetchUser = async () => {
 			try {
-				setIsLoading(true);
+				// setIsLoading(true);
 				const data = await axios.get(
 					`https://api.devask.hng.tech/users/${user}`,
 					{
 						headers: {
-							Authorization: `Bearer ${state.token}`,
+							Authorization: `Bearer ${token}`,
 							'Content-Type': 'application/json',
 						},
 					}
@@ -40,64 +48,76 @@ function ProfileHeader() {
 			}
 		};
 		fetchUser();
-	}, [isLoading]);
-
-	useEffect(() => {
-		const fetchFollowers = async () => {
-			try {
-				setIsLoading(true);
-				const res = await axios.get(
-					`https://api.devask.hng.tech/following/followers/${state.user.user_id}`,
-					{
-						headers: {
-							Authorization: `Bearer ${state.token}`,
-							'Content-Type': 'application/json',
-						},
-					}
-				);
-				setFollowers(res.followers.length);
-			} catch (err) {
-				// console.error(err);
-			}
-		};
-		fetchFollowers();
-	}, [isLoading]);
+	}, [user]);
 
 	return (
 		<header className={styles.header}>
-			<img src={avatar} alt="user-avatar" className="user-img" />
+			<img
+				src={info.image_url?.trim() ? info.image_url : avatar}
+				className={styles.user_img}
+				alt="user-avatar"
+			/>
 			<div className={styles['header-textbox']}>
-				<h2 className={styles.fullname}>Ayodele Emmanuel</h2>
-				<p className={styles.username}>@ayemma_dev</p>
-				<p className={styles.about}>End to end Web Developer</p>
+				<h2 className={styles.fullname}>
+					{capitalize(info.first_name)} {info.last_name}
+				</h2>
+				<p className={styles.username}>@{info.username}</p>
+				<p className={styles.about}>
+					{info?.description?.trim() ? info.description : 'Tech Enthusiast'}
+				</p>
 
 				<div className={styles['header-misc']}>
 					<p>
 						<span>
 							<img src={calendarIcon} alt="calendar icon" />
-							Joined September 2019
+							Joined {info.date_joined && formatDate(info.date_joined)}
 						</span>
 
-						<span>
-							<img src={calendarIcon} alt="Location icon" />
-							Los Angeles, Carlifornia
-						</span>
+						{info?.location?.trim() && (
+							<span>
+								<img src={locationIcon} alt="Location icon" />
+								{info?.location?.trim()}
+							</span>
+						)}
 					</p>
 					<div>
 						<p>
-							<span>200</span>Following
+							<span>{info.following}</span>Following
 						</p>
 						<p>
-							<span>80</span>Followers
+							<span>{info.followers}</span>Followers
 						</p>
-						<p>
-							<span>1.5</span>Tokens
-						</p>
+
+						{!isVisitor && !Number.isNaN(Number(info.account_balance)) && (
+							<p>
+								<span>
+									{!Number.isNaN(Number(info.account_balance)) &&
+										Number(info.account_balance)}
+								</span>
+								Tokens
+							</p>
+						)}
 					</div>
 				</div>
 			</div>
 
-			<button type="button">Follow</button>
+			{isVisitor ? (
+				<button
+					// className={Section1.btn2}
+					type="button"
+					// onClick={handleEdit}
+				>
+					Follow
+				</button>
+			) : (
+				<button
+					onClick={handleEdit}
+					// className={Section1.btn2}
+					type="button"
+				>
+					Edit Profile
+				</button>
+			)}
 		</header>
 	);
 }

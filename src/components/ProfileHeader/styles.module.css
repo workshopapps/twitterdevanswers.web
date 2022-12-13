@@ -5,8 +5,11 @@
 	position: relative;
 }
 
-.header img {
-	display: inline-block;
+.user_img {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 .header-textbox {
@@ -57,4 +60,5 @@
 	position: absolute;
 	top: 0;
 	right: 0;
+	cursor: pointer;
 }

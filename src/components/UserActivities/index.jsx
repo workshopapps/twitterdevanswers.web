@@ -11,6 +11,7 @@ import share from '../../assets/dashboard-images/share.webp';
 import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
 const token = localStorage.getItem('token');
+const userFromStorage = JSON.parse(localStorage.getItem('user'));
 
 async function getUser() {
 	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
@@ -21,24 +22,43 @@ async function getUser() {
 	return response.data.data;
 }
 
+async function getTotalReplies(id) {
+	const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+	return response.data.length;
+}
+
 function UserActivities() {
-	let sections;
-	let tabButtons;
+	// let sections;
+	// let tabButtons;
 	const { pathname } = useLocation();
 	const thisuser = pathname.slice(pathname.lastIndexOf('/') + 1);
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
 			day: '2-digit',
 			month: 'long',
+			year: 'numeric',
 		}).format(new Date(date));
 
 	const [questions, setQuestions] = useState([]);
+	const [sections, setSections] = useState();
+	const [tabButtons, setTabButtons] = useState();
+	const isVisitor = userFromStorage?.data?.usename !== thisuser;
+
 	const [users, setUsers] = useState([]);
+	const [info, setInfo] = useState({});
+	const [replies, setReplies] = useState([]);
+
 	const findUser = (id) => users.find((user) => user.user_id === id);
 	useEffect(() => {
-		sections = document.querySelectorAll('.section');
-		tabButtons = document.querySelectorAll('.tabButtons');
+		setSections(document.querySelectorAll('.section'));
+		setTabButtons(document.querySelectorAll('.tabButtons'));
+	}, []);
 
+	useEffect(() => {
 		(async function getData() {
 			const userIdResponse = await axios.get(
 				`https://api.devask.hng.tech/users/${thisuser}`,
@@ -49,6 +69,7 @@ function UserActivities() {
 				}
 			);
 			const userIdData = await userIdResponse.data.data.user_id;
+
 			const response = await axios.get(
 				`https://api.devask.hng.tech/questions/${userIdData}/user`,
 				{
@@ -57,26 +78,54 @@ function UserActivities() {
 					},
 				}
 			);
+
 			const fetchedQuestions = await response.data.data;
 			setQuestions(fetchedQuestions);
 			setUsers(await getUser());
+
+			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
+				getTotalReplies(fetchedQuestion.question_id)
+			);
+
+			Promise.all([...fetchedReplies].reverse()).then((reply) =>
+				setReplies((prevState) => [...prevState, reply])
+			);
+
+			const fetchUser = async () => {
+				try {
+					const data = await axios.get(
+						`https://api.devask.hng.tech/users/${thisuser}`,
+						{
+							headers: {
+								Authorization: `Bearer ${token}`,
+								'Content-Type': 'application/json',
+							},
+						}
+					);
+					setInfo(data.data.data);
+				} catch (err) {
+					// console.error(err);
+				}
+			};
+			fetchUser();
 		})();
-	}, []);
+	}, [thisuser]);
 
 	const toggleView = (event) => {
 		if (event.target.type !== 'button') return;
 		const button = event.target;
-		sections.forEach((section, i) => {
+
+		sections?.forEach((section, i) => {
 			section.classList.add(`${styles.hidden}`);
-			tabButtons[i].classList.remove(`${styles.active}`);
+			tabButtons[i]?.classList.remove(`${styles.active}`);
 		});
+
 		document
 			.querySelector(`.${`section-${button.textContent.toLowerCase()}`}`)
 			.classList.remove(`${styles.hidden}`);
 		button.classList.add(`${styles.active}`);
 	};
 
-	console.log(questions);
 	return (
 		<>
 			<header
@@ -95,19 +144,25 @@ function UserActivities() {
 				<button className="tabButtons" type="button">
 					Likes
 				</button>
-				<button className="tabButtons" type="button">
-					Rewards
-				</button>
+				{!isVisitor && (
+					<button className="tabButtons" type="button">
+						Rewards
+					</button>
+				)}
 			</header>
 
 			<section
 				className={`${styles['section-questions']} ${styles.hidde} section section-questions`}
 			>
-				{questions.map((question) => (
+				{questions.map((question, i) => (
 					<div className={styles.cardContainer} key={question.question_id}>
-						<Link to={`/profile/${question.owner_id}`}>
+						<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
 							<img
-								src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
+								src={
+									findUser(question.owner_id)?.image_url?.trim()
+										? findUser(question.owner_id)?.image_url
+										: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+								}
 								alt=""
 								className={styles.profilePicture}
 							/>
@@ -116,7 +171,7 @@ function UserActivities() {
 							<section className={styles.cardHeader}>
 								<div className={styles.userInfo}>
 									<Link
-										to={`/profile/${question.owner_id}`}
+										to={`/profile/${findUser(question.owner_id)?.username}`}
 										style={{ display: 'flex', textDecoration: 'none' }}
 									>
 										<h5 className={styles.askName}>
@@ -129,21 +184,29 @@ function UserActivities() {
 								</div>
 								<img src={options} alt="" className={styles.options} />
 							</section>
-							<Link
-								to={`/dashboard/questions/${question.question_id}`}
-								style={{ textDecoration: 'none' }}
-							>
-								<h4 className={styles.title}>{question.title}</h4>
+							<div>
+								<Link
+									to={`/dashboard/questions/${question.question_id}`}
+									style={{ textDecoration: 'none' }}
+									className={styles.title}
+								>
+									{question.title}
+								</Link>
 								<p className={styles.reply} style={{ lineHeight: '1.8' }}>
 									{question.content}
 								</p>
-							</Link>
+							</div>
 							<section className={styles.cardFooter}>
 								<div className={styles.icons}>
-									<span className={styles.viewReplies}>
-										<img src={message} alt="" />
-										{'17 '}
-									</span>
+									<Link
+										to={`/dashboard/questions/${question.question_id}`}
+										style={{ textDecoration: 'none' }}
+									>
+										<span className={styles.viewReplies}>
+											<img src={message} alt="" />
+											{replies[0] && replies[0][i]}
+										</span>
+									</Link>
 									<span className={styles.likes}>
 										<img src={heartBold} alt="" /> {question.total_like}
 									</span>
@@ -157,171 +220,6 @@ function UserActivities() {
 						</div>
 					</div>
 				))}
-				{/* <div className={styles.cardContainer}>
-					<Link to="'profile/">
-						<img
-							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-							alt=""
-							className={styles.profilePicture}
-						/>
-					</Link>
-					<div>
-						<section className={styles.cardHeader}>
-							<div className={styles.userInfo}>
-								<Link
-									to="/profile/"
-									style={{ display: 'flex', textDecoration: 'none' }}
-								>
-									<h5 className={styles.askName}>
-										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
-									</h5>
-								</Link>
-								<p className={styles.time}>36 secs</p>
-							</div>
-							<img src={options} alt="" className={styles.options} />
-						</section>
-						<Link to="/dashboard/questions" style={{ textDecoration: 'none' }}>
-							<h4 className={styles.title}>
-								Why does the NoReverse match error pop up when I’m trying to
-								marginate my django website?
-							</h4>
-							<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-								I actually have no idea why this happens but i feel like if we
-								all come together we can think of something that could work so
-								i’m placing a bounty on this question thanks.
-							</p>
-						</Link>
-						<div className={styles.tags}>
-							<button type="button">Python</button>
-						</div>
-						<section className={styles.cardFooter}>
-							<div className={styles.icons}>
-								<span className={styles.viewReplies}>
-									<img src={message} alt="" />
-									{'17 '}
-								</span>
-								<span className={styles.likes}>
-									<img src={heartBold} alt="" />
-									12
-								</span>
-								<img src={share} alt="" className={styles.share} />
-							</div>
-							<span className={styles.reward}>
-								<img src={dollarCircle} alt="" /> 1200token
-							</span>
-						</section>
-					</div>
-				</div>
-				<div className={styles.cardContainer}>
-					<Link to="'profile/">
-						<img
-							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-							alt=""
-							className={styles.profilePicture}
-						/>
-					</Link>
-					<div>
-						<section className={styles.cardHeader}>
-							<div className={styles.userInfo}>
-								<Link
-									to="/profile/"
-									style={{ display: 'flex', textDecoration: 'none' }}
-								>
-									<h5 className={styles.askName}>
-										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
-									</h5>
-								</Link>
-								<p className={styles.time}>36 secs</p>
-							</div>
-							<img src={options} alt="" className={styles.options} />
-						</section>
-						<Link to="/dashboard/questions" style={{ textDecoration: 'none' }}>
-							<h4 className={styles.title}>
-								Why does the NoReverse match error pop up when I’m trying to
-								marginate my django website?
-							</h4>
-							<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-								I actually have no idea why this happens but i feel like if we
-								all come together we can think of something that could work so
-								i’m placing a bounty on this question thanks.
-							</p>
-						</Link>
-						<div className={styles.tags}>
-							<button type="button">Python</button>
-						</div>
-						<section className={styles.cardFooter}>
-							<div className={styles.icons}>
-								<span className={styles.viewReplies}>
-									<img src={message} alt="" />
-									{'17 '}
-								</span>
-								<span className={styles.likes}>
-									<img src={heartBold} alt="" />
-									12
-								</span>
-								<img src={share} alt="" className={styles.share} />
-							</div>
-							<span className={styles.reward}>
-								<img src={dollarCircle} alt="" /> 1200token
-							</span>
-						</section>
-					</div>
-				</div>
-				<div className={styles.cardContainer}>
-					<Link to="'profile/">
-						<img
-							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-							alt=""
-							className={styles.profilePicture}
-						/>
-					</Link>
-					<div>
-						<section className={styles.cardHeader}>
-							<div className={styles.userInfo}>
-								<Link
-									to="/profile/"
-									style={{ display: 'flex', textDecoration: 'none' }}
-								>
-									<h5 className={styles.askName}>
-										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
-									</h5>
-								</Link>
-								<p className={styles.time}>36 secs</p>
-							</div>
-							<img src={options} alt="" className={styles.options} />
-						</section>
-						<Link to="/dashboard/questions" style={{ textDecoration: 'none' }}>
-							<h4 className={styles.title}>
-								Why does the NoReverse match error pop up when I’m trying to
-								marginate my django website?
-							</h4>
-							<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-								I actually have no idea why this happens but i feel like if we
-								all come together we can think of something that could work so
-								i’m placing a bounty on this question thanks.
-							</p>
-						</Link>
-						<div className={styles.tags}>
-							<button type="button">Python</button>
-						</div>
-						<section className={styles.cardFooter}>
-							<div className={styles.icons}>
-								<span className={styles.viewReplies}>
-									<img src={message} alt="" />
-									{'17 '}
-								</span>
-								<span className={styles.likes}>
-									<img src={heartBold} alt="" />
-									12
-								</span>
-								<img src={share} alt="" className={styles.share} />
-							</div>
-							<span className={styles.reward}>
-								<img src={dollarCircle} alt="" /> 1200token
-							</span>
-						</section>
-					</div>
-				</div> */}
 			</section>
 
 			<section
@@ -671,7 +569,9 @@ function UserActivities() {
 				className={`${styles['section-rewards']} ${styles.hidden} section section-rewards`}
 			>
 				<img src={reward} alt="heart emoji" />
-				<p>You’ve earned a total reward of 1,958 Tokens</p>
+				<p>
+					You’ve earned a total reward of {Number(info.account_balance)} Tokens
+				</p>
 			</section>
 		</>
 	);
