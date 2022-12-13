@@ -110,8 +110,9 @@ function Login() {
 					'https://pacific-peak-54505.herokuapp.com/auth/signin',
 					formData
 				);
-
+console.log(response.data, "hello")
 				localStorage.setItem('token', response.data.access_token);
+				localStorage.setItem('user', JSON.stringify(response.data));
 
 				dispatch({
 					type: USER_LOGGED_IN,

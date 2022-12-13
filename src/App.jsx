@@ -27,6 +27,7 @@ import WalletPage from './pages/WalletPage';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
+import EditAcccount from './pages/Settings/components/EditAccount';
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
@@ -45,6 +46,7 @@ function App() {
 		<div className="App">
 			{token || lsToken ? <InternalHeader /> : <Header />}
 			<Routes>
+			    <Route path="EditAccount" element={<EditAcccount />} />
 				<Route path="/" element={<LandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />

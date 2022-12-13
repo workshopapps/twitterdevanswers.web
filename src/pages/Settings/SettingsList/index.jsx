@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import StyleCSS from './styles.module.css';
 import EditAccount from '../components/EditAccount';
+// import Notification from '../components/Notification';
 
 function Settings() {
 	const [changeSettings, setChangeSettings] = useState(StyleCSS.settings);
@@ -214,6 +215,7 @@ function Settings() {
 					</div>
 				</div>
 				<EditAccount />
+				{/* <Notification /> */}
 			</div>
 			<div className={editState}>
 				<div className={StyleCSS.tabheading}>
