@@ -53,6 +53,11 @@
 	border-radius: 50%;
 }
 
+.content a:link,
+.content a:visited {
+	color: inherit;
+}
+
 .content h4 {
 	margin-bottom: 7px;
 }
@@ -74,6 +79,12 @@
 	width: 100%;
 	padding-bottom: 5px;
 	justify-content: space-between;
+}
+
+.users a:link,
+.users a:visited {
+	color: #492b7c;
+	text-decoration: none;
 }
 
 .user .details div {
