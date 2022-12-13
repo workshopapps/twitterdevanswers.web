@@ -53,7 +53,6 @@ function Profile() {
 			);
 		})();
 	}, []);
-	// console.log(findUser(9));
 
 	return (
 		<div className={styles.container}>
@@ -82,7 +81,12 @@ function Profile() {
 								</Link>
 
 								<div className={styles.content}>
-									<h4>{question.content.slice(0, 40)}</h4>
+									<Link
+										to={`/dashboard/questions/${question.question_id}`}
+										style={{ textDecoration: 'none' }}
+									>
+										<h4>{question.content.slice(0, 40)}</h4>
+									</Link>
 									<p>
 										{replies[0] && replies[0][i]}{' '}
 										{replies[0] && replies[0][i] === 1 ? 'Reply' : 'Replies'}
@@ -95,51 +99,31 @@ function Profile() {
 					{/* Accounts suggestions */}
 					<div className={`${styles.users} ${styles['aside-container']}`}>
 						<h3 className={styles['heading-secondary']}>You might follow</h3>
+						{[...users].slice(0, 3).map((user) => (
+							<div key={user.user_id} className={styles.user}>
+								<Link to={`/profile/${user?.username}`}>
+									<img
+										src={
+											user?.image_url?.trim()
+												? user.image_url
+												: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+										}
+										alt=""
+										className={styles.profilePicture}
+									/>
+								</Link>
+								<div className={styles.details}>
+									<div>
+										<h4>{user.username}</h4>
+										<p>@{user.username}</p>
+									</div>
+									<p>Follows you</p>
+								</div>
+								<button type="button">Follow</button>
+							</div>
+						))}
 
-						<div className={styles.user}>
-							<img
-								src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-								alt="user avatar"
-							/>
-							<div className={styles.details}>
-								<div>
-									<h4>adebami_dev</h4>
-									<p>@adebami_dev</p>
-								</div>
-								<p>Follows you</p>
-							</div>
-							<button type="button">Follow</button>
-						</div>
-						<div className={styles.user}>
-							<img
-								src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-								alt="user avatar"
-							/>
-							<div className={styles.details}>
-								<div>
-									<h4>adebami_dev</h4>
-									<p>@adebami_dev</p>
-								</div>
-								<p>Follows you</p>
-							</div>
-							<button type="button">Follow</button>
-						</div>
-						<div className={styles.user}>
-							<img
-								src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-								alt="user avatar"
-							/>
-							<div className={styles.details}>
-								<div>
-									<h4>adebami_dev</h4>
-									<p>@adebami_dev</p>
-								</div>
-								<p>Follows you</p>
-							</div>
-							<button type="button">Follow</button>
-						</div>
-
-						<p>See more</p>
+						<Link to="/users-page">See more</Link>
 					</div>
 				</section>
 			</aside>

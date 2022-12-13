@@ -32,8 +32,6 @@ async function getTotalReplies(id) {
 }
 
 function UserActivities() {
-	// let sections;
-	// let tabButtons;
 	const { pathname } = useLocation();
 	const thisuser = pathname.slice(pathname.lastIndexOf('/') + 1);
 	const formatDate = (date) =>
@@ -70,26 +68,30 @@ function UserActivities() {
 			);
 			const userIdData = await userIdResponse.data.data.user_id;
 
-			const response = await axios.get(
-				`https://api.devask.hng.tech/questions/${userIdData}/user`,
-				{
-					headers: {
-						Authorization: `Bearer ${token}`,
-					},
-				}
-			);
+			try {
+				const response = await axios.get(
+					`https://api.devask.hng.tech/questions/${userIdData}/user`,
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
+				);
 
-			const fetchedQuestions = await response.data.data;
-			setQuestions(fetchedQuestions);
-			setUsers(await getUser());
+				const fetchedQuestions = await response.data.data;
+				setQuestions(fetchedQuestions);
+				setUsers(await getUser());
 
-			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
-				getTotalReplies(fetchedQuestion.question_id)
-			);
+				const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
+					getTotalReplies(fetchedQuestion.question_id)
+				);
 
-			Promise.all([...fetchedReplies].reverse()).then((reply) =>
-				setReplies((prevState) => [...prevState, reply])
-			);
+				Promise.all([...fetchedReplies].reverse()).then((reply) =>
+					setReplies((prevState) => [...prevState, reply])
+				);
+			} catch (error) {
+				setQuestions([]);
+			}
 
 			const fetchUser = async () => {
 				try {
