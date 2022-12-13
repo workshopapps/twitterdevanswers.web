@@ -1,16 +1,15 @@
 import React from 'react';
-import LpButton from '../LpButton/LpButton';
 import styles from './newsletterSub.module.css';
 
 function NewsletterSub() {
 	return (
 		<div className={styles.newsletter}>
-			<h3>Subscribe to our newletter</h3>
-			<p>Stay updated on daily design and coding tips to keep you on track</p>
-			<div>
-				<input type="text" placeholder="Enter your email address" />
+			<h3>Subscribe To Our News Letter. </h3>
+			<p>Stay updated for more information, latest news and blogs from DevAsk.</p>
+			<div className={styles.subscribe}>
+				<input type="text" placeholder="Please enter your email address" />
 				<div className={styles.btn}>
-					<LpButton path="/" text="Subcribe" />
+					<button type="button">Learn more</button>
 				</div>
 			</div>
 		</div>
