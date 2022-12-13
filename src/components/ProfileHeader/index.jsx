@@ -14,7 +14,13 @@ function ProfileHeader() {
 	const { pathname } = useLocation();
 	const user = pathname.slice(pathname.lastIndexOf('/') + 1);
 	const [info, setInfo] = useState({});
-	// const [setInfo] = useState({});
+	const [followers, setFollowers] = useState([]);
+
+	const visitorIsAFollower = () =>
+		followers.some(
+			(follower) => follower.user_from === userFromStorage.data.user_id
+		);
+
 	// const [isLoading, setIsLoading] = useState(false);
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
@@ -29,11 +35,45 @@ function ProfileHeader() {
 		navigate('/settings');
 	};
 
+	const toggleFollow = async (event) => {
+		// Logic to follow user
+		if (event.target.textContent.trim() === 'Follow') {
+			await fetch(`https://api.devask.hng.tech/following/follow/`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					accept: 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({
+					target_user: info.user_id,
+				}),
+			});
+		} else {
+			// Logic to unfollow user
+			await fetch(
+				`https://api.devask.hng.tech/following/unfollow/${info.user_id}`,
+				{
+					method: 'DELETE',
+					headers: {
+						'Content-Type': 'application/json',
+						accept: 'application/json',
+						Authorization: `Bearer ${token}`,
+					},
+					body: JSON.stringify({
+						target_user: info.user_id,
+					}),
+				}
+			);
+		}
+		window.location.reload(false);
+	};
+
 	useEffect(() => {
 		const fetchUser = async () => {
 			try {
 				// setIsLoading(true);
-				const data = await axios.get(
+				const userResponse = await axios.get(
 					`https://api.devask.hng.tech/users/${user}`,
 					{
 						headers: {
@@ -42,7 +82,17 @@ function ProfileHeader() {
 						},
 					}
 				);
-				setInfo(data.data.data);
+				setInfo(userResponse.data.data);
+				const data = await axios.get(
+					`https://api.devask.hng.tech/following/followers/${userResponse.data.data.user_id}`,
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+							'Content-Type': 'application/json',
+						},
+					}
+				);
+				setFollowers(data.data.followers);
 			} catch (err) {
 				// console.error(err);
 			}
@@ -102,19 +152,11 @@ function ProfileHeader() {
 			</div>
 
 			{isVisitor ? (
-				<button
-					// className={Section1.btn2}
-					type="button"
-					// onClick={handleEdit}
-				>
-					Follow
+				<button onClick={toggleFollow} type="button">
+					{visitorIsAFollower() ? 'Following' : 'Follow'}
 				</button>
 			) : (
-				<button
-					onClick={handleEdit}
-					// className={Section1.btn2}
-					type="button"
-				>
+				<button onClick={handleEdit} type="button">
 					Edit Profile
 				</button>
 			)}
