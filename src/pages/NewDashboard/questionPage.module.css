@@ -1,0 +1,185 @@
+.dashboard {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	color: #303030;
+	display: flex;
+	gap: 20px;
+}
+
+.main {
+	width: 813px;
+	flex: 1 1 auto;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
+	margin-bottom: 17px;
+}
+
+.back {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: #492b7c;
+}
+
+.back .icon {
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.back .text {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 28px;
+	cursor: pointer;
+}
+
+.header a:link,
+.header a:visited {
+	text-decoration: none;
+	font-size: 16px;
+	line-height: 28px;
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 18px;
+}
+
+.user {
+	display: flex;
+	gap: 16px;
+}
+
+.avatar img {
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+}
+
+.userNstamp {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.fullName {
+	text-transform: capitalize;
+	color: #303030;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 27px;
+	cursor: pointer;
+}
+
+.timeStamp {
+	font-size: 16px;
+	line-height: 21px;
+	color: #757575;
+}
+
+.edit {
+	font-size: 18px;
+	line-height: 30px;
+	color: #492b7c;
+}
+
+.bottom .title {
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 32px;
+}
+
+.bottom p {
+	font-size: 20px;
+	line-height: 28px;
+}
+
+.details {
+	font-size: 18px;
+	line-height: 29px;
+	color: #535353;
+	padding: 20px 25px;
+	border: 1px solid #ececfb;
+	border-radius: 16px;
+	margin-top: 36px;
+}
+
+.footNote {
+	margin-top: 16px;
+	font-size: 18px;
+	line-height: 30px;
+	color: #535353;
+}
+
+.tags {
+	display: inline-block;
+	padding: 8px 16px;
+	background: #e2d9f2;
+	border-radius: 4px;
+	font-size: 12px;
+	line-height: 16px;
+	text-transform: capitalize;
+	color: #492b7c;
+	margin-top: 16px;
+}
+
+.interactions {
+	margin-top: 57px;
+}
+
+.interactions .repliesAndLikes {
+	display: flex;
+	gap: 28px;
+	align-items: center;
+	border-bottom: 2px solid #ececfb;
+	padding: 16px 0;
+}
+
+.icons {
+	padding: 16px 24px;
+	display: flex;
+	gap: 80px;
+	align-items: center;
+	border-bottom: 0.5px solid #ececfb;
+}
+
+.icon {
+	font-size: 20px;
+}
+
+.replies {
+	padding-right: 10px;
+	margin-top: 57px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	/* height: 100vh; */
+	overflow-y: auto;
+}
+
+.scrollbar::-webkit-scrollbar {
+	width: 5px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+	background: #6a6a6a;
+	border-radius: 100vh;
+}
+
+.aside {
+	margin-top: 116px;
+	width: 479px;
+	flex: 0 1 auto;
+}
+
+@media only screen and (max-width: 1040px) {
+	.aside {
+		display: none;
+	}
+}
