@@ -4,6 +4,7 @@
 	color: #303030;
 	display: flex;
 	gap: 20px;
+	font-size: 12px;
 }
 
 .main {
@@ -41,7 +42,10 @@
 	font-size: 24px;
 }
 
-.header .btn {
+.btn:link,
+.btn:visited {
+	text-decoration: none;
+	color: #492b7c;
 	border: 1px solid #492b7c;
 	font-weight: 500;
 	font-size: 14px;

@@ -27,7 +27,6 @@ function Profile() {
 	const [replies, setReplies] = useState([]);
 	const [users, setUsers] = useState([]);
 	const findUser = (id) => users.find((user) => user.user_id === id);
-
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
@@ -65,7 +64,6 @@ function Profile() {
 					{/* Topics suggestions */}
 					<div className={`${styles.topics} ${styles['aside-container']}`}>
 						<h3 className={styles['heading-secondary']}>You might like</h3>
-
 						{questions.map((question, i) => (
 							<div key={question.question_id} className={styles.topic}>
 								<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
@@ -82,7 +80,7 @@ function Profile() {
 
 								<div className={styles.content}>
 									<Link
-										to={`/dashboard/questions/${question.question_id}`}
+										to={`/question-page/${question.question_id}`}
 										style={{ textDecoration: 'none' }}
 									>
 										<h4>{question.content.slice(0, 40)}</h4>
@@ -117,7 +115,7 @@ function Profile() {
 										<h4>{user.username}</h4>
 										<p>@{user.username}</p>
 									</div>
-									<p>Follows you</p>
+									{/* <p>Follows you</p> */}
 								</div>
 								<button type="button">Follow</button>
 							</div>

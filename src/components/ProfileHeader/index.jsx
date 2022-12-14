@@ -18,7 +18,7 @@ function ProfileHeader() {
 
 	const visitorIsAFollower = () =>
 		followers.some(
-			(follower) => follower.user_from === userFromStorage.data.user_id
+			(follower) => follower.user_from === userFromStorage?.data?.user_id
 		);
 
 	// const [isLoading, setIsLoading] = useState(false);
@@ -74,7 +74,7 @@ function ProfileHeader() {
 			try {
 				// setIsLoading(true);
 				const userResponse = await axios.get(
-					`https://api.devask.hng.tech/users/${user}`,
+					`https://api.devask.hng.tech/users/get/${user}`,
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,
@@ -130,7 +130,7 @@ function ProfileHeader() {
 							</span>
 						)}
 					</p>
-					<div>
+					<div className={styles.follow}>
 						<p>
 							<span>{info.following}</span>Following
 						</p>
