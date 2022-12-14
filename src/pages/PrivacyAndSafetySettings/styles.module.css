@@ -465,6 +465,7 @@
     }
     .notificationsettings__option__wrap h4{
         font-size: 16px;
+        line-height: 15px;
     }
     .editState {
         display: none;
