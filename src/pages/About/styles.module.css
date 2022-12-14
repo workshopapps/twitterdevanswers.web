@@ -1,264 +1,624 @@
-.AboutUs{
-    width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media (min-width: 320px) {
+	.mainHeader {
+		width: 100%;
+		max-width: 300px;
+	}
+
+	.header {
+		width: 40%;
+		position: relative;
+		top: -83px;
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 2rem;
+		color: #303030;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+
+	.intro {
+		position: relative;
+		width: 40%;
+		top: -87px;
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1.7rem;
+		color: #303030;
+	}
+
+	.about {
+		position: absolute;
+		width: 180px;
+		height: 141px;
+		left: 190px;
+		top: 302px;
+	}
+
+	.secondHeader {
+		max-width: 700px;
+		height: 67px;
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 26px;
+		text-align: center;
+		order: 0;
+		margin-left: 0.5rem;
+		margin-top: 5rem;
+		margin-bottom: 8px;
+	}
+
+	.secondIntro {
+		width: 100%;
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 32px;
+		text-align: center;
+		color: #303030;
+
+	}
+
+	.startedButton {
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		cursor: pointer;
+		line-height: 24px;
+		color: #fefefe;
+		max-width: 342px;
+		height: 56px;
+		background: #1d1dd8;
+		outline: none;
+		margin-left: 1rem;
+		border-radius: 4px;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.storyWrapper {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 24px;
+
+	}
+
+	.storyHeader {
+		width: 85px;
+		height: 24px;
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 24px;
+		color: #000000;
+	}
+
+	.storyIntro {
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 33px;
+		text-align: left;
+		color: #000000;
+		margin-left: 1rem;
+	}
+
+	.screen {
+		width: 300.03px;
+		height: 192px;
+	}
+
+	.principleHead {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 1.75rem;
+		color: #000000;
+		margin-top: 5rem;
+	}
+
+	.textWrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		gap: 25px;
+		margin-top: 25px;
+		padding: 0 100px;
+	}
+	.storyPrincipleWrap{
+		padding: 100px 0;
+	}
+	.text {
+		width: 25%;
+		height: 300px;
+		min-width: 250px;
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 25px;
+		text-align: center;
+		background: #FFFFFF;
+		box-shadow: 4px 8px 24px #F2F2F2;
+		border-radius: 8px;
+		padding: 10px;
+	}
+
+	.journey {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 1.75rem;
+		line-height: 24px;
+		color: #000000;
+		margin: 3rem 20px;
+	}
+
+	.journeyWrapper {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.box1 {
+		width: 83px;
+		height: 76px;
+		font-family: 'Rubik';
+		font-style: normal;
+		color: #303030;
+	}
+
+	.journeyFigure1 {
+		font-weight: 600;
+		font-size: 32px;
+		line-height: 40px;
+	}
+
+	.journeyWord1 {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 18px;
+		text-align: center;
+	}
+
+	.box2 {
+		width: 83px;
+		height: 76px;
+		font-family: 'Rubik';
+		font-style: normal;
+		color: #303030;
+	}
+
+	.journeyFigure2 {
+		font-weight: 600;
+		font-size: 32px;
+		line-height: 40px;
+	}
+
+	.journeyWord2 {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 18px;
+		text-align: center;
+	}
+
+	.box3 {
+		width: 84px;
+		height: 76px;
+		font-family: 'Rubik';
+		font-style: normal;
+		color: #303030;
+	}
+
+	.journeyFigure3 {
+		font-weight: 600;
+		font-size: 32px;
+		line-height: 40px;
+	}
+
+	.journeyWord3 {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 18px;
+		text-align: center;
+	}
+
+	.clients {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 1.75rem;
+		color: #000000;
+		margin: 30px auto;
+	}
+
+	.principlesWrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		text-align: justify;
+		width: 100%;
+		padding: 20px 35px;
+		background: #1d1dd8;
+		border-radius: 4px;
+		margin-bottom: 30px;
+	}
+
+	.principle1 {
+		width: 107.62px;
+		height: 23.88px;
+		margin-left: 2rem;
+		/* margin-top: 2rem; */
+		margin-bottom: 1rem;
+	}
+
+	.principle2 {
+		width: 59.93px;
+		height: 24px;
+		margin-left: 2rem;
+		/* margin-top: 2rem; */
+	}
+
+	.principle3 {
+		width: 59.93px;
+		height: 24px;
+		margin-left: 2rem;
+		/* margin-top: 2rem; */
+	}
+
+	.principle4 {
+		width: 53.29px;
+		height: 24px;
+		/* margin-left: 5.5rem; */
+	}
+
+	.principle5 {
+		/* width: 102px; */
+		/* height: 24px; */
+		margin-left: 2rem;
+	}
+}
+
+.header {
+	width: 395px;
+	height: 80px;
+	margin-left: 480px;
+	margin-top: 227px;
 	font-family: 'Rubik';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 64px;
+	line-height: 80px;
+	color: #303030;
 }
-.AboutMainSection{
-    width: 90%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
+
+.intro {
+	width: 767px;
+	height: 128px;
+	margin-left: 310px;
+	margin-top: 3rem;
+	font-family: 'Rubik';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 32px;
+	text-align: center;
+	color: #303030;
 }
-.Header{
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 80px;
-    text-align: left;
+
+.aboutsubwrap {
+	width: 80%;
+	height: auto;
+	margin: 70px auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.aboutsubwrap1 {
+	width: 65%;
+	display: flex;
+	flex-direction: column;
+}
+
+.aboutsubwrap1 p {
+	font-weight: 500;
+	font-size: 48px;
+	line-height: 66px;
+	color: #303030;
+	;
+}
+
+.aboutsubwrap1 p span {
+	color: #492B7C;
+}
+
+.aboutsubwrap1span {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 40px;
+	color: #303030;
 
 }
-.AboutMainSection h1{
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 56px;
+
+.secondHeader {
+	width: 689px;
+	height: 66px;
+	margin-left: 20rem;
+	font-family: 'Rubik';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 80px;
+}
+
+.secondIntro {
+	width: 1090px;
+	height: 96px;
+	font-family: 'Rubik';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+	/* or 200% */
+	text-align: center;
+	/* Grey/600 */
+	color: #303030;
+	margin-left: 10rem;
+}
+
+.startedButton {
+	width: 150px;
+	height: 56px;
+	background: #492B7C;
+	border-radius: 4px;
+	margin: 40px 0;
+	border: none;
+}
+
+.storyHeaderWrap {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	margin: 1px 0;
+	padding: 50px ;
+	background-color: #F6F0FF;
+}
+
+.storyHeader {
+	width: 151px;
+	height: 40px;
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 90px;
+	color: #000000;
+	margin: 0 0 100px 0;
+}
+
+
+
+.storyIntro {
+
+	font-family: 'Rubik';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 33px;
+	/* or 206% */
+	color: #000000;
+}
+
+.screen {
+	width: 536px;
+	height: 343px;
+}
+
+.principleHeader {
+	width: 222px;
+	height: 40px;
+	font-family: 'Rubik';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 40px;
+	/* identical to box height, or 125% */
+	color: #000000;
+	margin-left: 35rem;
+}
+
+.textWrapper {
+	flex-direction: row;
+}
+
+.text1 {
+	margin-left: -9.8rem;
+}
+
+.text2 {
+	margin-left: 5rem;
+}
+
+
+
+.text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.textWrapperDiv {
+	width: 60px;
+	height: 60px;
+	border-radius: 40px;
+	background-color: #8C68CA;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fefefe;
+	font-size: 20px;
+	margin: 10px 0;
+}
+
+.journeyFigure1 {
+	color: #8C68CA;
+}
+
+.journeyFigure2 {
+	color: #8C68CA;
+}
+
+.journeyFigure3 {
+	color: #8C68CA;
+}
+
+.journeyWord1 {
+	color: #8C68CA;
+}
+
+.journeyWord2 {
+	color: #8C68CA;
+}
+
+.journeyWord3 {
+	color: #8C68CA;
+}
+
+.journeyWrapper {
+	color: #8C68CA;
+}
+
+.subscribeWrap {
+	width: 100%;
+	height: 45vh;
+	background-color: #492B7C;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 100px 0;
+}
+
+.subscribe_sub_wrap {
+	width: 50%;
+	margin: 200px auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center
+}
+
+.subscribe_sub_wrap p {
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 50px;
+	text-align: center;
+
+	color: #FFFFFF;
+}
+
+.subscribe_sub_wrap span {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 57px;
+	text-align: center;
+
+	color: #FFFFFF;
 
 }
-.AboutMainSection p{
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 30px;
 
+.subscribeinput {
+	width: 100%;
 }
-.FirstSection{
-    margin-top: 80px;
-    display: flex;
-    margin-bottom: 160px;
+
+.subscribeinput input {
+	width: 75%;
+	height: 50px;
+	border: none;
+	border-radius: 5px 0 0 5px;
+	padding: 7px;
+	font-size: 16px;
+	outline: none;
 }
-.FirstImage{
-    width: 100%;
-    height: 100%;
+
+.subscribeinput button {
+	width: 25%;
+	height: 50px;
+	background-color: #8C68CA;
+	color: #fefefe;
+	font-size: 16px;
+	border: none;
+	border-radius: 0 5px 5px 0;
 }
-.TextArea{
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+@media screen and (max-width : 720px) {
+	.storyWrapper{
+		flex-direction: column;
+		
+	}
+	.aboutsubwrap{
+		flex-direction: column;
+	}
+	
 }
-.TextArea button{
-    background-color: #1D1DD8;
-    color: white;
-    width: 140px;
-    height: 60px;
-    border: none;
-    border-radius: 4px;
-}
-.TextArea button:hover{
-    border: 1px solid#1D1DD8;
-    color: #1D1DD8;
-    background-color: white;
-}
-.SecondSection{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 160px;
-    gap: 16px;
-}
-.OurStory, .OurPrinciples{
-    text-align: center;
-}
-.SecondSectionDiv2{
-    display: flex;
-}
-.SecondSectionPar{
-    width: 54%;
-}
-.ThirdSection{
-    
-    background-color: #1D1DD8;
-    margin-bottom: 160px;
-}
-.ThirdSection div{
-    height: 192px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.ThirdSection div img{
-    width: 15%;
-}
-.FourthSection{
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-    margin-bottom: 190px;
-}
-.FourthSectionDiv2{
-    display: flex;
-    justify-content: space-evenly;
-}
-.FourthSectionDiv2 section{
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-.FourthSectionDiv2 section h1{
-    border: 1px solid gray;
-    padding: 10px;
-    border-radius: 1000px;
-}
-.One img, .Two img, .Three img{
-    height: 100px;
-    width: 100px;
-}
-.FifthSection{
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-}
-.HowFar{
-    text-align: center;
-}
-.FifthSectionDiv2{
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-}
-.NewsLetter{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
-.NewsLetter p{
-    text-align: center;
-}
-.NewsLetterDiv2{
-    display: flex;
-    gap: 4%;
-}
-.NewsLetterDiv2 input{
-    width: 300px;
-    padding-left: 10px;
-    border-radius: 4px;
-    border: 1px solid grey;
-}
-.NewsLetterDiv2 button{
-    background-color: #1D1DD8;
-    color: white;
-    width: 140px;
-    height: 60px;
-    border: none;
-    border-radius: 4px;
-}
-.NewsLetterDiv2 button:hover{
-    border: 1px solid#1D1DD8;
-    color: #1D1DD8;
-    background-color: white;
-}
-@media screen and (max-width:850px) {
-    .Header{
-        font-size: 36px;
-    }
-    .AboutMainSection h1{
-        font-size: 24px;
-    }
-    .AboutMainSection p{
-        font-size: 16px;
-    }
-    .FirstSection{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
-    .TextArea{
-        width: 100%;
-    }
-    .FirstImage, .SecondImage{
-        height: 200px;
-        width: 300px;
-    }
-    .SecondSectionDiv2{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
-    .SecondSectionPar{
-        width: 100%;
-    }
-}
-@media screen and (max-width:480px) {
-    .Header{
-        font-size: 36px;
-        line-height: 40px;
-    }
-    .AboutMainSection h1{
-        font-size: 24px;
-        line-height: 24px;
-    }
-    .AboutMainSection p{
-        font-size: 16px;
-    }
-    .FirstImage, .SecondImage{
-        height: 100px;
-        width: 150px;
-    }
-    .ThirdSection div{
-        display: flex;
-        flex-direction: column;
-        height: 500px;
-    }
-    .ThirdSection div img{
-        height: 80px;
-        width: 150px;
-    }
-    .FourthSection{
-        display: flex;
-        flex-direction: column;
-    }
-    .FourthSectionDiv2{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .FourthSectionDiv2 section{
-        width: 100%;
-    }
-    .FifthSectionDiv2{
-        display: flex;
-        flex-direction: column;
-    }
-    .NewsLetter{
-        align-items: center;
-        text-align: center;
-    }
-    .NewsLetterDiv2{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
-    .NewsLetterDiv2 input{
-        width: 100%;
-        height: 60px;
-    }
-}
-@media screen and (max-width:220px) {
-    .AboutMainSection{
-        margin: 0;
-    }
-    .AboutMainSection b{
-        font-size: 18px;
-    }
-    .AboutMainSection h1{
-        font-size: 14px;
-    }
-    .AboutMainSection p{
-        font-size: 12px;
-    }
-    .ThirdSection div img{
-        height: 50px;
-        width: 100px;
-    }
+@media screen and (max-width : 520px) {
+	.text{
+		width: 70%;
+	}
+	.aboutsubwrap{
+		flex-direction: column;
+	}
+	.aboutsubwrap1{
+		width: 100%;
+	}
+	.subscribeWrap{
+		height: auto;
+	}
+	.subscribe_sub_wrap{
+		width: 90%;
+	}
+	.subscribeinput{
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		justify-content: space-between;
+	}
+	.subscribeinput input{
+		width: 80%;
+		margin: 20px;
+		border-radius: 7px;
+	}
+	.subscribeinput button{
+		width: 50%;
+		margin: 20px;
+		border-radius: 7px;
+	}
+
 }

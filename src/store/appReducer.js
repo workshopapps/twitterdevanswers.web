@@ -45,6 +45,13 @@ export default function appReducer(state, { type, payload }) {
 				user: payload,
 			};
 		}
+			case 'UPDATE': {
+			return {
+				...state,
+				followers: payload.followers,
+				following: payload.following
+			};
+		}
 
 		default: {
 			return state;
