@@ -27,7 +27,7 @@ function PostQuestion() {
 	const [isSuccessful, setIsSuccessful] = useState(false);
 	const [isTagsOpen, setIsTagsOpen] = useState(false);
 	const [isTokensOpen, setIsTokensOpen] = useState(false);
-	
+
 	const [questionData, setQuestionData] = useState({
 		id: '',
 		title: '',
@@ -164,8 +164,6 @@ function PostQuestion() {
 		handleDisabling();
 	};
 
-	
-
 	const handleReview = (event) => {
 		event.preventDefault();
 		if (
@@ -210,6 +208,7 @@ function PostQuestion() {
 			answered: false,
 			created_at: Date.now(),
 			updated_at: Date.now(),
+			tag: questionData.tag,
 		};
 
 		const headers = {

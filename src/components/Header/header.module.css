@@ -2,6 +2,7 @@
 	padding: 24px 0 20px 0;
 	background: #fff;
 	display: flex;
+	box-shadow: 0px 4px 24px #F2F2F2;
 }
 
 .header {
@@ -14,7 +15,7 @@
 	display: flex;
 	gap: 26px;
 	align-items: center;
-	color: #1d1dd8;
+	color: #0A0A48;
 	font-weight: 700;
 	font-size: 33.9202px;
 	line-height: 40px;
@@ -41,7 +42,7 @@
 }
 
 .isActive span {
-	color: #1d1dd8;
+	color: #492B7C;
 }
 
 .btns {
@@ -63,13 +64,13 @@
 }
 
 .signUp {
-	color: #1d1dd8;
-	background: #fff;
-	border: 1px solid #1d1dd8;
+	color: #492B7C;
+	background: transparent;
+	border: 1px solid transparent;
 }
 
 .signUp:hover {
-	background: #7070fc;
+	background: #8C68CA;
 	color: #fefefe;
 }
 
@@ -80,11 +81,11 @@
 
 .login {
 	color: #fefefe;
-	background: #1d1dd8;
+	background: #492B7C;
 }
 
 .login:hover {
-	background: #7070fc;
+	background: #8C68CA;
 }
 
 .login:active {

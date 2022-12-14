@@ -43,6 +43,14 @@
 	margin-right: 15px;
 }
 
+.header-misc span img {
+	width: 20px;
+}
+
+.header-misc span {
+	font-size: 17px;
+}
+
 .header-misc span img,
 .header-misc div p {
 	color: #757575;
@@ -55,10 +63,55 @@
 	border: 1px solid #492b7c;
 	border-radius: 4px;
 	padding: 8px 26px;
-	width: 123px;
-	height: 40px;
 	position: absolute;
 	top: 0;
 	right: 0;
 	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.fullname {
+		font-size: 16px;
+	}
+
+	.about,
+	.username,
+	.header-misc span {
+		font-size: 15px;
+	}
+
+	.user_img {
+		height: 70px;
+		width: 70px;
+	}
+}
+
+@media (max-width: 500px) {
+	.fullname {
+		font-size: 15px;
+	}
+
+	.header {
+		grid-template-columns: 1fr;
+	}
+
+	.about,
+	.username,
+	.header-misc span {
+		font-size: 14px;
+	}
+
+	/* .user_img { */
+	/* height: 60px; */
+	/* width: 60px; */
+	/* } */
+
+	.header button {
+		padding: 8px 26px;
+		font-size: 12px;
+	}
+
+.header	.follow {
+		display: block ;
+	}
 }

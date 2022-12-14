@@ -1,10 +1,11 @@
 .footerContainer {
-	background: #1d1dd8;
-	padding: 69px 0 143px 0;
+	background: #F6F0FF;
+	padding: 59px 0 110px 0;
+	font-family: 'Nunito';
 }
 
 .footer {
-	color: #fefefe;
+	color: #282828;
 	display: grid;
 	grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
 }
@@ -24,12 +25,13 @@
 	font-weight: 700;
 	font-size: 33.9202px;
 	line-height: 40px;
+	color: #0A0A48;
 }
 
 .brandSocials p {
 	margin-top: 30px;
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 0.9rem;
 	line-height: 24px;
 }
 
@@ -38,6 +40,7 @@
 	display: flex;
 	align-items: center;
 	gap: 14.78px;
+	filter: brightness(1) invert(1);
 }
 
 .product,
@@ -54,17 +57,18 @@
 .company p,
 .devAsk p,
 .support p {
-	font-weight: 500;
-	font-size: 20px;
+	font-weight: 700;
+	font-size: 1.1rem;
 	line-height: 24px;
+	
 }
 
 .link,
 .link:link,
 .link:visited {
 	text-decoration: none;
-	color: #fefefe;
-	font-size: 18px;
+	color: #282828;
+	font-size: 1rem;
 	line-height: 21px;
 	letter-spacing: 0.005em;
 }
