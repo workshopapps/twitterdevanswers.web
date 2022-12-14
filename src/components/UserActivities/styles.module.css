@@ -44,7 +44,8 @@ button.active {
 /* */
 /* ********* */
 .title {
-	color: #551a8b;
+	color: #535353;
+	font-weight: 600;
 	padding: 0.5em 0em;
 }
 
@@ -105,6 +106,7 @@ button.active {
 	width: 60px;
 	height: 60px;
 	cursor: pointer;
+	object-fit: cover;
 	border-radius: 50%;
 	z-index: 2;
 }

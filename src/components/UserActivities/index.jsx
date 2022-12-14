@@ -7,7 +7,6 @@ import reward from '../../assets/profile-images/reward.svg';
 import like from '../../assets/profile-images/like.svg';
 import message from '../../assets/dashboard-images/message.webp';
 import heartBold from '../../assets/dashboard-images/heartBold.webp';
-import share from '../../assets/dashboard-images/share.webp';
 import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
 const token = localStorage.getItem('token');
@@ -41,16 +40,22 @@ function UserActivities() {
 			year: 'numeric',
 		}).format(new Date(date));
 
+	const [allQuestions, setAllQuestions] = useState([]);
 	const [questions, setQuestions] = useState([]);
 	const [sections, setSections] = useState();
+	const [answers, setAnswers] = useState([]);
 	const [tabButtons, setTabButtons] = useState();
-	const isVisitor = userFromStorage?.data?.usename !== thisuser;
+	const isVisitor = userFromStorage?.usename !== thisuser;
 
 	const [users, setUsers] = useState([]);
 	const [info, setInfo] = useState({});
 	const [replies, setReplies] = useState([]);
+	const [totalLikes, setTotalLikes] = useState(0);
 
 	const findUser = (id) => users.find((user) => user.user_id === id);
+	const findQuestion = (id) =>
+		allQuestions?.find((post) => post.question_id === id);
+
 	useEffect(() => {
 		setSections(document.querySelectorAll('.section'));
 		setTabButtons(document.querySelectorAll('.tabButtons'));
@@ -110,9 +115,58 @@ function UserActivities() {
 				}
 			};
 			fetchUser();
+
+			try {
+				const allQuestionsResponse = await axios.get(
+					`https://api.devask.hng.tech/questions/`,
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
+				);
+
+				const allQuestionsData = await allQuestionsResponse.data.data;
+				setAllQuestions(allQuestionsData);
+			} catch (error) {
+				setAllQuestions([]);
+			}
+
+			try {
+				const allAnswersResponse = await axios.get(
+					`https://api.devask.hng.tech/answer/${userIdData}/user/`,
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
+				);
+
+				const allAnswersData = await allAnswersResponse.data.data;
+				setAnswers(allAnswersData);
+			} catch (error) {
+				setAllQuestions([]);
+			}
+
+			const fetchTotalLikes = async () => {
+				try {
+					const data = await axios.get(
+						`https://api.devask.hng.tech/users/likes/${userIdData}`,
+						{
+							headers: {
+								Authorization: `Bearer ${token}`,
+								'Content-Type': 'application/json',
+							},
+						}
+					);
+					setTotalLikes(data.data.total_likes);
+				} catch (err) {
+					// console.error(err);
+				}
+			};
+			fetchTotalLikes();
 		})();
 	}, [thisuser]);
-
 	const toggleView = (event) => {
 		if (event.target.type !== 'button') return;
 		const button = event.target;
@@ -156,407 +210,205 @@ function UserActivities() {
 			<section
 				className={`${styles['section-questions']} ${styles.hidde} section section-questions`}
 			>
-				{questions.map((question, i) => (
-					<div className={styles.cardContainer} key={question.question_id}>
-						<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
-							<img
-								src={
-									findUser(question.owner_id)?.image_url?.trim()
-										? findUser(question.owner_id)?.image_url
-										: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-								}
-								alt=""
-								className={styles.profilePicture}
-							/>
-						</Link>
-						<div>
-							<section className={styles.cardHeader}>
-								<div className={styles.userInfo}>
-									<Link
-										to={`/profile/${findUser(question.owner_id)?.username}`}
-										style={{ display: 'flex', textDecoration: 'none' }}
-									>
-										<h5 className={styles.askName}>
-											{findUser(question.owner_id)?.username}
-										</h5>
-									</Link>
-									<p className={styles.time}>
-										{formatDate(question.created_at)}
-									</p>
-								</div>
-								<img src={options} alt="" className={styles.options} />
-							</section>
+				{questions.length !== 0 ? (
+					questions.map((question, i) => (
+						<div className={styles.cardContainer} key={question.question_id}>
+							<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
+								<img
+									src={
+										findUser(question.owner_id)?.image_url?.trim()
+											? findUser(question.owner_id)?.image_url
+											: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
 							<div>
-								<Link
-									to={`/question-page/${question.question_id}`}
-									style={{ textDecoration: 'none' }}
-									className={styles.title}
-								>
-									{question.title}
-								</Link>
-								<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-									{question.content}
-								</p>
-							</div>
-							<section className={styles.cardFooter}>
-								<div className={styles.icons}>
+								<section className={styles.cardHeader}>
+									<div className={styles.userInfo}>
+										<Link
+											to={`/profile/${findUser(question.owner_id)?.username}`}
+											style={{ display: 'flex', textDecoration: 'none' }}
+										>
+											<h5 className={styles.askName}>
+												{findUser(question.owner_id)?.username}
+											</h5>
+										</Link>
+										<p className={styles.time}>
+											{question.created_at && formatDate(question.created_at)}
+										</p>
+									</div>
+									<img src={options} alt="" className={styles.options} />
+								</section>
+								<div>
 									<Link
 										to={`/question-page/${question.question_id}`}
 										style={{ textDecoration: 'none' }}
+										className={styles.title}
 									>
-										<span className={styles.viewReplies}>
-											<img src={message} alt="" />
-											{replies[0] && replies[0][i]}
-										</span>
+										{question.title}
 									</Link>
-									<span className={styles.likes}>
-										<img src={heartBold} alt="" /> {question.total_like}
-									</span>
-									<img src={share} alt="" className={styles.share} />
+									<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+										{question.content}
+									</p>
 								</div>
-								<span className={styles.reward}>
-									<img src={dollarCircle} alt="" /> {question.payment_amount}
-									token
-								</span>
-							</section>
+								<section className={styles.cardFooter}>
+									<div className={styles.icons}>
+										<Link
+											to={`/question-page/${question.question_id}`}
+											style={{ textDecoration: 'none' }}
+										>
+											<span className={styles.viewReplies}>
+												<img src={message} alt="" />
+												{replies[0] && replies[0][i]}
+											</span>
+										</Link>
+										<span className={styles.likes}>
+											<img src={heartBold} alt="" /> {question.total_like}
+										</span>
+									</div>
+									<span className={styles.reward}>
+										<img src={dollarCircle} alt="" /> {question.payment_amount}
+										token
+									</span>
+								</section>
+							</div>
 						</div>
-					</div>
-				))}
+					))
+				) : (
+					<p style={{ textAlign: 'center', marginTop: '50px' }}>
+						You haven&apos;t asked a question
+					</p>
+				)}
 			</section>
 
 			<section
 				className={`${styles['section-replies']} ${styles.hidden} section section-replies`}
 			>
-				<div className={styles.cardContainer}>
-					<Link to="'profile/">
-						<img
-							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-							alt=""
-							className={styles.profilePicture}
-						/>
-					</Link>
-					<div>
-						<section className={styles.cardHeader}>
-							<div className={styles.userInfo}>
-								<Link
-									to="/profile/"
-									style={{ display: 'flex', textDecoration: 'none' }}
-								>
-									<h5 className={styles.askName}>
-										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
-									</h5>
-								</Link>
-								<p className={styles.time}>December 12, 2022</p>
-							</div>
-							<img src={options} alt="" className={styles.options} />
-						</section>
-						<Link to="/dashboard/questions" style={{ textDecoration: 'none' }}>
-							<h4 className={styles.title}>
-								Why does the NoReverse match error pop up when I’m trying to
-								marginate my django website?
-							</h4>
-							<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-								I actually have no idea why this happens but i feel like if we
-								all come together we can think of something that could work so
-								i’m placing a bounty on this question thanks.
-							</p>
-						</Link>
-						<div className={styles.tags}>
-							<button type="button">Python</button>
-						</div>
-						<section className={styles.cardFooter}>
-							<div className={styles.icons}>
-								<span className={styles.viewReplies}>
-									<img src={message} alt="" />
-									{'17 '}
-								</span>
-								<span className={styles.likes}>
-									<img src={heartBold} alt="" />
-									12
-								</span>
-								<img src={share} alt="" className={styles.share} />
-							</div>
-							<span className={styles.reward}>
-								<img src={dollarCircle} alt="" /> 1200token
-							</span>
-						</section>
-					</div>
-				</div>
-
-				<div className={styles.replies}>
-					<div className={styles.thread}>
-						{/* Question */}
-						<div className={styles.cardContainer}>
-							<Link to="'profile/">
-								<img
-									src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-									alt=""
-									className={styles.profilePicture}
-								/>
-							</Link>
-							<div>
-								<section className={styles.cardHeader}>
-									<div className={styles.userInfo}>
+				<div className={answers.length !== 0 ? styles.replies : ''}>
+					{answers.length !== 0 ? (
+						answers.map((answer) => (
+							<div key={answer.answer_id} className={styles.thread}>
+								<div className={styles.cardContainer}>
+									<Link
+										to={`/profile/${
+											findUser(findQuestion(answer.question_id)?.owner_id)
+												?.username
+										}`}
+									>
+										<img
+											src={
+												findUser(
+													findQuestion(answer.question_id)?.owner_id
+												)?.image_url?.trim()
+													? findUser(findQuestion(answer.question_id)?.owner_id)
+															?.image_url
+													: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+											}
+											alt=""
+											className={styles.profilePicture}
+										/>
+									</Link>
+									<div>
+										<section className={styles.cardHeader}>
+											<div className={styles.userInfo}>
+												<Link
+													to={`/profile/${
+														findUser(findQuestion(answer.question_id)?.owner_id)
+															?.username
+													}`}
+													style={{ display: 'flex', textDecoration: 'none' }}
+												>
+													<h5 className={styles.askName}>
+														{
+															findUser(
+																findQuestion(answer.question_id)?.owner_id
+															)?.username
+														}
+													</h5>
+												</Link>
+												<p className={styles.time}>
+													{findQuestion(answer.question_id)?.created_at &&
+														formatDate(
+															findQuestion(answer.question_id)?.created_at
+														)}
+												</p>
+											</div>
+											<img src={options} alt="" className={styles.options} />
+										</section>
 										<Link
-											to="/profile/"
-											style={{ display: 'flex', textDecoration: 'none' }}
+											to={`/question-page/${
+												findQuestion(answer.question_id)?.question_id
+											}`}
+											style={{ textDecoration: 'none' }}
 										>
-											<h5 className={styles.askName}>
-												<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
-											</h5>
+											<h4 className={styles.title}>
+												{findQuestion(answer.question_id)?.title}
+											</h4>
+											<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+												{findQuestion(answer.question_id)?.content}
+											</p>
 										</Link>
-										<p className={styles.time}>December 12, 2022</p>
 									</div>
-									<img src={options} alt="" className={styles.options} />
-								</section>
-								<Link
-									to="/dashboard/questions"
-									style={{ textDecoration: 'none' }}
-								>
-									<h4 className={styles.title}>
-										Why does the NoReverse match error pop up when I’m trying to
-										marginate my django website?
-									</h4>
-									<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-										I actually have no idea why this happens but i feel like if
-										we all come together we can think of something that could
-										work so i’m placing a bounty on this question thanks.
-									</p>
-								</Link>
-								<div className={styles.tags}>
-									<button type="button">Python</button>
 								</div>
-								<section className={styles.cardFooter}>
-									<div className={styles.icons}>
-										<span className={styles.viewReplies}>
-											<img src={message} alt="" />
-											{'17 '}
-										</span>
-										<span className={styles.likes}>
-											<img src={heartBold} alt="" />
-											12
-										</span>
-										<img src={share} alt="" className={styles.share} />
-									</div>
-									<span className={styles.reward}>
-										<img src={dollarCircle} alt="" /> 1200token
-									</span>
-								</section>
-							</div>
-						</div>
-						{/* Response 1 */}
-						<div className={styles.cardContainer}>
-							<Link to="'profile/">
-								<img
-									src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-									alt=""
-									className={styles.profilePicture}
-								/>
-							</Link>
-							<div>
-								<section className={styles.cardHeader}>
-									<div className={styles.userInfo}>
+								<div className={styles.cardContainer}>
+									<Link to={`/profile/${findUser(answer.owner_id)?.username}`}>
+										<img
+											src={
+												findUser(answer.owner_id)?.image_url?.trim()
+													? findUser(answer.owner_id)?.image_url
+													: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+											}
+											alt=""
+											className={styles.profilePicture}
+										/>
+									</Link>
+									<div>
+										<section className={styles.cardHeader}>
+											<div className={styles.userInfo}>
+												<Link
+													to={`/profile/${findUser(answer.owner_id)?.username}`}
+													style={{ display: 'flex', textDecoration: 'none' }}
+												>
+													<h5 className={styles.askName}>
+														{findUser(answer.owner_id)?.username}
+													</h5>
+												</Link>
+												<p className={styles.time}>
+													{' '}
+													{answer.created_at && formatDate(answer.created_at)}
+												</p>
+											</div>
+											<img src={options} alt="" className={styles.options} />
+										</section>
 										<Link
-											to="/profile/"
-											style={{ display: 'flex', textDecoration: 'none' }}
+											to="/dashboard/questions"
+											style={{ textDecoration: 'none' }}
 										>
-											<h5 className={styles.askName}>
-												<span>Codedlibra</span> <span>@codedlibra</span>
-											</h5>
+											<h4 className={styles.title}>
+												Replying to{' '}
+												<span>
+													@{' '}
+													{
+														findUser(findQuestion(answer.question_id)?.owner_id)
+															?.username
+													}
+												</span>
+											</h4>
+											<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+												{answer.content}
+											</p>
 										</Link>
-										<p className={styles.time}>2 mins</p>
 									</div>
-									<img src={options} alt="" className={styles.options} />
-								</section>
-								<Link
-									to="/dashboard/questions"
-									style={{ textDecoration: 'none' }}
-								>
-									<h4 className={styles.title}>
-										Replying to <span>@ayemma_dev</span>
-									</h4>
-									<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-										To start debugging it, you need to start by disecting the
-										error message given you. NoReverseMatch at /my_url/, this is
-										the url that your application is currently trying to access
-										but it contains a url that cannot be matched.
-									</p>
-								</Link>
-								<section className={styles.cardFooter}>
-									<div className={styles.icons}>
-										<span className={styles.viewReplies}>
-											<img src={message} alt="" />
-											{'17 '}
-										</span>
-										<span className={styles.likes}>
-											<img src={heartBold} alt="" />
-											12
-										</span>
-										<img src={share} alt="" className={styles.share} />
-									</div>
-								</section>
+								</div>
 							</div>
-						</div>
-						{/* Response 2 */}
-						<div className={styles.cardContainer}>
-							<Link to="'profile/">
-								<img
-									src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-									alt=""
-									className={styles.profilePicture}
-								/>
-							</Link>
-							<div>
-								<section className={styles.cardHeader}>
-									<div className={styles.userInfo}>
-										<Link
-											to="/profile/"
-											style={{ display: 'flex', textDecoration: 'none' }}
-										>
-											<h5 className={styles.askName}>
-												<span>Kayla Nicole</span> <span>@kayla_nicole </span>
-											</h5>
-										</Link>
-										<p className={styles.time}>December 12, 2022 </p>
-									</div>
-									<img src={options} alt="" className={styles.options} />
-								</section>
-								<Link
-									to="/dashboard/questions"
-									style={{ textDecoration: 'none' }}
-								>
-									<h4 className={styles.title}>
-										Replying to <span>@codedlibra</span>
-									</h4>
-									<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-										Thanks man🙏
-									</p>
-								</Link>
-								<section className={styles.cardFooter}>
-									<div className={styles.icons}>
-										<span className={styles.viewReplies}>
-											<img src={message} alt="" />
-											{'17 '}
-										</span>
-										<span className={styles.likes}>
-											<img src={heartBold} alt="" />
-											12
-										</span>
-										<img src={share} alt="" className={styles.share} />
-									</div>
-								</section>
-							</div>
-						</div>
-					</div>
-
-					<div className={styles.thread}>
-						{/* Question */}
-
-						{/* Response 1 */}
-						<div className={styles.cardContainer}>
-							<Link to="'profile/">
-								<img
-									src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-									alt=""
-									className={styles.profilePicture}
-								/>
-							</Link>
-							<div>
-								<section className={styles.cardHeader}>
-									<div className={styles.userInfo}>
-										<Link
-											to="/profile/"
-											style={{ display: 'flex', textDecoration: 'none' }}
-										>
-											<h5 className={styles.askName}>
-												<span>Olamipo Bamisayemi</span>{' '}
-												<span>@olabami_dev</span>
-											</h5>
-										</Link>
-										<p className={styles.time}>2 mins</p>
-									</div>
-									<img src={options} alt="" className={styles.options} />
-								</section>
-								<Link
-									to="/dashboard/questions"
-									style={{ textDecoration: 'none' }}
-								>
-									<h4 className={styles.title}>
-										Replying to <span>@ayemma_dev</span>
-									</h4>
-									<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-										Start by locating the code in your source relevant to the
-										url that is currently being rendered- the url, the view, and
-										any templates involved. In most cases, this will be the part
-										of the code you’re currently developing.
-									</p>
-								</Link>
-								<section className={styles.cardFooter}>
-									<div className={styles.icons}>
-										<span className={styles.viewReplies}>
-											<img src={message} alt="" />
-											{'17 '}
-										</span>
-										<span className={styles.likes}>
-											<img src={heartBold} alt="" />
-											12
-										</span>
-										<img src={share} alt="" className={styles.share} />
-									</div>
-								</section>
-							</div>
-						</div>
-						{/* Response 2 */}
-						<div className={styles.cardContainer}>
-							<Link to="profile/">
-								<img
-									src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-									alt=""
-									className={styles.profilePicture}
-								/>
-							</Link>
-							<div>
-								<section className={styles.cardHeader}>
-									<div className={styles.userInfo}>
-										<Link
-											to="/profile/"
-											style={{ display: 'flex', textDecoration: 'none' }}
-										>
-											<h5 className={styles.askName}>
-												<span>Kayla Nicole</span> <span>@kayla_nicole </span>
-											</h5>
-										</Link>
-										<p className={styles.time}>December 12, 2022 </p>
-									</div>
-									<img src={options} alt="" className={styles.options} />
-								</section>
-								<Link
-									to="/dashboard/questions"
-									style={{ textDecoration: 'none' }}
-								>
-									<h4 className={styles.title}>
-										Replying to <span>@olabami_dev</span>
-									</h4>
-									<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-										Thanks for helping. Will do that 🙏
-									</p>
-								</Link>
-								<section className={styles.cardFooter}>
-									<div className={styles.icons}>
-										<span className={styles.viewReplies}>
-											<img src={message} alt="" />
-											{'17 '}
-										</span>
-										<span className={styles.likes}>
-											<img src={heartBold} alt="" />
-											12
-										</span>
-										<img src={share} alt="" className={styles.share} />
-									</div>
-								</section>
-							</div>
-						</div>
-					</div>
+						))
+					) : (
+						<p style={{ textAlign: 'center', marginTop: '50px' }}>
+							You haven&apos;t replied to any question
+						</p>
+					)}
 				</div>
 			</section>
 
@@ -564,7 +416,7 @@ function UserActivities() {
 				className={`${styles['section-likes']} ${styles.hidden} section section-likes`}
 			>
 				<img src={like} alt="heart emoji" />
-				<p>You&apos;ve liked a total number of 800 posts</p>
+				<p>You&apos;ve liked a total number of {totalLikes || 0} posts</p>
 			</section>
 
 			<section
