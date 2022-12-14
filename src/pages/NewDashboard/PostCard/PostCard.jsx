@@ -140,7 +140,7 @@ function PostCard({
 					onKeyDown={() => {}}
 					tabIndex={0}
 					onClick={(event) =>
-						handleNavigate(event, `/user-page/${askedBy?.username}`)
+						handleNavigate(event, `/profile/${askedBy?.username}`)
 					}
 				>
 					<img
@@ -157,7 +157,7 @@ function PostCard({
 							onKeyDown={() => {}}
 							tabIndex={0}
 							onClick={(event) =>
-								handleNavigate(event, `/user-page/${askedBy?.username}`)
+								handleNavigate(event, `/profile/${askedBy?.username}`)
 							}
 						>{`${askedBy?.first_name} ${askedBy?.last_name}`}</span>
 						<span
@@ -165,7 +165,7 @@ function PostCard({
 							onKeyDown={() => {}}
 							tabIndex={0}
 							onClick={(event) =>
-								handleNavigate(event, `/user-page/${askedBy?.username}`)
+								handleNavigate(event, `/profile/${askedBy?.username}`)
 							}
 						>
 							@{askedBy?.username}
