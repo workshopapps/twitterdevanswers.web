@@ -54,6 +54,8 @@ function QuestionPage() {
 			setAskedBy(user);
 		};
 
+		console.log(askedBy);
+
 		if (Object.keys(question).length !== 0) fetchUser();
 	}, [question]);
 
@@ -120,7 +122,7 @@ function QuestionPage() {
 											onKeyDown={() => {}}
 											tabIndex={0}
 											onClick={(event) =>
-												handleNavigate(event, `/user-page/${askedBy?.user_id}`)
+												handleNavigate(event, `/profile/${askedBy?.user_id}`)
 											}
 										>
 											<img
@@ -139,10 +141,7 @@ function QuestionPage() {
 												onKeyDown={() => {}}
 												tabIndex={0}
 												onClick={(event) =>
-													handleNavigate(
-														event,
-														`/user-page/${askedBy?.user_id}`
-													)
+													handleNavigate(event, `/profile/${askedBy?.user_id}`)
 												}
 											>{`${askedBy?.first_name} ${askedBy?.last_name}`}</span>
 											<span className={styles.timeStamp}>{formatDate()}</span>

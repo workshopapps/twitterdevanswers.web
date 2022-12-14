@@ -34,7 +34,7 @@ function ReplyCard({
 						onKeyDown={() => {}}
 						tabIndex={0}
 						onClick={(event) =>
-							handleNavigate(event, `/user-page/${answeredBy?.username}`)
+							handleNavigate(event, `/profile/${answeredBy?.username}`)
 						}
 					>
 						<img
@@ -54,7 +54,7 @@ function ReplyCard({
 								onKeyDown={() => {}}
 								tabIndex={0}
 								onClick={(event) =>
-									handleNavigate(event, `/user-page/${answeredBy?.username}`)
+									handleNavigate(event, `/profile/${answeredBy?.username}`)
 								}
 							>{`${answeredBy?.first_name} ${answeredBy?.last_name}`}</span>
 							<span
@@ -63,7 +63,7 @@ function ReplyCard({
 								onKeyDown={() => {}}
 								tabIndex={0}
 								onClick={(event) =>
-									handleNavigate(event, `/user-page/${answeredBy?.username}`)
+									handleNavigate(event, `/profile/${answeredBy?.username}`)
 								}
 							>
 								@{answeredBy?.username}
