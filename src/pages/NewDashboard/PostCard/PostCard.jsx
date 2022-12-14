@@ -22,12 +22,19 @@ function PostCard({
 		owner_id: ownerId,
 	},
 }) {
-	const { handleNavigate, getUsers, getAnswers, likeUnlike, getLikes } =
-		useMessenger();
+	const {
+		handleNavigate,
+		getUsers,
+		getAnswers,
+		likeUnlike,
+		getLikes,
+		getQuestions,
+	} = useMessenger();
 
 	const [answers, setAnswers] = useState([]);
 	const [askedBy, setAskedBy] = useState(null);
-	const [liked, setLiked] = useState(null);
+	const [question, setQuestion] = useState(null);
+	const [liked, setLiked] = useState([]);
 
 	const {
 		state: {
@@ -36,12 +43,35 @@ function PostCard({
 		},
 	} = useContext(AppContext);
 
+	const alreadyLiked = liked?.find(
+		({ user_id: userId }) => userId === loggedInUserId
+	);
+
+	useEffect(() => {
+		const fetchQuestions = async () => {
+			const result = await getQuestions();
+			const data = result.find((item) => item.question_id === questionId);
+			setQuestion(data);
+		};
+	}, [liked]);
+
 	// get user, get answers
 	useEffect(() => {
+		const fetchQuestions = async () => {
+			const result = await getQuestions();
+			const data = result.find((item) => item.question_id === questionId);
+			setQuestion(data);
+		};
+
 		const fetchUser = async () => {
 			const result = await getUsers();
 			const user = result.find(({ user_id: userId }) => userId === ownerId);
 			setAskedBy(user);
+		};
+
+		const fetchLikes = async () => {
+			const { data } = await getLikes(questionId);
+			setLiked(data);
 		};
 
 		const fetchAnswers = async () => {
@@ -49,14 +79,7 @@ function PostCard({
 			setAnswers(result);
 		};
 
-		const fetchLikes = async () => {
-			const { data } = await getLikes(questionId);
-			const user = data?.find(
-				({ user_id: userId }) => userId === loggedInUserId
-			);
-			setLiked(user);
-		};
-
+		fetchQuestions();
 		fetchAnswers();
 		fetchUser();
 		fetchLikes();
@@ -65,10 +88,39 @@ function PostCard({
 	const handleLIke = (event) => {
 		event.stopPropagation();
 
-		if (liked) {
+		if (alreadyLiked?.like_type === 'up') {
 			likeUnlike(questionId, 'down');
+
+			const tempLiked = [...liked].filter(
+				(object) => object.user_id !== loggedInUserId
+			);
+
+			setLiked(() => [
+				...tempLiked,
+				{ user_id: loggedInUserId, question_id: questionId, like_type: 'down' },
+			]);
+		} else if (alreadyLiked?.like_type === 'down') {
+			likeUnlike(questionId, 'up');
+
+			const tempLiked = [...liked].filter(
+				(object) => object.user_id !== loggedInUserId
+			);
+
+			setLiked(() => [
+				...tempLiked,
+				{ user_id: loggedInUserId, question_id: questionId, like_type: 'up' },
+			]);
 		} else {
 			likeUnlike(questionId, 'up');
+
+			const tempLiked = [...liked].filter(
+				(object) => object.user_id !== loggedInUserId
+			);
+
+			setLiked(() => [
+				...tempLiked,
+				{ user_id: loggedInUserId, question_id: questionId, like_type: 'up' },
+			]);
 		}
 	};
 
@@ -88,7 +140,7 @@ function PostCard({
 					onKeyDown={() => {}}
 					tabIndex={0}
 					onClick={(event) =>
-						handleNavigate(event, `/user-page/${askedBy?.username}`)
+						handleNavigate(event, `/profile/${askedBy?.username}`)
 					}
 				>
 					<img
@@ -105,7 +157,7 @@ function PostCard({
 							onKeyDown={() => {}}
 							tabIndex={0}
 							onClick={(event) =>
-								handleNavigate(event, `/user-page/${askedBy?.username}`)
+								handleNavigate(event, `/profile/${askedBy?.username}`)
 							}
 						>{`${askedBy?.first_name} ${askedBy?.last_name}`}</span>
 						<span
@@ -113,7 +165,7 @@ function PostCard({
 							onKeyDown={() => {}}
 							tabIndex={0}
 							onClick={(event) =>
-								handleNavigate(event, `/user-page/${askedBy?.username}`)
+								handleNavigate(event, `/profile/${askedBy?.username}`)
 							}
 						>
 							@{askedBy?.username}
@@ -135,8 +187,13 @@ function PostCard({
 									{/* <IoHeart/> */}
 									<Heart
 										className={styles.icon}
-										style={{ fill: liked ? '#492b7c' : '#fff' }}
 										onClick={handleLIke}
+										style={{
+											fill:
+												alreadyLiked?.like_type === 'up'
+													? '#4343DE'
+													: 'transparent',
+										}}
 									/>
 									<span>{likes}</span>
 								</div>

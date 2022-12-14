@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
 
-import brandLogo from '../../assets/settings-images/brand-logo.svg';
+import brandLogo from '../../assets/settings-images/brandlogo2.svg';
 import styles from './header.module.css';
 
 export default function Header() {
@@ -40,7 +40,7 @@ export default function Header() {
 	const linkStyle = {
 		textDecoration: 'none',
 		fontWeight: '500',
-		fontSize: '18px',
+		fontSize: '16px',
 		lineHeight: '28px',
 		color: '#303030',
 	};
@@ -79,7 +79,7 @@ export default function Header() {
 								className={`${styles.btn} ${styles.signUp}`}
 								onClick={() => navigate('/sign-up')}
 							>
-								Sign Up
+								Sign up
 							</button>
 						)}
 						{pathname === '/sign-up' && (
@@ -99,7 +99,7 @@ export default function Header() {
 							className={`${styles.btn} ${styles.signUp}`}
 							onClick={() => navigate('/sign-up')}
 						>
-							Sign Up
+							Sign up
 						</button>
 
 						<button
@@ -170,7 +170,7 @@ export default function Header() {
 										navigate('/sign-up');
 									}}
 								>
-									Sign Up
+									Sign up
 								</button>
 							)}
 							{pathname === '/sign-up' && (
@@ -196,7 +196,7 @@ export default function Header() {
 									navigate('/sign-up');
 								}}
 							>
-								Sign Up
+								Sign up
 							</button>
 
 							<button
