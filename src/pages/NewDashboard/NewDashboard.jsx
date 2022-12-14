@@ -67,7 +67,7 @@ function NewDashboard() {
 							<span className={styles.icon}>
 								<IoFilterOutline />
 							</span>
-							<Link to="post-questions" className={styles.btn}>
+							<Link to="/post-questions" className={styles.btn}>
 								Ask A Question
 							</Link>
 						</div>
