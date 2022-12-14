@@ -18,10 +18,9 @@ function ProfileHeader() {
 
 	const visitorIsAFollower = () =>
 		followers.some(
-			(follower) => follower.user_from === userFromStorage?.data?.user_id
+			(follower) => follower.user_from === userFromStorage?.user_id
 		);
 
-	// const [isLoading, setIsLoading] = useState(false);
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
 			month: 'long',
@@ -30,7 +29,7 @@ function ProfileHeader() {
 
 	const capitalize = (string) =>
 		string?.replace(string[0], string[0].toUpperCase());
-	const isVisitor = userFromStorage?.data?.usename !== user;
+	const isVisitor = userFromStorage?.usename !== user;
 	const handleEdit = () => {
 		navigate('/settings');
 	};

@@ -7,7 +7,6 @@ import reward from '../../assets/profile-images/reward.svg';
 import like from '../../assets/profile-images/like.svg';
 import message from '../../assets/dashboard-images/message.webp';
 import heartBold from '../../assets/dashboard-images/heartBold.webp';
-import share from '../../assets/dashboard-images/share.webp';
 import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
 const token = localStorage.getItem('token');
@@ -41,15 +40,12 @@ function UserActivities() {
 			year: 'numeric',
 		}).format(new Date(date));
 
-	const findQuestion = (id) =>
-		allQuestions?.find((post) => post.question_id === id);
-
 	const [allQuestions, setAllQuestions] = useState([]);
 	const [questions, setQuestions] = useState([]);
 	const [sections, setSections] = useState();
 	const [answers, setAnswers] = useState([]);
 	const [tabButtons, setTabButtons] = useState();
-	const isVisitor = userFromStorage?.data?.usename !== thisuser;
+	const isVisitor = userFromStorage?.usename !== thisuser;
 
 	const [users, setUsers] = useState([]);
 	const [info, setInfo] = useState({});
@@ -57,6 +53,9 @@ function UserActivities() {
 	const [totalLikes, setTotalLikes] = useState(0);
 
 	const findUser = (id) => users.find((user) => user.user_id === id);
+	const findQuestion = (id) =>
+		allQuestions?.find((post) => post.question_id === id);
+
 	useEffect(() => {
 		setSections(document.querySelectorAll('.section'));
 		setTabButtons(document.querySelectorAll('.tabButtons'));
@@ -182,10 +181,7 @@ function UserActivities() {
 			.classList.remove(`${styles.hidden}`);
 		button.classList.add(`${styles.active}`);
 	};
-	console.log(answers, allQuestions);
-	console.log(findQuestion(7)?.title);
-	// console.log(findQuestion(7)?.created_at);
-	// console.log(formatDate('2022-12-12T15:49:23'));
+
 	return (
 		<>
 			<header
@@ -214,88 +210,16 @@ function UserActivities() {
 			<section
 				className={`${styles['section-questions']} ${styles.hidde} section section-questions`}
 			>
-				{questions.map((question, i) => (
-					<div className={styles.cardContainer} key={question.question_id}>
-						<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
-							<img
-								src={
-									findUser(question.owner_id)?.image_url?.trim()
-										? findUser(question.owner_id)?.image_url
-										: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-								}
-								alt=""
-								className={styles.profilePicture}
-							/>
-						</Link>
-						<div>
-							<section className={styles.cardHeader}>
-								<div className={styles.userInfo}>
-									<Link
-										to={`/profile/${findUser(question.owner_id)?.username}`}
-										style={{ display: 'flex', textDecoration: 'none' }}
-									>
-										<h5 className={styles.askName}>
-											{findUser(question.owner_id)?.username}
-										</h5>
-									</Link>
-									<p className={styles.time}>
-										{formatDate(question.created_at)}
-									</p>
-								</div>
-								<img src={options} alt="" className={styles.options} />
-							</section>
-							<div>
-								<Link
-									to={`/question-page/${question.question_id}`}
-									style={{ textDecoration: 'none' }}
-									className={styles.title}
-								>
-									{question.title}
-								</Link>
-								<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-									{question.content}
-								</p>
-							</div>
-							<section className={styles.cardFooter}>
-								<div className={styles.icons}>
-									<Link
-										to={`/question-page/${question.question_id}`}
-										style={{ textDecoration: 'none' }}
-									>
-										<span className={styles.viewReplies}>
-											<img src={message} alt="" />
-											{replies[0] && replies[0][i]}
-										</span>
-									</Link>
-									<span className={styles.likes}>
-										<img src={heartBold} alt="" /> {question.total_like}
-									</span>
-									<img src={share} alt="" className={styles.share} />
-								</div>
-								<span className={styles.reward}>
-									<img src={dollarCircle} alt="" /> {question.payment_amount}
-									token
-								</span>
-							</section>
-						</div>
-					</div>
-				))}
-			</section>
-
-			<section
-				className={`${styles['section-replies']} ${styles.hidden} section section-replies`}
-			>
-				{answers.map((answer) => {
-					return (
-						<div key={answer.answer_id} className={styles.cardContainer}>
-							<Link
-								to={`profile/${
-									findUser(findQuestion(answer.question_id)?.question_id)
-										?.username
-								}`}
-							>
+				{questions.length !== 0 ? (
+					questions.map((question, i) => (
+						<div className={styles.cardContainer} key={question.question_id}>
+							<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
 								<img
-									src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
+									src={
+										findUser(question.owner_id)?.image_url?.trim()
+											? findUser(question.owner_id)?.image_url
+											: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -304,65 +228,195 @@ function UserActivities() {
 								<section className={styles.cardHeader}>
 									<div className={styles.userInfo}>
 										<Link
-											to={`profile/${
-												findUser(findQuestion(answer.question_id)?.question_id)
-													?.username
-											}`}
+											to={`/profile/${findUser(question.owner_id)?.username}`}
 											style={{ display: 'flex', textDecoration: 'none' }}
 										>
 											<h5 className={styles.askName}>
-												{
-													findUser(
-														findQuestion(answer.question_id)?.question_id
-													)?.username
-												}
+												{findUser(question.owner_id)?.username}
 											</h5>
 										</Link>
 										<p className={styles.time}>
-											{formatDate(findQuestion(answer.question_id)?.created_at)}
+											{question.created_at && formatDate(question.created_at)}
 										</p>
 									</div>
 									<img src={options} alt="" className={styles.options} />
 								</section>
-								<Link
-									to="/dashboard/questions"
-									style={{ textDecoration: 'none' }}
-								>
-									<h4 className={styles.title}>
-										{findQuestion(answer.question_id)?.title}
-									</h4>
+								<div>
+									<Link
+										to={`/question-page/${question.question_id}`}
+										style={{ textDecoration: 'none' }}
+										className={styles.title}
+									>
+										{question.title}
+									</Link>
 									<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-										{findQuestion(answer.question_id)?.content}
+										{question.content}
 									</p>
-								</Link>
-
+								</div>
 								<section className={styles.cardFooter}>
 									<div className={styles.icons}>
-										<span className={styles.viewReplies}>
-											<img src={message} alt="" />
-											{'17 '}
-										</span>
+										<Link
+											to={`/question-page/${question.question_id}`}
+											style={{ textDecoration: 'none' }}
+										>
+											<span className={styles.viewReplies}>
+												<img src={message} alt="" />
+												{replies[0] && replies[0][i]}
+											</span>
+										</Link>
 										<span className={styles.likes}>
-											<img src={heartBold} alt="" />
-											12
+											<img src={heartBold} alt="" /> {question.total_like}
 										</span>
-										<img src={share} alt="" className={styles.share} />
 									</div>
 									<span className={styles.reward}>
-										<img src={dollarCircle} alt="" /> 1200token
+										<img src={dollarCircle} alt="" /> {question.payment_amount}
+										token
 									</span>
 								</section>
 							</div>
 						</div>
-					);
-				})}
+					))
+				) : (
+					<p style={{ textAlign: 'center', marginTop: '50px' }}>
+						You haven&apos;t asked a question
+					</p>
+				)}
+			</section>
+
+			<section
+				className={`${styles['section-replies']} ${styles.hidden} section section-replies`}
+			>
+				<div className={answers.length !== 0 ? styles.replies : ''}>
+					{answers.length !== 0 ? (
+						answers.map((answer) => (
+							<div key={answer.answer_id} className={styles.thread}>
+								<div className={styles.cardContainer}>
+									<Link
+										to={`/profile/${
+											findUser(findQuestion(answer.question_id)?.owner_id)
+												?.username
+										}`}
+									>
+										<img
+											src={
+												findUser(
+													findQuestion(answer.question_id)?.owner_id
+												)?.image_url?.trim()
+													? findUser(findQuestion(answer.question_id)?.owner_id)
+															?.image_url
+													: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+											}
+											alt=""
+											className={styles.profilePicture}
+										/>
+									</Link>
+									<div>
+										<section className={styles.cardHeader}>
+											<div className={styles.userInfo}>
+												<Link
+													to={`/profile/${
+														findUser(findQuestion(answer.question_id)?.owner_id)
+															?.username
+													}`}
+													style={{ display: 'flex', textDecoration: 'none' }}
+												>
+													<h5 className={styles.askName}>
+														{
+															findUser(
+																findQuestion(answer.question_id)?.owner_id
+															)?.username
+														}
+													</h5>
+												</Link>
+												<p className={styles.time}>
+													{findQuestion(answer.question_id)?.created_at &&
+														formatDate(
+															findQuestion(answer.question_id)?.created_at
+														)}
+												</p>
+											</div>
+											<img src={options} alt="" className={styles.options} />
+										</section>
+										<Link
+											to={`/question-page/${
+												findQuestion(answer.question_id)?.question_id
+											}`}
+											style={{ textDecoration: 'none' }}
+										>
+											<h4 className={styles.title}>
+												{findQuestion(answer.question_id)?.title}
+											</h4>
+											<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+												{findQuestion(answer.question_id)?.content}
+											</p>
+										</Link>
+									</div>
+								</div>
+								<div className={styles.cardContainer}>
+									<Link to={`/profile/${findUser(answer.owner_id)?.username}`}>
+										<img
+											src={
+												findUser(answer.owner_id)?.image_url?.trim()
+													? findUser(answer.owner_id)?.image_url
+													: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+											}
+											alt=""
+											className={styles.profilePicture}
+										/>
+									</Link>
+									<div>
+										<section className={styles.cardHeader}>
+											<div className={styles.userInfo}>
+												<Link
+													to={`/profile/${findUser(answer.owner_id)?.username}`}
+													style={{ display: 'flex', textDecoration: 'none' }}
+												>
+													<h5 className={styles.askName}>
+														{findUser(answer.owner_id)?.username}
+													</h5>
+												</Link>
+												<p className={styles.time}>
+													{' '}
+													{answer.created_at && formatDate(answer.created_at)}
+												</p>
+											</div>
+											<img src={options} alt="" className={styles.options} />
+										</section>
+										<Link
+											to="/dashboard/questions"
+											style={{ textDecoration: 'none' }}
+										>
+											<h4 className={styles.title}>
+												Replying to{' '}
+												<span>
+													@{' '}
+													{
+														findUser(findQuestion(answer.question_id)?.owner_id)
+															?.username
+													}
+												</span>
+											</h4>
+											<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+												{answer.content}
+											</p>
+										</Link>
+									</div>
+								</div>
+							</div>
+						))
+					) : (
+						<p style={{ textAlign: 'center', marginTop: '50px' }}>
+							You haven&apos;t replied to any question
+						</p>
+					)}
+				</div>
 			</section>
 
 			<section
 				className={`${styles['section-likes']} ${styles.hidden} section section-likes`}
 			>
 				<img src={like} alt="heart emoji" />
-				<p>You&apos;ve liked a total number of {totalLikes} posts</p>
+				<p>You&apos;ve liked a total number of {totalLikes || 0} posts</p>
 			</section>
 
 			<section
