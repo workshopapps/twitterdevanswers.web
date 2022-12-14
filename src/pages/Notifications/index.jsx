@@ -1,10 +1,11 @@
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 /* eslint-disable camelcase */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from './styles.module.css';
+import { AppContext } from '../../store/AppContext';
 
 function Notifications() {
 	const [activeTab, setActiveTab] = useState('all');
@@ -12,10 +13,12 @@ function Notifications() {
 
 	const [allNotifications, setAllNotifications] = useState([]);
 
+	const { state } = useContext(AppContext);
+
 	const getAllNotifications = async () => {
 		const headers = {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkZWNvZGluZ2FkZUBnbWFpbC5jb20iLCJleHAiOjE2NzEwMTkwODJ9.BOjRWY_1owa_UQAo7bkngCqqdylSMUiIS203KMtljK8`,
+			Authorization: `Bearer ${state.token}`,
 		};
 		try {
 			const data = await axios.get(
