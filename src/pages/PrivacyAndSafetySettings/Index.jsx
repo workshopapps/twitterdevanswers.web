@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import StyleCSS from './styles.module.css';
 
-function NotificationSettings() {
+function PrivacyandSafetySettings() {
 	const [changeSettings, setChangeSettings] = useState(StyleCSS.settings);
 	const [mobileNotificationsettings, setMobileNotificationSettings] = useState(
 		StyleCSS.editState
@@ -125,4 +125,4 @@ function NotificationSettings() {
 		</div>
 	);
 }
-export default NotificationSettings;
+export default PrivacyandSafetySettings;

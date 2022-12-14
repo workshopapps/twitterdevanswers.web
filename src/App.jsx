@@ -38,6 +38,7 @@ import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
 import NewDashboard from './pages/NewDashboard/NewDashboard';
 import QuestionPage from './pages/NewDashboard/QuestionPage';
+import PrivacyandSafetySettings from './pages/PrivacyAndSafetySettings/Index'
 
 function App() {
 	const {
@@ -84,6 +85,7 @@ function App() {
 						path="notification-settings"
 						element={<NotificationSettings />}
 					/>
+					<Route path="/privacyandsafety-settings" element={<PrivacyandSafetySettings />} />
 				</Route>
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>
