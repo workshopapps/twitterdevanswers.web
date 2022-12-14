@@ -41,6 +41,10 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
+import AdminDashboard from './pages/AdminDashboard';
+import ManageUser from './pages/ManageUser';
+import AdminSignUp from './pages/AdminSignUp';
+import AdminSignIn from './pages/AdminSignIn';
 
 function App() {
 	const {
@@ -71,6 +75,7 @@ function App() {
 				<Route path="login" element={<Login />} />
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
+
 				<Route element={<ProtectedRoutes />}>
 					<Route path="dashboard/*" element={<Dashboard />} />
 					<Route path="dashboard/questions/:id" element={<AskQuestion />} />
@@ -85,14 +90,19 @@ function App() {
 					<Route path="security-settings" element={<Security />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
-
 					<Route
 						path="notification-settings"
 						element={<NotificationSettings />}
 					/>
+					<Route path="manage-user/:username" element={<ManageUser />} />
+					<Route path="admin-dashboard" element={<AdminDashboard />} />
+					<Route path="admin-signup" element={<AdminSignUp />} />
+					<Route path="admin-login" element={<AdminSignIn />} />
 				</Route>
+
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>
+
 			{user || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);
