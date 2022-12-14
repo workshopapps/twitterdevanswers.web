@@ -27,7 +27,7 @@ function Profile() {
 	const [replies, setReplies] = useState([]);
 	const [users, setUsers] = useState([]);
 	const findUser = (id) => users.find((user) => user.user_id === id);
-
+	console.log(questions, replies, findUser);
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
@@ -94,11 +94,11 @@ function Profile() {
 							</div>
 						))} */}
 						<div className={styles.topic}>
-							<Link to={`/profile/Kokahe}`}>
+							<Link to="{`/profile/Kokahe}`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -106,7 +106,7 @@ function Profile() {
 
 							<div className={styles.content}>
 								<Link
-									to={`/dashboard/questions/1`}
+									to="{`/dashboard/questions/1`}"
 									style={{ textDecoration: 'none' }}
 								>
 									<h4>
@@ -117,11 +117,11 @@ function Profile() {
 							</div>
 						</div>
 						<div className={styles.topic}>
-							<Link to={`/profile/Kokahe}`}>
+							<Link to="{`/profile/Kokahe}`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -129,7 +129,7 @@ function Profile() {
 
 							<div className={styles.content}>
 								<Link
-									to={`/dashboard/questions/1`}
+									to="{`/dashboard/questions/1`}"
 									style={{ textDecoration: 'none' }}
 								>
 									<h4>
@@ -140,11 +140,11 @@ function Profile() {
 							</div>
 						</div>{' '}
 						<div className={styles.topic}>
-							<Link to={`/profile/Kokahe}`}>
+							<Link to="{`/profile/Kokahe}`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -152,7 +152,7 @@ function Profile() {
 
 							<div className={styles.content}>
 								<Link
-									to={`/dashboard/questions/1`}
+									to="{`/dashboard/questions/1`}"
 									style={{ textDecoration: 'none' }}
 								>
 									<h4>
@@ -163,11 +163,11 @@ function Profile() {
 							</div>
 						</div>{' '}
 						<div className={styles.topic}>
-							<Link to={`/profile/Kokahe}`}>
+							<Link to="{`/profile/Kokahe}`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -175,7 +175,7 @@ function Profile() {
 
 							<div className={styles.content}>
 								<Link
-									to={`/dashboard/questions/1`}
+									to="{`/dashboard/questions/1`}"
 									style={{ textDecoration: 'none' }}
 								>
 									<h4>
@@ -186,11 +186,11 @@ function Profile() {
 							</div>
 						</div>{' '}
 						<div className={styles.topic}>
-							<Link to={`/profile/Kokahe}`}>
+							<Link to="{`/profile/Kokahe}`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -198,7 +198,7 @@ function Profile() {
 
 							<div className={styles.content}>
 								<Link
-									to={`/dashboard/questions/1`}
+									to="{`/dashboard/questions/1`}"
 									style={{ textDecoration: 'none' }}
 								>
 									<h4>
@@ -209,11 +209,11 @@ function Profile() {
 							</div>
 						</div>{' '}
 						<div className={styles.topic}>
-							<Link to={`/profile/Kokahe}`}>
+							<Link to="{`/profile/Kokahe}`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -221,7 +221,7 @@ function Profile() {
 
 							<div className={styles.content}>
 								<Link
-									to={`/dashboard/questions/1`}
+									to="{`/dashboard/questions/1`}"
 									style={{ textDecoration: 'none' }}
 								>
 									<h4>
@@ -260,11 +260,11 @@ function Profile() {
 							</div>
 						))} */}
 						<div className={styles.user}>
-							<Link to={`/profile/1`}>
+							<Link to="{`/profile/1`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -279,11 +279,11 @@ function Profile() {
 							<button type="button">Follow</button>
 						</div>{' '}
 						<div className={styles.user}>
-							<Link to={`/profile/1`}>
+							<Link to="{`/profile/1`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -298,11 +298,11 @@ function Profile() {
 							<button type="button">Follow</button>
 						</div>{' '}
 						<div className={styles.user}>
-							<Link to={`/profile/1`}>
+							<Link to="{`/profile/1`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>
@@ -317,11 +317,11 @@ function Profile() {
 							<button type="button">Follow</button>
 						</div>{' '}
 						<div className={styles.user}>
-							<Link to={`/profile/1`}>
+							<Link to="{`/profile/1`}">
 								<img
-									src={
+									src="{
 										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-									}
+									}"
 									alt=""
 									className={styles.profilePicture}
 								/>

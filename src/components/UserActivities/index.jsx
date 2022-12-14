@@ -156,7 +156,7 @@ function UserActivities() {
 			<section
 				className={`${styles['section-questions']} ${styles.hidde} section section-questions`}
 			>
-				{/* {questions.map((question, i) => (
+				{questions.map((question, i) => (
 					<div className={styles.cardContainer} key={question.question_id}>
 						<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
 							<img
@@ -221,9 +221,9 @@ function UserActivities() {
 							</section>
 						</div>
 					</div>
-				))} */}
+				))}
 
-<div className={styles.cardContainer}>
+				{/* <div className={styles.cardContainer}>
 					<Link to="'profile/">
 						<img
 							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
@@ -242,7 +242,7 @@ function UserActivities() {
 										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
 									</h5>
 								</Link>
-								<p className={styles.time}>36 secs</p>
+								<p className={styles.time}>December 12, 2022</p>
 							</div>
 							<img src={options} alt="" className={styles.options} />
 						</section>
@@ -298,7 +298,7 @@ function UserActivities() {
 										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
 									</h5>
 								</Link>
-								<p className={styles.time}>36 secs</p>
+								<p className={styles.time}>December 12, 2022</p>
 							</div>
 							<img src={options} alt="" className={styles.options} />
 						</section>
@@ -354,7 +354,7 @@ function UserActivities() {
 										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
 									</h5>
 								</Link>
-								<p className={styles.time}>36 secs</p>
+								<p className={styles.time}>December 12, 2022</p>
 							</div>
 							<img src={options} alt="" className={styles.options} />
 						</section>
@@ -410,7 +410,7 @@ function UserActivities() {
 										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
 									</h5>
 								</Link>
-								<p className={styles.time}>36 secs</p>
+								<p className={styles.time}>December 12, 2022</p>
 							</div>
 							<img src={options} alt="" className={styles.options} />
 						</section>
@@ -445,7 +445,7 @@ function UserActivities() {
 							</span>
 						</section>
 					</div>
-				</div>
+				</div> */}
 			</section>
 
 			<section
@@ -470,7 +470,7 @@ function UserActivities() {
 										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
 									</h5>
 								</Link>
-								<p className={styles.time}>36 secs</p>
+								<p className={styles.time}>December 12, 2022</p>
 							</div>
 							<img src={options} alt="" className={styles.options} />
 						</section>
@@ -529,7 +529,7 @@ function UserActivities() {
 												<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
 											</h5>
 										</Link>
-										<p className={styles.time}>36 secs</p>
+										<p className={styles.time}>December 12, 2022</p>
 									</div>
 									<img src={options} alt="" className={styles.options} />
 								</section>
@@ -641,7 +641,7 @@ function UserActivities() {
 												<span>Kayla Nicole</span> <span>@kayla_nicole </span>
 											</h5>
 										</Link>
-										<p className={styles.time}>36 secs </p>
+										<p className={styles.time}>December 12, 2022 </p>
 									</div>
 									<img src={options} alt="" className={styles.options} />
 								</section>
@@ -750,7 +750,7 @@ function UserActivities() {
 												<span>Kayla Nicole</span> <span>@kayla_nicole </span>
 											</h5>
 										</Link>
-										<p className={styles.time}>36 secs </p>
+										<p className={styles.time}>December 12, 2022 </p>
 									</div>
 									<img src={options} alt="" className={styles.options} />
 								</section>
