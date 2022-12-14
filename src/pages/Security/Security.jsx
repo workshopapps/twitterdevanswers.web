@@ -187,7 +187,7 @@ function Security() {
                 <div className={styles.TwoFactorAuthForms} id="two-factor-forms">
                     { buttons &&
                     <div>
-                <button type="submit" onClick={toggleSetUpForm}>Setup MFA</button>
+                <button type="submit" onClick={toggleSetUpForm}>Enable MFA</button>
                 <button type="submit" onClick={toggleForm}>Generate QR Code</button>
                 <button type="submit" onClick={showVerifyForm}>Verify Code</button>
                  </div>
@@ -197,7 +197,7 @@ function Security() {
                     <p>Please fill the required fields</p>
                 <form className={styles.GetTwoAuthForm} onSubmit={handleSetUpMFA} method="POST">
                         <input type="email" name="email" required value={getEmail} onChange={(e) => setGetEmail(e.target.value)} />
-                        <button type="submit">SetUp</button>
+                        <button type="submit">SetUp MFA</button>
                     </form>
                     <p>{response}</p>
                        </div>
