@@ -1,30 +1,75 @@
-.loginBg {
-	background-color: #492B7C;
-	height: 100%;
-	width: 100%;
-	padding: 80px 0px;
-	
+
+.formexternal {
+	background-color: #492b7c;
+	padding-block: 5px;
 }
-	.login {
-	max-width: 864px;
-	width: 100%;
-	background: #FFFFFF;
-	padding: 80px 60px;
-	margin: 20px auto;
-	box-shadow: 4px 8px 24px #704EA9;
+ 
+.formmargin1, .formmargin2, .formmargin3, .formmargin4{
+	margin-block: 80px;
+	padding-block: 100px;
+}
+
+
+.signin {
+	/* max-width: 864px; */
+	width: 60%;
+	background: #ffffff;
+	padding-inline: 40px;
+	margin: 0px;
+	margin-inline: auto;
+	/* margin-bottom: 100px; */
+	margin-block: auto;
 	border-radius: 24px;
+	position: relative;
 }
-/* .login {
-	max-width: 864px;
-	width: 95%;
-	background: #fff;
-	padding: 80px 110px;
-	margin: 53px auto;
-} */
+
+.topleft {
+position: absolute;
+top: 15px;
+}
+
+.midleft {
+position: absolute;
+top: 272px;
+left: 11px;
+}
+.topblock {
+position: absolute;
+top: 15px;
+right: 300px;
+}
+.topslant {
+position: absolute;
+top: 100px;
+right: 10px;
+
+}
+
 
 .header {
-	margin-bottom: 0px;
-	align-items: center;
+	margin-bottom: 46px;
+
+}
+.header img {
+	justify-content: center;
+	align-content: center;
+	padding-inline: 41%;
+	margin-bottom: 30px;
+}
+.header h3 {
+	font-weight: 700;
+	color: #303030;
+	font-size: 24px;
+	line-height: 33px;
+	text-align: center;
+	/* padding-inline: 25%; */
+}
+.header p {
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: center;
+	/* padding-inline: 25%; */
 }
 
 .input {
@@ -33,28 +78,34 @@
 	gap: 24px;
 }
 
-.header h3 {
-	font-family: 'Nunito';
-	font-weight: 700;
-	font-size: 24px;
-	line-height: 33px;
-	text-align: center;
-	color: #303030;
-
+.form-group__checkbox {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 40px;
 }
-.header p {
-	font-weight: 500;
-	font-size: 20px;
-	line-height: 27px;
-	text-align: center;
-	color: #303030;
-	font-family: 'Nunito';
 
+.form-group__checkbox-label {
+	font-size: 15px;
+	width: 85%;
+	font-weight: 400;
+	/* line-height: 1.4; */
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: #303030;
+}
+
+.input__checkbox {
+	display: inline-block;
+	flex-shrink: 0;
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 
 .btn {
-	margin-top: 64px;
-	color: #6F42BD;
+	margin-top: 0px;
+	padding: 0 10%;
 }
 
 .bottomText {
@@ -62,36 +113,135 @@
 	margin-top: 8px;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
 }
 
 .bottomText p {
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 25px;
-	align-items: center;
-	color: #303030;
-	}
+	margin-top: 30px;
+}
 
 .link {
-	background: #492B7C;
+	color: #492b7c;
 	text-decoration: none;
 }
 
 .link:active,
 .link:visited {
-	background: #6F42BD;
-
+	color: #492b7c;
 }
 
-@media only screen and (max-width: 768px) {
-	.login {
-		padding: 40px 55px;
+/* .verification {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.verificationBtn {
+	outline: none;
+	border: none;
+	background: #492b7c;
+	color: #fff;
+	padding: 10px;
+	border-radius: 4px;
+	cursor: pointer;
+} */
+
+@media (max-width: 880px) {
+	.form-group__checkbox-label {
+		font-size: 15px;
+		width: 100%;
+		font-weight: 400;
 	}
 }
 
+@media only screen and (max-width: 768px) {
+	.signin {
+    /* margin-block: 0px; */
+    width: 60%;
+    background: #ffffff;
+    padding-inline: 10px;
+    margin: 0px;
+    margin-inline: auto;
+    /* margin-bottom: 100px; */
+    margin-block: auto;
+    border-radius: 24px;
+    position: relative;
+	}
+	.formmargin1, .formmargin2, .formmargin3, .formmargin4{
+		margin-block: 55px;
+		padding-block: 65px;
+	}
+
+	.header {
+		margin-bottom: 32px;
+	
+	}
+	.header img {
+		justify-content: center;
+		align-content: center;
+		padding-inline: 30%;
+		margin-bottom: 20px;
+
+	}
+	.header h3 {
+		font-weight: 700;
+		color: #303030;
+		font-size: 20px;
+		line-height: 18px;
+		text-align: center;
+		margin-bottom: 5px;
+		/* padding-inline: 25%; */
+	}
+	.header p {
+		font-weight: 700;
+		font-size: 15px;
+		line-height: 18px;
+		text-align: center;
+		/* padding-inline: 25%; */
+	}
+	
+	.topleft {
+		position: absolute;
+		top: 25px;
+    	left: 50px;
+	}
+		
+		.midleft {
+		position: absolute;
+		top: 270px;
+		left: 18px;
+	}
+		.topblock {
+		position: absolute;
+		top: 20px;
+		left: 300px;
+	}
+		.topslant {
+		position: absolute;
+		top: 135px;
+		right: 12px;		
+	}
+	.form-group__checkbox {
+		display: flex;
+		padding: 0 10%;
+		margin-bottom: 30px;
+	}
+	.form-group__checkbox-label {
+		font-size: 15px;
+		width: 100%;
+		font-weight: 400;
+		margin: 0px;
+	}
+.btn {
+	margin-bottom: 5px;
+}
+}
+
 @media only screen and (max-width: 500px) {
-	.login {
+	.signin {
 		padding: 20px 27.5px;
 		width: 100%;
 	}
