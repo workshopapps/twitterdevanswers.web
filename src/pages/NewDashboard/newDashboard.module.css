@@ -138,9 +138,6 @@
 	padding-bottom: 40px;
 }
 
-.componets {
-}
-
 @media only screen and (max-width: 1040px) {
 	.aside {
 		display: none;

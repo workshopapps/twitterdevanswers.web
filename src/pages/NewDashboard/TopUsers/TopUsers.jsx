@@ -19,7 +19,6 @@ function TopUsers() {
 		fetchUsers();
 	}, []);
 
-	console.log(selectedUsers);
 	return (
 		selectedUsers && (
 			<div className={styles.users}>

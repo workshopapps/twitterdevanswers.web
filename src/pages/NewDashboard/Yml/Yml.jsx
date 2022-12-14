@@ -26,7 +26,6 @@ function Yml() {
 		fetchQuestions();
 	}, []);
 
-	console.log(questions);
 
 	return (
 		<div className={styles.yml}>
