@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+.container {
+	padding: 5rem 3rem;
+}
+
+.hero {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 3rem;
+	margin-bottom: 5rem;
+	width: 100%;
+}
+
+.hero > div {
+	width: 60%;
+}
+
+.heroText {
+	font-weight: 600;
+	font-size: 64px;
+	line-height: 72px;
+	color: #303030;
+	margin-bottom: 1rem;
+}
+
+.heroText > span {
+	color: #1d1dd8;
+}
+
+.heroDescription {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 32px;
+	color: #303030;
+}
+
+.heroImage {
+	width: 35%;
+}
+
+@media only screen and (max-width: 768px) {
+	.container {
+		padding: 3rem 1rem;
+	}
+
+	.hero {
+		flex-direction: column;
+	}
+
+	.hero > div {
+		width: 100%;
+	}
+
+	.heroText {
+		font-size: 32px;
+		line-height: 40px;
+	}
+
+	.heroDescription {
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	.heroImage {
+		width: 55%;
+	}
+}

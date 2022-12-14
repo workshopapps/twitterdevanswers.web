@@ -94,7 +94,7 @@
 	padding-right: 1rem;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 	.history__group__text__2__alt {
 		display: none;
 	}
@@ -104,7 +104,7 @@
 	.history__group__text__1 {
 		display: flex;
 	}
-}
+} */
 
 .history__group__text__3 {
 	font-size: 0.875rem;

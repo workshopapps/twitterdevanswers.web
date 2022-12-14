@@ -26,40 +26,30 @@ function Notifications() {
 				<button
 					type="button"
 					className={`${styles.tab} ${
-						activeTab === 'all' ? styles.active_tab : ''
+						activeTab === 'unread' ? styles.active_tab : ''
 					}`}
 					onClick={() => setActiveTab('all')}
 				>
-					All
-				</button>
-				<button
-					type="button"
-					className={`${styles.tab} ${
-						activeTab === 'unread' ? styles.active_tab : ''
-					}`}
-					onClick={() => setActiveTab('unread')}
-				>
-					Unread
-				</button>
+					Today
+				</button> 
 			</nav>
 
 			<section className={styles.notifications_list}>
 				{notificationsToDisplay.length &&
-					notificationsToDisplay?.map((notification) => {
-						const { unread } = notification;
-						return (
+					notificationsToDisplay?.map((notification) => 
+						
+						
 							<div
 								key={notification.id}
-								className={`${styles.notification_item} ${
-									unread ? styles.unread : ''
+								className={`${styles.notification_item}
 								}`}
 							>
 								<div>
 									<NotificationItem notification={notification || {}} />
 								</div>
 							</div>
-						);
-					})}
+						
+					)}
 			</section>
 		</main>
 	);

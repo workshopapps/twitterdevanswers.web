@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import * as Sentry from '@sentry/react';
 import Notifications from './pages/Notifications';
 import API from './pages/API';
 import Login from './pages/AuthPage/Login';
@@ -8,7 +9,10 @@ import Tags from './pages/Tags';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import LandingPage from './pages/LandingPage/LandingPage';
+import Home from './pages/Home';
+import SecondLandingPage from './pages/SecondLandingPage/SecondLandingPage';
+import ThirdLandingPage from './pages/ThirdLandingPage/ThirdLandingPage';
+import FirstLandingPage from './pages/FirstLandingPage/FirstLandingPage';
 import About from './pages/About/index';
 import Pricing from './pages/Pricing';
 import Advert from './pages/Advert/Advert';
@@ -23,31 +27,45 @@ import HowItWorks from './pages/HowItWorks';
 import PostQuestion from './pages/PostQuestion';
 import Teams from './pages/Team/Team';
 import TermsOfUse from './pages/TermsOfUse';
-import WalletPage from './pages/WalletPage';
+import WalletPage from './pages/WalletPage/WalletPage';
 import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
+
 import EditAcccount from './pages/Settings/components/EditAccount';
+
+import Security from './pages/Security/Security';
+
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
-import Asks from './components/Asks';
+import AskQuestion from './components/AskQuestion/AskQuestion';
 import Privacy from './pages/Privacy/Privacy';
+import SubmitBlog from './pages/SubmitBlog';
+import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
 
 function App() {
 	const {
-		state: { token },
+		state: { isAuth },
 	} = useContext(AppContext);
-	const lsToken = localStorage.getItem('user');
+	const data = localStorage.getItem('user');
+	const user = JSON.parse(data);
 
 	return (
 		<div className="App">
-			{token || lsToken ? <InternalHeader /> : <Header />}
+			{user || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
+
 			    <Route path="EditAccount" element={<EditAcccount />} />
 				<Route path="/" element={<LandingPage />} />
+
+				<Route path="/" element={<Home />} />
+				<Route path="/third-landing" element={<ThirdLandingPage />} />
+				<Route path="/second-landing" element={<SecondLandingPage />} />
+				<Route path="/first-landing" element={<FirstLandingPage />} />
+
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
 				<Route path="blog-page" element={<Blog />} />
@@ -63,23 +81,30 @@ function App() {
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
 				<Route element={<ProtectedRoutes />}>
-					<Route path="dashboard" element={<Dashboard />} />
-					<Route path="dashboard/questions/:id" element={<Asks />} />
-					<Route path="profile/:id" element={<Profile />} />
-					<Route path="notification-page" element={<Notifications />} />
+					<Route path="dashboard/*" element={<Dashboard />} />
+					<Route path="dashboard/questions/:id" element={<AskQuestion />} />
+					<Route path="profile/:username" element={<Profile />} />
+					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
 					<Route path="teams-page" element={<Teams />} />
 					<Route path="wallet" element={<WalletPage />} />
 					<Route path="users-page" element={<UserPage />} />
 					<Route path="post-questions" element={<PostQuestion />} />
 					<Route path="settings" element={<Settings />} />
+					<Route path="security-settings" element={<Security />} />
 					<Route path="contact" element={<Contact />} />
-					<Route path="*" element={<ErrorPage />} />
+					<Route path="submit-blog" element={<SubmitBlog />} />
+
+					<Route
+						path="notification-settings"
+						element={<NotificationSettings />}
+					/>
 				</Route>
+				<Route path="*" element={<ErrorPage />} />
 			</Routes>
-			{token || lsToken ? <InternalFooter /> : <Footer />}
+			{user || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }
 
-export default App;
+export default Sentry.withProfiler(App);

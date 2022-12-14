@@ -1,12 +1,17 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 
-const WalletContext = createContext();
+export const WalletContext = createContext();
+
+
+export function useWalletContext() {
+    return useContext(WalletContext)
+}
 
 // eslint-disable-next-line react/prop-types
-export function WalletContextProvider({ children }) {
+export function WalletContextProvider({children}) {
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState({
-		totalAmmountEarned: null,
+		totalAmmountEarned: 100,
 		currentBalance: null,
 		earnings: [],
 		spent: [],
@@ -19,6 +24,9 @@ export function WalletContextProvider({ children }) {
 			currentBalance: data.currentBalance - 1000,
 		});
 	};
+
+
+
 
 	async function fetchData() {
 		const response1 = await fetch(
@@ -41,14 +49,15 @@ export function WalletContextProvider({ children }) {
 		);
 		const actualData4 = await response4.json();
 
-		setData((prevState) => ({
-			...prevState,
-			totalAmmountEarned: actualData1.totalAmmountEarned,
-			currentBalance: actualData1.currentBalance,
-			earnings: actualData2,
-			spent: actualData3,
-			walletHistory: actualData4,
-		}));
+			setData((prevState) => ({
+				...prevState,
+				totalAmmountEarned: actualData1.totalAmmountEarned,
+				currentBalance: actualData1.currentBalance,
+				earnings: actualData2,
+				spent: actualData3,
+				walletHistory: actualData4,
+			}));
+			
 	}
 
 	useEffect(() => {
@@ -58,10 +67,10 @@ export function WalletContextProvider({ children }) {
 
 	return (
 		// eslint-disable-next-line react/jsx-no-constructed-context-values
-		<WalletContext.Provider value={{ data, loading, withdraw }}>
+		<WalletContext.Provider value={{data, loading, withdraw}}>
 			{children}
 		</WalletContext.Provider>
 	);
 }
 
-export default WalletContext;
+// export default WalletContext;

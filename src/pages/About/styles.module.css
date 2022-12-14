@@ -56,8 +56,7 @@
 	}
 
 	.secondIntro {
-		width: 341px;
-		height: 196px;
+		width: 100%;
 		font-family: 'Rubik';
 		font-style: normal;
 		font-weight: 400;
@@ -65,10 +64,7 @@
 		line-height: 32px;
 		text-align: center;
 		color: #303030;
-		flex: none;
-		order: 1;
-		flex-grow: 0;
-		margin-left: 1.5rem;
+
 	}
 
 	.startedButton {
@@ -89,12 +85,12 @@
 	}
 
 	.storyWrapper {
+		width: 100%;
 		display: flex;
-		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
 		gap: 24px;
-		margin-top: 30px;
+
 	}
 
 	.storyHeader {
@@ -106,19 +102,15 @@
 		font-size: 18px;
 		line-height: 24px;
 		color: #000000;
-		margin-left: 9rem;
-		margin-top: 5rem;
 	}
 
 	.storyIntro {
-		width: 341px;
-		height: 726px;
 		font-family: 'Rubik';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 16px;
+		font-size: 20px;
 		line-height: 33px;
-		text-align: center;
+		text-align: left;
 		color: #000000;
 		margin-left: 1rem;
 	}
@@ -151,15 +143,23 @@
 		margin-top: 25px;
 		padding: 0 100px;
 	}
-
+	.storyPrincipleWrap{
+		padding: 100px 0;
+	}
 	.text {
-		max-width: 360px;
+		width: 25%;
+		height: 300px;
+		min-width: 250px;
 		font-family: 'Rubik';
 		font-style: normal;
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 25px;
 		text-align: center;
+		background: #FFFFFF;
+		box-shadow: 4px 8px 24px #F2F2F2;
+		border-radius: 8px;
+		padding: 10px;
 	}
 
 	.journey {
@@ -331,25 +331,38 @@
 	color: #303030;
 }
 
-.about1 {
-	position: absolute;
-	left: 1rem;
-	top: 170px;
+.aboutsubwrap {
+	width: 80%;
+	height: auto;
+	margin: 70px auto;
+	display: flex;
+	justify-content: space-between;
 }
-.about2 {
-	position: absolute;
-	left: 0.1rem;
-	top: 364px;
+
+.aboutsubwrap1 {
+	width: 65%;
+	display: flex;
+	flex-direction: column;
 }
-.about3 {
-	position: absolute;
-	left: 800px;
-	top: 221.2px;
+
+.aboutsubwrap1 p {
+	font-weight: 500;
+	font-size: 48px;
+	line-height: 66px;
+	color: #303030;
+	;
 }
-.about4 {
-	position: absolute;
-	left: 800px;
-	top: 408.34px;
+
+.aboutsubwrap1 p span {
+	color: #492B7C;
+}
+
+.aboutsubwrap1span {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 40px;
+	color: #303030;
+
 }
 
 .secondHeader {
@@ -381,34 +394,41 @@
 .startedButton {
 	width: 150px;
 	height: 56px;
-	background: #1d1dd8;
+	background: #492B7C;
 	border-radius: 4px;
-	margin-left: 40rem;
+	margin: 40px 0;
+	border: none;
+}
+
+.storyHeaderWrap {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	margin: 1px 0;
+	padding: 50px ;
+	background-color: #F6F0FF;
 }
 
 .storyHeader {
 	width: 151px;
 	height: 40px;
-	font-family: 'Rubik';
-	font-style: normal;
 	font-weight: 600;
 	font-size: 32px;
-	line-height: 40px;
+	line-height: 90px;
 	color: #000000;
-	margin-left: 40rem;
+	margin: 0 0 100px 0;
 }
 
-.storyWrapper {
-	display: flex;
-}
+
 
 .storyIntro {
-	width: 710px;
-	height: 363px;
+
 	font-family: 'Rubik';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 33px;
 	/* or 206% */
 	color: #000000;
@@ -442,4 +462,163 @@
 
 .text2 {
 	margin-left: 5rem;
+}
+
+
+
+.text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.textWrapperDiv {
+	width: 60px;
+	height: 60px;
+	border-radius: 40px;
+	background-color: #8C68CA;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fefefe;
+	font-size: 20px;
+	margin: 10px 0;
+}
+
+.journeyFigure1 {
+	color: #8C68CA;
+}
+
+.journeyFigure2 {
+	color: #8C68CA;
+}
+
+.journeyFigure3 {
+	color: #8C68CA;
+}
+
+.journeyWord1 {
+	color: #8C68CA;
+}
+
+.journeyWord2 {
+	color: #8C68CA;
+}
+
+.journeyWord3 {
+	color: #8C68CA;
+}
+
+.journeyWrapper {
+	color: #8C68CA;
+}
+
+.subscribeWrap {
+	width: 100%;
+	height: 45vh;
+	background-color: #492B7C;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 100px 0;
+}
+
+.subscribe_sub_wrap {
+	width: 50%;
+	margin: 200px auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center
+}
+
+.subscribe_sub_wrap p {
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 50px;
+	text-align: center;
+
+	color: #FFFFFF;
+}
+
+.subscribe_sub_wrap span {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 57px;
+	text-align: center;
+
+	color: #FFFFFF;
+
+}
+
+.subscribeinput {
+	width: 100%;
+}
+
+.subscribeinput input {
+	width: 75%;
+	height: 50px;
+	border: none;
+	border-radius: 5px 0 0 5px;
+	padding: 7px;
+	font-size: 16px;
+	outline: none;
+}
+
+.subscribeinput button {
+	width: 25%;
+	height: 50px;
+	background-color: #8C68CA;
+	color: #fefefe;
+	font-size: 16px;
+	border: none;
+	border-radius: 0 5px 5px 0;
+}
+@media screen and (max-width : 720px) {
+	.storyWrapper{
+		flex-direction: column;
+		
+	}
+	.aboutsubwrap{
+		flex-direction: column;
+	}
+	
+}
+@media screen and (max-width : 520px) {
+	.text{
+		width: 70%;
+	}
+	.aboutsubwrap{
+		flex-direction: column;
+	}
+	.aboutsubwrap1{
+		width: 100%;
+	}
+	.subscribeWrap{
+		height: auto;
+	}
+	.subscribe_sub_wrap{
+		width: 90%;
+	}
+	.subscribeinput{
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		justify-content: space-between;
+	}
+	.subscribeinput input{
+		width: 80%;
+		margin: 20px;
+		border-radius: 7px;
+	}
+	.subscribeinput button{
+		width: 50%;
+		margin: 20px;
+		border-radius: 7px;
+	}
+
 }

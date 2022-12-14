@@ -8,7 +8,7 @@ function HiwText({ content }) {
 		<div className={styles.text}>
 			<h3>{content.heading}</h3>
 			<p>{content.body}</p>
-			<LpButton text="Get Started" path="/" />
+			<LpButton text="Get Started" path="sign-up" />
 		</div>
 	);
 }

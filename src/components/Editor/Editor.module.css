@@ -1,5 +1,5 @@
 .editorContainer {
-	background-color: #ffffff;
+	background-color: #f7f2f2;
 	border: 1px solid #ececfb;
 	border-radius: 8px;
 	display: flex;
@@ -10,31 +10,16 @@
 	width: 60%;
 }
 
-.questionArea {
-	display: flex;
-	gap: 1rem;
-	border-bottom: 1px solid #d6d6d6;
-	font-size: 16px;
-}
-
-.questionArea textarea {
-	padding: 0em 1em;
-}
-
 .profilePicture {
 	width: 60px;
 	height: 60px;
 }
 
 .writeQuestion {
-	outline: none;
-	border: none;
-	resize: none;
-	overflow: hidden;
 	width: 100%;
-	margin: 0.5em 0;
 	font-weight: 400;
 	font-size: 16px;
+	background-color: #ffffff;
 }
 
 .writeQuestion::placeholder {
@@ -43,27 +28,12 @@
 	color: #8f8f8f;
 }
 
+
 .editorFooter {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.editorFooter > div {
-	display: flex;
-	gap: 1.5rem;
-}
-
-.editorIcons {
-	width: 1rem;
-	height: 1rem;
-	cursor: pointer;
-}
-
-.editorFooter > button {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
+	width: 5rem;
 	background-color: #4343de;
 	color: #fefefe;
 	border: 1px solid #4343de;
@@ -90,17 +60,7 @@
 		font-size: 12px;
 	}
 
-	.editorFooter > div {
-		display: flex;
-		gap: 0.5rem;
-	}
-
-	.editorIcons {
-		width: 0.5rem;
-		height: 0.5rem;
-	}
-
-	.editorFooter > button {
+	.editorFooter{
 		font-size: 10px;
 	}
 }

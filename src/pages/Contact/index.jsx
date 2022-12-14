@@ -1,233 +1,81 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-export const descriptionText = [
-	{
-		key: 1,
-		header: 'Brilliant Coding Experience',
-		text: 'Debug as you code with instant reviews to code questions for optimum performance',
-	},
-	{
-		key: 2,
-		header: 'Real Time Incident Resolution',
-		text: 'Fix incidents faster on  a secure collaborative platform and enhance overall dev performance',
-	},
-	{
-		key: 3,
-		header: 'Safe and Secure Platform',
-		text: 'Our platform accesses, prioritizes and managies enterprise-wide cyber risk in real time.',
-	},
-];
-const contactLogo = [
-	{
-		key: 1,
-		src: '/assets/contact-hng-logo.svg',
-	},
-	{
-		key: 2,
-		src: '/assets/contact-ingressive-logo.svg',
-	},
-	{
-		key: 3,
-		src: '/assets/contact-devask-logo.svg',
-	},
-	{
-		key: 4,
-		src: '/assets/contact-google-logo.svg',
-	},
-	{
-		key: 5,
-		src: '/assets/contact-genesys-logo.svg',
-	},
-	{
-		key: 6,
-		src: '/assets/contact-snowflake-logo.svg',
-	},
-	{
-		key: 7,
-		src: '/assets/contact-purestorage-logo.svg',
-	},
-	{
-		key: 8,
-		src: '/assets/contact-box-logo.svg',
-	},
-];
 function Contact() {
 	return (
 		<div className={styles.contact_wrap}>
-			<div className={styles.contact_first_wrap}>
+			<ContactWrap />
+			<ContactUsForm />
+		</div>
+	);
+}
+export default Contact;
+export function ContactWrap() {
+	return (
+		<div className={styles.contact_first_wrap}>
+			<div className={styles.contact_first_sub_wrap}>
 				<p>Contact Us</p>
 				<span>
 					Speak with a wide array of service professionals to answer your
 					plethora of questions on any subject matter
 				</span>
+
+				<img src="/assets/contact-email-logo.svg" alt="email" />
 			</div>
-			<div className={styles.contact_form_container}>
-				<div className={styles.contactus_form_wrap}>
-					<div className={styles.contact_text_wrap}>
-						{descriptionText.map((item) => (
-							<div className={styles.contactus_form_wrap1} key={item.key}>
-								<p>{item.header}</p>
-								<span>{item.text}</span>
-							</div>
-						))}
-					</div>
-				</div>
-				<ContactUsForm />
-			</div>
-			<div className={styles.contact_team_wrap}>
-				<p>Teams that excel with DevAsk</p>
-				<div className={styles.contact_logo_images}>
-					{contactLogo.map((item) => (
-						<img key={item.key} src={item.src} alt="img" />
-					))}
-				</div>
-			</div>
-			<ContactMarketing />
 		</div>
 	);
 }
-export default Contact;
-
 export function ContactUsForm() {
-	// function for when api is ready for sending message
 
-	// 	const [firstName, setFirstName] = useState('')
-	//   const [lastName, setLastName] = useState('')
-	//   const [companyName, setCompanyName] = useState('')
-	//   const [businessName, setBusinessName] = useState('')
-	//   const [phoneNumber, setPhoneNumber] = useState('')
-	//   const [message, setMessage] = useState('')
-
-	// 	const handleChange = (e) => {
-	// 		const { name, value } = e.target;
-	// 		setContactForm((prevValue) => {
-	// 			return {
-	// 				...prevValue,
-	// 				[name]: value,
-	// 			};
-	// 		});
-	// 	};
-	//   const handleChange = (setFunction, e) => {
-	//     setFunction(e.target.value)
-	//     }
-	// 	const handleContactSendMessage = (e) => {
-	// 		e.preventDefault();
-
-	// };
 	return (
-		<form className={styles.form_wrap}>
-			<p>Talk to an Expert</p>
-			<input
-				name="firstName"
-				type="text"
-				className={styles.contact_name_input}
-				placeholder="First name"
-				// onChange={(e) => handleChange(setFirstName, e)}
-				// value={contactUsForm.firstName}
-			/>
-			<input
-				name="lastName"
-				type="text"
-				className={styles.contact_name_input}
-				placeholder="Last name"
-				// onChange={(e) => handleChange(setLastName, e)}
-				// value={contactUsForm.lastName}
-			/>
-			<input
-				name="companyName"
-				type="text"
-				className={styles.contact_name_input}
-				placeholder="Company Name"
-				// onChange={(e) => handleChange(setCompanyName, e)}
-				// value={contactUsForm.companyName}
-			/>
-			<input
-				name="businessName"
-				type="text"
-				className={styles.contact_name_input}
-				placeholder="Business Name (optional)"
-				// onChange={(e) => handleChange(setBusinessName, e)}
-				// value={contactUsForm.businessName}
-			/>
-			<input
-				name="phoneNumber"
-				type="text"
-				className={styles.contact_name_input}
-				placeholder="Phone Number (optional)"
-				// onChange={(e) => handleChange(setPhoneNumber, e)}
-				// value={contactUsForm.phoneNumber}
-			/>
-			<textarea
-				name="message"
-				type="textarea"
-				className={styles.contact_input_message}
-				placeholder="Message"
-				// onChange={(e) => handleChange(setMessage, e)}
-				// value={contactUsForm.mesage}
-			/>
-			<span>3000 characters remaining</span>
-			<button
-				id="btn__submit"
-				type="submit"
-				className={styles.send_message_button}
-				// onClick={handleContactSendMessage}
-			>
-				Send Message
-			</button>
-		</form>
-	);
-}
+		<div className={styles.form_wrap}>
+			<form className={styles.form}>
+				<label htmlFor="helpCategories">
+					<span>What can we help you with</span>
+				<select name="helpCategories" id="" className={styles.contact_name_input}>
+					<option value="">Please Select a topic</option>
+					<option value="">NFT &apos; s</option>
+					<option value="">Tech</option>
+					<option value="">Bugs</option>
+					<option value="">Programming</option>
+					<option value="">Product Design</option>
+					<option value="">Backend</option>
+					<option value="">Frontend</option>
 
-export function ContactMarketing() {
-	return (
-		<div className={styles.contact_marketing_wrap}>
-			<div>
-				<img
-					src="/assets/contact-marketing-img.svg"
-					className={styles.contact_marketing_img}
-					alt="img"
-				/>
-			</div>
-			<div>
-				<p className={styles.contact_head_text}>
-					Get in touch with us at Devask
-				</p>
-				<span className={styles.contact_sub_text}>
-					Here at Devask, we take great delight in responding to enquiries and
-					reaching out to our clients. We are here to help you answer any
-					questions you might have and we look forward to hear from you.
-				</span>
-				<br />
-				<section className={styles.contact_marketing_text_wrap}>
-					<span className={styles.contact_marketing_text_head}>
-						What you get when asking your question
-					</span>
-					<ul className={styles.contact_marketing_ul}>
-						<li>
-							<img src="/assets/contact-user-octagon.svg" alt="img" />{' '}
-							<span>Response by a qualified professional.</span>
-						</li>
-						<li>
-							<img src="/assets/contact-sms-star.svg" alt="img" />{' '}
-							<span>An Email Follow up</span>
-						</li>
-						<li>
-							<img src="/assets/contact-clock-logo.svg" alt="img" />{' '}
-							<span>Less than 24 hours response to your question.</span>
-						</li>
-					</ul>
-					<p>
-						Send us an email at{' '}
-						<a
-							href="mailto:devask.dev@gmail.com"
-							className={styles.marketing_mail_link}
-						>
-							devask.dev@gmail.com
-						</a>
-					</p>
-				</section>
-			</div>
+
+				</select>
+				</label>
+				
+				<label htmlFor="emailAddress"> 
+				<span>Email Address</span>
+				<input
+					name="emailAddress"
+					type="text"
+					className={styles.contact_name_input}
+					placeholder="Email Address"
+		
+				/></label>
+			
+				<label htmlFor="message">
+					<span>Describe your issues</span>
+				<textarea
+					name="message"
+					type="textarea"
+					className={styles.contact_input_message}
+					placeholder="Message"
+	
+				/></label>
+				
+				<span>Enter at least 30 characters</span>
+				<button
+					id="btn__submit"
+					type="submit"
+					className={styles.send_message_button}
+	
+				>
+					Submit
+				</button>
+			</form>
 		</div>
 	);
 }

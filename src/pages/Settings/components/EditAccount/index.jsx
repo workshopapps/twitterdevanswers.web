@@ -21,12 +21,15 @@ function EditAcccount() {
 			[event.target.name]: event.target.value,
 		}));
 	};
+
 	const onImageChange = (event) => {
 		setUser({
 		  ...user,
 		  image: URL.createObjectURL(event.target.files[0]),
 		});
 	  };
+
+
 	const onSubmit=async (event)=>{	
 		event.preventDefault();
 		try {

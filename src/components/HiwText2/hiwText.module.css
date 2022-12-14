@@ -1,0 +1,31 @@
+.text {
+	width: 95%;
+}
+
+.text h3 {
+	margin-bottom: 16px;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 35px;
+	line-height: 40px;
+	color: #492b7c;
+}
+
+.text p {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 30px;
+	color: #282828;
+}
+
+@media only screen and (max-width: 768px) {
+	.text h3 {
+		font-size: 27px;
+	}
+	.text p {
+		font-size: 0.9rem;
+	}
+}

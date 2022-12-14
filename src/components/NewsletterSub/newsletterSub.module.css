@@ -1,56 +1,101 @@
 .newsletter {
-	padding: 96px 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background: #e5e5e5;
+	background-color: #492B7C;
+	width: 90%;
+	margin: 2rem auto;
+	padding: 2.5rem;
 }
 
 .newsletter h3 {
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 32px;
+	margin: 1.2rem 0;
+	font-family: 'Nunito';
 	line-height: 40px;
-	color: #000000;
-	margin-bottom: 24px;
+	color: #FFFFFF;
+	text-align: center;
 }
 
 .newsletter p {
-	max-width: 400px;
 	font-size: 16px;
 	line-height: 28px;
+	font-family: 'Nunito';
 	text-align: center;
-	color: #989898;
-	margin-bottom: 32px;
-}
-
-.newsletter div {
-	display: flex;
-	justify-content: center;
-	gap: 10px;
+	color: #FFFFFF;
 }
 
 .newsletter div input {
-	padding: 16px 32px;
-	max-width: 472px;
-	width: 70%;
-	border: 0.5px solid #0a0a0a;
+	padding: 24px 16px;
+	width: 80%;
 	outline: none;
-	border-radius: 4px;
+	background: #ffffff;
+	border-radius: 8px 0px 0px 8px;
+	border: 1px solid #ffffff;
+	font-family: 'Nunito';
 }
 
-@media only screen and (max-width: 500px) {
+.newsletter input::placeholder {
+	color: #000000;
+	font-family: 'Nunito';
+	font-weight: 500;
+	font-size: 20px;
+}
+.subscribe {
+	display: flex;
+	width: 80%;
+	margin: 2rem auto;
+}
+.newsletter .btn button {
+	background: #8c68ca;
+	border: 1px solid #8c68ca;
+	border-radius: 8px;
+	padding: 24px 16px;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	color: #ffffff;
+	margin-left: -10px;
+}
+
+
+@media (max-width: 768px) {
 	.newsletter {
-		padding-left: 24px;
-		padding-right: 24px;
+		padding: 2rem;
 	}
-
-	.newsletter div {
-		width: 100%;
-		flex-direction: column;
-		align-items: start;
+	.newsletter h3 {
+		font-size: 26px;
 	}
-
-	.newsletter div input {
-		width: 100%;
+	.newsletter p {
+		font-size: 14px;
+	}
+	.subscribe {
+		width: 95%;
+		margin: 2rem auto;
+	}
+	.newsletter input::placeholder {
+		font-size: 0.8rem;
+	}
+	.newsletter .btn button {
+		font-size: 0.8rem;
+		margin-left: -5px;
+		
 	}
 }
+
+@media (max-width: 427px) {
+	.newsletter {
+		padding: 1rem;
+	}
+	.subscribe {
+		width: 100%;
+		margin: 2rem auto;
+	}
+	.newsletter div input {
+		padding: 10px 16px;
+	}
+	.newsletter .btn button {
+		padding: 10px 16px;
+	}
+	
+}
+

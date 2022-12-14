@@ -7,7 +7,7 @@
 	font-family: 'Rubik', sans-serif;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: center;	
 }
 .user_header_container {
 	display: flex;
@@ -67,32 +67,63 @@
 	border-radius: 0px 22px 22px 0px;
 }
 
+.search_languages > button {
+	background-color: white;
+	border: 0px;
+}
+
+.search_languages > button:hover {
+	background-color: #1D1DD8;
+	color: white;
+	padding: 7px;
+	border-radius: 10px;
+}
+.follow_button {
+	background-color: white;
+	color: #1D1DD8 ;
+	padding: 10px 9px 10px 9px;
+	border :1px solid #1D1DD8;
+	border-radius: 5px;
+}
+.follow_text {
+	color: #8e8eec;
+}
 /* user profile card component styles */
 .user_profile_card {
-	width: 380px;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-}
-
-.user_profile_image {
-	width: 90px;
-	height: 90px;
-	display: block;
-	border-radius: 100%;
-}
-
-.user_info_container {
-	width: 282px;
-	justify-content: space-between;
-	height: 101px;
-	display: flex;
-	flex-direction: column;
-	padding: 10px 19px;
 	background: #fefefe;
 	border: 0.152023px solid #bababa;
 	box-shadow: 0.760116px 2.28035px 3.04046px rgba(0, 0, 0, 0.15);
 	border-radius: 4.56069px;
+	padding: 10px 10px 10px 10px;
+}
+
+.user_profile_image {
+	width: 60px;
+	height: 60px;
+	display: block;
+	border-radius: 100%;
+	margin-bottom: 72px;
+}
+
+.user_info_container {
+	width: 100%;
+	justify-content: space-between;
+	height: 140px;
+	display: flex;
+	flex-direction: column;
+	padding: 10px 10px 10px 10px;
+	
+	gap: 10px;
+}
+
+.user_follow_info {
+	display: flex;
+	gap: 15px;
+    align-items: center;
 }
 
 .user_name {
@@ -126,24 +157,25 @@
 	color: #8e8eec;
 }
 .user_grid_container {
-	width: 100vw;
 	display: grid;
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
 	justify-content: center;
 	place-items: center;
-	grid-template-columns: repeat(auto-fill, minmax(422px, 1fr));
+	grid-template-columns: repeat(3, calc(73% / 3 - 20px));
 	gap: 2rem;
+
 }
 
 /* user filter bottom style */
 .users_filter {
 	width: 100vw;
 	padding: 2rem 4rem;
-	justify-content: space-between;
+	justify-content: flex-end;
 	display: flex;
 	align-items: center;
+	margin-right: 130px;
 }
 .filter_options {
 	display: flex;
@@ -193,8 +225,22 @@
 	.search_languages {
 		width: 45%;
 	}
+	.users_filter {
+		margin-right: 0px;
+	}
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
+	.user_profile_image {
+		width: 30%;
+		max-width: 76px;
+		display: block;
+		border-radius: 100%;
+	}
+	.users_filter {
+		margin-right: 0px;
+	}
+}
+@media screen and (max-width: 1200px) {
 	.user_page_container {
 		padding: 2rem;
 	}
@@ -240,8 +286,8 @@
 		width: 335px;
 	}
 	.user_profile_image {
-		width: 75px;
-		height: 75px;
+		width: 60px;
+		height: 60px;
 	}
 	.user_info_container {
 		width: 250px;
@@ -255,8 +301,12 @@
 	.user_grid_container {
 		grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
 		gap: 2rem;
+	}	
+	.users_filter {
+		margin-right: 0px;
 	}
 }
+
 @media screen and (max-width: 340px) {
 	.searchbox_container {
 		width: 90vw;
@@ -271,5 +321,8 @@
 	.user_grid_container {
 		grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
 		gap: 2rem;
+	}
+	.users_filter {
+		margin-right: 0px;
 	}
 }
