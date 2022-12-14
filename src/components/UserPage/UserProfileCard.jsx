@@ -49,7 +49,7 @@ function UserProfileCard({ user }) {
 					 headers,
 				 }
 			 )		
-			 console.log(res.data)
+		//	 console.log(res.data)
 			 if(res.data.success === true) {
 				 setFollowers(followers + 1)
 			 }
@@ -75,7 +75,7 @@ function UserProfileCard({ user }) {
 					 headers,
 				 }
 			 )		
-			 console.log(res.data)	
+		//	 console.log(res.data)	
 			 if(res.data.success === true) {
 				 setFollowers(followers - 1)
 			 }
