@@ -8,7 +8,6 @@
 	color: #303030;
 	cursor: pointer;
 	text-decoration: none;
-	font-size: 12px;
 }
 
 .avatar {
@@ -29,21 +28,21 @@
 	color: #303030;
 	text-decoration: none;
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 27px;
 }
 
 .top span {
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 25px;
 	color: #989898;
 }
 
 span.fullName {
 	color: #303030;
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 27px;
-	font-weight: 700;
+	font-weight: 500;
 	text-transform: capitalize;
 }
 
@@ -52,14 +51,14 @@ span.fullName {
 }
 
 .right h3 {
-	font-weight: 700;
-	font-size: 20px;
+	font-weight: 600;
+	font-size: 18px;
 	line-height: 24px;
 	margin-bottom: 12px;
 }
 
 .right p {
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 24px;
 	margin-bottom: 16px;
 }
@@ -77,13 +76,13 @@ span.fullName {
 	font-size: 12px;
 	line-height: 16px;
 	color: #492b7c;
-	margin-bottom: 24px;
 }
 
 .bottom {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-top: 40px;
 }
 
 .icons {

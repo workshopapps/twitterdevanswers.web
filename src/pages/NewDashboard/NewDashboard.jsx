@@ -83,9 +83,11 @@ function NewDashboard() {
 					</section>
 				</main>
 				<aside className={styles.aside}>
-					<TopUsers />
-					<Yml />
-					<Tags tags={tags} />
+					<div className={styles.components}>
+						<TopUsers />
+						<Yml />
+						<Tags tags={tags} />
+					</div>
 				</aside>
 			</div>
 		</div>
