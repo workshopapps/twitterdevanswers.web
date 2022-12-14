@@ -20,9 +20,16 @@ export default function appReducer(state, { type, payload }) {
 		case 'USER_SIGNED_UP': {
 			return {
 				...state,
-				user: payload.data,
+				user: payload.data.data,
 				token: payload.Token,
 				isAuth: true,
+			};
+		}
+
+		case 'STORE_USER_DATA': {
+			return {
+				...state,
+				userData: payload,
 			};
 		}
 
@@ -36,7 +43,13 @@ export default function appReducer(state, { type, payload }) {
 			return {
 				...state,
 				user: payload,
-				
+			};
+		}
+			case 'UPDATE': {
+			return {
+				...state,
+				followers: payload.followers,
+				following: payload.following
 			};
 		}
 

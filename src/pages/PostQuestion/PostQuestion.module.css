@@ -1,68 +1,43 @@
 .header {
 	background: white;
-	padding: 1.5em 1em;
 }
 
 .textEditor {
-	/* height: 7rem; */
 	width: 90%;
-	margin-bottom: 2rem; 
+	margin-bottom: 2rem;
 }
 
-@media (min-width: 850px) {
-	.header div {
-		margin: 0 auto;
-		max-width: 1000px;
-	}
-}
 .header div h1 {
 	font-size: 1.8rem;
-	color: #0a0a0a;
+	color: #8c68ca;
 	text-align: center;
+	font-family: Nunito;
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 56px;
+	letter-spacing: 0em;
+	padding-bottom: 16px;
 }
 .header div p {
 	font-size: 1.1rem;
 	color: #0a0a0a;
 	line-height: 1.5;
 	font-weight: 400;
-	padding: 0.5em 0em;
+	padding-bottom: 0.5em;
+	font-family: Nunito;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 32px;
+	letter-spacing: 0px;
+	text-align: center;
 }
-@media (min-width: 850px) {
-	.header div p {
-		margin: 0 auto;
-		max-width: 83%;
-		line-height: 1.6;
-		font-weight: 500;
-	}
-}
+
 .header .steps {
 	text-align: left;
 	margin-top: 1em;
-}
-@media (min-width: 850px) {
-	.header .steps {
-		margin: 1.4em;
-		max-width: 1000px;
-		display: inline-block;
-		margin-left: 1em;
-	}
-}
-@media (min-width: 1000px) {
-	.header .steps {
-		margin-left: 3em;
-	}
-}
-@media (min-width: 1200px) {
-	.header .steps {
-		margin-left: 8em;
-	}
+	margin-left: 0;
 }
 
-@media (min-width: 1400px) {
-	.header .steps {
-		margin-left: 14em;
-	}
-}
 .header .steps h2 {
 	font-size: 1.4rem;
 	color: #0a0a0a;
@@ -78,7 +53,6 @@
 }
 
 .container {
-	background: #f7f7fe;
 	padding: 2em 0em;
 }
 
@@ -105,37 +79,36 @@
 	min-height: 130px;
 	padding: 4em 1.5em;
 }
-@media (min-width: 850px) {
-	.container textarea {
-		min-height: 180px;
-	}
-}
 
-.container .titleWrapper {
-	background: #ffffff;
+.container .titleWrapper,
+.container .problemWrapper,
+.container .detailWrapper {
+	background: #f6f0ff;
 	padding: 1em 0em 0em 1em;
 	display: flex;
 	flex-direction: column;
 	margin: 1em;
+	padding-bottom: 20px;
 }
-@media (min-width: 850px) {
-	.container .titleWrapper {
-		max-width: 1000px;
-		margin: 1.5em auto;
-	}
-}
+
 .container .titleWrapper div {
 	text-align: left;
 	padding: 0em 1em 0em 0em;
+	padding-left: 60px;
 }
-@media (min-width: 850px) {
-	.container .titleWrapper div {
-		padding: 1.2em 0em 0em 1.5em;
-	}
+
+.container .problemWrapper {
+	padding-left: 40px;
 }
+
 .container .titleWrapper div h3 {
 	font-size: 1.1rem;
 	color: #303030;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 32px;
 }
 .container .titleWrapper div p {
 	color: #757575;
@@ -144,6 +117,11 @@
 	text-transform: capitalize;
 	padding-right: 1em;
 	padding: 1em 0em;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 30px;
 }
 .container .titleWrapper div input {
 	border-radius: 8px;
@@ -152,41 +130,49 @@
 	width: 90%;
 	margin-bottom: 1.2em;
 }
-.container .titleWrapper a {
-	background: #1d1dd8;
+
+.problemdetailhead h3 {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 32px;
+}
+
+.problemdetailhead p {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.container .titleWrapper button,
+.container .problemWrapper button {
+	background: #492b7c;
 	padding: 1em;
 	color: #ffffff;
-	align-self: flex-end;
+	align-self: flex-start;
 	border-radius: 4px;
 	border: none;
 	cursor: pointer;
 	text-decoration: none;
 }
-.container .problemWrapper {
-	background: #ffffff;
-	margin: 1em 0em;
-	padding: 1em 0em 0em 1em;
-	display: flex;
-	flex-direction: column;
-	margin: 1em;
-}
 
+<<<<<<< HEAD
 @media (min-width: 850px) {
 	.container .problemWrapper {
 		max-width: 1000px;
 		margin: 1.5em auto;
 	}
 }
-.container .problemWrapper .problemContent  {
+=======
+>>>>>>> 3f3897de3a8a6efc1041a760f230d2196f0c618d
+.container .problemWrapper .problemContent {
 	display: flex;
 	flex-direction: column;
 	text-align: left;
 	padding: 0em 1em 0em 0em;
-}
-@media (min-width: 850px) {
-	.container .problemWrapper .problemContent {
-		padding: 1.2em 0em 0em 1.5em;
-	}
 }
 
 .container .problemWrapper .problemContent h3 {
@@ -210,41 +196,19 @@
 	margin-bottom: 1.2em;
 	padding: 1em;
 	line-height: 1.6;
+	padding-top: 3em;
 }
-.container .problemWrapper a {
-	background: #1d1dd8;
-	padding: 1em;
-	text-decoration: none;
-	color: #ffffff;
-	align-self: flex-end;
-	border-radius: 4px;
-	border: none;
-	cursor: pointer;
-}
-.container .detailWrapper {
-	background: #ffffff;
-	margin: 1em;
-}
-@media (min-width: 850px) {
-	.container .detailWrapper {
-		max-width: 1015px;
-		margin: 1.5em auto;
-	}
-}
+
 .container .detailWrapper .content {
 	display: flex;
 	flex-direction: column;
 	text-align: left;
 	padding: 1em 1em 1em 1em;
 }
-@media (min-width: 850px) {
-	.container .detailWrapper .content {
-		padding: 1.2em 0em 0em 2em;
-	}
-}
-.container .detailWrapper .content .textIcons {
+
+.container .detailWrapper .content .textIcons,
+.container .problemWrapper .problemdetailhead .textIcons {
 	display: flex;
-	max-width: 65%;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
@@ -252,24 +216,32 @@
 	position: relative;
 	margin-left: 1.4em;
 }
-@media (min-width: 850px) {
-	.container .detailWrapper .content .textIcons {
-		max-width: 27%;
-	}
-}
+
 .container .detailWrapper .content h3 {
 	font-size: 1.1rem;
 	color: #303030;
 	margin: 0em;
 	padding: 0.5em 0em 0em 0em;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 32px;
+	color: #303030;
 }
-.container .detailWrapper .content p {
-	color: #757575;
+.container .detailWrapper .content p,
+.container .problemWrapper .problemdetailhead p {
+	color: #303030;
 	font-size: 0.85rem;
 	line-height: 1.5;
 	padding-right: 1em;
 	margin-bottom: 0.2em;
 	padding: 1em 0em;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 30px;
 }
 .container .detailWrapper .content textarea {
 	border-radius: 8px;
@@ -277,9 +249,14 @@
 	width: 88%;
 	padding: 1em;
 	line-height: 1.6;
+	padding-top: 3em;
 }
-.container .detailWrapper .content a {
-	background: #1d1dd8;
+
+.container .titleWrapper button {
+	margin-left: 30px;
+}
+.container .detailWrapper .content button {
+	background: #492b7c;
 	padding: 1em;
 	color: #ffffff;
 	align-self: flex-end;
@@ -289,47 +266,24 @@
 	cursor: pointer;
 }
 .container .tagWrapper {
-	display: flex;
-	flex-direction: row;
-	border-top: 1px solid #d6d6d6;
-	border-bottom: 1px solid #d6d6d6;
-	justify-content: space-between;
-	margin: 3em 0em;
+	width: fit-content;
+	border: 1px solid #492b7c;
+	border-radius: 4px;
+	color: #492b7c;
+	margin-bottom: 5px;
+	margin-top: 20px;
+	margin-left: 36px;
 }
 
 .container .tagWrapper .tagContent {
-	display: flex;
+	/* display: flex; */
 	flex-direction: row;
 	padding: 1em 2em;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	width: 100%;
 }
-@media (min-width: 850px) {
-	.container .tagWrapper .tagContent {
-		flex: 0 0 50%;
-	}
-}
 
-@media (max-width: 1100px) {
-	.container .tagWrapper .tagContent {
-		justify-content: center;
-	}
-}
-
-@media (max-width: 1100px) {
-	.container .tagWrapper {
-		flex-direction: column;
-	}
-
-	.container .tagWrapper .tagContent:nth-child(2) {
-		border-top: 1px solid #d6d6d6;
-	}
-}
-
-.container .tagWrapper .tagContent:nth-child(1) {
-	border-right: 1px solid #d6d6d6;
-}
 .container .tagWrapper .tagContent .text {
 	font-size: 0.8rem;
 	color: #757575;
@@ -341,16 +295,10 @@
 	padding-left: 1.5em;
 	flex-wrap: wrap;
 }
-@media (min-width: 850px) {
-	.container .tagWrapper .allTags {
-		padding-left: 4em;
-		display: flex;
-		align-items: center;
-	}
-}
 
 .allTagsText {
-	border-radius: 18px;
+	width: 150px;
+	border-radius: 4px;
 	background: #d2d2f7;
 	color: #757575;
 	padding: 0.8em 1.4em;
@@ -358,6 +306,8 @@
 	align-items: center;
 	display: flex;
 	margin: 0.7em;
+	margin-left: 38px;
+	margin-bottom: 50px;
 }
 .allTagsButton {
 	margin-left: 2.4em;
@@ -373,12 +323,7 @@
 	margin: 1em 0em;
 	text-align: left;
 }
-@media (min-width: 850px) {
-	.buttonWrapper div {
-		max-width: 1030px;
-		margin: 0 auto;
-	}
-}
+
 .buttonWrapper div button {
 	padding: 1em;
 	border-radius: 4px;
@@ -387,18 +332,18 @@
 	cursor: pointer;
 }
 .buttonWrapper div .review {
-	background: #1d1dd8;
+	background: #492b7c;
 	color: #ffffff;
 	border: none;
 }
 .buttonWrapper div .discard {
 	background: #ffffff;
-	color: #1d1dd8;
-	border: 1px solid #1d1dd8;
+	color: #492b7c;
+	border: 1px solid #492b7c;
 }
 
 .containerWrapper {
-	padding: 1em 0em;
+	padding-block: 5em;
 	position: relative;
 }
 
@@ -406,7 +351,6 @@
 	position: absolute;
 	background: rgba(0, 0, 0, 0.8);
 	min-height: 180vh;
-	max-width: 100vw;
 	left: 0;
 	right: 0;
 	top: 0;
@@ -433,9 +377,9 @@
 	flex-direction: column;
 	justify-content: center;
 	min-height: 60%;
-	max-width: 600px;
 	margin: 0 auto;
 	border: 1px solid #989898;
+	margin-inline: 15%;
 }
 
 .modal div {
@@ -454,7 +398,7 @@
 }
 
 .modalSubmit {
-	background: #1d1dd8;
+	background: #492b7c;
 	color: #ffffff;
 }
 
@@ -467,7 +411,6 @@
 	background: none;
 	border: none;
 	cursor: pointer;
-	padding: 2em;
 }
 
 .tagsWrapper {
@@ -499,10 +442,6 @@
 	flex-wrap: wrap;
 }
 
-.modalContent div:nth-child(4),
-.modalContent div:nth-child(5) {
-	flex: 0 0 50%;
-}
 .ErrorBody {
 	color: red;
 	font-weight: 600;
@@ -513,17 +452,9 @@
 .postWrapper {
 	display: flex;
 	flex-direction: column;
-	max-width: 900px;
 	margin: 1.5em;
 	justify-content: center;
 	padding-bottom: 1.5em;
-}
-
-@media (min-width: 1000px) {
-	.postWrapper {
-		flex-direction: row;
-		justify-content: center;
-	}
 }
 
 .postWrapper .tagContent {
@@ -534,8 +465,85 @@
 	padding: 0em 2em 0em 0em;
 }
 
+@media (min-width: 1400px) {
+	.container .problemWrapper .problemContent {
+		padding: 1.2em 0em 0em 1.5em;
+	}
+}
+
+@media (max-width: 1100px) {
+	.container .tagWrapper {
+		flex-direction: column;
+	}
+	.container .tagWrapper .tagContent {
+		justify-content: center;
+	}
+
+	.container .tagWrapper .tagContent:nth-child(2) {
+		border-top: 1px solid #d6d6d6;
+	}
+}
+
 @media (min-width: 1000px) {
+	.postWrapper {
+		flex-direction: row;
+		justify-content: center;
+	}
 	.postWrapper .tagContent:nth-child(2) {
 		margin-left: 5em;
+	}
+}
+
+@media (min-width: 850px) {
+	.header div {
+		margin: 0 auto;
+	}
+	.header div p {
+		margin: 0 auto;
+		max-width: 100%;
+		line-height: 1.6;
+		font-weight: 500;
+	}
+	.header .steps {
+		margin: 1.4em;
+		display: inline-block;
+		margin-left: 1em;
+	}
+	.container textarea {
+		min-height: 180px;
+	}
+
+	.container .titleWrapper div {
+		padding: 1.2em 0em 0em 1.5em;
+	}
+
+	.container .detailWrapper .content {
+		padding: 1.2em 0em 0em 2em;
+	}
+
+	.container .tagWrapper .allTags {
+		padding-left: 4em;
+		/* display: flex; */
+		align-items: center;
+	}
+	.container .detailWrapper .content .textIcons,
+	.container .problemWrapper .problemdetailhead .textIcons {
+		max-width: 27%;
+	}
+	.containerWrapper {
+		max-width: 1500px;
+		padding-inline: 64px;
+	}
+	.header p {
+		padding-inline: 135px;
+	}
+	.buttonWrapper div {
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 850px) {
+	.header {
+		padding-inline: 40px;
 	}
 }

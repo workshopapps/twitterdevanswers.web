@@ -1,163 +1,92 @@
 .TermsOfUseBody{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	color: #3c4458;
-	}
-
-.TermsOfUse {
-	width: 88%;
 	display: flex;
 	flex-direction: column;
-	gap: 64px;
-	margin: 64px auto;
-	font-family: 'Rubik', sans-serif;
-	background-color: white;
+	flex-wrap: wrap;
+	width: 95%;
+	margin-left: 40px;
 }
-.Heading {
-	font-size: 32px;
-	font-weight: 600;
-	line-height: 40px;
-	text-align: left;
-	color: #3c4458;
-	margin: 0;
+
+
+
+.Heading{
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 56px;
+	color: #3C4458;
+	text-align: center;
+	margin-bottom:10px ;
+	margin-top: 40px;
+
+}
+.Gap{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin: 30px 0px;
+	width:100%;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 30px;
+	color: #3C4458;
+}
+.TermsOfUse > p{
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 30px;
+	display: flex;
+	align-items: center;
+	color: #3C4458;
+}
+.RequirementsSection{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 50px;
 	
+
+
 }
-.RequirementsSection {
-	display: flex;
-}
-.RequirementsSection h2 {
-	width: 30%;
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 32px;
-}
-.RequirementsSection p {
-	width: 70%;
-	font-size: 16px;
+.RequirementsSection>p{
+	width:100%;
+	margin-bottom: 2px;
+	font-family: 'Nunito';
+	font-style: normal;
 	font-weight: 400;
-	line-height: 28px;
+	font-size: 18px;
+	line-height: 30px;
+	color: #3C4458;
 }
-.AgreementSection {
-	display: flex;
-}
-.AgreementSection h2 {
-	width: 30%;
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 32px;
-}
-.AgreementSection p {
-	width: 70%;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 28px;
-}
-.StandardSection {
-	display: flex;
-}
-.StandardSection h2 {
-	width: 30%;
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 32px;
-}
-.StandardSection p {
-	width: 70%;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 28px;
-}
-.CopyrightSection {
-	display: flex;
-}
-.CopyrightSection h2 {
-	width: 30%;
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 32px;
-}
-.CopyrightSection p {
-	width: 70%;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 28px;
-}
-.BillingSection {
-	display: flex;
-}
-.BillingSection h2 {
-	width: 30%;
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 32px;
-}
-.BillingSection p {
-	width: 70%;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 28px;
-}
-.BillingSectionPar {
+.subHeader{
 	display: flex;
 	flex-direction: column;
-	gap: 32px;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 32px;
+	color: #3C4458;
+  
+}
+.list{
+	margin: 0px;
 }
 
-@media screen and (max-width: 768px) {
-	.RequirementsSection h2,
-	.AgreementSection h2,
-	.StandardSection h2,
-	.CopyrightSection h2,
-	.BillingSection h2 {
-		font-size: 18px;
-	}
-	.RequirementsSection p,
-	.AgreementSection p,
-	.StandardSection p,
-	.CopyrightSection p,
-	.BillingSection p {
-		font-size: 14px;
-	}
-}
-@media screen and (max-width: 480px) {
-	.heading {
-		margin-top: 32px;
-	}
-	.RequirementsSection,
-	.AgreementSection,
-	.StandardSection,
-	.CopyrightSection,
-	.BillingSection {
+
+@media screen and (max-width:600px) {
+	.TermsOfUseBody{
 		display: flex;
 		flex-direction: column;
-	}
-	.RequirementsSection h2,
-	.AgreementSection h2,
-	.StandardSection h2,
-	.CopyrightSection h2,
-	.BillingSection h2 {
-		width: 100%;
-		font-size: 16px;
-		font-weight: bold;
-		line-height: 32px;
-		letter-spacing: 0px;
-		text-align: left;
-		margin-bottom: 0;
-	}
-
-	.RequirementsSection p,
-	.AgreementSection p,
-	.StandardSection p,
-	.CopyrightSection p,
-	.BillingSection p,
-	.update {
-		margin-top: 16px;
-		width: 100%;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 25px;
-		text-align: left;
-		margin-bottom: 0;
+		flex-wrap: wrap;
+		width: 80%;
+		margin-left: 40px;
 	}
 }
+
+
+
