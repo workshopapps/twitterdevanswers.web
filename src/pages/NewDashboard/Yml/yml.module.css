@@ -1,0 +1,19 @@
+.yml {
+	margin-top: 24px;
+	padding: 24px;
+	background: #f6f0ff;
+	border-radius: 16px;
+}
+
+.header {
+	font-size: 18px;
+	line-height: 22px;
+	color: #1f1f1f;
+	margin-bottom: 16px;
+}
+
+.posts {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}

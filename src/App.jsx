@@ -9,9 +9,6 @@ import Tags from './pages/Tags';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Home from './pages/Home';
-import SecondLandingPage from './pages/SecondLandingPage/SecondLandingPage';
-import ThirdLandingPage from './pages/ThirdLandingPage/ThirdLandingPage';
 import FirstLandingPage from './pages/FirstLandingPage/FirstLandingPage';
 import About from './pages/About/index';
 import Pricing from './pages/Pricing';
@@ -19,7 +16,6 @@ import Advert from './pages/Advert/Advert';
 import Blog from './pages/Blog';
 import Career from './pages/Career';
 import CookiePolicy from './pages/CookiePolicy';
-import Dashboard from './pages/Dashboard';
 import FAQ from './pages/FAQ/Index';
 import Profile from './pages/Profile/index';
 import Help from './pages/Help';
@@ -36,27 +32,24 @@ import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
 import InternalFooter from './components/InternalFooter/InternalFooter';
-import AskQuestion from './components/AskQuestion/AskQuestion';
 import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
+import NewDashboard from './pages/NewDashboard/NewDashboard';
+import QuestionPage from './pages/NewDashboard/QuestionPage';
 
 function App() {
 	const {
 		state: { isAuth },
 	} = useContext(AppContext);
-	const data = localStorage.getItem('user');
-	const user = JSON.parse(data);
+	const token = localStorage.getItem('token');
 
 	return (
 		<div className="App">
-			{user || isAuth ? <InternalHeader /> : <Header />}
+			{token || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/third-landing" element={<ThirdLandingPage />} />
-				<Route path="/second-landing" element={<SecondLandingPage />} />
-				<Route path="/first-landing" element={<FirstLandingPage />} />
+				<Route path="/" element={<FirstLandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
 				<Route path="blog-page" element={<Blog />} />
@@ -72,8 +65,9 @@ function App() {
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
 				<Route element={<ProtectedRoutes />}>
-					<Route path="dashboard/*" element={<Dashboard />} />
-					<Route path="dashboard/questions/:id" element={<AskQuestion />} />
+					<Route path="/dashboard" element={<NewDashboard />} />
+					<Route path="/question-page/:id" element={<QuestionPage />} />
+
 					<Route path="profile/:username" element={<Profile />} />
 					<Route path="notifications-page" element={<Notifications />} />
 					<Route path="tags-page" element={<Tags />} />
@@ -85,7 +79,7 @@ function App() {
 					<Route path="security-settings" element={<Security />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
-
+					<Route path="*" element={<ErrorPage />} />
 					<Route
 						path="notification-settings"
 						element={<NotificationSettings />}
@@ -93,7 +87,7 @@ function App() {
 				</Route>
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>
-			{user || isAuth ? <InternalFooter /> : <Footer />}
+			{token || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);
 }
