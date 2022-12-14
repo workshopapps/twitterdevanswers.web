@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from "./Security.module.css";
 
 function Security() {
@@ -49,6 +51,30 @@ function Security() {
         setHideReset(!hideReset);
     }
     
+    function success(){
+        toast.success('Operation Successful', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+    }
+    function failure(){
+        toast.error('Operation Unsuccessful!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+    }
     const token = localStorage.getItem("token");
 
         const handleSetUpMFA = async (e) => {
@@ -63,10 +89,12 @@ function Security() {
                 }
             });
                 if(data){
+                    success();
                     setResponse(data.detail);
                 };
                 
             } catch (error) {
+                failure();
                 setResponse("Could not send request. Please try again!");
             }
         }
@@ -83,6 +111,7 @@ function Security() {
                 }
             });
                 if(data){
+                    success();
                     setMyData(data.qr_code);
                 };
                 
@@ -104,10 +133,12 @@ function Security() {
                     }
                 });
                     if(data){
+                        success();
                         setVerifyResponse("Validation Successful");
                         
                     }; 
                 } catch (error) {
+                    failure();
                     setVerifyResponse("Validation Unsuccessful. Please try again!");   
                 } 
             }
@@ -128,10 +159,12 @@ function Security() {
                     }
                     });
                     if(data){
+                        success();
                         setResetResponse(data.message);
                     };
                     
                 } catch (error) {
+                    failure();
                     setResetResponse("Password Reset Unsuccessful. Please try again!");
                 }
             }
@@ -197,7 +230,7 @@ function Security() {
                     <p>Please fill the required fields</p>
                 <form className={styles.GetTwoAuthForm} onSubmit={handleSetUpMFA} method="POST">
                         <input type="email" name="email" required value={getEmail} onChange={(e) => setGetEmail(e.target.value)} />
-                        <button type="submit">SetUp MFA</button>
+                        <button type="submit">SetUp MFAnp</button>
                     </form>
                     <p>{response}</p>
                        </div>
@@ -256,6 +289,20 @@ function Security() {
                 </div>
                  }
             </section>
+            <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                        />
+                        {/* Same as */}
+                        <ToastContainer />
             </main>
         </div>
     )
