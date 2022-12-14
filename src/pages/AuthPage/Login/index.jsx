@@ -51,7 +51,8 @@ function Login() {
 				);
 
 				localStorage.setItem('token', response.data.access_token);
-				console.log('token', response.data.access_token)
+				localStorage.setItem('user', JSON.stringify(response.data));
+				// console.log('token', response.data.access_token);
 
 				dispatch({
 					type: USER_LOGGED_IN,
