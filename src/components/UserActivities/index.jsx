@@ -290,7 +290,7 @@ function UserActivities() {
 					{answers.length !== 0 ? (
 						answers.map((answer) => (
 							<div key={answer.answer_id} className={styles.thread}>
-								<div className={styles.cardContainer}>
+								{/* <div className={styles.cardContainer}>
 									<Link
 										to={`/profile/${
 											findUser(findQuestion(answer.question_id)?.owner_id)
@@ -351,7 +351,7 @@ function UserActivities() {
 											</p>
 										</Link>
 									</div>
-								</div>
+								</div> */}
 								<div className={styles.cardContainer}>
 									<Link to={`/profile/${findUser(answer.owner_id)?.username}`}>
 										<img
@@ -383,7 +383,9 @@ function UserActivities() {
 											<img src={options} alt="" className={styles.options} />
 										</section>
 										<Link
-											to="/dashboard/questions"
+											to={`/question-page/${
+												findQuestion(answer.question_id)?.question_id
+											}`}
 											style={{ textDecoration: 'none' }}
 										>
 											<h4 className={styles.title}>
