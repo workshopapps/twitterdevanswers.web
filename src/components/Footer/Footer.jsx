@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import brandLogo from '../../assets/footer-images/brand-logo-footer.svg';
+import brandLogo from '../../assets/footer-images/BrandLogo.svg';
 import facebook from '../../assets/footer-images/facebook.svg';
 import twitter from '../../assets/footer-images/twitter.svg';
 import instagram from '../../assets/footer-images/instagram.svg';
@@ -30,9 +30,6 @@ export default function Footer() {
 					<Link to="teams-page" className={styles.link}>
 						Team
 					</Link>
-					<Link to="advertising" className={styles.link}>
-						Advertising
-					</Link>
 				</div>
 
 				<div className={styles.company}>
@@ -40,11 +37,8 @@ export default function Footer() {
 					<Link to="/" className={styles.link}>
 						About
 					</Link>
-					<Link to="blog" className={styles.link}>
+					<Link to="blog-page" className={styles.link}>
 						Blog
-					</Link>
-					<Link to="career" className={styles.link}>
-						Careers
 					</Link>
 					<Link to="pricing-page" className={styles.link}>
 						Pricing
@@ -62,9 +56,6 @@ export default function Footer() {
 					<Link to="cookie-policy" className={styles.link}>
 						Cookie Policy
 					</Link>
-					<Link to="api" className={styles.link}>
-						API
-					</Link>
 				</div>
 
 				<div className={styles.support}>
@@ -74,9 +65,6 @@ export default function Footer() {
 					</Link>
 					<Link to="help-center" className={styles.link}>
 						Help Centre
-					</Link>
-					<Link to="faq" className={styles.link}>						
-						FaQs
 					</Link>
 				</div>
 			</div>
