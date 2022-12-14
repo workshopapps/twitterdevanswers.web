@@ -1,26 +1,77 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { FaEllipsisV } from 'react-icons/fa';
 import { BsChatSquareDots, BsShare } from 'react-icons/bs';
 import { ReactComponent as Heart } from '../heart.svg';
+import avatar from '../../../assets/dashboard/user.png';
 import styles from './replyCard.module.css';
+import useMessenger, { timeStamp } from '../utils';
 
 function ReplyCard({
-	reply: { fullName, username, text, imgUrl, replyingTo, timeStamp },
+	reply: { owner_id: ownerId, content, created_at: createdAt },
+	poster: replyingTo,
 }) {
-	return (
+	const [answeredBy, setAnsweredBy] = useState({});
+
+	const { getUsers, handleNavigate } = useMessenger();
+
+	// get user
+	useEffect(() => {
+		const fetchUser = async () => {
+			const result = await getUsers();
+			const user = result.find(({ user_id: userId }) => userId === ownerId);
+			setAnsweredBy(user);
+		};
+
+		fetchUser();
+	}, []);
+
+	return Object.keys(answeredBy).length === 0 ? null : (
 		<div className={styles.replyCard}>
 			<div className={styles.infos}>
 				<div className={styles.data}>
-					<div className={styles.img}>
-						<img src={imgUrl} alt="user avatar" />
+					<div
+						className={styles.img}
+						role="link"
+						onKeyDown={() => {}}
+						tabIndex={0}
+						onClick={(event) =>
+							handleNavigate(event, `/user-page/${answeredBy?.username}`)
+						}
+					>
+						<img
+							src={
+								answeredBy?.image_url?.trim() === ''
+									? avatar
+									: answeredBy?.image_url
+							}
+							alt="user avatar"
+						/>{' '}
 					</div>
 					<div className={styles.info}>
 						<div className={styles.names}>
-							<span>{fullName}</span>
-							<span className={styles.grayText}>@{username}</span>
+							<span
+								className={styles.name}
+								role="link"
+								onKeyDown={() => {}}
+								tabIndex={0}
+								onClick={(event) =>
+									handleNavigate(event, `/user-page/${answeredBy?.username}`)
+								}
+							>{`${answeredBy?.first_name} ${answeredBy?.last_name}`}</span>
+							<span
+								className={`${styles.grayText} ${styles.name}`}
+								role="link"
+								onKeyDown={() => {}}
+								tabIndex={0}
+								onClick={(event) =>
+									handleNavigate(event, `/user-page/${answeredBy?.username}`)
+								}
+							>
+								@{answeredBy?.username}
+							</span>
 							<span className={styles.grayText}>.</span>
-							<span className={styles.grayText}>{timeStamp}</span>
+							<span className={styles.grayText}>{timeStamp(createdAt)}</span>
 						</div>
 						<div className={styles.replyingTo}>Replying to @{replyingTo}</div>
 					</div>
@@ -29,7 +80,7 @@ function ReplyCard({
 					<FaEllipsisV />
 				</div>
 			</div>
-			<div className={styles.text}>{text}</div>
+			<div className={styles.text}>{content}</div>
 			<div className={styles.icons}>
 				<div className={styles.reply}>
 					<BsChatSquareDots className={styles.icon} />
@@ -52,11 +103,13 @@ function ReplyCard({
 export default ReplyCard;
 ReplyCard.propTypes = {
 	reply: PropTypes.shape({
-		imgUrl: PropTypes.string.isRequired,
-		fullName: PropTypes.string.isRequired,
-		username: PropTypes.string.isRequired,
-		timeStamp: PropTypes.string.isRequired,
-		text: PropTypes.string.isRequired,
-		replyingTo: PropTypes.string.isRequired,
+		owner_id: PropTypes.number.isRequired,
+		content: PropTypes.string.isRequired,
+		created_at: PropTypes.string.isRequired,
 	}).isRequired,
+	poster: PropTypes.string,
+};
+
+ReplyCard.defaultProps = {
+	poster: '',
 };

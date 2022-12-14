@@ -109,6 +109,7 @@
 	gap: 8px;
 	height: 100vh;
 	overflow-y: auto;
+	padding-right: 10px;
 }
 
 .scrollbar::-webkit-scrollbar {

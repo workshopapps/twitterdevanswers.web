@@ -1,42 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './topUsers.module.css';
 import User from '../User/User';
-
-const data = [
-	{
-		username: 'MaskedFace',
-		followers: '25k',
-		imgUrl: './assets/userPageAssets/Ellipse0.png',
-	},
-	{
-		username: 'CodedLibra',
-		followers: '45k',
-		imgUrl: './assets/userPageAssets/Ellipse0.png',
-	},
-	{
-		username: 'CyberGenie',
-		followers: '13k',
-		imgUrl: './assets/userPageAssets/Ellipse0.png',
-	},
-];
+import useMessenger, { ArrayHighestToLowest } from '../utils';
 
 function TopUsers() {
-	return (
-		<div className={styles.users}>
-			<div className={styles.header}>
-				<h3>Top Users to Follow</h3>{' '}
-				<span>
-					<Link to="/users-page">See more</Link>
-				</span>
-			</div>
+	const [selectedUsers, setSelectedUsers] = useState(null);
+	const { getUsers } = useMessenger();
 
-			<div className={styles.list}>
-				{data.map((user) => (
-					<User userInfo={user} key={user.username} />
-				))}
+	useEffect(() => {
+		const fetchUsers = async () => {
+			const result = await getUsers();
+			const sortedUsers = ArrayHighestToLowest(result, 'followers');
+			const topUsers = sortedUsers.slice(0, 3);
+			setSelectedUsers(topUsers);
+		};
+
+		fetchUsers();
+	}, []);
+
+	return (
+		selectedUsers && (
+			<div className={styles.users}>
+				<div className={styles.header}>
+					<h3>Top Users to Follow</h3>{' '}
+					<span>
+						<Link to="/users-page">See more</Link>
+					</span>
+				</div>
+
+				<div className={styles.list}>
+					{selectedUsers.map((topUser) => (
+						<User topUser={topUser} key={topUser.user_id} />
+					))}
+				</div>
 			</div>
-		</div>
+		)
 	);
 }
 

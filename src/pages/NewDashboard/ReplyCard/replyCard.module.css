@@ -1,5 +1,6 @@
 .replyCard {
 	border: 0.5px solid #ececfb;
+	padding: 24px;
 }
 
 .infos {
@@ -13,8 +14,11 @@
 	gap: 16px;
 }
 
-.data .img {
+.img img {
 	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	cursor: pointer;
 }
 
 .info {
@@ -26,6 +30,11 @@
 .names {
 	display: flex;
 	gap: 8px;
+}
+
+.name {
+	text-transform: capitalize;
+	cursor: pointer;
 }
 
 .text {

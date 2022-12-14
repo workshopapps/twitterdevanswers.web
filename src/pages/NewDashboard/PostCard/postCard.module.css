@@ -6,11 +6,14 @@
 	display: flex;
 	gap: 16px;
 	color: #303030;
+	cursor: pointer;
+	text-decoration: none;
 }
 
-.left {
+.avatar {
 	width: 60px;
 	height: 60px;
+	border-radius: 50%;
 }
 
 .top {
@@ -35,6 +38,18 @@
 	color: #989898;
 }
 
+span.fullName {
+	color: #303030;
+	font-size: 20px;
+	line-height: 27px;
+	font-weight: 700;
+	text-transform: capitalize;
+}
+
+.right {
+	flex: 1;
+}
+
 .right h3 {
 	font-weight: 700;
 	font-size: 20px;
@@ -53,6 +68,7 @@
 }
 
 .tag {
+	display: inline-block;
 	padding: 8px 16px;
 	background: #e2d9f2;
 	border-radius: 4px;
@@ -69,7 +85,7 @@
 	align-items: center;
 }
 
-.left {
+.icons {
 	display: flex;
 	align-items: center;
 	gap: 50px;

@@ -23,7 +23,7 @@
 .username a:link,
 .username a:visited {
 	text-decoration: none;
-	font-weight: 500;
+	text-transform: capitalize;
 	font-size: 20px;
 	line-height: 27px;
 	color: #1f1f1f;

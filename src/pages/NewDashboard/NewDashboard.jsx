@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useContext, useEffect } from 'react';
-import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { IoFilterOutline } from 'react-icons/io5';
 import { AppContext } from '../../store/AppContext';
 import TopUsers from './TopUsers/TopUsers';
@@ -9,77 +7,8 @@ import userAvatar from '../../assets/dashboard-images/profilePicture.webp';
 import PostCard from './PostCard/PostCard';
 import Tags from './Tags/Tags';
 import styles from './newDashboard.module.css';
-
-const posts = [
-	{
-		imgUrl: './assets/userPageAssets/Ellipse0.png',
-		fullName: 'Darrell Steward',
-		username: 'prosper',
-		timeStamp: '36secs',
-		title:
-			'Why does the NoReverse match error pop up when I’m trying to marginate my django website?',
-		text: 'I actually have no idea why this happens but i feel like if we all come together we can think of something that could work so i’m placing a bounty on this question thanks.',
-		img: '',
-		tag: 'Python',
-		replies: '17',
-		likes: '30',
-		tokens: '0.0025',
-	},
-	{
-		imgUrl: './assets/userPageAssets/Ellipse0.png',
-		fullName: 'Uchiha Madara',
-		username: 'madara',
-		timeStamp: '36secs',
-		title: '',
-		text: 'Omooo my eyes have seen shege 😞 Who said writing codes was easy. I fit nod the person aswear',
-		img: '',
-		tag: 'Python',
-		replies: '17',
-		likes: '30',
-		tokens: '',
-	},
-	{
-		imgUrl: './assets/userPageAssets/Ellipse0.png',
-		fullName: 'Hashirama Senju',
-		username: 'hashirama',
-		timeStamp: '36secs',
-		title: '',
-		text: 'Omooo my eyes have seen shege 😞 Who said writing codes was easy. I fit nod the person aswear',
-		img: '',
-
-		tag: 'Javascript',
-		replies: '17',
-		likes: '30',
-		tokens: '0.0025',
-	},
-	{
-		imgUrl: './assets/userPageAssets/Ellipse0.png',
-		fullName: 'Dami',
-		username: 'damie',
-		timeStamp: '1hr',
-		title: '',
-		text: 'She just oozes self confidence and grace. See as person pikin fine, she con sabi code join. A top babe!',
-
-		img: './assets/dami.png',
-		tag: '',
-		replies: '17',
-		likes: '30',
-		tokens: '',
-	},
-	{
-		imgUrl: './assets/userPageAssets/Ellipse0.png',
-		fullName: 'Oshigaki Kisame',
-		username: 'kisame',
-		timeStamp: '57secs',
-		title: '',
-		text: 'Omooo my eyes have seen shege 😞 Who said writing codes was easy. I fit nod the person aswear',
-		img: '',
-		tag: '',
-		replies: '17',
-		likes: '30',
-		tokens: '',
-	},
-];
+import useMessenger from './utils';
+import { STORE_USER_DATA } from '../../store/actionTypes';
 
 const tags = [
 	'python',
@@ -98,29 +27,36 @@ const tags = [
 ];
 
 function NewDashboard() {
+	const [questions, setQuestions] = useState([]);
+
+	const { getQuestions, getUsers } = useMessenger();
+
 	const {
-		state: { token },
+		state: {
+			token,
+			user: { user_id: userId },
+		},
+		dispatch,
 	} = useContext(AppContext);
-	console.log(token);
 
-	// useEffect(() => {
-	// 	const fetchQuestions = async () => {
-	// 		try {
-	// 			const response = axios({
-	// 				method: 'get',
-	// 				url: 'https://api.devask.hng.tech/questions',
-	// 			});
+	useEffect(() => {
+		// fetch all questions
+		const fetchQuestions = async () => {
+			const result = await getQuestions();
+			setQuestions(result);
+		};
 
-	// 			const data = await response;
+		// fetch logged in user and store data in global state
+		const fetchUsers = async () => {
+			const result = await getUsers();
+			const user = result.find(({ user_id: id }) => id === userId);
+			localStorage.setItem('userData', JSON.stringify(user));
+			dispatch(STORE_USER_DATA, user);
+		};
 
-	// 			console.log(data);
-	// 		} catch (error) {
-	// 			console.log(error);
-	// 		}
-	// 	};
-
-	// 	fetchQuestions();
-	// }, []);
+		fetchQuestions();
+		fetchUsers();
+	}, []);
 
 	return (
 		<div className={` lpContainer`}>
@@ -154,9 +90,11 @@ function NewDashboard() {
 							</div>
 						)}
 						<div className={`${styles.postsContainer} ${styles.scrollbar} `}>
-							{posts.map((post) => (
-								<PostCard post={post} key={post.fullName} />
-							))}
+							{questions.length === 0
+								? null
+								: questions.map((post) => (
+										<PostCard post={post} key={post.question_id} />
+								  ))}
 						</div>
 					</section>
 				</main>
