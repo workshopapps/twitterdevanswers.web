@@ -51,9 +51,9 @@ const handleSearch = (event) => {
     const searchList = profile.filter((item) => 
        item.stack.toLowerCase().indexOf(query.toLowerCase()) !== -1
     )
-
-    setFilteredList(searchList)
+	setFilteredList(searchList);
   }
+
 
 	return (
 
@@ -94,14 +94,14 @@ const handleSearch = (event) => {
 			</header>
 			<main>
 				<div className={styles.user_grid_container}>
-					{ filteredList.map((user) => (
+					{ filteredList.length === 0 ? 'User was not found' : filteredList.map((user) => (
 					<UserProfileCard key = {user.user_id} user = {user} />
-					))  }
+					))   }
 				</div>
 
 				<div className={styles.users_filter}>
-					
-                  	<section className={styles.more_search}>
+				
+                 { filteredList.length !== 0 &&	<section className = {styles.more_search}>
 						<a href="/">1</a>
 						<a href="/">2</a>
 						<a href="/">3</a>
@@ -109,7 +109,7 @@ const handleSearch = (event) => {
 						<a href="/">...</a>
 						<a href="/">200</a>
 						<button type="button">Next</button>
-					</section>
+					</section> }
 				</div>
 			</main>
 		</div>

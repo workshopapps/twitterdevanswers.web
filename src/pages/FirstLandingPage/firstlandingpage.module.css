@@ -1,3 +1,60 @@
 .landing {
-    overflow-x: hidden;
+	overflow-x: hidden;
+}
+
+.LandingAim {
+	width: 90%;
+	margin: 2rem auto;
+}
+.LandingAim h4 {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 24px;
+	color: #303030;
+}
+.LandingAim h2 {
+	font-family: 'Nunito';
+    width: 55%;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2.5rem;
+	line-height: 48px;
+	color: #492B7C;
+    margin: 0.5rem 0;
+}
+.LandingAim h2 span{
+    color: #282828;
+}
+.LandingWordFlex {
+	display: flex;
+	justify-content: space-between;
+}
+.LandingWordFlex p{
+    color: #282828;
+    width: 45%;
+    line-height: 30px;
+    margin-top: 0.7rem;
+    font-family: 'Nunito';
+}
+
+
+@media (max-width: 1000px) {
+	.LandingAim h2 {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .LandingAim h2 {
+        width: 100%;
+        font-size: 1.8rem;
+    }
+	.LandingWordFlex {
+        display: block;
+    }
+    .LandingWordFlex p{
+        width: 100%;
+    }
 }

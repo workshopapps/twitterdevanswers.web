@@ -1,32 +1,23 @@
 import React from 'react';
 import HiwText from '../HiwText2/HiwText';
-import image from './HowItWorksImage/how-it-works.png';
-import imageOne from './HowItWorksImage/how-it-works1.png';
-import imageTwo from './HowItWorksImage/how-it-works2.png';
-import imageThree from './HowItWorksImage/how-it-works3.png';
-import imageFour from './HowItWorksImage/how-it-works4.png';
-import imageFive from './HowItWorksImage/how-it-works5.png';
-import imageSix from './HowItWorksImage/how-it-works6.png';
+import LandingSectRepository from "../../assets/landing-images/LandingSectRepository.svg"
+import LandingSectSolution from "../../assets/landing-images/LandingSectSolution.svg"
+import LandingSectSolve from "../../assets/landing-images/LandingSectSolve.svg"
 import styles from './howItWorks.module.css';
 
 const howItWorksContent = [
 	{
-		id: 0,
-		heading: 'Why DevAsk?',
-		body: 'DevAsk is a community of coders built for all levels of techies. We thought of how most front end developers get stuck trying to identify a bug on a line of code thus wasting productive time. That’s why we came up with a community that allows other front end developers in the space to look through your code and debug in the shortest time possible.',
-	},
-	{
-		id: 2,
+		id: 1,
 		heading: 'Realtime Solution',
 		body: 'You can be sure to meet up with your timeline by trusting DevAsk. Get real time solutions to your front end queries and smile in the presentation room with bug free code.',
 	},
 	{
-		id: 3,
+		id: 2,
 		heading: 'Solve & Earn',
-		body: "Solving a task on DevAsk means earning some dollars. We want you to get paid for your time. You get rewarded for every solution offered.",
+		body: 'Solving a task on DevAsk means earning some dollars. We want you to get paid for your time. You get rewarded for every solution offered.',
 	},
 	{
-		id: 1,
+		id: 3,
 		heading: 'Solution Repository',
 		body: 'We have a repository of trusted answers for most front end queries.',
 	},
@@ -34,38 +25,59 @@ const howItWorksContent = [
 
 function HowItWorks() {
 	return (
-        <div className={styles.container}>
-              <div className={styles.steps}>
-                <h1>Our Process</h1>
-                <div className={styles.stepImage}>
-                    <img src={imageFour} alt="vector"/>
-                    <img src={imageFive} alt="vector"/>
-                    <img src={imageSix} alt="vector"/>
-                </div>
-            </div>
-
-		<div className={`${styles.how} lpContainer`}>
-			<img src={image} alt="vector" />
-			<div className={styles.text}>
-				<HiwText content={howItWorksContent[0]} />
+		<div className={styles.container}>
+			<div className={styles.steps}>
+				<h1>Our Process</h1>
+				<div className={styles.stepImage}>
+					<div className={styles.ProcessCard}>
+						<div className={styles.cardcircle}>
+							<p>1</p>
+						</div>
+						<p>SIGN UP /SIGN IN</p>
+					</div>
+					<div className={styles.ProcessCard}>
+						<div className={styles.cardcircle}>
+							<p>2</p>
+						</div>
+						<p>POST A QUESTION /SEARCH CONTENT</p>
+					</div>
+					<div className={styles.ProcessCard}>
+						<div className={styles.cardcircle}>
+							<p>3</p>
+						</div>
+						<p>GET SOLUTION</p>
+					</div>
+				</div>
 			</div>
 
-			<div className={styles.text}>
-				<HiwText content={howItWorksContent[1]} />
-			</div>
-			<img src={imageOne} alt="vector" />
+			<div className={`${styles.how} lpContainer`}>
+				<div className={styles.text}>
+					<div className={styles.leftside}>
+						<HiwText content={howItWorksContent[0]} />
+					</div>
+					<div className={styles.rightside}>
+						<img src={LandingSectSolution} alt="LandingSectSolution" />
+					</div>
+				</div>
 
-			<img src={imageTwo} alt="vector" />
-			<div className={styles.text}>
-				<HiwText content={howItWorksContent[2]} />
+				<div className={styles.textrev}>
+					<div className={styles.leftside}>
+						<HiwText content={howItWorksContent[1]} />
+					</div>
+					<div className={styles.rightside}>
+						<img src={LandingSectSolve} alt="LandingSectSolve" />
+					</div>
+				</div>
+				<div className={styles.text}>
+					<div className={styles.leftside}>
+						<HiwText content={howItWorksContent[2]} />
+					</div>
+					<div className={styles.rightside}>
+						<img src={LandingSectRepository} alt="LandingSectRepository" />
+					</div>
+				</div>
 			</div>
-
-			<div className={styles.text}>
-				<HiwText content={howItWorksContent[3]} />
-			</div>
-			<img src={imageThree} alt="vector" />
 		</div>
-        </div>
 	);
 }
 

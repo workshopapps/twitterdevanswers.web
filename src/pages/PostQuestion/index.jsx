@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import ReactQuill from 'react-quill';
+
 import 'react-quill/dist/quill.snow.css';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
@@ -19,7 +19,6 @@ function PostQuestion() {
 	const handleClickScroll = () => {
 		const element = document.getElementById('root');
 		if (element) {
-			// 👇 Will scroll smoothly to the top of the next section
 			element.scrollIntoView({ behavior: 'smooth' });
 		}
 	};
@@ -28,11 +27,12 @@ function PostQuestion() {
 	const [isSuccessful, setIsSuccessful] = useState(false);
 	const [isTagsOpen, setIsTagsOpen] = useState(false);
 	const [isTokensOpen, setIsTokensOpen] = useState(false);
-	const [detail, setDetail] = useState({ text: '' });
-	const [description, setDescription] = useState({ text: '' });
+
 	const [questionData, setQuestionData] = useState({
 		id: '',
 		title: '',
+		text: '',
+		description: '',
 		tag: '',
 		token: 0,
 	});
@@ -58,7 +58,7 @@ function PostQuestion() {
 	]);
 
 	const [tokens, setTokens] = useState([
-		100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100,
+		20, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100,
 	]);
 
 	const handleTagClick = (tagName) => {
@@ -92,7 +92,7 @@ function PostQuestion() {
 
 	const handleTokenClick = (tokenValue) => {
 		setTokens(
-			[100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100].filter(
+			[20, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100].filter(
 				(token) => token !== tokenValue
 			)
 		);
@@ -108,7 +108,9 @@ function PostQuestion() {
 			...prevState,
 			token: 0,
 		}));
-		setTokens([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100]);
+		setTokens([
+			20, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100,
+		]);
 		setIsTokensOpen(false);
 	};
 
@@ -145,7 +147,7 @@ function PostQuestion() {
 			setIsDescriptionDisabled(true);
 		}
 
-		if (detail.text === '') {
+		if (questionData.detail === '') {
 			setIsDescriptionDisabled(true);
 		}
 	};
@@ -162,22 +164,12 @@ function PostQuestion() {
 		handleDisabling();
 	};
 
-	const handleDetail = (value) => {
-		setDetail((prev) => ({ ...prev, text: value }));
-		handleDisabling();
-	};
-
-	const handleDescription = (value) => {
-		setDescription((prev) => ({ ...prev, text: value }));
-		handleDisabling();
-	};
-
 	const handleReview = (event) => {
 		event.preventDefault();
 		if (
 			questionData.title !== '' &&
-			detail.text !== '' &&
-			description.text !== '' &&
+			questionData.detail !== '' &&
+			questionData.description !== '' &&
 			questionData.tag !== ''
 		) {
 			setIsModalOpen(true);
@@ -196,8 +188,8 @@ function PostQuestion() {
 	const handleNextDescription = () => {
 		if (
 			questionData.title !== '' &&
-			detail.text !== '' &&
-			detail.text.length > 20
+			questionData.detail !== '' &&
+			questionData.detail.length > 20
 		) {
 			setIsDescriptionDisabled(false);
 		} else {
@@ -210,8 +202,8 @@ function PostQuestion() {
 			owner_id: 2,
 			content_id: questionData.id,
 			title: questionData.title,
-			content: `${detail.text}`,
-			expected_result: `${description.text}`,
+			content: `${questionData.detail}`,
+			expected_result: `${questionData.description}`,
 			payment_amount: `${questionData.token}`,
 			answered: false,
 			created_at: Date.now(),
@@ -236,7 +228,7 @@ function PostQuestion() {
 				setIsSuccessful(true);
 
 				setTimeout(() => {
-					navigate('/dashboard');
+					navigate('#/dashboard');
 				}, 5000);
 			}
 		} catch (err) {
@@ -293,18 +285,12 @@ function PostQuestion() {
 
 										<div>
 											<h3 className={styles.modalHeader}>Details</h3>
-											<p
-												className={styles.modalBody}
-												dangerouslySetInnerHTML={{ __html: detail.text }}
-											/>
+											<p className={styles.modalBody}>{questionData.title}</p>
 										</div>
 
 										<div>
 											<h3 className={styles.modalHeader}>Description</h3>
-											<p
-												className={styles.modalBody}
-												dangerouslySetInnerHTML={{ __html: description.text }}
-											/>
+											<p className={styles.modalBody}>{questionData.title}</p>
 										</div>
 
 										<div>
@@ -343,7 +329,7 @@ function PostQuestion() {
 
 			<section className={styles.header}>
 				<div>
-					<h1>Ask a public question</h1>
+					<h1 className={styles.headerH1}>Ask a public question</h1>
 					<p>
 						You are ready to ask a programming related question and this form
 						will help guild you through the process. Looking to ask a
@@ -380,69 +366,58 @@ function PostQuestion() {
 								onChange={handleChange}
 								required
 								onBlur={handleNextDetail}
-								autoComplete
 							/>
 						</div>
 
-						<a href="#problem" onClick={handleNextDetail}>
+						<button type="button" onClick={handleNextDetail}>
 							Next
-						</a>
+						</button>
 					</section>
 
 					{/* problem */}
 					<section className={styles.problemWrapper} id="problem">
-						<div>
+						<div className={styles.problemdetailhead}>
 							<h3>What are the detail of your problem?</h3>
 							<p>
 								Introduce the problem and expand on what you put in the title.
 								Minimum 20 characters
 							</p>
-
-							{/* <div className={styles.textIcons}>
+							<div className={styles.textIcons}>
 								<span>
 									<img src="/post-question/caseIcon.svg" alt="case Icon" />
 								</span>
 								<span>
 									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
 								</span>
-
 								<span>
 									<img src="/post-question/italic.svg" alt="italic Icon" />
 								</span>
-
 								<span>
 									<img src="/post-question/linkIcon.svg" alt="link Icon" />
 								</span>
-
 								<span>
 									<img
 										src="/post-question/unknown-text.svg"
 										alt="unknown-text Icon"
 									/>
 								</span>
-
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
-							</div> */}
-							<ReactQuill
-								className={styles.textEditor}
-								placeholder="Write Something"
-								theme="snow"
-								defaultValue=""
-								modules={PostQuestion.modules}
-								formats={PostQuestion.formats}
-								onChange={handleDetail}
-								value={detail.text}
+							</div>
+							<textarea
+								value={questionData.detail}
+								name="detail"
+								onChange={handleChange}
 								minLength={20}
 								disabled={isDetailDisabled}
 								required
 								onBlur={handleNextDescription}
 							/>
 						</div>
-						<a href="#detail" onClick={handleNextDescription}>
+						<button type="button" onClick={handleNextDescription}>
 							Next
-						</a>
+						</button>
 					</section>
 
 					{/* detail */}
@@ -453,52 +428,47 @@ function PostQuestion() {
 								Describe what you tried, what you expect to happen, and what
 								actually resulted. Minimum 20 characters
 							</p>
-							{/* <div className={styles.textIcons}>
+
+							<div className={styles.textIcons}>
 								<span>
 									<img src="/post-question/caseIcon.svg" alt="case Icon" />
 								</span>
 								<span>
 									<img src="/post-question/BoldIcon.svg" alt="Bold Icon" />
 								</span>
-
 								<span>
 									<img src="/post-question/italic.svg" alt="italic Icon" />
 								</span>
-
 								<span>
 									<img src="/post-question/linkIcon.svg" alt="link Icon" />
 								</span>
-
 								<span>
 									<img
 										src="/post-question/unknown-text.svg"
 										alt="unknown-text Icon"
 									/>
 								</span>
-
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
-							</div> */}
-							<ReactQuill
-								className={styles.textEditor}
-								placeholder="Write Something"
-								theme="snow"
-								defaultValue=""
-								modules={PostQuestion.modules}
-								formats={PostQuestion.formats}
-								onChange={handleDescription}
-								value={description.text}
+							</div>
+
+							<textarea
+								value={questionData.description}
+								name="description"
+								onChange={handleChange}
 								minLength={20}
 								disabled={isDescriptionDisabled}
 								required
-							/>
+							>
+								*Placeholder*
+							</textarea>
 						</div>
 
 						{/* Add tag */}
 						<section className={styles.tagWrapper}>
 							<div className={styles.tagContent}>
-								<span className={styles.text}>Add tag </span>
+								<span className={styles.text}>Add Tags </span>
 
 								<button
 									type="button"
@@ -522,23 +492,35 @@ function PostQuestion() {
 											))}
 									</div>
 								)}
-
-								{questionData.tag && (
-									<p className={styles.allTagsText}>
-										{questionData.tag}
-										<button
-											type="button"
-											onClick={() => handleTagRemoval(questionData.tag)}
-											className={styles.allTagsButton}
-										>
-											<img src="/post-question/cancel.svg" alt="Cancel Icon" />
-										</button>
-									</p>
-								)}
 							</div>
+						</section>
+						{questionData.tag && (
+							<p className={styles.allTagsText}>
+								{questionData.tag}
+								<button
+									type="button"
+									onClick={() => handleTagRemoval(questionData.tag)}
+									className={styles.allTagsButton}
+								>
+									<img src="/post-question/cancel.svg" alt="Cancel Icon" />
+								</button>
+							</p>
+						)}
+					</section>
 
+					<section className={styles.detailWrapper} id="detail">
+						<div className={styles.content}>
+							<h3>Allocate tokens to this question</h3>
+							<p>
+								Assign a minimum of 20 token to the user that profers a fitting
+								solution to your problem.
+							</p>
+						</div>
+
+						{/* Add tag */}
+						<section className={styles.tagWrapper}>
 							<div className={styles.tagContent}>
-								<span className={styles.text}>Add tokens </span>
+								<span className={styles.text}>Add Tokens </span>
 
 								<button
 									type="button"
@@ -562,21 +544,20 @@ function PostQuestion() {
 											))}
 									</div>
 								)}
-
-								{questionData.token !== 0 && (
-									<p className={styles.allTagsText}>
-										{questionData.token}
-										<button
-											type="button"
-											onClick={() => handleTokenRemoval(questionData.token)}
-											className={styles.allTagsButton}
-										>
-											<img src="/post-question/cancel.svg" alt="Cancel Icon" />
-										</button>
-									</p>
-								)}
 							</div>
 						</section>
+						{questionData.token !== 0 && (
+							<p className={styles.allTagsText}>
+								{questionData.token}
+								<button
+									type="button"
+									onClick={() => handleTokenRemoval(questionData.token)}
+									className={styles.allTagsButton}
+								>
+									<img src="/post-question/cancel.svg" alt="Cancel Icon" />
+								</button>
+							</p>
+						)}
 					</section>
 
 					{/* buttons */}
