@@ -70,6 +70,7 @@
 .user {
 	display: grid;
 	grid-template-columns: 60px 1fr auto;
+	gap: 10px;
 }
 .user:not(:last-child) {
 	margin-bottom: 15px;
