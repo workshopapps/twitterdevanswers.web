@@ -212,8 +212,10 @@ function QuestionPage() {
 					</div>
 				</section>
 				<aside className={styles.aside}>
-					<TopUsers />
-					<Yml />
+					<div className={styles.components}>
+						<TopUsers />
+						<Yml />
+					</div>
 				</aside>
 			</div>
 		</div>

@@ -173,9 +173,16 @@
 }
 
 .aside {
-	margin-top: 116px;
+	margin-top: 72px;
+	padding-top: 20px;
 	width: 479px;
 	flex: 0 1 auto;
+	height: 100%;
+	padding-right: 20px;
+	position: sticky;
+	top: 0;
+	right: 0;
+	padding-bottom: 40px;
 }
 
 @media only screen and (max-width: 1040px) {
