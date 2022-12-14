@@ -7,7 +7,8 @@ import calendarIcon from '../../assets/profile-images/calendar.png';
 import locationIcon from '../../assets/profile-images/location.png';
 
 const token = localStorage.getItem('token');
-const userFromStorage = JSON.parse(localStorage.getItem('user'));
+const userFromStorage =
+	localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
 
 function ProfileHeader() {
 	const navigate = useNavigate();
@@ -74,7 +75,7 @@ function ProfileHeader() {
 			try {
 				// setIsLoading(true);
 				const userResponse = await axios.get(
-					`https://api.devask.hng.tech/users/${user}`,
+					`https://api.devask.hng.tech/users/get/${user}`,
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,

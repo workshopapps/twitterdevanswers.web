@@ -253,7 +253,7 @@ function Profile() {
 										<h4>{user.username}</h4>
 										<p>@{user.username}</p>
 									</div>
-									<p>Follows you</p>
+									{/* <p>Follows you</p> */}
 								</div>
 								<button type="button">Follow</button>
 							</div>

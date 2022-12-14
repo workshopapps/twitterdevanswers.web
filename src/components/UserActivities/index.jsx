@@ -11,7 +11,7 @@ import share from '../../assets/dashboard-images/share.webp';
 import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
 const token = localStorage.getItem('token');
-const userFromStorage = JSON.parse(localStorage.getItem('user'));
+const userFromStorage = localStorage.getItem('user')&& JSON.parse(localStorage.getItem('user'));
 
 async function getUser() {
 	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
@@ -59,13 +59,14 @@ function UserActivities() {
 	useEffect(() => {
 		(async function getData() {
 			const userIdResponse = await axios.get(
-				`https://api.devask.hng.tech/users/${thisuser}`,
+				`https://api.devask.hng.tech/users/get/${thisuser}`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
 					},
 				}
 			);
+			console.log(userIdResponse.data.data);
 			const userIdData = await userIdResponse.data.data.user_id;
 
 			try {
@@ -96,7 +97,7 @@ function UserActivities() {
 			const fetchUser = async () => {
 				try {
 					const data = await axios.get(
-						`https://api.devask.hng.tech/users/${thisuser}`,
+						`https://api.devask.hng.tech/users/get/${thisuser}`,
 						{
 							headers: {
 								Authorization: `Bearer ${token}`,
@@ -188,7 +189,7 @@ function UserActivities() {
 							</section>
 							<div>
 								<Link
-									to={`/dashboard/questions/${question.question_id}`}
+									to={`/question-page/${question.question_id}`}
 									style={{ textDecoration: 'none' }}
 									className={styles.title}
 								>
@@ -201,7 +202,7 @@ function UserActivities() {
 							<section className={styles.cardFooter}>
 								<div className={styles.icons}>
 									<Link
-										to={`/dashboard/questions/${question.question_id}`}
+										to={`/question-page/${question.question_id}`}
 										style={{ textDecoration: 'none' }}
 									>
 										<span className={styles.viewReplies}>
