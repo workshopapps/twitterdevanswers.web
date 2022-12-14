@@ -153,21 +153,16 @@ function QuestionPage() {
 								<div className={styles.bottom}>
 									<h3 className={styles.title}>{question?.title}</h3>
 									<p>{question?.content}</p>
-									{/* <div className={styles.details}>
-										Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-										Perspiciatis consequuntur dolor nostrum voluptate natus!
-										Sint officiis minus doloremque quos incidunt officia hic
-										odio rerum amet ut delectus quas praesentium vitae labore
-										excepturi, possimus fugiat inventore pariatur velit tempora.
-										Exercitationem atque eos temporibus fugiat quos officiis ad
-										accusamus accusantium! Vero vel ullam iusto pariatur
-										suscipit nam itaque maxime reprehenderit ratione numquam?
+									<div className={styles.details}>
+										{question?.expected_result}
 									</div>
-									<p className={styles.footNote}>
+									{/* <p className={styles.footNote}>
 										Thanks anyone out there who can see my mistake!
 									</p> */}
 									<div>
-										<span className={styles.tags}>{question?.tag}</span>
+										{question?.tag.trim() !== '' && (
+											<span className={styles.tags}>{question?.tag}</span>
+										)}
 									</div>
 
 									<div className={styles.interactions}>
