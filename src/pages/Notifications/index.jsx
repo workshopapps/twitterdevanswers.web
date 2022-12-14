@@ -75,7 +75,7 @@ function Notifications() {
 								if (type === 'Answer') {
 									return (
 										<Link
-											to={`/dashboard/questions/${content_id}`}
+											to={`/question-page/${content_id}`}
 											key={notification_id}
 										>
 											<div
