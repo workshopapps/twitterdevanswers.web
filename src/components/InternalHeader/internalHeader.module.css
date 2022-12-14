@@ -32,6 +32,9 @@
 	border: none;
 	outline: none;
 }
+.sortIcon {
+	display: none;
+}
 
 .brand {
 	display: flex;
@@ -274,8 +277,8 @@ li {
 		display: flex;
 		flex-direction: column;
 		/* gap: 28px; */
-		gap: 18px;
-		margin-top: 14px;
+		gap: 16px;
+		margin-top: 16px;
 		/* margin-top: 24px; */
 		/* align-items: center; */
 	}
@@ -286,12 +289,16 @@ li {
 		column-gap: 18.77px;
 		padding: 10px 0;
 	}
+	
 
 	.snIcon {
 		stroke: #303030;
 		color: transparent;
 	}
 
+	.logspan{
+		color: red;
+	}
 	.isActive .snLink {
 		/* border-right: 8px solid #492b7c; */
 		color: #492b7c;
