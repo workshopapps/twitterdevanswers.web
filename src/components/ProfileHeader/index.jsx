@@ -7,8 +7,7 @@ import calendarIcon from '../../assets/profile-images/calendar.png';
 import locationIcon from '../../assets/profile-images/location.png';
 
 const token = localStorage.getItem('token');
-const userFromStorage =
-	localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
+const userFromStorage = JSON.parse(localStorage.getItem('user'));
 
 function ProfileHeader() {
 	const navigate = useNavigate();
@@ -111,10 +110,8 @@ function ProfileHeader() {
 			<div className={styles['header-textbox']}>
 				<h2 className={styles.fullname}>
 					{capitalize(info.first_name)} {info.last_name}
-					{/* Timmy Spark */}
 				</h2>
 				<p className={styles.username}>@{info.username}</p>
-				{/* <p className={styles.username}>@timmy</p> */}
 				<p className={styles.about}>
 					{info?.description?.trim() ? info.description : 'Tech Enthusiast'}
 				</p>
@@ -125,10 +122,6 @@ function ProfileHeader() {
 							<img src={calendarIcon} alt="calendar icon" />
 							Joined {info.date_joined && formatDate(info.date_joined)}
 						</span>
-						{/* <span>
-							<img src={calendarIcon} alt="calendar icon" />
-							Joined December 2022
-						</span> */}
 
 						{info?.location?.trim() && (
 							<span>
@@ -136,19 +129,13 @@ function ProfileHeader() {
 								{info?.location?.trim()}
 							</span>
 						)}
-						{/* <span>
-							<img src={locationIcon} alt="Location icon" />
-							California, Pluto
-						</span> */}
 					</p>
 					<div className={styles.follow}>
 						<p>
 							<span>{info.following}</span>Following
-							{/* <span>200</span>Following */}
 						</p>
 						<p>
 							<span>{info.followers}</span>Followers
-							{/* <span>100</span>Followers */}
 						</p>
 
 						{!isVisitor && !Number.isNaN(Number(info.account_balance)) && (
