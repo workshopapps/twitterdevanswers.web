@@ -18,7 +18,7 @@ function ProfileHeader() {
 
 	const visitorIsAFollower = () =>
 		followers.some(
-			(follower) => follower.user_from === userFromStorage.data.user_id
+			(follower) => follower.user_from === userFromStorage?.data?.user_id
 		);
 
 	// const [isLoading, setIsLoading] = useState(false);
