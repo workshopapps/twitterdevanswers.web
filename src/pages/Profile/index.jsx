@@ -65,8 +65,7 @@ function Profile() {
 					{/* Topics suggestions */}
 					<div className={`${styles.topics} ${styles['aside-container']}`}>
 						<h3 className={styles['heading-secondary']}>You might like</h3>
-
-						{questions.map((question, i) => (
+						{/* {questions.map((question, i) => (
 							<div key={question.question_id} className={styles.topic}>
 								<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
 									<img
@@ -93,13 +92,151 @@ function Profile() {
 									</p>
 								</div>
 							</div>
-						))}
+						))} */}
+						<div className={styles.topic}>
+							<Link to={`/profile/Kokahe}`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+
+							<div className={styles.content}>
+								<Link
+									to={`/dashboard/questions/1`}
+									style={{ textDecoration: 'none' }}
+								>
+									<h4>
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+									</h4>
+								</Link>
+								<p>2Replies</p>
+							</div>
+						</div>
+						<div className={styles.topic}>
+							<Link to={`/profile/Kokahe}`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+
+							<div className={styles.content}>
+								<Link
+									to={`/dashboard/questions/1`}
+									style={{ textDecoration: 'none' }}
+								>
+									<h4>
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+									</h4>
+								</Link>
+								<p>2Replies</p>
+							</div>
+						</div>{' '}
+						<div className={styles.topic}>
+							<Link to={`/profile/Kokahe}`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+
+							<div className={styles.content}>
+								<Link
+									to={`/dashboard/questions/1`}
+									style={{ textDecoration: 'none' }}
+								>
+									<h4>
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+									</h4>
+								</Link>
+								<p>2Replies</p>
+							</div>
+						</div>{' '}
+						<div className={styles.topic}>
+							<Link to={`/profile/Kokahe}`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+
+							<div className={styles.content}>
+								<Link
+									to={`/dashboard/questions/1`}
+									style={{ textDecoration: 'none' }}
+								>
+									<h4>
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+									</h4>
+								</Link>
+								<p>2Replies</p>
+							</div>
+						</div>{' '}
+						<div className={styles.topic}>
+							<Link to={`/profile/Kokahe}`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+
+							<div className={styles.content}>
+								<Link
+									to={`/dashboard/questions/1`}
+									style={{ textDecoration: 'none' }}
+								>
+									<h4>
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+									</h4>
+								</Link>
+								<p>2Replies</p>
+							</div>
+						</div>{' '}
+						<div className={styles.topic}>
+							<Link to={`/profile/Kokahe}`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+
+							<div className={styles.content}>
+								<Link
+									to={`/dashboard/questions/1`}
+									style={{ textDecoration: 'none' }}
+								>
+									<h4>
+										Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+									</h4>
+								</Link>
+								<p>2Replies</p>
+							</div>
+						</div>
 					</div>
 
 					{/* Accounts suggestions */}
 					<div className={`${styles.users} ${styles['aside-container']}`}>
 						<h3 className={styles['heading-secondary']}>You might follow</h3>
-						{[...users].slice(0, 3).map((user) => (
+						{/* {[...users].slice(0, 3).map((user) => (
 							<div key={user.user_id} className={styles.user}>
 								<Link to={`/profile/${user?.username}`}>
 									<img
@@ -121,8 +258,83 @@ function Profile() {
 								</div>
 								<button type="button">Follow</button>
 							</div>
-						))}
-
+						))} */}
+						<div className={styles.user}>
+							<Link to={`/profile/1`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+							<div className={styles.details}>
+								<div>
+									<h4>dev_CodeBlooded</h4>
+									<p>@dev_CodeBlooded</p>
+								</div>
+								{/* <p>Follows you</p> */}
+							</div>
+							<button type="button">Follow</button>
+						</div>{' '}
+						<div className={styles.user}>
+							<Link to={`/profile/1`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+							<div className={styles.details}>
+								<div>
+									<h4>dev_CodeBlooded</h4>
+									<p>@dev_CodeBlooded</p>
+								</div>
+								{/* <p>Follows you</p> */}
+							</div>
+							<button type="button">Follow</button>
+						</div>{' '}
+						<div className={styles.user}>
+							<Link to={`/profile/1`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+							<div className={styles.details}>
+								<div>
+									<h4>dev_CodeBlooded</h4>
+									<p>@dev_CodeBlooded</p>
+								</div>
+								{/* <p>Follows you</p> */}
+							</div>
+							<button type="button">Follow</button>
+						</div>{' '}
+						<div className={styles.user}>
+							<Link to={`/profile/1`}>
+								<img
+									src={
+										'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+									}
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>
+							<div className={styles.details}>
+								<div>
+									<h4>dev_CodeBlooded</h4>
+									<p>@dev_CodeBlooded</p>
+								</div>
+								{/* <p>Follows you</p> */}
+							</div>
+							<button type="button">Follow</button>
+						</div>
 						<Link to="/users-page">See more</Link>
 					</div>
 				</section>

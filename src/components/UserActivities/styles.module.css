@@ -71,7 +71,8 @@ button.active {
 }
 
 .cardContainer {
-	display: flex;
+	display: grid;
+	grid-template-columns: 60px 1fr;
 	gap: 1rem;
 	background-color: #ffffff;
 	border: 1px solid #ececfb;
@@ -119,6 +120,11 @@ button.active {
 	justify-content: flex-start;
 	align-items: center;
 	gap: 1rem;
+}
+
+.userInfo p {
+	flex-basis: auto;
+	flex-shrink: 0;
 }
 
 .askName {
@@ -218,7 +224,17 @@ button.active {
 	color: #535353;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
+	.userInfo p {
+		margin-right: 10px;
+	}
+
+	.icons {
+		gap: 1rem;
+	}
+}
+
+@media only screen and (max-width: 200px) {
 	.cards {
 		width: 100%;
 	}

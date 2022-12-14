@@ -156,7 +156,7 @@ function UserActivities() {
 			<section
 				className={`${styles['section-questions']} ${styles.hidde} section section-questions`}
 			>
-				{questions.map((question, i) => (
+				{/* {questions.map((question, i) => (
 					<div className={styles.cardContainer} key={question.question_id}>
 						<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
 							<img
@@ -221,7 +221,231 @@ function UserActivities() {
 							</section>
 						</div>
 					</div>
-				))}
+				))} */}
+
+<div className={styles.cardContainer}>
+					<Link to="'profile/">
+						<img
+							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
+							alt=""
+							className={styles.profilePicture}
+						/>
+					</Link>
+					<div>
+						<section className={styles.cardHeader}>
+							<div className={styles.userInfo}>
+								<Link
+									to="/profile/"
+									style={{ display: 'flex', textDecoration: 'none' }}
+								>
+									<h5 className={styles.askName}>
+										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
+									</h5>
+								</Link>
+								<p className={styles.time}>36 secs</p>
+							</div>
+							<img src={options} alt="" className={styles.options} />
+						</section>
+						<Link to="/dashboard/questions" style={{ textDecoration: 'none' }}>
+							<h4 className={styles.title}>
+								Why does the NoReverse match error pop up when I’m trying to
+								marginate my django website?
+							</h4>
+							<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+								I actually have no idea why this happens but i feel like if we
+								all come together we can think of something that could work so
+								i’m placing a bounty on this question thanks.
+							</p>
+						</Link>
+						<div className={styles.tags}>
+							<button type="button">Python</button>
+						</div>
+						<section className={styles.cardFooter}>
+							<div className={styles.icons}>
+								<span className={styles.viewReplies}>
+									<img src={message} alt="" />
+									{'17 '}
+								</span>
+								<span className={styles.likes}>
+									<img src={heartBold} alt="" />
+									12
+								</span>
+								<img src={share} alt="" className={styles.share} />
+							</div>
+							<span className={styles.reward}>
+								<img src={dollarCircle} alt="" /> 1200token
+							</span>
+						</section>
+					</div>
+				</div>
+
+				<div className={styles.cardContainer}>
+					<Link to="'profile/">
+						<img
+							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
+							alt=""
+							className={styles.profilePicture}
+						/>
+					</Link>
+					<div>
+						<section className={styles.cardHeader}>
+							<div className={styles.userInfo}>
+								<Link
+									to="/profile/"
+									style={{ display: 'flex', textDecoration: 'none' }}
+								>
+									<h5 className={styles.askName}>
+										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
+									</h5>
+								</Link>
+								<p className={styles.time}>36 secs</p>
+							</div>
+							<img src={options} alt="" className={styles.options} />
+						</section>
+						<Link to="/dashboard/questions" style={{ textDecoration: 'none' }}>
+							<h4 className={styles.title}>
+								Why does the NoReverse match error pop up when I’m trying to
+								marginate my django website?
+							</h4>
+							<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+								I actually have no idea why this happens but i feel like if we
+								all come together we can think of something that could work so
+								i’m placing a bounty on this question thanks.
+							</p>
+						</Link>
+						<div className={styles.tags}>
+							<button type="button">Python</button>
+						</div>
+						<section className={styles.cardFooter}>
+							<div className={styles.icons}>
+								<span className={styles.viewReplies}>
+									<img src={message} alt="" />
+									{'17 '}
+								</span>
+								<span className={styles.likes}>
+									<img src={heartBold} alt="" />
+									12
+								</span>
+								<img src={share} alt="" className={styles.share} />
+							</div>
+							<span className={styles.reward}>
+								<img src={dollarCircle} alt="" /> 1200token
+							</span>
+						</section>
+					</div>
+				</div>
+
+				<div className={styles.cardContainer}>
+					<Link to="'profile/">
+						<img
+							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
+							alt=""
+							className={styles.profilePicture}
+						/>
+					</Link>
+					<div>
+						<section className={styles.cardHeader}>
+							<div className={styles.userInfo}>
+								<Link
+									to="/profile/"
+									style={{ display: 'flex', textDecoration: 'none' }}
+								>
+									<h5 className={styles.askName}>
+										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
+									</h5>
+								</Link>
+								<p className={styles.time}>36 secs</p>
+							</div>
+							<img src={options} alt="" className={styles.options} />
+						</section>
+						<Link to="/dashboard/questions" style={{ textDecoration: 'none' }}>
+							<h4 className={styles.title}>
+								Why does the NoReverse match error pop up when I’m trying to
+								marginate my django website?
+							</h4>
+							<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+								I actually have no idea why this happens but i feel like if we
+								all come together we can think of something that could work so
+								i’m placing a bounty on this question thanks.
+							</p>
+						</Link>
+						<div className={styles.tags}>
+							<button type="button">Python</button>
+						</div>
+						<section className={styles.cardFooter}>
+							<div className={styles.icons}>
+								<span className={styles.viewReplies}>
+									<img src={message} alt="" />
+									{'17 '}
+								</span>
+								<span className={styles.likes}>
+									<img src={heartBold} alt="" />
+									12
+								</span>
+								<img src={share} alt="" className={styles.share} />
+							</div>
+							<span className={styles.reward}>
+								<img src={dollarCircle} alt="" /> 1200token
+							</span>
+						</section>
+					</div>
+				</div>
+
+				<div className={styles.cardContainer}>
+					<Link to="'profile/">
+						<img
+							src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
+							alt=""
+							className={styles.profilePicture}
+						/>
+					</Link>
+					<div>
+						<section className={styles.cardHeader}>
+							<div className={styles.userInfo}>
+								<Link
+									to="/profile/"
+									style={{ display: 'flex', textDecoration: 'none' }}
+								>
+									<h5 className={styles.askName}>
+										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
+									</h5>
+								</Link>
+								<p className={styles.time}>36 secs</p>
+							</div>
+							<img src={options} alt="" className={styles.options} />
+						</section>
+						<Link to="/dashboard/questions" style={{ textDecoration: 'none' }}>
+							<h4 className={styles.title}>
+								Why does the NoReverse match error pop up when I’m trying to
+								marginate my django website?
+							</h4>
+							<p className={styles.reply} style={{ lineHeight: '1.8' }}>
+								I actually have no idea why this happens but i feel like if we
+								all come together we can think of something that could work so
+								i’m placing a bounty on this question thanks.
+							</p>
+						</Link>
+						<div className={styles.tags}>
+							<button type="button">Python</button>
+						</div>
+						<section className={styles.cardFooter}>
+							<div className={styles.icons}>
+								<span className={styles.viewReplies}>
+									<img src={message} alt="" />
+									{'17 '}
+								</span>
+								<span className={styles.likes}>
+									<img src={heartBold} alt="" />
+									12
+								</span>
+								<img src={share} alt="" className={styles.share} />
+							</div>
+							<span className={styles.reward}>
+								<img src={dollarCircle} alt="" /> 1200token
+							</span>
+						</section>
+					</div>
+				</div>
 			</section>
 
 			<section
