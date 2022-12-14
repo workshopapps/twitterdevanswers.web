@@ -1,11 +1,14 @@
 .tags-section {
-	background-color: #f7f7fe;
-	padding: 40px 20px;
+	background-color: #FEFEFE;
+	padding: 40px 40px;
+	width: max-content;
+	display: flex;
 }
 
 .tags-container {
-	max-width: 1250px;
+	max-width: 1550px;
 	margin: 0 auto;
+	flex-basis: 50%;
 }
 
 .header-title {
@@ -68,6 +71,7 @@
 	justify-content: space-between;
 	padding: 0 15px;
 	margin-bottom: 30px;
+	gap: 10px;
 }
 
 .hid {
@@ -96,10 +100,11 @@
 
 .grid {
 	display: grid;
-	grid-template-columns: repeat(4, calc(100% / 4 - 20px));
+	grid-template-columns: repeat(2, calc(100% / 2 - 20px));
 	justify-content: space-between;
 	row-gap: 20px;
 }
+
 
 .list {
 	display: grid;
@@ -107,9 +112,12 @@
 	grid-template-columns: 1fr;
 }
 
+.sidebar {
+	flex-basis: 20%;
+}
 @media screen and (max-width: 1150px) {
 	.grid {
-		grid-template-columns: repeat(3, calc(100% / 3 - 20px));
+		grid-template-columns: repeat(2, calc(100% / 2 - 20px));
 	}
 	.hidden_1 {
 		display: none;

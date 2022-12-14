@@ -1,9 +1,10 @@
 .tag {
-	background: #fff;
+	background: #FEFEFE;
 	padding: 20px;
 	width: 100%;
 	color: #333;
 	word-break: break-word;
+	border: 1px solid #ECECFB;
 }
 
 .list_tag {
