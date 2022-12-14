@@ -341,7 +341,7 @@ export default function InternalHeader() {
 							</li>
 							<li className={styles.log}>
 								<NavLink
-									to="/jk"
+									to="/"
 									style={linkStyle}
 									className={activeStyle}
 									onClick={hadnleClick}

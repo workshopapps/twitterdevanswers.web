@@ -301,6 +301,7 @@ li {
 	.isActive .snIcon {
 		color: #492b7c;
 		stroke: #492b7c;
+		fill: #492b7c;
 	}
 
 	.hamburger {
