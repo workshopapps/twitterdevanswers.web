@@ -53,7 +53,7 @@ function App() {
 	const token = localStorage.getItem('token');
 
 	return (
-		<div className="App">
+		<div className="App">  
 			{token || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<FirstLandingPage />} />
