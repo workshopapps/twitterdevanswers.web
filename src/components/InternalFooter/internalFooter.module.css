@@ -1,7 +1,7 @@
 .footerContainer {
 	padding: 18px;
-	background: #fff;
-	display: none;
+	background: #492b7c;
+	font-family: 'Nunito';
 }
 
 .footer {
@@ -9,6 +9,45 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	display: none;
+}
+
+.internalfooter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.2rem 0;
+}
+
+.internalfooter p {
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 27px;
+	color: #fefefe;
+}
+
+.brandSocials {
+	display: flex;
+	flex-direction: column;
+}
+.brand {
+	display: flex;
+	gap: 26px;
+	align-items: center;
+	color: #fefefe;
+	font-weight: 800;
+	font-size: 33.9202px;
+	line-height: 40px;
+	cursor: pointer;
+	text-decoration: none;
+}
+.socials {
+	margin-top: 24px;
+	display: flex;
+	align-items: center;
+	gap: 14.78px;
 }
 
 .icon {
@@ -17,13 +56,17 @@
 }
 
 .isActive .icon {
-	color: #4343de;
-	fill: #4343de;
+	color: #492b7c;
+	fill: #492b7c;
 }
 
 @media only screen and (max-width: 500px) {
 	.footerContainer {
 		display: block;
+	}
+
+	.internalfooter{
+		display: none;
 	}
 
 	.footer {

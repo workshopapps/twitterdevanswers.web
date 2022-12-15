@@ -143,7 +143,6 @@ function useMessenger() {
 					Authorization: `Bearer ${token}`,
 				},
 			});
-
 			return response;
 		} catch (error) {
 			throw new Error(error);

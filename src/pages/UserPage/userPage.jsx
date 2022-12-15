@@ -14,7 +14,7 @@ function userPage() {
 			try {
 				setIsLoading(true);
 				const data = await axios.get(
-					`https://api.devask.hng.tech/users/${user}`,
+					`https://api.devask.hng.tech/users/`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,

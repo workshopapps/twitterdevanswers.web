@@ -5,7 +5,7 @@ import useravatar from '../../assets/user-images/useravatar.svg';
 import styles from '../../pages/UserPage/userPage.module.css';
 import { AppContext } from '../../store/AppContext';
 
-function UserSuggest({user}) {
+function UserSuggest() {
     const [info, setInfo] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [followers, setFollowers] = useState();
@@ -22,7 +22,7 @@ function UserSuggest({user}) {
 			try {
 				setIsLoading(true);
 				const data = await axios.get(
-					`https://api.devask.hng.tech/users/${user}`,
+					`https://api.devask.hng.tech/users/`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,

@@ -59,7 +59,7 @@ function UserActivities() {
 	useEffect(() => {
 		(async function getData() {
 			const userIdResponse = await axios.get(
-				`https://api.devask.hng.tech/users/${thisuser}`,
+				`https://api.devask.hng.tech/users/get/${thisuser}`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -96,7 +96,7 @@ function UserActivities() {
 			const fetchUser = async () => {
 				try {
 					const data = await axios.get(
-						`https://api.devask.hng.tech/users/${thisuser}`,
+						`https://api.devask.hng.tech/users/get/${thisuser}`,
 						{
 							headers: {
 								Authorization: `Bearer ${token}`,
@@ -188,7 +188,7 @@ function UserActivities() {
 							</section>
 							<div>
 								<Link
-									to={`/dashboard/questions/${question.question_id}`}
+									to={`/question-page/${question.question_id}`}
 									style={{ textDecoration: 'none' }}
 									className={styles.title}
 								>
@@ -201,7 +201,7 @@ function UserActivities() {
 							<section className={styles.cardFooter}>
 								<div className={styles.icons}>
 									<Link
-										to={`/dashboard/questions/${question.question_id}`}
+										to={`/question-page/${question.question_id}`}
 										style={{ textDecoration: 'none' }}
 									>
 										<span className={styles.viewReplies}>
@@ -246,7 +246,7 @@ function UserActivities() {
 										<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
 									</h5>
 								</Link>
-								<p className={styles.time}>36 secs</p>
+								<p className={styles.time}>December 12, 2022</p>
 							</div>
 							<img src={options} alt="" className={styles.options} />
 						</section>
@@ -305,7 +305,7 @@ function UserActivities() {
 												<span>Ayodele Emmanuel</span> <span>@ayemma_dev</span>
 											</h5>
 										</Link>
-										<p className={styles.time}>36 secs</p>
+										<p className={styles.time}>December 12, 2022</p>
 									</div>
 									<img src={options} alt="" className={styles.options} />
 								</section>
@@ -417,7 +417,7 @@ function UserActivities() {
 												<span>Kayla Nicole</span> <span>@kayla_nicole </span>
 											</h5>
 										</Link>
-										<p className={styles.time}>36 secs </p>
+										<p className={styles.time}>December 12, 2022 </p>
 									</div>
 									<img src={options} alt="" className={styles.options} />
 								</section>
@@ -526,7 +526,7 @@ function UserActivities() {
 												<span>Kayla Nicole</span> <span>@kayla_nicole </span>
 											</h5>
 										</Link>
-										<p className={styles.time}>36 secs </p>
+										<p className={styles.time}>December 12, 2022 </p>
 									</div>
 									<img src={options} alt="" className={styles.options} />
 								</section>
