@@ -42,6 +42,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
+import Dashboard from './pages/Dashboard/index';
 
 function App() {
 	const {
@@ -53,6 +54,7 @@ function App() {
 		<div className="App">
 			{token || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
+				<Route path="/dash" element={<Dashboard />} />
 				<Route path="/" element={<FirstLandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />

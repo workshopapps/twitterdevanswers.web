@@ -42,7 +42,7 @@ function NewDashboard() {
 	}, []);
 
 	return (
-		<div className={` lpContainer`}>
+		<div className={` dashContainer`}>
 			<div className={`${styles.dashboard}`}>
 				<main className={styles.main}>
 					<div className={styles.header}>
