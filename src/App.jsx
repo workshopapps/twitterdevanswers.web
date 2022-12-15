@@ -38,6 +38,7 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
+import BlogPageReview from "./pages/BlogPageReview";
 import AdminDashboard from './pages/AdminDashboard';
 import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
@@ -84,6 +85,8 @@ function App() {
 					<Route path="security-settings" element={<Security />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
+					<Route path="/blog-page-review" element={<BlogPageReview />} />
+
 					<Route path="*" element={<ErrorPage />} />
 					<Route
 						path="notification-settings"
