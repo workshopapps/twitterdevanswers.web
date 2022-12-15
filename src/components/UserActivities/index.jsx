@@ -145,7 +145,7 @@ function UserActivities() {
 				const allAnswersData = await allAnswersResponse.data.data;
 				setAnswers(allAnswersData);
 			} catch (error) {
-				setAllQuestions([]);
+				setAnswers([]);
 			}
 
 			const fetchTotalLikes = async () => {
