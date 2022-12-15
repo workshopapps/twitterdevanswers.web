@@ -95,12 +95,14 @@ function App() {
 						path="notification-settings"
 						element={<NotificationSettings />}
 					/>
-					<Route path="/privacyandsafety-settings" element={<PrivacyandSafetySettings />} />
+					<Route
+						path="/privacyandsafety-settings"
+						element={<PrivacyandSafetySettings />}
+					/>
 					<Route path="manage-user/:username" element={<ManageUser />} />
 					<Route path="admin-dashboard" element={<AdminDashboard />} />
 					<Route path="admin-signup" element={<AdminSignUp />} />
 					<Route path="admin-login" element={<AdminSignIn />} />
-
 				</Route>
 
 				<Route path="*" element={<ErrorPage />} />

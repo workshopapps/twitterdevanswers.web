@@ -3,7 +3,7 @@
 	padding-bottom: 40px;
 	color: #303030;
 	display: flex;
-	gap: 20px;
+	gap: 50px;
 }
 
 .main {
@@ -57,8 +57,8 @@
 
 .avatar img {
 	border-radius: 50%;
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	cursor: pointer;
 }
 
@@ -153,6 +153,13 @@
 	font-size: 18px;
 }
 
+.share {
+	outline: none;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
 .replies {
 	padding-right: 10px;
 	margin-top: 57px;
@@ -173,9 +180,16 @@
 }
 
 .aside {
-	margin-top: 116px;
+	margin-top: 72px;
+	padding-top: 20px;
 	width: 479px;
 	flex: 0 1 auto;
+	height: 100%;
+	padding-right: 20px;
+	position: sticky;
+	top: 0;
+	right: 0;
+	padding-bottom: 40px;
 }
 
 @media only screen and (max-width: 1040px) {
