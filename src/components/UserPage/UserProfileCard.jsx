@@ -13,6 +13,7 @@ function UserProfileCard({ user }) {
 
 	useEffect(() => {
 		const getFollowers = async (userId) => {
+
 			try {
 				const res = await axios.get(
 					`https://api.devask.hng.tech/following/followers/${userId}`,
@@ -68,6 +69,14 @@ function UserProfileCard({ user }) {
 				{
 					headers,
 				}
+
+
+
+
+
+
+
+				
 			);
 
 			if (res.data.success === true) {

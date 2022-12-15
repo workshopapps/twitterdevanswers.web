@@ -2,7 +2,7 @@
 import React,{useState, useContext} from 'react';
 import EditAccountCSS from './style.module.css';
 import TestImage from '../../../../assets/settings-images/test-img.jfif';
-import Experience from "./dataExperience"
+import Experience from "./dataExperience.jsx"
 import { AppContext } from '../../../../store/AppContext';
 import { EDIT_USER } from '../../../../store/actionTypes';
 import updateUser from './api';
