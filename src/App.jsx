@@ -38,14 +38,15 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
-import NewDashboard from './pages/NewDashboard/NewDashboard';
-import QuestionPage from './pages/NewDashboard/QuestionPage';
+// import NewDashboard from './pages/NewDashboard/NewDashboard';
+// import QuestionPage from './pages/NewDashboard/QuestionPage';
 import PrivacyandSafetySettings from './pages/PrivacyAndSafetySettings/Index'
 import BlogPageReview from "./pages/BlogPageReview";
 import AdminDashboard from './pages/AdminDashboard';
 import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
+import EditAcccount from './pages/Settings/components/EditAccount';
 
 function App() {
 	const {
@@ -72,6 +73,7 @@ function App() {
 				<Route path="login" element={<Login />} />
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
+				<Route path="editaccount" element={<EditAcccount />} />
 
 				<Route element={<ProtectedRoutes />}>
 					<Route path="/dashboard" element={<NewDashboard />} />

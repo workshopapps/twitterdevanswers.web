@@ -2,10 +2,10 @@
 import React,{useState, useContext} from 'react';
 import EditAccountCSS from './style.module.css';
 import TestImage from '../../../../assets/settings-images/test-img.jfif';
-import Experience from "./dataExperience.jsx"
 import { AppContext } from '../../../../store/AppContext';
 import { EDIT_USER } from '../../../../store/actionTypes';
 import updateUser from './api';
+import  Location  from "./Location"
 
 
 
@@ -14,11 +14,22 @@ function EditAcccount() {
 	const {state, dispatch } = useContext(AppContext);
 	const imageInput = React.createRef();
 	const [user, setUser] = useState(state.user); 
+	const [links, setLinks] =useState([""])
+	
 	const changeHandler = (event) => {
 		setUser((prev) => ({
 			...prev,
 			[event.target.name]: event.target.value,
 		}));
+		
+	};
+
+	const handleLinks= (event) => {
+		setLinks((prev) => ({
+			...prev,
+			[event.target.name]: event.target.value,
+		}));
+		
 	};
 
 	const onImageChange = (event) => {
@@ -59,7 +70,7 @@ function EditAcccount() {
 			</div>
 			<div className={EditAccountCSS.userinfo}>
 				<div className={EditAccountCSS.userprofile}>
-					<div >
+					<div className={EditAccountCSS.imgcon} >
 						 <img
 							 className={EditAccountCSS.profileimg}
 							 alt="profile "
@@ -110,7 +121,7 @@ function EditAcccount() {
 									className={EditAccountCSS.textinput}
 									type="text"
 									placeholder="John "
-									value={user.firstName}
+									value={user.first_name}
 									name="firstName"
 									onChange={changeHandler}
 								/>
@@ -123,7 +134,7 @@ function EditAcccount() {
 									className={EditAccountCSS.textinput}
 									type="text"
 									placeholder=" Doe"
-									value={user.lastName}
+									value={user.last_name}
 									name="lastName"
 									onChange={changeHandler}
 								/>
@@ -139,7 +150,7 @@ function EditAcccount() {
 									className={EditAccountCSS.textinput}
 									type="text"
 									placeholder="Johndoe123"
-									value={user.displayname}
+									value={user.username}
 									name="displayname"
 									onChange={changeHandler}
 								/>
@@ -183,16 +194,16 @@ function EditAcccount() {
 
 							<label htmlFor className={EditAccountCSS.label}>
 								Work Experience :
-								<select
+								<input
 									className={EditAccountCSS.textinput}
 									required
-									value={user.workExperience}
+									value={user.work_experience}
 									name="experience"
 									onChange={changeHandler}
-								>
-									<Experience />
+									placeholder="Beginner"
+								/>
 									
-								</select>						
+														
 							</label>
 
 						</div>
@@ -258,6 +269,62 @@ function EditAcccount() {
 								/>
 							</label>
 						</div>
+						<div  className={EditAccountCSS.container}>
+
+							<label className={EditAccountCSS.label} htmlFor="phoneinput">
+								Phone number
+							<input
+								className={EditAccountCSS.textinput}
+								type="text"
+								placeholder="07041623913"
+								value={user.phone_number}
+								name="phone_number"
+								onChange={changeHandler}
+							/>
+							</label>
+							<label htmlFor='locale' className={EditAccountCSS.label}>
+								Location
+								<select
+									className={EditAccountCSS.textinput}
+									value={user.location}
+									onChange={changeHandler}
+								>	
+								<Location />
+								</select>			
+							</label>
+						</div>
+
+						<div className={EditAccountCSS.container}>
+
+							<label htmlFor className={EditAccountCSS.label}>
+								Github Link:
+								<input
+								required
+								id="githubinput"
+								className={EditAccountCSS.textinput}
+								type="text"
+								placeholder="your Github link"
+								value={links.links}
+								name="github"
+								onChange={changeHandler}
+								/>
+							</label>
+
+							<label htmlFor className={EditAccountCSS.label}>
+								Twitter Link:
+								<input
+								required
+								id="linksinput"
+								className={EditAccountCSS.textinput}
+								type="text"
+								placeholder="Your Twitter link"
+								value={links.links}
+								name="twitter"
+								onChange={handleLinks}
+								/>
+							</label>
+							</div>
+
 						
 						<div className={EditAccountCSS.buttons}>
 							<button id='save-el'  className={EditAccountCSS.savebtn}  type="submit">

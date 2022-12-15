@@ -1,11 +1,9 @@
-.editaccount{
+.editaccount {
 	display: flex;
 	flex-direction: column;
-	height: 939px;
 	background-color: rgba(255, 255, 255, 0.41);
 	padding: 40px 116px 104px 16px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	height: 1300px;
 	width: 90%;
 	margin: auto;
 }
@@ -23,10 +21,7 @@
 	cursor: pointer;
 }
 
-
-
-
-.tabheading h2{
+.tabheading h2 {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 500;
 	color: #1d1dd8;
@@ -122,6 +117,13 @@
 	border-radius: 8px;	
 	}
 	
+
+
+
+
+
+
+
 .userinfo {
 	display: flex;
 	flex-direction: column;
@@ -183,7 +185,9 @@
 	.user-info
 	.user-details-form
 	form
-	label {
+	label
+	.phonenumberinputs
+	input[type='number'] {
 	width: 100%;
 	padding: 12px 24px;
 	grid-gap: 20px;
@@ -220,9 +224,15 @@
 		border: 1px solid #757575;
 		border-radius: 8px;	
 		}
-		.user-info{
-	height: 1300px;
-
+		/* .user-info{
+			height: 1300px;
+		}*/
+	.edit-account{
+		margin-bottom:3000px
+	} 
+		
+		.imgcon{
+			margin-bottom: 70%;
 		}
 }
 
@@ -267,7 +277,9 @@
 		.user-info
 		.user-details-form
 		form
-		label {
+		label
+		.phonenumberinputs
+		input[type='number'] {
 		width: 100%;
 		padding: 12px 24px;
 		grid-gap: 20px;
