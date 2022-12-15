@@ -54,8 +54,6 @@ function QuestionPage() {
 			setAskedBy(user);
 		};
 
-		console.log(askedBy);
-
 		if (Object.keys(question).length !== 0) fetchUser();
 	}, [question]);
 
