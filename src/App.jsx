@@ -38,8 +38,8 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
-import NewDashboard from './pages/NewDashboard/NewDashboard';
-import QuestionPage from './pages/NewDashboard/QuestionPage';
+// import NewDashboard from './pages/NewDashboard/NewDashboard';
+// import QuestionPage from './pages/NewDashboard/QuestionPage';
 import PrivacyandSafetySettings from './pages/PrivacyAndSafetySettings/Index'
 import BlogPageReview from "./pages/BlogPageReview";
 import AdminDashboard from './pages/AdminDashboard';
