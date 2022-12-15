@@ -25,9 +25,9 @@ function AnswerInput({ handleSubmitAnswer }) {
 			}}
 		>
 			<div className={styles.input}>
-				<span className={styles.avatar}>
+				<div className={styles.avatar}>
 					<img src={avatar} alt="user avatar" />
-				</span>
+				</div>
 				<textarea
 					name="content"
 					placeholder="Type your reply"
