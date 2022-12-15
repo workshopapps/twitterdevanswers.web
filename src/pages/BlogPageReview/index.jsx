@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './BlogPage.module.css';
+import styles from './BlogPageReview.module.css';
 import rightWay from '../../assets/blog-images/rightWay.svg';
 import searchbtn from '../../assets/blog-images/searchbtn.svg';
 // import dropdown from '../../assets/blog-images/dropdown.svg';
