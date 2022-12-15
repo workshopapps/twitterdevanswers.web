@@ -62,7 +62,7 @@ function AdminSignUp() {
 			password: userInfo.password,
 			confirmPassword: userInfo.confirmPassword,
 			email_verification_code: userInfo.verificationCode,
-			is_admin: 'yes',
+			is_admin: true,
 		};
 		try {
 			const data = await axios.post(
