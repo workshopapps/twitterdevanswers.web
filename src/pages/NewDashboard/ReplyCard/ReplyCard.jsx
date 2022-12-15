@@ -58,7 +58,7 @@ function ReplyCard({
 								}
 							>{`${answeredBy?.first_name} ${answeredBy?.last_name}`}</span>
 							<span
-								className={`${styles.grayText} ${styles.name}`}
+								className={`${styles.grayText} ${styles.username}`}
 								role="link"
 								onKeyDown={() => {}}
 								tabIndex={0}
@@ -69,7 +69,9 @@ function ReplyCard({
 								@{answeredBy?.username}
 							</span>
 							<span className={styles.grayText}>.</span>
-							<span className={styles.grayText}>{timeStamp(createdAt)}</span>
+							<span className={`${styles.grayText} ${styles.timeStamp}`}>
+								{timeStamp(createdAt)}
+							</span>
 						</div>
 						<div className={styles.replyingTo}>Replying to @{replyingTo}</div>
 					</div>

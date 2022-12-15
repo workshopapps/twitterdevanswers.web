@@ -44,7 +44,7 @@
 
 .topic {
 	display: grid;
-	grid-template-columns: auto 1fr;
+	grid-template-columns: 60px 1fr;
 	gap: 15px;
 }
 
@@ -52,6 +52,7 @@
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
+	object-fit: cover;
 }
 
 .content a:link,
