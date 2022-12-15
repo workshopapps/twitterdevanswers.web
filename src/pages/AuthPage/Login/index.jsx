@@ -8,11 +8,11 @@ import styles from './styles.module.css';
 import AuthModal from '../AuthModal';
 import Input from '../Input';
 import Button from '../../../components/AuthFormButton';
-import logo from '../../../assets/auth-images/logo.png'
-import topleftcircle from '../../../assets/auth-images/topleftcircle.png'
-import midleftcircle from '../../../assets/auth-images/midleftcircle.png'
-import toprightblock from '../../../assets/auth-images/toprightblock.png'
-import toprightslant from '../../../assets/auth-images/toprightslant.png'
+import logo from '../../../assets/auth-images/logo.png';
+import topleftcircle from '../../../assets/auth-images/topleftcircle.png';
+import midleftcircle from '../../../assets/auth-images/midleftcircle.png';
+import toprightblock from '../../../assets/auth-images/toprightblock.png';
+import toprightslant from '../../../assets/auth-images/toprightslant.png';
 
 function Login() {
 	const [input, setInput] = useState({
