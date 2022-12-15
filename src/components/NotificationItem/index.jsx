@@ -48,7 +48,6 @@ function NotificationItem({ notification }) {
 							</p>
 						</div>
 					) : null}
-
 				</div>
 			</div>
 			<img

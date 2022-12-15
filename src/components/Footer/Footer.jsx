@@ -37,7 +37,7 @@ export default function Footer() {
 					<Link to="/" className={styles.link}>
 						About
 					</Link>
-					<Link to="blog" className={styles.link}>
+					<Link to="blog-page" className={styles.link}>
 						Blog
 					</Link>
 					<Link to="pricing-page" className={styles.link}>

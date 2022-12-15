@@ -1,0 +1,104 @@
+.card {
+	padding: 24px 24px 24px 16px;
+	background: #ffffff;
+	border: 1px solid #ececfb;
+	border-radius: 8px;
+	display: flex;
+	gap: 16px;
+	color: #303030;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.avatar {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.top {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.top a:link,
+.top a:visited {
+	color: #303030;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 27px;
+}
+
+.top span {
+	font-size: 14px;
+	line-height: 25px;
+	color: #989898;
+}
+
+span.fullName {
+	color: #303030;
+	font-size: 18px;
+	line-height: 27px;
+	font-weight: 500;
+	text-transform: capitalize;
+}
+
+.right {
+	flex: 1;
+}
+
+.right h3 {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 24px;
+	margin-bottom: 12px;
+}
+
+.right p {
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 16px;
+}
+
+.img {
+	width: 100%;
+}
+
+.tag {
+	display: inline-block;
+	padding: 8px 16px;
+	background: #e2d9f2;
+	border-radius: 4px;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 16px;
+	color: #492b7c;
+}
+
+.bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 40px;
+}
+
+.icons {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+}
+
+.replies,
+.likes {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.icon {
+	font-size: 20px;
+	max-width: fit-content;
+}

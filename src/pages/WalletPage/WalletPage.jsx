@@ -11,16 +11,98 @@ import earn from '../../assets/wallet-images/earn.png';
 import spent from '../../assets/wallet-images/spent.png';
 import styles from './Wallet.module.css'
 
+
+// const transactionHistorytest = [
+//     {
+//         description: null,
+//         user_id: null,
+//         transacion_type: {
+//             code: "spent",
+//             value: "Spent"
+//         },
+//         amount: 50,
+//         transaction_id: 1,
+//         transaction_date: "2022-12-10T11:04:11" 
+//     },
+//     {
+//         description: null,
+//         user_id: null,
+//         transacion_type: {
+//             code: "earn",
+//             value: "Earned"
+//         },
+//         amount: 50,
+//         transaction_id: 2,
+//         transaction_date: "2022-12-10T11:04:11" 
+//     },
+//     {
+//         description: null,
+//         user_id: null,
+//         transacion_type: {
+//             code: "earn",
+//             value: "Earned"
+//         },
+//         amount: 50,
+//         transaction_id: 2,
+//         transaction_date: "2022-12-10T11:04:11" 
+//     },
+//     {
+//         description: null,
+//         user_id: null,
+//         transacion_type: {
+//             code: "spent",
+//             value: "Spent"
+//         },
+//         amount: 50,
+//         transaction_id: 2,
+//         transaction_date: "2022-12-10T11:04:11" 
+//     },
+//     {
+//         description: null,
+//         user_id: null,
+//         transacion_type: {
+//             code: "spent",
+//             value: "Spent"
+//         },
+//         amount: 50,
+//         transaction_id: 2,
+//         transaction_date: "2022-12-10T11:04:11" 
+//     },
+//     {
+//         description: null,
+//         user_id: null,
+//         transacion_type: {
+//             code: "earn",
+//             value: "Earned"
+//         },
+//         amount: 50,
+//         transaction_id: 2,
+//         transaction_date: "2022-12-10T11:04:11" 
+//     },
+//     {
+//         description: null,
+//         user_id: null,
+//         transacion_type: {
+//             code: "spent",
+//             value: "Spent"
+//         },
+//         amount: 50,
+//         transaction_id: 2,
+//         transaction_date: "2022-12-10T11:04:11" 
+//     },
+// ] 
+
 function WalletPage() {
     const [userMsg, setUserMsg] = useState("");
     const [viewAll, setViewAll] = useState(true);
     const [earned, setEarned] = useState(false);
 	const [error, setError] = useState(false);
 	const [data, setData] = useState({
-		totalEarned: 50000,
-		currentBalance: 50000,
-		totalSpent: 50000,
+		totalEarned: 0,
+		currentBalance: 0,
+		totalSpent: 0,
 		walletId: null,
+        transactionHistory: []
 	});
 
     const {
@@ -53,32 +135,41 @@ function WalletPage() {
 		}
 	}
 
-    // const fetchTransactionHistory = async () => {
-    //     if(userId) {
-    //         try {
-    //             const response = await axios.get(`https://api.devask.hng.tech/admin/transactions/users/${userId}?skip=0&limit=30`)
-    //             console.log('response', response)
+    const fetchTransactionHistory = async () => {
+        if(userId) {
+            try {
+                const response = await axios.get(`https://api.devask.hng.tech/admin/transactions/users/${userId}?skip=0&limit=30`)
+                const transactionHistory = response.data.transaction_history;
+                // console.log('transaction history', transactionHistory)
                 
-    //         } catch (e) {
-    //             setUserMsg("Something went wrong refresh your page", error)
-	// 			setError(false);
-    //         }
+                setData((prev) =>({
+					...prev,
+					transactionHistory
+				}))
+            } catch (e) {
+                setUserMsg("Something went wrong refresh your page", error)
+				setError(false);
+            }
 
-    //     } else {
-    //   		setUserMsg("Please sign up ");
-	// 		setError(false);
-	// 	}
-    // }
+        } else {
+      		setUserMsg("Please sign up ");
+			setError(false);
+		}
+    }
 
     useEffect(() => {
-		setError(false);
-		fetchUserData();
-        // fetchTransactionHistory();
 
-		setData((prev) =>({
-			...prev,
-			walletId
-		}))
+        const interval = setInterval(() => {
+            setError(false);
+            fetchUserData();
+            fetchTransactionHistory();
+    
+            setData((prev) =>({
+                ...prev,
+                walletId
+            }))
+        }, 3000);
+        return () => clearInterval(interval);
 	}, []);
 
     const handleEarnedTransaction = () => {
@@ -95,85 +186,6 @@ function WalletPage() {
 
     const month = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-    const TransactionHistory = [
-        {
-            description: null,
-            user_id: null,
-            transaction_type: {
-                code: "spent",
-                value: "Spent"
-            },
-            amount: 50,
-            transaction_id: 1,
-            transaction_date: "2022-12-10T11:04:11" 
-        },
-        {
-            description: null,
-            user_id: null,
-            transaction_type: {
-                code: "earn",
-                value: "Earn"
-            },
-            amount: 50,
-            transaction_id: 2,
-            transaction_date: "2022-12-10T11:04:11" 
-        },
-        {
-            description: null,
-            user_id: null,
-            transaction_type: {
-                code: "earn",
-                value: "Earn"
-            },
-            amount: 50,
-            transaction_id: 2,
-            transaction_date: "2022-12-10T11:04:11" 
-        },
-        {
-            description: null,
-            user_id: null,
-            transaction_type: {
-                code: "spent",
-                value: "Spent"
-            },
-            amount: 50,
-            transaction_id: 2,
-            transaction_date: "2022-12-10T11:04:11" 
-        },
-        {
-            description: null,
-            user_id: null,
-            transaction_type: {
-                code: "spent",
-                value: "Spent"
-            },
-            amount: 50,
-            transaction_id: 2,
-            transaction_date: "2022-12-10T11:04:11" 
-        },
-        {
-            description: null,
-            user_id: null,
-            transaction_type: {
-                code: "earn",
-                value: "Earn"
-            },
-            amount: 50,
-            transaction_id: 2,
-            transaction_date: "2022-12-10T11:04:11" 
-        },
-        {
-            description: null,
-            user_id: null,
-            transaction_type: {
-                code: "spent",
-                value: "Spent"
-            },
-            amount: 50,
-            transaction_id: 2,
-            transaction_date: "2022-12-10T11:04:11" 
-        },
-    ] 
 
 
   return (
@@ -203,28 +215,32 @@ function WalletPage() {
                         <button onClick={handleEarnedTransaction} className={`${styles.historyButtons1} ${earned && styles.currentButton}`} type="button">Earned</button>
                         <button onClick={handleSpentTransaction} className={`${styles.historyButtons2} ${!earned && styles.currentButton}`} type="button">Spent</button>
                     {  earned ?
-                        TransactionHistory.map((userTransaction) =>(   
-                            ( userTransaction.transaction_type.value === 'Earn' &&
-                            (<div className={styles.transactionBlock}>
+                        data.transactionHistory.slice(0,7).map((userTransaction) =>(   
+                            ( userTransaction.transacion_type.value === 'Earned' &&
+                            (<div key={userTransaction.transaction_id} className={styles.transactionBlock}>
                                 <h4>{`${month[getMonth(userTransaction.transaction_date)]} ${getFullYear(userTransaction.transaction_date)}`}</h4>
                                 <div className={styles.transaction}>
                                     <img src={transaction} alt="transactionMade" />
                                     <p>You’ve successfully earned tokens for a correct reply</p>
-                                    <span className={styles.date}>{`${getFullYear(userTransaction.transaction_date)}-${getMonth(userTransaction.transaction_date)+ 1}-0${getDay(userTransaction.transaction_date)}`}</span>
-                                    <span className={styles.token}>+{userTransaction.amount} tokens</span>
+                                    <div className={styles.recentFlex}>
+                                        <span className={styles.date}>{`${getFullYear(userTransaction.transaction_date)}-${getMonth(userTransaction.transaction_date)+ 1}-0${getDay(userTransaction.transaction_date)}`}</span>
+                                        <span className={styles.token}>+{userTransaction.amount} tokens</span>
+                                    </div>
                                 </div>
                             </div>))
                         ))    
                         :
-                        TransactionHistory.map((userTransaction) =>(   
-                            ( userTransaction.transaction_type.value === 'Spent' &&
-                            (<div className={styles.transactionBlock}>
+                        data.transactionHistory.slice(0,7).map((userTransaction) =>(   
+                            ( userTransaction.transacion_type.value === 'Spent' &&
+                            (<div key={userTransaction.transaction_id} className={styles.transactionBlock}>
                                 <h4>{`${month[getMonth(userTransaction.transaction_date)]} ${getFullYear(userTransaction.transaction_date)}`}</h4>
                                 <div className={styles.transaction}>
                                     <img src={transaction} alt="transactionMade" />
-                                    <p>You’ve successfully earned tokens for a correct reply</p>
-                                    <span className={styles.date}>{`${getFullYear(userTransaction.transaction_date)}-${getMonth(userTransaction.transaction_date)+ 1}-0${getDay(userTransaction.transaction_date)}`}</span>
-                                    <span className={styles.token}>-{userTransaction.amount} tokens</span>
+                                    <p>You’ve successfully spent tokens for a question</p>
+                                    <div className={styles.recentFlex}>
+                                        <span className={styles.date}>{`${getFullYear(userTransaction.transaction_date)}-${getMonth(userTransaction.transaction_date)+ 1}-0${getDay(userTransaction.transaction_date)}`}</span>
+                                        <span className={styles.token}>-{userTransaction.amount} tokens</span>
+                                    </div>    
                                 </div>
                             </div>))
                         )) 
@@ -233,20 +249,47 @@ function WalletPage() {
             </div>
         </section>
 
-        <section >
+        <section className={styles.secondSection}>
                 <div  className={styles.transactionHistoryWrapper}>
                     <div className={styles.transactionHistoryHeader}>
                         <h4>Transaction History</h4>
                         <span role = "button" tabIndex={0} onClick={handleViewAll} onKeyDown={handleViewAll}>
                             <p>{viewAll ? 'View all' : 'View less'}</p>
-                            {viewAll ?<img src={viewMore} alt="view all" /> : <img src={viewLess} alt="view all" />}
+                            {viewAll ?<img src={viewMore} alt="view all" /> : <img src={viewLess} alt="view less" />}
                         </span>
                     </div>
                     <div className={styles.transactionHistoryBody}>
-                        {
-                            TransactionHistory.map((userTransaction) =>(
-                                userTransaction.transaction_type.value === 'Earn' ?
-                                    <div>
+                        {   viewAll ?
+                                data.transactionHistory.slice(0, 4).map((userTransaction) =>(
+                                    userTransaction.transacion_type.value === 'Earned' ?
+                                        <div key={userTransaction.transaction_id}>
+                                            <h4>{`${month[getMonth(userTransaction.transaction_date)]} ${getFullYear(userTransaction.transaction_date)}`}</h4>
+                                            <div className={styles.transactionHistoryBlock}>
+                                                    <img src={earn} alt="arrow earn" />
+                                                <div className={styles.transactionHistoryRecord}>
+                                                    <p className={styles.p1}>{userTransaction.amount} token Deposited Successfully</p>
+                                                    <p className={styles.p2}>{data.walletId}</p>
+                                                </div>
+                                                    <span>{getTime(userTransaction.transaction_date)}</span>
+                                            </div>
+                                        </div>
+                                    :
+                                    <div key={userTransaction.transaction_id}>
+                                        <h4>{`${month[getMonth(userTransaction.transaction_date)]} ${getFullYear(userTransaction.transaction_date)}`}</h4>
+                                        <div className={styles.transactionHistoryBlock}>
+                                                <img src={spent} alt="arrow spent" />
+                                            <div className={styles.transactionHistoryRecord}>
+                                                <p className={styles.p1}>{userTransaction.amount} token Withdrawn Successfully</p>
+                                                <p className={styles.p2}>{data.walletId}</p>
+                                            </div>
+                                                <span>{getTime(userTransaction.transaction_date)}</span>
+                                        </div>
+                                    </div>
+                                ))
+                            :  
+                            data.transactionHistory.map((userTransaction) =>(
+                                userTransaction.transacion_type.value === 'Earned' ?
+                                    <div key={userTransaction.transaction_id} className={styles.transactionFlex}>
                                         <h4>{`${month[getMonth(userTransaction.transaction_date)]} ${getFullYear(userTransaction.transaction_date)}`}</h4>
                                         <div className={styles.transactionHistoryBlock}>
                                                 <img src={earn} alt="arrow earn" />
@@ -258,7 +301,7 @@ function WalletPage() {
                                         </div>
                                     </div>
                                 :
-                                <div>
+                                <div key={userTransaction.transaction_id} className={styles.transactionFlex}>
                                     <h4>{`${month[getMonth(userTransaction.transaction_date)]} ${getFullYear(userTransaction.transaction_date)}`}</h4>
                                     <div className={styles.transactionHistoryBlock}>
                                             <img src={spent} alt="arrow spent" />
@@ -269,7 +312,7 @@ function WalletPage() {
                                             <span>{getTime(userTransaction.transaction_date)}</span>
                                     </div>
                                 </div>
-                            ))
+                            ))  
                         }
                     </div>
                 </div>  

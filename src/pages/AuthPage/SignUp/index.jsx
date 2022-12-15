@@ -46,10 +46,14 @@ function SignUp() {
 
 		if (!formErrors) {
 			try {
-				const { data } = await axios.post(
-					'https://api.devask.hng.tech/auth/signup',
-					input
-				);
+				const response = axios({
+					method: 'post',
+					url: 'https://api.devask.hng.tech/auth/signup',
+					data: input,
+					headers: { 'Access-Control-Allow-Origin': '*' },
+				});
+
+				const { data } = await response;
 
 				if (data.status_code && data.status_code === 400) {
 					setServerResponse(
@@ -78,7 +82,7 @@ function SignUp() {
 					payload: false,
 				});
 
-				navigate('/');
+				navigate('/dashboard');
 				window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 			} catch (error) {
 				setServerResponse(

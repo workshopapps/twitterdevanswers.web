@@ -11,6 +11,7 @@ import { ReactComponent as SortIcon } from '../../assets/header-images/sort.svg'
 import { ReactComponent as SettingsIcon } from '../../assets/header-images/settings.svg';
 import { ReactComponent as NotificationIcon } from '../../assets/header-images/notification.svg';
 import { ReactComponent as SearchIcon } from '../../assets/header-images/search.svg';
+import { ReactComponent as Logout } from '../../assets/header-images/logout.svg';
 import avatar from '../../assets/header-images/avatar.svg';
 import brandLogo from '../../assets/header-images/brandlogo2.svg';
 import styles from './internalHeader.module.css';
@@ -131,7 +132,8 @@ export default function InternalHeader() {
 		fontWeight: '500',
 		fontSize: '18px',
 		lineHeight: '28px',
-		color: '#4343de',
+		color: '#492b7c',
+		// color: '#4343de',
 	};
 
 	return (
@@ -282,6 +284,7 @@ export default function InternalHeader() {
 									</div>
 								</NavLink>
 							</li>
+
 							<li>
 								<NavLink
 									to="/wallet"
@@ -304,6 +307,19 @@ export default function InternalHeader() {
 									<div className={styles.snLink}>
 										<SettingsIcon className={styles.snIcon} />{' '}
 										<span>Settings</span>
+									</div>
+								</NavLink>
+							</li>
+							<li className={styles.log}>
+								<NavLink
+									to="/"
+									style={linkStyle}
+									className={activeStyle}
+									onClick={hadnleClick}
+								>
+									<div className={styles.snLink}>
+										<Logout />{' '}
+										<span className={styles.logspan} >Logout</span>
 									</div>
 								</NavLink>
 							</li>
