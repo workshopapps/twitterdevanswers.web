@@ -11,6 +11,7 @@ import AnswerInput from './AnswerInput/AnswerInput';
 import useMessenger from './utils';
 import AuthModal from '../AuthPage/AuthModal';
 import { useModal } from '../AuthPage/utils';
+import Modal from '../../components/Modal/Modal';
 
 function QuestionPage() {
 	const navigate = useNavigate();
@@ -20,9 +21,24 @@ function QuestionPage() {
 	const [askedBy, setAskedBy] = useState({});
 	const [answers, setAnswers] = useState([]);
 	const [msg, setMsg] = useState('');
+	const [show, setShow] = useState(false);
 
 	const { getQuestions, getAnswers, getUsers, postAnswer } = useMessenger();
 	const { modal, showModal } = useModal();
+
+	function showShareModal() {
+		setShow(true);
+	}
+
+	function hideShareModal() {
+		setShow(false);
+	}
+
+	const showShare = (event) => {
+		event.stopPropagation();
+		showShareModal();
+	};
+	const hideShare = () => hideShareModal();
 
 	// get question
 	useEffect(() => {
@@ -93,12 +109,11 @@ function QuestionPage() {
 		} catch (error) {
 			showModal();
 			setMsg(error.response.data.detail);
-			console.log('weerrror', error);
 		}
 	};
 
 	return (
-		<div className="lpContainer">
+		<div className="dashContainer">
 			<div className="modal">{modal && <AuthModal text={msg} />}</div>
 			<div className={styles.dashboard}>
 				<section className={styles.main}>
@@ -201,9 +216,15 @@ function QuestionPage() {
 													style={{ fill: 'transparent' }}
 												/>
 											</div>
-											<div>
+											<Modal onClose={hideShare} show={show} hide={hideShare} />
+
+											<button
+												type="button"
+												onClick={showShare}
+												className={styles.share}
+											>
 												<BsShare className={styles.icon} />
-											</div>
+											</button>
 										</div>
 									</div>
 								</div>
