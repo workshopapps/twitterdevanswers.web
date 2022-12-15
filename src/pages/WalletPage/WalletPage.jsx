@@ -118,12 +118,14 @@ function WalletPage() {
 				const { balance} = response.data;
 				const totalSpent = response.data.total_spent;
 				const totalEarned = response.data.total_earned;
+                const walletId = response.data.id;
 	
 				setData((prev) =>({
 					...prev,
 					currentBalance: balance,
 					totalEarned,
 					totalSpent,
+                    walletId
 				}))
 			} catch (e) {
 				setUserMsg("Something went wrong refresh your page", error)
@@ -140,7 +142,7 @@ function WalletPage() {
             try {
                 const response = await axios.get(`https://api.devask.hng.tech/admin/transactions/users/${userId}?skip=0&limit=30`)
                 const transactionHistory = response.data.transaction_history;
-                // console.log('transaction history', transactionHistory)
+                console.log('transaction history', transactionHistory)
                 
                 setData((prev) =>({
 					...prev,
@@ -163,11 +165,6 @@ function WalletPage() {
             setError(false);
             fetchUserData();
             fetchTransactionHistory();
-    
-            setData((prev) =>({
-                ...prev,
-                walletId
-            }))
         }, 3000);
         return () => clearInterval(interval);
 	}, []);
