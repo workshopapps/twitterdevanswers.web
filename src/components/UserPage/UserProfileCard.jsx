@@ -69,6 +69,14 @@ function UserProfileCard({ user }) {
 				{
 					headers,
 				}
+
+
+
+
+
+
+
+				
 			);
 
 			if (res.data.success === true) {
