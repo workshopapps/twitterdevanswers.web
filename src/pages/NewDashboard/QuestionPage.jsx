@@ -16,15 +16,26 @@ import Modal from '../../components/Modal/Modal';
 function QuestionPage() {
 	const navigate = useNavigate();
 	const { id } = useParams();
+	const cred = JSON.parse(localStorage.getItem('user'));
+	const loggedInUserId = cred?.user_id;
 
 	const [question, setQuestion] = useState({});
 	const [askedBy, setAskedBy] = useState({});
 	const [answers, setAnswers] = useState([]);
 	const [msg, setMsg] = useState('');
 	const [show, setShow] = useState(false);
+	const [liked, setLiked] = useState([]);
+	const [alreadyLiked, setAlreadyLiked] = useState({});
 
-	const { getQuestions, getAnswers, getUsers, postAnswer, sortByDate } =
-		useMessenger();
+	const {
+		getQuestions,
+		getAnswers,
+		getUsers,
+		postAnswer,
+		sortByDate,
+		getLikes,
+		likeUnlike,
+	} = useMessenger();
 	const { modal, showModal } = useModal();
 
 	function showShareModal() {
@@ -62,6 +73,20 @@ function QuestionPage() {
 			setAnswers(result);
 		};
 
+		const fetchLikes = async () => {
+			// get likes array
+			const { data } = await getLikes(id);
+			setLiked(data);
+
+			// check if the user has liked the question prior
+			const response = data?.find(
+				({ user_id: userId, like_type: likeType }) =>
+					userId === loggedInUserId && likeType === 'up'
+			);
+			setAlreadyLiked(response);
+		};
+
+		fetchLikes();
 		fetchAnswers();
 	}, []);
 
@@ -110,6 +135,29 @@ function QuestionPage() {
 		} catch (error) {
 			showModal();
 			setMsg(error.response.data.detail);
+		}
+	};
+
+	const handleLIke = (event) => {
+		event.stopPropagation();
+
+		if (alreadyLiked) {
+			likeUnlike(id, 'down');
+			setLiked([...liked].filter((item) => item.user_id !== loggedInUserId));
+
+			setAlreadyLiked(undefined);
+		} else {
+			likeUnlike(id, 'up');
+			setLiked((prev) => [
+				...prev,
+				{ user_id: loggedInUserId, like_type: 'up', question_id: id },
+			]);
+
+			setAlreadyLiked({
+				user_id: loggedInUserId,
+				like_type: 'up',
+				question_id: id,
+			});
 		}
 	};
 
@@ -211,10 +259,15 @@ function QuestionPage() {
 												<BsChatSquareDots className={styles.icon} />
 											</div>
 											<div className={styles.likes}>
-												{/* <IoHeart/> */}
 												<Heart
 													className={styles.icon}
-													style={{ fill: 'transparent' }}
+													onClick={handleLIke}
+													style={{
+														fill:
+															alreadyLiked?.like_type === 'up'
+																? '#4343DE'
+																: 'transparent',
+													}}
 												/>
 											</div>
 											<Modal onClose={hideShare} show={show} hide={hideShare} />

@@ -1,7 +1,5 @@
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { AppContext } from '../../store/AppContext';
 
 export const ArrayHighestToLowest = (array, sortBy) =>
 	array.sort((a, b) => b[sortBy] - a[sortBy]);
@@ -39,9 +37,7 @@ export const timeStamp = (createdAt) => {
 };
 
 function useMessenger() {
-	const {
-		state: { token },
-	} = useContext(AppContext);
+	const token = localStorage.getItem('token');
 
 	const navigate = useNavigate();
 
