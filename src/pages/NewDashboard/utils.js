@@ -149,6 +149,21 @@ function useMessenger() {
 		}
 	};
 
+	const getTags = () => {
+		try {
+			const response = axios({
+				method: 'get',
+				url: `https://api.devask.hng.tech/tag`,
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+			return response;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
 	return {
 		handleNavigate,
 		getUsers,
@@ -157,6 +172,7 @@ function useMessenger() {
 		postAnswer,
 		likeUnlike,
 		getLikes,
+		getTags,
 	};
 }
 

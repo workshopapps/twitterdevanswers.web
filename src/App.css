@@ -3,3 +3,13 @@
 	width: 95%;
 	margin: 0 auto;
 }
+
+.modal {
+	position: absolute;
+	/* position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+
+	z-index: 10;
+}

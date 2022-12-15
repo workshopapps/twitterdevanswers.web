@@ -9,6 +9,8 @@ import avatar from '../../assets/dashboard/user.png';
 import styles from './questionPage.module.css';
 import AnswerInput from './AnswerInput/AnswerInput';
 import useMessenger from './utils';
+import AuthModal from '../AuthPage/AuthModal';
+import { useModal } from '../AuthPage/utils';
 
 function QuestionPage() {
 	const navigate = useNavigate();
@@ -17,8 +19,10 @@ function QuestionPage() {
 	const [question, setQuestion] = useState({});
 	const [askedBy, setAskedBy] = useState({});
 	const [answers, setAnswers] = useState([]);
+	const [msg, setMsg] = useState('');
 
 	const { getQuestions, getAnswers, getUsers, postAnswer } = useMessenger();
+	const { modal, showModal } = useModal();
 
 	// get question
 	useEffect(() => {
@@ -80,13 +84,22 @@ function QuestionPage() {
 
 	const handleSubmitAnswer = async (event, answer) => {
 		event.preventDefault();
-		// setAnswers((prev) => [...prev, answer]);
-		const { data } = await postAnswer(answer, id);
-		setAnswers((prev) => [...prev, data]);
+		try {
+			const response = await postAnswer(answer, id);
+			setAnswers((prev) => [...prev, response.data]);
+
+			showModal();
+			setMsg('Response has been recorded');
+		} catch (error) {
+			showModal();
+			setMsg(error.response.data.detail);
+			console.log('weerrror', error);
+		}
 	};
 
 	return (
 		<div className="lpContainer">
+			<div className="modal">{modal && <AuthModal text={msg} />}</div>
 			<div className={styles.dashboard}>
 				<section className={styles.main}>
 					<div className={styles.header}>
