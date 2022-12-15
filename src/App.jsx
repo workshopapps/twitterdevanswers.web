@@ -39,6 +39,7 @@ import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
 import BlogPageReview from "./pages/BlogPageReview";
+import UserBlogReview from "./pages/UserBlogReview";
 import AdminDashboard from './pages/AdminDashboard';
 import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
@@ -86,6 +87,7 @@ function App() {
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
 					<Route path="/blog-page-review" element={<BlogPageReview />} />
+					<Route path="/user-blog-review" element={<UserBlogReview />} />
 
 					<Route path="*" element={<ErrorPage />} />
 					<Route
