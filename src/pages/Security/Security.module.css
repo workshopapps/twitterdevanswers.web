@@ -1,91 +1,128 @@
 .Security{
     width: 100%;
-    background-color: #DADADA;
+    margin-top: 48px;
 }
-.Security p{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: left;
+.Security a{
+    text-decoration: none;
+    color: black;
 }
 .Header1{
-    margin-top: 97px;
-    margin-bottom: 43px;
+font-size: 24px;
+font-weight: 700;
+line-height: 56px;
+letter-spacing: 0em;
+
+
 }
 .MainSection{
-    margin: 32px auto;
+    margin: 42px auto;
     width: 90%;
     display: flex;
-    gap: 5%;
-    margin: auto;
+    justify-content: space-between;
 }
 .LeftSection{
     width: 45%;
     display: flex;
     flex-direction: column;
 }
-.LeftSection img{
-    height: 35px;
-    width: 35px;
-}
-.LeftSection h1{
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 32px;
-    text-align: left;
-}
-.LeftSection div{
-    height: 150px;
-    border-bottom: 1px solid blue;
-    
-}
-.LeftSection section{
-    margin: 2%;
-}
-.AccountSelector, .NotificationSelector, .AppearanceSelector{
+.Selectors{
+    margin-top: 40px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: white;
+    justify-content: center;
 }
-.TextSection a{
-    text-decoration: none;
-    color: black;
+.Selectors section{
+    width: 100%;
+    height: 59px;
+    padding-left: 5%;
+    border-bottom: 1px solid #ECECFB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+.Selectors section a{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5%;
+}
+.Selectors h1{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0em;
 }
 .SecuritySelector{
-    display: flex;
-    background-color: #F7F7FE;
-    justify-content: center;
-    align-items: center;
+    background-color: #F6F0FF;
+    border-right: 3px solid #492B7C;
 }
-
 .RightSection{
-    margin-top: 62px;
     width: 50%;
-    background-color: #E5E5E5;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    padding-left: 4%;
-    padding-right: 4%;
+    padding: 0 5%;
+    border-left: 4px solid  #ECECFB;
 }
 .Header2{
-    margin-top: 69px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px;
 }
-.TwoFactorAuth, .VerifyEmail{
-    display: flex;
-    gap: 10%;
+.Header2 h1{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 33px;
+    letter-spacing: 0em;
+
 }
-.TwoFactorAuth section, .VerifyEmail section{
-    width: 69%;
+.RightSection h2{
+font-size: 20px;
+font-weight: 700;
+line-height: 27px;
+letter-spacing: 0em;
+}
+.RightSection h3{
+font-size: 20px;
+font-weight: 400;
+line-height: 27px;
+letter-spacing: 0em;
+
+}
+.RightSection h4{
+font-size: 20px;
+font-weight: 700;
+line-height: 27px;
+letter-spacing: 0em;
+}
+.RightSection p{
+font-size: 20px;
+font-weight: 400;
+line-height: 27px;
+letter-spacing: 0em;
+}
+.TwoFactorAuth{
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 9px;
+    margin-bottom: 24px;
 }
-.TwoFactorAuthForms input, .VerifyEmailForm input{
+.handleEnable{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    border: 1px solid #ECECFB;
+    background-color: white;
+    padding: 1%;
+}
+.TwoFactorAuthForms, .PasswordReset{
+    margin-top: 32px;
+}
+.TwoFactorAuthForms input, .PasswordReset input{
     width: 90%;
     height: 40px;
     margin: 5px;
@@ -94,152 +131,57 @@
     padding-left: 5%;
     font-weight: bold;
 }
-.TwoFactorAuthForms button, .VerifyEmailForm button{
+.TwoFactorAuthForms button, .PasswordReset button{
     width: 30%;
     height: 40px;
     margin: 5px;
     border-radius: 8px;
     border: none;
-    background-color: #1D1DD8;
+    background-color: #492B7C;
     color: white;
     font-weight: bold;
 }
-.TwoFactorAuthForms button:hover, .VerifyEmailForm button:hover{
+.TwoFactorAuthForms button:hover, .PasswordReset button:hover{
     background-color: rgba(255, 255, 255, 0.41);
-    color: #1D1DD8;
-    border: 1px solid #1D1DD8;
-}
-.TwoFactorAuth button, .VerifyEmail button{
-    width: 21%;
-    height: 60px;
-    background-color: #1D1DD8;
-    color: white;
-    border: none;
-    border-radius: 4px;
-}
-.TwoFactorAuth button:hover, .VerifyEmail button:hover{
-    background-color: rgba(255, 255, 255, 0.41);
-    color: #1D1DD8;
-    border: 1px solid #1D1DD8;
+    color: #492B7C;
+    border: 1px solid #492B7C;
 }
 
-.SecurityForm{
+.AdditionalProtection{
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    gap: 8px;
+    margin-bottom: 16px;
 }
 
-.SecurityForm p{
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 30px;
-    text-align: left;
-    
-}
-
-
-.WalletSection, .CurrentPassword, .NewPassword, .ConfirmPassword{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.WalletSection input, .CurrentPassword input, .NewPassword input, .ConfirmPassword input{
-    width: 60%;
-    height: 42px;
-    border-radius: 8px;
-    border: none;
-    padding-left: 4%;
-}
-.ButtonSection{
-    display: flex;
-    margin-bottom: 32px;
-}
-.SaveButton{
-    width: 60%;
-    height: 42px;
-    background-color: #1D1DD8;
-    border: none;
-    border-radius: 8px;
-    margin-right: 4%;
-    color: white;
-}
-.SaveButton:hover{
-    background-color: rgba(255, 255, 255, 0.41);
-    color: #1D1DD8;
-    border: 1px solid #1D1DD8;
-}
-.DiscardButton{
-    width: 60%;
-    height: 42px;
-    background-color: rgba(255, 255, 255, 0.41);
-    border: 1px solid #1D1DD8;
-    border-radius: 8px;
-    margin-right: 4%;
-    color: #1D1DD8;
-}
-.DiscardButton:hover{
-    background-color: #1D1DD8;
-    color: white;
-}
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 580px) {
     .LeftSection{
-        width: 15%;
-    }
-    .TextSection{
         display: none;
     }
     .RightSection{
-        width: 85%;
+        width: 100%;
+        border: none;
     }
+    .handleEnable{
+        font-size: 14px;
+    }
+    .TwoFactorAuthForms input, .PasswordReset input{
+        width: 100%;
+    }
+    .TwoFactorAuthForms button, .PasswordReset button{
+        width: 100%;
+    }
+
 }
-@media screen and (max-width: 480px) {
-    .Security h1{
-        font-size: 18px;
-    }
-    .Security p{
+@media screen and (max-width:300px) {
+ .Header2 h1, .RightSection h2, .RightSection h3{
         font-size: 16px;
     }
-}
-@media screen and (max-width: 360px) {
-    .MainSection{
-        display: flex;
-        flex-direction: column ;
+    .Header2 span{
+        display: none;
     }
-    .Header1{
-        display: block;
-        margin-bottom: 8px;
-    }
-    .LeftSection{
-        width: 100%;
-        margin: 16px auto 0 auto;
-    }
-    .Selectors{
-        display: flex;
-        height: 40px;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    .RightSection{
-        width: 100%;
-        padding: auto;
-    }
-    .TwoFactorAuth section, .VerifyEmail section{
-        width: 100%;
-    }
-    .TwoFactorAuth, .VerifyEmail{
-        display: flex;
-        flex-direction: column;
-    }
-    .WalletSection input, .CurrentPassword input, .NewPassword input, .ConfirmPassword input, .TwoFactorAuth button, .VerifyEmail button{
-        width: 100%;
-    }
-    .ButtonSection{
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-    .ButtonSection button{
-        width: 100%;
+    .p{
+        font-size: 16px;
     }
 }
