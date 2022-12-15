@@ -42,6 +42,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
+import AdminBlogPage from './pages/AdminBlogPage';
 
 function App() {
 	const {
@@ -93,6 +94,7 @@ function App() {
 					<Route path="admin-dashboard" element={<AdminDashboard />} />
 					<Route path="admin-signup" element={<AdminSignUp />} />
 					<Route path="admin-login" element={<AdminSignIn />} />
+					<Route path="/admin-blog-page" element={<AdminBlogPage />} />
 				</Route>
 
 				<Route path="*" element={<ErrorPage />} />
