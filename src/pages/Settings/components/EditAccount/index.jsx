@@ -6,7 +6,6 @@ import Experience from "./dataExperience"
 import { AppContext } from '../../../../store/AppContext';
 import { EDIT_USER } from '../../../../store/actionTypes';
 import updateUser from './api';
-// import Location from './Location';
 
 
 
