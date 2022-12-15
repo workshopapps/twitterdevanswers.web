@@ -136,19 +136,23 @@ function Login() {
 						/>
 					</div>
 					<div className={` ${styles['form-group__checkbox']}`}>
+						<label className={styles['form-group__checkbox-label']} 
+								htmlFor='keep-logged-in'>
 						<input
 							type="checkbox"
 							className={styles.input__checkbox}
 							id="keep-logged-in"
 						/>
-						<span
+						Remember me
+						{/* <span
 							className={styles['form-group__checkbox-label']}
 						>
 							Remember me
-						</span>
+						</span> */}
+						</label>
 							
 						<Link className={styles['form-group__checkbox-label']} to="/sign-up">
-							Forgot Password?
+							{/* Forgot Password? */}
 						</Link>
 
 					</div>

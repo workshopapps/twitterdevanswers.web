@@ -97,10 +97,8 @@ right: 10px;
 
 .input__checkbox {
 	display: inline-block;
-	flex-shrink: 0;
+	margin: inherit;
 	flex: none;
-	order: 0;
-	flex-grow: 0;
 }
 
 .btn {
@@ -132,23 +130,6 @@ right: 10px;
 	color: #492b7c;
 }
 
-/* .verification {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
-.verificationBtn {
-	outline: none;
-	border: none;
-	background: #492b7c;
-	color: #fff;
-	padding: 10px;
-	border-radius: 4px;
-	cursor: pointer;
-} */
-
 @media (max-width: 880px) {
 	.form-group__checkbox-label {
 		font-size: 15px;
@@ -159,13 +140,11 @@ right: 10px;
 
 @media only screen and (max-width: 768px) {
 	.signin {
-    /* margin-block: 0px; */
     width: 60%;
     background: #ffffff;
     padding-inline: 10px;
     margin: 0px;
     margin-inline: auto;
-    /* margin-bottom: 100px; */
     margin-block: auto;
     border-radius: 24px;
     position: relative;
@@ -241,8 +220,100 @@ right: 10px;
 }
 
 @media only screen and (max-width: 500px) {
-	.signin {
+	/* .signin {
 		padding: 20px 27.5px;
 		width: 100%;
+	} */
+	.formexternal {
+		background-color: #fff;
+		padding-block: 0px;
 	}
+	.signin {
+		/* margin-block: 0px; */
+		width: 100%;
+		background: #ffffff;
+		padding-inline: 10px;
+		margin: 0px;
+		margin-inline: auto;
+		/* margin-bottom: 100px; */
+		margin-block: auto;
+		border-radius: 24px;
+		position: relative;
+		}
+		.formmargin1, .formmargin2, .formmargin3, .formmargin4{
+			margin-block: 3px;
+			padding-block: 45px;
+		}
+	
+		.header {
+			margin-bottom: 32px;
+		
+		}
+		.header img {
+			justify-content: center;
+			align-content: center;
+			padding-inline: 35%;
+			margin-bottom: 20px;
+	
+		}
+		.header h3 {
+			font-weight: 700;
+			color: #303030;
+			font-size: 15px;
+			line-height: 15px;
+			text-align: center;
+			margin-bottom: 5px;
+			/* padding-inline: 25%; */
+		}
+		.header p {
+			font-weight: 700;
+			font-size: 11px;
+			line-height: 10px;
+			text-align: center;
+			/* padding-inline: 25%; */
+		}
+		
+		.topleft {
+			position: absolute;
+			top: 25px;
+			left: 20px;
+			width: 30px;
+		}
+			
+			.midleft {
+			position: absolute;
+			top: 230px;
+			left: 18px;
+			width: 25px;
+		}
+			.topblock {
+			position: absolute;
+			top: 20px;
+			left: 280px;
+			width: 22px;
+		}
+			.topslant {
+			position: absolute;
+			top: 135px;
+			right: 12px;
+			height: 40px;		
+		}
+		.form-group__checkbox {
+			display: flex;
+			padding: 0 10%;
+			margin-bottom: 30px;
+		}
+		.form-group__checkbox-label {
+			font-size: 15px;
+			width: 100%;
+			font-weight: 400;
+			margin: 0px;
+		}
+
+		.bottomText p {
+			font-weight: 400;
+			font-size: 13px;
+			line-height: 15px;
+			text-align: center;
+		}
 }
