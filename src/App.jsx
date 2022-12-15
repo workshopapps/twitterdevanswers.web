@@ -38,15 +38,12 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
-import NewDashboard from './pages/NewDashboard/NewDashboard';
-import QuestionPage from './pages/NewDashboard/QuestionPage';
-import PrivacyandSafetySettings from './pages/PrivacyAndSafetySettings/Index'
-import BlogPageReview from "./pages/BlogPageReview";
+import PrivacyandSafetySettings from './pages/PrivacyAndSafetySettings/Index';
+import BlogPageReview from './pages/BlogPageReview';
 import AdminDashboard from './pages/AdminDashboard';
 import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
-import Dashboard from './pages/Dashboard/index';
 
 function App() {
 	const {
@@ -58,7 +55,6 @@ function App() {
 		<div className="App">
 			{token || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
-				<Route path="/dash" element={<Dashboard />} />
 				<Route path="/" element={<FirstLandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
@@ -97,12 +93,14 @@ function App() {
 						path="notification-settings"
 						element={<NotificationSettings />}
 					/>
-					<Route path="/privacyandsafety-settings" element={<PrivacyandSafetySettings />} />
+					<Route
+						path="/privacyandsafety-settings"
+						element={<PrivacyandSafetySettings />}
+					/>
 					<Route path="manage-user/:username" element={<ManageUser />} />
 					<Route path="admin-dashboard" element={<AdminDashboard />} />
 					<Route path="admin-signup" element={<AdminSignUp />} />
 					<Route path="admin-login" element={<AdminSignIn />} />
-
 				</Route>
 
 				<Route path="*" element={<ErrorPage />} />
