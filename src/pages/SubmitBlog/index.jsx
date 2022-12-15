@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useState, useContext } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -41,7 +42,6 @@ function SubmitBlog() {
 		image_url: '',
 		post_category: 'Select',
 	});
-	console.log(blogData)
 
 	const handleBody = (value) => {
 		setBody((prev) => ({ ...prev, text: value }));
