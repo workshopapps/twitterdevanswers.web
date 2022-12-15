@@ -6,6 +6,9 @@ import { AppContext } from '../../store/AppContext';
 export const ArrayHighestToLowest = (array, sortBy) =>
 	array.sort((a, b) => b[sortBy] - a[sortBy]);
 
+export const sortByDate = (array) =>
+	array.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
 export const timeStamp = (createdAt) => {
 	const timePosted = new Date(createdAt);
 
@@ -173,6 +176,7 @@ function useMessenger() {
 		likeUnlike,
 		getLikes,
 		getTags,
+		sortByDate,
 	};
 }
 

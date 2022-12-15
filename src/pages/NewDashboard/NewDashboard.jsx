@@ -13,7 +13,7 @@ import { STORE_USER_DATA } from '../../store/actionTypes';
 function NewDashboard() {
 	const [questions, setQuestions] = useState([]);
 
-	const { getQuestions, getUsers } = useMessenger();
+	const { getQuestions, getUsers, sortByDate } = useMessenger();
 
 	const {
 		state: {
@@ -60,7 +60,7 @@ function NewDashboard() {
 						<div className={`${styles.postsContainer} ${styles.scrollbar} `}>
 							{questions.length === 0
 								? null
-								: questions.map((post) => (
+								: sortByDate(questions).map((post) => (
 										<PostCard post={post} key={post.question_id} />
 								  ))}
 						</div>

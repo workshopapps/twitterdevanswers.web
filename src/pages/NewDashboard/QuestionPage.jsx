@@ -23,7 +23,8 @@ function QuestionPage() {
 	const [msg, setMsg] = useState('');
 	const [show, setShow] = useState(false);
 
-	const { getQuestions, getAnswers, getUsers, postAnswer } = useMessenger();
+	const { getQuestions, getAnswers, getUsers, postAnswer, sortByDate } =
+		useMessenger();
 	const { modal, showModal } = useModal();
 
 	function showShareModal() {
@@ -236,7 +237,7 @@ function QuestionPage() {
 					<div className={`${styles.replies} ${styles.scrollbar}`}>
 						{answers.length === 0
 							? null
-							: answers?.map((reply) => (
+							: sortByDate(answers)?.map((reply) => (
 									<ReplyCard
 										reply={reply}
 										key={reply.answer_id}
