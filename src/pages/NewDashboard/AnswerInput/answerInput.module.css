@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
+	font-size: 12px;
 }
 
 .input {
@@ -11,7 +12,7 @@
 	gap: 16px;
 }
 
-.avatar img {
+.avatar {
 	border-radius: 50%;
 	width: 60px;
 	height: 60px;
@@ -22,7 +23,7 @@
 	width: 100%;
 	border: 1px solid transparent;
 	padding: 16px;
-	font-size: 20px;
+	font-size: 18px;
 	outline: none;
 	transition: all 0.3s ease;
 }
@@ -32,7 +33,7 @@
 }
 
 .input textarea::placeholder {
-	font-size: 24px;
+	font-size: 16px;
 	line-height: 32px;
 }
 
@@ -44,7 +45,7 @@
 	box-shadow: 0px 2px 12px rgba(70, 73, 255, 0.2);
 	border-radius: 4px;
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 24px;
 	color: #ffffff;
 	cursor: pointer;

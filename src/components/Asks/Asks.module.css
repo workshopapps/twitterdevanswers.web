@@ -360,3 +360,17 @@
 		font-size: 14px;
 	}
 }
+
+.backButton {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100px;
+	font-size: 1rem;
+	font-weight: 600;
+	background: none;
+	border: none;
+	padding: 1em 0em;
+	cursor: pointer;
+	color: #281bdf;
+}

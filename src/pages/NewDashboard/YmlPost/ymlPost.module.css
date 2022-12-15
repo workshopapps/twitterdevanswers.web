@@ -2,10 +2,13 @@
 	display: flex;
 	align-items: flex-start;
 	gap: 6px;
+	font-size: 12px;
 }
 
 .ymlPost img {
 	width: 60px;
+	height: 60px;
+	border-radius: 50%;
 }
 
 .text {
@@ -18,7 +21,8 @@
 .title a:visited {
 	text-decoration: none;
 	/* font-weight: 500; */
-	font-size: 20px;
+	font-size: 17px;
+	font-weight: 500;
 	line-height: 27px;
 	color: #303030;
 }

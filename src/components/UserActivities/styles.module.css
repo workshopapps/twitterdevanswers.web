@@ -44,7 +44,8 @@ button.active {
 /* */
 /* ********* */
 .title {
-	color: #551a8b;
+	color: #535353;
+	font-weight: 600;
 	padding: 0.5em 0em;
 }
 
@@ -71,7 +72,8 @@ button.active {
 }
 
 .cardContainer {
-	display: flex;
+	display: grid;
+	grid-template-columns: 60px 1fr;
 	gap: 1rem;
 	background-color: #ffffff;
 	border: 1px solid #ececfb;
@@ -90,7 +92,7 @@ button.active {
 	left: 45px;
 	width: 1px;
 	height: 70%;
-	background-color: #ccc;
+	/* background-color: #ccc; */
 }
 
 .cardContainer > div {
@@ -104,6 +106,7 @@ button.active {
 	width: 60px;
 	height: 60px;
 	cursor: pointer;
+	object-fit: cover;
 	border-radius: 50%;
 	z-index: 2;
 }
@@ -119,6 +122,11 @@ button.active {
 	justify-content: flex-start;
 	align-items: center;
 	gap: 1rem;
+}
+
+.userInfo p {
+	flex-basis: auto;
+	flex-shrink: 0;
 }
 
 .askName {
@@ -218,7 +226,113 @@ button.active {
 	color: #535353;
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
+	.header button {
+		font-size: 15px;
+		padding-bottom: 8px;
+	}
+	.askName,
+	.time,
+	.cardFooter,
+	.title {
+		font-size: 15px;
+	}
+	.likes,
+	.viewReplies,
+	.share,
+	.reward {
+		font-size: 14px;
+	}
+
+	.icons img,
+	.reward img {
+		width: 20px;
+		height: 20px;
+	}
+
+	.reply {
+		font-size: 15px;
+		padding: 0;
+	}
+
+	.profilePicture {
+		height: 50px;
+		width: 50px;
+	}
+
+	.cardContainer {
+		grid-template-columns: 50px 1fr;
+	}
+	.icons {
+		gap: 10px;
+	}
+	.userInfo p {
+		margin-right: 10px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.header button {
+		font-size: 14px;
+	}
+
+	.userInfo {
+		display: block;
+	}
+
+	.userInfo > * {
+		margin: 0;
+	}
+
+	.profilePicture {
+		height: 40px;
+		width: 40px;
+	}
+
+	.tags {
+		font-size: 14px;
+	}
+
+	.cardContainer {
+		grid-template-columns: 40px 1fr;
+	}
+
+	.askName,
+	.time,
+	.cardFooter,
+	.title {
+		font-size: 14px;
+	}
+
+	.reply {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+	.cardContainer {
+		grid-template-columns: 1fr;
+		position: relative;
+	}
+
+	.options {
+		position: absolute;
+		top: 24px;
+		right: 16px;
+	}
+}
+
+@media only screen and (max-width: 375px) {
+	.cardFooter {
+		display: block;
+	}
+
+	.reward {
+		margin-top: 15px;
+	}
+}
+
+@media only screen and (max-width: 200px) {
 	.cards {
 		width: 100%;
 	}

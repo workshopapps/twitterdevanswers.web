@@ -3,10 +3,12 @@
 	padding: 24px;
 	background: #f6f0ff;
 	border-radius: 16px;
+	font-size: 12px;
 }
 
 .header {
-	font-size: 18px;
+	font-size: 17px;
+	font-weight: 500;
 	line-height: 22px;
 	color: #1f1f1f;
 	margin-bottom: 16px;

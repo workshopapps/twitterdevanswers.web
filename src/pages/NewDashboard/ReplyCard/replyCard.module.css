@@ -1,6 +1,7 @@
 .replyCard {
 	border: 0.5px solid #ececfb;
 	padding: 24px;
+	font-size: 12px;
 }
 
 .infos {
@@ -23,7 +24,7 @@
 
 .info {
 	font-weight: 500;
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 27px;
 }
 
@@ -32,38 +33,40 @@
 	gap: 8px;
 }
 
-.name {
+.name.username {
 	text-transform: capitalize;
 	cursor: pointer;
 }
 
+.username {
+	font-size: 16px;
+}
+
 .text {
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 30px;
 	color: #757575;
+	margin-top: 15px;
 }
 
-.icons {
-	margin-top: 16px;
+.topRight {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
-	gap: 82px;
-	padding: 16px;
-	border-bottom: 0.5px solid #b4b4b4;
-}
-
-.icon {
-	font-size: 20px;
+	gap: 10px;
 }
 
 .info .grayText {
 	color: #979797;
 }
 
+.timeStamp {
+	font-weight: 400;
+}
+
 .replyingTo {
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 21px;
 	color: #8f8f8f;
 	margin-top: 8px;
@@ -71,7 +74,7 @@
 
 .infos .checkbox {
 	color: #475467;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 24px;
 }
 

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { FaEllipsisV } from 'react-icons/fa';
-import { BsChatSquareDots, BsShare } from 'react-icons/bs';
-import { ReactComponent as Heart } from '../heart.svg';
 import avatar from '../../../assets/dashboard/user.png';
 import styles from './replyCard.module.css';
 import useMessenger, { timeStamp } from '../utils';
@@ -36,7 +34,7 @@ function ReplyCard({
 						onKeyDown={() => {}}
 						tabIndex={0}
 						onClick={(event) =>
-							handleNavigate(event, `/user-page/${answeredBy?.username}`)
+							handleNavigate(event, `/profile/${answeredBy?.username}`)
 						}
 					>
 						<img
@@ -56,46 +54,36 @@ function ReplyCard({
 								onKeyDown={() => {}}
 								tabIndex={0}
 								onClick={(event) =>
-									handleNavigate(event, `/user-page/${answeredBy?.username}`)
+									handleNavigate(event, `/profile/${answeredBy?.username}`)
 								}
 							>{`${answeredBy?.first_name} ${answeredBy?.last_name}`}</span>
 							<span
-								className={`${styles.grayText} ${styles.name}`}
+								className={`${styles.grayText} ${styles.username}`}
 								role="link"
 								onKeyDown={() => {}}
 								tabIndex={0}
 								onClick={(event) =>
-									handleNavigate(event, `/user-page/${answeredBy?.username}`)
+									handleNavigate(event, `/profile/${answeredBy?.username}`)
 								}
 							>
 								@{answeredBy?.username}
 							</span>
 							<span className={styles.grayText}>.</span>
-							<span className={styles.grayText}>{timeStamp(createdAt)}</span>
+							<span className={`${styles.grayText} ${styles.timeStamp}`}>
+								{timeStamp(createdAt)}
+							</span>
 						</div>
 						<div className={styles.replyingTo}>Replying to @{replyingTo}</div>
 					</div>
 				</div>
-				<div>
+				<div className={styles.topRight}>
+					<div className={styles.checkbox}>
+						<input type="checkbox" id="check" />
+					</div>
 					<FaEllipsisV />
 				</div>
 			</div>
 			<div className={styles.text}>{content}</div>
-			<div className={styles.icons}>
-				<div className={styles.reply}>
-					<BsChatSquareDots className={styles.icon} />
-				</div>
-				<div className={styles.likes}>
-					{/* <IoHeart/> */}
-					<Heart className={styles.icon} style={{ fill: 'transparent' }} />
-				</div>
-				<div className={styles.checkbox}>
-					<input type="checkbox" id="check" />
-				</div>
-				<div>
-					<BsShare className={styles.icon} />
-				</div>
-			</div>
 		</div>
 	);
 }

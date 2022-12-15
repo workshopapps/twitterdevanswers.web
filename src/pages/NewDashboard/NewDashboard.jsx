@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { IoFilterOutline } from 'react-icons/io5';
 import { AppContext } from '../../store/AppContext';
 import TopUsers from './TopUsers/TopUsers';
 import Yml from './Yml/Yml';
-import userAvatar from '../../assets/dashboard-images/profilePicture.webp';
 import PostCard from './PostCard/PostCard';
 import Tags from './Tags/Tags';
 import styles from './newDashboard.module.css';
@@ -33,7 +33,6 @@ function NewDashboard() {
 
 	const {
 		state: {
-			token,
 			user: { user_id: userId },
 		},
 		dispatch,
@@ -68,27 +67,12 @@ function NewDashboard() {
 							<span className={styles.icon}>
 								<IoFilterOutline />
 							</span>
-							<span className={styles.btn}>Ask A Question</span>
+							<Link to="/post-questions" className={styles.btn}>
+								Ask A Question
+							</Link>
 						</div>
 					</div>
 					<section className={styles.body}>
-						{token && (
-							<div className={styles.questionInput}>
-								<div className={styles.left}>
-									<img src={userAvatar} alt="user avatar" />
-									<button type="button">Post</button>
-								</div>
-								<div className={styles.right}>
-									<textarea
-										name="question"
-										id="question"
-										cols="30"
-										rows="10"
-										placeholder="Start a discussion"
-									/>
-								</div>
-							</div>
-						)}
 						<div className={`${styles.postsContainer} ${styles.scrollbar} `}>
 							{questions.length === 0
 								? null
@@ -99,9 +83,11 @@ function NewDashboard() {
 					</section>
 				</main>
 				<aside className={styles.aside}>
-					<TopUsers />
-					<Yml />
-					<Tags tags={tags} />
+					<div className={styles.components}>
+						<TopUsers />
+						<Yml />
+						<Tags tags={tags} />
+					</div>
 				</aside>
 			</div>
 		</div>

@@ -21,6 +21,8 @@ import Profile from './pages/Profile/index';
 import Help from './pages/Help';
 import HowItWorks from './pages/HowItWorks';
 import PostQuestion from './pages/PostQuestion';
+import NewDashboard from './pages/NewDashboard/NewDashboard';
+import QuestionPage from './pages/NewDashboard/QuestionPage';
 import Teams from './pages/Team/Team';
 import TermsOfUse from './pages/TermsOfUse';
 import WalletPage from './pages/WalletPage/WalletPage';
@@ -39,6 +41,11 @@ import { AppContext } from './store/AppContext';
 import NewDashboard from './pages/NewDashboard/NewDashboard';
 import QuestionPage from './pages/NewDashboard/QuestionPage';
 import PrivacyandSafetySettings from './pages/PrivacyAndSafetySettings/Index'
+import BlogPageReview from "./pages/BlogPageReview";
+import AdminDashboard from './pages/AdminDashboard';
+import ManageUser from './pages/ManageUser';
+import AdminSignUp from './pages/AdminSignUp';
+import AdminSignIn from './pages/AdminSignIn';
 
 function App() {
 	const {
@@ -65,6 +72,7 @@ function App() {
 				<Route path="login" element={<Login />} />
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
+
 				<Route element={<ProtectedRoutes />}>
 					<Route path="/dashboard" element={<NewDashboard />} />
 					<Route path="/question-page/:id" element={<QuestionPage />} />
@@ -80,13 +88,21 @@ function App() {
 					<Route path="security-settings" element={<Security />} />
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
+					<Route path="/blog-page-review" element={<BlogPageReview />} />
+
 					<Route path="*" element={<ErrorPage />} />
 					<Route
 						path="notification-settings"
 						element={<NotificationSettings />}
 					/>
 					<Route path="/privacyandsafety-settings" element={<PrivacyandSafetySettings />} />
+					<Route path="manage-user/:username" element={<ManageUser />} />
+					<Route path="admin-dashboard" element={<AdminDashboard />} />
+					<Route path="admin-signup" element={<AdminSignUp />} />
+					<Route path="admin-login" element={<AdminSignIn />} />
+
 				</Route>
+
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 			{token || isAuth ? <InternalFooter /> : <Footer />}
