@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import axios from "axios";
 import styles from './ForgotPassword.module.css';
 import ellipsetop from '../../assets/auth-images/Ellipsetop.svg';
@@ -61,7 +62,7 @@ function ForgotPassword() {
 					</div>
 
                     <button type='submit'>SUBMIT</button>
-                    <p>Don’t have a DevAsk account? <span> Sign Up</span></p>
+                    <p>Don’t have a DevAsk account? <Link to="sign-up"> Sign Up</Link></p>
 
 					<p>{response}</p>
 				</form>
