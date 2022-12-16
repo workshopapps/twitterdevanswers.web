@@ -50,10 +50,6 @@ import SuccessSign from './pages/SuccessSign';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 
-import SuccessSign from "./pages/SuccessSign/index";
-import ForgotPassword from "./pages/ForgotPassword/index";
-import ResetPassword from './pages/ResetPassword';
-
 function App() {
 	const {
 		state: { isAuth },
@@ -81,28 +77,6 @@ function App() {
 					<Route path="privacy" element={<Privacy />} />
 					<Route path="sign-up" element={<SignUp />} />
 
-<<<<<<< HEAD
-			{token || isAuth ? <InternalHeader /> : <Header />}
-			<Routes>
-				<Route path="/" element={<FirstLandingPage />} />
-				<Route path="cookie-policy" element={<CookiePolicy />} />
-				<Route path="advertising" element={<Advert />} />
-				<Route path="blog-page" element={<Blog />} />
-				<Route path="faq" element={<FAQ />} />
-				<Route path="help-center" element={<Help />} />
-				<Route path="terms-of-use" element={<TermsOfUse />} />
-				<Route path="pricing-page" element={<Pricing />} />
-				<Route path="career" element={<Career />} />
-				<Route path="how-it-works" element={<HowItWorks />} />
-				<Route path="API" element={<API />} />
-				<Route path="about" element={<About />} />
-				<Route path="login" element={<Login />} />
-				<Route path="privacy" element={<Privacy />} />
-				<Route path="sign-up" element={<SignUp />} />
-				<Route path="sucess-sign" element={<SuccessSign />} />
-				<Route path="forgot-password" element={<ForgotPassword />} />
-				<Route path="password-recovery" element={<ResetPassword />} />
-=======
 					{token || isAuth ? <InternalHeader /> : <Header />}
 					<Route>
 						<Route path="/" element={<FirstLandingPage />} />
@@ -122,8 +96,7 @@ function App() {
 						<Route path="sign-up" element={<SignUp />} />
 						<Route path="sucess-sign" element={<SuccessSign />} />
 						<Route path="forgot-password" element={<ForgotPassword />} />
-						<Route path="reset-password" element={<ResetPassword />} />
->>>>>>> 356001dcd915499ca10908e01847b0e8808b7fe9
+						<Route path="password-recovery" element={<ResetPassword />} />
 
 						<Route element={<ProtectedRoutes />}>
 							<Route path="/dashboard" element={<NewDashboard />} />
@@ -200,40 +173,6 @@ function App() {
 						<Route path="/admin-blog-page" element={<AdminBlogPage />} />
 					</Route>
 
-<<<<<<< HEAD
-					<Route path="profile/:username" element={<Profile />} />
-					<Route path="notifications-page" element={<Notifications />} />
-					<Route path="tags-page" element={<Tags />} />
-					<Route path="teams-page" element={<Teams />} />
-					<Route path="wallet" element={<WalletPage />} />
-					<Route path="users-page" element={<UserPage />} />
-					<Route path="post-questions" element={<PostQuestion />} />
-					<Route path="settings" element={<Settings />} />
-					<Route path="security-settings" element={<Security />} />
-					<Route path="contact" element={<Contact />} />
-					<Route path="submit-blog" element={<SubmitBlog />} />
-					<Route path="/blog-page-review" element={<BlogPageReview />} />
-					<Route path="/blog-page-review/:id" element={<UserBlogReview />} />
-
-					<Route path="*" element={<ErrorPage />} />
-					<Route
-						path="notification-settings"
-						element={<NotificationSettings />}
-					/>
-					<Route
-						path="/privacyandsafety-settings"
-						element={<PrivacyandSafetySettings />}
-					/>
-					<Route path="manage-user/:username" element={<ManageUser />} />
-					<Route path="admin-dashboard" element={<AdminDashboard />} />
-					<Route path="admin-signup" element={<AdminSignUp />} />
-					<Route path="admin-login" element={<AdminSignIn />} />
-					<Route path="/admin-blog-page" element={<AdminBlogPage />} />
-				</Routes>
-
-
-=======
->>>>>>> 356001dcd915499ca10908e01847b0e8808b7fe9
 					<Route path="*" element={<ErrorPage />} />
 				</Routes>
 			</div>
