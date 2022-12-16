@@ -46,6 +46,10 @@ import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 
+import SuccessSign from './pages/SuccessSign';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+
 function App() {
 	const {
 		state: { isAuth },
@@ -71,6 +75,9 @@ function App() {
 				<Route path="login" element={<Login />} />
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
+				<Route path="sucess-sign" element={<SuccessSign />} />
+				<Route path="forgot-password" element={<ForgotPassword />} />
+				<Route path="reset-password" element={<ResetPassword />} />
 
 				<Route element={<ProtectedRoutes />}>
 					<Route path="/dashboard" element={<NewDashboard />} />
