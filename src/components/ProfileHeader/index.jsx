@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
-import avatar from '../../assets/profile-images/avatar.png';
+import avatar from '../../assets/dashboard/user.png';
 import calendarIcon from '../../assets/profile-images/calendar.png';
 import locationIcon from '../../assets/profile-images/location.png';
 
