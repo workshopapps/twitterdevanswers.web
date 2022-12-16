@@ -13,7 +13,7 @@
 
 .signup {
 	/* max-width: 864px; */
-	width: 60%;
+	width: 50%;
 	background: #ffffff;
 	padding-inline: 40px;
 	margin: 0px;
@@ -24,40 +24,34 @@
 	position: relative;
 }
 
-.topleft {
-position: absolute;
-top: 60px;
-left: 100px;
-}
+	/* .topleft {
+	position: absolute;
+	top: 10px;
+	left: 100px;
+	}
 
-.midleft {
-position: absolute;
-top: 340px;
-left: 50px;
-}
-.topblock {
-position: absolute;
-top: 80px;
-right: 180px;
-}
-.topslant {
-position: absolute;
-top: 200px;
-right: 40px;
+	.midleft {
+	position: absolute;
+	top: 340px;
+	left: 50px;
+	}
+	.topblock {
+	position: absolute;
+	top: 80px;
+	right: 180px;
+	}
+	.topslant {
+	position: absolute;
+	top: 200px;
+	right: 40px;
 
-}
+	} */
 
 
 .header {
-	margin-bottom: 46px;
+	margin: 46px 0;
+}
 
-}
-.header img {
-	justify-content: center;
-	align-content: center;
-	padding-inline: 41%;
-	margin-bottom: 30px;
-}
 .header h3 {
 	font-weight: 700;
 	color: #303030;
@@ -66,9 +60,15 @@ right: 40px;
 	text-align: center;
 	/* padding-inline: 25%; */
 }
+.header img {
+	justify-content: center;
+	align-content: center;
+	padding-inline: 40%;
+	margin-bottom: 30px;
+}
 .header p {
 	font-weight: 700;
-	font-size: 18px;
+	font-size: 17px;
 	line-height: 20px;
 	text-align: center;
 	/* padding-inline: 25%; */
@@ -78,28 +78,6 @@ right: 40px;
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
-}
-
-.form-group__checkbox {
-	display: flex;
-	padding: 0 10%;
-	margin-bottom: 40px;
-}
-
-.form-group__checkbox-label {
-	font-size: 15px;
-	width: 100%;
-	/* line-height: 1.4; */
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 25px;
-	color: #303030;
-}
-
-.input__checkbox {
-	display: inline-block;
-	margin: inherit;
-	flex: none;
 }
 
 .btn {
@@ -130,8 +108,27 @@ right: 40px;
 .link:visited {
 	color: #492b7c;
 }
+.verification {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.verificationBtn {
+    border: none;
+    background: #492b7c;
+    color: #fff;
+    margin-inline: 150px;
+    padding: 10px;
+    border-radius: 4px;
+	margin-bottom: 100px;
+    cursor: pointer;
+}
+
 
 @media (max-width: 880px) {
+
 	.form-group__checkbox-label {
 		font-size: 15px;
 		width: 100%;
@@ -149,33 +146,27 @@ right: 40px;
     width: 60%;
     background: #ffffff;
     padding-inline: 10px;
-    margin: 0px;
     margin-inline: auto;
     margin-block: auto;
     border-radius: 24px;
     position: relative;
+	margin-bottom: 20px;
 	}
 	.formmargin1, .formmargin2, .formmargin3, .formmargin4{
-		margin-block: 55px;
-		padding-block: 65px;
+		margin-block: 25px;
+		padding-block: 45px;
 	}
 
 	.header {
 		margin-bottom: 32px;
 	
 	}
-	.header img {
-		justify-content: center;
-		align-content: center;
-		padding-inline: 30%;
-		margin-bottom: 20px;
 
-	}
 	.header h3 {
 		font-weight: 700;
 		color: #303030;
-		font-size: 18px;
-		line-height: 18px;
+		font-size: 20px;
+		line-height: 20px;
 		text-align: center;
 		margin-bottom: 5px;
 		/* padding-inline: 25%; */
@@ -187,7 +178,13 @@ right: 40px;
 		text-align: center;
 		/* padding-inline: 25%; */
 	}
-	
+	.header img {
+		justify-content: center;
+		align-content: center;
+		padding-inline: 30%;
+		margin-bottom: 20px;
+
+	}
 	.topleft {
 		position: absolute;
 		top: 25px;
@@ -196,8 +193,8 @@ right: 40px;
 		
 		.midleft {
 		position: absolute;
-		top: 270px;
-		left: 18px;
+		top: 300px;
+		left: 12px;
 	}
 		.topblock {
 		position: absolute;
@@ -207,7 +204,7 @@ right: 40px;
 		.topslant {
 		position: absolute;
 		top: 135px;
-		right: 12px;		
+		right: 10px;		
 	}
 	.form-group__checkbox {
 		display: flex;
@@ -223,6 +220,7 @@ right: 40px;
 .btn {
 	margin-bottom: 5px;
 }
+
 }
 
 @media only screen and (max-width: 500px) {
@@ -256,6 +254,16 @@ right: 40px;
 			margin-bottom: 32px;
 		
 		}
+
+		.header h3 {
+			font-weight: 700;
+			color: #303030;
+			font-size: 19px;
+			line-height: 15px;
+			text-align: center;
+			margin-bottom: 5px;
+			/* padding-inline: 25%; */
+		}
 		.header img {
 			justify-content: center;
 			align-content: center;
@@ -263,47 +271,38 @@ right: 40px;
 			margin-bottom: 20px;
 	
 		}
-		.header h3 {
-			font-weight: 700;
-			color: #303030;
-			font-size: 15px;
-			line-height: 15px;
-			text-align: center;
-			margin-bottom: 5px;
-			/* padding-inline: 25%; */
-		}
 		.header p {
 			font-weight: 700;
-			font-size: 11px;
-			line-height: 10px;
+			font-size: 12px;
+			line-height: 15px;
 			text-align: center;
 			/* padding-inline: 25%; */
 		}
 		
 		.topleft {
 			position: absolute;
-			top: 25px;
+			top: 20px;
 			left: 20px;
 			width: 30px;
 		}
 			
 			.midleft {
 			position: absolute;
-			top: 230px;
-			left: 18px;
-			width: 25px;
+			top: 240px;
+			left: 15px;
+			width: 30px;
 		}
 			.topblock {
 			position: absolute;
-			top: 20px;
+			top: 0px;
 			left: 280px;
 			width: 18px;
 		}
 			.topslant {
 			position: absolute;
-			top: 135px;
+			top: 105px;
 			right: 12px;
-			height: 40px;		
+			height: 55px;		
 		}
 		.form-group__checkbox {
 			display: flex;
@@ -323,89 +322,15 @@ right: 40px;
 			line-height: 15px;
 			text-align: center;
 		}
+		.verificationBtn {
+			border: none;
+			background: #492b7c;
+			color: #fff;
+			margin-inline: 100px;
+			padding: 10px;
+			border-radius: 4px;
+			cursor: pointer;
+		}
 }
 
 
-
-/* .signup {
-	max-width: 864px;
-	width: 95%;
-	background: #f7f7fe;
-	padding: 80px 110px;
-	margin: 53px auto;
-}
-
-.header {
-	margin-bottom: 56px;
-}
-
-.input {
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
-}
-
-.header h3 {
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 32px;
-	color: #1d1dd8;
-}
-
-.btn {
-	margin-top: 64px;
-}
-
-.bottomText {
-	text-align: center;
-	margin-top: 8px;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-}
-
-.bottomText p {
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 32px;
-}
-
-.link {
-	color: #1d1dd8;
-	text-decoration: none;
-}
-
-.link:active,
-.link:visited {
-	color: #1d1dd8;
-}
-
-.verification {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
-.verificationBtn {
-	outline: none;
-	border: none;
-	background: #1d1dd8;
-	color: #fff;
-	padding: 10px;
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-@media only screen and (max-width: 768px) {
-	.signup {
-		padding: 40px 55px;
-	}
-}
-
-@media only screen and (max-width: 500px) {
-	.signup {
-		padding: 20px 27.5px;
-		width: 100%;
-	}
-} */

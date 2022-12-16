@@ -1,6 +1,7 @@
 /* eslint-disable no-alert */
 import React, { useState, useContext } from 'react';
 import ReactQuill from 'react-quill';
+import { useNavigate } from 'react-router-dom';
 import 'react-quill/dist/quill.snow.css';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
@@ -8,6 +9,7 @@ import styles from './submitblog.module.css';
 import { AppContext } from '../../store/AppContext';
 
 function SubmitBlog() {
+	const navigate = useNavigate();
 	const { state } = useContext(AppContext);
 	const [isTokenError, setIsTokenError] = useState('');
 	const [error, setError] = useState(false);
@@ -29,8 +31,16 @@ function SubmitBlog() {
 			value: 'lifestyle',
 		},
 		{
-			label: 'Programming',
-			value: 'programming',
+			label: 'Web development',
+			value: 'web-development',
+		},
+		{
+			label: 'Artificial Intelligence',
+			value: 'artificial-intelligence',
+		},
+		{
+			label: 'Mobile development',
+			value: 'mobile-development',
 		},
 	];
 
@@ -72,16 +82,16 @@ function SubmitBlog() {
 		};
 		try {
 			const data = await axios.post(
-				`https://api.devask.hng.tech/blog/?user_id=${blogData.user_id}`,
+				`https://api.devask.hng.tech/blog`,
 				details,
 				{
 					headers,
 				}
 			);
 			if (data) {
-				// setTimeout(() => {
-				//     navigate('/blog-page');
-				// }, 3000);
+				setTimeout(() => {
+				    navigate('/blog-page');
+				}, 3000);
 			}
 		} catch (err) {
 			setIsTokenError('Cannot complete request now. Try again later...');

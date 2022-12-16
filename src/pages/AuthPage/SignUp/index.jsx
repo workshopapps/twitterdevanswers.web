@@ -13,6 +13,8 @@ import AuthModal from '../AuthModal';
 import Button from '../../../components/AuthFormButton';
 import Input from '../Input';
 import styles from './styles.module.css';
+import logo from '../../../assets/auth-images/logo.png';
+
 
 function SignUp() {
 	const [input, setInput] = useState({
@@ -116,24 +118,28 @@ function SignUp() {
 				'https://api.devask.hng.tech/auth/send_email_code',
 				{ email: input.email }
 			);
-
+			setTimeout(() => {
+				setIsSent(true);
+			}, 1000);
 			setServerResponse(data.msg);
-			showModal();
+		//	showModal();
 		}
 	};
 
 	return (
 		<>
 			{modal && <AuthModal text={serverResponse} />}
-
-
-			{!isSent ? (
-	<form className={styles.signup} onSubmit={handleSubmit}>
+	<div className={styles.formexternal}>
+		<div className={styles.signup}>
 		<div className={styles.header}>
+			<img src={logo} alt="devask" />
+
 			<h3>Hello!</h3>
 			<p>Welcome to a whole new technical experience.</p>
 		</div>
 
+{!isSent ? (
+	<form onSubmit={handleSubmit}>
 		<div className={styles.input}>
 		{/* {isCodeSend && <p className={styles.codeMessage}>{codeMessage}</p>} */}
 		<label htmlFor="email">
@@ -164,7 +170,10 @@ function SignUp() {
 	</form>
 ) : (
 	<form onSubmit={handleSubmit}>
+	 
+	<div className={styles.formmargin1}>	
 		<div className={styles.input}>
+
 		{/* <p className={styles.signUpMessage}>{signUpMessage}</p> */}
 		<label htmlFor="email">
 			{/* Email Address */}
@@ -252,8 +261,9 @@ function SignUp() {
 			/>
 		</label>
 		</div>
+		<br/>
 		<div className={styles.btn}>
-			<Button label={'loading...' ? 'please wait' : 'Create Account'} />
+			<Button label={loading ? 'Creating account...' : 'Sign up'} />
 		</div>
 		<div className={styles.bottomText}>
 			<p>
@@ -264,108 +274,12 @@ function SignUp() {
 			</p>
 		</div>
 		{/* <button type="submit">Sign Up</button> */}
+	</div>
 	</form>
+	
 )}
-
-			{/* <form className={styles.signup} onSubmit={handleSubmit}>
-				<div className={styles.header}>
-					<h3>Hello!</h3>
-					<p>Welcome to a whole new technical experience.</p>
-				</div>
-				<div className={styles.input}>
-					<div>
-						<Input
-							id="email"
-							label="Email Address"
-							name="email"
-							placeholder="janedoe@example.com"
-							type="text"
-							value={input.email}
-							handleInputChange={(event) =>
-								formInputHandler(event, setErrors, setInput)
-							}
-							error={errors && errors.email}
-						/>
-					</div>
-					<div className={styles.verification}>
-						<div className={styles.verificationInput}>
-							<Input
-								label="Verification code"
-								id="email_verification_code"
-								name="email_verification_code"
-								placeholder=""
-								type="text"
-								value={input.email_verification_code}
-								handleInputChange={(event) =>
-									formInputHandler(event, setErrors, setInput)
-								}
-								error={errors && errors.email_verification_code}
-							/>
-						</div>
-						<button
-							className={styles.verificationBtn}
-							type="button"
-							onClick={handleVerification}
-						>
-							send code
-						</button>
-					</div>
-					<div>
-						<Input
-							id="username"
-							label="Username"
-							name="username"
-							placeholder="Username"
-							type="text"
-							value={input.username}
-							handleInputChange={(event) =>
-								formInputHandler(event, setErrors, setInput)
-							}
-							error={errors && errors.username}
-						/>
-					</div>
-					<div>
-						<Input
-							id="password"
-							label="Password"
-							name="password"
-							placeholder="********"
-							type="password"
-							value={input.password}
-							handleInputChange={(event) =>
-								formInputHandler(event, setErrors, setInput)
-							}
-							error={errors && errors.password}
-						/>
-					</div>
-					<div>
-						<Input
-							id="confirmPassword"
-							label="Confirm Password"
-							name="confirmPassword"
-							placeholder="********"
-							type="password"
-							value={input.confirmPassword}
-							handleInputChange={(event) =>
-								formInputHandler(event, setErrors, setInput)
-							}
-							error={errors && errors.confirmPassword}
-						/>
-					</div>
-				</div>
-				<div className={styles.btn}>
-					<Button label={loading ? 'please wait' : 'Create Account'} />
-				</div>
-				<div className={styles.bottomText}>
-					<p>
-						Already have an account?{' '}
-						<Link className={styles.link} to="/login">
-							Log In
-						</Link>
-					</p>
-				</div>
-			</form> */}
-		</>
+	</div></div>
+	</>
 	);
 }
 
