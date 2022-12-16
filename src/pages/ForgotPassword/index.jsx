@@ -63,8 +63,10 @@ function ForgotPassword() {
 
                     <button type='submit'>SUBMIT</button>
                     <p>Don’t have a DevAsk account? <Link to="/sign-up"> Sign Up</Link></p>
-					<p className={styles.Response}>{response}</p>
+					
+					
 				</form>
+				<p className={styles.Response}>{response}</p>
 			</main>
 		</div>
 	);
