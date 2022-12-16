@@ -4,6 +4,10 @@
 	font-family: 'Nunito';
 }
 
+.userblog .blog_img {
+	margin: 0 auto;
+}
+
 .usernav {
 	display: flex;
 	width: 35%;
