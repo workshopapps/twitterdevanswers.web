@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import styles from './Blog.module.css';
 import NewsletterSub from '../../components/NewsletterSub/NewsletterSub';
 import NewNFT from '../../assets/blog-images/NewNFT.svg';
@@ -79,13 +80,17 @@ function Blog() {
 						Load More Pages
 					</button> */}
 					{token ? (
-						<button type="button" className={styles.SubmitArticle}>
-							Submit Articles
-						</button>
+						<Link to={`/submit-blog`} style={{ textDecoration: 'none' }}>
+							<button type="button" className={styles.SubmitArticle}>
+								Submit Articles
+							</button>
+						</Link>
 					) : (
-						<button type="button" className={styles.SubmitArticle}>
-							SignUp To Submit Articles
-						</button>
+						<Link to={`/sign-up`} style={{ textDecoration: 'none' }}>
+							<button type="button" className={styles.SubmitArticle}>
+								SignUp To Submit Articles
+							</button>
+						</Link>
 					)}
 				</div>
 			</section>
