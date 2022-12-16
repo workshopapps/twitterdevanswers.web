@@ -45,6 +45,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
+import RecoverPassword from './pages/ForgotPassword/RecoverPassword';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 
 function App() {
 	const {
@@ -71,6 +73,8 @@ function App() {
 				<Route path="login" element={<Login />} />
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
+				<Route path="password-recovery" element={<RecoverPassword />} />
+				<Route path="forgot-password" element={<ForgotPassword />} />
 
 				<Route element={<ProtectedRoutes />}>
 					<Route path="/dashboard" element={<NewDashboard />} />
