@@ -4,11 +4,22 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './UserBlogReview.module.css';
 import rightWay from '../../assets/blog-images/rightWay.svg';
 // import userOpenAI from '../../assets/blog-images/userOpenAI.svg';
+const token = localStorage.getItem('token');
 
 function UserBlogReview() {
 	const { pathname } = useLocation();
 	const id = pathname.slice(pathname.lastIndexOf('/') + 1);
 	const [blog, setBlog] = useState([]);
+
+	const formatDate = (date) =>
+		new Intl.DateTimeFormat(navigator.language, {
+			month: 'long',
+			year: 'numeric',
+			day: '2-digit',
+			minute: '2-digit',
+			hour: '2-digit',
+			hour12: 'true',
+		}).format(new Date(date));
 
 	useEffect(() => {
 		const fetchUser = async () => {
@@ -23,6 +34,60 @@ function UserBlogReview() {
 		};
 		fetchUser();
 	}, [id]);
+
+	const deleteHandler = () => {
+		const deleteBlog = async () => {
+			try {
+				const deleteRespose = await fetch(
+					`https://api.devask.hng.tech/blog/${id}/admin`,
+					{
+						method: 'DELETE',
+						headers: {
+							accept: 'application/json',
+							Authorization: `Bearer ${token}`,
+						},
+					}
+				);
+
+				console.log(deleteRespose);
+			} catch (err) {
+				// console.error(err);
+			}
+		};
+		deleteBlog();
+	};
+
+	const approveHandler = () => {
+		const appreveBlog = async () => {
+			try {
+				const approveResponse = await fetch(
+					`https://api.devask.hng.tech/blog/submit`,
+					{
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							accept: 'application/json',
+							Authorization: `Bearer ${token}`,
+						},
+						body: JSON.stringify({
+							title: blog?.title,
+							body: blog?.body,
+							blog_user_id: 0,
+							author: blog?.author,
+							image_url: blog?.image_url,
+							post_category: blog?.post_category,
+						}),
+					}
+				);
+
+				console.log(approveResponse);
+				deleteHandler();
+			} catch (err) {
+				// console.error(err);
+			}
+		};
+		appreveBlog();
+	};
 
 	return (
 		<div className={styles.userblog}>
@@ -39,7 +104,10 @@ function UserBlogReview() {
 			<h1>{blog.title}</h1>
 
 			<p className={styles.userAuthor}>
-				By {blog.author} <span>Submitted: {blog.date_posted}</span>
+				By {blog.author}{' '}
+				<span>
+					Submitted: {blog.date_posted && formatDate(blog.date_posted)}
+				</span>
 			</p>
 
 			<p className={styles.usertexttag}>{blog.post_category}</p>
@@ -52,8 +120,12 @@ function UserBlogReview() {
 			</div>
 
 			<div className={styles.BlogpostBtn}>
-				<button type="button">Approve Blogpost</button>
-				<button type="button">Delete Blogpost</button>
+				<button onClick={approveHandler} type="button">
+					Approve Blogpost
+				</button>
+				<button onClick={deleteHandler} type="button">
+					Delete Blogpost
+				</button>
 			</div>
 		</div>
 	);
