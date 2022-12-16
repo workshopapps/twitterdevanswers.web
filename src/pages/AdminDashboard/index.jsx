@@ -11,14 +11,14 @@ function AdminDashboard() {
 	const [isError, setIsError] = useState(true);
 	const [filteredUsers, setFilteredUsers] = useState([...allUsers]);
 	const [searchValue, setSearchValue] = useState('');
-	const [token, setToken] = useState({
-		processedToken: 0,
-		safeEscrowToken: 0,
-		// disbursedToken: 0
-	})
-	const tokenTransaction = [ token.safeEscrowToken, token.processedToken]
-	let constant = 0
-	// const usersId = [];
+	// const [token, setToken] = useState({
+	// 	processedToken: 1000,
+	// 	safeEscrowToken: 1000,
+	// 	// disbursedToken: 0
+	// })
+	// const tokenTransaction = [ token.safeEscrowToken, token.processedToken]
+	// let constant = 0
+
 
 
 	// console.log('alluser', allUsers)
@@ -38,7 +38,7 @@ function AdminDashboard() {
 			const data = await axios.get('https://api.devask.hng.tech/users', {
 				headers,
 			});
-			// console.log('data', data.data.data)
+			console.log('data', data.data.data)
 			if (data) {
 				setAllUsers(data.data.data);
 				setFilteredUsers(data.data.data);
@@ -47,6 +47,7 @@ function AdminDashboard() {
 			setIsError(false);
 		}
 	};
+	
 
 	useEffect(() => {
 		const filtered = allUsers.filter((user) =>
@@ -63,6 +64,20 @@ function AdminDashboard() {
 	const handleChange = (event) => {
 		setSearchValue(event.target.value);
 	};
+
+		
+// Correct way
+	// useEffect(() => {
+    //     // const interval = setInterval(() => {
+	// 		for(let i = 0; i < allUsers.length; i + 1 ) {
+	// 			usersId.push(allUsers[i].user_id);
+	// 		}
+	// 		console.log('user', usersId)
+    //     // }, 3000);
+    //     // return () => clearInterval(interval);
+    // }, []);
+
+
 
 	   // Admin Transaction Pay
 	// const payAllTransaction = async (amount, questionId) => {
@@ -91,81 +106,72 @@ function AdminDashboard() {
     //     return payTransaction   
     // }
 
+
+
 	 // Admin Transaction Deduct
-	 const deductAllTransaction = async (amount, questionId) => {
-        try {
-            const deduct = {
-                url: 'https://api.devask.hng.tech/admin/transactions/question/deduct',
-                method: 'POST',
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-                data: {
-                    amount,
-                    question_id: questionId,
-                    commission: 10
-                }
-            };
-            const deductedTransaction = await axios(deduct);
-            console.log('deducted',deductedTransaction);
-        } catch (err) {
-            // setIsError(false);
-			console.log('err', err)
-        }
-    }
-
-	   // Get All Questions
-	   const getAllQuestions = async () => {
-        try{
-            const Questions = await axios.get('https://api.devask.hng.tech/questions/')
-			const allQuestions = Questions.data.data;
-            // console.log('allQuestions',allQuestions)
-            let tokenProcessed = 0
-            let safeToken = 0
-            // let disbursed = 0
-            // let allPayTransaction = null
-            allQuestions.forEach(element => {
-                    // console.log('t', element)
-                    tokenProcessed += element.payment_amount;
-					deductAllTransaction(element.payment_amount, element.question_id)
-					safeToken += 10
-					// payAllTransaction(element.payment_amount, element.question_id)
-					// .then((data) => { allPayTransaction = data})
-					// disbursed += allPayTransaction.amount_earned
-			});
-                    // console.log('token', safeToken )
-
-            setToken((prev) =>({
-                ...prev,
-                processedToken : tokenProcessed,
-                safeEscrowToken : safeToken,
-                // disbursedToken : disbursed
-            }))
-        } catch(err) {
-            // setIsError(false);
-			console.log('err', err)
-        }
-    }
-
-	useEffect(() => {
-        const interval = setInterval(() => {
-            getAllQuestions();
-            // deductAllTransaction();
-            // payAllTransaction();
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
+	//  const deductAllTransaction = async (amount, questionId) => {
+    //     try {
+    //         const deduct = {
+    //             url: 'https://api.devask.hng.tech/admin/transactions/question/deduct',
+    //             method: 'POST',
+    //             headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //             },
+    //             data: {
+    //                 amount,
+    //                 question_id: questionId,
+    //                 commission: 10
+    //             }
+    //         };
+    //         const deductedTransaction = await axios(deduct);
+    //         console.log('deducted',deductedTransaction);
+    //     } catch (err) {
+    //         // setIsError(false);
+	// 		console.log('err', err)
+    //     }
+    // }
 
 
-	
-// Correct way
+
+	//    // Get All Questions
+	//    const getAllQuestions = async () => {
+    //     try{
+    //         const Questions = await axios.get('https://api.devask.hng.tech/questions/')
+	// 		const allQuestions = Questions.data.data;
+    //         // console.log('allQuestions',allQuestions)
+    //         let tokenProcessed = 0
+    //         let safeToken = 0
+    //         // let disbursed = 0
+    //         // let allPayTransaction = null
+    //         allQuestions.forEach(element => {
+    //                 // console.log('t', element)
+    //                 tokenProcessed += element.payment_amount;
+	// 				deductAllTransaction(element.payment_amount, element.question_id)
+	// 				safeToken += 10
+	// 				// payAllTransaction(element.payment_amount, element.question_id)
+	// 				// .then((data) => { allPayTransaction = data})
+	// 				// disbursed += allPayTransaction.amount_earned
+	// 		});
+    //                 // console.log('token', safeToken )
+
+    //         setToken((prev) =>({
+    //             ...prev,
+    //             processedToken : tokenProcessed,
+    //             safeEscrowToken : safeToken,
+    //             // disbursedToken : disbursed
+    //         }))
+    //     } catch(err) {
+    //         // setIsError(false);
+	// 		console.log('err', err)
+    //     }
+    // }
+
 	// useEffect(() => {
     //     const interval = setInterval(() => {
-	// 		for(let i = 0; i < allUsers.length; i + 1 ) {
-	// 			usersId.push(allUsers[i].user_id);
-	// 		}
-	// 		console.log('user', usersId)
+    //         getAllQuestions();
+    //         // deductAllTransaction();
+    //         // payAllTransaction();
     //     }, 3000);
     //     return () => clearInterval(interval);
     // }, []);
@@ -178,8 +184,8 @@ function AdminDashboard() {
 			<h1 className={styles.pageTitle}>Admin Dashboard</h1>
 			<section className={styles.dataWrapper}>
 				{Data.map((item) => {
-					const { id, title, image, mode } = item;
-					constant += 1;
+					const { id, title, amount, image, mode } = item;
+					// constant += 1;
 					return (
 						<article
 							key={id}
@@ -190,7 +196,7 @@ function AdminDashboard() {
 						>
 							<div>
 								<h2>{title}</h2>
-								<p>{tokenTransaction[constant -1]}</p>
+								<p>{amount}</p>
 							</div>
 							<img src={`${image}`} alt={title} />
 						</article>
