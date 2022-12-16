@@ -279,7 +279,7 @@ function UserActivities() {
 					))
 				) : (
 					<p style={{ textAlign: 'center', marginTop: '50px' }}>
-						{isVisitor ? `@${thisuser}` : `You `} haven&apos;t asked a question
+						{isVisitor ? `@${thisuser} hasn't` : `You haven't`} asked a question
 					</p>
 				)}
 			</section>
@@ -347,7 +347,7 @@ function UserActivities() {
 						))
 					) : (
 						<p style={{ textAlign: 'center', marginTop: '50px' }}>
-							{isVisitor ? `@${thisuser}` : `You `} haven&apos;t replied to any
+							{isVisitor ? `@${thisuser} hasn't` : `You haven't`} replied to any
 							question
 						</p>
 					)}

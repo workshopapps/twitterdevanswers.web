@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styles from './UserBlogReview.module.css';
 import rightWay from '../../assets/blog-images/rightWay.svg';
 // import userOpenAI from '../../assets/blog-images/userOpenAI.svg';
@@ -8,6 +8,7 @@ const token = localStorage.getItem('token');
 
 function UserBlogReview() {
 	const { pathname } = useLocation();
+	const navigate = useNavigate();
 	const id = pathname.slice(pathname.lastIndexOf('/') + 1);
 	const [blog, setBlog] = useState([]);
 
@@ -50,6 +51,7 @@ function UserBlogReview() {
 				);
 
 				console.log(deleteRespose);
+				navigate('/blog-page-review');
 			} catch (err) {
 				// console.error(err);
 			}
