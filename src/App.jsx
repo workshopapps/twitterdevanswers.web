@@ -45,8 +45,6 @@ import AdminDashboard from './pages/AdminDashboard';
 import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
-import RecoverPassword from './pages/ForgotPassword/RecoverPassword';
-import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 
 import SuccessSign from './pages/SuccessSign';
 import ForgotPassword from './pages/ForgotPassword';
@@ -77,14 +75,9 @@ function App() {
 				<Route path="login" element={<Login />} />
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
-<<<<<<< HEAD
-				<Route path="password-recovery" element={<RecoverPassword />} />
-				<Route path="forgot-password" element={<ForgotPassword />} />
-=======
 				<Route path="sucess-sign" element={<SuccessSign />} />
 				<Route path="forgot-password" element={<ForgotPassword />} />
-				<Route path="reset-password" element={<ResetPassword />} />
->>>>>>> 1ed18af3c72ec21e4948d5a2f2f8e68e2b166cd9
+				<Route path="password-recovery" element={<ResetPassword />} />
 
 				<Route element={<ProtectedRoutes />}>
 					<Route path="/dashboard" element={<NewDashboard />} />
