@@ -49,7 +49,7 @@ function UserBlogReview() {
 					}
 				);
 
-				console.log(deleteRespose);
+				// console.log(deleteRespose);
 			} catch (err) {
 				// console.error(err);
 			}

@@ -80,13 +80,13 @@ function Blog() {
 						Load More Pages
 					</button> */}
 					{token ? (
-						<Link to={`/submit-blog`} style={{ textDecoration: 'none' }}>
+						<Link to="/submit-blog" style={{ textDecoration: 'none' }}>
 							<button type="button" className={styles.SubmitArticle}>
 								Submit Articles
 							</button>
 						</Link>
 					) : (
-						<Link to={`/sign-up`} style={{ textDecoration: 'none' }}>
+						<Link to="/sign-up" style={{ textDecoration: 'none' }}>
 							<button type="button" className={styles.SubmitArticle}>
 								SignUp To Submit Articles
 							</button>

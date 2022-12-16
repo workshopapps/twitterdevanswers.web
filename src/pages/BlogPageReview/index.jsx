@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from './BlogPageReview.module.css';
 import rightWay from '../../assets/blog-images/rightWay.svg';
-import searchbtn from '../../assets/blog-images/searchbtn.svg';
+// import searchbtn from '../../assets/blog-images/searchbtn.svg';
 import programming from '../../assets/blog-images/programming.svg';
 import calendar from '../../assets/blog-images/calendar.svg';
 import profile from '../../assets/blog-images/profile.svg';
