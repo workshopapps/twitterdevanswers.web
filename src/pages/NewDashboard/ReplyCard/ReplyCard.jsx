@@ -77,9 +77,11 @@ function ReplyCard({
 					</div>
 				</div>
 				<div className={styles.topRight}>
-					<div className={styles.checkbox}>
-						<input type="checkbox" id="check" />
-					</div>
+					{answeredBy?.user_id === ownerId ? null : (
+						<div className={styles.checkbox}>
+							<input type="checkbox" id="check" />
+						</div>
+					)}
 					<FaEllipsisV />
 				</div>
 			</div>

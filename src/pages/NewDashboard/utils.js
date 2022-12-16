@@ -64,6 +64,26 @@ function useMessenger() {
 		}
 	};
 
+	const getUserbyUsername = async (username) => {
+		try {
+			const response = axios({
+				method: 'get',
+				url: `https://api.devask.hng.tech/users/get/${username}`,
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+
+			const {
+				data: { data },
+			} = await response;
+
+			return data;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
 	const getQuestions = async () => {
 		try {
 			const response = axios({
@@ -84,9 +104,9 @@ function useMessenger() {
 	const getAnswers = async (id) => {
 		try {
 			const response = axios.get(`https://api.devask.hng.tech/answer/${id}`, {
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
+				// headers: {
+				// 	Authorization: `Bearer ${token}`,
+				// },
 			});
 
 			const { data } = await response;
@@ -138,9 +158,9 @@ function useMessenger() {
 			const response = axios({
 				method: 'get',
 				url: `https://api.devask.hng.tech/like/${questionId}`,
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
+				// headers: {
+				// 	Authorization: `Bearer ${token}`,
+				// },
 			});
 			return response;
 		} catch (error) {
@@ -163,6 +183,25 @@ function useMessenger() {
 		}
 	};
 
+	const deleteQuestion = async (id) => {
+		try {
+			const response = axios.delete(
+				`https://api.devask.hng.tech/questions/${id}`,
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+
+			const { data } = await response;
+
+			return data;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
 	return {
 		handleNavigate,
 		getUsers,
@@ -173,6 +212,8 @@ function useMessenger() {
 		getLikes,
 		getTags,
 		sortByDate,
+		deleteQuestion,
+		getUserbyUsername,
 	};
 }
 

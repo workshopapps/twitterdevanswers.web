@@ -20,6 +20,7 @@ function QuestionPage() {
 	const loggedInUserId = cred?.user_id;
 
 	const [question, setQuestion] = useState({});
+	const [loggedInUserCred, setLoggedInUserCred] = useState({});
 	const [askedBy, setAskedBy] = useState({});
 	const [answers, setAnswers] = useState([]);
 	const [msg, setMsg] = useState('');
@@ -35,6 +36,8 @@ function QuestionPage() {
 		sortByDate,
 		getLikes,
 		likeUnlike,
+		deleteQuestion,
+		getUserbyUsername,
 	} = useMessenger();
 	const { modal, showModal } = useModal();
 
@@ -73,6 +76,11 @@ function QuestionPage() {
 			setAnswers(result);
 		};
 
+		const fetchUserbyUsername = async () => {
+			const result = await getUserbyUsername('Bammy');
+			setLoggedInUserCred(result);
+		};
+
 		const fetchLikes = async () => {
 			// get likes array
 			const { data } = await getLikes(id);
@@ -85,7 +93,7 @@ function QuestionPage() {
 			);
 			setAlreadyLiked(response);
 		};
-
+		fetchUserbyUsername();
 		fetchLikes();
 		fetchAnswers();
 	}, []);
@@ -161,6 +169,17 @@ function QuestionPage() {
 		}
 	};
 
+	const handleDelete = async () => {
+		try {
+			await deleteQuestion(question.question_id);
+		} catch (error) {
+			setMsg('something went wrong');
+			showModal();
+		}
+	};
+
+	const numOfLikes = liked?.filter((item) => item.like_type === 'up');
+
 	return (
 		<div className="dashContainer">
 			<div className="modal">{modal && <AuthModal text={msg} />}</div>
@@ -222,7 +241,16 @@ function QuestionPage() {
 											<span className={styles.timeStamp}>{formatDate()}</span>
 										</div>
 									</div>
-									<span className={styles.edit}>Edit</span>
+									{askedBy.user_id === loggedInUserId ||
+									loggedInUserCred.is_admin ? (
+										<button
+											onClick={handleDelete}
+											type="button"
+											className={styles.delete}
+										>
+											Delete
+										</button>
+									) : null}
 								</div>
 								<div className={styles.bottom}>
 									<h3 className={styles.title}>{question?.title}</h3>
@@ -248,8 +276,8 @@ function QuestionPage() {
 													: 'y'}
 											</span>
 											<span>
-												{question?.total_like} like
-												{question?.total_like > 1 || question?.total_like === 0
+												{numOfLikes?.length} like
+												{numOfLikes?.length > 1 || numOfLikes?.length === 0
 													? 's'
 													: ''}
 											</span>
