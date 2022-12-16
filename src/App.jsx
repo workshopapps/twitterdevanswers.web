@@ -38,15 +38,13 @@ import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
 import { AppContext } from './store/AppContext';
-// import NewDashboard from './pages/NewDashboard/NewDashboard';
-// import QuestionPage from './pages/NewDashboard/QuestionPage';
 import PrivacyandSafetySettings from './pages/PrivacyAndSafetySettings/Index'
 import BlogPageReview from "./pages/BlogPageReview";
+import UserBlogReview from "./pages/UserBlogReview";
 import AdminDashboard from './pages/AdminDashboard';
 import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
-import EditAcccount from './pages/Settings/components/EditAccount';
 
 function App() {
 	const {
@@ -55,7 +53,6 @@ function App() {
 	const token = localStorage.getItem('token');
 
 	return (
-		<div className="App">
 			{token || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<FirstLandingPage />} />
@@ -91,6 +88,7 @@ function App() {
 					<Route path="contact" element={<Contact />} />
 					<Route path="submit-blog" element={<SubmitBlog />} />
 					<Route path="/blog-page-review" element={<BlogPageReview />} />
+					<Route path="/user-blog-review" element={<UserBlogReview />} />
 
 					<Route path="*" element={<ErrorPage />} />
 					<Route
