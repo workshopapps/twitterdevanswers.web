@@ -108,7 +108,6 @@ function WalletPage() {
     
 	const userId = JSON.parse(localStorage.getItem('user')).data.user_id;
 
-    console.log('id', userId)
     const fetchUserData = async () => {
 		if(userId){
 			try {

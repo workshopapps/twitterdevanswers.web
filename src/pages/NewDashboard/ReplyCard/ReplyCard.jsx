@@ -56,7 +56,7 @@ function ReplyCard({
 			return;
 		}
 
-		if (username === replyingTo || loggedInUserCred.is_admin) {
+		if (usename === replyingTo || loggedInUserCred.is_admin) {
 			try {
 				const response = await selectCorrectAnswer(answerId, +questionId);
 				setMsg(response.data.detail);
