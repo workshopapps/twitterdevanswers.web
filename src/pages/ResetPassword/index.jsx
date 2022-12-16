@@ -6,7 +6,6 @@ import square from '../../assets/auth-images/square.svg';
 import Rectangleright from '../../assets/auth-images/Rectangleright.svg';
 import ellipseleft from '../../assets/auth-images/ellipseleft.svg';
 import logo from '../../assets/auth-images/logo.svg';
-import Input from '../AuthPage/Input';
 
 function ResetPassword() {
     const [newPassword, setNewPassword] = useState("*******");
@@ -48,23 +47,21 @@ function ResetPassword() {
 					<img src={logo} alt="logo" />
 					<h2>Reset Password</h2>
 					<div className={styles.ForgotPasswordInput}>
-						<Input
-							label="New Password"
-							id="New_Password"
+					<h5>New Password</h5>
+						<input
 							name="New Password"
-							placeholder="*******"
 							type="password"
+							required
 							value={newPassword}
 							onChange={(e) => setNewPassword(e.target.value)}
 						/>
 					</div>
                     <div className={styles.ForgotPasswordInput}>
-						<Input
-							label="Confirm New Password"
-							id="Confirm_New_Password"
+					<h5>Confirm Password</h5>
+						<input
 							name="Confirm New Password"
-							placeholder="*******"
 							type="password"
+							required
 							value={confirmPassword}
 							onChange={(e) => setConfirmPassword(e.target.value)}
 

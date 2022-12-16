@@ -6,7 +6,6 @@ import square from '../../assets/auth-images/square.svg';
 import Rectangleright from '../../assets/auth-images/Rectangleright.svg';
 import ellipseleft from '../../assets/auth-images/ellipseleft.svg';
 import logo from '../../assets/auth-images/logo.svg';
-import Input from '../AuthPage/Input';
 
 function ForgotPassword() {
 	const [email, setEmail] = useState("email");
@@ -51,11 +50,9 @@ function ForgotPassword() {
 						you a link to reset your password.
 					</p>
 					<div className={styles.ForgotPasswordInput}>
-						<Input
-							label="Email Address"
-							id="Email_Address"
+						<h5>Email Address</h5>
+						<input
 							name="Email Address"
-							placeholder="Email"
 							required
 							type="text"
 							value={email}
