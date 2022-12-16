@@ -382,7 +382,7 @@ function PostQuestion() {
 								Introduce the problem and expand on what you put in the title.
 								Minimum 20 characters
 							</p>
-							<div className={styles.textIcons}>
+							{/* <div className={styles.textIcons}>
 								<span>
 									<img src="/post-question/caseIcon.svg" alt="case Icon" />
 								</span>
@@ -404,7 +404,7 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
-							</div>
+							</div> */}
 							<textarea
 								value={questionData.detail}
 								name="detail"
@@ -429,7 +429,7 @@ function PostQuestion() {
 								actually resulted. Minimum 20 characters
 							</p>
 
-							<div className={styles.textIcons}>
+							{/* <div className={styles.textIcons}>
 								<span>
 									<img src="/post-question/caseIcon.svg" alt="case Icon" />
 								</span>
@@ -451,7 +451,7 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
-							</div>
+							</div> */}
 
 							<textarea
 								value={questionData.description}

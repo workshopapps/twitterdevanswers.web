@@ -77,7 +77,6 @@ function App() {
 					<Route path="privacy" element={<Privacy />} />
 					<Route path="sign-up" element={<SignUp />} />
 
-					{token || isAuth ? <InternalHeader /> : <Header />}
 					<Route>
 						<Route path="/" element={<FirstLandingPage />} />
 						<Route path="cookie-policy" element={<CookiePolicy />} />
