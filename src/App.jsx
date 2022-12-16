@@ -53,6 +53,7 @@ function App() {
 	const token = localStorage.getItem('token');
 
 	return (
+		<div className="App">  
 			{token || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<FirstLandingPage />} />
@@ -70,7 +71,6 @@ function App() {
 				<Route path="login" element={<Login />} />
 				<Route path="privacy" element={<Privacy />} />
 				<Route path="sign-up" element={<SignUp />} />
-				<Route path="editaccount" element={<EditAcccount />} />
 
 				<Route element={<ProtectedRoutes />}>
 					<Route path="/dashboard" element={<NewDashboard />} />
