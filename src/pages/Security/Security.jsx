@@ -22,7 +22,6 @@ function Security() {
     const [hideReset, setHideReset] = useState(false);
     const [isSetUpVisible, setIsSetUpVisible] = useState(false);
 
-
     function toggleForm(){
         setIsVisible(!isVisible);
         setVerifyToken(false);
@@ -135,6 +134,7 @@ function Security() {
                     setResetResponse("Password Reset Unsuccessful. Please try again!");
                 }
             }
+
 
     return(
         <div className={styles.Security}>

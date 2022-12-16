@@ -94,7 +94,7 @@ function App() {
 						<Route path="sign-up" element={<SignUp />} />
 						<Route path="sucess-sign" element={<SuccessSign />} />
 						<Route path="forgot-password" element={<ForgotPassword />} />
-						<Route path="reset-password" element={<ResetPassword />} />
+						<Route path="password-recovery" element={<ResetPassword />} />
 
 						<Route element={<ProtectedRoutes />}>
 							<Route path="/dashboard" element={<NewDashboard />} />
