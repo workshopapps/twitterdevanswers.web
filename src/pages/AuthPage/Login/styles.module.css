@@ -2,6 +2,7 @@
 .formexternal {
 	background-color: #492b7c;
 	padding-block: 5px;
+	border-bottom: 5px solid #492b7c;
 }
  
 .formmargin1, .formmargin2, .formmargin3, .formmargin4{
@@ -25,24 +26,24 @@
 
 .topleft {
 position: absolute;
-top: 25px;
-left: 40px;
+top: 60px;
+left: 100px;
 }
 
 .midleft {
 position: absolute;
 top: 340px;
-left: 30px;
+left: 50px;
 }
 .topblock {
 position: absolute;
-top: 40px;
+top: 80px;
 right: 180px;
 }
 .topslant {
 position: absolute;
-top: 190px;
-right: 20px;
+top: 200px;
+right: 40px;
 
 }
 
@@ -139,6 +140,11 @@ right: 20px;
 }
 
 @media only screen and (max-width: 768px) {
+	.formexternal {
+		background-color: #492b7c;
+		padding-block: 5px;
+		border-bottom: 1px solid grey;
+	}
 	.signin {
     width: 60%;
     background: #ffffff;
@@ -168,7 +174,7 @@ right: 20px;
 	.header h3 {
 		font-weight: 700;
 		color: #303030;
-		font-size: 20px;
+		font-size: 18px;
 		line-height: 18px;
 		text-align: center;
 		margin-bottom: 5px;
@@ -176,7 +182,7 @@ right: 20px;
 	}
 	.header p {
 		font-weight: 700;
-		font-size: 15px;
+		font-size: 13px;
 		line-height: 18px;
 		text-align: center;
 		/* padding-inline: 25%; */
@@ -227,6 +233,7 @@ right: 20px;
 	.formexternal {
 		background-color: #fff;
 		padding-block: 0px;
+		
 	}
 	.signin {
 		/* margin-block: 0px; */
