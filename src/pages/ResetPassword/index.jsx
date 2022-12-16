@@ -70,7 +70,7 @@ function ResetPassword() {
 
                     <button type='submit'>RESET PASSWORD</button>
 
-					<p>{Response}</p>
+					<p className={styles.Response}>{Response}</p>
 				</form>
 			</main>
 		</div>
