@@ -103,11 +103,10 @@ function useMessenger() {
 
 	const getAnswers = async (id) => {
 		try {
-			const response = axios.get(`https://api.devask.hng.tech/answer/${id}`, {
-				// headers: {
-				// 	Authorization: `Bearer ${token}`,
-				// },
-			});
+			const response = axios.get(
+				`https://api.devask.hng.tech/answer/${id}`,
+				{}
+			);
 
 			const { data } = await response;
 
@@ -158,9 +157,6 @@ function useMessenger() {
 			const response = axios({
 				method: 'get',
 				url: `https://api.devask.hng.tech/like/${questionId}`,
-				// headers: {
-				// 	Authorization: `Bearer ${token}`,
-				// },
 			});
 			return response;
 		} catch (error) {
@@ -184,6 +180,7 @@ function useMessenger() {
 	};
 
 	const deleteQuestion = async (id) => {
+		console.log(id);
 		try {
 			const response = axios.delete(
 				`https://api.devask.hng.tech/questions/${id}`,
@@ -194,10 +191,32 @@ function useMessenger() {
 				}
 			);
 
-			const { data } = await response;
+			const data = await response;
 
 			return data;
 		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
+	const selectCorrectAnswer = async (answerId, questionId) => {
+		const data = { question_id: questionId };
+
+		try {
+			const response = axios({
+				method: 'patch',
+				url: `https://api.devask.hng.tech/answer/select-correct-answer/${answerId}`,
+				data,
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+
+			const payload = await response;
+
+			return payload;
+		} catch (error) {
+			console.log(error);
 			throw new Error(error);
 		}
 	};
@@ -214,6 +233,7 @@ function useMessenger() {
 		sortByDate,
 		deleteQuestion,
 		getUserbyUsername,
+		selectCorrectAnswer,
 	};
 }
 

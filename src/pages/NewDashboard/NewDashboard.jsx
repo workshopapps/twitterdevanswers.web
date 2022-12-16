@@ -54,7 +54,7 @@ function NewDashboard() {
 					</div>
 					<section className={styles.body}>
 						<div className={`${styles.postsContainer} ${styles.scrollbar} `}>
-							{questions?.length === 0
+							{questions.length === 0
 								? null
 								: sortByDate(questions).map((post) => (
 										<PostCard post={post} key={post.question_id} />

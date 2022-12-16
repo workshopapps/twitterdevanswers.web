@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BsChatSquareDots, BsShare, BsArrowLeft } from 'react-icons/bs';
@@ -20,13 +21,13 @@ function QuestionPage() {
 	const loggedInUserId = cred?.user_id;
 
 	const [question, setQuestion] = useState({});
-	const [loggedInUserCred, setLoggedInUserCred] = useState({});
 	const [askedBy, setAskedBy] = useState({});
 	const [answers, setAnswers] = useState([]);
 	const [msg, setMsg] = useState('');
 	const [show, setShow] = useState(false);
 	const [liked, setLiked] = useState([]);
 	const [alreadyLiked, setAlreadyLiked] = useState({});
+	const [loggedInUserCred, setLoggedInUserCred] = useState({});
 
 	const {
 		getQuestions,
@@ -69,16 +70,16 @@ function QuestionPage() {
 		fetchQuestions();
 	}, []);
 
-	// get answers
 	useEffect(() => {
+		const fetchUserByUserName = async () => {
+			const result = await getUserbyUsername(cred?.usename);
+			setLoggedInUserCred(result);
+		};
+
+		// get answers
 		const fetchAnswers = async () => {
 			const result = await getAnswers(id);
 			setAnswers(result);
-		};
-
-		const fetchUserbyUsername = async () => {
-			const result = await getUserbyUsername('Bammy');
-			setLoggedInUserCred(result);
 		};
 
 		const fetchLikes = async () => {
@@ -93,9 +94,10 @@ function QuestionPage() {
 			);
 			setAlreadyLiked(response);
 		};
-		fetchUserbyUsername();
+
 		fetchLikes();
 		fetchAnswers();
+		fetchUserByUserName();
 	}, []);
 
 	// get user
@@ -172,12 +174,13 @@ function QuestionPage() {
 	const handleDelete = async () => {
 		try {
 			await deleteQuestion(question.question_id);
+			navigate('/dashboard');
 		} catch (error) {
-			setMsg('something went wrong');
-			showModal();
+			throw new Error();
 		}
 	};
 
+	console.log(answers);
 	const numOfLikes = liked?.filter((item) => item.like_type === 'up');
 
 	return (
@@ -242,7 +245,7 @@ function QuestionPage() {
 										</div>
 									</div>
 									{askedBy.user_id === loggedInUserId ||
-									loggedInUserCred.is_admin ? (
+									loggedInUserCred?.is_admin ? (
 										<button
 											onClick={handleDelete}
 											type="button"
@@ -321,6 +324,7 @@ function QuestionPage() {
 							: sortByDate(answers)?.map((reply) => (
 									<ReplyCard
 										reply={reply}
+										questionId={id}
 										key={reply.answer_id}
 										poster={askedBy && askedBy.username}
 									/>

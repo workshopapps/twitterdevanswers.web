@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { PropTypes } from 'prop-types';
 import { BsChatSquareDots, BsShare } from 'react-icons/bs';
 import { ReactComponent as Heart } from '../heart.svg';
@@ -197,7 +197,7 @@ function PostCard({
 	);
 }
 
-export default PostCard;
+export default memo(PostCard);
 
 PostCard.propTypes = {
 	post: PropTypes.shape({

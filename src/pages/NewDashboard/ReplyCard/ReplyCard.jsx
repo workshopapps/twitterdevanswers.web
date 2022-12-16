@@ -1,17 +1,36 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+import React, { memo, useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { FaEllipsisV } from 'react-icons/fa';
 import avatar from '../../../assets/dashboard/user.png';
 import styles from './replyCard.module.css';
 import useMessenger, { timeStamp } from '../utils';
+import AuthModal from '../../AuthPage/AuthModal';
+import { useModal } from '../../AuthPage/utils';
 
 function ReplyCard({
-	reply: { owner_id: ownerId, content, created_at: createdAt },
+	reply: {
+		owner_id: ownerId,
+		content,
+		created_at: createdAt,
+		answer_id: answerId,
+		is_answered: isAnswered,
+	},
 	poster: replyingTo,
+	questionId,
 }) {
 	const [answeredBy, setAnsweredBy] = useState({});
+	const [checked, setChecked] = useState(isAnswered);
+	const [msg, setMsg] = useState('');
+	const [loggedInUserCred, setLoggedInUserCred] = useState({});
 
-	const { getUsers, handleNavigate } = useMessenger();
+	const { username } = JSON.parse(localStorage.getItem('userData'));
+
+	const { getUsers, handleNavigate, getUserbyUsername, selectCorrectAnswer } =
+		useMessenger();
+	const { modal, showModal } = useModal();
 
 	// get user
 	useEffect(() => {
@@ -21,11 +40,40 @@ function ReplyCard({
 			setAnsweredBy(user);
 		};
 
+		const fetchUserByUserName = async () => {
+			const result = await getUserbyUsername(username);
+			setLoggedInUserCred(result);
+		};
+
+		fetchUserByUserName();
 		fetchUser();
 	}, []);
 
+	const handleCheck = async () => {
+		if (isAnswered) {
+			setMsg('satisfactory answer already selected');
+			showModal();
+			return;
+		}
+
+		if (username === replyingTo || loggedInUserCred.is_admin) {
+			try {
+				const response = await selectCorrectAnswer(answerId, +questionId);
+				setMsg(response.data.detail);
+				setChecked(true);
+				return;
+			} catch (error) {
+				console.log(ut79xyf);
+			}
+		}
+		setMsg('not authorized');
+		showModal();
+	};
+
 	return Object.keys(answeredBy).length === 0 ? null : (
 		<div className={styles.replyCard}>
+			<div className="modal">{modal && <AuthModal text={msg} />}</div>
+
 			<div className={styles.infos}>
 				<div className={styles.data}>
 					<div
@@ -77,9 +125,14 @@ function ReplyCard({
 					</div>
 				</div>
 				<div className={styles.topRight}>
-					{answeredBy?.user_id === ownerId ? null : (
+					{answeredBy?.username === replyingTo ? null : (
 						<div className={styles.checkbox}>
-							<input type="checkbox" id="check" />
+							<input
+								type="checkbox"
+								id="check"
+								checked={checked}
+								onChange={handleCheck}
+							/>
 						</div>
 					)}
 					<FaEllipsisV />
@@ -90,14 +143,17 @@ function ReplyCard({
 	);
 }
 
-export default ReplyCard;
+export default memo(ReplyCard);
 ReplyCard.propTypes = {
 	reply: PropTypes.shape({
 		owner_id: PropTypes.number.isRequired,
+		answer_id: PropTypes.number.isRequired,
 		content: PropTypes.string.isRequired,
 		created_at: PropTypes.string.isRequired,
+		is_answered: PropTypes.bool.isRequired,
 	}).isRequired,
 	poster: PropTypes.string,
+	questionId: PropTypes.string.isRequired,
 };
 
 ReplyCard.defaultProps = {
