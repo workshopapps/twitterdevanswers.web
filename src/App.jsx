@@ -18,6 +18,9 @@ import Career from './pages/Career';
 import CookiePolicy from './pages/CookiePolicy';
 import FAQ from './pages/FAQ/Index';
 import Profile from './pages/Profile/index';
+import SuccessSign from './pages/SuccessSign/index';
+import ForgotPassword from './pages/ForgotPassword/index';
+import ResetPassword from './pages/ResetPassword/index';
 import Help from './pages/Help';
 import HowItWorks from './pages/HowItWorks';
 import PostQuestion from './pages/PostQuestion';
@@ -46,9 +49,6 @@ import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 import AdminBlogPage from './pages/AdminBlogPage';
-import SuccessSign from './pages/SuccessSign';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
 
 function App() {
 	const {
@@ -76,8 +76,6 @@ function App() {
 					<Route path="login" element={<Login />} />
 					<Route path="privacy" element={<Privacy />} />
 					<Route path="sign-up" element={<SignUp />} />
-
-					{token || isAuth ? <InternalHeader /> : <Header />}
 					<Route>
 						<Route path="/" element={<FirstLandingPage />} />
 						<Route path="cookie-policy" element={<CookiePolicy />} />
@@ -112,8 +110,7 @@ function App() {
 							<Route path="settings" element={<Settings />} />
 							<Route path="security-settings" element={<Security />} />
 							<Route path="contact" element={<Contact />} />
-							<Route path="submit-blog" element={<SubmitBlog />} />
-							<Route path="/blog-page-review" element={<BlogPageReview />} />
+							
 							<Route path="profile/:username" element={<Profile />} />
 							<Route path="notifications-page" element={<Notifications />} />
 							<Route path="tags-page" element={<Tags />} />

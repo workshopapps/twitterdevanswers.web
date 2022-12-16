@@ -94,7 +94,7 @@ const handleSearch = (event) => {
 			</header>
 			<main>
 				<div className={styles.user_grid_container}>
-					{ filteredList.length === 0 ? 'User was not found' : filteredList.map((user) => (
+					{ filteredList.length === 0 ? 'Check back for more Users suggestions...' : filteredList.map((user) => (
 					<UserProfileCard key = {user.user_id} user = {user} />
 					))   }
 				</div>
