@@ -108,6 +108,7 @@ function WalletPage() {
 		state: { user },
 	} = useContext(AppContext);
 	const userId = user.user_id;
+//	const walletId = user.wallet_id;
 
 	const fetchUserData = async () => {
 		if (userId) {

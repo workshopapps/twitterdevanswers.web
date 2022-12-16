@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 .user_page_container {
-	padding: 3.5625rem 4rem;
+	padding: 2.5625rem 4rem;
 	width: 100vw;
 	max-width: 100vw;
 	display: flex;
-	font-family: 'Rubik', sans-serif;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;	
@@ -18,13 +17,15 @@
 }
 
 .user_page_heading {
-	width: 482px;
-	font-size: 3rem;
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Nunito';
+	font-style: normal;
 	font-weight: 600;
-	line-height: 56px;
+	font-size: 48px;
+	width: 50%;
 	text-align: center;
-	color: #1d1dd8;
+	line-height: -0.3px;
+	color: #492B7C;
+
 }
 
 /* search box component style */
@@ -58,7 +59,6 @@
 .search_languages {
 	display: flex;
 	padding: 5px 27px;
-	font-family: 'Rubik', sans-serif;
 	height: 100%;
 	gap: 21px;
 	justify-content: center;

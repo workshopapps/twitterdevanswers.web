@@ -5,7 +5,6 @@
 }
 
 .container input::-moz-placeholder {
-	font-family: 'Rubik', san-serif;
 	font-weight: 400;
 	color: #989898;
 }
@@ -145,7 +144,6 @@
 	line-height: 1.6;
 }
 .container .detailWrapper .content a {
-	background: #1d1dd8;
 	padding: 1em;
 	color: #ffffff;
 	align-self: flex-end;
@@ -175,14 +173,14 @@
 	cursor: pointer;
 }
 .buttonWrapper div .review {
-	background: #1d1dd8;
+	background: #492b7c;
 	color: #ffffff;
 	border: none;
 }
 .buttonWrapper div .discard {
 	background: #ffffff;
-	color: #1d1dd8;
-	border: 1px solid #1d1dd8;
+	color: #492b7c;
+	border: 1px solid #492b7c;
 }
 
 .containerWrapper {
