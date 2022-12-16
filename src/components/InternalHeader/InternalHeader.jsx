@@ -8,7 +8,7 @@ import { ReactComponent as TagIcon } from '../../assets/header-images/tagIcon.sv
 import { ReactComponent as UsersIcon } from '../../assets/header-images/user.svg';
 import { ReactComponent as WalletIcon } from '../../assets/header-images/wallet.svg';
 import { ReactComponent as SortIcon } from '../../assets/header-images/sort.svg';
-import { ReactComponent as SettingsIcon } from '../../assets/header-images/settings.svg';
+// import { ReactComponent as SettingsIcon } from '../../assets/header-images/settings.svg';
 import { ReactComponent as NotificationIcon } from '../../assets/header-images/notification.svg';
 import { ReactComponent as SearchIcon } from '../../assets/header-images/search.svg';
 import { ReactComponent as Logout } from '../../assets/header-images/logout.svg';
@@ -191,11 +191,11 @@ export default function InternalHeader() {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/settings" style={linkStyle} className={activeStyle}>
+							{/* <NavLink to="/settings" style={linkStyle} className={activeStyle}>
 								<div className={styles.link}>
 									<SettingsIcon className={styles.icon} /> <span>Settings</span>
 								</div>
-							</NavLink>
+							</NavLink> */}
 						</li>
 					</ul>
 					<div className={styles.rest}>
@@ -208,11 +208,13 @@ export default function InternalHeader() {
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
 						<div className={styles.user}>
-							<NavLink   to="/profile/:username" className={styles.avatar} 
-							// aria-hidden={active}
+							<NavLink
+								to="/profile/:username"
+								className={styles.avatar}
+								// aria-hidden={active}
 							>
 								<img src={avatar} alt="avatar" />
-								</NavLink>
+							</NavLink>
 							<div className={styles.profile}>
 								<div className={styles.nameStatus}>
 									<p>{user?.userName}</p>
@@ -222,14 +224,14 @@ export default function InternalHeader() {
 							</div>
 						</div>
 
-						{pathname === '/dashboard' && (
+						{/* {pathname === '/dashboard' && (
 							<NavLink
 								to="/post-questions"
 								className={`${styles['header-button']} ${styles['header-button__large-screen']}`}
 							>
 								Ask a question
 							</NavLink>
-						)}
+						)} */}
 					</div>
 
 					{/* SideNav for small laptops and tabs */}
@@ -298,8 +300,8 @@ export default function InternalHeader() {
 								</NavLink>
 							</li>
 							<li>
-								<NavLink
-									to="/settings"
+								{/* <NavLink
+									to="#"
 									style={linkStyle}
 									className={activeStyle}
 									onClick={hadnleClick}
@@ -308,7 +310,7 @@ export default function InternalHeader() {
 										<SettingsIcon className={styles.snIcon} />{' '}
 										<span>Settings</span>
 									</div>
-								</NavLink>
+								</NavLink> */}
 							</li>
 							<li className={styles.log}>
 								<NavLink
@@ -318,8 +320,7 @@ export default function InternalHeader() {
 									onClick={hadnleClick}
 								>
 									<div className={styles.snLink}>
-										<Logout />{' '}
-										<span className={styles.logspan} >Logout</span>
+										<Logout /> <span className={styles.logspan}>Logout</span>
 									</div>
 								</NavLink>
 							</li>

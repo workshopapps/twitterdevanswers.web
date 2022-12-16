@@ -4,12 +4,17 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	
 }
 .imgWrapper {
 	width: 48%;
+	height: 500px;
 }
 .imgWrapper img {
 	width: 100%;
+	height: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 .contentWrapper {
 	width: 48.5%;
@@ -68,8 +73,12 @@
 .postArticle {
 	width: 100%;
 	margin-bottom: 2.5rem;
+	display: grid;
+	grid-template-rows: 400px auto;
 }
 .postArticle img {
+	height: 100%;
+	object-fit: cover;
 	width: 100%;
 }
 .postWidth {
@@ -100,7 +109,7 @@
 	line-height: 16px;
 	color: #303030;
 }
-.postContent{
+.postContent {
 	font-family: 'Nunito';
 	font-style: normal;
 	font-weight: 400;
@@ -141,11 +150,10 @@
 	line-height: 24px;
 	color: #ffffff;
 	margin-left: 10px;
+	cursor: pointer;
 }
 
-
-
-@media (max-width:1000px){
+@media (max-width: 1000px) {
 	.firstPost {
 		display: block;
 	}
@@ -162,7 +170,7 @@
 	}
 }
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 	.contentWrapper h2 {
 		font-size: 1.9rem;
 		line-height: 50px;
@@ -171,7 +179,7 @@
 		width: 100%;
 		font-size: 18px;
 	}
-	.postContent{
+	.postContent {
 		font-size: 0.85rem;
 		line-height: 20px;
 	}
@@ -180,7 +188,7 @@
 	}
 }
 
-@media (max-width:500px){
+@media (max-width: 500px) {
 	.contentWrapper h2 {
 		font-size: 1.3rem;
 		line-height: 30px;
@@ -193,14 +201,14 @@
 		width: 90%;
 		display: block;
 	}
-	.btnsBlog button{
+	.btnsBlog button {
 		font-size: 0.8rem;
 		width: 90%;
 		display: flex;
 		justify-content: center;
 		margin: 1rem auto;
 	}
-.articles {
-	display: block;
-}
+	.articles {
+		display: block;
+	}
 }

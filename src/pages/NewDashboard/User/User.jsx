@@ -31,7 +31,9 @@ function User({ topUser: { followers, username, image_url: imgUrl } }) {
 					</p>
 				</div>
 			</div>
-			<div className={styles.btn}>Follow</div>
+			<button type="button" className={styles.btn}>
+				Follow
+			</button>
 		</div>
 	);
 }
