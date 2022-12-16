@@ -1,10 +1,10 @@
 .tag {
-	background: #FEFEFE;
+	background: #fefefe;
 	padding: 20px;
 	width: 100%;
 	color: #333;
 	word-break: break-word;
-	border: 1px solid #ECECFB;
+	border: 1px solid #ececfb;
 }
 
 .list_tag {
@@ -119,11 +119,15 @@
 	gap: 5px;
 }
 .profile-box1 {
-	display: flex;
+	/* display: flex; */
 	justify-content: space-between;
 	height: 20px;
 }
-.profile-box1 img{
+
+.profile-box1 > div {
+	display: flex;
+}
+.profile-box1 img {
 	width: 20px;
 }
 .tag-container {
@@ -170,8 +174,8 @@
 	.tag-title {
 		font-size: 16px;
 	}
-	.date{
-		font-size: 14px
+	.date {
+		font-size: 14px;
 	}
 }
 
