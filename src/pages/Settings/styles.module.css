@@ -46,6 +46,11 @@
     align-items: center;
 
 }
+.settings_div_acc a, .settings_div a{
+    text-decoration: none;
+    color: black;
+    
+}
 .settings_div_acc {
     background-color: #F6F0FF;
     padding: 10px;
