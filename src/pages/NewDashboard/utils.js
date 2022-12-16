@@ -180,7 +180,6 @@ function useMessenger() {
 	};
 
 	const deleteQuestion = async (id) => {
-		console.log(id);
 		try {
 			const response = axios.delete(
 				`https://api.devask.hng.tech/questions/${id}`,
@@ -216,7 +215,6 @@ function useMessenger() {
 
 			return payload;
 		} catch (error) {
-			console.log(error);
 			throw new Error(error);
 		}
 	};

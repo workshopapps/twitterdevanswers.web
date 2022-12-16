@@ -180,7 +180,6 @@ function QuestionPage() {
 		}
 	};
 
-	console.log(answers);
 	const numOfLikes = liked?.filter((item) => item.like_type === 'up');
 
 	return (

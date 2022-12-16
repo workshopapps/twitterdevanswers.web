@@ -63,7 +63,7 @@ function ReplyCard({
 				setChecked(true);
 				return;
 			} catch (error) {
-				console.log(ut79xyf);
+				throw new Error(error);
 			}
 		}
 		setMsg('not authorized');

@@ -8,8 +8,6 @@ function TopUsers() {
 	const [selectedUsers, setSelectedUsers] = useState(null);
 	const { getUsers } = useMessenger();
 
-	console.log('hi');
-
 	useEffect(() => {
 		const fetchUsers = async () => {
 			const result = await getUsers();
