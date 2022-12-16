@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import styles from './ForgotPassword.module.css';
 import ellipsetop from '../../assets/auth-images/Ellipsetop.svg';

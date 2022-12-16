@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import styles from './ResetPassword.module.css';
 import ellipsetop from '../../assets/auth-images/Ellipsetop.svg';
@@ -44,7 +44,7 @@ function ResetPassword() {
 					src={ellipseleft}
 					alt="ellipseleft"
 				/>
-				<form className={styles.sectionPassword}>
+				<form className={styles.sectionPassword} onSubmit={ChangePassword}>
 					<img src={logo} alt="logo" />
 					<h2>Reset Password</h2>
 					<div className={styles.ForgotPasswordInput}>
