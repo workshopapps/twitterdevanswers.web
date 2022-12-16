@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoFilterOutline } from 'react-icons/io5';
-import { AppContext } from '../../store/AppContext';
 import TopUsers from './TopUsers/TopUsers';
 import Yml from './Yml/Yml';
 import PostCard from './PostCard/PostCard';
@@ -9,34 +8,15 @@ import Tags from './Tags/Tags';
 import styles from './newDashboard.module.css';
 import useMessenger from './utils';
 import { STORE_USER_DATA } from '../../store/actionTypes';
-
-const tags = [
-	'python',
-	'html',
-	'django',
-	'android',
-	'c#',
-	'c++',
-	'sql',
-	'css',
-	'php',
-	'java',
-	'jquery',
-	'node js',
-	'react js',
-];
+import { AppContext } from '../../store/AppContext';
 
 function NewDashboard() {
+	const { dispatch } = useContext(AppContext);
 	const [questions, setQuestions] = useState([]);
 
-	const { getQuestions, getUsers } = useMessenger();
+	const { getQuestions, getUsers, sortByDate } = useMessenger();
 
-	const {
-		state: {
-			user: { user_id: userId },
-		},
-		dispatch,
-	} = useContext(AppContext);
+	const { user_id: userId } = JSON.parse(localStorage.getItem('user'));
 
 	useEffect(() => {
 		// fetch all questions
@@ -58,7 +38,7 @@ function NewDashboard() {
 	}, []);
 
 	return (
-		<div className={` lpContainer`}>
+		<div className={` dashContainer`}>
 			<div className={`${styles.dashboard}`}>
 				<main className={styles.main}>
 					<div className={styles.header}>
@@ -76,7 +56,7 @@ function NewDashboard() {
 						<div className={`${styles.postsContainer} ${styles.scrollbar} `}>
 							{questions.length === 0
 								? null
-								: questions.map((post) => (
+								: sortByDate(questions).map((post) => (
 										<PostCard post={post} key={post.question_id} />
 								  ))}
 						</div>
@@ -86,7 +66,7 @@ function NewDashboard() {
 					<div className={styles.components}>
 						<TopUsers />
 						<Yml />
-						<Tags tags={tags} />
+						<Tags />
 					</div>
 				</aside>
 			</div>

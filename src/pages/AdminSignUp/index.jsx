@@ -66,7 +66,7 @@ function AdminSignUp() {
 		};
 		try {
 			const data = await axios.post(
-				'https://api.devask.hng.tech/auth/admin_signup',
+				'https://api.devask.hng.tech/auth/admin-signup',
 				details
 			);
 

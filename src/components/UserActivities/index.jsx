@@ -145,7 +145,7 @@ function UserActivities() {
 				const allAnswersData = await allAnswersResponse.data.data;
 				setAnswers(allAnswersData);
 			} catch (error) {
-				setAllQuestions([]);
+				setAnswers([]);
 			}
 
 			const fetchTotalLikes = async () => {
@@ -181,6 +181,7 @@ function UserActivities() {
 			.classList.remove(`${styles.hidden}`);
 		button.classList.add(`${styles.active}`);
 	};
+	console.log(isVisitor);
 
 	return (
 		<>
@@ -278,7 +279,7 @@ function UserActivities() {
 					))
 				) : (
 					<p style={{ textAlign: 'center', marginTop: '50px' }}>
-						You haven&apos;t asked a question
+						{isVisitor ? `@${thisuser} hasn't` : `You haven't`} asked a question
 					</p>
 				)}
 			</section>
@@ -290,68 +291,6 @@ function UserActivities() {
 					{answers.length !== 0 ? (
 						answers.map((answer) => (
 							<div key={answer.answer_id} className={styles.thread}>
-								{/* <div className={styles.cardContainer}>
-									<Link
-										to={`/profile/${
-											findUser(findQuestion(answer.question_id)?.owner_id)
-												?.username
-										}`}
-									>
-										<img
-											src={
-												findUser(
-													findQuestion(answer.question_id)?.owner_id
-												)?.image_url?.trim()
-													? findUser(findQuestion(answer.question_id)?.owner_id)
-															?.image_url
-													: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-											}
-											alt=""
-											className={styles.profilePicture}
-										/>
-									</Link>
-									<div>
-										<section className={styles.cardHeader}>
-											<div className={styles.userInfo}>
-												<Link
-													to={`/profile/${
-														findUser(findQuestion(answer.question_id)?.owner_id)
-															?.username
-													}`}
-													style={{ display: 'flex', textDecoration: 'none' }}
-												>
-													<h5 className={styles.askName}>
-														{
-															findUser(
-																findQuestion(answer.question_id)?.owner_id
-															)?.username
-														}
-													</h5>
-												</Link>
-												<p className={styles.time}>
-													{findQuestion(answer.question_id)?.created_at &&
-														formatDate(
-															findQuestion(answer.question_id)?.created_at
-														)}
-												</p>
-											</div>
-											<img src={options} alt="" className={styles.options} />
-										</section>
-										<Link
-											to={`/question-page/${
-												findQuestion(answer.question_id)?.question_id
-											}`}
-											style={{ textDecoration: 'none' }}
-										>
-											<h4 className={styles.title}>
-												{findQuestion(answer.question_id)?.title}
-											</h4>
-											<p className={styles.reply} style={{ lineHeight: '1.8' }}>
-												{findQuestion(answer.question_id)?.content}
-											</p>
-										</Link>
-									</div>
-								</div> */}
 								<div className={styles.cardContainer}>
 									<Link to={`/profile/${findUser(answer.owner_id)?.username}`}>
 										<img
@@ -408,7 +347,8 @@ function UserActivities() {
 						))
 					) : (
 						<p style={{ textAlign: 'center', marginTop: '50px' }}>
-							You haven&apos;t replied to any question
+							{isVisitor ? `@${thisuser} hasn't` : `You haven't`} replied to any
+							question
 						</p>
 					)}
 				</div>
@@ -418,7 +358,10 @@ function UserActivities() {
 				className={`${styles['section-likes']} ${styles.hidden} section section-likes`}
 			>
 				<img src={like} alt="heart emoji" />
-				<p>You&apos;ve liked a total number of {totalLikes || 0} posts</p>
+				<p>
+					{isVisitor ? `@${thisuser}` : `You`} liked a total number of{' '}
+					{totalLikes || 0} posts
+				</p>
 			</section>
 
 			<section
@@ -426,7 +369,8 @@ function UserActivities() {
 			>
 				<img src={reward} alt="heart emoji" />
 				<p>
-					You’ve earned a total reward of {Number(info.account_balance)} Tokens
+					{isVisitor ? `@${thisuser}` : `You`} earned a total reward of{' '}
+					{Number(info.account_balance)} Tokens
 				</p>
 			</section>
 		</>

@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-
 import 'react-quill/dist/quill.snow.css';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
@@ -228,7 +227,7 @@ function PostQuestion() {
 				setIsSuccessful(true);
 
 				setTimeout(() => {
-					navigate('#/dashboard');
+					navigate('/dashboard');
 				}, 5000);
 			}
 		} catch (err) {

@@ -1,0 +1,210 @@
+
+.settingsweld {
+    display:flex;
+    justify-content: space-between;
+    padding: 30px;
+    margin-bottom: 500px;
+}
+
+
+.settingsyouraccount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.settings_accountinfo {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+}
+
+.deactivate_pic {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+/* h2 { 
+    color: blue;
+} */
+
+.ruth {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    
+} 
+
+.settings_div {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.settings_div_acc {
+    background-color: #F6F0FF;
+    padding: 10px;
+    width: 646px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings_div:hover {
+ background-color: #F6F0FF;
+ padding: 10px;
+ width: 646px;
+}
+
+.changepassword {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pass {
+    padding: 10px;
+    color: #492B7C;
+    font-size: 12px;
+}
+
+.changepassword_button {
+     background-color: #492B7C;
+     color: white;
+     padding: 10px;
+     border: none;
+}
+
+.changepassword_container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+}
+
+.accinfo_div {
+    padding: 10px;
+}
+
+.p_main {
+    font-weight: bold;
+}
+
+.logout {
+    color: red;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.deactivate {
+    color: red;
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-weight: bold;
+}
+
+.username {
+    margin-left: 35px;
+}
+
+.password_container {
+    border: 1px solid #F6F0FF;
+    padding: 10px;
+    width: 550px;
+    margin-top: 10px;
+}
+
+.password_container > input:focus {
+         outline: none;
+         
+}
+
+
+.password_container > input {
+    outline: none;
+    border: none;
+    width: 530px;
+}
+ .green {
+     color: green;
+ }
+
+ .red {
+     color: red
+ }
+
+ .set {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .arrowimg {
+     display: none;
+ }
+
+ .show {
+     display: none
+ }
+ 
+ @media screen and (max-width: 1000px) {
+  .settingsweld {
+      display: none;
+  }
+  .p_sub {
+      font-size: 10px;
+  }
+  .p_main {
+      font-weight: 600;
+  }
+  .youracc_mobile {
+      padding: 10px;
+      display: block;
+  }
+  .set {
+      margin-top: 10px;
+      margin-bottom: 10px
+  }
+  hr {
+      background-color: #F6F0FF;
+      height: 1px;
+      border: none;
+  }
+  .arrowset {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+  }
+  .settings_accountinfo {
+      gap: 10px;
+  }
+  .settingsyouraccount {
+      margin-top: 20px;
+  }
+  .changepassword {
+    width: 100%;
+   margin-left: 5px;
+}
+.password_container {
+    width: 100%;
+}
+.password_container > input {
+    width: 100%;
+}
+.deactivate_container {
+    margin-bottom: 40px;
+}
+.arrowimg {
+    display: block;
+}
+.show {
+    display: block;
+}
+ }

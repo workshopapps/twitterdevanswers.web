@@ -1,8 +1,14 @@
+
+
+
+
+
+
 .modal {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: #1d1dd8;
+	background: #492b7c;
 	color: #fff;
 	border-radius: 12px;
 	position: fixed;
@@ -15,25 +21,24 @@
 
 .input {
 	width: 100%;
+	padding: 0 10%;
 }
 .input label div {
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 32px;
-	margin-bottom: 8px;
+	margin-bottom: 5px;
 }
 
 .inputField {
 	width: 100%;
 	border: 1px solid #757575;
-	outline: none;
 	border-radius: 8px;
-	padding: 16px;
+	padding: 12px;
 	background: transparent;
-	transition: all 200ms ease-in-out;
 }
 .inputField:focus,
 .inputField:hover {
-	border-color: #1d1dd8;
+	border-color: #492B7C
 }
 
 .error .inputField {

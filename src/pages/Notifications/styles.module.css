@@ -1,168 +1,168 @@
 .main {
-  width: 90vw;
-  text-align: left;
-  margin: 30px auto 40px;
-  font-family: "Rubik";
-  color: #06062b;
-  overflow-x: hidden;
+	width: 90vw;
+	text-align: left;
+	margin: 30px auto 40px;
+	font-family: 'Rubik';
+	color: #06062b;
+	overflow-x: hidden;
 }
 
 .main_heading {
-  font-size: 24px;
+	font-size: 24px;
 }
 
 .main img {
-  border-radius: 50%;
+	border-radius: 50%;
 }
 
 .main a {
-  text-decoration: none;
-  color: black;
+	text-decoration: none;
+	color: black;
 }
 
 .tab {
-  border: none;
-  line-height: 24px;
-  margin: 20px 0;
-  margin-right: 15px;
-  background: transparent;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 0;
+	border: none;
+	line-height: 24px;
+	margin: 20px 0;
+	margin-right: 15px;
+	background: transparent;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 0;
 }
 
 .active_tab {
-  border-bottom: 2px solid #131390;
+	border-bottom: 2px solid #131390;
 }
 
 .notification_item {
-  border-bottom: 0.5px solid #d2d2f7;
-  background: #d2d2f7;
-  padding: 1em 1.5em;
+	border-bottom: 0.5px solid #d2d2f7;
+	background: #d2d2f7;
+	padding: 1em 1.5em;
 }
 
 .notification_item:last-of-type {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 .unread {
-  background: rgba(210, 210, 247, 0.25);
+	background: rgba(210, 210, 247, 0.25);
 }
 
 .from_section {
-  display: flex;
-  position: relative;
+	display: flex;
+	position: relative;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
-  aspect-ratio: 1;
-  margin-right: 20px;
+	width: 40px;
+	height: 40px;
+	aspect-ratio: 1;
+	margin-right: 20px;
 }
 
 .notifications_list {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 .notifications_list div {
-  padding: 1em 1.5em;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #ececfb;
+	padding: 1em 1.5em;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #ececfb;
 }
 .notifications_list .replyToQuestion article {
-  padding: 0em 2em;
+	padding: 0em 2em;
 }
 .notifications_list .replyToQuestion article h3 {
-  padding: 0.8em 0em;
-  font-weight: 400;
-  font-size: 1rem;
+	padding: 0.8em 0em;
+	font-weight: 400;
+	font-size: 1rem;
 }
 .notifications_list .replyToQuestion article h3 a {
-  color: black;
-  z-index: 1000;
-  position: relative;
+	color: black;
+	z-index: 1000;
+	position: relative;
 }
 .notifications_list .replyToQuestion article h3 span {
-  font-weight: 600;
+	font-weight: 600;
 }
 .notifications_list .tagContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.8em 1.5em 1.8em 2.5em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.8em 1.5em 1.8em 2.5em;
 }
 .notifications_list .tagContent h3 {
-  display: flex;
-  align-items: center;
-  font-weight: 400;
-  font-size: 1rem;
+	display: flex;
+	align-items: center;
+	font-weight: 400;
+	font-size: 1rem;
 }
 .notifications_list .tagContent h3 img {
-  padding-right: 1em;
+	padding-right: 1em;
 }
 .notifications_list .newQuestions {
-  padding: 1.8em 1.5em 1.8em 2.5em;
+	padding: 1.8em 1.5em 1.8em 2.5em;
 }
 .notifications_list .newQuestions h3 {
-  display: flex;
-  align-items: center;
-  font-weight: 400;
-  font-size: 1rem;
+	display: flex;
+	align-items: center;
+	font-weight: 400;
+	font-size: 1rem;
 }
 .notifications_list .newQuestions h3 img {
-  padding-right: 1em;
+	padding-right: 1em;
 }
 .notifications_list .correctAnswer article {
-  display: flex;
+	display: flex;
 }
 .notifications_list .correctAnswer article h3 {
-  font-size: 1rem;
-  font-weight: 400;
-  padding: 0.6em 1.5em;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.6em 1.5em;
 }
 .notifications_list .correctAnswer article h3 span {
-  font-weight: 600;
+	font-weight: 600;
 }
 .notifications_list .askQuestion article {
-  display: flex;
+	display: flex;
 }
 .notifications_list .askQuestion article h3 {
-  font-size: 1rem;
-  font-weight: 400;
-  padding: 0.6em 1.5em;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.6em 1.5em;
 }
 .notifications_list .askQuestion article h3 span {
-  font-weight: 600;
+	font-weight: 600;
 }
 
 .notifications_list h2 {
-  font-size: 1em;
+	font-size: 1em;
 }
 
 .name {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 .more_icon {
-  width: 1.3em;
-  height: 1.3em;
-  position: absolute;
-  left: 96%;
+	width: 1.3em;
+	height: 1.3em;
+	position: absolute;
+	left: 96%;
 }
 
 .question_section {
-  margin-bottom: 25px;
+	margin-bottom: 25px;
 }
 
 @media (min-width: 900px) {
-  .main {
-    width: 60vw;
-    margin: 3em 2em;
-  }
-  .more_icon {
-    left: 98%;
-  }
-}/*# sourceMappingURL=styles.module.css.map */
+	.main {
+		width: 60vw;
+		margin: 3em 2em;
+	}
+	.more_icon {
+		left: 98%;
+	}
+}

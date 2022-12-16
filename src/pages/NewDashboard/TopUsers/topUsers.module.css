@@ -13,7 +13,7 @@
 
 .header h3 {
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 27px;
 	color: #1f1f1f;
 }
@@ -22,7 +22,7 @@
 .header span a:visited {
 	text-decoration: none;
 	font-weight: 500;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 25px;
 	color: #492b7c;
 }

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 // import { AppContext } from '../../store/AppContext';
 import { getFullYear,  getMonth, getTime, getDay} from './ConvertTime';
@@ -105,14 +105,10 @@ function WalletPage() {
         transactionHistory: []
 	});
 
-    // const {
-	// 	state: { user },
-	// } = useContext(AppContext);
-	// const walletId = user.wallet.id;
     
-	const userId = JSON.parse(localStorage.getItem('user')).user_id;
+	const userId = JSON.parse(localStorage.getItem('user')).data.user_id;
 
-    console.log('userId', userId)
+    console.log('id', userId)
     const fetchUserData = async () => {
 		if(userId){
 			try {
@@ -122,7 +118,6 @@ function WalletPage() {
 				const totalEarned = response.data.total_earned;
                 const walletId = response.data.id;
 	
-                console.log('response', response)
 				setData((prev) =>({
 					...prev,
 					currentBalance: balance,

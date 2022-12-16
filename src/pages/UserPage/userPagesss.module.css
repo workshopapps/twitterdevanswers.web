@@ -1,0 +1,211 @@
+.userCard {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.userCard h3 {
+    font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 2.5rem;
+	line-height: 56px;
+    width: 50%;
+    margin: 0 auto;
+	text-align: center;
+	color: #492b7c;
+}
+
+.userCardSet {
+        display: flex;
+        justify-content: space-between;
+        margin: 1.5rem 0;
+}
+ .cardList {
+    width: 68%;
+ }
+
+ .cardOptions {
+    width: 30%;
+ }
+ .cardTag {
+    display: flex;
+	justify-content: space-between;
+	background-color: #fefefe;
+	border: 1.5px solid #ececfb;
+	border-radius: 8px;
+	padding: 1rem 1rem 0;
+	font-family: 'Nunito';
+ }
+ .cardList .details {
+    display: flex;
+ }
+ .cardIcon {
+    margin-right: 10px;
+ }
+ .cardName h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    color: #303030;
+ }
+ .cardName p {
+    font-size: 0.7rem;
+	margin-bottom: 0.2rem;
+	color: #535353;
+ }
+ .cardName h5 {
+    font-size: 1rem;
+	margin-bottom: 0.2rem;
+	color: #303030;
+    font-weight: 400;
+ }
+ .cardFollow {
+    color: #bababa;
+	font-size: 0.6rem;
+	font-weight: 500;
+ }
+ .cardList .button {
+    width: 35%;
+	display: flex;
+	justify-content:flex-end;
+	height: 2.5rem;
+ }
+ .profileBtn {
+    background: #ffffff;
+	border: 1px solid #492b7c;
+	border-radius: 4px;
+	padding: 5px 26px;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	color: #492b7c;
+	margin: 0 5px 0 0;
+ }
+ .followBtn {
+    background: #492b7c;
+	border: 1px solid #492b7c;
+	border-radius: 4px;
+	padding: 8px 16px;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: #fefefe;
+ }
+ .cardBox {
+    background: #f6f0ff;
+    padding: 2rem;
+    border-radius: 16px;
+    height: 25rem;
+ }
+
+@media (max-width: 1050px) {
+	.cardList .button {
+		width: 45%;
+	}
+    
+}
+
+@media (max-width: 850px) {
+	.userCardSet {
+		display: block;
+	}
+	.cardList {
+		width: 80%;
+		margin: 1rem auto;
+	}
+	.cardOptions {
+		width: 80%;
+		margin: 1rem auto;
+	}
+}
+
+@media (max-width: 768px) {
+	.userCard {
+		width: 100%;
+	}
+	.cardTag {
+		display: flex;
+	}
+	.cardList .details {
+		display: flex;
+		width: 60%;
+		margin: 0.5rem auto;
+	}
+	.cardList .button {
+		width: 40%;
+		margin: 0.5rem auto;
+	}
+    .userCard h3 {
+        font-size: 1.7rem;
+        line-height: 36px;
+        width: 70%;
+    }
+    .cardOptions {
+        display: none;
+    }
+}
+@media (max-width: 475px) {
+    .userCard {
+    width: 100%;
+    }
+    .cardTag {
+        display: block;
+    }
+    .cardList .details {
+        display: flex;
+        width: 100%;
+        margin: 0.5rem auto;
+    }
+    .cardList .button {
+        width: 100%;
+        margin: 0.5rem auto;
+    }
+    .userCard h3 {
+        font-size: 1.7rem;
+        line-height: 36px;
+        width: 70%;
+    }
+    .cardOptions {
+        display: none;
+    }
+}
+@media (max-width: 420px) {
+    	.userCard {
+		width: 100%;
+	}
+	.cardTag {
+		display: block;
+	}
+	.cardList .details {
+		display: flex;
+		width: 100%;
+		margin: 0.5rem auto;
+	}
+	.cardList .button {
+		width: 100%;
+		margin: 0.5rem auto;
+	}
+    .userCard h3 {
+        font-size: 1.7rem;
+        line-height: 36px;
+        width: 70%;
+    }
+    .cardOptions {
+        display: none;
+    }
+}
+
+@media (max-width: 320px) {
+    .cardName h5 {
+        font-size: 14px;
+        margin-bottom: 3.5px;
+        color: #303030;
+        font-weight: 400;
+     }
+	.cardOptions {
+        display: none;
+    }
+}

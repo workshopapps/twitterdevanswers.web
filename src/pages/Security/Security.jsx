@@ -2,86 +2,137 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styles from "./Security.module.css";
-import account from "../../assets/security-images/account.png";
-import security from "../../assets/security-images/security.png";
-import notification from "../../assets/security-images/notification.png";
-import appearance from "../../assets/security-images/appearance.png"
-
 
 function Security() {
     const [getEmail, setGetEmail] = useState("email");
+    const [fetchEmail, setFetchEmail] = useState("email");
     const [postEmail, setPostEmail] = useState("email");
-    const [OTP, setOTP] = useState("OTP");
-    const [verifyEmail, setVerifyEmail] = useState("email");
+    const [OTP, setOTP] = useState("Token");
     const [isVisible, setIsVisible] = useState(false);
-    const [isClicked, setIsClicked] = useState(false);
-    const [isDisplaying, setIsDisplaying] = useState(false);
     const [response, setResponse] = useState("");
     const [verifyResponse, setVerifyResponse] = useState("");
-
+    const [resetResponse, setResetResponse] = useState("");
+    const [mydata, setMyData] = useState("");
+    const [code, setCode] = useState(false);
+    const [buttons, setButtons] = useState(false);
+    const [verifyToken, setVerifyToken] = useState(false);
+    const [oldPassword, setOldPassword] = useState("**************");
+    const [newPassword, setNewPassword] = useState("**************");
+    const [confirmPassword, setConfirmPassword] = useState("**************");
+    const [hideReset, setHideReset] = useState(false);
+    const [isSetUpVisible, setIsSetUpVisible] = useState(false);
 
     function toggleForm(){
         setIsVisible(!isVisible);
+        setVerifyToken(false);
+        setIsSetUpVisible(false)
     }
-    function toggleVerificationForm(){
-        setIsDisplaying(!isDisplaying);
+    function toggleSetUpForm(){
+        setIsSetUpVisible(!isSetUpVisible);
+        setIsVisible(false);
+        setVerifyToken(false);
     }
-    function revealMail(){
-        if (getEmail === "email" || getEmail === ""){
-            setIsClicked(false)
-        } else{
-            setIsClicked(!isClicked);
-        }
+    function toggleButtons (){
+        setButtons(!buttons);
+    }
+    function showVerifyForm(){
+        setVerifyToken(!verifyToken);
+        setCode(false);
+        setIsVisible(false);
+        setIsSetUpVisible(false)
+    }
+    function revealCode(){
+            setCode(!code);
+    }
+    function hideResetForm(){
+        setHideReset(!hideReset);
+    }
+    
+    const token = localStorage.getItem("token");
 
-    }
-        const handleSubmit = async (e) => {
+        const handleSetUpMFA = async (e) => {
             e.preventDefault();
-            const emailAddress = JSON.stringify(getEmail);
             try {
                 const { data } = await axios.put('https://api.devask.hng.tech/auth/setup-mfa', {
-                    "email": emailAddress
-                });
+                    "email": getEmail
+                },
+                { 
+                    headers:{
+                        'Authorization': `Bearer ${token}`
+                }
+            });
                 if(data){
-                    setResponse("Email Sent");
+                    setResponse(data.detail);
                 };
+                
             } catch (error) {
                 setResponse("Could not send request. Please try again!");
             }
         }
-        
-            const handleSubmitOTP = async (e) => {
+
+        const handleGenerateCode = async (e) => {
+            e.preventDefault();
+            try {
+                const { data } = await axios.post('https://api.devask.hng.tech/auth/send-mfa', {
+                    "email": fetchEmail
+                },
+                { 
+                    headers:{
+                        'Authorization': `Bearer ${token}`
+                }
+            });
+                if(data){
+                    setMyData(data.qr_code);
+                };
+                
+            } catch (error) {
+                setResponse("Could not send request. Please try again!");
+            }
+        }
+
+             const handleSubmitOTP = async (e) => {
                 e.preventDefault();
-                const emailAddress = JSON.stringify(postEmail);
-                const myOTP = JSON.stringify(OTP);
                 try {
-                    const { data } = await axios.post('https://api.devask.hng.tech/auth/validate-mfa', 
-                     {
-                            "email": emailAddress,
-                            "mfa_hash": myOTP
-                    });
+                    const { data } = await axios.post('https://api.devask.hng.tech/auth/validate-mfa', {
+                            "email": postEmail,
+                            "mfa_hash": OTP
+                    },
+                    { 
+                        headers:{
+                            'Authorization': `Bearer ${token}`
+                    }
+                });
                     if(data){
-                        setResponse("Validation Successful");
+                        setVerifyResponse("Validation Successful");
+                        
                     }; 
                 } catch (error) {
-                    setResponse("Validation Unsuccessful. Please try again!");
-    
+                    setVerifyResponse("Validation Unsuccessful. Please try again!");   
                 } 
             }
-
-            const handleVerifyEmail = async (e) => {
+            
+            const handleReset = async (e) => {
                 e.preventDefault();
-                const emailAddress = JSON.stringify(verifyEmail);
                 try {
-                    const { data } = await axios.post('https://api.devask.hng.tech/auth/send_email_code', {
-                            "email": emailAddress,
+                    
+                    const { data } = await axios.put('https://api.devask.hng.tech/auth/change-password', 
+                    {    
+                            "oldPassword": oldPassword,
+                            "newPassword": newPassword,
+                            "confirmPassword": confirmPassword,       
+                    },
+                    { 
+                        headers:{
+                            'Authorization': `Bearer ${token}`
+                    }
                     });
                     if(data){
-                        setVerifyResponse("Check your email inbox");
-                    }; 
+                        setResetResponse(data.message);
+                    };
+                    
                 } catch (error) {
-                    setVerifyResponse("Verification failed. Please try again!");
-    
-                } 
+                    setResetResponse("Password Reset Unsuccessful. Please try again!");
+                }
             }
 
 
@@ -91,122 +142,119 @@ function Security() {
             <section className={styles.LeftSection}>
                 <h1 className={styles.Header1}>Settings</h1>
                 <div className={styles.Selectors}>
-                <div className={styles.AccountSelector}>
-                    <section>
-                        <img src={account} alt="account" />
+                    <section className={styles.AccountSelector}>
+                            <Link to="/settings">
+                            <h1> Your Account</h1><p>&gt;</p>
+                            </Link>                        
                     </section>
-                    <section className={styles.TextSection}>
-                        <Link to="/settings">
-                        <h1> Account</h1>
+                    <section className={styles.SecuritySelector}>
+                        <Link to="/security-settings">
+                            <h1> Security</h1><p>&gt;</p>
                         </Link>
-                        <p>You can manage your account settigs at any time. Update your account details , change your username etc</p>
-                        
                     </section>
-                </div>
-                <div className={styles.SecuritySelector}>
-                <section>
-                        <img src={security} alt="security" />
+                    <section className={styles.NotificationSelector}>
+
+                        <Link to="/notification-page">
+                            <h1> Notification</h1><p>&gt;</p>
+                        </Link>
                     </section>
-                    <section className={styles.TextSection}>
-                    <Link to="/security-settings">
-                        <h1> Security</h1>
-                    </Link>
-                        <p>Make the most of your activities, the security features protect you from malware and dangerous sites</p>
+                    <section className={styles.AppearanceSelector}>
+                        <Link to="/#">
+                            <h1> Privacy and Safety </h1> <p>&gt;</p>
+                        </Link>
                     </section>
-                </div>
-                <div className={styles.NotificationSelector}>
-                    <section>
-                        <img src={notification} alt="notification" />
+                    <section className={styles.AccessibilitySelector}>
+                        <Link to="/#">
+                            <h1> Accessibility, display and language</h1><p>&gt;</p>
+                        </Link>
                     </section>
-                    <section className={styles.TextSection}>
-                    <Link to="/notification-page">
-                        <h1> Notification</h1>
-                    </Link>
-                        <p>Notification are updates about your activity . You can go to your notification settings to change what you will be notified about and how you are notified.</p>
-                    </section>
-                </div>
-                <div className={styles.AppearanceSelector}>
-                    <section>
-                        <img src={appearance} alt="notificaton" />
-                    </section>
-                    <section className={styles.TextSection}>
-                    <Link to="/#">
-                        <h1> Appearance</h1>
-                        <p>Choose your viewing options, select light to display light mode, select dark to display dark mode</p>
-                    </Link>
-                    </section>
-                </div>
                 </div>
             </section>
             <section className={styles.RightSection}>
                 <div className={styles.Header2}>
-                    <h1>Security</h1>
-                    <p>Update security settings and enjoy your experience better</p>
+                    <h1> <Link to="/settings"><span> &#8592; </span>  </Link>Security</h1>
+                    <p>Manage your account’s security.</p>
                 </div>
-                <div className={styles.TwoFactorAuth}>
-                    <section>
-                        <h1>Two-Factor Authentication</h1>
-                        <p>Enabling Two-factor Authentication help protect your account better by sending you OTP on each login</p>
-                    </section>
-                    <button type="submit" className={styles.handleEnable} onClick={toggleForm}>Enable</button>
-                </div>
-                {isVisible && (
+                <section className={styles.TwoFactorAuth}>
+                        <h2>Two-Factor Authentication</h2>
+                        <p>Enabling a second authentication method in addition to your 
+                                DevAsk password helps protect your account from unauthorized
+                                access. </p>
+                 </section>
+                    <section className={styles.TwoFANav}>
+                    <button type="submit" className={styles.handleEnable} onClick={toggleButtons}>Two-factor authentication<p>&gt;</p></button>
+                        
                 <div className={styles.TwoFactorAuthForms} id="two-factor-forms">
+                    { buttons &&
+                    <div>
+                <button type="submit" onClick={toggleSetUpForm}>Enable MFA</button>
+                <button type="submit" onClick={toggleForm}>Generate QR Code</button>
+                <button type="submit" onClick={showVerifyForm}>Verify Code</button>
+                 </div>
+                 }   
+                 {isSetUpVisible && 
+                 <div>
                     <p>Please fill the required fields</p>
-                <form className={styles.GetTwoAuthForm} onSubmit={handleSubmit} method="POST">
+                <form className={styles.GetTwoAuthForm} onSubmit={handleSetUpMFA} method="POST">
                         <input type="email" name="email" required value={getEmail} onChange={(e) => setGetEmail(e.target.value)} />
-                        <button type="submit" onClick={revealMail}>Get Code</button>
+                        <button type="submit">SetUp MFAnp</button>
                     </form>
-                    {isClicked && <p>Please Check your email and enter the OTP</p>}
+                    <p>{response}</p>
+                       </div>
+    } 
+                {isVisible && 
+                 <div>
+                    <p>Please fill the required fields</p>
+                <form className={styles.GetTwoAuthForm} onSubmit={handleGenerateCode} method="POST">
+                        <input type="email" name="email" required value={fetchEmail} onChange={(e) => setFetchEmail(e.target.value)} />
+                        <button type="submit" onClick={revealCode}>Generate</button>
+                    </form>
+                    {code && 
+                    
+                                <div>
+                                    <p>Please Scan the Code</p>
+                                    <img src={mydata} alt="data" />
+                                    </div>
+                    } 
+                       </div>
+                    } 
+    
+                    
+                    { verifyToken &&
+                    <div>
                     <form className={styles.GetTwoAuthForm} onSubmit={handleSubmitOTP} method="POST">
                         <input type="email" name="email" required value={postEmail} onChange={(e) => setPostEmail(e.target.value)} />
                         <input type="text" name="OTP" required value={OTP} onChange={(e) => setOTP(e.target.value)} />
-                        <button type="submit">Send Code</button>
+                        <button type="submit">Verify Token</button>
+                    
                     </form>
-                            <p>{response}</p>
-                </div>
-                )}
-                <div className={styles.VerifyEmail}>
-                    <section>
-                        <h1>Verify E-mail</h1>
-                        <p>Click on the button and follow the instructions to verify your email</p>
-                    </section>
-                    <button type="submit" onClick={toggleVerificationForm}> Verify</button>
-                </div>
-                {isDisplaying && 
-                <div className={styles.VerifyEmailHiddenForm} id="verify-email-form">
-                <form className={styles.VerifyEmailForm} onSubmit={handleVerifyEmail} method="POST">
-                    <p>Pleae type your email address</p>
-                        <input type="email" name="email" required value={verifyEmail} onChange={(e) => setVerifyEmail(e.target.value)} />
-                        <button type="submit">Submit</button>
-                        <p>{verifyResponse}</p>
-                    </form>
+                            <p>{verifyResponse}</p>
                 </div>
                 }
-                <form className={styles.SecurityForm}>
-                    <section className={styles.WalletSection}>
-                        <h1>Wallet Address</h1>
-                        <input type="text" name="wallet-address" id="wallet-address" required placeholder="mp4FCapeT35t9phtnfTMcVnTeMVfovPpwd" />
+                </div>
                     </section>
-                    <section className={styles.CurrentPassword}>
-                        <h1>Change Password</h1>
-                        <p>Current Password</p>                
-                        <input type="password" name="current-password" id="current-password" required placeholder="********"/>
-                        </section> 
-                    <section className={styles.NewPassword}>
-                        <p>New Password</p>
-                        <input type="password" name="new-password" id="new-password" required placeholder="********"/>
+                    <section className={styles.AdditionalProtection}>
+                    <h2>Additional password protection</h2>
+                    <p>Enabling this setting adds extra security to your account by requiring additional information to reset your password. If enabled you must provide the email address used in creating your account to reset your password. </p>
                     </section>
-                    <section className={styles.ConfirmPassword}>
-                        <p>Confirm Password</p>
-                        <input type="password" name="confirm-password" id="confirm-password" required placeholder="********"/>
-                    </section>
-                    <section className={styles.ButtonSection}>
-                    <button className={styles.SaveButton} type="submit">Save changes</button>
-                    <button className={styles.DiscardButton} type="submit">Discard changes</button>
-                    </section>
-                </form>
+                    <button type="submit" className={styles.handleEnable} onClick={hideResetForm}>Reset Password<p>&gt;</p></button>
+                   { hideReset &&
 
+                  
+                    <div>
+                    <form className={styles.PasswordReset} onSubmit={handleReset} method="POST">
+                        <p>Old Password</p>
+                        <input type="password" name="old_password" required value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} />
+                        <p>New Password</p>
+                        <input type="password" name="new_password" required value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                        <p>Coonfirm Password</p>
+                        <input type="password" name="confirm_password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                        <button type="submit">Change Password</button>
+                    
+                    </form>
+                            <p>{resetResponse}</p>
+                </div>
+                 }
             </section>
             </main>
         </div>
