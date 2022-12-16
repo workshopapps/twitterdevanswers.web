@@ -7,23 +7,20 @@ import clock from '../../assets/tag-images/clock.png';
 import styles from './Tag.module.css';
 
 export default function Tag({ Data, isGridView, users, replies, index }) {
+	const findUser = (id) => users.find((user) => user.user_id === id);
 
-const findUser = (id) => users.find((user) => user.user_id === id);
-	
 	const formatDate = (date) =>
-	new Intl.DateTimeFormat(navigator.language, {
-		day: '2-digit',
-		month: 'long',
-		hour: 'numeric',
-		minute: 'numeric',
-	}).format(new Date(date));
+		new Intl.DateTimeFormat(navigator.language, {
+			day: '2-digit',
+			month: 'long',
+			hour: 'numeric',
+			minute: 'numeric',
+		}).format(new Date(date));
 
 	const tagType = (
 		<div>
 			{isGridView ? (
 				<div className={styles['tag-container']} key={Data.question_id}>
-
-
 					<h2 className={styles['tag-title']}>{Data.title}</h2>
 					<p className={styles['tag-content']}>{Data.content.slice(0, 200)}</p>
 
@@ -44,16 +41,17 @@ const findUser = (id) => users.find((user) => user.user_id === id);
 						{/*  */}
 					</div>
 					<div className={styles['profile-box1']}>
-										<div className={styles['profile-nameimage']}>
-
-						<Link to={`/profile/${Data.owner_id}`}>
-							<img
-								src="https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1"
-								alt=""
-								className={styles.profilePicture}
-							/>
-						</Link>{' '}
-						<h4 className={styles.user}>{findUser(Data.owner_id)?.username}</h4>
+						<div className={styles['profile-nameimage']}>
+							<Link to={`/profile/${Data.owner_id}`}>
+								<img
+									src="https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1"
+									alt=""
+									className={styles.profilePicture}
+								/>
+							</Link>{' '}
+							<h4 className={styles.user}>
+								{findUser(Data.owner_id)?.username}
+							</h4>
 						</div>
 						<div className={styles.dev__flexitem}>
 							<img src={clock} alt="" />
@@ -124,8 +122,11 @@ const findUser = (id) => users.find((user) => user.user_id === id);
 		</div>
 	);
 
-	return <div className={`${styles.tag} ${!isGridView ? styles.list_tag : ''}`}>{tagType}</div>;
-	
+	return (
+		<div className={`${styles.tag} ${!isGridView ? styles.list_tag : ''}`}>
+			{tagType}
+		</div>
+	);
 }
 
 Tag.propTypes = {
@@ -145,6 +146,6 @@ Tag.propTypes = {
 	}).isRequired,
 	isGridView: PropTypes.bool.isRequired,
 	users: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-	replies: PropTypes.number.isRequired,
-	index: PropTypes.number.isRequired
+	replies: PropTypes.arrayOf(PropTypes.any.isRequired).isRequired,
+	index: PropTypes.number.isRequired,
 };

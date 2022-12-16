@@ -9,7 +9,7 @@ import Button from '../../components/Tags/Button/Button';
 import BUTTON_TYPES from '../../components/Tags/Button/Data';
 
 import styles from './tags.module.css';
-import tagstyles from './index.module.css'
+import tagstyles from './index.module.css';
 // import share from '../../assets/dashboard-images/share.webp';
 
 const defaultPage = {
@@ -28,16 +28,19 @@ export default function Tags() {
 		});
 		return response.data.data;
 	}
-	
+
 	async function getTotalReplies(id) {
-		const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		});
+		const response = await axios.get(
+			`https://api.devask.hng.tech/answer/${id}`,
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
 		return response.data.length;
 	}
-	
+
 	const [grid, setGrid] = useState(true);
 	const [page, setPage] = useState(defaultPage);
 
@@ -45,9 +48,7 @@ export default function Tags() {
 	const [users, setUsers] = useState([]);
 	const [replies, setReplies] = useState([]);
 	const [tags, setTags] = useState([]);
-		const findUser = (id) => users.find((user) => user.user_id === id);
-
-
+	const findUser = (id) => users.find((user) => user.user_id === id);
 
 	useEffect(() => {
 		(async function getData() {
@@ -61,15 +62,14 @@ export default function Tags() {
 			);
 
 			const fetchedQuestions = await response.data.data;
-			
-				
+
 			setQuestions(fetchedQuestions);
 			setTags(fetchedQuestions);
 
 			setUsers(await getUser());
 			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
-			getTotalReplies(fetchedQuestion.question_id)
-		);
+				getTotalReplies(fetchedQuestion.question_id)
+			);
 
 			Promise.all([...fetchedReplies].reverse()).then((reply) =>
 				setReplies((prevState) => [...prevState, reply])
@@ -98,7 +98,6 @@ export default function Tags() {
 	const handleClick = () => {
 		setGrid((prevVal) => !prevVal);
 	};
-
 
 	const setActiveBtn = (event) => {
 		const btns = document.querySelectorAll('.btn');
@@ -153,13 +152,7 @@ export default function Tags() {
 							btnText="Python"
 						/>
 					</span>
-					<span className={styles.hidden_7}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="Android"
-						/>
-					</span>
+
 					<span className={styles.hidden_6}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
@@ -181,13 +174,7 @@ export default function Tags() {
 							btnText="Ajax"
 						/>
 					</span>
-					<span className={styles.hidden_3}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="MySQL"
-						/>
-					</span>
+
 					<span className={styles.hidden_3}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
@@ -296,7 +283,6 @@ export default function Tags() {
 										{replies[0] && replies[0][i]}{' '}
 										{replies[0] && replies[0][i] === 1 ? 'Reply' : 'Replies'}
 									</p>
-									
 								</div>
 							</div>
 						))}

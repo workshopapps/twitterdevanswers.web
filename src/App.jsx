@@ -110,7 +110,8 @@ function App() {
 							<Route path="settings" element={<Settings />} />
 							<Route path="security-settings" element={<Security />} />
 							<Route path="contact" element={<Contact />} />
-							
+							<Route path="submit-blog" element={<SubmitBlog />} />
+							<Route path="/blog-page-review" element={<BlogPageReview />} />
 							<Route path="profile/:username" element={<Profile />} />
 							<Route path="notifications-page" element={<Notifications />} />
 							<Route path="tags-page" element={<Tags />} />

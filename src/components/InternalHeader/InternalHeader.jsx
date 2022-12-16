@@ -226,14 +226,14 @@ export default function InternalHeader() {
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
 						<div className={styles.user}>
-							<NavLink
+							{/* <NavLink
 								to="/profile/:username"
 								title="Profile"
 								className={styles.avatar}
 								// aria-hidden={active}
-							>
-								<img src={avatar} alt="avatar" />
-							</NavLink>
+							> */}
+							<img src={avatar} alt="avatar" />
+							{/* </NavLink> */}
 							<div className={styles.profile}>
 								<div className={styles.nameStatus}>
 									<p>{user?.userName}</p>

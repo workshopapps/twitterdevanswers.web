@@ -26,7 +26,7 @@ function ReplyCard({
 	const [msg, setMsg] = useState('');
 	const [loggedInUserCred, setLoggedInUserCred] = useState({});
 
-	const { username } = JSON.parse(localStorage.getItem('userData'));
+	const { usename } = JSON.parse(localStorage.getItem('user'));
 
 	const { getUsers, handleNavigate, getUserbyUsername, selectCorrectAnswer } =
 		useMessenger();
@@ -41,7 +41,7 @@ function ReplyCard({
 		};
 
 		const fetchUserByUserName = async () => {
-			const result = await getUserbyUsername(username);
+			const result = await getUserbyUsername(usename);
 			setLoggedInUserCred(result);
 		};
 
