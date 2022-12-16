@@ -47,6 +47,10 @@ import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 import AdminBlogPage from './pages/AdminBlogPage';
 
+import SuccessSign from "./pages/SuccessSign/index";
+import ForgotPassword from "./pages/ForgotPassword/index";
+import ResetPassword from './pages/ResetPassword';
+
 function App() {
 	const {
 		state: { isAuth },
@@ -169,7 +173,7 @@ function App() {
 					<Route path="admin-signup" element={<AdminSignUp />} />
 					<Route path="admin-login" element={<AdminSignIn />} />
 					<Route path="/admin-blog-page" element={<AdminBlogPage />} />
-				</Route>
+				</Routes>
 
 
 					<Route path="*" element={<ErrorPage />} />
