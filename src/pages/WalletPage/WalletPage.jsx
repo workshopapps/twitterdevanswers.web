@@ -1,6 +1,6 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, } from 'react';
 import axios from 'axios';
-import { AppContext } from '../../store/AppContext';
+// import { AppContext } from '../../store/AppContext';
 import { getFullYear,  getMonth, getTime, getDay} from './ConvertTime';
 import earnedTotal from '../../assets/wallet-images/earnedTotal.png';
 import spentTotal from '../../assets/wallet-images/spentTotal.png';
@@ -105,11 +105,14 @@ function WalletPage() {
         transactionHistory: []
 	});
 
-    const {
-		state: { user },
-	} = useContext(AppContext);
-	const userId = user.user_id;
+    // const {
+	// 	state: { user },
+	// } = useContext(AppContext);
+	// const walletId = user.wallet.id;
+    
+	const userId = JSON.parse(localStorage.getItem('user')).user_id;
 
+    console.log('userId', userId)
     const fetchUserData = async () => {
 		if(userId){
 			try {
@@ -119,6 +122,7 @@ function WalletPage() {
 				const totalEarned = response.data.total_earned;
                 const walletId = response.data.id;
 	
+                console.log('response', response)
 				setData((prev) =>({
 					...prev,
 					currentBalance: balance,
@@ -141,7 +145,7 @@ function WalletPage() {
             try {
                 const response = await axios.get(`https://api.devask.hng.tech/admin/transactions/users/${userId}?skip=0&limit=30`)
                 const transactionHistory = response.data.transaction_history;
-                console.log('transaction history', transactionHistory)
+                // console.log('transaction history', transactionHistory)
                 
                 setData((prev) =>({
 					...prev,
