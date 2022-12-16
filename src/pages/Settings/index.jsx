@@ -1,8 +1,8 @@
 import React, { useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import Youracc from './Youracc'
- import arrowleft from '../../assets/settings-images/arrow-left.png'
+import arrowleft from '../../assets/settings-images/arrow-left.png'
 import arrow from '../../assets/settings-images/Vector.png';
 
 
@@ -17,7 +17,7 @@ function Settings() {
      <h3>Settings</h3>
       <div > 
        <div className = {styles.settings_div_acc}> <p>your account</p> <img src = {arrow} alt = ''/></div>
-       <div className = {styles.settings_div}> <p>Security and account access</p> <img src = {arrow} alt = ''/> </div>
+       <div className = {styles.settings_div}> <Link to="/security-settings">Security and account access </Link><img src = {arrow} alt = ''/> </div>
        <div className = {styles.settings_div}><p>Notification</p> <img src = {arrow} alt = ''/> </div>
        <div className = {styles.settings_div}> <p>Privacy and safety</p> <img src = {arrow} alt = ''/></div>
        <div className = {styles.settings_div}> <p>Accessibility, display and language</p> <img src = {arrow} alt = ''/></div>
