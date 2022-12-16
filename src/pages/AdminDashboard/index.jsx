@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 // import { AppContext } from '../../store/AppContext';
 
@@ -251,6 +251,9 @@ function AdminDashboard() {
 								</div>
 							))}
 					</section>
+					<Link to="/blog-page-review">
+					<button type="button" className={styles.adminReviewButton}>admin review</button>
+					</Link>
 				 </> 
 			 )} 
 		</section>
