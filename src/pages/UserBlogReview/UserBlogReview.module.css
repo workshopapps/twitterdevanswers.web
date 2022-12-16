@@ -1,0 +1,192 @@
+.userblog {
+	width: 90%;
+	margin: 1rem auto;
+	font-family: 'Nunito';
+}
+
+.userblog .blog_img {
+	margin: 0 auto;
+}
+
+.usernav {
+	display: flex;
+	width: 35%;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.1rem;
+	margin: 2rem 0;
+	color: #989898;
+}
+
+.usernav .userreview {
+	color: #303030;
+}
+.usernav a {
+	color: #989898;
+	text-decoration: none;
+}
+
+.userblog h1 {
+	text-align: center;
+	width: 80%;
+	margin: 1rem auto;
+	font-size: 2.5rem;
+	line-height: 50px;
+}
+
+.userblog .userAuthor {
+	text-align: center;
+	color: #303030;
+}
+.userblog .userAuthor span {
+	margin-left: 10px;
+}
+.usertexttag {
+	color: #492b7c;
+	font-size: 0.8rem;
+	background: #e2d9f2;
+	border-radius: 4px;
+	padding: 6px 8px;
+	width: 14%;
+	font-weight: 400;
+	display: flex;
+	justify-content: center;
+	margin: 1rem auto;
+}
+
+.userOpen p {
+	margin-top: 1.2rem;
+	/* font-size: 0.9rem; */
+	font-weight: 600;
+	color: #303030;
+}
+
+.TextCode h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin: 1.5rem 0;
+}
+.TextCode p {
+	margin-top: 1.2rem;
+	/* font-size: 0.9rem; */
+	font-weight: 600;
+	color: #303030;
+}
+
+.Client h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin: 1.5rem 0;
+}
+.Client p {
+	margin-top: 1.2rem;
+	/* font-size: 0.9rem; */
+	font-weight: 600;
+	color: #303030;
+}
+.Supplemental h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin: 1.5rem 0;
+}
+.Supplemental p {
+	margin-top: 1.2rem;
+	/* font-size: 0.9rem; */
+	font-weight: 600;
+	color: #303030;
+}
+
+.BlogpostBtn {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 2rem auto;
+}
+
+.BlogpostBtn button:first-of-type {
+	padding: 10px 20px;
+	background: #492b7c;
+	border-radius: 4px;
+	font-weight: 500;
+	border: 1px solid #492b7c;
+	font-size: 0.8rem;
+	line-height: 24px;
+	color: #ffffff;
+	margin-right: 15px;
+}
+
+.BlogpostBtn button:last-of-type {
+	padding: 10px 20px;
+	border: 1.5px solid #492b7c;
+	border-radius: 4px;
+	font-weight: 500;
+	font-size: 0.8rem;
+	line-height: 24px;
+	color: #492b7c;
+}
+
+@media (max-width: 1101px) {
+	.usertexttag {
+		width: 20%;
+	}
+	.usernav {
+		width: 50%;
+	}
+}
+
+@media (max-width: 768px) {
+	.usernav {
+		width: 80%;
+		font-size: 0.8rem;
+	}
+	.usertexttag {
+		width: 40%;
+	}
+	.userblog h1 {
+		width: 90%;
+		font-size: 1.5rem;
+		line-height: 30px;
+	}
+	.userblog .userAuthor {
+		font-size: 0.8rem;
+	}
+	.userblog h3 {
+		font-size: 1rem;
+	}
+	.userblog p {
+		font-size: 0.9rem;
+	}
+	.BlogpostBtn {
+		width: 70%;
+	}
+}
+
+@media (max-width: 500px) {
+	.usernav {
+		width: 93%;
+		font-size: 0.8rem;
+	}
+	.usertexttag {
+		width: 50%;
+	}
+	.userblog h1 {
+		width: 100%;
+		font-size: 1.5rem;
+		line-height: 30px;
+	}
+	.userblog .userAuthor {
+		font-size: 0.7rem;
+	}
+	.userblog h3 {
+		font-size: 1rem;
+	}
+	.userblog p {
+		font-size: 0.8rem;
+	}
+	.BlogpostBtn {
+		width: 95%;
+		margin-bottom: 4rem;
+		font-size: 0.7rem;
+	}
+}

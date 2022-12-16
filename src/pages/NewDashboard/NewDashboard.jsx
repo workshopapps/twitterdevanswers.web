@@ -10,22 +10,6 @@ import styles from './newDashboard.module.css';
 import useMessenger from './utils';
 import { STORE_USER_DATA } from '../../store/actionTypes';
 
-const tags = [
-	'python',
-	'html',
-	'django',
-	'android',
-	'c#',
-	'c++',
-	'sql',
-	'css',
-	'php',
-	'java',
-	'jquery',
-	'node js',
-	'react js',
-];
-
 function NewDashboard() {
 	const [questions, setQuestions] = useState([]);
 
@@ -58,7 +42,7 @@ function NewDashboard() {
 	}, []);
 
 	return (
-		<div className={` lpContainer`}>
+		<div className={` dashContainer`}>
 			<div className={`${styles.dashboard}`}>
 				<main className={styles.main}>
 					<div className={styles.header}>
@@ -86,7 +70,7 @@ function NewDashboard() {
 					<div className={styles.components}>
 						<TopUsers />
 						<Yml />
-						<Tags tags={tags} />
+						<Tags />
 					</div>
 				</aside>
 			</div>
