@@ -36,7 +36,7 @@ import Security from './pages/Security/Security';
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
-import InternalFooter from './components/InternalFooter/InternalFooter';
+// import InternalFooter from './components/InternalFooter/InternalFooter';
 import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
@@ -173,7 +173,7 @@ function App() {
 					<Route path="*" element={<ErrorPage />} />
 				</Routes>
 			</div>
-			{token || isAuth ? <InternalFooter /> : <Footer />}
+			{token || isAuth ? <Footer /> : <Footer />}
 		</div>
 	);
 }
