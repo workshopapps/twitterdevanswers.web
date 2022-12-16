@@ -85,10 +85,15 @@ function BlogPage() {
 									<p>{blog.author}</p>
 								</div>
 							</main>
-							<p className={styles.text}>
-								{blog?.body?.slice(0, 150)}
-								<span>... See more</span>
-							</p>
+							<Link
+								to={`/blog-page-review/${blog.blog_id}`}
+								style={{ textDecoration: 'none' }}
+							>
+								<p className={styles.text}>
+									{blog?.body?.slice(0, 150)}
+									<span>... See more</span>
+								</p>
+							</Link>
 							<p className={styles.boxbtn}>{blog.post_category}</p>
 							<img className={styles.dots} src={dots} alt="dots" />
 						</div>
