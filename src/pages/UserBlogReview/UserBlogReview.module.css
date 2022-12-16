@@ -6,6 +6,7 @@
 
 .userblog .blog_img {
 	margin: 0 auto;
+	object-fit: cover;
 }
 
 .usernav {
@@ -56,7 +57,7 @@
 
 .userOpen p {
 	margin-top: 1.2rem;
-	/* font-size: 0.9rem; */
+	font-size: 18px;
 	font-weight: 600;
 	color: #303030;
 }
@@ -102,6 +103,10 @@
 	align-items: center;
 	justify-content: center;
 	margin: 2rem auto;
+}
+
+.BlogpostBtn button {
+	cursor: pointer;
 }
 
 .BlogpostBtn button:first-of-type {
