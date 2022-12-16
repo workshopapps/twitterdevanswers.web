@@ -10,6 +10,7 @@ import BUTTON_TYPES from '../../components/Tags/Button/Data';
 
 import styles from './tags.module.css';
 import tagstyles from './index.module.css'
+// import share from '../../assets/dashboard-images/share.webp';
 
 const defaultPage = {
 	start: 0,
@@ -264,103 +265,6 @@ export default function Tags() {
 				)}
 			</div>
 			<aside className={tagstyles.aside}>
-				<nav className={styles['tags-nav']}>
-					<Button
-						type={BUTTON_TYPES.SECONDARY}
-						onClick={filterTagsHandler}
-						btnText="Java"
-					/>
-					<span className={styles.hidden_8}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="Python"
-						/>
-					</span>
-					<span className={styles.hidden_7}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="Android"
-						/>
-					</span>
-					<span className={styles.hidden_6}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="Php"
-						/>
-					</span>
-					<span className={styles.hidden_5}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="C++"
-						/>
-					</span>
-					{/* <span className={styles.hidden_4}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="Ajax"
-						/>
-					</span>
-					<span className={styles.hidden_3}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="MySQL"
-						/>
-					</span>
-					<span className={styles.hidden_3}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="Node.js"
-						/>
-					</span> */}
-					{/* <span className={styles.hidden_2}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="C#"
-						/>
-					</span>
-					<span className={styles.hidden_2}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="React.js"
-						/>
-					</span>
-					<span className={styles.hidden_1}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="Swift"
-						/>
-					</span>
-					<span className={styles.hidden_1}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="Linux"
-						/>
-					</span>
-					<span className={styles.hidden_1}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="R"
-						/>
-					</span> */}
-					{/* <Button
-						type={BUTTON_TYPES.PRIMARY}
-						onClick={filterTagsHandler}
-						btnText="View all"
-					/> */}
-				</nav>
-				
 				<section className={tagstyles['relevant-topics']}>
 					{/* Topics suggestions */}
 					<div
@@ -392,6 +296,7 @@ export default function Tags() {
 										{replies[0] && replies[0][i]}{' '}
 										{replies[0] && replies[0][i] === 1 ? 'Reply' : 'Replies'}
 									</p>
+									
 								</div>
 							</div>
 						))}
