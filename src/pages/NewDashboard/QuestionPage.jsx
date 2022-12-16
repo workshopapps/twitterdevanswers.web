@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BsChatSquareDots, BsShare, BsArrowLeft } from 'react-icons/bs';
@@ -16,14 +17,29 @@ import Modal from '../../components/Modal/Modal';
 function QuestionPage() {
 	const navigate = useNavigate();
 	const { id } = useParams();
+	const cred = JSON.parse(localStorage.getItem('user'));
+	const loggedInUserId = cred?.user_id;
 
 	const [question, setQuestion] = useState({});
 	const [askedBy, setAskedBy] = useState({});
 	const [answers, setAnswers] = useState([]);
 	const [msg, setMsg] = useState('');
 	const [show, setShow] = useState(false);
+	const [liked, setLiked] = useState([]);
+	const [alreadyLiked, setAlreadyLiked] = useState({});
+	const [loggedInUserCred, setLoggedInUserCred] = useState({});
 
-	const { getQuestions, getAnswers, getUsers, postAnswer } = useMessenger();
+	const {
+		getQuestions,
+		getAnswers,
+		getUsers,
+		postAnswer,
+		sortByDate,
+		getLikes,
+		likeUnlike,
+		deleteQuestion,
+		getUserbyUsername,
+	} = useMessenger();
 	const { modal, showModal } = useModal();
 
 	function showShareModal() {
@@ -54,14 +70,34 @@ function QuestionPage() {
 		fetchQuestions();
 	}, []);
 
-	// get answers
 	useEffect(() => {
+		const fetchUserByUserName = async () => {
+			const result = await getUserbyUsername(cred?.usename);
+			setLoggedInUserCred(result);
+		};
+
+		// get answers
 		const fetchAnswers = async () => {
 			const result = await getAnswers(id);
 			setAnswers(result);
 		};
 
+		const fetchLikes = async () => {
+			// get likes array
+			const { data } = await getLikes(id);
+			setLiked(data);
+
+			// check if the user has liked the question prior
+			const response = data?.find(
+				({ user_id: userId, like_type: likeType }) =>
+					userId === loggedInUserId && likeType === 'up'
+			);
+			setAlreadyLiked(response);
+		};
+
+		fetchLikes();
 		fetchAnswers();
+		fetchUserByUserName();
 	}, []);
 
 	// get user
@@ -111,6 +147,40 @@ function QuestionPage() {
 			setMsg(error.response.data.detail);
 		}
 	};
+
+	const handleLIke = (event) => {
+		event.stopPropagation();
+
+		if (alreadyLiked) {
+			likeUnlike(id, 'down');
+			setLiked([...liked].filter((item) => item.user_id !== loggedInUserId));
+
+			setAlreadyLiked(undefined);
+		} else {
+			likeUnlike(id, 'up');
+			setLiked((prev) => [
+				...prev,
+				{ user_id: loggedInUserId, like_type: 'up', question_id: id },
+			]);
+
+			setAlreadyLiked({
+				user_id: loggedInUserId,
+				like_type: 'up',
+				question_id: id,
+			});
+		}
+	};
+
+	const handleDelete = async () => {
+		try {
+			await deleteQuestion(question.question_id);
+			navigate('/dashboard');
+		} catch (error) {
+			throw new Error();
+		}
+	};
+
+	const numOfLikes = liked?.filter((item) => item.like_type === 'up');
 
 	return (
 		<div className="dashContainer">
@@ -173,7 +243,16 @@ function QuestionPage() {
 											<span className={styles.timeStamp}>{formatDate()}</span>
 										</div>
 									</div>
-									<span className={styles.edit}>Edit</span>
+									{askedBy.user_id === loggedInUserId ||
+									loggedInUserCred?.is_admin ? (
+										<button
+											onClick={handleDelete}
+											type="button"
+											className={styles.delete}
+										>
+											Delete
+										</button>
+									) : null}
 								</div>
 								<div className={styles.bottom}>
 									<h3 className={styles.title}>{question?.title}</h3>
@@ -199,8 +278,8 @@ function QuestionPage() {
 													: 'y'}
 											</span>
 											<span>
-												{question?.total_like} like
-												{question?.total_like > 1 || question?.total_like === 0
+												{numOfLikes?.length} like
+												{numOfLikes?.length > 1 || numOfLikes?.length === 0
 													? 's'
 													: ''}
 											</span>
@@ -210,10 +289,15 @@ function QuestionPage() {
 												<BsChatSquareDots className={styles.icon} />
 											</div>
 											<div className={styles.likes}>
-												{/* <IoHeart/> */}
 												<Heart
 													className={styles.icon}
-													style={{ fill: 'transparent' }}
+													onClick={handleLIke}
+													style={{
+														fill:
+															alreadyLiked?.like_type === 'up'
+																? '#4343DE'
+																: 'transparent',
+													}}
 												/>
 											</div>
 											<Modal onClose={hideShare} show={show} hide={hideShare} />
@@ -236,9 +320,10 @@ function QuestionPage() {
 					<div className={`${styles.replies} ${styles.scrollbar}`}>
 						{answers.length === 0
 							? null
-							: answers?.map((reply) => (
+							: sortByDate(answers)?.map((reply) => (
 									<ReplyCard
 										reply={reply}
+										questionId={id}
 										key={reply.answer_id}
 										poster={askedBy && askedBy.username}
 									/>
