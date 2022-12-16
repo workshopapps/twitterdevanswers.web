@@ -47,10 +47,6 @@ import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 import AdminBlogPage from './pages/AdminBlogPage';
 
-import SuccessSign from './pages/SuccessSign';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
-
 function App() {
 	const {
 		state: { isAuth },
@@ -59,6 +55,26 @@ function App() {
 
 	return (
 		<div className="App">
+
+			<div className="container">
+				{token || isAuth ? <InternalHeader /> : <Header />}
+				<Routes>
+					<Route path="/" element={<FirstLandingPage />} />
+					<Route path="cookie-policy" element={<CookiePolicy />} />
+					<Route path="advertising" element={<Advert />} />
+					<Route path="blog-page" element={<Blog />} />
+					<Route path="faq" element={<FAQ />} />
+					<Route path="help-center" element={<Help />} />
+					<Route path="terms-of-use" element={<TermsOfUse />} />
+					<Route path="pricing-page" element={<Pricing />} />
+					<Route path="career" element={<Career />} />
+					<Route path="how-it-works" element={<HowItWorks />} />
+					<Route path="API" element={<API />} />
+					<Route path="about" element={<About />} />
+					<Route path="login" element={<Login />} />
+					<Route path="privacy" element={<Privacy />} />
+					<Route path="sign-up" element={<SignUp />} />
+
 			{token || isAuth ? <InternalHeader /> : <Header />}
 			<Routes>
 				<Route path="/" element={<FirstLandingPage />} />
@@ -80,9 +96,50 @@ function App() {
 				<Route path="forgot-password" element={<ForgotPassword />} />
 				<Route path="reset-password" element={<ResetPassword />} />
 
-				<Route element={<ProtectedRoutes />}>
-					<Route path="/dashboard" element={<NewDashboard />} />
-					<Route path="/question-page/:id" element={<QuestionPage />} />
+					<Route element={<ProtectedRoutes />}>
+						<Route path="/dashboard" element={<NewDashboard />} />
+						<Route path="/question-page/:id" element={<QuestionPage />} />
+
+						<Route path="profile/:username" element={<Profile />} />
+						<Route path="notifications-page" element={<Notifications />} />
+						<Route path="tags-page" element={<Tags />} />
+						<Route path="teams-page" element={<Teams />} />
+						<Route path="wallet" element={<WalletPage />} />
+						<Route path="users-page" element={<UserPage />} />
+						<Route path="post-questions" element={<PostQuestion />} />
+						<Route path="settings" element={<Settings />} />
+						<Route path="security-settings" element={<Security />} />
+						<Route path="contact" element={<Contact />} />
+						<Route path="submit-blog" element={<SubmitBlog />} />
+						<Route path="/blog-page-review" element={<BlogPageReview />} />
+						<Route path="profile/:username" element={<Profile />} />
+						<Route path="notifications-page" element={<Notifications />} />
+						<Route path="tags-page" element={<Tags />} />
+						<Route path="teams-page" element={<Teams />} />
+						<Route path="wallet" element={<WalletPage />} />
+						<Route path="users-page" element={<UserPage />} />
+						<Route path="post-questions" element={<PostQuestion />} />
+						<Route path="settings" element={<Settings />} />
+						<Route path="security-settings" element={<Security />} />
+						<Route path="contact" element={<Contact />} />
+						<Route path="submit-blog" element={<SubmitBlog />} />
+						<Route path="/blog-page-review" element={<BlogPageReview />} />
+						<Route path="/user-blog-review" element={<UserBlogReview />} />
+
+						<Route path="*" element={<ErrorPage />} />
+						<Route
+							path="notification-settings"
+							element={<NotificationSettings />}
+						/>
+						<Route
+							path="/privacyandsafety-settings"
+							element={<PrivacyandSafetySettings />}
+						/>
+						<Route path="manage-user/:username" element={<ManageUser />} />
+						<Route path="admin-dashboard" element={<AdminDashboard />} />
+						<Route path="admin-signup" element={<AdminSignUp />} />
+						<Route path="admin-login" element={<AdminSignIn />} />
+					</Route>
 
 					<Route path="profile/:username" element={<Profile />} />
 					<Route path="notifications-page" element={<Notifications />} />
@@ -114,8 +171,10 @@ function App() {
 					<Route path="/admin-blog-page" element={<AdminBlogPage />} />
 				</Route>
 
-				<Route path="*" element={<ErrorPage />} />
-			</Routes>
+
+					<Route path="*" element={<ErrorPage />} />
+				</Routes>
+			</div>
 			{token || isAuth ? <InternalFooter /> : <Footer />}
 		</div>
 	);

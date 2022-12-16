@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './topUsers.module.css';
 import User from '../User/User';
@@ -39,4 +39,4 @@ function TopUsers() {
 	);
 }
 
-export default TopUsers;
+export default memo(TopUsers);
