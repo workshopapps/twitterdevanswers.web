@@ -228,7 +228,7 @@ function PostQuestion() {
 				setIsSuccessful(true);
 
 				setTimeout(() => {
-					navigate('#/dashboard');
+					navigate('/dashboard');
 				}, 5000);
 			}
 		} catch (err) {
