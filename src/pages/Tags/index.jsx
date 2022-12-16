@@ -194,7 +194,7 @@ export default function Tags() {
 							btnText="Node.js"
 						/>
 					</span>
-					<span className={styles.hidden_2}>
+					{/* <span className={styles.hidden_2}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
 							onClick={filterTagsHandler}
@@ -228,7 +228,7 @@ export default function Tags() {
 							onClick={filterTagsHandler}
 							btnText="R"
 						/>
-					</span>
+					</span> */}
 					<Button
 						type={BUTTON_TYPES.PRIMARY}
 						onClick={filterTagsHandler}
@@ -263,7 +263,7 @@ export default function Tags() {
 					/>
 				)}
 			</div>
-			<div className={styles.sidebar}>
+			<aside className={tagstyles.aside}>
 				<nav className={styles['tags-nav']}>
 					<Button
 						type={BUTTON_TYPES.SECONDARY}
@@ -298,14 +298,14 @@ export default function Tags() {
 							btnText="C++"
 						/>
 					</span>
-					<span className={styles.hidden_4}>
+					{/* <span className={styles.hidden_4}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
 							onClick={filterTagsHandler}
 							btnText="Ajax"
 						/>
 					</span>
-					{/* <span className={styles.hidden_3}>
+					<span className={styles.hidden_3}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
 							onClick={filterTagsHandler}
@@ -318,8 +318,8 @@ export default function Tags() {
 							onClick={filterTagsHandler}
 							btnText="Node.js"
 						/>
-					</span>
-					<span className={styles.hidden_2}>
+					</span> */}
+					{/* <span className={styles.hidden_2}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
 							onClick={filterTagsHandler}
@@ -332,8 +332,8 @@ export default function Tags() {
 							onClick={filterTagsHandler}
 							btnText="React.js"
 						/>
-					</span> */}
-					{/* <span className={styles.hidden_1}>
+					</span>
+					<span className={styles.hidden_1}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
 							onClick={filterTagsHandler}
@@ -353,87 +353,81 @@ export default function Tags() {
 							onClick={filterTagsHandler}
 							btnText="R"
 						/>
-					</span>
-					<Button
+					</span> */}
+					{/* <Button
 						type={BUTTON_TYPES.PRIMARY}
 						onClick={filterTagsHandler}
 						btnText="View all"
 					/> */}
 				</nav>
-				<div className={tagstyles.aside}>
-					<section className={tagstyles['relevant-topics']}>
-						{/* Topics suggestions */}
-						<div
-							className={`${tagstyles.topics} ${tagstyles['aside-container']}`}
-						>
-							<h3 className={tagstyles['heading-secondary']}>You might like</h3>
+				
+				<section className={tagstyles['relevant-topics']}>
+					{/* Topics suggestions */}
+					<div
+						className={`${tagstyles.topics} ${tagstyles['aside-container']}`}
+					>
+						<h3 className={tagstyles['heading-secondary']}>You might like</h3>
+						{questions.map((question, i) => (
+							<div key={question.question_id} className={tagstyles.topic}>
+								<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
+									<img
+										src={
+											findUser(question.owner_id)?.image_url?.trim()
+												? findUser(question.owner_id)?.image_url
+												: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+										}
+										alt=""
+										className={tagstyles.profilePicture}
+									/>
+								</Link>
 
-							{questions.map((question, i) => (
-								<div key={question.question_id} className={tagstyles.topic}>
+								<div className={tagstyles.content}>
 									<Link
-										to={`/profile/${findUser(question.owner_id)?.username}`}
+										to={`/question-page/${question.question_id}`}
+										style={{ textDecoration: 'none' }}
 									>
-										<img
-											src={
-												findUser(question.owner_id)?.image_url?.trim()
-													? findUser(question.owner_id)?.image_url
-													: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-											}
-											alt=""
-											className={tagstyles.profilePicture}
-										/>
+										<h4>{question.content.slice(0, 40)}</h4>
 									</Link>
-
-									<div className={tagstyles.content}>
-										<Link
-											to={`/dashboard/questions/${question.question_id}`}
-											style={{ textDecoration: 'none' }}
-										>
-											<h4>{question.content.slice(0, 40)}</h4>
-										</Link>
-										<p>
-											{replies[0] && replies[0][i]}{' '}
-											{replies[0] && replies[0][i] === 1 ? 'Reply' : 'Replies'}
-										</p>
-									</div>
+									<p>
+										{replies[0] && replies[0][i]}{' '}
+										{replies[0] && replies[0][i] === 1 ? 'Reply' : 'Replies'}
+									</p>
 								</div>
-							))}
-						</div>
+							</div>
+						))}
+					</div>
 
-						{/* Accounts suggestions */}
-						<div className={`${tagstyles.users} ${tagstyles['aside-container']}`}>
-							<h3 className={tagstyles['heading-secondary']}>
-								You might follow
-							</h3>
-							{[...users].slice(0, 3).map((user) => (
-								<div key={user.user_id} className={tagstyles.user}>
-									<Link to={`/profile/${user?.username}`}>
-										<img
-											src={
-												user?.image_url?.trim()
-													? user.image_url
-													: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
-											}
-											alt=""
-											className={tagstyles.profilePicture}
-										/>
-									</Link>
-									<div className={tagstyles.details}>
-										<div>
-											<h4>{user.username}</h4>
-											<p>@{user.username}</p>
-										</div>
-										<p>Follows you</p>
+					{/* Accounts suggestions */}
+					<div className={`${tagstyles.users} ${tagstyles['aside-container']}`}>
+						<h3 className={tagstyles['heading-secondary']}>You might follow</h3>
+						{[...users].slice(0, 3).map((user) => (
+							<div key={user.user_id} className={tagstyles.user}>
+								<Link to={`/profile/${user?.username}`}>
+									<img
+										src={
+											user?.image_url?.trim()
+												? user.image_url
+												: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+										}
+										alt=""
+										className={tagstyles.profilePicture}
+									/>
+								</Link>
+								<div className={tagstyles.details}>
+									<div>
+										<h4>{user.username}</h4>
+										<p>@{user.username}</p>
 									</div>
-									<button type="button">Follow</button>
+									{/* <p>Follows you</p> */}
 								</div>
-							))}
+								<button type="button">Follow</button>
+							</div>
+						))}
 
-							<Link to="/users-page">See more</Link>
-						</div>
-					</section>
-				</div>
-			</div>
+						<Link to="/users-page">See more</Link>
+					</div>
+				</section>
+			</aside>
 		</section>
 	);
 }

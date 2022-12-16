@@ -1,14 +1,17 @@
 .tags-section {
-	background-color: #FEFEFE;
-	padding: 40px 40px;
-	width: max-content;
+	background-color: #fefefe;
+	padding: 40px 60px;
+	/* width: 100vw; */
 	display: flex;
+		gap: 30px;
+
 }
 
 .tags-container {
-	max-width: 1550px;
+	/* max-width: 1550px; */
+	width: 600px;
 	margin: 0 auto;
-	flex-basis: 50%;
+	flex-basis: 60%;
 }
 
 .header-title {
@@ -26,7 +29,7 @@
 
 .tags-header__btn-container {
 	display: flex;
-	gap: 5px;
+	gap: 10px;
 	margin-left: 15px;
 }
 
@@ -105,7 +108,6 @@
 	row-gap: 20px;
 }
 
-
 .list {
 	display: grid;
 	justify-content: space-between;
@@ -113,7 +115,7 @@
 }
 
 .sidebar {
-	flex-basis: 20%;
+	/* flex-basis: 20%; */
 }
 @media screen and (max-width: 1150px) {
 	.grid {
