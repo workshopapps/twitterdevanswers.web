@@ -1,89 +1,89 @@
 .cardContainer {
-  min-width: 95vw;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #492b7c;
-  padding: 6em 1em;
+	min-width: 95vw;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #492b7c;
+	padding: 6em 1em;
 }
 .cardContainer .cardContent {
-  background: #ffffff;
-  box-shadow: 4px 8px 24px #704ea9;
-  border-radius: 24px;
-  max-width: 95%;
-  padding: 3em 1em;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 979px;
-  min-width: 200px;
+	background: #ffffff;
+	box-shadow: 4px 8px 24px #704ea9;
+	border-radius: 24px;
+	max-width: 95%;
+	padding: 3em 1em;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 979px;
+	min-width: 200px;
 }
 @media (min-width: 500px) {
-  .cardContainer .cardContent {
-    padding: 3em 4em;
-  }
+	.cardContainer .cardContent {
+		padding: 3em 4em;
+	}
 }
 @media (min-width: 700px) {
-  .cardContainer .cardContent {
-    padding: 3em 10em;
-  }
+	.cardContainer .cardContent {
+		padding: 3em 10em;
+	}
 }
 .cardContainer .cardContent .cardHeading {
-  color: #303030;
-  font-size: 1.3rem;
-  margin: 1em 0em;
+	color: #303030;
+	font-size: 1.3rem;
+	margin: 1em 0em;
 }
 .cardContainer .cardContent form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 .cardContainer .cardContent form .codeMessage {
-  color: #492b7c;
-  font-weight: 700;
-  font-size: 1.1rem;
-  padding: 0.5em;
-  font-style: italic;
-  text-align: center;
+	color: #492b7c;
+	font-weight: 700;
+	font-size: 1.1rem;
+	padding: 0.5em;
+	font-style: italic;
+	text-align: center;
 }
 .cardContainer .cardContent form label {
-  display: flex;
-  flex-direction: column;
-  padding: 0.5em 1em;
+	display: flex;
+	flex-direction: column;
+	padding: 0.5em 1em;
 }
 .cardContainer .cardContent form label input {
-  padding: 1em 2em;
-  border: 1px solid #757575;
-  border-radius: 8px;
-  margin: 0.8em 0em;
+	padding: 1em 2em;
+	border: 1px solid #757575;
+	border-radius: 8px;
+	margin: 0.8em 0em;
 }
 .cardContainer .cardContent form button {
-  background: #492b7c;
-  border-radius: 8px;
-  padding: 0.8em 2em;
-  margin: 3em 1em 1em;
-  color: #ffffff;
-  text-transform: uppercase;
-  cursor: pointer;
+	background: #492b7c;
+	border-radius: 8px;
+	padding: 0.8em 2em;
+	margin: 3em 1em 1em;
+	color: #ffffff;
+	text-transform: uppercase;
+	cursor: pointer;
 }
 .cardContainer .cardContent .notice {
-  color: #303030;
-  text-align: center;
-  margin: 1.3em 0em 0em;
+	color: #303030;
+	text-align: center;
+	margin: 1.3em 0em 0em;
 }
 .cardContainer .cardContent .notice a {
-  color: #492b7c;
-  font-weight: 600;
-  text-decoration: none;
+	color: #492b7c;
+	font-weight: 600;
+	text-decoration: none;
 }
 
 .signUpMessage {
-  text-align: center;
-  font-weight: 800;
-  font-style: italic;
-  font-size: 1rem;
-  color: rgb(255, 135, 135);
-}/*# sourceMappingURL=AdminSignUp.module.css.map */
+	text-align: center;
+	font-weight: 800;
+	font-style: italic;
+	font-size: 1rem;
+	color: rgb(255, 135, 135);
+}

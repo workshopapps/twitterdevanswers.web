@@ -3,7 +3,7 @@
 	padding-bottom: 40px;
 	color: #303030;
 	display: flex;
-	gap: 20px;
+	gap: 50px;
 	position: relative;
 }
 
@@ -27,7 +27,7 @@
 
 .header h2 {
 	font-weight: 700;
-	font-size: 32px;
+	font-size: 24px;
 	line-height: 36px;
 }
 

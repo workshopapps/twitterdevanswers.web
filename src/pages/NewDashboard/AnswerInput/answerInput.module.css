@@ -14,8 +14,8 @@
 
 .avatar {
 	border-radius: 50%;
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	cursor: pointer;
 }
 
@@ -45,7 +45,7 @@
 	box-shadow: 0px 2px 12px rgba(70, 73, 255, 0.2);
 	border-radius: 4px;
 	font-weight: 500;
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 24px;
 	color: #ffffff;
 	cursor: pointer;

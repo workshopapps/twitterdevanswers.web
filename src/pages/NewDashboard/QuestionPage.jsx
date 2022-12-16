@@ -9,6 +9,9 @@ import avatar from '../../assets/dashboard/user.png';
 import styles from './questionPage.module.css';
 import AnswerInput from './AnswerInput/AnswerInput';
 import useMessenger from './utils';
+import AuthModal from '../AuthPage/AuthModal';
+import { useModal } from '../AuthPage/utils';
+import Modal from '../../components/Modal/Modal';
 
 function QuestionPage() {
 	const navigate = useNavigate();
@@ -17,8 +20,25 @@ function QuestionPage() {
 	const [question, setQuestion] = useState({});
 	const [askedBy, setAskedBy] = useState({});
 	const [answers, setAnswers] = useState([]);
+	const [msg, setMsg] = useState('');
+	const [show, setShow] = useState(false);
 
 	const { getQuestions, getAnswers, getUsers, postAnswer } = useMessenger();
+	const { modal, showModal } = useModal();
+
+	function showShareModal() {
+		setShow(true);
+	}
+
+	function hideShareModal() {
+		setShow(false);
+	}
+
+	const showShare = (event) => {
+		event.stopPropagation();
+		showShareModal();
+	};
+	const hideShare = () => hideShareModal();
 
 	// get question
 	useEffect(() => {
@@ -80,13 +100,21 @@ function QuestionPage() {
 
 	const handleSubmitAnswer = async (event, answer) => {
 		event.preventDefault();
-		// setAnswers((prev) => [...prev, answer]);
-		const { data } = await postAnswer(answer, id);
-		setAnswers((prev) => [...prev, data]);
+		try {
+			const response = await postAnswer(answer, id);
+			setAnswers((prev) => [...prev, response.data]);
+
+			showModal();
+			setMsg('Response has been recorded');
+		} catch (error) {
+			showModal();
+			setMsg(error.response.data.detail);
+		}
 	};
 
 	return (
-		<div className="lpContainer">
+		<div className="dashContainer">
+			<div className="modal">{modal && <AuthModal text={msg} />}</div>
 			<div className={styles.dashboard}>
 				<section className={styles.main}>
 					<div className={styles.header}>
@@ -188,9 +216,15 @@ function QuestionPage() {
 													style={{ fill: 'transparent' }}
 												/>
 											</div>
-											<div>
+											<Modal onClose={hideShare} show={show} hide={hideShare} />
+
+											<button
+												type="button"
+												onClick={showShare}
+												className={styles.share}
+											>
 												<BsShare className={styles.icon} />
-											</div>
+											</button>
 										</div>
 									</div>
 								</div>
@@ -212,8 +246,10 @@ function QuestionPage() {
 					</div>
 				</section>
 				<aside className={styles.aside}>
-					<TopUsers />
-					<Yml />
+					<div className={styles.components}>
+						<TopUsers />
+						<Yml />
+					</div>
 				</aside>
 			</div>
 		</div>
