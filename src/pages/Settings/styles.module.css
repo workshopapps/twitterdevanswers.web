@@ -46,7 +46,7 @@
     align-items: center;
 
 }
-.settings_div a{
+.settings_div_acc a, .settings_div a{
     text-decoration: none;
     color: black;
     

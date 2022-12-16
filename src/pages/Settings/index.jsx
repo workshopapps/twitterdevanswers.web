@@ -16,7 +16,7 @@ function Settings() {
     <div> 
      <h3>Settings</h3>
       <div > 
-       <div className = {styles.settings_div_acc}> <p>your account</p> <img src = {arrow} alt = ''/></div>
+       <div className = {styles.settings_div_acc}> <Link to="/settings">Your account</Link> <img src = {arrow} alt = ''/></div>
        <div className = {styles.settings_div}> <Link to="/security-settings">Security and account access </Link><img src = {arrow} alt = ''/> </div>
        <div className = {styles.settings_div}><p>Notification</p> <img src = {arrow} alt = ''/> </div>
        <div className = {styles.settings_div}> <p>Privacy and safety</p> <img src = {arrow} alt = ''/></div>
