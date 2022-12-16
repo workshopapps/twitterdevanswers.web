@@ -1,6 +1,6 @@
 .walletContainer {
     display: flex;
-    background: #E5E5E5;
+    background: #FEFEFE;
     padding-left: 64px; 
     padding-right: 64px; 
     padding-top: 46px; 
@@ -115,22 +115,23 @@
 
 .recentHistoryBlock {
     width: 670px;
-    height: 566px;
     background: #FEFEFE;
     border: 1px solid #ECECFB;
     border-radius: 24px;
     padding-top: 24px;
     padding-left: 24px;
     padding-right: 24px;
+    padding-bottom: 3rem;
     margin-top: 16px;
 }
+
 
 .historyButtons1 {
     font-weight: 700;
     font-size: 20px;
     line-height: 27px;
-    /* color: #492B7C; */
     color: #535353;
+    cursor: pointer;
     border: none;
     background: #FEFEFE;
 }
@@ -139,14 +140,15 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 27px;
-    /* color: #492B7C; */
     color: #535353;
+    cursor: pointer;
     border: none;
     background: #FEFEFE;
 }
 
 .currentButton {
     color: #492B7C;
+    border-bottom: 3px solid #492B7C;
 }
 
 .transactionBlock {
@@ -193,16 +195,17 @@
     font-size: 13px;
     line-height: 20px;
     color: #535353;
+    margin-left: 2rem;
 }
 
 .transactionHistoryWrapper {
     width: 450px;
-    /* height: 426px; */
     background: #F6F0FF;
     border-radius: 16px;
     padding-top: 16px;
     padding-left: 12px;
     padding-right: 12px;
+    padding-bottom: 3rem;
     margin-left: 17px;
 }
 
@@ -222,6 +225,7 @@
 .transactionHistoryHeader span {
     display: flex;
     margin-left: 120px;
+    cursor: pointer;
 }
 
 .transactionHistoryHeader span p {
@@ -257,8 +261,10 @@
 
 .transactionHistoryBlock {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .transactionHistoryBlock img{
@@ -336,4 +342,654 @@
     font-size: 16px;
     line-height: 24px;
     color: #492B7C;
+}
+
+@media screen and (max-width: 1030px) {
+    .walletContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .balanceTag {
+        width: 25rem;
+        height: 11.5rem;
+    }
+
+    .balanceTag h4 {
+        font-size: 1.3rem;
+    }
+
+    .balanceTag p {
+        font-size: 2.5rem;
+    }
+
+    .totalEarnedTag {
+        width: 20rem;
+    }
+
+    .totalSpentTag {
+        width: 20rem;
+    }
+
+    .recentHistoryBlock {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 3rem;
+        margin-bottom: 5rem;
+    }
+
+    .transaction p {
+        font-size: 18px;
+    }
+
+    .date {
+        font-size: 16px;
+    }
+
+    .token {
+        font-size: 16px;
+        margin-left: 2rem;
+    }
+
+    .transactionHistoryWrapper {
+        width: 46rem;
+        margin-left: 0px;
+    }
+
+    .transactionHistoryBody h4 {
+        font-size: 18px;
+    }
+
+    .transactionHistoryHeader span {
+        margin-left: 400px;
+    }
+
+    .transactionHistoryRecord {
+        margin-left: 4rem;
+    }
+
+    .p1 {
+        font-size: 18px;
+    }
+
+    .p2 {
+        font-size: 16px;
+    }
+
+    .transactionHistoryBlock span {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .balanceTag {
+        width: 17rem;
+    }
+
+    .balanceTag h4 {
+        font-size: 1rem;
+    }
+
+    .balanceTag p {
+        font-size: 1.7rem;
+    }
+
+    .totalEarnedTag  p {
+        font-size: 20px;
+    }
+
+    .totalSpentTag  p {
+        font-size: 20px;
+    }
+
+    .historyButtons1 {
+        font-size: 15px;
+    }
+
+    .historyButtons2 {
+        font-size: 15px;
+    }
+
+    .transactionBlock h4 {
+        font-size: 15px;
+    }
+
+    .transaction p{
+        font-size: 14px;
+    }
+
+    .date {
+        font-size: 13px;
+    }
+
+    .token {
+        font-size: 12px;
+    }
+
+    .transactionHistoryWrapper {
+        width: 39rem;
+    }
+
+    .transactionHistoryHeader span {
+        margin-left: 289px;
+    }
+
+    .transactionHistoryBody h4 {
+        font-size: 14px;
+    }
+
+    .p1 {
+        font-size: 13px;
+    }
+
+    .p2 {
+        font-size: 12px;
+    }
+
+    .transactionHistoryBlock span {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .walletContainer {
+        padding-left: 44px; 
+        padding-right: 44px; 
+    }
+    
+    .tagWrapper {
+        flex-direction: column;
+    }
+
+    .balanceTag {
+        width: 100%;
+        height: 11rem;
+    }
+
+    .innerTagWrapper {
+        margin-top: 3rem;
+    }
+
+    .totalEarnedTag {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .totalEarnedTag p {
+        font-size: 16px;
+    }
+
+    .totalSpentTag {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .totalSpentTag p {
+        font-size: 16px;
+    }
+
+    .recentHistoryWrapper {
+        height: 100%;
+    }
+
+    .recentHistoryBlock {
+        height: 100%;
+        width: 30rem;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .transaction img {
+        width: 14px;   
+        height: 28px   
+    }
+
+    .transaction p {
+        font-size: 12px;
+    }
+
+    .date {
+        font-size: 11px;
+    }
+
+    .token {
+        font-size: 11px;
+    }
+
+    .transactionHistoryWrapper {
+        width: 31rem;
+        margin-left: 0rem;
+    }
+
+    .transactionHistoryHeader h4 {
+        font-size: 16px;
+     }
+
+    .transactionHistoryHeader span {
+        margin-left: 240px;
+    }
+
+}
+
+
+@media screen and (max-width: 500px) {
+    
+    .tagWrapper {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .balanceTag {
+        width: 100%;
+    }
+
+    .totalEarnedTag {
+        width: 24.5rem;
+        margin-left: 0.2rem;
+    }
+
+    .totalSpentTag {
+        width: 24.5rem;
+        margin-left: 0.2rem;
+    }
+
+    .recentHistoryBlock {
+        width: 25rem;
+    }
+
+    .transaction {
+        flex-direction: column;
+    }
+
+    .transaction p {
+        margin-top: 0.5rem;
+    }
+
+    .recentFlex {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+    }
+
+    .transactionHistoryWrapper {
+        width: 25rem;
+        margin-left: 0.1rem;
+    }
+
+    .transactionHistoryHeader span {
+        margin-left: 9rem;
+    }
+
+    .transactionHistoryBody h4 {
+        margin-top: 1.5rem;
+    }
+
+    .transactionHistoryBlock {
+        flex-direction: column;
+    }
+
+    .transactionHistoryBlock img{
+        margin-bottom: 0.4rem;
+    }
+
+    .transactionHistoryRecord {
+        margin-left: 0rem;
+    }
+
+    .paymentButtons {
+        display: flex;
+        flex-direction: column;
+        width: 19.5rem;
+        height: 7rem;
+        margin-left: 2.5rem;
+        padding-left: 2.2rem;
+    }
+}
+
+/* @media screen and (max-width: 480px) {
+    .transactionHistoryWrapper{
+        width: 100%;
+        margin-left: 0rem;
+    }
+
+    .transactionHistoryBody span {
+        margin-left: 1rem;
+    }
+
+} */
+
+@media screen and (max-width: 420px) {  
+    .balanceTag {
+        width: 22rem;
+    } 
+
+    .totalEarnedTag {
+        width: 21rem;
+    }
+
+    .totalSpentTag {
+        width: 21rem;
+    }
+
+    .recentHistoryBlock {
+        width: 22rem;
+    }
+
+    .transactionHistoryWrapper {
+        width: 22rem;
+        margin-left: 0.2rem;
+    }
+
+    .transactionHistoryHeader span {
+        margin-left: 6rem;
+    }
+
+    .paymentButtons {
+        margin-left: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 380px) {  
+    .balanceTag {
+        width: 20rem;
+    } 
+
+    .totalEarnedTag {
+        width: 19rem;
+    }
+
+    .totalSpentTag {
+        width: 19rem;
+    }
+
+    .recentHistoryBlock {
+        width: 20rem;
+    }
+
+    .transactionHistoryWrapper {
+        width: 20rem;
+        margin-left: 0.5rem;
+    }
+
+    .transactionHistoryHeader span {
+        margin-left: 4.2rem;
+    }
+
+    .paymentButtons {
+        margin-left: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 340px) { 
+    .balanceTag {
+        width: 18rem;
+    } 
+
+    .totalEarnedTag {
+        width: 17rem;
+    }
+
+    .totalSpentTag {
+        width: 17rem;
+    }
+
+    .recentHistoryBlock {
+        width: 18rem;
+    }
+
+    .transactionHistoryWrapper {
+        width: 18rem;
+        margin-left: 1rem;
+    }
+
+    .transactionHistoryHeader span {
+        margin-left: 3rem;
+    }
+
+    .paymentButtons {
+        width: 18rem;
+        padding-left: 1.5rem;
+        margin-left: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 310px) { 
+    .balanceTag {
+        width: 15rem;
+    }
+
+    .totalEarnedTag {
+        width: 15rem;
+    }
+
+    .totalSpentTag {
+        width: 15rem;
+    }
+
+    .recentHistoryBlock {
+        width: 15rem;
+    }
+
+    .transactionHistoryWrapper {
+        width: 15rem;
+        margin-left: 0.2rem;
+    }
+
+    .paymentButtons {
+        width: 15rem;
+        padding-left: 1rem;
+        margin-left: 0.3rem;
+    }
+
+    .withdrawButton {
+        width: 13rem;
+    }
+}
+
+@media screen and (max-width: 260px) { 
+    .balanceTag {
+        width: 12rem;
+    }
+
+    .balanceTag p {
+        font-size: 16px;
+    }
+
+    .totalEarnedTag {
+        width: 12rem;
+    }
+
+    .totalEarnedTag p {
+        font-size: 13px;
+    }
+
+    .totalSpentTag {
+        width: 12rem;
+    }
+
+    .totalSpentTag p {
+        font-size: 13px;
+    }
+
+    .recentHistoryBlock {
+        width: 12rem;
+    }
+
+    .transactionHistoryWrapper {
+        width: 12rem;
+        margin-left: 0rem;
+    }
+
+    .transactionHistoryHeader span p {
+        font-size: 11px;
+        margin-left: 0px;
+    }
+
+    .paymentButtons {
+        width: 12rem;
+        margin-left: 0.1rem;
+    }
+
+    .withdrawButton {
+        width: 10rem;
+    }
+
+    .depositButton {
+        width: 8rem;
+    }
+}
+
+@media screen and (max-width: 200px) { 
+    .balanceTag {
+        width: 10rem;
+    }
+
+    .balanceTag p {
+        font-size: 14px;
+    }
+
+    .totalEarnedTag {
+        width: 10rem;
+    }
+
+    .totalEarnedTag p {
+        font-size: 11px;
+    }
+
+    .totalSpentTag {
+        width: 10rem;
+    }
+
+    .totalSpentTag p {
+        font-size: 11px;
+    }
+
+    .recentHistoryBlock {
+        width: 10rem;
+    }
+
+    .recentFlex {
+        flex-direction: column;
+    }
+
+    .token {
+        margin-left: 0px;
+    }
+
+    .transactionHistoryWrapper {
+        width: 10rem;
+        margin-left: 0.1rem;
+    }
+
+    .transactionHistoryHeader {
+        flex-direction: column;
+    }
+
+    .transactionHistoryHeader h4 {
+        font-size: 14px;
+    }
+
+    .transactionHistoryHeader span {
+        margin-left: 0.2rem;
+    }
+
+    .paymentButtons {
+        width: 10rem;
+        margin-left: 0.1rem;
+    }
+
+    .withdrawButton {
+        width: 8rem;
+    }
+
+    .depositButton {
+        width: 6rem;
+        padding-left: 0px;
+    }
+}
+
+
+@media screen and (max-width: 170px) { 
+    .balanceTag {
+        width: 8rem;
+        padding-left: 0px;
+    }
+
+    .balanceTag h4 {
+        font-size: 12px;
+        margin-left: 2rem;
+    }
+
+    .balanceTag p {
+        font-size: 12px;
+        margin-left: 2rem;
+    }
+
+    .totalEarnedTag {
+        width: 8rem;
+    }
+
+    .totalEarnedTag img {
+        width: 18px;
+        height: 18px;
+        margin-top: 1.7rem;
+    }
+
+    .totalEarnedTag p {
+        font-size: 8px;
+    }
+
+    .totalSpentTag {
+        width: 8rem;
+    }
+
+    .totalSpentTag img {
+        width: 18px;
+        height: 18px;
+        margin-top: 1.7rem;
+    }
+
+    .totalSpentTag p {
+        font-size: 8px;
+    }
+
+    .recentHistoryWrapper h4 {
+        font-size: 14px;
+    }
+
+    .recentHistoryBlock {
+        width: 8rem;
+    }
+
+    .historyButtons1 {
+        font-size:10px;
+    }
+
+    .historyButtons2 {
+        font-size: 10px;
+    }
+
+
+    .transactionHistoryWrapper {
+        width: 8rem;
+        margin-left: 0.3rem;
+    }
+
+    .paymentButtons {
+        width: 8rem;
+        margin-left: 0.2rem;
+    }
+
+    .withdrawButton {
+        width: 6rem;
+        font-size: 13px;
+    }
+
+    .depositButton {
+        width: 4rem;
+        font-size: 13px;
+        padding-left: 0px;
+    }
 }

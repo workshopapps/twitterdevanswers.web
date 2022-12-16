@@ -1,0 +1,52 @@
+.answer {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	font-size: 12px;
+}
+
+.input {
+	margin-top: 24px;
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.avatar {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.input textarea {
+	width: 100%;
+	border: 1px solid transparent;
+	padding: 16px;
+	font-size: 18px;
+	outline: none;
+	transition: all 0.3s ease;
+}
+
+.input textarea:focus {
+	border-color: #ececfb;
+}
+
+.input textarea::placeholder {
+	font-size: 16px;
+	line-height: 32px;
+}
+
+.btn button {
+	outline: none;
+	border: none;
+	padding: 12px 20px;
+	background: #492b7c;
+	box-shadow: 0px 2px 12px rgba(70, 73, 255, 0.2);
+	border-radius: 4px;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 24px;
+	color: #ffffff;
+	cursor: pointer;
+}

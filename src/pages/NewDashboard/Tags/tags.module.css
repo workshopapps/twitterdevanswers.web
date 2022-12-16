@@ -1,0 +1,26 @@
+.tags h3 {
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 25px;
+	color: #303030;
+	margin-top: 48px;
+}
+
+.list {
+	display: flex;
+	gap: 16px;
+	flex-wrap: wrap;
+	margin-top: 16px;
+}
+
+.tag:link,
+.tag:visited {
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 20px;
+	color: #8c68ca;
+	padding: 12px 20px;
+	border: 1px solid #8c68ca;
+	border-radius: 4px;
+}

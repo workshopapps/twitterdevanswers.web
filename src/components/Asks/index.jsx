@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './Asks.module.css';
 import arrowLeft from '../../assets/dashboard-images/arrowLeft.webp';
@@ -31,6 +31,8 @@ async function getTotalReplies(id) {
 }
 
 function Asks({ onClose, show, hide, showShare }) {
+	const navigate = useNavigate();
+
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
 			day: '2-digit',
@@ -129,19 +131,21 @@ function Asks({ onClose, show, hide, showShare }) {
 			</section>
 			<h6 className={styles.reply}>{answer.content}</h6>
 
-			
-
 			{/* <section className={styles.cardFooter} ></section> */}
-
 		</div>
 	));
 
 	return (
 		<div className={styles.ask}>
-			<Link to="/dashboard" className={styles.back}>
+			<button
+				type="button"
+				onClick={() => navigate(-1)}
+				className={styles.backButton}
+			>
 				<img src={arrowLeft} alt="" />
 				<p>Go back</p>
-			</Link>
+			</button>
+
 			<section className={styles.header}>
 				<div className={styles.aboutUser}>
 					<img

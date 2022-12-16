@@ -159,6 +159,15 @@
 	text-decoration: none;
 }
 
+<<<<<<< HEAD
+@media (min-width: 850px) {
+	.container .problemWrapper {
+		max-width: 1000px;
+		margin: 1.5em auto;
+	}
+}
+=======
+>>>>>>> 3f3897de3a8a6efc1041a760f230d2196f0c618d
 .container .problemWrapper .problemContent {
 	display: flex;
 	flex-direction: column;

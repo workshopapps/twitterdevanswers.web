@@ -1,11 +1,11 @@
 .editaccount {
 	display: flex;
 	flex-direction: column;
-	height: 939px;
 	background-color: rgba(255, 255, 255, 0.41);
 	padding: 40px 116px 104px 16px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	height: 1300px;
+	width: 90%;
+	margin: auto;
 }
 .formcontrol{
 	display: flex;
@@ -19,30 +19,6 @@
 	border-radius: 8px;
 	background-color: #efefef;
 	cursor: pointer;
-}
-.phonenumber{
-	display: flex;
-	gap: 16px;
-}
-
-.flagimage{
-	width: 88px;
-	background-image: url("../../../../assets/settings-images/flag.png");
-	background-repeat: no-repeat;
-	background-position: 19px;
-	background-color: #efefef;
-	border: none;
-	border-radius: 8px;
-}
-
-.flagtext{
-	display: flex;
-	text-align: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Rubik', sans-serif;
-	font-weight: 400;
-	width: 20%;
 }
 
 .tabheading h2 {
@@ -65,19 +41,20 @@
 	width: 140px;
    height: 130px;
 }
-.editsvg {
-	z-index: 100;
-	left: 50%;
-	bottom: 0;
-	position: absolute;
+
+.head{
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 28px;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	background-color: rgba(29, 29, 216, 0.86);
-	border-radius: 100px;
-	width: 40px;
-	height: 40px;
-	cursor: pointer;
+	color: #303030;
+	width: 100%;
+	padding-bottom: 0%;
+	margin-bottom: -2%;
+
 }
 
 .form {
@@ -95,21 +72,7 @@
 	width: 100%;
 	gap: 10px;
 }
-.textinputfull {
-	flex-direction: column;
-	font-family: 'Rubik', sans-serif;
-	font-weight: 400;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	padding: 12px;
-	gap: 10px;
-	height: 44px;
-	background: #FFFFFF;
-	border: 0.5px solid #CCCCCC;
-	border-radius: 4px;
-}
+
 
 .label {
 	text-align: left;
@@ -119,6 +82,26 @@
 	font-weight: 400;
 	width: 100%;
 }
+.photo{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 12px 20px;
+	gap: 10px;
+	width: 100%;
+	height: 44px;
+	border: 1px solid #492B7C;
+	border-radius: 4px;
+	justify-content: center;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 20px;
+	margin-top: 15%;
+	color: #492B7C;
+	background-color: inherit;
+}
 
 
  .textinput {
@@ -127,23 +110,15 @@
 	align-items: center;
 	padding: 12px;
 	gap: 10px;
-	width: 320px;
+	width: 50%;
 	height: 44px;
-	background: #FFFFFF;
-	border: 0.5px solid #CCCCCC;
-	border-radius: 4px;
+	background: #fff;
+	border: 1px solid #757575;
+	border-radius: 8px;	
 	}
+	
 
-.phoneinput{
-	display: flex;
-	flex-direction: column;
-	padding-left: 10px;
-	width: 90%;
-	height: 42px;
-	border: none;
-	border-radius: 8px;
-	background-color: #efefef;
-	cursor: pointer;}
+
 
 
 
@@ -156,34 +131,53 @@
 .buttons {
 	display: flex;
 	flex-direction: row;
-	gap: 40px;
+	align-items: flex-start;
+	padding: 0px;
 	justify-content: center;
+	gap: 16px;
 }
 
+
 .savebtn {
-	width: 265px;
-	height: 56px;
+	display: flex;
+	flex-direction: row;
+	padding: 12px 12px;
+	gap: 10px;
+	width: 155px;
+	height: 48px;
+	background: #492B7C;
 	border: none;
-	border-radius: 8px;
-	background: #1d1dd8;
-	font-family: 'Rubik', sans-serif;
-	font-weight: 400;
-	color: #fefefe;
-	text-transform: capitalize;
-	font-size: 14px;
+	border-radius: 4px;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	justify-content: center;
 	cursor: pointer;
+	color: #FFFFFF;
+
 }
+
 .discardbtn {
-	width: 265px;
-	height: 56px;
-	border-radius: 8px;
+	display: flex;
+	flex-direction: row;
+	padding: 12px 12px;
+	gap: 10px;
+	width: 96px;
+	height: 48px;
+	border: 1px solid #492B7C;
+	border-radius: 4px;
+	font-family: 'Nunito';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	justify-content: center;
+	cursor: pointer;
+	color: #492B7C;
 	background-color: transparent;
-	border: 1px solid #1d1dd8;
-	font-family: 'Rubik', sans-serif;
-	font-weight: 400;
-	color: #1d1dd8;
 	text-transform: capitalize;
-	font-size: 12px;
 	cursor: pointer;
 }
 
@@ -199,34 +193,86 @@
 	grid-gap: 20px;
 	gap: 20px;
 }
-
-@media screen and (max-width: 1300px) {
-	.editaccount {
-		display: none;
-		
+@media screen and (max-width:640px) {
+	.container{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0px;
+		width: 100%;
+		gap: 10px;
+	}
+	.userprofile{
+		margin-bottom: -30%;
+		margin-top: 15px;
+	}
+	.form{
+		display: flex;
+		height: 1350px;
+		justify-content: center; 
 	}
 	.textinput {
 		display: flex;
-		flex-direction: column;
-		padding-left: 10px;
-		width: 98%;
-		height: 42px;
-		border: none;
-		border-radius: 8px;
-		background-color: #efefef;
-		cursor: pointer;
+		flex-direction: row;
+		align-items: center;
+		padding: 12px;
+		gap: 10px;
+		width: 100%;
+		height: 44px;
+		background: #fff;
+		border: 1px solid #757575;
+		border-radius: 8px;	
+		}
+		/* .user-info{
+			height: 1300px;
+		}*/
+	.edit-account{
+		margin-bottom:3000px
+	} 
+		
+		.imgcon{
+			margin-bottom: 70%;
+		}
+}
+
+
+@media screen and (min-width:640px) and (max-width: 1300px) {
+	.savebtn:hover{
+		background: #624594;
+		color: rgb(212, 212, 212);
+		transition: 0.3s;
+	
+	
 	}
-	.phonetinput {
+	.discardbtn:hover{
+		background-color: #dfd0f8;
+		transition: 0.3s;
+	
+	}
+	.photo:hover{
+		background-color: #dfd0f8;
+			transition: 0.3s;
+	}
+	.textinput:hover{
+		background-color: #dfd0f8;
+		transition: 0.3s;
+	}
+	
+	.textinput {
 		display: flex;
 		flex-direction: column;
+		padding: 12px;
 		padding-left: 10px;
 		width: 98%;
 		height: 42px;
-		border: none;
-		border-radius: 8px;
-		background-color: #efefef;
+		background: #fff;
+		border: 1px solid #757575;
+		border-radius: 8px;	
 		cursor: pointer;
+
 	}
+	
 	.edit-account
 		.user-info
 		.user-details-form

@@ -18,10 +18,9 @@ function ProfileHeader() {
 
 	const visitorIsAFollower = () =>
 		followers.some(
-			(follower) => follower.user_from === userFromStorage.data.user_id
+			(follower) => follower.user_from === userFromStorage?.user_id
 		);
 
-	// const [isLoading, setIsLoading] = useState(false);
 	const formatDate = (date) =>
 		new Intl.DateTimeFormat(navigator.language, {
 			month: 'long',
@@ -30,7 +29,7 @@ function ProfileHeader() {
 
 	const capitalize = (string) =>
 		string?.replace(string[0], string[0].toUpperCase());
-	const isVisitor = userFromStorage?.data?.usename !== user;
+	const isVisitor = userFromStorage?.usename !== user;
 	const handleEdit = () => {
 		navigate('/settings');
 	};
@@ -74,7 +73,7 @@ function ProfileHeader() {
 			try {
 				// setIsLoading(true);
 				const userResponse = await axios.get(
-					`https://api.devask.hng.tech/users/${user}`,
+					`https://api.devask.hng.tech/users/get/${user}`,
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,
@@ -130,7 +129,7 @@ function ProfileHeader() {
 							</span>
 						)}
 					</p>
-					<div>
+					<div className={styles.follow}>
 						<p>
 							<span>{info.following}</span>Following
 						</p>

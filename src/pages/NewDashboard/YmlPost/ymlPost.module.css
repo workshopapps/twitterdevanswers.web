@@ -1,0 +1,34 @@
+.ymlPost {
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+	font-size: 12px;
+}
+
+.ymlPost img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.title a:link,
+.title a:visited {
+	text-decoration: none;
+	/* font-weight: 500; */
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 27px;
+	color: #303030;
+}
+
+.replies {
+	font-size: 16px;
+	line-height: 22px;
+	color: #6a6a6a;
+}
