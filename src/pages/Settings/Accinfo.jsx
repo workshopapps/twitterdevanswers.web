@@ -17,7 +17,7 @@ function Accinfo({setActive}) {
 					Authorization: `Bearer ${token}`
 				 }
 		  try {
-			 const res = await axios.get(`https://api.devask.hng.tech/users/get/${state.user.userName}`, 
+			 const res = await axios.get(`https://api.devask.hng.tech/users/get/${state.user.username}`, 
            {
 					 headers
 				 }

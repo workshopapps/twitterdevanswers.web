@@ -18,6 +18,9 @@ import Career from './pages/Career';
 import CookiePolicy from './pages/CookiePolicy';
 import FAQ from './pages/FAQ/Index';
 import Profile from './pages/Profile/index';
+import SuccessSign from './pages/SuccessSign/index';
+import ForgotPassword from './pages/ForgotPassword/index';
+import ResetPassword from './pages/ResetPassword/index';
 import Help from './pages/Help';
 import HowItWorks from './pages/HowItWorks';
 import PostQuestion from './pages/PostQuestion';
@@ -46,9 +49,6 @@ import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 import AdminBlogPage from './pages/AdminBlogPage';
-import SuccessSign from './pages/SuccessSign';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
 
 function App() {
 	const {
@@ -76,7 +76,6 @@ function App() {
 					<Route path="login" element={<Login />} />
 					<Route path="privacy" element={<Privacy />} />
 					<Route path="sign-up" element={<SignUp />} />
-
 					<Route>
 						<Route path="/" element={<FirstLandingPage />} />
 						<Route path="cookie-policy" element={<CookiePolicy />} />
@@ -95,7 +94,7 @@ function App() {
 						<Route path="sign-up" element={<SignUp />} />
 						<Route path="sucess-sign" element={<SuccessSign />} />
 						<Route path="forgot-password" element={<ForgotPassword />} />
-						<Route path="reset-password" element={<ResetPassword />} />
+						<Route path="password-recovery" element={<ResetPassword />} />
 
 						<Route element={<ProtectedRoutes />}>
 							<Route path="/dashboard" element={<NewDashboard />} />
