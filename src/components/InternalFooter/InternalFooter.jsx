@@ -4,7 +4,7 @@ import { ReactComponent as HomeIcon } from '../../assets/footer-images/home.svg'
 import { ReactComponent as TagIcon } from '../../assets/footer-images/tagIcon.svg';
 import { ReactComponent as UsersIcon } from '../../assets/footer-images/user.svg';
 import { ReactComponent as WalletIcon } from '../../assets/footer-images/wallet.svg';
-import { ReactComponent as SettingsIcon } from '../../assets/footer-images/settings.svg';
+// import { ReactComponent as SettingsIcon } from '../../assets/footer-images/settings.svg';
 import styles from './internalFooter.module.css';
 
 import brandLogo from '../../assets/footer-images/internalbrandlogo.svg';
@@ -49,17 +49,16 @@ export default function InternalFooter() {
 						<WalletIcon className={styles.icon} />
 					</NavLink>
 				</li>
-				<li>
+				{/* <li>
 					<NavLink to="/settings" style={linkStyle} className={activeStyle}>
 						<SettingsIcon className={styles.icon} />
 					</NavLink>
-				</li>
+				</li> */}
 			</ul>
 
-
 			<main className={styles.internalfooter}>
-			<div className={styles.brandSocials}>
-				<Link to="/" className={styles.brand}>
+				<div className={styles.brandSocials}>
+					<Link to="/" className={styles.brand}>
 						<img src={brandLogo} alt="brand logo" />
 						<span>DevAsk</span>
 					</Link>
@@ -68,14 +67,11 @@ export default function InternalFooter() {
 						<img src={twitter} alt="twitter logo" />
 						<img src={instagram} alt="instagram logo" />
 					</div>
-			</div>
-			<div>
-				<p>@2022 Devask copyrights reserved </p>
-			</div>
+				</div>
+				<div>
+					<p>@2022 Devask copyrights reserved </p>
+				</div>
 			</main>
-
-
-
 		</div>
 	);
 }

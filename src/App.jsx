@@ -94,7 +94,7 @@ function App() {
 						<Route path="sign-up" element={<SignUp />} />
 						<Route path="sucess-sign" element={<SuccessSign />} />
 						<Route path="forgot-password" element={<ForgotPassword />} />
-						<Route path="password-recovery" element={<ResetPassword />} />
+						<Route path="password-recovery/:token" element={<ResetPassword />} />
 
 						<Route element={<ProtectedRoutes />}>
 							<Route path="/dashboard" element={<NewDashboard />} />
@@ -110,7 +110,8 @@ function App() {
 							<Route path="settings" element={<Settings />} />
 							<Route path="security-settings" element={<Security />} />
 							<Route path="contact" element={<Contact />} />
-							
+							<Route path="submit-blog" element={<SubmitBlog />} />
+							<Route path="/blog-page-review" element={<BlogPageReview />} />
 							<Route path="profile/:username" element={<Profile />} />
 							<Route path="notifications-page" element={<Notifications />} />
 							<Route path="tags-page" element={<Tags />} />

@@ -181,7 +181,6 @@ function UserActivities() {
 			.classList.remove(`${styles.hidden}`);
 		button.classList.add(`${styles.active}`);
 	};
-	console.log(isVisitor);
 
 	return (
 		<>
