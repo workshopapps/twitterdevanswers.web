@@ -1,6 +1,5 @@
 /* eslint-disable no-alert */
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import { useNavigate } from 'react-router-dom';
 import 'react-quill/dist/quill.snow.css';
