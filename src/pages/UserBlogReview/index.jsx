@@ -8,6 +8,8 @@ const token = localStorage.getItem('token');
 
 function UserBlogReview() {
 	const { pathname } = useLocation();
+	const [approveModalIsOpen, setApproveModalIsOpen] = useState(false);
+	const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
 	const navigate = useNavigate();
 	const id = pathname.slice(pathname.lastIndexOf('/') + 1);
 	const [blog, setBlog] = useState([]);
@@ -36,6 +38,14 @@ function UserBlogReview() {
 		fetchUser();
 	}, [id]);
 
+	const toggleApproveModal = () => {
+		setApproveModalIsOpen((prevState) => !prevState);
+	};
+
+	const toggleDeleteModal = () => {
+		setDeleteModalIsOpen((prevState) => !prevState);
+	};
+
 	const deleteHandler = () => {
 		const deleteBlog = async () => {
 			try {
@@ -51,6 +61,8 @@ function UserBlogReview() {
 				);
 
 				console.log(deleteRespose);
+				setApproveModalIsOpen(false);
+				setDeleteModalIsOpen(false);
 				navigate('/blog-page-review');
 			} catch (err) {
 				// console.error(err);
@@ -60,7 +72,7 @@ function UserBlogReview() {
 	};
 
 	const approveHandler = () => {
-		const appreveBlog = async () => {
+		const approveBlog = async () => {
 			try {
 				const approveResponse = await fetch(
 					`https://api.devask.hng.tech/blog/submit`,
@@ -88,7 +100,7 @@ function UserBlogReview() {
 				// console.error(err);
 			}
 		};
-		appreveBlog();
+		approveBlog();
 	};
 
 	return (
@@ -122,13 +134,48 @@ function UserBlogReview() {
 			</div>
 
 			<div className={styles.BlogpostBtn}>
-				<button onClick={approveHandler} type="button">
+				<button onClick={toggleApproveModal} type="button">
 					Approve Blogpost
 				</button>
-				<button onClick={deleteHandler} type="button">
+				<button onClick={toggleDeleteModal} type="button">
 					Delete Blogpost
 				</button>
 			</div>
+
+			{approveModalIsOpen && <div className={styles.modal_overlay} />}
+			{approveModalIsOpen && (
+				<div className={styles.modal}>
+					<h3 className={styles.modal_title}>Approve blog</h3>
+					<p className={styles.modal_content}>
+						Are you sure you want to approve blog
+					</p>
+					<div className={`${styles.BlogpostBtn} ${styles.modal_btnbox}`}>
+						<button onClick={approveHandler} type="button">
+							Yes
+						</button>
+						<button onClick={toggleApproveModal} type="button">
+							No
+						</button>
+					</div>
+				</div>
+			)}
+			{deleteModalIsOpen && <div className={styles.modal_overlay} />}
+			{deleteModalIsOpen && (
+				<div className={styles.modal}>
+					<h3 className={styles.modal_title}>Delete blog</h3>
+					<p className={styles.modal_content}>
+						Are you sure you want to delete blog
+					</p>
+					<div className={`${styles.BlogpostBtn} ${styles.modal_btnbox}`}>
+						<button onClick={deleteHandler} type="button">
+							Yes
+						</button>
+						<button onClick={toggleDeleteModal} type="button">
+							No
+						</button>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }
