@@ -1,5 +1,6 @@
 /* eslint-disable no-alert */
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import { useNavigate } from 'react-router-dom';
 import 'react-quill/dist/quill.snow.css';
@@ -9,8 +10,8 @@ import styles from './submitblog.module.css';
 import { AppContext } from '../../store/AppContext';
 
 function SubmitBlog() {
-	const navigate = useNavigate();
 	const { state } = useContext(AppContext);
+	const navigate = useNavigate();
 	const [isTokenError, setIsTokenError] = useState('');
 	const [error, setError] = useState(false);
 	const postCategories = [
@@ -93,6 +94,7 @@ function SubmitBlog() {
 				    navigate('/blog-page');
 				}, 3000);
 			}
+			navigate('/blog-page');
 		} catch (err) {
 			setIsTokenError('Cannot complete request now. Try again later...');
 		}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { PropTypes } from 'prop-types';
 import { BsChatSquareDots, BsShare } from 'react-icons/bs';
 import { ReactComponent as Heart } from '../heart.svg';
@@ -57,10 +57,14 @@ function PostCard({
 		};
 
 		const fetchLikes = async () => {
+			// get likes array
 			const { data } = await getLikes(questionId);
 			setLiked(data);
+
+			// check if the user has liked the question prior
 			const response = data?.find(
-				({ user_id: userId }) => userId === loggedInUserId
+				({ user_id: userId, like_type: likeType }) =>
+					userId === loggedInUserId && likeType === 'up'
 			);
 			setAlreadyLiked(response);
 		};
@@ -78,45 +82,27 @@ function PostCard({
 	const handleLIke = (event) => {
 		event.stopPropagation();
 
-		if (alreadyLiked?.like_type === 'up') {
+		if (alreadyLiked) {
 			likeUnlike(questionId, 'down');
+			setLiked([...liked].filter((item) => item.user_id !== loggedInUserId));
 
-			const tempLiked = [...liked].filter(
-				(object) => object.user_id !== loggedInUserId
-			);
-
-			setLiked(() => [
-				...tempLiked,
-				{ user_id: loggedInUserId, question_id: questionId, like_type: 'down' },
-			]);
-		} else if (alreadyLiked?.like_type === 'down') {
-			likeUnlike(questionId, 'up');
-
-			const tempLiked = [...liked].filter(
-				(object) => object.user_id !== loggedInUserId
-			);
-
-			setLiked(() => [
-				...tempLiked,
-				{ user_id: loggedInUserId, question_id: questionId, like_type: 'up' },
-			]);
+			setAlreadyLiked(undefined);
 		} else {
 			likeUnlike(questionId, 'up');
-
-			const tempLiked = [...liked].filter(
-				(object) => object.user_id !== loggedInUserId
-			);
-
-			setLiked(() => [
-				...tempLiked,
-				{ user_id: loggedInUserId, question_id: questionId, like_type: 'up' },
+			setLiked((prev) => [
+				...prev,
+				{ user_id: loggedInUserId, like_type: 'up', question_id: questionId },
 			]);
+
+			setAlreadyLiked({
+				user_id: loggedInUserId,
+				like_type: 'up',
+				question_id: questionId,
+			});
 		}
 	};
 
 	const numOfLikes = liked?.filter((item) => item.like_type === 'up');
-
-	// console.log(alreadyLiked);
 
 	// console.log(numOfLikes);
 
@@ -211,7 +197,7 @@ function PostCard({
 	);
 }
 
-export default PostCard;
+export default memo(PostCard);
 
 PostCard.propTypes = {
 	post: PropTypes.shape({

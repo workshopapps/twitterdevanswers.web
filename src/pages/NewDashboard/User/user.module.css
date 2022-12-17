@@ -40,6 +40,7 @@
 }
 
 .user .btn {
+	outline: none;
 	font-size: 14px;
 	color: #fefefe;
 	background: #492b7c;
