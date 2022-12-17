@@ -18,6 +18,9 @@ import Career from './pages/Career';
 import CookiePolicy from './pages/CookiePolicy';
 import FAQ from './pages/FAQ/Index';
 import Profile from './pages/Profile/index';
+import SuccessSign from './pages/SuccessSign/index';
+import ForgotPassword from './pages/ForgotPassword/index';
+import ResetPassword from './pages/ResetPassword/index';
 import Help from './pages/Help';
 import HowItWorks from './pages/HowItWorks';
 import PostQuestion from './pages/PostQuestion';
@@ -76,7 +79,7 @@ function App() {
 					<Route path="sign-up" element={<SignUp />} />
 
 			{token || isAuth ? <InternalHeader /> : <Header />}
-		
+			<Routes>
 				<Route path="/" element={<FirstLandingPage />} />
 				<Route path="cookie-policy" element={<CookiePolicy />} />
 				<Route path="advertising" element={<Advert />} />
@@ -139,9 +142,37 @@ function App() {
 						<Route path="admin-dashboard" element={<AdminDashboard />} />
 						<Route path="admin-signup" element={<AdminSignUp />} />
 						<Route path="admin-login" element={<AdminSignIn />} />
-						<Route path="/admin-blog-page" element={<AdminBlogPage />} />
- 
-				</Route>
+					</Route>
+
+					<Route path="profile/:username" element={<Profile />} />
+					<Route path="notifications-page" element={<Notifications />} />
+					<Route path="tags-page" element={<Tags />} />
+					<Route path="teams-page" element={<Teams />} />
+					<Route path="wallet" element={<WalletPage />} />
+					<Route path="users-page" element={<UserPage />} />
+					<Route path="post-questions" element={<PostQuestion />} />
+					<Route path="settings" element={<Settings />} />
+					<Route path="security-settings" element={<Security />} />
+					<Route path="contact" element={<Contact />} />
+					<Route path="submit-blog" element={<SubmitBlog />} />
+					<Route path="/blog-page-review" element={<BlogPageReview />} />
+					<Route path="/blog-page-review/:id" element={<UserBlogReview />} />
+
+					<Route path="*" element={<ErrorPage />} />
+					<Route
+						path="notification-settings"
+						element={<NotificationSettings />}
+					/>
+					<Route
+						path="/privacyandsafety-settings"
+						element={<PrivacyandSafetySettings />}
+					/>
+					<Route path="manage-user/:username" element={<ManageUser />} />
+					<Route path="admin-dashboard" element={<AdminDashboard />} />
+					<Route path="admin-signup" element={<AdminSignUp />} />
+					<Route path="admin-login" element={<AdminSignIn />} />
+					<Route path="/admin-blog-page" element={<AdminBlogPage />} />
+				</Routes>
 
 
 					<Route path="*" element={<ErrorPage />} />
