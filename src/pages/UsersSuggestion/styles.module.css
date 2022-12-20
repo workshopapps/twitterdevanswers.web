@@ -1,0 +1,62 @@
+.suggestions {
+	padding-top: 49px;
+	padding-bottom: 49px;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	padding-top: 47px;
+}
+
+.heading {
+	display: flex;
+	justify-content: center;
+}
+
+.heading h2 {
+	max-width: 570px;
+	font-weight: 600;
+	font-size: 48px;
+	line-height: 56px;
+	text-align: center;
+	color: #492b7c;
+}
+
+.usersContainer {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
+.users {
+	flex-basis: 790px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.aside {
+	flex-basis: 479px;
+}
+
+.components {
+	position: sticky;
+	top: 0;
+	right: 0;
+	padding-bottom: 40px;
+	padding-top: 10px;
+}
+
+@media only screen and (max-width: 1040px) {
+	.aside {
+		display: none;
+	}
+
+	.container {
+		justify-content: center;
+	}
+}
