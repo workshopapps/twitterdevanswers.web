@@ -22,6 +22,20 @@ function UsersSuggestion() {
 		fetchUsers();
 	}, []);
 
+	const incrementFollowersLocally = (id) => {
+		const tempUsers = [...users];
+		const userIndex = tempUsers.findIndex((user) => user.user_id === id);
+		tempUsers[userIndex].followers += 1;
+		setUsers(tempUsers);
+	};
+
+	const decrementFollowersLocally = (id) => {
+		const tempUsers = [...users];
+		const userIndex = tempUsers.findIndex((user) => user.user_id === id);
+		tempUsers[userIndex].followers -= 1;
+		setUsers(tempUsers);
+	};
+
 	return (
 		<section className={styles.suggestions}>
 			<div className={styles.heading}>
@@ -32,7 +46,12 @@ function UsersSuggestion() {
 					<div className={styles.users}>
 						{loadingUsers && <CardSkeleton cards={8} />}
 						{users.map((user) => (
-							<Usercard user={user} key={user.user_id} />
+							<Usercard
+								user={user}
+								key={user.user_id}
+								incrementFollowersLocally={incrementFollowersLocally}
+								decrementFollowersLocally={decrementFollowersLocally}
+							/>
 						))}
 					</div>
 				</div>

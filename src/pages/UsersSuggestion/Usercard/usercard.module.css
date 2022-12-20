@@ -80,16 +80,9 @@
 	}
 }
 
-@media only screen and (max-width: 450px) {
-	.card {
-		gap: 20px;
-	}
-	.btn {
-		display: none;
-	}
+.followBtn {
+	width: 123px;
 }
-
-/* buttons */
 
 .button {
 	width: 100%;
@@ -108,8 +101,17 @@
 	background: #ffffff;
 }
 
-.other {
+.purple {
 	background: #492b7c;
 	color: #ffffff;
 	border: 1px solid #492b7c;
+}
+
+@media only screen and (max-width: 450px) {
+	.card {
+		gap: 20px;
+	}
+	.btn {
+		display: none;
+	}
 }
