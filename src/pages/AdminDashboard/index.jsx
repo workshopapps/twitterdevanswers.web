@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 // import { AppContext } from '../../store/AppContext';
 
@@ -11,7 +11,17 @@ function AdminDashboard() {
 	const [isError, setIsError] = useState(true);
 	const [filteredUsers, setFilteredUsers] = useState([...allUsers]);
 	const [searchValue, setSearchValue] = useState('');
+	// const [token, setToken] = useState({
+	// 	processedToken: 1000,
+	// 	safeEscrowToken: 1000,
+	// 	// disbursedToken: 0
+	// })
+	// const tokenTransaction = [ token.safeEscrowToken, token.processedToken]
+	// let constant = 0
 
+
+
+	// console.log('alluser', allUsers)
 	const session = JSON.parse(localStorage.getItem('session'));
 
 	// const { state } = useContext(AppContext);
@@ -28,7 +38,7 @@ function AdminDashboard() {
 			const data = await axios.get('https://api.devask.hng.tech/users', {
 				headers,
 			});
-
+			console.log('data', data.data.data)
 			if (data) {
 				setAllUsers(data.data.data);
 				setFilteredUsers(data.data.data);
@@ -37,12 +47,13 @@ function AdminDashboard() {
 			setIsError(false);
 		}
 	};
+	
 
 	useEffect(() => {
 		const filtered = allUsers.filter((user) =>
 			user.username.toLowerCase().includes(searchValue)
 		);
-
+	
 		setFilteredUsers(filtered);
 
 		if (searchValue.length === 0) {
@@ -54,12 +65,127 @@ function AdminDashboard() {
 		setSearchValue(event.target.value);
 	};
 
+		
+// Correct way
+	// useEffect(() => {
+    //     // const interval = setInterval(() => {
+	// 		for(let i = 0; i < allUsers.length; i + 1 ) {
+	// 			usersId.push(allUsers[i].user_id);
+	// 		}
+	// 		console.log('user', usersId)
+    //     // }, 3000);
+    //     // return () => clearInterval(interval);
+    // }, []);
+
+
+
+	   // Admin Transaction Pay
+	// const payAllTransaction = async (amount, questionId) => {
+    //     let payTransaction = null;
+    //     try{
+    //         const pay = {
+    //             url: 'https://api.devask.hng.tech/admin/transactions/answer/pay',
+    //             method: 'POST',
+    //             headers: {
+    //             'Accept': 'application/json',
+    //             'Authorization': `Bearer ${session.user.access_token}`,
+    //             'Content-Type': 'application/json'
+    //             },
+    //             data: {
+    //                 amount,
+    //                 question_id: questionId,
+    //                 commission: 10
+    //             }
+    //         };
+    //         payTransaction = await axios(pay);
+    //         console.log('pay', payTransaction)
+    //     } catch(err) {
+    //         // setIsError(false);
+	// 		console.log('err', err)
+    //     }
+    //     return payTransaction   
+    // }
+
+
+
+	 // Admin Transaction Deduct
+	//  const deductAllTransaction = async (amount, questionId) => {
+    //     try {
+    //         const deduct = {
+    //             url: 'https://api.devask.hng.tech/admin/transactions/question/deduct',
+    //             method: 'POST',
+    //             headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //             },
+    //             data: {
+    //                 amount,
+    //                 question_id: questionId,
+    //                 commission: 10
+    //             }
+    //         };
+    //         const deductedTransaction = await axios(deduct);
+    //         console.log('deducted',deductedTransaction);
+    //     } catch (err) {
+    //         // setIsError(false);
+	// 		console.log('err', err)
+    //     }
+    // }
+
+
+
+	//    // Get All Questions
+	//    const getAllQuestions = async () => {
+    //     try{
+    //         const Questions = await axios.get('https://api.devask.hng.tech/questions/')
+	// 		const allQuestions = Questions.data.data;
+    //         // console.log('allQuestions',allQuestions)
+    //         let tokenProcessed = 0
+    //         let safeToken = 0
+    //         // let disbursed = 0
+    //         // let allPayTransaction = null
+    //         allQuestions.forEach(element => {
+    //                 // console.log('t', element)
+    //                 tokenProcessed += element.payment_amount;
+	// 				deductAllTransaction(element.payment_amount, element.question_id)
+	// 				safeToken += 10
+	// 				// payAllTransaction(element.payment_amount, element.question_id)
+	// 				// .then((data) => { allPayTransaction = data})
+	// 				// disbursed += allPayTransaction.amount_earned
+	// 		});
+    //                 // console.log('token', safeToken )
+
+    //         setToken((prev) =>({
+    //             ...prev,
+    //             processedToken : tokenProcessed,
+    //             safeEscrowToken : safeToken,
+    //             // disbursedToken : disbursed
+    //         }))
+    //     } catch(err) {
+    //         // setIsError(false);
+	// 		console.log('err', err)
+    //     }
+    // }
+
+	// useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         getAllQuestions();
+    //         // deductAllTransaction();
+    //         // payAllTransaction();
+    //     }, 3000);
+    //     return () => clearInterval(interval);
+    // }, []);
+
+
+
+
 	return (
 		<section className={styles.bodyContent}>
 			<h1 className={styles.pageTitle}>Admin Dashboard</h1>
 			<section className={styles.dataWrapper}>
 				{Data.map((item) => {
 					const { id, title, amount, image, mode } = item;
+					// constant += 1;
 					return (
 						<article
 							key={id}
@@ -95,7 +221,7 @@ function AdminDashboard() {
 			{filteredUsers.length === 0 || !isError ? (
 				<h3 style={{ paddingLeft: '1em' }}>No results found</h3>
 			) : (
-				<>
+				 <> 
 					<section className={styles.tableHeader}>
 						<h4>#</h4>
 						<h4>Username</h4>
@@ -131,8 +257,11 @@ function AdminDashboard() {
 								</div>
 							))}
 					</section>
-				</>
-			)}
+					<Link to="/blog-page-review">
+					<button type="button" className={styles.adminReviewButton}>admin review</button>
+					</Link>
+				 </> 
+			 )} 
 		</section>
 	);
 }

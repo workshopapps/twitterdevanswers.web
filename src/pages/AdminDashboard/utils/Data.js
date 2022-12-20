@@ -13,11 +13,11 @@ export default [
 		image: 'processed-token.svg',
 		mode: 'light',
 	},
-	{
-		id: 3,
-		title: 'DisbursedToken ',
-		amount: 500000,
-		image: 'disbursed-token.svg',
-		mode: 'light',
-	},
+	// {
+	// 	id: 3,
+	// 	title: 'DisbursedToken ',
+	// 	amount: 500000,
+	// 	image: 'disbursed-token.svg',
+	// 	mode: 'light',
+	// },
 ];

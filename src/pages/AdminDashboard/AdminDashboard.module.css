@@ -47,6 +47,20 @@
 	padding: 0.5em 1.2em;
 	width: 240px;
 }
+.adminReviewButton {
+	width: 241px;
+    height: 48px;
+    background: #492B7C;
+    border-radius: 4px;
+    padding: 12px 20px;
+    gap: 10px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
 @media (min-width: 750px) {
 	.bodyContent .searchWrapper .inputWrapper {
 		width: 350px;

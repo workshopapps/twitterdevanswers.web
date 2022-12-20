@@ -15,11 +15,12 @@
 }
 
 .aside {
-	padding-right: 20px;
+	/* padding-right: 20px; */
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	margin-bottom: 60px;
+	width: 35%;
 }
 
 .aside-container {
@@ -63,6 +64,7 @@
 
 .content h4 {
 	margin-bottom: 7px;
+	width: 80%;
 }
 
 .topic:not(:last-child) {

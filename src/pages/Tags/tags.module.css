@@ -1,17 +1,18 @@
 .tags-section {
 	background-color: #fefefe;
-	padding: 40px 60px;
+	/* padding: 40px 60px; */
+	width: 95%;
+	margin: 2rem auto;
 	/* width: 100vw; */
 	display: flex;
 		gap: 30px;
-
 }
 
 .tags-container {
 	/* max-width: 1550px; */
 	width: 600px;
 	margin: 0 auto;
-	flex-basis: 60%;
+	flex-basis: 70%;
 }
 
 .header-title {
@@ -70,11 +71,25 @@
 }
 
 .tags-nav {
-	display: flex;
-	justify-content: space-between;
-	padding: 0 15px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+	/* padding: 0 10px; */
+	/* display: flex;
+	justify-content: center;
+	align-items: center; */
 	margin-bottom: 30px;
-	gap: 10px;
+	gap: 5px;
+}
+.tags-nav span{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tags-nav span button{
+	width: 95%;
+	display: flex;
+	justify-content: center;
 }
 
 .hid {
@@ -94,7 +109,7 @@
 
 .tags-nav button {
 	background: inherit;
-	padding: 8px 16px;
+	padding: 8px 10px;
 	text-decoration: none;
 	color: #757575;
 	border: 1px solid #757575;
@@ -103,7 +118,7 @@
 
 .grid {
 	display: grid;
-	grid-template-columns: repeat(2, calc(100% / 2 - 20px));
+	grid-template-columns: repeat(2, calc(100% / 2 - 10px));
 	justify-content: space-between;
 	row-gap: 20px;
 }
@@ -119,25 +134,32 @@
 }
 @media screen and (max-width: 1150px) {
 	.grid {
-		grid-template-columns: repeat(2, calc(100% / 2 - 20px));
+		grid-template-columns: repeat(2, calc(100% / 2 - 10px));
 	}
 	.hidden_1 {
 		display: none;
 	}
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 1000px) {
 	.grid {
 		grid-template-columns: repeat(2, calc(100% / 2 - 15px));
 	}
 	.hidden_1 {
 		display: none;
 	}
+	.tags-container {
+		flex-basis: 90%;
+	}
 }
 
 @media screen and (max-width: 870px) {
 	.hidden_2 {
 		display: none;
+	}
+	.tags-nav {
+		grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+		gap: 7px;
 	}
 }
 
@@ -161,16 +183,20 @@
 	}
 }
 
-@media screen and (max-width: 590px) {
+/* @media screen and (max-width: 590px) {
 	.hidden_5,
 	.button {
 		display: none;
 	}
-}
+} */
 
 @media screen and (max-width: 450px) {
 	.hidden_6 {
 		display: none;
+	}
+	.tags-nav {
+		grid-template-columns: repeat(auto-fill, minmax(18%, 1fr));
+		gap: 10px;
 	}
 }
 
