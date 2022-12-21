@@ -1,0 +1,12 @@
+.card {
+	width: 100%;
+	padding: 24px;
+	display: flex;
+	gap: 16px;
+	border: 1px solid #ececfb;
+	border-radius: 8px;
+}
+
+.rightCol {
+	width: 100%;
+}

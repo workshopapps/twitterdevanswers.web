@@ -219,6 +219,64 @@ function useMessenger() {
 		}
 	};
 
+	const getFollowers = async (id) => {
+		try {
+			const response = axios.get(
+				`https://api.devask.hng.tech/following/followers/${id}`,
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+
+			const data = await response;
+
+			return data;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
+	const follow = async (id) => {
+		const data = { target_user: id };
+		try {
+			const response = axios({
+				method: 'post',
+				url: `https://api.devask.hng.tech/following/follow`,
+				data,
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+
+			const payload = await response;
+
+			return payload;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
+	const unfollow = async (id) => {
+		try {
+			const response = axios.delete(
+				`https://api.devask.hng.tech/following/unfollow/${id}`,
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+
+			const data = await response;
+
+			return data;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
 	return {
 		handleNavigate,
 		getUsers,
@@ -232,6 +290,9 @@ function useMessenger() {
 		deleteQuestion,
 		getUserbyUsername,
 		selectCorrectAnswer,
+		getFollowers,
+		follow,
+		unfollow,
 	};
 }
 
