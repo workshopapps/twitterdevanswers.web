@@ -21,7 +21,7 @@ const defaultPage = {
 export default function Tags() {
 	const token = localStorage.getItem('token');
 	async function getUser() {
-		const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+		const response = await axios.get(`https://api.devask.tech/users/`, {
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
@@ -31,7 +31,7 @@ export default function Tags() {
 
 	async function getTotalReplies(id) {
 		const response = await axios.get(
-			`https://api.devask.hng.tech/answer/${id}`,
+			`https://api.devask.tech/answer/${id}`,
 			{
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -53,7 +53,7 @@ export default function Tags() {
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
-				'https://api.devask.hng.tech/questions/',
+				'https://api.devask.tech/questions/',
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,

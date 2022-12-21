@@ -15,7 +15,7 @@ function UserPage() {
   useEffect(() => {
     const getUsers = async () => {
       try {
-         const res = await axios.get("https://api.devask.hng.tech/users/?skip=0&limit=100", {
+         const res = await axios.get("https://api.devask.tech/users/?skip=0&limit=100", {
 			 headers: {
 				'Authorization': `Bearer ${state.token}`
 			 }

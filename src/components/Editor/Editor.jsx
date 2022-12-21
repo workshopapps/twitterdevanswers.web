@@ -20,7 +20,7 @@ function Editor() {
 	function submitHandler() {
 		if (question.text.trim() === '') return;
 		async function postAnswer() {
-			const response = await fetch(`https://api.devask.hng.tech/questions/`, {
+			const response = await fetch(`https://api.devask.tech/questions/`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
