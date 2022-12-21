@@ -184,7 +184,7 @@ function AdminSignUp() {
 
 				<p className={styles.notice}>
 					Already have a Devask Admin account.{' '}
-					<Link to="/admin-signin">Login</Link>
+					<Link to="/admin-login">Login</Link>
 				</p>
 			</div>
 		</section>

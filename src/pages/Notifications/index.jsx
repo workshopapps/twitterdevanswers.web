@@ -27,6 +27,7 @@ function Notifications() {
 					headers,
 				}
 			);
+			console.log(data, data);
 			if (data) {
 				setAllNotifications(data.data.notifications);
 			}
