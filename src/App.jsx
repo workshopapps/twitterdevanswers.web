@@ -49,6 +49,7 @@ import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 import AdminBlogPage from './pages/AdminBlogPage';
+import UsersSuggestion from './pages/UsersSuggestion';
 
 function App() {
 	const {
@@ -94,7 +95,10 @@ function App() {
 						<Route path="sign-up" element={<SignUp />} />
 						<Route path="sucess-sign" element={<SuccessSign />} />
 						<Route path="forgot-password" element={<ForgotPassword />} />
-						<Route path="password-recovery/:token" element={<ResetPassword />} />
+						<Route
+							path="password-recovery/:token"
+							element={<ResetPassword />}
+						/>
 
 						<Route element={<ProtectedRoutes />}>
 							<Route path="/dashboard" element={<NewDashboard />} />
@@ -118,6 +122,7 @@ function App() {
 							<Route path="teams-page" element={<Teams />} />
 							<Route path="wallet" element={<WalletPage />} />
 							<Route path="users-page" element={<UserPage />} />
+							<Route path="users-suggestion" element={<UsersSuggestion />} />
 							<Route path="post-questions" element={<PostQuestion />} />
 							<Route path="settings" element={<Settings />} />
 							<Route path="security-settings" element={<Security />} />
