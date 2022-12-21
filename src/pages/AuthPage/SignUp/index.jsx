@@ -51,7 +51,7 @@ function SignUp() {
 			try {
 				const response = axios({
 					method: 'post',
-					url: 'https://api.devask.hng.tech/auth/signup',
+					url: 'https://api.devask.tech/auth/signup',
 					data: input,
 					headers: { 'Access-Control-Allow-Origin': '*' },
 				});
@@ -115,7 +115,7 @@ function SignUp() {
 			}));
 		} else {
 			const { data } = await axios.post(
-				'https://api.devask.hng.tech/auth/send_email_code',
+				'https://api.devask.tech/auth/send_email_code',
 				{ email: input.email }
 			);
 			setTimeout(() => {

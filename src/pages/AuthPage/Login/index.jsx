@@ -49,13 +49,12 @@ function Login() {
 
 			try {
 				const response = await axios.post(
-					'https://api.devask.hng.tech/auth/signin',
+					'https://api.devask.tech/auth/signin',
 					formData
 				);
 
 				localStorage.setItem('token', response.data.access_token);
-				localStorage.setItem('user', JSON.stringify(response.data));
-				// console.log('token', response.data.access_token);
+				localStorage.setItem('user', JSON.stringify(response.data.data));
 
 				dispatch({
 					type: USER_LOGGED_IN,
@@ -94,83 +93,85 @@ function Login() {
 			{modal && <AuthModal text={serverResponse} />}
 			<div className={styles.formexternal}>
 				<form className={styles.signin} onSubmit={handleSubmit}>
-						<img src={topleftcircle} alt="" className={styles.topleft}/>
-						<img src={midleftcircle} alt="" className={styles.midleft}/>
-						<img src={toprightblock} alt="" className={styles.topblock}/>
-						<img src={toprightslant} alt="" className={styles.topslant}/>
-						 <div className={styles.formmargin1}>
-	
-				<div className={styles.header}>
-					<img src={logo} alt="devask" />
-					<h3>Hello Again!</h3>
-					<p>Welcome back, please put in your details</p>
-				</div>
-				<div className={styles.input}>
-					<div>
-						<Input
-							id="username"
-							label="E-mail/Username"
-							name="username"
-							placeholder="Username"
-							type="text"
-							value={input.username}
-							handleInputChange={(event) =>
-								formInputHandler(event, setErrors, setInput)
-							}
-							error={errors && errors.username}
-						/>
-					</div>
-					{" "}
-					<div>
-						<Input
-							id="password"
-							label="Password"
-							name="password"
-							placeholder="********"
-							type="password"
-							value={input.password}
-							handleInputChange={(event) =>
-								formInputHandler(event, setErrors, setInput)
-							}
-							error={errors && errors.password}
-						/>
-					</div>
-					<div className={` ${styles['form-group__checkbox']}`}>
-						<label className={styles['form-group__checkbox-label']} 
-								htmlFor='keep-logged-in'>
-						<input
-							type="checkbox"
-							className={styles.input__checkbox}
-							id="keep-logged-in"
-						/>
-						Remember me
-						{/* <span
+					<img src={topleftcircle} alt="" className={styles.topleft} />
+					<img src={midleftcircle} alt="" className={styles.midleft} />
+					<img src={toprightblock} alt="" className={styles.topblock} />
+					<img src={toprightslant} alt="" className={styles.topslant} />
+					<div className={styles.formmargin1}>
+						<div className={styles.header}>
+							<img src={logo} alt="devask" />
+							<h3>Hello Again!</h3>
+							<p>Welcome back, please put in your details</p>
+						</div>
+						<div className={styles.input}>
+							<div>
+								<Input
+									id="username"
+									label="E-mail/Username"
+									name="username"
+									placeholder="Username"
+									type="text"
+									value={input.username}
+									handleInputChange={(event) =>
+										formInputHandler(event, setErrors, setInput)
+									}
+									error={errors && errors.username}
+								/>
+							</div>{' '}
+							<div>
+								<Input
+									id="password"
+									label="Password"
+									name="password"
+									placeholder="********"
+									type="password"
+									value={input.password}
+									handleInputChange={(event) =>
+										formInputHandler(event, setErrors, setInput)
+									}
+									error={errors && errors.password}
+								/>
+							</div>
+							<div className={` ${styles['form-group__checkbox']}`}>
+								<label
+									className={styles['form-group__checkbox-label']}
+									htmlFor="keep-logged-in"
+								>
+									<input
+										type="checkbox"
+										className={styles.input__checkbox}
+										id="keep-logged-in"
+									/>
+									Remember me
+									{/* <span
 							className={styles['form-group__checkbox-label']}
 						>
 							Remember me
 						</span> */}
-						</label>
-							
-						<Link className={styles['form-group__checkbox-label']} to="/sign-up">
-							{/* Forgot Password? */}
-						</Link>
+								</label>
 
+								<Link
+									className={styles['form-group__checkbox-label']}
+									to="/sign-up"
+								>
+									{/* Forgot Password? */}
+								</Link>
+							</div>
+						</div>
+						<div className={styles.btn}>
+							<Button label={loading ? 'please wait' : 'LOGIN'} />
+						</div>
+						<div className={styles.bottomText}>
+							<p>
+								Don&apos;t have an account?{' '}
+								<Link className={styles.link} to="/sign-up">
+									Sign Up
+								</Link>
+							</p>
+						</div>
 					</div>
-				</div>
-				<div className={styles.btn}>
-					<Button label={loading ? 'please wait' : 'LOGIN'} />
-				</div>
-				<div className={styles.bottomText}>
-					<p>
-						Don&apos;t have an account?{' '}
-						<Link className={styles.link} to="/sign-up">
-							Sign Up
-						</Link>
-					</p>
-				</div>
-				</div>
-			</form>
-		</div>
+				</form>
+			</div>
 
 			{/* <form className={styles.login} onSubmit={handleSubmit}>
 				<div className={styles.header}>

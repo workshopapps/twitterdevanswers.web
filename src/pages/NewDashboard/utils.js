@@ -48,7 +48,7 @@ function useMessenger() {
 
 	const getUsers = async () => {
 		try {
-			const response = axios.get(`https://api.devask.hng.tech/users`, {
+			const response = axios.get(`https://api.devask.tech/users`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -68,7 +68,7 @@ function useMessenger() {
 		try {
 			const response = axios({
 				method: 'get',
-				url: `https://api.devask.hng.tech/users/get/${username}`,
+				url: `https://api.devask.tech/users/get/${username}`,
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -88,7 +88,7 @@ function useMessenger() {
 		try {
 			const response = axios({
 				method: 'get',
-				url: 'https://api.devask.hng.tech/questions',
+				url: 'https://api.devask.tech/questions',
 			});
 
 			const {
@@ -104,7 +104,7 @@ function useMessenger() {
 	const getAnswers = async (id) => {
 		try {
 			const response = axios.get(
-				`https://api.devask.hng.tech/answer/${id}`,
+				`https://api.devask.tech/answer/${id}`,
 				{}
 			);
 
@@ -121,7 +121,7 @@ function useMessenger() {
 		try {
 			const response = axios({
 				method: 'post',
-				url: 'https://api.devask.hng.tech/answer',
+				url: 'https://api.devask.tech/answer',
 				data,
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -139,7 +139,7 @@ function useMessenger() {
 		try {
 			const response = axios({
 				method: 'post',
-				url: `https://api.devask.hng.tech/like`,
+				url: `https://api.devask.tech/like`,
 				data,
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -156,7 +156,7 @@ function useMessenger() {
 		try {
 			const response = axios({
 				method: 'get',
-				url: `https://api.devask.hng.tech/like/${questionId}`,
+				url: `https://api.devask.tech/like/${questionId}`,
 			});
 			return response;
 		} catch (error) {
@@ -168,7 +168,7 @@ function useMessenger() {
 		try {
 			const response = axios({
 				method: 'get',
-				url: `https://api.devask.hng.tech/tag`,
+				url: `https://api.devask.tech/tag`,
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -182,7 +182,7 @@ function useMessenger() {
 	const deleteQuestion = async (id) => {
 		try {
 			const response = axios.delete(
-				`https://api.devask.hng.tech/questions/${id}`,
+				`https://api.devask.tech/questions/${id}`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -204,7 +204,7 @@ function useMessenger() {
 		try {
 			const response = axios({
 				method: 'patch',
-				url: `https://api.devask.hng.tech/answer/select-correct-answer/${answerId}`,
+				url: `https://api.devask.tech/answer/select-correct-answer/${answerId}`,
 				data,
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -214,6 +214,64 @@ function useMessenger() {
 			const payload = await response;
 
 			return payload;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
+	const getFollowers = async (id) => {
+		try {
+			const response = axios.get(
+				`https://api.devask.tech/following/followers/${id}`,
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+
+			const data = await response;
+
+			return data;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
+	const follow = async (id) => {
+		const data = { target_user: id };
+		try {
+			const response = axios({
+				method: 'post',
+				url: `https://api.devask.tech/following/follow`,
+				data,
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+
+			const payload = await response;
+
+			return payload;
+		} catch (error) {
+			throw new Error(error);
+		}
+	};
+
+	const unfollow = async (id) => {
+		try {
+			const response = axios.delete(
+				`https://api.devask.tech/following/unfollow/${id}`,
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+
+			const data = await response;
+
+			return data;
 		} catch (error) {
 			throw new Error(error);
 		}
@@ -232,6 +290,9 @@ function useMessenger() {
 		deleteQuestion,
 		getUserbyUsername,
 		selectCorrectAnswer,
+		getFollowers,
+		follow,
+		unfollow,
 	};
 }
 

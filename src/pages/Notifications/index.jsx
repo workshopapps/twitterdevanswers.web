@@ -22,7 +22,7 @@ function Notifications() {
 		};
 		try {
 			const data = await axios.get(
-				'https://api.devask.hng.tech/notification/all',
+				'https://api.devask.tech/notification/all',
 				{
 					headers,
 				}

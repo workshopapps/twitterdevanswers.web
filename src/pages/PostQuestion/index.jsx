@@ -159,7 +159,6 @@ function PostQuestion() {
 			id: nanoid(),
 			[name]: value,
 		}));
-
 		handleDisabling();
 	};
 
@@ -196,6 +195,29 @@ function PostQuestion() {
 		}
 	};
 
+	const deductAllTransaction = async (token, questionId) => {
+        try {
+            const deduct = {
+                url: 'https://api.devask.tech/admin/transactions/question/deduct',
+                method: 'POST',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                data: {
+                    amount: token,
+                    question_id: questionId ,
+                    commission: 10
+                }
+            };
+            const deductedTransaction = await axios(deduct);
+            console.log('deducted',deductedTransaction);
+        } catch (err) {
+            // setIsError(false);
+			console.log('err', err)
+        }
+    }
+
 	const postNewQuestion = async () => {
 		const details = {
 			owner_id: 2,
@@ -217,7 +239,7 @@ function PostQuestion() {
 
 		try {
 			const data = await axios.post(
-				'https://api.devask.hng.tech/questions',
+				'https://api.devask.tech/questions',
 				details,
 				{
 					headers,
@@ -225,7 +247,8 @@ function PostQuestion() {
 			);
 			if (data) {
 				setIsSuccessful(true);
-
+				console.log('data', data)
+				deductAllTransaction(questionData.token, data.data.id)
 				setTimeout(() => {
 					navigate('/dashboard');
 				}, 5000);
@@ -235,6 +258,7 @@ function PostQuestion() {
 		}
 	};
 
+	
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		postNewQuestion();

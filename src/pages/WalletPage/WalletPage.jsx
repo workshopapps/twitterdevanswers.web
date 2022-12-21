@@ -108,11 +108,10 @@ function WalletPage() {
     
 	const userId = JSON.parse(localStorage.getItem('user')).data.user_id;
 
-    console.log('id', userId)
     const fetchUserData = async () => {
 		if(userId){
 			try {
-				const response = await axios.get(`https://api.devask.hng.tech/user/wallet/view/${userId}`);
+				const response = await axios.get(`https://api.devask.tech/user/wallet/view/${userId}`);
 				const { balance} = response.data;
 				const totalSpent = response.data.total_spent;
 				const totalEarned = response.data.total_earned;
@@ -138,7 +137,7 @@ function WalletPage() {
     const fetchTransactionHistory = async () => {
         if(userId) {
             try {
-                const response = await axios.get(`https://api.devask.hng.tech/admin/transactions/users/${userId}?skip=0&limit=30`)
+                const response = await axios.get(`https://api.devask.tech/admin/transactions/users/${userId}?skip=0&limit=30`)
                 const transactionHistory = response.data.transaction_history;
                 // console.log('transaction history', transactionHistory)
                 

@@ -14,7 +14,7 @@ import Modal from '../Modal/Modal';
 const token = localStorage.getItem('token');
 
 async function getUser() {
-	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+	const response = await axios.get(`https://api.devask.tech/users/`, {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
@@ -22,7 +22,7 @@ async function getUser() {
 	return response.data.data;
 }
 async function getTotalReplies(id) {
-	const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
+	const response = await axios.get(`https://api.devask.tech/answer/${id}`, {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
@@ -50,7 +50,7 @@ function Asks({ onClose, show, hide, showShare }) {
 	const [answers, setAnswers] = useState([]);
 	async function getAnswers(id) {
 		const response = await axios.get(
-			`https://api.devask.hng.tech/answer/${id}`,
+			`https://api.devask.tech/answer/${id}`,
 			{
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -63,7 +63,7 @@ function Asks({ onClose, show, hide, showShare }) {
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
-				`https://api.devask.hng.tech/questions/${paramValues.id}`,
+				`https://api.devask.tech/questions/${paramValues.id}`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -84,7 +84,7 @@ function Asks({ onClose, show, hide, showShare }) {
 
 	function submitHandler() {
 		async function postAnswer() {
-			const response = await fetch(`https://api.devask.hng.tech/answer/`, {
+			const response = await fetch(`https://api.devask.tech/answer/`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

@@ -82,7 +82,7 @@ function SubmitBlog() {
 		};
 		try {
 			const data = await axios.post(
-				`https://api.devask.hng.tech/blog`,
+				`https://api.devask.tech/blog`,
 				details,
 				{
 					headers,

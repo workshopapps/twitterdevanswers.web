@@ -10,7 +10,7 @@ import dollarCircle from '../../assets/dashboard-images/dollarCircle.webp';
 
 const token = localStorage.getItem('token');
 async function getUser() {
-	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+	const response = await axios.get(`https://api.devask.tech/users/`, {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
@@ -31,7 +31,7 @@ function AskCards() {
 	useEffect(() => {
 		(async function getData() {
 			const userIdResponse = await axios.get(
-				`https://api.devask.hng.tech/users/${thisuser}`,
+				`https://api.devask.tech/users/${thisuser}`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -40,7 +40,7 @@ function AskCards() {
 			);
 			const userIdData = await userIdResponse.data.data.user_id;
 			const response = await axios.get(
-				`https://api.devask.hng.tech/questions/${userIdData}/user`,
+				`https://api.devask.tech/questions/${userIdData}/user`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,

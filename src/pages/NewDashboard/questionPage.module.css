@@ -3,12 +3,18 @@
 	padding-bottom: 40px;
 	color: #303030;
 	display: flex;
+	justify-content: space-between;
 	gap: 50px;
 }
 
+.questionInfo {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
 .main {
-	width: 813px;
-	flex: 1 1 auto;
+	flex-basis: 790px;
 }
 
 .header {
@@ -177,22 +183,21 @@
 	overflow-y: auto;
 }
 
-.scrollbar::-webkit-scrollbar {
+/* .scrollbar::-webkit-scrollbar {
 	width: 5px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
 	background: #6a6a6a;
 	border-radius: 100vh;
-}
+} */
 
 .aside {
-	margin-top: 72px;
+	flex-basis: 450px;
+}
+
+.components {
 	padding-top: 20px;
-	width: 479px;
-	flex: 0 1 auto;
-	height: 100%;
-	padding-right: 20px;
 	position: sticky;
 	top: 0;
 	right: 0;
