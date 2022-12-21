@@ -58,7 +58,7 @@ export default function Tags() {
 					headers: {
 						Authorization: `Bearer ${token}`,
 					},
-				}
+				},
 			);
 
 			const fetchedQuestions = await response.data.data;
@@ -140,11 +140,13 @@ export default function Tags() {
 				</header>
 
 				<nav className={styles['tags-nav']}>
+					<span>
 					<Button
 						type={BUTTON_TYPES.SECONDARY}
 						onClick={filterTagsHandler}
 						btnText="Java"
 					/>
+					</span>
 					<span className={styles.hidden_8}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
@@ -182,7 +184,7 @@ export default function Tags() {
 							btnText="Node.js"
 						/>
 					</span>
-					{/* <span className={styles.hidden_2}>
+					<span className={styles.hidden_2}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
 							onClick={filterTagsHandler}
@@ -216,12 +218,14 @@ export default function Tags() {
 							onClick={filterTagsHandler}
 							btnText="R"
 						/>
-					</span> */}
+					</span>
+					<span>
 					<Button
 						type={BUTTON_TYPES.PRIMARY}
 						onClick={filterTagsHandler}
 						btnText="View all"
 					/>
+					</span>
 				</nav>
 
 				<div>
@@ -258,7 +262,7 @@ export default function Tags() {
 						className={`${tagstyles.topics} ${tagstyles['aside-container']}`}
 					>
 						<h3 className={tagstyles['heading-secondary']}>You might like</h3>
-						{questions.map((question, i) => (
+						{questions.slice(0,7).map((question, i) => (
 							<div key={question.question_id} className={tagstyles.topic}>
 								<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
 									<img

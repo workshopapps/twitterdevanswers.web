@@ -22,7 +22,7 @@ export default function Tag({ Data, isGridView, users, replies, index }) {
 			{isGridView ? (
 				<div className={styles['tag-container']} key={Data.question_id}>
 					<h2 className={styles['tag-title']}>{Data.title}</h2>
-					<p className={styles['tag-content']}>{Data.content.slice(0, 200)}</p>
+					<p className={styles['tag-content']}>{Data.content.slice(0, 500)}</p>
 
 					<div className={`${styles['tag-details']}`}>
 						<div className={`${styles.dev__flexitem} ${styles['tag-actions']}`}>
@@ -41,7 +41,7 @@ export default function Tag({ Data, isGridView, users, replies, index }) {
 						{/*  */}
 					</div>
 					<div className={styles['profile-box1']}>
-						<div className={styles['profile-nameimage']}>
+						{/* <div className={styles['profile-nameimage']}>
 							<Link to={`/profile/${Data.owner_id}`}>
 								<img
 									src="https://www.dropbox.com/s/bigbspbwyadigzj/Ellipse%201%20%281%29.svg?raw=1"
@@ -52,7 +52,7 @@ export default function Tag({ Data, isGridView, users, replies, index }) {
 							<h4 className={styles.user}>
 								{findUser(Data.owner_id)?.username}
 							</h4>
-						</div>
+						</div> */}
 						<div className={styles.dev__flexitem}>
 							<img src={clock} alt="" />
 							<span className={styles.date}>{formatDate(Data.created_at)}</span>
@@ -87,7 +87,7 @@ export default function Tag({ Data, isGridView, users, replies, index }) {
 						</h4>
 						<h2 className={styles['tag-title']}>{Data.title}</h2>
 						<p className={styles['tag-content']}>
-							{Data.content.slice(0, 120)}...
+							{Data.content.slice(0, 500)}...
 						</p>
 
 						<div className={styles['tag-details']}>
