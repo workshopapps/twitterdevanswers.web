@@ -109,7 +109,7 @@ function Login() {
 					<div>
 						<Input
 							id="username"
-							label="E-mail/Username"
+							label="Username"
 							name="username"
 							placeholder="Username"
 							type="text"
@@ -151,8 +151,8 @@ function Login() {
 						</span> */}
 						</label>
 							
-						<Link className={styles['form-group__checkbox-label']} to="/sign-up">
-							{/* Forgot Password? */}
+						<Link className={styles['form-group__checkbox-labelText']} to="/forgot-password">
+							Forgot Password?
 						</Link>
 
 					</div>
