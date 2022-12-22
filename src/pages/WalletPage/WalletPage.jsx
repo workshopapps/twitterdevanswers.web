@@ -106,7 +106,7 @@ function WalletPage() {
 	});
 
     
-	const userId = JSON.parse(localStorage.getItem('user')).data.user_id;
+	const userId = JSON.parse(localStorage.getItem('user')).user_id;
 
     const fetchUserData = async () => {
 		if(userId){

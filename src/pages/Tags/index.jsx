@@ -324,7 +324,7 @@ export default function Tags() {
 							</div>
 						))}
 
-						<Link to="/users-page">See more</Link>
+						<Link to="/users-suggestion">See more</Link>
 					</div>
 				</section>
 			</aside>
