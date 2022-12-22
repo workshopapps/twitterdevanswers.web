@@ -33,23 +33,23 @@ function HowItWorks() {
 						<div className={styles.cardcircle}>
 							<p>1</p>
 						</div>
-						<p>SIGN UP /SIGN IN</p>
+						<h5>SIGN UP /SIGN IN</h5>
 					</div>
 					<div className={styles.ProcessCard}>
 						<div className={styles.cardcircle}>
 							<p>2</p>
 						</div>
-						<p>POST A QUESTION /SEARCH CONTENT</p>
+						<h5>POST A QUESTION</h5>
 					</div>
 					<div className={styles.ProcessCard}>
 						<div className={styles.cardcircle}>
 							<p>3</p>
 						</div>
-						<p>GET SOLUTION</p>
+						<h5>GET SOLUTION</h5>
 					</div>
 				</div>
 			</div>
-
+		
 			<div className={`${styles.how} lpContainer`}>
 				<div className={styles.text}>
 					<div className={styles.leftside}>
