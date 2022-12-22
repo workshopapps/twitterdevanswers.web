@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps { 
-                sh "npm i --force"
+                sh "npm i"
                 sh "npm install --save @sentry/react @sentry/tracing"
              //   sh "npm install --save atatus-js"
                 sh "CI=false npm run build"
