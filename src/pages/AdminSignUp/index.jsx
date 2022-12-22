@@ -62,7 +62,7 @@ function AdminSignUp() {
 			password: userInfo.password,
 			confirmPassword: userInfo.confirmPassword,
 			email_verification_code: userInfo.verificationCode,
-			is_admin: 'yes',
+			is_admin: true,
 		};
 		try {
 			const data = await axios.post(
@@ -184,7 +184,7 @@ function AdminSignUp() {
 
 				<p className={styles.notice}>
 					Already have a Devask Admin account.{' '}
-					<Link to="/admin-signin">Login</Link>
+					<Link to="/admin-login">Login</Link>
 				</p>
 			</div>
 		</section>
