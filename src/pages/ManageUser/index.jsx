@@ -16,6 +16,32 @@ function ManageUser() {
 	const session = JSON.parse(localStorage.getItem('session'));
 
 	const { username } = useParams();
+	const [view, setView] = useState({
+		totalEarned: 0,
+		currentBalance: 0,
+		totalSpent: 0,
+	});
+
+	const viewUserWallet = async (id) => {
+		const userId = id;
+		try {
+			const response = await axios.get(`https://api.devask.tech/user/wallet/view/${userId}`);
+			const { balance} = response.data;
+			const totalSpent = response.data.total_spent;
+			const totalEarned = response.data.total_earned;
+
+			console.log('response', response)
+			setView((prev) =>({
+				...prev,
+				currentBalance: balance,
+				totalEarned,
+				totalSpent,
+			}))
+			console.log('spent', totalSpent)
+		} catch (e) {
+			console.log('e', e)
+		}
+}
 
 	useEffect(() => {
 		const getUser = async () => {
@@ -26,7 +52,7 @@ function ManageUser() {
 
 			try {
 				const data = await axios.get(
-					`https://api.devask.hng.tech/admin/user/${username}`,
+					`https://api.devask.tech/admin/user/${username}`,
 					{
 						headers,
 					}
@@ -34,6 +60,8 @@ function ManageUser() {
 
 				if (data) {
 					setUser(data.data.data);
+					viewUserWallet(data.data.data.user_id);
+				
 				}
 			} catch (err) {
 				setIsError(false);
@@ -44,6 +72,8 @@ function ManageUser() {
 		getUser();
 	}, []);
 
+
+	
 	const handleDelete = async (userValue) => {
 		const headers = {
 			Authorization: `Bearer ${session.user.access_token}`,
@@ -52,7 +82,7 @@ function ManageUser() {
 
 		try {
 			const data = await axios.delete(
-				`https://api.devask.hng.tech/admin/user/${userValue}`,
+				`https://api.devask.tech/admin/user/${userValue}`,
 				{
 					headers,
 				}
@@ -76,7 +106,7 @@ function ManageUser() {
 
 		try {
 			const data = await axios.post(
-				`https://api.devask.hng.tech/admin/remove/${userValue}`,
+				`https://api.devask.tech/admin/remove/${userValue}`,
 				{
 					headers,
 				}
@@ -100,7 +130,7 @@ function ManageUser() {
 
 		try {
 			const data = await axios.post(
-				`https://api.devask.hng.tech/admin/add/${userValue}`,
+				`https://api.devask.tech/admin/add/${userValue}`,
 				{
 					headers,
 				}
@@ -115,6 +145,16 @@ function ManageUser() {
 			setIsError(false);
 		}
 	};
+
+
+
+	// useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         viewUserWallet(user.user_id);
+    //     }, 3000);
+    //     return () => clearInterval(interval);
+    // }, []);
+
 	return (
 		<section className={styles.container}>
 			{isError ? (
@@ -132,7 +172,7 @@ function ManageUser() {
 								.slice(0, 1)
 								.toUpperCase()}${user.last_name.slice(1)}`}
 					</h1>
-					<p>Last active on 16 March 2022 </p>
+					{/* <p>Last active on 16 March 2022 </p> */}
 
 					<section className={styles.detailsWrapper}>
 						<div className={styles.infoWrapper}>
@@ -140,7 +180,7 @@ function ManageUser() {
 							<article className={styles.bioWrapper}>
 								<img src="/manage-pic.svg" alt="Manage Pic" />
 
-								<div>
+								{/* <div>
 									<span>First name</span>
 									<h4>
 										{user.first_name &&
@@ -148,8 +188,8 @@ function ManageUser() {
 												.slice(0, 1)
 												.toUpperCase()}${user.first_name.slice(1)}`}
 									</h4>
-								</div>
-
+								</div> */}
+{/* 
 								<div>
 									<span>Last name</span>
 									<h4>
@@ -158,7 +198,7 @@ function ManageUser() {
 												.slice(0, 1)
 												.toUpperCase()}${user.last_name.slice(1)}`}
 									</h4>
-								</div>
+								</div> */}
 								<div>
 									<span>Username</span>
 									<h4>{user.username}</h4>
@@ -169,14 +209,14 @@ function ManageUser() {
 									<h4>{user.email}</h4>
 								</div>
 
-								<div>
+								{/* <div>
 									<span>Date of Birth</span>
 									<h4>{user.date_of_birth}</h4>
-								</div>
+								</div> */}
 
-								<button type="button" className={styles.btn}>
+								{/* <button type="button" className={styles.btn}>
 									Suggest changes
-								</button>
+								</button> */}
 							</article>
 						</div>
 
@@ -229,7 +269,7 @@ function ManageUser() {
 
 									<div>
 										<h5>
-											2000 <span>Tokens</span>
+											{view.currentBalance} <span>Tokens</span>
 										</h5>
 										<img src="/arrow-right.svg" alt="Right arrow" />
 									</div>
@@ -240,7 +280,7 @@ function ManageUser() {
 
 									<div>
 										<h5>
-											2000 <span>Tokens</span>
+											10%<span>All Transactions</span>
 										</h5>
 										<img src="/arrow-right.svg" alt="Right arrow" />
 									</div>
@@ -251,7 +291,7 @@ function ManageUser() {
 
 									<div>
 										<h5>
-											2000 <span>Tokens</span>
+											{view.totalSpent}<span>Tokens</span>
 										</h5>
 										<img src="/arrow-right.svg" alt="Right arrow" />
 									</div>
@@ -262,7 +302,7 @@ function ManageUser() {
 
 									<div>
 										<h5>
-											2000 <span>Tokens</span>
+											{view.totalEarned}<span>Tokens</span>
 										</h5>
 										<img src="/arrow-right.svg" alt="Right arrow" />
 									</div>

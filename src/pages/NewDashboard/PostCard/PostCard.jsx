@@ -1,19 +1,17 @@
-/* eslint-disable no-unused-vars */
-import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState, memo } from 'react';
 import { PropTypes } from 'prop-types';
 import { BsChatSquareDots, BsShare } from 'react-icons/bs';
 import { ReactComponent as Heart } from '../heart.svg';
 import avatar from '../../../assets/dashboard/user.png';
 import styles from './postCard.module.css';
 import useMessenger, { timeStamp } from '../utils';
-import { AppContext } from '../../../store/AppContext';
+import Modal from '../../../components/Modal/Modal';
 
 function PostCard({
 	post: {
 		created_at: createdAt,
 		question_id: questionId,
-		total_like: likes,
+		// total_like: likes,
 		title,
 		content,
 		img,
@@ -22,47 +20,36 @@ function PostCard({
 		owner_id: ownerId,
 	},
 }) {
-	const {
-		handleNavigate,
-		getUsers,
-		getAnswers,
-		likeUnlike,
-		getLikes,
-		getQuestions,
-	} = useMessenger();
+	const { handleNavigate, getUsers, getAnswers, likeUnlike, getLikes } =
+		useMessenger();
 
 	const [answers, setAnswers] = useState([]);
 	const [askedBy, setAskedBy] = useState(null);
-	const [question, setQuestion] = useState(null);
 	const [liked, setLiked] = useState([]);
+	const [alreadyLiked, setAlreadyLiked] = useState({});
 
-	const {
-		state: {
-			token,
-			user: { user_id: loggedInUserId },
-		},
-	} = useContext(AppContext);
+	const cred = JSON.parse(localStorage.getItem('user'));
+	const loggedInUserId = cred?.user_id;
+	const token = localStorage.getItem('token');
 
-	const alreadyLiked = liked?.find(
-		({ user_id: userId }) => userId === loggedInUserId
-	);
+	const [show, setShow] = useState(false);
 
-	useEffect(() => {
-		const fetchQuestions = async () => {
-			const result = await getQuestions();
-			const data = result.find((item) => item.question_id === questionId);
-			setQuestion(data);
-		};
-	}, [liked]);
+	function showShareModal() {
+		setShow(true);
+	}
+
+	function hideShareModal() {
+		setShow(false);
+	}
+
+	const showShare = (event) => {
+		event.stopPropagation();
+		showShareModal();
+	};
+	const hideShare = () => hideShareModal();
 
 	// get user, get answers
 	useEffect(() => {
-		const fetchQuestions = async () => {
-			const result = await getQuestions();
-			const data = result.find((item) => item.question_id === questionId);
-			setQuestion(data);
-		};
-
 		const fetchUser = async () => {
 			const result = await getUsers();
 			const user = result.find(({ user_id: userId }) => userId === ownerId);
@@ -70,8 +57,16 @@ function PostCard({
 		};
 
 		const fetchLikes = async () => {
+			// get likes array
 			const { data } = await getLikes(questionId);
 			setLiked(data);
+
+			// check if the user has liked the question prior
+			const response = data?.find(
+				({ user_id: userId, like_type: likeType }) =>
+					userId === loggedInUserId && likeType === 'up'
+			);
+			setAlreadyLiked(response);
 		};
 
 		const fetchAnswers = async () => {
@@ -79,7 +74,6 @@ function PostCard({
 			setAnswers(result);
 		};
 
-		fetchQuestions();
 		fetchAnswers();
 		fetchUser();
 		fetchLikes();
@@ -88,41 +82,29 @@ function PostCard({
 	const handleLIke = (event) => {
 		event.stopPropagation();
 
-		if (alreadyLiked?.like_type === 'up') {
+		if (alreadyLiked) {
 			likeUnlike(questionId, 'down');
+			setLiked([...liked].filter((item) => item.user_id !== loggedInUserId));
 
-			const tempLiked = [...liked].filter(
-				(object) => object.user_id !== loggedInUserId
-			);
-
-			setLiked(() => [
-				...tempLiked,
-				{ user_id: loggedInUserId, question_id: questionId, like_type: 'down' },
-			]);
-		} else if (alreadyLiked?.like_type === 'down') {
-			likeUnlike(questionId, 'up');
-
-			const tempLiked = [...liked].filter(
-				(object) => object.user_id !== loggedInUserId
-			);
-
-			setLiked(() => [
-				...tempLiked,
-				{ user_id: loggedInUserId, question_id: questionId, like_type: 'up' },
-			]);
+			setAlreadyLiked(undefined);
 		} else {
 			likeUnlike(questionId, 'up');
-
-			const tempLiked = [...liked].filter(
-				(object) => object.user_id !== loggedInUserId
-			);
-
-			setLiked(() => [
-				...tempLiked,
-				{ user_id: loggedInUserId, question_id: questionId, like_type: 'up' },
+			setLiked((prev) => [
+				...prev,
+				{ user_id: loggedInUserId, like_type: 'up', question_id: questionId },
 			]);
+
+			setAlreadyLiked({
+				user_id: loggedInUserId,
+				like_type: 'up',
+				question_id: questionId,
+			});
 		}
 	};
+
+	const numOfLikes = liked?.filter((item) => item.like_type === 'up');
+
+	// console.log(numOfLikes);
 
 	return (
 		askedBy && (
@@ -186,7 +168,7 @@ function PostCard({
 								<div className={styles.likes}>
 									{/* <IoHeart/> */}
 									<Heart
-										className={styles.icon}
+										className={`${styles.icon} ${styles.heart}`}
 										onClick={handleLIke}
 										style={{
 											fill:
@@ -195,11 +177,16 @@ function PostCard({
 													: 'transparent',
 										}}
 									/>
-									<span>{likes}</span>
+									<span>{numOfLikes?.length}</span>
 								</div>
-								<div>
+								<Modal onClose={hideShare} show={show} hide={hideShare} />
+								<button
+									type="button"
+									onClick={showShare}
+									className={styles.share}
+								>
 									<BsShare className={styles.icon} />
-								</div>
+								</button>
 							</div>
 						)}
 						<div className={styles.token}>{paymentAmount}Tokens</div>
@@ -210,7 +197,7 @@ function PostCard({
 	);
 }
 
-export default PostCard;
+export default memo(PostCard);
 
 PostCard.propTypes = {
 	post: PropTypes.shape({

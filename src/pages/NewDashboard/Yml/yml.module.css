@@ -1,14 +1,13 @@
 .yml {
-	margin-top: 24px;
+	width: 100%;
 	padding: 24px;
 	background: #f6f0ff;
 	border-radius: 16px;
-	font-size: 12px;
 }
 
 .header {
 	font-size: 17px;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 22px;
 	color: #1f1f1f;
 	margin-bottom: 16px;

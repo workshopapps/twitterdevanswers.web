@@ -1,79 +1,42 @@
-import React 
-// ,{ useEffect, useState } 
-from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import styles from './Blog.module.css';
 import NewsletterSub from '../../components/NewsletterSub/NewsletterSub';
-import blockchain from "../../assets/blog-images/blockchain.svg"
-import reactblog from "../../assets/blog-images/reactblog.svg"
-import math from "../../assets/blog-images/math.svg"
-import python from "../../assets/blog-images/python.svg"
-import NewNFT from "../../assets/blog-images/NewNFT.svg"
-import arrowright from "../../assets/blog-images/arrowright.svg"
-// import axios from 'axios';
+import NewNFT from '../../assets/blog-images/NewNFT.svg';
+import arrowright from '../../assets/blog-images/arrowright.svg';
 
-const blogsContent = [
-	{
-		id: 1,
-		image: blockchain,
-		Date: "October 29, 2022",
-		Author: "By John Doe",
-		Title: "Top Programming Language Used For Blockchain Development",
-		Content: "C++ is so popular for blockchain because of its multiple capabilities such as move semantics, primitive control over the development......"
-	},
-	{
-		id: 2,
-		image: reactblog,
-		Date: "October 19, 2022",
-		Author: "By Kayla Nicole",
-		Title: "10 React Development Tools That Will Make Your Life Easy",
-		Content: "React Developer Tools is a Chrome DevTools extension for the open-source React JavaScript library. It allows you to inspect the React......"
-	},
-	{
-		id: 3,
-		image: math,
-		Date: "October 10, 2022",
-		Author: "By Kayla Nicole",
-		Title: "8 Best Programming Languages For Mathematics For Beginners",
-		Content: "React Developer Tools is a Chrome DevTools extension for the open-source React JavaScript library. It allows you to inspect the React......"
-	},
-	{
-		id: 4,
-		image: python,
-		Date: "October 12, 2022",
-		Author: "By Johny Rae",
-		Title: "7 Beginner-Level Python Projects to Take Your Skills to the Next Level",
-		Content: "C++ is so popular for blockchain because of its multiple capabilities such as move semantics, primitive control over the development......"
-	},
-];
-
-
-
+const token = localStorage.getItem('token');
 
 function Blog() {
-	
-	// const [blog, setBlog] = useState([]);
+	const [blogs, setBlogs] = useState([]);
 
+	const formatDate = (date) =>
+		new Intl.DateTimeFormat(navigator.language, {
+			month: 'long',
+			year: 'numeric',
+			day: '2-digit',
+			minute: '2-digit',
+			hour: '2-digit',
+			hour12: 'true',
+		}).format(new Date(date));
 
-	// const fetchData = async () => {
-	// 	const response = await fetch("https://api.devask.hng.tech/blog")
-	// 	const data = await response.json()
-	// 	setBlog(data)
-		
-	// }
-	
-	// useEffect(() => {
-	// 	fetchData()
-	//   }, [])
+	useEffect(() => {
+		(async function getData() {
+			const response = await axios.get('https://api.devask.tech/blog/', {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+			setBlogs(response.data.data);
+		})();
+	}, []);
 
 	return (
 		<main className={styles.blogContainer}>
 			<section className={styles.firstPost}>
 				<div className={styles.imgWrapper}>
-					<img
-						src={NewNFT}
-						alt="NFT desktop"
-						className={styles.desktop}
-					/>
+					<img src={NewNFT} alt="NFT desktop" className={styles.desktop} />
 				</div>
 
 				<div className={styles.contentWrapper}>
@@ -94,41 +57,45 @@ function Blog() {
 			<section className={styles.latestStories}>
 				<h2 className={styles.sectionHeader}>Latest Stories</h2>
 
-
-				
 				<section className={styles.articles}>
-					{blogsContent.map((item) => (
-						<div className={styles.postArticle} key={item.id} >
-						<img src={item.image} alt="postImage" />
-						<div className={styles.postWidth}>
-						<div className={styles.postDate}>
-							<p>{item.Date}</p>
-							<p>{item.Author}</p>
+					{blogs.map((blog) => (
+						<div className={styles.postArticle} key={blog.blog_id}>
+							<img src={blog.image_url} alt="postImage" />
+							<div className={styles.postWidth}>
+								<div className={styles.postDate}>
+									<p>{blog.date_posted && formatDate(blog.date_posted)}</p>
+									<p>{blog?.author?.toUpperCase()}</p>
+								</div>
+								<h3 className={styles.postTitle}>{blog.title}</h3>
+								<p className={styles.postContent}>
+									{blog.body.slice(0, 150)}...
+								</p>
+							</div>
 						</div>
-						<h3 className={styles.postTitle}>
-						{item.Title}
-						</h3>
-						<p className={styles.postContent}>
-							{item.Content}
-						</p>
-						</div>
-					</div>
 					))}
 				</section>
-				
-				
+
 				<div className={styles.btnsBlog}>
-				<button type="button" className={styles.loadMore}>
-					Load More Pages
-				</button>
-				<button type="button" className={styles.SubmitArticle}>
-				SignUp To Submit Articles
-				</button>
+					{/* <button type="button" className={styles.loadMore}>
+						Load More Pages
+					</button> */}
+					{token ? (
+						<Link to="/submit-blog" style={{ textDecoration: 'none' }}>
+							<button type="button" className={styles.SubmitArticle}>
+								Submit Articles
+							</button>
+						</Link>
+					) : (
+						<Link to="/sign-up" style={{ textDecoration: 'none' }}>
+							<button type="button" className={styles.SubmitArticle}>
+								SignUp To Submit Articles
+							</button>
+						</Link>
+					)}
 				</div>
 			</section>
 
 			<NewsletterSub />
-		
 		</main>
 	);
 }

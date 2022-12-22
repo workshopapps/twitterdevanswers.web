@@ -11,8 +11,8 @@
 }
 
 .avatar {
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 }
 
@@ -88,17 +88,28 @@ span.fullName {
 .icons {
 	display: flex;
 	align-items: center;
-	gap: 50px;
+	gap: 20px;
+}
+
+.share {
+	outline: none;
+	border: none;
+	background: transparent;
+	cursor: pointer;
 }
 
 .replies,
 .likes {
 	display: flex;
 	align-items: center;
-	gap: 10px;
+	gap: 5px;
 }
 
 .icon {
-	font-size: 20px;
+	font-size: 15px;
 	max-width: fit-content;
+}
+
+.heart {
+	width: 15px;
 }

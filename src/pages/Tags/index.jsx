@@ -1,5 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import Tag from '../../components/Tags/Tag';
 // import Data from '../../components/Tags/Data';
 import Pagination, { tagsPerPage } from '../../components/Tags/Pagination';
@@ -7,6 +9,8 @@ import Button from '../../components/Tags/Button/Button';
 import BUTTON_TYPES from '../../components/Tags/Button/Data';
 
 import styles from './tags.module.css';
+import tagstyles from './index.module.css';
+// import share from '../../assets/dashboard-images/share.webp';
 
 const defaultPage = {
 	start: 0,
@@ -17,23 +21,26 @@ const defaultPage = {
 export default function Tags() {
 	const token = localStorage.getItem('token');
 	async function getUser() {
-		const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+		const response = await axios.get(`https://api.devask.tech/users/`, {
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
 		});
 		return response.data.data;
 	}
-	
+
 	async function getTotalReplies(id) {
-		const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		});
+		const response = await axios.get(
+			`https://api.devask.tech/answer/${id}`,
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
 		return response.data.length;
 	}
-	
+
 	const [grid, setGrid] = useState(true);
 	const [page, setPage] = useState(defaultPage);
 
@@ -41,29 +48,28 @@ export default function Tags() {
 	const [users, setUsers] = useState([]);
 	const [replies, setReplies] = useState([]);
 	const [tags, setTags] = useState([]);
-
+	const findUser = (id) => users.find((user) => user.user_id === id);
 
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
-				'https://api.devask.hng.tech/questions/',
+				'https://api.devask.tech/questions/',
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
 					},
-				}
+				},
 			);
 
 			const fetchedQuestions = await response.data.data;
-			
-				
+
 			setQuestions(fetchedQuestions);
 			setTags(fetchedQuestions);
 
 			setUsers(await getUser());
 			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
-			getTotalReplies(fetchedQuestion.question_id)
-		);
+				getTotalReplies(fetchedQuestion.question_id)
+			);
 
 			Promise.all([...fetchedReplies].reverse()).then((reply) =>
 				setReplies((prevState) => [...prevState, reply])
@@ -92,7 +98,6 @@ export default function Tags() {
 	const handleClick = () => {
 		setGrid((prevVal) => !prevVal);
 	};
-
 
 	const setActiveBtn = (event) => {
 		const btns = document.querySelectorAll('.btn');
@@ -135,11 +140,13 @@ export default function Tags() {
 				</header>
 
 				<nav className={styles['tags-nav']}>
+					<span>
 					<Button
 						type={BUTTON_TYPES.SECONDARY}
 						onClick={filterTagsHandler}
 						btnText="Java"
 					/>
+					</span>
 					<span className={styles.hidden_8}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
@@ -147,13 +154,7 @@ export default function Tags() {
 							btnText="Python"
 						/>
 					</span>
-					<span className={styles.hidden_7}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="Android"
-						/>
-					</span>
+
 					<span className={styles.hidden_6}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
@@ -175,13 +176,7 @@ export default function Tags() {
 							btnText="Ajax"
 						/>
 					</span>
-					<span className={styles.hidden_3}>
-						<Button
-							type={BUTTON_TYPES.PRIMARY}
-							onClick={filterTagsHandler}
-							btnText="MySQL"
-						/>
-					</span>
+
 					<span className={styles.hidden_3}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
@@ -224,19 +219,31 @@ export default function Tags() {
 							btnText="R"
 						/>
 					</span>
+					<span>
 					<Button
 						type={BUTTON_TYPES.PRIMARY}
 						onClick={filterTagsHandler}
 						btnText="View all"
 					/>
+					</span>
 				</nav>
 
 				<div>
 					<div className={grid ? styles.grid : styles.list}>
-						{tags.length !==0 ? tags.slice(page.start, page.end).map((item, index) => (
-							<Tag key={item.id} isGridView={grid} Data={item} users={users} replies={replies} index={index}/>
-						)) : "Selected Tags Record not Available.."
-					}
+						{tags.length !== 0
+							? tags
+									.slice(page.start, page.end)
+									.map((item, index) => (
+										<Tag
+											key={item.id}
+											isGridView={grid}
+											Data={item}
+											users={users}
+											replies={replies}
+											index={index}
+										/>
+									))
+							: 'Selected Tags Record not Available..'}
 					</div>
 				</div>
 				{tags.length > tagsPerPage && (
@@ -248,6 +255,74 @@ export default function Tags() {
 					/>
 				)}
 			</div>
+			<aside className={tagstyles.aside}>
+				<section className={tagstyles['relevant-topics']}>
+					{/* Topics suggestions */}
+					<div
+						className={`${tagstyles.topics} ${tagstyles['aside-container']}`}
+					>
+						<h3 className={tagstyles['heading-secondary']}>You might like</h3>
+						{questions.slice(0,7).map((question, i) => (
+							<div key={question.question_id} className={tagstyles.topic}>
+								<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
+									<img
+										src={
+											findUser(question.owner_id)?.image_url?.trim()
+												? findUser(question.owner_id)?.image_url
+												: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+										}
+										alt=""
+										className={tagstyles.profilePicture}
+									/>
+								</Link>
+
+								<div className={tagstyles.content}>
+									<Link
+										to={`/question-page/${question.question_id}`}
+										style={{ textDecoration: 'none' }}
+									>
+										<h4>{question.content.slice(0, 40)}</h4>
+									</Link>
+									<p>
+										{replies[0] && replies[0][i]}{' '}
+										{replies[0] && replies[0][i] === 1 ? 'Reply' : 'Replies'}
+									</p>
+								</div>
+							</div>
+						))}
+					</div>
+
+					{/* Accounts suggestions */}
+					<div className={`${tagstyles.users} ${tagstyles['aside-container']}`}>
+						<h3 className={tagstyles['heading-secondary']}>You might follow</h3>
+						{[...users].slice(0, 3).map((user) => (
+							<div key={user.user_id} className={tagstyles.user}>
+								<Link to={`/profile/${user?.username}`}>
+									<img
+										src={
+											user?.image_url?.trim()
+												? user.image_url
+												: 'https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png'
+										}
+										alt=""
+										className={tagstyles.profilePicture}
+									/>
+								</Link>
+								<div className={tagstyles.details}>
+									<div>
+										<h4>{user.username}</h4>
+										<p>@{user.username}</p>
+									</div>
+									{/* <p>Follows you</p> */}
+								</div>
+								<button type="button">Follow</button>
+							</div>
+						))}
+
+						<Link to="/users-page">See more</Link>
+					</div>
+				</section>
+			</aside>
 		</section>
 	);
 }

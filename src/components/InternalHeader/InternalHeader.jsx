@@ -2,15 +2,15 @@
 
 import React, { useContext, useEffect, useState } from 'react';
 import { HiOutlineXCircle, HiBars3CenterLeft } from 'react-icons/hi2';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/header-images/home.svg';
 import { ReactComponent as TagIcon } from '../../assets/header-images/tagIcon.svg';
 import { ReactComponent as UsersIcon } from '../../assets/header-images/user.svg';
 import { ReactComponent as WalletIcon } from '../../assets/header-images/wallet.svg';
 import { ReactComponent as SortIcon } from '../../assets/header-images/sort.svg';
-import { ReactComponent as SettingsIcon } from '../../assets/header-images/settings.svg';
+// import { ReactComponent as SettingsIcon } from '../../assets/header-images/settings.svg';
 import { ReactComponent as NotificationIcon } from '../../assets/header-images/notification.svg';
-import { ReactComponent as SearchIcon } from '../../assets/header-images/search.svg';
+// import { ReactComponent as SearchIcon } from '../../assets/header-images/search.svg';
 import { ReactComponent as Logout } from '../../assets/header-images/logout.svg';
 import avatar from '../../assets/header-images/avatar.svg';
 import brandLogo from '../../assets/header-images/brandlogo2.svg';
@@ -127,6 +127,14 @@ export default function InternalHeader() {
 	// open and close sidenav
 	const hadnleClick = () => setSidenav((prev) => !prev);
 
+		const navigate = useNavigate();
+		const logout = () => {
+			localStorage.clear();
+			navigate("/login")
+		}
+
+
+
 	const linkStyle = {
 		textDecoration: 'none',
 		fontWeight: '500',
@@ -153,7 +161,7 @@ export default function InternalHeader() {
 				<div className={styles.right}>
 					<ul className={styles.links}>
 						<li>
-							<NavLink to="/" style={linkStyle} className={activeStyle}>
+							<NavLink to="/dashboard" title="Home" style={linkStyle} className={activeStyle}>
 								<div className={styles.link}>
 									<HomeIcon className={styles.icon} />
 									<span>Home</span>
@@ -164,18 +172,20 @@ export default function InternalHeader() {
 						<li>
 							<NavLink
 								to="/tags-page"
+								title="Tags"
 								style={linkStyle}
 								className={activeStyle}
 							>
 								<div className={styles.link}>
-									<TagIcon className={styles.icon} /> <span>Tag</span>
+									<TagIcon className={styles.icon} /> <span>Tags</span>
 								</div>
 							</NavLink>
 						</li>
 						<li>
 							<NavLink
 								style={linkStyle}
-								to="/users-page"
+								to="/users-suggestion"
+								title="Users"
 								className={activeStyle}
 							>
 								<div className={styles.link}>
@@ -184,35 +194,46 @@ export default function InternalHeader() {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/wallet" style={linkStyle} className={activeStyle}>
+							<NavLink to="/wallet" title="Wallet" style={linkStyle} className={activeStyle}>
 								<div className={styles.link}>
 									<WalletIcon className={styles.icon} /> <span>Wallet</span>
 								</div>
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/settings" style={linkStyle} className={activeStyle}>
+							{/* <NavLink to="/settings" style={linkStyle} className={activeStyle}>
 								<div className={styles.link}>
 									<SettingsIcon className={styles.icon} /> <span>Settings</span>
 								</div>
-							</NavLink>
+							</NavLink> */}
 						</li>
 					</ul>
 					<div className={styles.rest}>
-						<div className={styles.search}>
-							<SearchIcon />
+					<div className={styles.logout}>
+					<NavLink to="/login" title="Logout" style={linkStyle} className={activeStyle} onClick={logout}	>
+									<div className={styles.link}>
+										<Logout  className={styles.icon} /> 
+									</div>
+								</NavLink>
+							</div>
+						{/* <div className={styles.search}> */}
+
+							{/* <SearchIcon /> */}
 							{/* <input type="text" placeholder="Search questions..." /> */}
-						</div>
-						<NavLink to="/notifications-page" className={activeStyle}>
+						{/* </div> */}
+						<NavLink to="/notifications-page" title="Notifications" className={activeStyle}>
 							<NotificationIcon className={styles.icon} />
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
 						<div className={styles.user}>
-							<NavLink   to="/profile/:username" className={styles.avatar} 
-							// aria-hidden={active}
-							>
-								<img src={avatar} alt="avatar" />
-								</NavLink>
+							{/* <NavLink
+								to="/profile/:username"
+								title="Profile"
+								className={styles.avatar}
+								// aria-hidden={active}
+							> */}
+							<img src={avatar} alt="avatar" />
+							{/* </NavLink> */}
 							<div className={styles.profile}>
 								<div className={styles.nameStatus}>
 									<p>{user?.userName}</p>
@@ -222,14 +243,14 @@ export default function InternalHeader() {
 							</div>
 						</div>
 
-						{pathname === '/dashboard' && (
+						{/* {pathname === '/dashboard' && (
 							<NavLink
 								to="/post-questions"
 								className={`${styles['header-button']} ${styles['header-button__large-screen']}`}
 							>
 								Ask a question
 							</NavLink>
-						)}
+						)} */}
 					</div>
 
 					{/* SideNav for small laptops and tabs */}
@@ -298,8 +319,8 @@ export default function InternalHeader() {
 								</NavLink>
 							</li>
 							<li>
-								<NavLink
-									to="/settings"
+								{/* <NavLink
+									to="#"
 									style={linkStyle}
 									className={activeStyle}
 									onClick={hadnleClick}
@@ -308,18 +329,17 @@ export default function InternalHeader() {
 										<SettingsIcon className={styles.snIcon} />{' '}
 										<span>Settings</span>
 									</div>
-								</NavLink>
+								</NavLink> */}
 							</li>
 							<li className={styles.log}>
 								<NavLink
-									to="/"
+									to="/login"
 									style={linkStyle}
 									className={activeStyle}
-									onClick={hadnleClick}
+									onClick={logout}
 								>
 									<div className={styles.snLink}>
-										<Logout />{' '}
-										<span className={styles.logspan} >Logout</span>
+										<Logout /> <span className={styles.logspan}>Logout</span>
 									</div>
 								</NavLink>
 							</li>

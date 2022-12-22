@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './pagination.module.css';
 
-export const tagsPerPage = 12;
+export const tagsPerPage = 8;
 export default function Pagination({ data, prev, next, currentPage }) {
 	const totalPages = Math.ceil(data.length / tagsPerPage);
 

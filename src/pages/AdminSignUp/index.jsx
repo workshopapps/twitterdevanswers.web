@@ -33,7 +33,7 @@ function AdminSignUp() {
 		};
 		try {
 			const data = await axios.post(
-				'https://api.devask.hng.tech/auth/send_email_code',
+				'https://api.devask.tech/auth/send_email_code',
 				details
 			);
 
@@ -66,7 +66,7 @@ function AdminSignUp() {
 		};
 		try {
 			const data = await axios.post(
-				'https://api.devask.hng.tech/auth/admin_signup',
+				'https://api.devask.tech/auth/admin-signup',
 				details
 			);
 

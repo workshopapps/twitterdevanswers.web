@@ -26,7 +26,7 @@ function ProfileTopSection() {
 			try {
 				setIsLoading(true);
 				const data = await axios.get(
-					`https://api.devask.hng.tech/users/${user}`,
+					`https://api.devask.tech/users/${user}`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,
@@ -46,7 +46,7 @@ function ProfileTopSection() {
 			try {
 				setIsLoading(true);
 				const res = await axios.get(
-					`https://api.devask.hng.tech/following/followers/${state.user.user_id}`,
+					`https://api.devask.tech/following/followers/${state.user.user_id}`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,

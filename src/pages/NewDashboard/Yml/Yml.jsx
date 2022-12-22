@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import styles from './yml.module.css';
 import YmlPost from '../YmlPost/YmlPost';
 import useMessenger from '../utils';
@@ -26,7 +26,6 @@ function Yml() {
 		fetchQuestions();
 	}, []);
 
-
 	return (
 		<div className={styles.yml}>
 			<h3 className={styles.header}>You might like</h3>
@@ -39,4 +38,4 @@ function Yml() {
 	);
 }
 
-export default Yml;
+export default memo(Yml);

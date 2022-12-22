@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-
 import 'react-quill/dist/quill.snow.css';
 import { nanoid } from 'nanoid';
 import axios from 'axios';
@@ -160,7 +159,6 @@ function PostQuestion() {
 			id: nanoid(),
 			[name]: value,
 		}));
-
 		handleDisabling();
 	};
 
@@ -197,6 +195,29 @@ function PostQuestion() {
 		}
 	};
 
+	const deductAllTransaction = async (token, questionId) => {
+        try {
+            const deduct = {
+                url: 'https://api.devask.tech/admin/transactions/question/deduct',
+                method: 'POST',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                data: {
+                    amount: token,
+                    question_id: questionId ,
+                    commission: 10
+                }
+            };
+            const deductedTransaction = await axios(deduct);
+            console.log('deducted',deductedTransaction);
+        } catch (err) {
+            // setIsError(false);
+			console.log('err', err)
+        }
+    }
+
 	const postNewQuestion = async () => {
 		const details = {
 			owner_id: 2,
@@ -218,7 +239,7 @@ function PostQuestion() {
 
 		try {
 			const data = await axios.post(
-				'https://api.devask.hng.tech/questions',
+				'https://api.devask.tech/questions',
 				details,
 				{
 					headers,
@@ -226,9 +247,10 @@ function PostQuestion() {
 			);
 			if (data) {
 				setIsSuccessful(true);
-
+				console.log('data', data)
+				deductAllTransaction(questionData.token, data.data.id)
 				setTimeout(() => {
-					navigate('#/dashboard');
+					navigate('/dashboard');
 				}, 5000);
 			}
 		} catch (err) {
@@ -236,6 +258,7 @@ function PostQuestion() {
 		}
 	};
 
+	
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		postNewQuestion();
@@ -382,7 +405,7 @@ function PostQuestion() {
 								Introduce the problem and expand on what you put in the title.
 								Minimum 20 characters
 							</p>
-							<div className={styles.textIcons}>
+							{/* <div className={styles.textIcons}>
 								<span>
 									<img src="/post-question/caseIcon.svg" alt="case Icon" />
 								</span>
@@ -404,7 +427,7 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
-							</div>
+							</div> */}
 							<textarea
 								value={questionData.detail}
 								name="detail"
@@ -429,7 +452,7 @@ function PostQuestion() {
 								actually resulted. Minimum 20 characters
 							</p>
 
-							<div className={styles.textIcons}>
+							{/* <div className={styles.textIcons}>
 								<span>
 									<img src="/post-question/caseIcon.svg" alt="case Icon" />
 								</span>
@@ -451,7 +474,7 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
-							</div>
+							</div> */}
 
 							<textarea
 								value={questionData.description}
