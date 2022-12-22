@@ -2,29 +2,14 @@
 	display: flex;
 	flex-direction: column;
 	background-color: rgba(255, 255, 255, 0.41);
-	padding: 40px 116px 104px 16px;
+	padding: 40px 16px 104px 16px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	width: 90%;
 	margin: auto;
 }
-.formcontrol{
-	display: flex;
-	writing-mode: horizontal-tb;
-	flex-direction: column;
-	padding-top: 10px;
-	padding-left: 10px;
-	width: 566px;
-	height: 42px;
-	border: none;
-	border-radius: 8px;
-	background-color: #efefef;
-	cursor: pointer;
-}
-
 .tabheading h2 {
-	font-family: 'Rubik', sans-serif;
 	font-weight: 500;
-	color: #1d1dd8;
+	color: black;
 }
 .userinfo {
 	gap: 33.67px;
@@ -68,9 +53,10 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	margin: auto;
 	padding: 0px;
 	width: 100%;
-	gap: 10px;
+	/* gap: 10px; */
 }
 
 
@@ -78,7 +64,6 @@
 	text-align: left;
 	display: flex;
 	flex-direction: column;
-	font-family: 'Rubik', sans-serif;
 	font-weight: 400;
 	width: 100%;
 }
@@ -110,7 +95,7 @@
 	align-items: center;
 	padding: 12px;
 	gap: 10px;
-	width: 50%;
+	width: 95%;
 	height: 44px;
 	background: #fff;
 	border: 1px solid #757575;

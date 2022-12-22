@@ -1,14 +1,11 @@
 
 import React,{useState, useContext} from 'react';
 import EditAccountCSS from './style.module.css';
-import TestImage from '../../../../assets/settings-images/test-img.jfif';
-import { AppContext } from '../../../../store/AppContext';
-import { EDIT_USER } from '../../../../store/actionTypes';
+import TestImage from '../../assets/settings-images/test-img.jfif';
+import { AppContext } from '../../store/AppContext';
+import { EDIT_USER } from '../../store/actionTypes';
 import updateUser from './api';
 import  Location  from "./Location"
-
-
-
 
 function EditAcccount() {
 	const {state, dispatch } = useContext(AppContext);
@@ -114,7 +111,7 @@ function EditAcccount() {
 					<h3 className={EditAccountCSS.head}> Primary Details</h3>
 						<div className={EditAccountCSS.container}>
 							<label htmlFor className={EditAccountCSS.label}>
-								First name:
+								First Name:
 								<input
 									required
 									id="nameinput"
@@ -127,7 +124,7 @@ function EditAcccount() {
 								/>
 							</label>
 							<label htmlFor className={EditAccountCSS.label}>
-								Last name:
+								Last Name:
 								<input
 									required
 									id="nameinput"
@@ -143,7 +140,7 @@ function EditAcccount() {
 						<div className={EditAccountCSS.container}>
 						
 						<label htmlFor className={EditAccountCSS.label} >
-							Display name:
+							Display Name:
 								<input
 									required
 									id="displaynameinput"
@@ -242,7 +239,7 @@ function EditAcccount() {
 						<div className={EditAccountCSS.container}>
 
 							<label htmlFor className={EditAccountCSS.label}>
-								Email address:
+								Email Address:
 								<input
 									required="@"
 									id="emailinput"

@@ -36,7 +36,7 @@ import Security from './pages/Security/Security';
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
-// import InternalFooter from './components/InternalFooter/InternalFooter';
+import EditAccount from "./pages/EditAccount/index";
 import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
@@ -119,8 +119,7 @@ function App() {
 							<Route path="wallet" element={<WalletPage />} />
 							<Route path="users-page" element={<UserPage />} />
 							<Route path="post-questions" element={<PostQuestion />} />
-							<Route path="settings" element={<Settings />} />
-							<Route path="security-settings" element={<Security />} />
+							<Route path="edit-account" element={<EditAccount />} />
 							<Route path="contact" element={<Contact />} />
 							<Route path="submit-blog" element={<SubmitBlog />} />
 							<Route path="/blog-page-review" element={<BlogPageReview />} />
