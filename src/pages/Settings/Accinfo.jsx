@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios'
 import arrow from '../../assets/settings-images/arrow-left.png'
@@ -10,11 +10,10 @@ function Accinfo({setActive}) {
       const [user, setUser] = useState([])
       const { state } = useContext(AppContext);
 
-
 	useEffect(() => {
 		const getUsers = async () => {
          const headers =  {
-					Authorization: `Bearer ${token}`
+					Authorization: `Bearer ${token}`,
 				 }
 		  try {
 			 const res = await axios.get(`https://api.devask.tech/users/get/${state.user.username}`, 
@@ -29,7 +28,6 @@ function Accinfo({setActive}) {
 			  // display err message
 		  }
 		}
-       
 		getUsers()
 	  }, [])
 
