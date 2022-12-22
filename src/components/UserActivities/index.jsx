@@ -45,7 +45,7 @@ function UserActivities() {
 	const [sections, setSections] = useState();
 	const [answers, setAnswers] = useState([]);
 	const [tabButtons, setTabButtons] = useState();
-	const isVisitor = userFromStorage?.usename !== thisuser;
+	const isVisitor = userFromStorage?.username !== thisuser;
 
 	const [users, setUsers] = useState([]);
 	const [info, setInfo] = useState({});
