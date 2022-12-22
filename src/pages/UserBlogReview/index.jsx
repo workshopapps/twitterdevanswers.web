@@ -60,10 +60,10 @@ function UserBlogReview() {
 					}
 				);
 
-				console.log(deleteRespose);
+		//		console.log(deleteRespose);
 				setApproveModalIsOpen(false);
 				setDeleteModalIsOpen(false);
-				navigate('/blog-page-review');
+				navigate('/blog-submit-review');
 			} catch (err) {
 				// console.error(err);
 			}
@@ -108,7 +108,7 @@ function UserBlogReview() {
 			<nav className={styles.usernav}>
 				<h4>Admin Dashboard</h4>
 				<img src={rightWay} alt="rightWay" />
-				<Link to="/blog-page-review">
+				<Link to="/blog-submit-review">
 					<h4>Blog</h4>
 				</Link>
 				<img src={rightWay} alt="rightWay" />

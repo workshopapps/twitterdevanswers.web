@@ -153,7 +153,7 @@ export default function InternalHeader() {
 				<div className={styles.right}>
 					<ul className={styles.links}>
 						<li>
-							<NavLink to="/" style={linkStyle} className={activeStyle}>
+							<NavLink to="/dashboard" style={linkStyle} className={activeStyle}>
 								<div className={styles.link}>
 									<HomeIcon className={styles.icon} />
 									<span>Home</span>

@@ -3,9 +3,9 @@ import Hero3 from '../../components/Hero3/Hero3';
 import HowItWorks from '../../components/HowItWorks2/HowItWorks';
 import NewsletterSub from '../../components/NewsletterSub/NewsletterSub';
 
-import styles from './firstlandingpage.module.css';
+import styles from './landingpage.module.css';
 
-function FirstLandingPage() {
+function LandingPage() {
 	return (
 		<div className={styles.landing}>
 			<Hero3 />
@@ -39,4 +39,4 @@ function FirstLandingPage() {
 	);
 }
 
-export default FirstLandingPage;
+export default LandingPage;
