@@ -73,10 +73,10 @@
 		margin: 2rem auto;
 	}
 	.newsletter input::placeholder {
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 	}
 	.newsletter .btn button {
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 		margin-left: -5px;
 		
 	}
