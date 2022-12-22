@@ -35,7 +35,7 @@ function AdminDashboard() {
 		};
 
 		try {
-			const data = await axios.get('https://api.devask.hng.tech/users', {
+			const data = await axios.get('https://api.devask.tech/users', {
 				headers,
 			});
 			console.log('data', data.data.data)
@@ -84,7 +84,7 @@ function AdminDashboard() {
     //     let payTransaction = null;
     //     try{
     //         const pay = {
-    //             url: 'https://api.devask.hng.tech/admin/transactions/answer/pay',
+    //             url: 'https://api.devask.tech/admin/transactions/answer/pay',
     //             method: 'POST',
     //             headers: {
     //             'Accept': 'application/json',
@@ -112,7 +112,7 @@ function AdminDashboard() {
 	//  const deductAllTransaction = async (amount, questionId) => {
     //     try {
     //         const deduct = {
-    //             url: 'https://api.devask.hng.tech/admin/transactions/question/deduct',
+    //             url: 'https://api.devask.tech/admin/transactions/question/deduct',
     //             method: 'POST',
     //             headers: {
     //             'Accept': 'application/json',
@@ -137,7 +137,7 @@ function AdminDashboard() {
 	//    // Get All Questions
 	//    const getAllQuestions = async () => {
     //     try{
-    //         const Questions = await axios.get('https://api.devask.hng.tech/questions/')
+    //         const Questions = await axios.get('https://api.devask.tech/questions/')
 	// 		const allQuestions = Questions.data.data;
     //         // console.log('allQuestions',allQuestions)
     //         let tokenProcessed = 0

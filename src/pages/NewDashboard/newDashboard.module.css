@@ -8,9 +8,14 @@
 	height: 100%;
 }
 
+.questions {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
 .main {
-	width: 813px;
-	flex: 1 1 auto;
+	flex-basis: 790px;
 	display: flex;
 	flex-direction: column;
 	gap: 26px;
@@ -114,7 +119,6 @@
 	gap: 8px;
 	/* height: 100vh; */
 	/* overflow-y: auto; */
-	padding-right: 10px;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -127,16 +131,18 @@
 }
 
 .aside {
+	flex-basis: 450px;
+	padding-bottom: 40px;
+}
+
+.components {
 	padding-top: 20px;
-	width: 479px;
-	flex: 0 1 auto;
-	height: 100%;
-	margin-top: 72px;
-	padding-right: 20px;
 	position: sticky;
 	top: 0;
 	right: 0;
-	padding-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
 @media only screen and (max-width: 1040px) {

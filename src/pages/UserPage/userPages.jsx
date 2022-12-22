@@ -14,7 +14,7 @@
 // 			try {
 // 				setIsLoading(true);
 // 				const data = await axios.get(
-// 					`https://api.devask.hng.tech/users/`,
+// 					`https://api.devask.tech/users/`,
 // 					{
 // 						headers: {
 // 							Authorization: `Bearer ${state.token}`,

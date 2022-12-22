@@ -87,8 +87,6 @@
 	color: #492B7C;
 	background-color: inherit;
 }
-
-
  .textinput {
 	display: flex;
 	flex-direction: row;
@@ -100,15 +98,7 @@
 	background: #fff;
 	border: 1px solid #757575;
 	border-radius: 8px;	
-	}
-	
-
-
-
-
-
-
-
+}
 .userinfo {
 	display: flex;
 	flex-direction: column;
@@ -121,8 +111,6 @@
 	justify-content: center;
 	gap: 16px;
 }
-
-
 .savebtn {
 	display: flex;
 	flex-direction: row;
@@ -141,9 +129,7 @@
 	justify-content: center;
 	cursor: pointer;
 	color: #FFFFFF;
-
 }
-
 .discardbtn {
 	display: flex;
 	flex-direction: row;
@@ -165,7 +151,6 @@
 	text-transform: capitalize;
 	cursor: pointer;
 }
-
 .edit-account
 	.user-info
 	.user-details-form

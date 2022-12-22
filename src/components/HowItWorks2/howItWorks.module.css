@@ -9,7 +9,7 @@
 }
 
 .steps {
-	background: #f6f0ff;
+	/* background: #f6f0ff; */
 	margin: 0 auto;
 	padding: 5%;
 }
@@ -27,16 +27,18 @@
 
 .ProcessCard {
 	background-color: #ffffff;
-	border: 0.5px solid #989898;
-	border-radius: 4px;
-	width: 32%;
-	height: 200px;
+	/* border: 0.5px solid #989898; */
+	border-radius: 8px;
+	width: 31%;
+	height: 190px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	position: relative;
+	/* position: relative; */
+	box-shadow: 4px 8px 24px #f2f2f2;
 }
-.ProcessCard p{
+.ProcessCard p {
 	width: 50%;
 	margin: 0 auto;
 	text-align: center;
@@ -49,23 +51,29 @@
 }
 
 .cardcircle {
-	background: #ffffff;
-	border: 1px solid #989898;
-	width: 65px;
-	height: 65px;
+	background: #8C68CA;
+	/* border: 1px solid #989898; */
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: absolute;
-	bottom: 85%;
-	left: auto;
+	/* position: absolute; */
+	/* bottom: 85%; */
+	/* left: auto; */
 }
 .cardcircle p {
 	font-family: 'Rubik';
-	font-weight: 600;
+	font-weight: 400;
 	font-size: 1.7rem;
-	color: #492b7c;
+	color: white;
+}
+.ProcessCard h5 {
+	font-weight: 700;
+	color: #303030;
+	font-size: 1.1rem;
+	margin-top: 1.5rem
 }
 .text {
 	display: flex;
@@ -80,18 +88,18 @@
 	align-items: center;
 	margin-top: 4rem;
 }
-.leftside{
+.leftside {
 	width: 47%;
 }
-.rightside{
+.rightside {
 	width: 45%;
 }
-.leftside img{
+.leftside img {
 	width: 100%;
 }
 
 @media (max-width: 1000px) {
-	.ProcessCard p{
+	.ProcessCard p {
 		width: 70%;
 		margin: 0 auto;
 	}
@@ -106,15 +114,16 @@
 		height: 150px;
 		margin: 3rem auto;
 	}
-	.textrev, .text{
+	.textrev,
+	.text {
 		display: block;
 		margin-top: 2rem;
 	}
-	.leftside{
+	.leftside {
 		width: 80%;
 		margin: 1rem auto;
 	}
-	.rightside{
+	.rightside {
 		width: 80%;
 		margin: 1rem auto;
 	}

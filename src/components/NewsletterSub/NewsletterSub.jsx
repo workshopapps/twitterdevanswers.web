@@ -9,7 +9,7 @@ function NewsletterSub() {
 			<div className={styles.subscribe}>
 				<input type="text" placeholder="Please enter your email address" />
 				<div className={styles.btn}>
-					<button type="button">Learn more</button>
+					<button type="button">Subscribe</button>
 				</div>
 			</div>
 		</div>

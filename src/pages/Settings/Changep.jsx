@@ -45,7 +45,7 @@ import styles from './styles.module.css';
 
 		try {
 			await axios.put(
-				'https://api.devask.hng.tech/auth/change-password',
+				'https://api.devask.tech/auth/change-password',
 				details,
 				{
 					headers,

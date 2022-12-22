@@ -1,9 +1,3 @@
-
-
-
-
-
-
 .modal {
 	display: flex;
 	justify-content: center;
@@ -17,6 +11,7 @@
 	transform: translate(-50%, -50%);
 	box-shadow: 0 0 10px 100vw rgba(0, 0, 0, 0.8);
 	padding: 20px;
+	z-index: 99;
 }
 
 .input {
@@ -38,7 +33,7 @@
 }
 .inputField:focus,
 .inputField:hover {
-	border-color: #492B7C
+	border-color: #492b7c;
 }
 
 .error .inputField {
