@@ -15,7 +15,7 @@ function ResetPassword() {
     const ChangePassword = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.put("https://api.devask.hng.tech/auth/forget-password", {
+            const { data } = await axios.put("https://api.devask.tech/auth/forget-password", {
                 "newPassword": newPassword,
                 "confirmPassword": confirmPassword
             });

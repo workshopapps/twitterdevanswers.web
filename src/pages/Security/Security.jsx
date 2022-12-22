@@ -53,7 +53,7 @@ function Security() {
         const handleSetUpMFA = async (e) => {
             e.preventDefault();
             try {
-                const { data } = await axios.put('https://api.devask.hng.tech/auth/setup-mfa', {
+                const { data } = await axios.put('https://api.devask.tech/auth/setup-mfa', {
                     "email": getEmail
                 },
                 { 
@@ -73,7 +73,7 @@ function Security() {
         const handleGenerateCode = async (e) => {
             e.preventDefault();
             try {
-                const { data } = await axios.post('https://api.devask.hng.tech/auth/send-mfa', {
+                const { data } = await axios.post('https://api.devask.tech/auth/send-mfa', {
                     "email": fetchEmail
                 },
                 { 
@@ -93,7 +93,7 @@ function Security() {
              const handleSubmitOTP = async (e) => {
                 e.preventDefault();
                 try {
-                    const { data } = await axios.post('https://api.devask.hng.tech/auth/validate-mfa', {
+                    const { data } = await axios.post('https://api.devask.tech/auth/validate-mfa', {
                             "email": postEmail,
                             "mfa_hash": OTP
                     },
@@ -115,7 +115,7 @@ function Security() {
                 e.preventDefault();
                 try {
                     
-                    const { data } = await axios.put('https://api.devask.hng.tech/auth/change-password', 
+                    const { data } = await axios.put('https://api.devask.tech/auth/change-password', 
                     {    
                             "oldPassword": oldPassword,
                             "newPassword": newPassword,

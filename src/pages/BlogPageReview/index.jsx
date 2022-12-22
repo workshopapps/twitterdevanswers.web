@@ -26,7 +26,7 @@ function BlogPage() {
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
-				'https://api.devask.hng.tech/blog/unapproved/',
+				'https://api.devask.tech/blog/unapproved/',
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,

@@ -15,7 +15,7 @@ function ForgotPassword() {
 	const RequestLink = async (e) => {
 	 e.preventDefault();
 	 try {
-		 const { data } = await axios.post("https://api.devask.hng.tech/auth/forget-password", {
+		 const { data } = await axios.post("https://api.devask.tech/auth/forget-password", {
 			 "email": email
 		 });
 		 if(data){
