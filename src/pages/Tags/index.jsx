@@ -12,6 +12,8 @@ import styles from './tags.module.css';
 import tagstyles from './index.module.css';
 // import share from '../../assets/dashboard-images/share.webp';
 
+import CardSkeleton from '../UsersSuggestion/Skeleton/CardSkeleton';
+
 const defaultPage = {
 	start: 0,
 	end: tagsPerPage,
@@ -50,7 +52,7 @@ export default function Tags() {
 	const [tags, setTags] = useState([]);
 	const findUser = (id) => users.find((user) => user.user_id === id);
 
-	useEffect(() => {
+		useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
 				'https://api.devask.hng.tech/questions/',
@@ -70,7 +72,7 @@ export default function Tags() {
 			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
 				getTotalReplies(fetchedQuestion.question_id)
 			);
-
+			
 			Promise.all([...fetchedReplies].reverse()).then((reply) =>
 				setReplies((prevState) => [...prevState, reply])
 			);
@@ -243,7 +245,10 @@ export default function Tags() {
 											index={index}
 										/>
 									))
-							: 'Selected Tags Record not Available..'}
+							: 
+							// 'Selected Tags Record not Available..'
+							<CardSkeleton cards={8} />
+							}
 					</div>
 				</div>
 				{tags.length > tagsPerPage && (
