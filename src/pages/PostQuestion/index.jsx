@@ -159,7 +159,6 @@ function PostQuestion() {
 			id: nanoid(),
 			[name]: value,
 		}));
-
 		handleDisabling();
 	};
 
@@ -196,6 +195,29 @@ function PostQuestion() {
 		}
 	};
 
+	const deductAllTransaction = async (token, questionId) => {
+        try {
+            const deduct = {
+                url: 'https://api.devask.hng.tech/admin/transactions/question/deduct',
+                method: 'POST',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                data: {
+                    amount: token,
+                    question_id: questionId ,
+                    commission: 10
+                }
+            };
+            const deductedTransaction = await axios(deduct);
+            console.log('deducted',deductedTransaction);
+        } catch (err) {
+            // setIsError(false);
+			console.log('err', err)
+        }
+    }
+
 	const postNewQuestion = async () => {
 		const details = {
 			owner_id: 2,
@@ -225,7 +247,8 @@ function PostQuestion() {
 			);
 			if (data) {
 				setIsSuccessful(true);
-
+				console.log('data', data)
+				deductAllTransaction(questionData.token, data.data.id)
 				setTimeout(() => {
 					navigate('/dashboard');
 				}, 5000);
@@ -235,6 +258,7 @@ function PostQuestion() {
 		}
 	};
 
+	
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		postNewQuestion();
@@ -381,7 +405,7 @@ function PostQuestion() {
 								Introduce the problem and expand on what you put in the title.
 								Minimum 20 characters
 							</p>
-							<div className={styles.textIcons}>
+							{/* <div className={styles.textIcons}>
 								<span>
 									<img src="/post-question/caseIcon.svg" alt="case Icon" />
 								</span>
@@ -403,7 +427,7 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
-							</div>
+							</div> */}
 							<textarea
 								value={questionData.detail}
 								name="detail"
@@ -428,7 +452,7 @@ function PostQuestion() {
 								actually resulted. Minimum 20 characters
 							</p>
 
-							<div className={styles.textIcons}>
+							{/* <div className={styles.textIcons}>
 								<span>
 									<img src="/post-question/caseIcon.svg" alt="case Icon" />
 								</span>
@@ -450,7 +474,7 @@ function PostQuestion() {
 								<span>
 									<img src="/post-question/quoteIcon.svg" alt="quote Icon" />
 								</span>
-							</div>
+							</div> */}
 
 							<textarea
 								value={questionData.description}

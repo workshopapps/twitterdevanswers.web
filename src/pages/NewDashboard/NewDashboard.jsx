@@ -38,30 +38,32 @@ function NewDashboard() {
 	}, []);
 
 	return (
-		<div className={` dashContainer`}>
+		<div className={` lpContainer`}>
 			<div className={`${styles.dashboard}`}>
-				<main className={styles.main}>
-					<div className={styles.header}>
-						<h2>Home</h2>
-						<div>
-							<span className={styles.icon}>
-								<IoFilterOutline />
-							</span>
-							<Link to="/post-questions" className={styles.btn}>
-								Ask A Question
-							</Link>
+				<div className={styles.questions}>
+					<main className={styles.main}>
+						<div className={styles.header}>
+							<h2>Home</h2>
+							<div>
+								<span className={styles.icon}>
+									<IoFilterOutline />
+								</span>
+								<Link to="/post-questions" className={styles.btn}>
+									Ask A Question
+								</Link>
+							</div>
 						</div>
-					</div>
-					<section className={styles.body}>
-						<div className={`${styles.postsContainer} ${styles.scrollbar} `}>
-							{questions.length === 0
-								? null
-								: sortByDate(questions).map((post) => (
-										<PostCard post={post} key={post.question_id} />
-								  ))}
-						</div>
-					</section>
-				</main>
+						<section className={styles.body}>
+							<div className={`${styles.postsContainer} ${styles.scrollbar} `}>
+								{questions.length === 0
+									? null
+									: sortByDate(questions).map((post) => (
+											<PostCard post={post} key={post.question_id} />
+									  ))}
+							</div>
+						</section>
+					</main>
+				</div>
 				<aside className={styles.aside}>
 					<div className={styles.components}>
 						<TopUsers />

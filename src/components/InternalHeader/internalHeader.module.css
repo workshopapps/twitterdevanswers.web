@@ -21,7 +21,6 @@
 .search {
 	padding: 10px;
 	background: #ffffff;
-	/* border: 0.5px solid #b4b4b4; */
 	border-radius: 16px;
 	display: flex;
 	align-items: center;
@@ -82,9 +81,15 @@ li {
 	visibility: hidden;
 }
 
+.link:hover + .link span{
+	visibility: visible;
+}
+
 .isActive .link {
 	background: rgba(67, 67, 222, 0.1);
 }
+
+
 
 .isActive .link span {
 	visibility: visible;
@@ -215,7 +220,9 @@ li {
 		border-left: none;
 		padding-left: 0;
 	}
-
+	.logout{
+		display: none;
+	}
 	.sortIcon {
 		display: none;
 	}
@@ -333,10 +340,13 @@ li {
 	.brand span {
 		display: block;
 	}
+	.logout{
+	display: flex;
 }
-
-/* @media only screen and (max-height: 580px) {
-	
-	.snLinks {
+}
+@media only screen and (max-height: 300px) {
+	.headerContainer img{
+		width: 20px;
+		height: 20px;
 	}
-} */
+}

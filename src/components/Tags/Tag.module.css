@@ -1,10 +1,10 @@
 .tag {
-	background: #FEFEFE;
-	padding: 20px;
+	background: #fefefe;
+	padding: 5px 5px;
 	width: 100%;
 	color: #333;
 	word-break: break-word;
-	border: 1px solid #ECECFB;
+	border: 1px solid #ececfb;
 }
 
 .list_tag {
@@ -21,7 +21,7 @@
 .tag-list-container {
 	display: grid;
 	grid-template-columns: auto 1fr;
-	gap: 30px;
+	gap: 10px;
 }
 
 .tag-list-container .user-img {
@@ -118,12 +118,19 @@
 	align-items: center;
 	gap: 5px;
 }
-.profile-box1 {
-	display: flex;
-	justify-content: space-between;
-	height: 20px;
+.dev__flexitem .date{
+	font-size: 0.8rem;
 }
-.profile-box1 img{
+.profile-box1 {
+	/* display: flex; */
+	justify-content: space-between;
+	/* height: 20px; */
+}
+
+.profile-box1 > div {
+	display: flex;
+}
+.profile-box1 img {
 	width: 20px;
 }
 .tag-container {
@@ -132,7 +139,7 @@
 
 @media screen and (max-width: 1110px) {
 	.tag-container {
-		grid-template-rows: auto 1fr 2fr auto auto;
+		grid-template-rows: auto 2fr auto auto;
 	}
 }
 
@@ -170,8 +177,8 @@
 	.tag-title {
 		font-size: 16px;
 	}
-	.date{
-		font-size: 14px
+	.date {
+		font-size: 14px;
 	}
 }
 

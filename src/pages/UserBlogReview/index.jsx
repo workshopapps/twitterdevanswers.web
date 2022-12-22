@@ -60,7 +60,7 @@ function UserBlogReview() {
 					}
 				);
 
-		//		console.log(deleteRespose);
+				console.log(deleteRespose);
 				setApproveModalIsOpen(false);
 				setDeleteModalIsOpen(false);
 				navigate('/blog-submit-review');

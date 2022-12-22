@@ -29,14 +29,13 @@ import QuestionPage from './pages/NewDashboard/QuestionPage';
 import Teams from './pages/Team/Team';
 import TermsOfUse from './pages/TermsOfUse';
 import WalletPage from './pages/WalletPage/WalletPage';
-import UserPage from './pages/UserPage/userPage';
 import ErrorPage from './pages/ErrorPage/index';
 import Settings from './pages/Settings';
 import Security from './pages/Security/Security';
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
-import InternalFooter from './components/InternalFooter/InternalFooter';
+// import InternalFooter from './components/InternalFooter/InternalFooter';
 import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
@@ -49,6 +48,7 @@ import ManageUser from './pages/ManageUser';
 import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 import AdminBlogPage from './pages/AdminBlogPage';
+import UsersSuggestion from './pages/UsersSuggestion';
 
 function App() {
 	const {
@@ -79,7 +79,10 @@ function App() {
 						<Route path="sign-up" element={<SignUp />} />
 						<Route path="sucess-sign" element={<SuccessSign />} />
 						<Route path="forgot-password" element={<ForgotPassword />} />
-						<Route path="reset-password" element={<ResetPassword />} />
+						<Route
+							path="password-recovery/:token"
+							element={<ResetPassword />}
+						/>
 
 						<Route element={<ProtectedRoutes />}>
 							<Route path="/dashboard" element={<NewDashboard />} />
@@ -89,7 +92,7 @@ function App() {
 							<Route path="tags-page" element={<Tags />} />
 							<Route path="teams-page" element={<Teams />} />
 							<Route path="wallet" element={<WalletPage />} />
-							<Route path="users-page" element={<UserPage />} />
+							<Route path="users-suggestion" element={<UsersSuggestion />} />
 							<Route path="post-questions" element={<PostQuestion />} />
 							<Route path="settings" element={<Settings />} />
 							<Route path="security-settings" element={<Security />} />
@@ -110,7 +113,7 @@ function App() {
 					<Route path="*" element={<ErrorPage />} />
 				</Routes>
 			</div>
-			{token || isAuth ? <InternalFooter /> : <Footer />}
+			{token || isAuth ? <Footer /> : <Footer />}
 		</div>
 	);
 }
