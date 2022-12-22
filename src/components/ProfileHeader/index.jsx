@@ -37,7 +37,7 @@ function ProfileHeader() {
 	const toggleFollow = async (event) => {
 		// Logic to follow user
 		if (event.target.textContent.trim() === 'Follow') {
-			await fetch(`https://api.devask.hng.tech/following/follow/`, {
+			await fetch(`https://api.devask.tech/following/follow/`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ function ProfileHeader() {
 		} else {
 			// Logic to unfollow user
 			await fetch(
-				`https://api.devask.hng.tech/following/unfollow/${info.user_id}`,
+				`https://api.devask.tech/following/unfollow/${info.user_id}`,
 				{
 					method: 'DELETE',
 					headers: {
@@ -73,7 +73,7 @@ function ProfileHeader() {
 			try {
 				// setIsLoading(true);
 				const userResponse = await axios.get(
-					`https://api.devask.hng.tech/users/get/${user}`,
+					`https://api.devask.tech/users/get/${user}`,
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,
@@ -83,7 +83,7 @@ function ProfileHeader() {
 				);
 				setInfo(userResponse.data.data);
 				const data = await axios.get(
-					`https://api.devask.hng.tech/following/followers/${userResponse.data.data.user_id}`,
+					`https://api.devask.tech/following/followers/${userResponse.data.data.user_id}`,
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,

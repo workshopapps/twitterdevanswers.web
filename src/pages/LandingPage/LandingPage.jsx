@@ -4,13 +4,13 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 // import HowItWorks from '../../components/HowItWorks2/HowItWorks';
 import NewsletterSub from '../../components/NewsletterSub/NewsletterSub';
 
-import styles from './firstlandingpage.module.css';
+import styles from './landingpage.module.css';
 
 
 const Hero3 = React.lazy(() => import('../../components/Hero3/Hero3'));
 const HowItWorks = React.lazy(() => import('../../components/HowItWorks2/HowItWorks'));
 
-function FirstLandingPage() {
+function LandingPage() {
 	return (
 		<div className={styles.landing}>
 			<React.Suspense
@@ -61,4 +61,4 @@ function FirstLandingPage() {
 	);
 }
 
-export default FirstLandingPage;
+export default LandingPage;

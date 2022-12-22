@@ -26,7 +26,7 @@ function BlogPage() {
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
-				'https://api.devask.hng.tech/blog/unapproved/',
+				'https://api.devask.tech/blog/unapproved/',
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -70,7 +70,7 @@ function BlogPage() {
 						/>
 						<div className={styles.sectioncontent}>
 							<Link
-								to={`/blog-page-review/${blog.blog_id}`}
+								to={`/blog-submit-review/${blog.blog_id}`}
 								style={{ textDecoration: 'none' }}
 							>
 								<h4>{blog.title}</h4>
@@ -86,7 +86,7 @@ function BlogPage() {
 								</div>
 							</main>
 							<Link
-								to={`/blog-page-review/${blog.blog_id}`}
+								to={`/blog-submit-review/${blog.blog_id}`}
 								style={{ textDecoration: 'none' }}
 							>
 								<p className={styles.text}>

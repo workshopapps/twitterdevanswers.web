@@ -23,7 +23,7 @@ function Blog() {
 
 	useEffect(() => {
 		(async function getData() {
-			const response = await axios.get('https://api.devask.hng.tech/blog/', {
+			const response = await axios.get('https://api.devask.tech/blog/', {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},

@@ -198,7 +198,7 @@ function PostQuestion() {
 	const deductAllTransaction = async (token, questionId) => {
         try {
             const deduct = {
-                url: 'https://api.devask.hng.tech/admin/transactions/question/deduct',
+                url: 'https://api.devask.tech/admin/transactions/question/deduct',
                 method: 'POST',
                 headers: {
                 'Accept': 'application/json',
@@ -239,7 +239,7 @@ function PostQuestion() {
 
 		try {
 			const data = await axios.post(
-				'https://api.devask.hng.tech/questions',
+				'https://api.devask.tech/questions',
 				details,
 				{
 					headers,

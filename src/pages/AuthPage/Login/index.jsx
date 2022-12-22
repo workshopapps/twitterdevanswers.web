@@ -49,7 +49,7 @@ function Login() {
 
 			try {
 				const response = await axios.post(
-					'https://api.devask.hng.tech/auth/signin',
+					'https://api.devask.tech/auth/signin',
 					formData
 				);
 
