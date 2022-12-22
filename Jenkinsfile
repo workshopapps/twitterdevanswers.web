@@ -10,7 +10,7 @@ pipeline {
         stage('Deploy Frontend'){
             steps{
                 sh "npm start&"
-                sh "systemctl restart devask-frontend.service"
+                sh "sudo systemctl restart devask-frontend.service"
             }
         }
 
