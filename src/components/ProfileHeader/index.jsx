@@ -29,7 +29,7 @@ function ProfileHeader() {
 
 	const capitalize = (string) =>
 		string?.replace(string[0], string[0].toUpperCase());
-	const isVisitor = userFromStorage?.usename !== user;
+	const isVisitor = userFromStorage?.username !== user;
 	const handleEdit = () => {
 		navigate('/settings');
 	};

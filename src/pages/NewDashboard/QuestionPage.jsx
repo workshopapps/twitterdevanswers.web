@@ -72,7 +72,7 @@ function QuestionPage() {
 
 	useEffect(() => {
 		const fetchUserByUserName = async () => {
-			const result = await getUserbyUsername(cred?.usename);
+			const result = await getUserbyUsername(cred?.username);
 			setLoggedInUserCred(result);
 		};
 
