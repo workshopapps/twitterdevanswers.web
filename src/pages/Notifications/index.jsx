@@ -43,7 +43,7 @@ function Notifications() {
 		};
 		try {
 			const data = await axios.patch(
-				`https://api.devask.tech/notification/read/${notif_id}/?type=${type.toLoerCase()}`,
+				`https://api.devask.tech/notification/read/${notif_id}/?type=${type.toLowerCase()}`,
 				{
 					headers,
 				}

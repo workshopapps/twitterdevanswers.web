@@ -9,6 +9,7 @@ function Accinfo({setActive}) {
       const token = localStorage.getItem('token');
       const [user, setUser] = useState([])
       const { state } = useContext(AppContext);
+      
 
 	useEffect(() => {
 		const getUsers = async () => {
