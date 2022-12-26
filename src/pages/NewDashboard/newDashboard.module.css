@@ -1,17 +1,19 @@
 .dashboard {
-	padding-top: 40px;
-	padding-bottom: 40px;
-	color: #303030;
-	display: flex;
-	gap: 50px;
-	position: relative;
 	height: 100%;
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 40px;
+	color: #303030;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 20px;
+	position: relative;
 }
 
 .questions {
-	flex: 1;
+	/* flex: 1;
 	display: flex;
-	justify-content: center;
+	justify-content: center; */
 }
 
 .main {
@@ -137,7 +139,7 @@
 
 .components {
 	padding-top: 20px;
-	position: sticky;
+	/* position: sticky; */
 	top: 0;
 	right: 0;
 	display: flex;
@@ -146,6 +148,10 @@
 }
 
 @media only screen and (max-width: 1040px) {
+	.dashboard {
+		grid-template-columns: 1fr;
+	}
+
 	.aside {
 		display: none;
 	}

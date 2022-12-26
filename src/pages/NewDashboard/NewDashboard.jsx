@@ -38,7 +38,7 @@ function NewDashboard() {
 	}, []);
 
 	return (
-		<div className={` lpContainer`}>
+		<div className="lpContainer">
 			<div className={`${styles.dashboard}`}>
 				<div className={styles.questions}>
 					<main className={styles.main}>

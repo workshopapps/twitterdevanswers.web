@@ -3,7 +3,8 @@
 	background: #ffffff;
 	border: 1px solid #ececfb;
 	border-radius: 8px;
-	display: flex;
+	display: grid;
+	grid-template-columns: 50px 1fr;
 	gap: 16px;
 	color: #303030;
 	cursor: pointer;
@@ -52,15 +53,17 @@ span.fullName {
 
 .right h3 {
 	font-weight: 600;
-	font-size: 18px;
+	color: #535353;
+	font-size: 17px;
 	line-height: 24px;
-	margin-bottom: 12px;
+	margin-bottom: 3px;
 }
 
 .right p {
 	font-size: 16px;
 	line-height: 24px;
 	margin-bottom: 16px;
+	line-height: 1.8;
 }
 
 .img {
@@ -82,7 +85,7 @@ span.fullName {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .icons {
@@ -112,4 +115,97 @@ span.fullName {
 
 .heart {
 	width: 15px;
+}
+
+/* Tab view */
+@media (max-width: 768px) {
+	span.fullName,
+	.cardFooter,
+	.title {
+		font-size: 15px;
+	}
+
+	.likes,
+	.viewReplies,
+	.share,
+	.token {
+		font-size: 14px;
+	}
+
+
+	.right h3 {
+		font-size: 16px;
+	}
+	
+	.right p {
+		font-size: 15px;
+	}
+	
+/* 
+	.icons img,
+	.reward img {
+		width: 20px;
+		height: 20px;
+	} */
+
+	/* .avatar {
+		height: 40px;
+		width: 40px;
+	}
+
+	.card {
+		grid-template-columns: 40px 1fr;
+	} */
+	.icons {
+		gap: 10px;
+	}
+
+
+	/* .userInfo p {
+		margin-right: 10px;
+	} */
+}
+
+
+@media only screen and (max-width: 500px) {
+	/* .header button {
+		font-size: 14px;
+	}
+
+	.userInfo {
+		display: block;
+	}
+
+	.userInfo > * {
+		margin: 0;
+	} */
+
+	.avatar {
+		height: 40px;
+		width: 40px;
+	}
+
+	.tags {
+		font-size: 14px;
+	}
+
+	.card {
+		grid-template-columns: 40px 1fr;
+	}
+
+	span.fullName,
+	.time,
+	.cardFooter,
+	.title {
+		font-size: 14px;
+	}
+
+	.right h3 {
+		font-size: 15px;
+	}
+	
+
+	.right p {
+		font-size: 14px;
+	}
 }
