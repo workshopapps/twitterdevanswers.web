@@ -1,6 +1,6 @@
-/* eslint-disable react/no-unused-prop-types */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+// /* eslint-disable react/no-unused-prop-types */
+// /* eslint-disable no-undef */
+// /* eslint-disable no-unused-vars */
 import React, { memo, useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { FaEllipsisV } from 'react-icons/fa';

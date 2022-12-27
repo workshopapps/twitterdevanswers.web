@@ -157,12 +157,26 @@
 	margin-bottom: 25px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
 	.main {
-		width: 60vw;
+		display: flex;
+		justify-content: space-between;
 		margin: 3em 2em;
 	}
 	.more_icon {
 		left: 98%;
 	}
+
+	.main aside {
+		flex: 0 0 30%;
+	}
+
+	.main .left {
+		flex: 0 0 60%;
+	}
+}
+
+.main .left {
+	flex: 0 0 60%;
+	margin-bottom: 3em;
 }
