@@ -96,7 +96,11 @@
 .logout {
 	color: red;
 	font-weight: bold;
-	padding: 10px;
+	padding: 10px 6px;
+}
+
+.logout a {
+	text-decoration: none;
 }
 
 .deactivate {
