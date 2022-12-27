@@ -103,10 +103,7 @@ function useMessenger() {
 
 	const getAnswers = async (id) => {
 		try {
-			const response = axios.get(
-				`https://api.devask.tech/answer/${id}`,
-				{}
-			);
+			const response = axios.get(`https://api.devask.tech/answer/${id}`, {});
 
 			const { data } = await response;
 
@@ -181,14 +178,11 @@ function useMessenger() {
 
 	const deleteQuestion = async (id) => {
 		try {
-			const response = axios.delete(
-				`https://api.devask.tech/questions/${id}`,
-				{
-					headers: {
-						Authorization: `Bearer ${token}`,
-					},
-				}
-			);
+			const response = axios.delete(`https://api.devask.tech/questions/${id}`, {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
 
 			const data = await response;
 
@@ -277,6 +271,27 @@ function useMessenger() {
 		}
 	};
 
+	const updateProfile = async (username, formData) => {
+		try {
+			const response = axios({
+				method: 'patch',
+				url: `https://api.devask.tech/users/edit/${username}`,
+				data: formData,
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+
+			const payload = await response;
+
+			console.log(payload);
+			return payload;
+		} catch (error) {
+			console.log(error);
+			throw new Error(error);
+		}
+	};
+
 	return {
 		handleNavigate,
 		getUsers,
@@ -293,6 +308,7 @@ function useMessenger() {
 		getFollowers,
 		follow,
 		unfollow,
+		updateProfile,
 	};
 }
 

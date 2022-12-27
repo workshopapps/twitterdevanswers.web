@@ -49,6 +49,7 @@ import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 import AdminBlogPage from './pages/AdminBlogPage';
 import UsersSuggestion from './pages/UsersSuggestion';
+import EditProfile from './pages/EditProfile/EditProfile';
 
 function App() {
 	const {
@@ -85,6 +86,7 @@ function App() {
 						/>
 
 						<Route element={<ProtectedRoutes />}>
+							<Route path="/edit-profile" element={<EditProfile />} />
 							<Route path="/dashboard" element={<NewDashboard />} />
 							<Route path="/question-page/:id" element={<QuestionPage />} />
 							<Route path="profile/:username" element={<Profile />} />
@@ -99,9 +101,18 @@ function App() {
 							<Route path="contact" element={<Contact />} />
 							<Route path="submit-blog" element={<SubmitBlog />} />
 							<Route path="/blog-submit-review" element={<BlogPageReview />} />
-							<Route path="/blog-submit-review/:id" element={<UserBlogReview />} />
-							<Route path="notification-settings" element={<NotificationSettings />} />
-							<Route path="/privacyandsafety-settings" element={<PrivacyandSafetySettings />}/>
+							<Route
+								path="/blog-submit-review/:id"
+								element={<UserBlogReview />}
+							/>
+							<Route
+								path="notification-settings"
+								element={<NotificationSettings />}
+							/>
+							<Route
+								path="/privacyandsafety-settings"
+								element={<PrivacyandSafetySettings />}
+							/>
 							<Route path="manage-user/:username" element={<ManageUser />} />
 							<Route path="admin-dashboard" element={<AdminDashboard />} />
 							<Route path="admin-signup" element={<AdminSignUp />} />
