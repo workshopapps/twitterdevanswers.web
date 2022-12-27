@@ -99,7 +99,12 @@ function PostQuestion() {
 			...prevState,
 			token: tokenValue,
 		}));
+		if (questionData.token < state.userData.account_balance) {
 		setIsTokensOpen(!isTokensOpen);
+	} else {
+			setIsTokenError('Insufficient token balance...');
+		}
+
 	};
 
 	const handleTokenRemoval = () => {
