@@ -27,6 +27,13 @@
 	color: #303030;
 }
 
+.title {
+	width: 346px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .replies {
 	font-size: 16px;
 	line-height: 22px;
