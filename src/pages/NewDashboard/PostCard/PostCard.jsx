@@ -2,6 +2,7 @@ import React, { useEffect, useState, memo } from 'react';
 import { PropTypes } from 'prop-types';
 import { BsChatSquareDots, BsShare } from 'react-icons/bs';
 import { ReactComponent as Heart } from '../heart.svg';
+import CardSkeleton from '../../UsersSuggestion/Skeleton/CardSkeleton';
 import avatar from '../../../assets/dashboard/user.png';
 import styles from './postCard.module.css';
 import useMessenger, { timeStamp } from '../utils';
@@ -104,94 +105,92 @@ function PostCard({
 
 	const numOfLikes = liked?.filter((item) => item.like_type === 'up');
 
-	return (
-		askedBy && (
+	return askedBy ? (
+		<div
+			role="link"
+			onKeyDown={() => {}}
+			tabIndex={0}
+			onClick={(event) => handleNavigate(event, `/question-page/${questionId}`)}
+			className={styles.card}
+		>
 			<div
 				role="link"
 				onKeyDown={() => {}}
 				tabIndex={0}
 				onClick={(event) =>
-					handleNavigate(event, `/question-page/${questionId}`)
+					handleNavigate(event, `/profile/${askedBy?.username}`)
 				}
-				className={styles.card}
 			>
-				<div
-					role="link"
-					onKeyDown={() => {}}
-					tabIndex={0}
-					onClick={(event) =>
-						handleNavigate(event, `/profile/${askedBy?.username}`)
-					}
-				>
-					<img
-						className={styles.avatar}
-						src={askedBy?.image_url?.trim() === '' ? avatar : askedBy.image_url}
-						alt="user avatar"
-					/>
-				</div>
-				<div className={styles.right}>
-					<div className={styles.top}>
-						<span
-							className={styles.fullName}
-							role="link"
-							onKeyDown={() => {}}
-							tabIndex={0}
-							onClick={(event) =>
-								handleNavigate(event, `/profile/${askedBy?.username}`)
-							}
-						>{`${askedBy?.first_name} ${askedBy?.last_name}`}</span>
-						<span
-							role="link"
-							onKeyDown={() => {}}
-							tabIndex={0}
-							onClick={(event) =>
-								handleNavigate(event, `/profile/${askedBy?.username}`)
-							}
-						>
-							@{askedBy?.username}
-						</span>{' '}
-						<span>{timeStamp(createdAt)}</span>
-					</div>
-					<h3>{title}</h3>
-					<p>{content}</p>
-					{img && <img src={img} className={styles.img} alt="post" />}
-					{tag.trim() === '' ? null : <span className={styles.tag}>{tag}</span>}
-					<div className={styles.bottom}>
-						{token && (
-							<div className={styles.icons}>
-								<div className={styles.replies}>
-									<BsChatSquareDots className={styles.icon} />{' '}
-									<span>{answers?.length}</span>
-								</div>
-								<div className={styles.likes}>
-									{/* <IoHeart/> */}
-									<Heart
-										className={`${styles.icon} ${styles.heart}`}
-										onClick={handleLIke}
-										style={{
-											fill:
-												alreadyLiked?.like_type === 'up'
-													? '#4343DE'
-													: 'transparent',
-										}}
-									/>
-									<span>{numOfLikes?.length}</span>
-								</div>
-								<Modal onClose={hideShare} show={show} hide={hideShare} />
-								<button
-									type="button"
-									onClick={showShare}
-									className={styles.share}
-								>
-									<BsShare className={styles.icon} />
-								</button>
-							</div>
-						)}
-						<div className={styles.token}>{paymentAmount}Tokens</div>
-					</div>
-				</div>{' '}
+				<img
+					className={styles.avatar}
+					src={askedBy?.image_url?.trim() === '' ? avatar : askedBy.image_url}
+					alt="user avatar"
+				/>
 			</div>
-		)
+			<div className={styles.right}>
+				<div className={styles.top}>
+					<span
+						className={styles.fullName}
+						role="link"
+						onKeyDown={() => {}}
+						tabIndex={0}
+						onClick={(event) =>
+							handleNavigate(event, `/profile/${askedBy?.username}`)
+						}
+					>{`${askedBy?.first_name} ${askedBy?.last_name}`}</span>
+					<span
+						role="link"
+						onKeyDown={() => {}}
+						tabIndex={0}
+						onClick={(event) =>
+							handleNavigate(event, `/profile/${askedBy?.username}`)
+						}
+					>
+						@{askedBy?.username}
+					</span>{' '}
+					<span>{timeStamp(createdAt)}</span>
+				</div>
+				<h3>{title}</h3>
+				<p>{content}</p>
+				{img && <img src={img} className={styles.img} alt="post" />}
+				{tag.trim() === '' ? null : <span className={styles.tag}>{tag}</span>}
+				<div className={styles.bottom}>
+					{token && (
+						<div className={styles.icons}>
+							<div className={styles.replies}>
+								<BsChatSquareDots className={styles.icon} />{' '}
+								<span>{answers?.length}</span>
+							</div>
+							<div className={styles.likes}>
+								{/* <IoHeart/> */}
+								<Heart
+									className={`${styles.icon} ${styles.heart}`}
+									onClick={handleLIke}
+									style={{
+										fill:
+											alreadyLiked?.like_type === 'up'
+												? '#4343DE'
+												: 'transparent',
+									}}
+								/>
+								<span>{numOfLikes?.length}</span>
+							</div>
+							<Modal onClose={hideShare} show={show} hide={hideShare} />
+							<button
+								type="button"
+								onClick={showShare}
+								className={styles.share}
+							>
+								<BsShare className={styles.icon} />
+							</button>
+						</div>
+					)}
+					<div className={styles.token}>{paymentAmount}Tokens</div>
+				</div>
+			</div>{' '}
+		</div>
+	) : (
+		<CardSkeleton cards={1} />
 	);
 }
 
