@@ -32,6 +32,8 @@ function ReplyCard({
 		useMessenger();
 	const { modal, showModal } = useModal();
 
+	let tokenValue = 0
+
 	// get user
 	useEffect(() => {
 		const fetchUser = async () => {
@@ -49,10 +51,38 @@ function ReplyCard({
 		fetchUser();
 	}, []);
 
+	    // Admin Transaction Pay
+		const payAllTransaction = async (amount, idQuestion) => {
+			let payTransaction = null;
+			try{
+				const pay = {
+					url: 'https://api.devask.hng.tech/admin/transactions/answer/pay',
+					method: 'POST',
+					headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+					},
+					data: {
+						amount,
+						idQuestion,
+						commission: 10
+					}
+				};
+				payTransaction = await axios(pay);
+				console.log('pay', payTransaction)
+			} catch(err) {
+				setIsError(false);
+			}
+			return payTransaction   
+		}
+
 	const handleCheck = async () => {
 		if (isAnswered) {
 			setMsg('satisfactory answer already selected');
 			showModal();
+			tokenValue = localStorage.getItem('tokenValue');
+			payAllTransaction(tokenValue, questionId);
+			localStorage.removeItem("tokenValue");
 			return;
 		}
 

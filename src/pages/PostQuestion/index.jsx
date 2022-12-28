@@ -99,6 +99,7 @@ function PostQuestion() {
 			...prevState,
 			token: tokenValue,
 		}));
+		localStorage.setItem('tokenValue', tokenValue)
 		setIsTokensOpen(!isTokensOpen);
 	};
 
