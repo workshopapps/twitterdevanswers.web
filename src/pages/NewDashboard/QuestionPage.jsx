@@ -209,7 +209,7 @@ function QuestionPage() {
 						{Object.keys(askedBy).length === 0 ||
 						Object.keys(question).length === 0 ? (
 							// <div>loading</div>
-							<CardSkeleton cards={3} />
+							<CardSkeleton cards={1} />
 						) : (
 							<div className={styles.body}>
 								<div className={styles.question}>
