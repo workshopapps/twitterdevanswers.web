@@ -1,6 +1,7 @@
 import React from 'react';
 // import Hero3 from '../../components/Hero3/Hero3';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+// import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import rotation from '../../assets/landing-images/rotation.svg'
 // import HowItWorks from '../../components/HowItWorks2/HowItWorks';
 import NewsletterSub from '../../components/NewsletterSub/NewsletterSub';
 
@@ -16,7 +17,8 @@ function LandingPage() {
 			<React.Suspense
 				fallback={
 					<span className={styles.loader}>
-						<AiOutlineLoading3Quarters />
+						{/* <AiOutlineLoading3Quarters /> */}
+						<img src={rotation} alt="rotation" />
 					</span>
 				}
 			>
@@ -50,7 +52,8 @@ function LandingPage() {
 			<React.Suspense
 				fallback={
 					<span className={styles.loader}>
-						<AiOutlineLoading3Quarters />
+						{/* <AiOutlineLoading3Quarters /> */}
+						<img src={rotation} alt="rotation" />
 					</span>
 				}
 			>

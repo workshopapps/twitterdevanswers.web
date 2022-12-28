@@ -104,8 +104,6 @@ function PostCard({
 
 	const numOfLikes = liked?.filter((item) => item.like_type === 'up');
 
-	// console.log(numOfLikes);
-
 	return (
 		askedBy && (
 			<div
