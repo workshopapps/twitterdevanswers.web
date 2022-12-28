@@ -1,20 +1,12 @@
 .dashboard {
-	padding-top: 40px;
-	padding-bottom: 40px;
+	max-width: 1300px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 40px;
 	color: #303030;
-	display: flex;
-	justify-content: space-between;
-	gap: 50px;
-}
-
-.questionInfo {
-	flex: 1;
-	display: flex;
-	justify-content: center;
-}
-
-.main {
-	flex-basis: 790px;
+	display: grid;
+	grid-template-columns: 2fr 370px;
+	gap: 30px;
 }
 
 .header {
@@ -29,6 +21,7 @@
 	align-items: center;
 	gap: 12px;
 	color: #492b7c;
+	margin-bottom: 48px;
 }
 
 .back .icon {
@@ -53,6 +46,7 @@
 .top {
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-start;
 	margin-bottom: 18px;
 }
 
@@ -66,6 +60,7 @@
 	width: 50px;
 	height: 50px;
 	cursor: pointer;
+	object-fit: cover;
 }
 
 .userNstamp {
@@ -77,8 +72,8 @@
 .fullName {
 	text-transform: capitalize;
 	color: #303030;
-	font-weight: 700;
-	font-size: 18px;
+	font-weight: 500;
+	font-size: 17px;
 	line-height: 27px;
 	cursor: pointer;
 }
@@ -102,24 +97,24 @@
 }
 
 .bottom .title {
-	font-weight: 600;
-	font-size: 18px;
+	font-weight: 500;
+	font-size: 17px;
 	line-height: 32px;
 }
 
 .bottom p {
-	font-size: 18px;
-	line-height: 28px;
+	font-size: 16.5px;
+	line-height: 1.9;
 }
 
 .details {
 	font-size: 16px;
 	line-height: 29px;
 	color: #535353;
-	padding: 20px 25px;
+	padding: 10px 13px;
 	border: 1px solid #ececfb;
-	border-radius: 16px;
-	margin-top: 36px;
+	border-radius: 8px;
+	margin-top: 20px;
 }
 
 .footNote {
@@ -134,7 +129,7 @@
 	padding: 8px 16px;
 	background: #e2d9f2;
 	border-radius: 4px;
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 16px;
 	text-transform: capitalize;
 	color: #492b7c;
@@ -142,7 +137,7 @@
 }
 
 .interactions {
-	margin-top: 57px;
+	margin-top: 40px;
 }
 
 .interactions .repliesAndLikes {
@@ -150,15 +145,16 @@
 	gap: 28px;
 	align-items: center;
 	border-bottom: 2px solid #ececfb;
-	padding: 16px 0;
+	padding-bottom: 10px;
 }
 
 .icons {
-	padding: 16px 24px;
+	padding: 10px;
 	display: flex;
 	gap: 80px;
 	align-items: center;
 	border-bottom: 0.5px solid #ececfb;
+	justify-content: center;
 }
 
 .icon {
@@ -179,33 +175,99 @@
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
-	/* height: 100vh; */
 	overflow-y: auto;
 }
 
-/* .scrollbar::-webkit-scrollbar {
-	width: 5px;
-}
-
-.scrollbar::-webkit-scrollbar-thumb {
-	background: #6a6a6a;
-	border-radius: 100vh;
-} */
-
-.aside {
-	flex-basis: 450px;
-}
-
 .components {
-	padding-top: 20px;
-	position: sticky;
-	top: 0;
-	right: 0;
+	padding-top: 80px;
 	padding-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
 @media only screen and (max-width: 1040px) {
+	.dashboard {
+		grid-template-columns: 1fr;
+	}
+
 	.aside {
 		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	span.fullName,
+	.timeStamp {
+		font-size: 15px;
+	}
+
+	.likes,
+	.replies,
+	.share {
+		font-size: 14px;
+		padding: 0;
+	}
+
+	.bottom .title {
+		font-size: 16px;
+	}
+
+	.bottom p,
+	.repliesAndLikes {
+		font-size: 15px;
+	}
+
+	.details {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.dashboard {
+		padding: 40px 20px;
+	}
+
+	span.fullName,
+	.timeStamp {
+		font-size: 14px;
+	}
+
+	.bottom .title {
+		font-size: 15px;
+	}
+
+	.bottom p,
+	.repliesAndLikes {
+		font-size: 14px;
+	}
+
+	.details {
+		font-size: 13px;
+	}
+
+	.tags {
+		font-size: 13px;
+		padding: 5px 10px;
+	}
+
+	.icon {
+		height: 17.5px;
+		width: 17.5px;
+	}
+
+	.delete {
+		font-size: 13px;
+		padding: 6px 14px;
+	}
+
+	.back .text {
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.dashboard {
+		padding: 40px 10px;
 	}
 }

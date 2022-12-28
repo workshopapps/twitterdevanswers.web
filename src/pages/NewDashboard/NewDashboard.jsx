@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoFilterOutline } from 'react-icons/io5';
 import TopUsers from './TopUsers/TopUsers';
+import CardSkeleton from '../UsersSuggestion/Skeleton/CardSkeleton';
 import Yml from './Yml/Yml';
 import PostCard from './PostCard/PostCard';
 import Tags from './Tags/Tags';
@@ -38,7 +39,7 @@ function NewDashboard() {
 	}, []);
 
 	return (
-		<div className={` lpContainer`}>
+		<div className="lpContainer">
 			<div className={`${styles.dashboard}`}>
 				<div className={styles.questions}>
 					<main className={styles.main}>
@@ -55,11 +56,13 @@ function NewDashboard() {
 						</div>
 						<section className={styles.body}>
 							<div className={`${styles.postsContainer} ${styles.scrollbar} `}>
-								{questions.length === 0
-									? null
-									: sortByDate(questions).map((post) => (
-											<PostCard post={post} key={post.question_id} />
-									  ))}
+								{questions.length === 0 ? (
+									<CardSkeleton cards={8} />
+								) : (
+									sortByDate(questions).map((post) => (
+										<PostCard post={post} key={post.question_id} />
+									))
+								)}
 							</div>
 						</section>
 					</main>

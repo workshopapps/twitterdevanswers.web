@@ -3,10 +3,17 @@
 	background: #ffffff;
 	border: 1px solid #ececfb;
 	border-radius: 8px;
-	display: flex;
+	display: grid;
+	grid-template-columns: 50px 1fr;
 	gap: 16px;
 	color: #303030;
 	cursor: pointer;
+	@media only screen and (max-width: 350px) {
+		.dashboard {
+			padding: 40px 10px;
+		}
+	}
+
 	text-decoration: none;
 }
 
@@ -14,6 +21,7 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
+	object-fit: cover;
 }
 
 .top {
@@ -52,15 +60,17 @@ span.fullName {
 
 .right h3 {
 	font-weight: 600;
-	font-size: 18px;
+	color: #535353;
+	font-size: 17px;
 	line-height: 24px;
-	margin-bottom: 12px;
+	margin-bottom: 3px;
 }
 
 .right p {
 	font-size: 16px;
 	line-height: 24px;
 	margin-bottom: 16px;
+	line-height: 1.8;
 }
 
 .img {
@@ -82,7 +92,7 @@ span.fullName {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .icons {
@@ -112,4 +122,85 @@ span.fullName {
 
 .heart {
 	width: 15px;
+}
+
+/* Tab view */
+@media (max-width: 768px) {
+	span.fullName,
+	.cardFooter,
+	.title {
+		font-size: 15px;
+	}
+
+	.likes,
+	.replies,
+	.share,
+	.token {
+		font-size: 14px;
+		padding: 0;
+	}
+
+	.right h3 {
+		font-size: 16px;
+	}
+
+	.right p {
+		font-size: 15px;
+	}
+
+	.icons {
+		gap: 10px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.avatar {
+		height: 40px;
+		width: 40px;
+	}
+
+	.tags {
+		font-size: 14px;
+	}
+
+	.card {
+		grid-template-columns: 40px 1fr;
+		gap: 14px;
+	}
+
+	span.fullName,
+	.time,
+	.cardFooter,
+	.title {
+		font-size: 14px;
+	}
+
+	.right h3 {
+		font-size: 15px;
+	}
+
+	.right p {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.card {
+		grid-template-columns: 1fr;
+	}
+
+	.right h3 {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 425px) {
+	span.fullName,
+	.top {
+		display: block;
+	}
+
+	.icons {
+		gap: 8px;
+	}
 }
