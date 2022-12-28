@@ -3,8 +3,9 @@
 }
 
 .hero {
-	width: 90%;
-	margin: 0 auto;
+	/* width: 90%; */
+	/* margin: 0 auto; */
+	padding-left: 5%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
