@@ -28,7 +28,10 @@ export default function InternalHeader() {
 	const {
 		state: { user },
 	} = useContext(AppContext);
+		const { state } = useContext(AppContext);
 
+console.log(user)
+console.log(state.userData.image_url)
 	// prevent scroll if sidenav is open
 	// const [active, setActive] = useState(true);
 
@@ -161,7 +164,12 @@ export default function InternalHeader() {
 				<div className={styles.right}>
 					<ul className={styles.links}>
 						<li>
-							<NavLink to="/dashboard" title="Home" style={linkStyle} className={activeStyle}>
+							<NavLink
+								to="/dashboard"
+								title="Home"
+								style={linkStyle}
+								className={activeStyle}
+							>
 								<div className={styles.link}>
 									<HomeIcon className={styles.icon} />
 									<span>Home</span>
@@ -194,7 +202,12 @@ export default function InternalHeader() {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/wallet" title="Wallet" style={linkStyle} className={activeStyle}>
+							<NavLink
+								to="/wallet"
+								title="Wallet"
+								style={linkStyle}
+								className={activeStyle}
+							>
 								<div className={styles.link}>
 									<WalletIcon className={styles.icon} /> <span>Wallet</span>
 								</div>
@@ -209,19 +222,29 @@ export default function InternalHeader() {
 						</li>
 					</ul>
 					<div className={styles.rest}>
-					<div className={styles.logout}>
-					<NavLink to="/login" title="Logout" style={linkStyle} className={activeStyle} onClick={logout}	>
-									<div className={styles.link}>
-										<Logout  className={styles.icon} /> 
-									</div>
-								</NavLink>
-							</div>
+						<div className={styles.logout}>
+							<NavLink
+								to="/login"
+								title="Logout"
+								style={linkStyle}
+								className={activeStyle}
+								onClick={logout}
+							>
+								<div className={styles.link}>
+									<Logout className={styles.icon} />
+								</div>
+							</NavLink>
+						</div>
 						{/* <div className={styles.search}> */}
 
-							{/* <SearchIcon /> */}
-							{/* <input type="text" placeholder="Search questions..." /> */}
+						{/* <SearchIcon /> */}
+						{/* <input type="text" placeholder="Search questions..." /> */}
 						{/* </div> */}
-						<NavLink to="/notifications-page" title="Notifications" className={activeStyle}>
+						<NavLink
+							to="/notifications-page"
+							title="Notifications"
+							className={activeStyle}
+						>
 							<NotificationIcon className={styles.icon} />
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
@@ -232,11 +255,18 @@ export default function InternalHeader() {
 								className={styles.avatar}
 								// aria-hidden={active}
 							>
-							<img src={avatar} alt="avatar" />
+								<img
+									src={
+										state.userData.image_url
+											? state.userData.image_url
+											: avatar
+									}
+									alt=""
+								/>
 							</NavLink>
 							<div className={styles.profile}>
 								<div className={styles.nameStatus}>
-									<p>{user?.userName}</p>
+									<p>{user?.username}</p>
 									{/* <span onChange={handleLastSeen()}>{userState}</span> */}
 								</div>
 								{/* <span className={styles.lastseen}>{lastSeen}</span> */}

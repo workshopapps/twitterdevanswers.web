@@ -30,7 +30,7 @@ function PostQuestion() {
 	const [questionData, setQuestionData] = useState({
 		id: '',
 		title: '',
-		text: '',
+		detail: '',
 		description: '',
 		tag: '',
 		token: 0,
@@ -99,14 +99,16 @@ function PostQuestion() {
 			...prevState,
 			token: tokenValue,
 		}));
-		if (questionData.token < state.userData.account_balance) {
 		setIsTokensOpen(!isTokensOpen);
-	} else {
-			setIsTokenError('Insufficient token balance...');
-		}
-
 	};
 
+	// 		if (questionData.tokenValue <= state.userData.account_balance) {
+	// else {
+	// 			setIsTokenError('insufficient token balance');
+	// 		}
+	// 	};
+	// console.log(state.userData.account_balance)
+	// console.log(questionData.token)
 	const handleTokenRemoval = () => {
 		setQuestionData((prevState) => ({
 			...prevState,
@@ -173,11 +175,25 @@ function PostQuestion() {
 			questionData.title !== '' &&
 			questionData.detail !== '' &&
 			questionData.description !== '' &&
+			questionData.token !== '' &&
 			questionData.tag !== ''
 		) {
 			setIsModalOpen(true);
 			handleClickScroll();
 		}
+		if (questionData.token > state.userData.account_balance) {
+			setIsTokenError('insufficient token balance');
+		}
+	};
+	const handleDiscard = () => {
+		setQuestionData({
+			id: '',
+			title: '',
+			detail: '',
+			description: '',
+			tag: '',
+			token: 0,
+		});
 	};
 
 	const handleNextDetail = () => {
@@ -600,7 +616,11 @@ function PostQuestion() {
 								Review your question
 							</button>
 
-							<button className={styles.discard} type="button">
+							<button
+								className={styles.discard}
+								type="button"
+								onClick={handleDiscard}
+							>
 								Discard draft
 							</button>
 						</div>
