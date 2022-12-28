@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { BsChatSquareDots, BsShare, BsArrowLeft } from 'react-icons/bs';
 import { ReactComponent as Heart } from './heart.svg';
 import ReplyCard from './ReplyCard/ReplyCard';
+import CardSkeleton from '../UsersSuggestion/Skeleton/CardSkeleton';
 import TopUsers from './TopUsers/TopUsers';
 import Yml from './Yml/Yml';
 import avatar from '../../assets/dashboard/user.png';
@@ -207,7 +208,8 @@ function QuestionPage() {
 						</div>
 						{Object.keys(askedBy).length === 0 ||
 						Object.keys(question).length === 0 ? (
-							<div>loading</div>
+							// <div>loading</div>
+							<CardSkeleton cards={3} />
 						) : (
 							<div className={styles.body}>
 								<div className={styles.question}>
