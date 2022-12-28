@@ -5,6 +5,10 @@
 	font-size: 12px;
 }
 
+.ymlPost .img_box {
+	flex-shrink: 0;
+}
+
 .ymlPost img {
 	width: 50px;
 	height: 50px;
@@ -21,7 +25,7 @@
 .title a:visited {
 	text-decoration: none;
 	/* font-weight: 500; */
-	font-size: 17px;
+	font-size: 16px;
 	font-weight: 500;
 	line-height: 27px;
 	color: #303030;

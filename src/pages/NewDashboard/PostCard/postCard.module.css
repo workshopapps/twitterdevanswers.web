@@ -8,6 +8,12 @@
 	gap: 16px;
 	color: #303030;
 	cursor: pointer;
+	@media only screen and (max-width: 350px) {
+		.dashboard {
+			padding: 40px 10px;
+		}
+	}
+
 	text-decoration: none;
 }
 
@@ -15,6 +21,7 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
+	object-fit: cover;
 }
 
 .top {
@@ -126,60 +133,27 @@ span.fullName {
 	}
 
 	.likes,
-	.viewReplies,
+	.replies,
 	.share,
 	.token {
 		font-size: 14px;
+		padding: 0;
 	}
-
 
 	.right h3 {
 		font-size: 16px;
 	}
-	
+
 	.right p {
 		font-size: 15px;
 	}
-	
-/* 
-	.icons img,
-	.reward img {
-		width: 20px;
-		height: 20px;
-	} */
 
-	/* .avatar {
-		height: 40px;
-		width: 40px;
-	}
-
-	.card {
-		grid-template-columns: 40px 1fr;
-	} */
 	.icons {
 		gap: 10px;
 	}
-
-
-	/* .userInfo p {
-		margin-right: 10px;
-	} */
 }
 
-
-@media only screen and (max-width: 500px) {
-	/* .header button {
-		font-size: 14px;
-	}
-
-	.userInfo {
-		display: block;
-	}
-
-	.userInfo > * {
-		margin: 0;
-	} */
-
+@media only screen and (max-width: 600px) {
 	.avatar {
 		height: 40px;
 		width: 40px;
@@ -191,6 +165,7 @@ span.fullName {
 
 	.card {
 		grid-template-columns: 40px 1fr;
+		gap: 14px;
 	}
 
 	span.fullName,
@@ -203,9 +178,29 @@ span.fullName {
 	.right h3 {
 		font-size: 15px;
 	}
-	
 
 	.right p {
 		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.card {
+		grid-template-columns: 1fr;
+	}
+
+	.right h3 {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 425px) {
+	span.fullName,
+	.top {
+		display: block;
+	}
+
+	.icons {
+		gap: 8px;
 	}
 }

@@ -121,7 +121,9 @@ function ReplyCard({
 								{timeStamp(createdAt)}
 							</span>
 						</div>
-						<div className={styles.replyingTo}>Replying to @{replyingTo}</div>
+						<div className={`${styles.replyingTo} ${styles.replyingTo_lg}`}>
+							Replying to @{replyingTo}
+						</div>
 					</div>
 				</div>
 				<div className={styles.topRight}>
@@ -138,7 +140,12 @@ function ReplyCard({
 					<FaEllipsisV />
 				</div>
 			</div>
-			<div className={styles.text}>{content}</div>
+			<div className={styles.text}>
+				<div className={`${styles.replyingTo} ${styles.replyingTo_sm}`}>
+					Replying to @{replyingTo}
+				</div>
+				{content}
+			</div>
 		</div>
 	);
 }

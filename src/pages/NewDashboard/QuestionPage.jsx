@@ -203,7 +203,7 @@ function QuestionPage() {
 									Go back
 								</span>
 							</div>
-							<p>Based on who you follow</p>
+							{/* <p>Based on who you follow</p> */}
 						</div>
 						{Object.keys(askedBy).length === 0 ||
 						Object.keys(question).length === 0 ? (

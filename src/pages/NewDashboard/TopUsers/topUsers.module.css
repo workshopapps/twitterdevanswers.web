@@ -1,7 +1,8 @@
 .users {
 	width: 100%;
 	padding: 24px;
-	background: #f6f0ff;
+	background: #fcfbff;
+	border: 1px solid #ececfb;
 	border-radius: 16px;
 	font-size: 12px;
 	/* margin: 0em 0em 3em 0em; */
@@ -14,9 +15,9 @@
 }
 
 .header h3 {
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 27px;
+	font-weight: 600;
+	font-size: 17px;
+	/* line-height: 27px; */
 	color: #1f1f1f;
 }
 
