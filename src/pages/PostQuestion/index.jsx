@@ -100,6 +100,7 @@ function PostQuestion() {
 			token: tokenValue,
 		}));
 		localStorage.setItem('tokenValue', tokenValue)
+		if (questionData.token < state.userData.account_balance) {
 		setIsTokensOpen(!isTokensOpen);
 	};
 
@@ -197,27 +198,27 @@ function PostQuestion() {
 	};
 
 	const deductAllTransaction = async (token, questionId) => {
-        try {
-            const deduct = {
-                url: 'https://api.devask.hng.tech/admin/transactions/question/deduct',
-                method: 'POST',
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-                data: {
-                    amount: token,
-                    question_id: questionId ,
-                    commission: 10
-                }
-            };
-            const deductedTransaction = await axios(deduct);
-            console.log('deducted',deductedTransaction);
-        } catch (err) {
-            // setIsError(false);
-			console.log('err', err)
-        }
-    }
+		try {
+			const deduct = {
+				url: 'https://api.devask.tech/admin/transactions/question/deduct',
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+				},
+				data: {
+					amount: token,
+					question_id: questionId,
+					commission: 10,
+				},
+			};
+			const deductedTransaction = await axios(deduct);
+			console.log('deducted', deductedTransaction);
+		} catch (err) {
+			// setIsError(false);
+			console.log('err', err);
+		}
+	};
 
 	const postNewQuestion = async () => {
 		const details = {
@@ -240,7 +241,7 @@ function PostQuestion() {
 
 		try {
 			const data = await axios.post(
-				'https://api.devask.hng.tech/questions',
+				'https://api.devask.tech/questions',
 				details,
 				{
 					headers,
@@ -248,8 +249,8 @@ function PostQuestion() {
 			);
 			if (data) {
 				setIsSuccessful(true);
-				console.log('data', data)
-				deductAllTransaction(questionData.token, data.data.id)
+				console.log('data', data);
+				deductAllTransaction(questionData.token, data.data.id);
 				setTimeout(() => {
 					navigate('/dashboard');
 				}, 5000);
@@ -259,7 +260,6 @@ function PostQuestion() {
 		}
 	};
 
-	
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		postNewQuestion();
@@ -309,12 +309,14 @@ function PostQuestion() {
 
 										<div>
 											<h3 className={styles.modalHeader}>Details</h3>
-											<p className={styles.modalBody}>{questionData.title}</p>
+											<p className={styles.modalBody}>{questionData.detail}</p>
 										</div>
 
 										<div>
 											<h3 className={styles.modalHeader}>Description</h3>
-											<p className={styles.modalBody}>{questionData.title}</p>
+											<p className={styles.modalBody}>
+												{questionData.description}
+											</p>
 										</div>
 
 										<div>

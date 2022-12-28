@@ -1,6 +1,6 @@
-/* eslint-disable react/no-unused-prop-types */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+// /* eslint-disable react/no-unused-prop-types */
+// /* eslint-disable no-undef */
+// /* eslint-disable no-unused-vars */
 import React, { memo, useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { FaEllipsisV } from 'react-icons/fa';
@@ -26,7 +26,7 @@ function ReplyCard({
 	const [msg, setMsg] = useState('');
 	const [loggedInUserCred, setLoggedInUserCred] = useState({});
 
-	const { usename } = JSON.parse(localStorage.getItem('user'));
+	const { username } = JSON.parse(localStorage.getItem('user'));
 
 	const { getUsers, handleNavigate, getUserbyUsername, selectCorrectAnswer } =
 		useMessenger();
@@ -43,7 +43,7 @@ function ReplyCard({
 		};
 
 		const fetchUserByUserName = async () => {
-			const result = await getUserbyUsername(usename);
+			const result = await getUserbyUsername(username);
 			setLoggedInUserCred(result);
 		};
 
@@ -86,7 +86,7 @@ function ReplyCard({
 			return;
 		}
 
-		if (usename === replyingTo || loggedInUserCred.is_admin) {
+		if (username === replyingTo || loggedInUserCred.is_admin) {
 			try {
 				const response = await selectCorrectAnswer(answerId, +questionId);
 				setMsg(response.data.detail);
@@ -151,7 +151,9 @@ function ReplyCard({
 								{timeStamp(createdAt)}
 							</span>
 						</div>
-						<div className={styles.replyingTo}>Replying to @{replyingTo}</div>
+						<div className={`${styles.replyingTo} ${styles.replyingTo_lg}`}>
+							Replying to @{replyingTo}
+						</div>
 					</div>
 				</div>
 				<div className={styles.topRight}>
@@ -168,7 +170,12 @@ function ReplyCard({
 					<FaEllipsisV />
 				</div>
 			</div>
-			<div className={styles.text}>{content}</div>
+			<div className={styles.text}>
+				<div className={`${styles.replyingTo} ${styles.replyingTo_sm}`}>
+					Replying to @{replyingTo}
+				</div>
+				{content}
+			</div>
 		</div>
 	);
 }

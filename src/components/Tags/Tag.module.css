@@ -1,6 +1,6 @@
 .tag {
 	background: #fefefe;
-	padding: 20px;
+	padding: 5px 5px;
 	width: 100%;
 	color: #333;
 	word-break: break-word;
@@ -21,7 +21,7 @@
 .tag-list-container {
 	display: grid;
 	grid-template-columns: auto 1fr;
-	gap: 30px;
+	gap: 10px;
 }
 
 .tag-list-container .user-img {
@@ -118,10 +118,13 @@
 	align-items: center;
 	gap: 5px;
 }
+.dev__flexitem .date{
+	font-size: 0.8rem;
+}
 .profile-box1 {
 	/* display: flex; */
 	justify-content: space-between;
-	height: 20px;
+	/* height: 20px; */
 }
 
 .profile-box1 > div {
@@ -136,7 +139,7 @@
 
 @media screen and (max-width: 1110px) {
 	.tag-container {
-		grid-template-rows: auto 1fr 2fr auto auto;
+		grid-template-rows: auto 2fr auto auto;
 	}
 }
 

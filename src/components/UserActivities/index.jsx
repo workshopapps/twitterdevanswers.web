@@ -13,7 +13,7 @@ const token = localStorage.getItem('token');
 const userFromStorage = JSON.parse(localStorage.getItem('user'));
 
 async function getUser() {
-	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+	const response = await axios.get(`https://api.devask.tech/users/`, {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
@@ -22,7 +22,7 @@ async function getUser() {
 }
 
 async function getTotalReplies(id) {
-	const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
+	const response = await axios.get(`https://api.devask.tech/answer/${id}`, {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
@@ -45,7 +45,7 @@ function UserActivities() {
 	const [sections, setSections] = useState();
 	const [answers, setAnswers] = useState([]);
 	const [tabButtons, setTabButtons] = useState();
-	const isVisitor = userFromStorage?.usename !== thisuser;
+	const isVisitor = userFromStorage?.username !== thisuser;
 
 	const [users, setUsers] = useState([]);
 	const [info, setInfo] = useState({});
@@ -64,7 +64,7 @@ function UserActivities() {
 	useEffect(() => {
 		(async function getData() {
 			const userIdResponse = await axios.get(
-				`https://api.devask.hng.tech/users/get/${thisuser}`,
+				`https://api.devask.tech/users/get/${thisuser}`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -75,7 +75,7 @@ function UserActivities() {
 
 			try {
 				const response = await axios.get(
-					`https://api.devask.hng.tech/questions/${userIdData}/user`,
+					`https://api.devask.tech/questions/${userIdData}/user`,
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,
@@ -101,7 +101,7 @@ function UserActivities() {
 			const fetchUser = async () => {
 				try {
 					const data = await axios.get(
-						`https://api.devask.hng.tech/users/get/${thisuser}`,
+						`https://api.devask.tech/users/get/${thisuser}`,
 						{
 							headers: {
 								Authorization: `Bearer ${token}`,
@@ -118,7 +118,7 @@ function UserActivities() {
 
 			try {
 				const allQuestionsResponse = await axios.get(
-					`https://api.devask.hng.tech/questions/`,
+					`https://api.devask.tech/questions/`,
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,
@@ -134,7 +134,7 @@ function UserActivities() {
 
 			try {
 				const allAnswersResponse = await axios.get(
-					`https://api.devask.hng.tech/answer/${userIdData}/user/`,
+					`https://api.devask.tech/answer/${userIdData}/user/`,
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,
@@ -151,7 +151,7 @@ function UserActivities() {
 			const fetchTotalLikes = async () => {
 				try {
 					const data = await axios.get(
-						`https://api.devask.hng.tech/users/likes/${userIdData}`,
+						`https://api.devask.tech/users/likes/${userIdData}`,
 						{
 							headers: {
 								Authorization: `Bearer ${token}`,

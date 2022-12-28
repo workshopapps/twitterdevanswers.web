@@ -1,15 +1,30 @@
 import React from 'react';
-import Hero3 from '../../components/Hero3/Hero3';
-import HowItWorks from '../../components/HowItWorks2/HowItWorks';
+// import Hero3 from '../../components/Hero3/Hero3';
+// import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import rotation from '../../assets/landing-images/rotation.svg'
+// import HowItWorks from '../../components/HowItWorks2/HowItWorks';
 import NewsletterSub from '../../components/NewsletterSub/NewsletterSub';
 
-import styles from './firstlandingpage.module.css';
+import styles from './landingpage.module.css';
 
-function FirstLandingPage() {
+
+const Hero3 = React.lazy(() => import('../../components/Hero3/Hero3'));
+const HowItWorks = React.lazy(() => import('../../components/HowItWorks2/HowItWorks'));
+
+function LandingPage() {
 	return (
 		<div className={styles.landing}>
-			<Hero3 />
-
+			<React.Suspense
+				fallback={
+					<span className={styles.loader}>
+						{/* <AiOutlineLoading3Quarters /> */}
+						<img src={rotation} alt="rotation" />
+					</span>
+				}
+			>
+				<Hero3 />
+			</React.Suspense>
+			<div className={styles.Aim}>
 			<div className={styles.LandingAim}>
 				<h4>Who we are</h4>
 				<h2>
@@ -33,10 +48,20 @@ function FirstLandingPage() {
 					</p>
 				</div>
 			</div>
-			<HowItWorks />
+			</div>
+			<React.Suspense
+				fallback={
+					<span className={styles.loader}>
+						{/* <AiOutlineLoading3Quarters /> */}
+						<img src={rotation} alt="rotation" />
+					</span>
+				}
+			>
+				<HowItWorks />
+			</React.Suspense>
 			<NewsletterSub />
 		</div>
 	);
 }
 
-export default FirstLandingPage;
+export default LandingPage;

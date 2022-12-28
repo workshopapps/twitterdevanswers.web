@@ -25,7 +25,7 @@ function ManageUser() {
 	const viewUserWallet = async (id) => {
 		const userId = id;
 		try {
-			const response = await axios.get(`https://api.devask.hng.tech/user/wallet/view/${userId}`);
+			const response = await axios.get(`https://api.devask.tech/user/wallet/view/${userId}`);
 			const { balance} = response.data;
 			const totalSpent = response.data.total_spent;
 			const totalEarned = response.data.total_earned;
@@ -52,7 +52,7 @@ function ManageUser() {
 
 			try {
 				const data = await axios.get(
-					`https://api.devask.hng.tech/admin/user/${username}`,
+					`https://api.devask.tech/admin/user/${username}`,
 					{
 						headers,
 					}
@@ -82,7 +82,7 @@ function ManageUser() {
 
 		try {
 			const data = await axios.delete(
-				`https://api.devask.hng.tech/admin/user/${userValue}`,
+				`https://api.devask.tech/admin/user/${userValue}`,
 				{
 					headers,
 				}
@@ -106,7 +106,7 @@ function ManageUser() {
 
 		try {
 			const data = await axios.post(
-				`https://api.devask.hng.tech/admin/remove/${userValue}`,
+				`https://api.devask.tech/admin/remove/${userValue}`,
 				{
 					headers,
 				}
@@ -130,7 +130,7 @@ function ManageUser() {
 
 		try {
 			const data = await axios.post(
-				`https://api.devask.hng.tech/admin/add/${userValue}`,
+				`https://api.devask.tech/admin/add/${userValue}`,
 				{
 					headers,
 				}

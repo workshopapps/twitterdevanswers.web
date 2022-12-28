@@ -42,6 +42,7 @@ function YmlPosts({
 			onClick={(event) => handleNavigate(event, `/question-page/${questionId}`)}
 		>
 			<div
+			className={styles.img_box}
 				role="link"
 				onKeyDown={() => {}}
 				tabIndex={0}

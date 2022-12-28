@@ -16,7 +16,7 @@ function UserProfileCard({ user }) {
 
 			try {
 				const res = await axios.get(
-					`https://api.devask.hng.tech/following/followers/${userId}`,
+					`https://api.devask.tech/following/followers/${userId}`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,
@@ -42,7 +42,7 @@ function UserProfileCard({ user }) {
 
 		try {
 			const res = await axios.post(
-				'https://api.devask.hng.tech/following/follow/',
+				'https://api.devask.tech/following/follow/',
 				details,
 				{
 					headers,
@@ -65,7 +65,7 @@ function UserProfileCard({ user }) {
 
 		try {
 			const res = await axios.delete(
-				`https://api.devask.hng.tech/following/unfollow/${userId}`,
+				`https://api.devask.tech/following/unfollow/${userId}`,
 				{
 					headers,
 				}

@@ -1,8 +1,10 @@
 .yml {
-	margin-top: 24px;
+	width: 100%;
 	padding: 24px;
-	background: #f6f0ff;
+	background: #fcfbff;
+	border: 1px solid #ececfb;
 	border-radius: 16px;
+	/* margin: 2em 0em; */
 }
 
 .header {

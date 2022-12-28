@@ -12,6 +12,8 @@ import styles from './tags.module.css';
 import tagstyles from './index.module.css';
 // import share from '../../assets/dashboard-images/share.webp';
 
+import CardSkeleton from '../UsersSuggestion/Skeleton/CardSkeleton';
+
 const defaultPage = {
 	start: 0,
 	end: tagsPerPage,
@@ -21,7 +23,7 @@ const defaultPage = {
 export default function Tags() {
 	const token = localStorage.getItem('token');
 	async function getUser() {
-		const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+		const response = await axios.get(`https://api.devask.tech/users/`, {
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
@@ -31,7 +33,7 @@ export default function Tags() {
 
 	async function getTotalReplies(id) {
 		const response = await axios.get(
-			`https://api.devask.hng.tech/answer/${id}`,
+			`https://api.devask.tech/answer/${id}`,
 			{
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -50,15 +52,15 @@ export default function Tags() {
 	const [tags, setTags] = useState([]);
 	const findUser = (id) => users.find((user) => user.user_id === id);
 
-	useEffect(() => {
+		useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
-				'https://api.devask.hng.tech/questions/',
+				'https://api.devask.tech/questions/',
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
 					},
-				}
+				},
 			);
 
 			const fetchedQuestions = await response.data.data;
@@ -70,7 +72,7 @@ export default function Tags() {
 			const fetchedReplies = fetchedQuestions.map(async (fetchedQuestion) =>
 				getTotalReplies(fetchedQuestion.question_id)
 			);
-
+			
 			Promise.all([...fetchedReplies].reverse()).then((reply) =>
 				setReplies((prevState) => [...prevState, reply])
 			);
@@ -140,11 +142,13 @@ export default function Tags() {
 				</header>
 
 				<nav className={styles['tags-nav']}>
+					<span>
 					<Button
 						type={BUTTON_TYPES.SECONDARY}
 						onClick={filterTagsHandler}
 						btnText="Java"
 					/>
+					</span>
 					<span className={styles.hidden_8}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
@@ -182,7 +186,7 @@ export default function Tags() {
 							btnText="Node.js"
 						/>
 					</span>
-					{/* <span className={styles.hidden_2}>
+					<span className={styles.hidden_2}>
 						<Button
 							type={BUTTON_TYPES.PRIMARY}
 							onClick={filterTagsHandler}
@@ -216,12 +220,14 @@ export default function Tags() {
 							onClick={filterTagsHandler}
 							btnText="R"
 						/>
-					</span> */}
+					</span>
+					<span>
 					<Button
 						type={BUTTON_TYPES.PRIMARY}
 						onClick={filterTagsHandler}
 						btnText="View all"
 					/>
+					</span>
 				</nav>
 
 				<div>
@@ -239,7 +245,10 @@ export default function Tags() {
 											index={index}
 										/>
 									))
-							: 'Selected Tags Record not Available..'}
+							: 
+							// 'Selected Tags Record not Available..'
+							<CardSkeleton cards={8} />
+							}
 					</div>
 				</div>
 				{tags.length > tagsPerPage && (
@@ -258,7 +267,7 @@ export default function Tags() {
 						className={`${tagstyles.topics} ${tagstyles['aside-container']}`}
 					>
 						<h3 className={tagstyles['heading-secondary']}>You might like</h3>
-						{questions.map((question, i) => (
+						{questions.slice(0,7).map((question, i) => (
 							<div key={question.question_id} className={tagstyles.topic}>
 								<Link to={`/profile/${findUser(question.owner_id)?.username}`}>
 									<img
@@ -315,7 +324,7 @@ export default function Tags() {
 							</div>
 						))}
 
-						<Link to="/users-page">See more</Link>
+						<Link to="/users-suggestion">See more</Link>
 					</div>
 				</section>
 			</aside>

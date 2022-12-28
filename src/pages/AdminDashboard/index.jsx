@@ -35,7 +35,7 @@ function AdminDashboard() {
 		};
 
 		try {
-			const data = await axios.get('https://api.devask.hng.tech/users', {
+			const data = await axios.get('https://api.devask.tech/users', {
 				headers,
 			});
 			console.log('data', data.data.data)

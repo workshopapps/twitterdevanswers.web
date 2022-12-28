@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { BsChatSquareDots, BsShare, BsArrowLeft } from 'react-icons/bs';
 import { ReactComponent as Heart } from './heart.svg';
 import ReplyCard from './ReplyCard/ReplyCard';
+import CardSkeleton from '../UsersSuggestion/Skeleton/CardSkeleton';
 import TopUsers from './TopUsers/TopUsers';
 import Yml from './Yml/Yml';
 import avatar from '../../assets/dashboard/user.png';
@@ -72,7 +73,7 @@ function QuestionPage() {
 
 	useEffect(() => {
 		const fetchUserByUserName = async () => {
-			const result = await getUserbyUsername(cred?.usename);
+			const result = await getUserbyUsername(cred?.username);
 			setLoggedInUserCred(result);
 		};
 
@@ -183,153 +184,163 @@ function QuestionPage() {
 	const numOfLikes = liked?.filter((item) => item.like_type === 'up');
 
 	return (
-		<div className="dashContainer">
+		<div className="lpContainer">
 			<div className="modal">{modal && <AuthModal text={msg} />}</div>
 			<div className={styles.dashboard}>
-				<section className={styles.main}>
-					<div className={styles.header}>
-						<div className={styles.back}>
-							<span>
-								<BsArrowLeft className={styles.icon} />
-							</span>
-							<span
-								className={styles.text}
-								role="button"
-								onKeyDown={() => {}}
-								onClick={() => navigate(-1)}
-								tabIndex="0"
-							>
-								Go back
-							</span>
+				<div className={styles.questionInfo}>
+					<section className={styles.main}>
+						<div className={styles.header}>
+							<div className={styles.back}>
+								<span>
+									<BsArrowLeft className={styles.icon} />
+								</span>
+								<span
+									className={styles.text}
+									role="button"
+									onKeyDown={() => {}}
+									onClick={() => navigate(-1)}
+									tabIndex="0"
+								>
+									Go back
+								</span>
+							</div>
+							{/* <p>Based on who you follow</p> */}
 						</div>
-						<p>Based on who you follow</p>
-					</div>
-					{Object.keys(askedBy).length === 0 ||
-					Object.keys(question).length === 0 ? (
-						<div>loading</div>
-					) : (
-						<div className={styles.body}>
-							<div className={styles.question}>
-								<div className={styles.top}>
-									<div className={styles.user}>
-										<div
-											className={styles.avatar}
-											role="link"
-											onKeyDown={() => {}}
-											tabIndex={0}
-											onClick={(event) =>
-												handleNavigate(event, `/profile/${askedBy?.user_id}`)
-											}
-										>
-											<img
-												src={
-													askedBy?.image_url?.trim() === ''
-														? avatar
-														: askedBy?.image_url
-												}
-												alt="user avatar"
-											/>
-										</div>
-										<div className={styles.userNstamp}>
-											<span
-												className={styles.fullName}
+						{Object.keys(askedBy).length === 0 ||
+						Object.keys(question).length === 0 ? (
+							// <div>loading</div>
+							<CardSkeleton cards={1} />
+						) : (
+							<div className={styles.body}>
+								<div className={styles.question}>
+									<div className={styles.top}>
+										<div className={styles.user}>
+											<div
+												className={styles.avatar}
 												role="link"
 												onKeyDown={() => {}}
 												tabIndex={0}
 												onClick={(event) =>
 													handleNavigate(event, `/profile/${askedBy?.user_id}`)
 												}
-											>{`${askedBy?.first_name} ${askedBy?.last_name}`}</span>
-											<span className={styles.timeStamp}>{formatDate()}</span>
-										</div>
-									</div>
-									{askedBy.user_id === loggedInUserId ||
-									loggedInUserCred?.is_admin ? (
-										<button
-											onClick={handleDelete}
-											type="button"
-											className={styles.delete}
-										>
-											Delete
-										</button>
-									) : null}
-								</div>
-								<div className={styles.bottom}>
-									<h3 className={styles.title}>{question?.title}</h3>
-									<p>{question?.content}</p>
-									<div className={styles.details}>
-										{question?.expected_result}
-									</div>
-									{/* <p className={styles.footNote}>
-										Thanks anyone out there who can see my mistake!
-									</p> */}
-									<div>
-										{question?.tag.trim() !== '' && (
-											<span className={styles.tags}>{question?.tag}</span>
-										)}
-									</div>
-
-									<div className={styles.interactions}>
-										<div className={styles.repliesAndLikes}>
-											<span>
-												{answers?.length} repl
-												{answers?.length > 1 || answers?.length === 0
-													? 'ies'
-													: 'y'}
-											</span>
-											<span>
-												{numOfLikes?.length} like
-												{numOfLikes?.length > 1 || numOfLikes?.length === 0
-													? 's'
-													: ''}
-											</span>
-										</div>
-										<div className={styles.icons}>
-											<div className={styles.message}>
-												<BsChatSquareDots className={styles.icon} />
-											</div>
-											<div className={styles.likes}>
-												<Heart
-													className={styles.icon}
-													onClick={handleLIke}
-													style={{
-														fill:
-															alreadyLiked?.like_type === 'up'
-																? '#4343DE'
-																: 'transparent',
-													}}
+											>
+												<img
+													src={
+														askedBy?.image_url?.trim() === ''
+															? avatar
+															: askedBy?.image_url
+													}
+													alt="user avatar"
 												/>
 											</div>
-											<Modal onClose={hideShare} show={show} hide={hideShare} />
-
+											<div className={styles.userNstamp}>
+												<span
+													className={styles.fullName}
+													role="link"
+													onKeyDown={() => {}}
+													tabIndex={0}
+													onClick={(event) =>
+														handleNavigate(
+															event,
+															`/profile/${askedBy?.user_id}`
+														)
+													}
+												>{`${askedBy?.first_name} ${askedBy?.last_name}`}</span>
+												<span className={styles.timeStamp}>{formatDate()}</span>
+											</div>
+										</div>
+										{askedBy.user_id === loggedInUserId ||
+										loggedInUserCred?.is_admin ? (
 											<button
+												onClick={handleDelete}
 												type="button"
-												onClick={showShare}
-												className={styles.share}
+												className={styles.delete}
 											>
-												<BsShare className={styles.icon} />
+												Delete
 											</button>
+										) : null}
+									</div>
+									<div className={styles.bottom}>
+										<h3 className={styles.title}>{question?.title}</h3>
+										<p>{question?.content}</p>
+										<div className={styles.details}>
+											{question?.expected_result}
+										</div>
+										{/* <p className={styles.footNote}>
+										Thanks anyone out there who can see my mistake!
+									</p> */}
+										<div>
+											{question?.tag.trim() !== '' && (
+												<span className={styles.tags}>{question?.tag}</span>
+											)}
+										</div>
+
+										<div className={styles.interactions}>
+											<div className={styles.repliesAndLikes}>
+												<span>
+													{answers?.length} repl
+													{answers?.length > 1 || answers?.length === 0
+														? 'ies'
+														: 'y'}
+												</span>
+												<span>
+													{numOfLikes?.length} like
+													{numOfLikes?.length > 1 || numOfLikes?.length === 0
+														? 's'
+														: ''}
+												</span>
+											</div>
+											<div className={styles.icons}>
+												<div className={styles.message}>
+													<BsChatSquareDots className={styles.icon} />
+												</div>
+												<div className={styles.likes}>
+													<Heart
+														className={styles.icon}
+														onClick={handleLIke}
+														style={{
+															fill:
+																alreadyLiked?.like_type === 'up'
+																	? '#4343DE'
+																	: 'transparent',
+														}}
+													/>
+												</div>
+												<Modal
+													onClose={hideShare}
+													show={show}
+													hide={hideShare}
+												/>
+
+												<button
+													type="button"
+													onClick={showShare}
+													className={styles.share}
+												>
+													<BsShare className={styles.icon} />
+												</button>
+											</div>
 										</div>
 									</div>
 								</div>
+								<AnswerInput handleSubmitAnswer={handleSubmitAnswer} />
 							</div>
-							<AnswerInput handleSubmitAnswer={handleSubmitAnswer} />
-						</div>
-					)}
+						)}
 
-					<div className={`${styles.replies} ${styles.scrollbar}`}>
-						{answers.length === 0
-							? null
-							: sortByDate(answers)?.map((reply) => (
-									<ReplyCard
-										reply={reply}
-										questionId={id}
-										key={reply.answer_id}
-										poster={askedBy && askedBy.username}
-									/>
-							  ))}
-					</div>
-				</section>
+						<div className={`${styles.replies} ${styles.scrollbar}`}>
+							{answers.length === 0
+								? null
+								: sortByDate(answers)?.map((reply) => (
+										<ReplyCard
+											reply={reply}
+											questionId={id}
+											key={reply.answer_id}
+											poster={askedBy && askedBy.username}
+										/>
+								  ))}
+						</div>
+					</section>
+				</div>
 				<aside className={styles.aside}>
 					<div className={styles.components}>
 						<TopUsers />

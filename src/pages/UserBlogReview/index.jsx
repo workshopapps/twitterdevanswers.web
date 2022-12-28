@@ -28,7 +28,7 @@ function UserBlogReview() {
 		const fetchUser = async () => {
 			try {
 				const response = await axios.get(
-					`https://api.devask.hng.tech/blog/${id}`
+					`https://api.devask.tech/blog/${id}`
 				);
 				setBlog(response.data);
 			} catch (err) {
@@ -50,7 +50,7 @@ function UserBlogReview() {
 		const deleteBlog = async () => {
 			try {
 				const deleteRespose = await fetch(
-					`https://api.devask.hng.tech/blog/${id}/admin`,
+					`https://api.devask.tech/blog/${id}/admin`,
 					{
 						method: 'DELETE',
 						headers: {
@@ -63,7 +63,7 @@ function UserBlogReview() {
 				console.log(deleteRespose);
 				setApproveModalIsOpen(false);
 				setDeleteModalIsOpen(false);
-				navigate('/blog-page-review');
+				navigate('/blog-submit-review');
 			} catch (err) {
 				// console.error(err);
 			}
@@ -75,7 +75,7 @@ function UserBlogReview() {
 		const approveBlog = async () => {
 			try {
 				const approveResponse = await fetch(
-					`https://api.devask.hng.tech/blog/submit`,
+					`https://api.devask.tech/blog/submit`,
 					{
 						method: 'POST',
 						headers: {
@@ -108,7 +108,7 @@ function UserBlogReview() {
 			<nav className={styles.usernav}>
 				<h4>Admin Dashboard</h4>
 				<img src={rightWay} alt="rightWay" />
-				<Link to="/blog-page-review">
+				<Link to="/blog-submit-review">
 					<h4>Blog</h4>
 				</Link>
 				<img src={rightWay} alt="rightWay" />

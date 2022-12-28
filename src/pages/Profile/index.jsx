@@ -7,7 +7,7 @@ import UserActivities from '../../components/UserActivities';
 
 const token = localStorage.getItem('token');
 async function getTotalReplies(id) {
-	const response = await axios.get(`https://api.devask.hng.tech/answer/${id}`, {
+	const response = await axios.get(`https://api.devask.tech/answer/${id}`, {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
@@ -15,7 +15,7 @@ async function getTotalReplies(id) {
 	return response.data.length;
 }
 async function getUser() {
-	const response = await axios.get(`https://api.devask.hng.tech/users/`, {
+	const response = await axios.get(`https://api.devask.tech/users/`, {
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
@@ -30,7 +30,7 @@ function Profile() {
 	useEffect(() => {
 		(async function getData() {
 			const response = await axios.get(
-				'https://api.devask.hng.tech/questions/',
+				'https://api.devask.tech/questions/',
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,

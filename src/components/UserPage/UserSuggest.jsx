@@ -22,7 +22,7 @@ function UserSuggest() {
 			try {
 				setIsLoading(true);
 				const data = await axios.get(
-					`https://api.devask.hng.tech/users/`,
+					`https://api.devask.tech/users/`,
 					{
 						headers: {
 							Authorization: `Bearer ${state.token}`,
@@ -41,7 +41,7 @@ function UserSuggest() {
     useEffect(() => {
         const getFollow = async (userId) => {
         try {
-            const res = await axios.get(`https://api.devask.hng.tech/following/followers/${userId}`, {
+            const res = await axios.get(`https://api.devask.tech/following/followers/${userId}`, {
                 headers: {
                     'Authorization': `Bearer ${state.token}`
                 }
@@ -69,7 +69,7 @@ function UserSuggest() {
                     
 
                 try {
-            const res=  await axios.post("https://api.devask.hng.tech/following/follow/", 
+            const res=  await axios.post("https://api.devask.tech/following/follow/", 
                 details,
                 {
                     headers,
@@ -96,7 +96,7 @@ function UserSuggest() {
                     
 
             try {
-        const res =  await axios.delete(`https://api.devask.hng.tech/following/unfollow/${userId}`, 
+        const res =  await axios.delete(`https://api.devask.tech/following/unfollow/${userId}`, 
                 {
                     headers,
                 }

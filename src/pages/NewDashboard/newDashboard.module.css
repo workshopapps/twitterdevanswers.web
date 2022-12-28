@@ -1,23 +1,26 @@
 .dashboard {
-	padding-top: 40px;
-	padding-bottom: 40px;
-	color: #303030;
-	display: flex;
-	gap: 50px;
-	position: relative;
 	height: 100%;
+	max-width: 1300px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 40px;
+	color: #303030;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 30px;
+}
+
+.questions {
+	/* flex: 1;
+	display: flex;
+	justify-content: center; */
 }
 
 .main {
-	width: 813px;
-	flex: 1 1 auto;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 26px;
-}
-
-.body {
-	height: 100%;
 }
 
 .header {
@@ -114,7 +117,6 @@
 	gap: 8px;
 	/* height: 100vh; */
 	/* overflow-y: auto; */
-	padding-right: 10px;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -127,20 +129,53 @@
 }
 
 .aside {
-	padding-top: 20px;
-	width: 479px;
-	flex: 0 1 auto;
-	height: 100%;
-	margin-top: 72px;
-	padding-right: 20px;
-	position: sticky;
-	top: 0;
-	right: 0;
+	/* flex-basis: 450px; */
+	width: 100%;
 	padding-bottom: 40px;
 }
 
+.components {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
 @media only screen and (max-width: 1040px) {
+	.dashboard {
+		grid-template-columns: 1fr;
+	}
+
 	.aside {
 		display: none;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.dashboard {
+		padding: 40px 20px;
+	}
+
+	.header div {
+		gap: 15px;
+	}
+
+	.header h2 {
+		font-size: 20px;
+	}
+
+	.btn:link,
+	.btn:visited {
+		font-size: 13px;
+		padding: 8px 15px;
+	}
+
+	.header .icon {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.dashboard {
+		padding: 40px 10px;
 	}
 }

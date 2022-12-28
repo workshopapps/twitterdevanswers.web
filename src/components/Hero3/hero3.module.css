@@ -1,10 +1,11 @@
 .herosect {
-	background: linear-gradient(180deg, #ffffff 0%, #e9ddfe 100%);
+	/* background: linear-gradient(180deg, #ffffff 0%, #e9ddfe 100%); */
 }
 
 .hero {
-	width: 90%;
-	margin: 0 auto;
+	/* width: 90%; */
+	/* margin: 0 auto; */
+	padding-left: 5%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -33,7 +34,7 @@
 	font-size: 20px;
 	line-height: 24px;
 	color: #303030;
-	margin: 0.7rem 0;
+	margin: 1rem 0;
 }
 .heroText button {
 	font-family: 'Nunito';

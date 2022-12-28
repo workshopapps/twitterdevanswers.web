@@ -31,11 +31,15 @@
 .names {
 	display: flex;
 	gap: 8px;
+	cursor: pointer;
 }
 
-.name.username {
+.name {
+	font-size: 17px;
+}
+
+.names .username {
 	text-transform: capitalize;
-	cursor: pointer;
 }
 
 .username {
@@ -43,7 +47,7 @@
 }
 
 .text {
-	font-size: 18px;
+	font-size: 17px;
 	line-height: 30px;
 	color: #757575;
 	margin-top: 15px;
@@ -108,4 +112,90 @@
 
 .checkbox input:checked::before {
 	transform: scale(1);
+}
+
+.replyingTo_sm {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.name,
+	.username,
+	.timeStamp,
+	.text {
+		font-size: 16px;
+	}
+
+	.checkbox input {
+		width: 17px;
+		height: 17px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.name,
+	.username,
+	.timeStamp,
+	.text {
+		font-size: 15px;
+	}
+
+	.checkbox input {
+		width: 15px;
+		height: 15px;
+	}
+
+	.names,
+	.name {
+		display: block;
+	}
+
+	.replyingTo_lg {
+		display: none;
+	}
+
+	.replyingTo_sm {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.name,
+	.username,
+	.timeStamp,
+	.text {
+		font-size: 14px;
+	}
+	.names,
+	.name {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.data {
+		display: block;
+	}
+	.name {
+		margin-top: 10px;
+		line-height: 1;
+	}
+	.replyingTo {
+		margin: 0;
+	}
+
+	.replyingTo_lg {
+		display: block;
+	}
+
+	.replyingTo_sm {
+		display: none;
+	}
+
+	.img img {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		cursor: pointer;
+	}
 }

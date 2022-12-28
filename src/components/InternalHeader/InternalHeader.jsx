@@ -161,7 +161,7 @@ export default function InternalHeader() {
 				<div className={styles.right}>
 					<ul className={styles.links}>
 						<li>
-							<NavLink to="/" title="Home" style={linkStyle} className={activeStyle}>
+							<NavLink to="/dashboard" title="Home" style={linkStyle} className={activeStyle}>
 								<div className={styles.link}>
 									<HomeIcon className={styles.icon} />
 									<span>Home</span>
@@ -184,7 +184,7 @@ export default function InternalHeader() {
 						<li>
 							<NavLink
 								style={linkStyle}
-								to="/users-page"
+								to="/users-suggestion"
 								title="Users"
 								className={activeStyle}
 							>
@@ -226,14 +226,14 @@ export default function InternalHeader() {
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
 						<div className={styles.user}>
-							{/* <NavLink
-								to="/profile/:username"
+							<NavLink
+								to={`/profile/${user?.username}`}
 								title="Profile"
 								className={styles.avatar}
 								// aria-hidden={active}
-							> */}
+							>
 							<img src={avatar} alt="avatar" />
-							{/* </NavLink> */}
+							</NavLink>
 							<div className={styles.profile}>
 								<div className={styles.nameStatus}>
 									<p>{user?.userName}</p>
