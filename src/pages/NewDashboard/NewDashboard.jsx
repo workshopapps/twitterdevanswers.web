@@ -15,9 +15,10 @@ function NewDashboard() {
 	const { dispatch } = useContext(AppContext);
 	const [questions, setQuestions] = useState([]);
 
-	const { getQuestions, getUsers, sortByDate } = useMessenger();
+	const { getUsers, getQuestions, sortByDate } = useMessenger();
 
-	const { user_id: userId } = JSON.parse(localStorage.getItem('user'));
+	const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
+	const userId = userFromLocalStorage?.user_id;
 
 	useEffect(() => {
 		// fetch all questions
@@ -27,15 +28,17 @@ function NewDashboard() {
 		};
 
 		// fetch logged in user and store data in global state
-		const fetchUsers = async () => {
-			const result = await getUsers();
-			const user = result.find(({ user_id: id }) => id === userId);
-			localStorage.setItem('userData', JSON.stringify(user));
-			dispatch(STORE_USER_DATA, user);
-		};
+		if (userId) {
+			const fetchUsers = async () => {
+				const result = await getUsers();
+				const user = result.find(({ user_id: id }) => id === userId);
+				localStorage.setItem('userData', JSON.stringify(user));
+				dispatch(STORE_USER_DATA, user);
+			};
 
+			fetchUsers();
+		}
 		fetchQuestions();
-		fetchUsers();
 	}, []);
 
 	return (
@@ -44,7 +47,7 @@ function NewDashboard() {
 				<div className={styles.questions}>
 					<main className={styles.main}>
 						<div className={styles.header}>
-							<h2>Home</h2>
+							<h2>Dashboard</h2>
 							<div>
 								<span className={styles.icon}>
 									<IoFilterOutline />
@@ -68,11 +71,35 @@ function NewDashboard() {
 					</main>
 				</div>
 				<aside className={styles.aside}>
-					<div className={styles.components}>
-						<TopUsers />
-						<Yml />
-						<Tags />
-					</div>
+					{userId && (
+						<div className={styles.components}>
+							<TopUsers />
+							<Tags />
+						</div>
+					)}
+
+					{!userId && (
+						<div className={styles.aside_auth}>
+							<h4 className={styles.auth_title}>New to DevAsk?</h4>
+							<p className={styles.auth_text}>
+								Sign up to get personal account
+							</p>
+
+							<p className={styles.alt_text}>
+								By signing up, you agree to the{' '}
+								<Link to="/terms-of-use">Terms of Use,</Link>{' '}
+								<Link to="/privacy">Privacy Policy</Link> and{' '}
+								<Link to="/cookie-policy">Cookie Use.</Link>
+							</p>
+
+							<Link to="/sign-up">Sign Up with email</Link>
+
+							<p className={styles.auth_text}>
+								Already have a DevAsk account? <Link to="/login">Login</Link>
+							</p>
+						</div>
+					)}
+					<Yml />
 				</aside>
 			</div>
 		</div>

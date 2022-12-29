@@ -28,10 +28,10 @@ export default function InternalHeader() {
 	const {
 		state: { user },
 	} = useContext(AppContext);
-		const { state } = useContext(AppContext);
+	const { state } = useContext(AppContext);
 
-console.log(user)
-console.log(state.userData.image_url)
+	console.log(user);
+	console.log(state.userData?.image_url);
 	// prevent scroll if sidenav is open
 	// const [active, setActive] = useState(true);
 
@@ -130,13 +130,11 @@ console.log(state.userData.image_url)
 	// open and close sidenav
 	const hadnleClick = () => setSidenav((prev) => !prev);
 
-		const navigate = useNavigate();
-		const logout = () => {
-			localStorage.clear();
-			navigate("/login")
-		}
-
-
+	const navigate = useNavigate();
+	const logout = () => {
+		localStorage.clear();
+		navigate('/login');
+	};
 
 	const linkStyle = {
 		textDecoration: 'none',
@@ -172,7 +170,7 @@ console.log(state.userData.image_url)
 							>
 								<div className={styles.link}>
 									<HomeIcon className={styles.icon} />
-									<span>Home</span>
+									<span>Dashboard</span>
 								</div>
 							</NavLink>
 						</li>
@@ -257,8 +255,8 @@ console.log(state.userData.image_url)
 							>
 								<img
 									src={
-										state.userData.image_url
-											? state.userData.image_url
+										state.userData?.image_url
+											? state.userData?.image_url
 											: avatar
 									}
 									alt=""
@@ -306,7 +304,7 @@ console.log(state.userData.image_url)
 								>
 									<div className={styles.snLink}>
 										<HomeIcon className={styles.snIcon} />
-										<span>Home</span>
+										<span>Dashboard</span>
 									</div>
 								</NavLink>
 							</li>
@@ -326,7 +324,7 @@ console.log(state.userData.image_url)
 							<li>
 								<NavLink
 									style={linkStyle}
-									to="/users-page"
+									to="/users-suggestion"
 									className={activeStyle}
 									onClick={hadnleClick}
 								>

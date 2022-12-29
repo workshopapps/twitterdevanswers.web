@@ -7,13 +7,13 @@ export const AppContext = createContext(null);
 function AppContextProvider({ children }) {
 	const initialState = {
 		user:
-			JSON.parse(
-				localStorage.getItem('user') && localStorage.getItem('user')
-			) || {},
+			typeof localStorage.getItem('user') === 'object'
+				? JSON.parse(localStorage.getItem('user'))
+				: {},
 		userData:
-			JSON.parse(
-				localStorage.getItem('userData') && localStorage.getItem('userData')
-			) || {},
+			typeof localStorage.getItem('userData') === 'object'
+				? JSON.parse(localStorage.getItem('userData'))
+				: {},
 		token: localStorage.getItem('token'),
 		isAuth: false,
 		loading: false,

@@ -85,10 +85,9 @@ function App() {
 							path="forgot-password/:token"
 							element={<ResetPassword />}
 						/>
-
+						<Route path="/dashboard" element={<NewDashboard />} />
 						<Route element={<ProtectedRoutes />}>
 							<Route path="/edit-profile" element={<EditProfile />} />
-							<Route path="/dashboard" element={<NewDashboard />} />
 							<Route path="/question-page/:id" element={<QuestionPage />} />
 							<Route path="profile/:username" element={<Profile />} />
 							<Route path="notifications-page" element={<Notifications />} />
