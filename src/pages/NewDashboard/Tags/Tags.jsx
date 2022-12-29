@@ -19,15 +19,17 @@ function Tags() {
 	}, []);
 
 	return (
-		<div className={styles.tags}>
-			<h3>Recent Tags</h3>
+		tags?.length > 0 && (
+			<div className={styles.tags}>
+				<h3>Recent Tags</h3>
 
-			<div className={styles.list}>
-				{tags.map((tag) => (
-					<Tag title={tag.tag_name} key={tag.tag_name} />
-				))}
+				<div className={styles.list}>
+					{tags.map((tag) => (
+						<Tag title={tag.tag_name} key={tag.tag_name} />
+					))}
+				</div>
 			</div>
-		</div>
+		)
 	);
 }
 
