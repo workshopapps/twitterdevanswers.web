@@ -1,6 +1,8 @@
+/* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
+import CardSkeleton from '../../pages/UsersSuggestion/Skeleton/CardSkeleton';
 import styles from './styles.module.css';
 import options from '../../assets/profile-images/options.png';
 import reward from '../../assets/profile-images/reward.svg';
@@ -42,8 +44,10 @@ function UserActivities() {
 
 	const [allQuestions, setAllQuestions] = useState([]);
 	const [questions, setQuestions] = useState([]);
+	const [questionIsEmpty, setQuestionIsEmpty] = useState(false);
 	const [sections, setSections] = useState();
 	const [answers, setAnswers] = useState([]);
+	const [answerIsEmpty, setAnswerIsEmpty] = useState(false);
 	const [tabButtons, setTabButtons] = useState();
 	const isVisitor = userFromStorage?.username !== thisuser;
 
@@ -96,6 +100,7 @@ function UserActivities() {
 				);
 			} catch (error) {
 				setQuestions([]);
+				setQuestionIsEmpty(true);
 			}
 
 			const fetchUser = async () => {
@@ -146,6 +151,7 @@ function UserActivities() {
 				setAnswers(allAnswersData);
 			} catch (error) {
 				setAnswers([]);
+				setAnswerIsEmpty(true);
 			}
 
 			const fetchTotalLikes = async () => {
@@ -276,10 +282,12 @@ function UserActivities() {
 							</div>
 						</div>
 					))
-				) : (
+				) : questionIsEmpty ? (
 					<p style={{ textAlign: 'center', marginTop: '50px' }}>
 						{isVisitor ? `@${thisuser} hasn't` : `You haven't`} asked a question
 					</p>
+				) : (
+					<CardSkeleton cards={2} />
 				)}
 			</section>
 
@@ -344,11 +352,13 @@ function UserActivities() {
 								</div>
 							</div>
 						))
-					) : (
+					) : answerIsEmpty ? (
 						<p style={{ textAlign: 'center', marginTop: '50px' }}>
 							{isVisitor ? `@${thisuser} hasn't` : `You haven't`} replied to any
 							question
 						</p>
+					) : (
+						<CardSkeleton cards={2} />
 					)}
 				</div>
 			</section>

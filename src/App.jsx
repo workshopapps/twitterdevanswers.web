@@ -20,6 +20,7 @@ import SignUp from './pages/AuthPage/SignUp';
 import Tags from './pages/Tags';
 import SuccessSign from './pages/SuccessSign/index';
 import ForgotPassword from './pages/ForgotPassword/index';
+import VerifyAccount from './pages/VerifyAccount/index';
 import ResetPassword from './pages/ResetPassword/index';
 import Help from './pages/Help';
 import HowItWorks from './pages/HowItWorks';
@@ -80,6 +81,7 @@ function App() {
 						<Route path="sign-up" element={<SignUp />} />
 						<Route path="sucess-sign" element={<SuccessSign />} />
 						<Route path="forgot-password" element={<ForgotPassword />} />
+						<Route path="verify-account" element={<VerifyAccount />} />
 						<Route
 							path="password-recovery/:token"
 							element={<ResetPassword />}
