@@ -60,7 +60,7 @@ function Usercard({
 		<div className={styles.card}>
 			<Link to={`/profile/${user.username}`} className={styles.img}>
 				<img
-					src={user.image_url.trim() === '' ? avatar : user.image_url}
+					src={user.image_url?.trim() === '' ? avatar : user.image_url}
 					alt="user avatar"
 				/>
 			</Link>
