@@ -324,7 +324,7 @@ export default function InternalHeader() {
 							<li>
 								<NavLink
 									style={linkStyle}
-									to="/users-page"
+									to="/users-suggestion"
 									className={activeStyle}
 									onClick={hadnleClick}
 								>
