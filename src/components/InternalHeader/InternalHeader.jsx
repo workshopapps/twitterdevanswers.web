@@ -31,7 +31,7 @@ export default function InternalHeader() {
 	const { state } = useContext(AppContext);
 
 	console.log(user);
-	console.log(state.userData.image_url);
+	console.log(state.userData?.image_url);
 	// prevent scroll if sidenav is open
 	// const [active, setActive] = useState(true);
 
@@ -255,7 +255,9 @@ export default function InternalHeader() {
 							>
 								<img
 									src={
-										state.userData.image_url ? state.userData.image_url : avatar
+										state.userData?.image_url
+											? state.userData?.image_url
+											: avatar
 									}
 									alt=""
 								/>
