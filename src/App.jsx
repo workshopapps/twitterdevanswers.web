@@ -49,11 +49,7 @@ import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 import AdminBlogPage from './pages/AdminBlogPage';
 import UsersSuggestion from './pages/UsersSuggestion';
-<<<<<<< HEAD
-import EditAcccount from './pages/EditAccount/index';
-=======
 import EditProfile from './pages/EditProfile/EditProfile';
->>>>>>> c8694b5cba0740438e5e710b8fa2cdfdffc1c86a
 
 function App() {
 	const {
@@ -84,15 +80,11 @@ function App() {
 						<Route path="sign-up" element={<SignUp />} />
 						<Route path="sucess-sign" element={<SuccessSign />} />
 						<Route path="forgot-password" element={<ForgotPassword />} />
-<<<<<<< HEAD
-						<Route path="forgot-password/:token" element={<ResetPassword />} />
-=======
 						<Route path="verify-account" element={<VerifyAccount />} />
 						<Route
-							path="password-recovery/:token"
+							path="forgot-password/:token"
 							element={<ResetPassword />}
 						/>
->>>>>>> c8694b5cba0740438e5e710b8fa2cdfdffc1c86a
 
 						<Route element={<ProtectedRoutes />}>
 							<Route path="/edit-profile" element={<EditProfile />} />
@@ -127,7 +119,6 @@ function App() {
 							<Route path="admin-signup" element={<AdminSignUp />} />
 							<Route path="admin-login" element={<AdminSignIn />} />
 							<Route path="/admin-blog-page" element={<AdminBlogPage />} />
-							<Route path="edit-profile" element={<EditAcccount />} />
 						</Route>
 					</Route>
 
