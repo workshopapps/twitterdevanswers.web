@@ -127,13 +127,11 @@ export default function InternalHeader() {
 	// open and close sidenav
 	const hadnleClick = () => setSidenav((prev) => !prev);
 
-		const navigate = useNavigate();
-		const logout = () => {
-			localStorage.clear();
-			navigate("/login")
-		}
-
-
+	const navigate = useNavigate();
+	const logout = () => {
+		localStorage.clear();
+		navigate('/login');
+	};
 
 	const linkStyle = {
 		textDecoration: 'none',
@@ -161,10 +159,15 @@ export default function InternalHeader() {
 				<div className={styles.right}>
 					<ul className={styles.links}>
 						<li>
-							<NavLink to="/dashboard" title="Home" style={linkStyle} className={activeStyle}>
+							<NavLink
+								to="/dashboard"
+								title="Home"
+								style={linkStyle}
+								className={activeStyle}
+							>
 								<div className={styles.link}>
 									<HomeIcon className={styles.icon} />
-									<span>Home</span>
+									<span>Dashboard</span>
 								</div>
 							</NavLink>
 						</li>
@@ -194,7 +197,12 @@ export default function InternalHeader() {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/wallet" title="Wallet" style={linkStyle} className={activeStyle}>
+							<NavLink
+								to="/wallet"
+								title="Wallet"
+								style={linkStyle}
+								className={activeStyle}
+							>
 								<div className={styles.link}>
 									<WalletIcon className={styles.icon} /> <span>Wallet</span>
 								</div>
@@ -209,19 +217,29 @@ export default function InternalHeader() {
 						</li>
 					</ul>
 					<div className={styles.rest}>
-					<div className={styles.logout}>
-					<NavLink to="/login" title="Logout" style={linkStyle} className={activeStyle} onClick={logout}	>
-									<div className={styles.link}>
-										<Logout  className={styles.icon} /> 
-									</div>
-								</NavLink>
-							</div>
+						<div className={styles.logout}>
+							<NavLink
+								to="/login"
+								title="Logout"
+								style={linkStyle}
+								className={activeStyle}
+								onClick={logout}
+							>
+								<div className={styles.link}>
+									<Logout className={styles.icon} />
+								</div>
+							</NavLink>
+						</div>
 						{/* <div className={styles.search}> */}
 
-							{/* <SearchIcon /> */}
-							{/* <input type="text" placeholder="Search questions..." /> */}
+						{/* <SearchIcon /> */}
+						{/* <input type="text" placeholder="Search questions..." /> */}
 						{/* </div> */}
-						<NavLink to="/notifications-page" title="Notifications" className={activeStyle}>
+						<NavLink
+							to="/notifications-page"
+							title="Notifications"
+							className={activeStyle}
+						>
 							<NotificationIcon className={styles.icon} />
 						</NavLink>
 						<SortIcon className={styles.sortIcon} />
@@ -232,7 +250,7 @@ export default function InternalHeader() {
 								className={styles.avatar}
 								// aria-hidden={active}
 							>
-							<img src={avatar} alt="avatar" />
+								<img src={avatar} alt="avatar" />
 							</NavLink>
 							<div className={styles.profile}>
 								<div className={styles.nameStatus}>
@@ -276,7 +294,7 @@ export default function InternalHeader() {
 								>
 									<div className={styles.snLink}>
 										<HomeIcon className={styles.snIcon} />
-										<span>Home</span>
+										<span>Dashboard</span>
 									</div>
 								</NavLink>
 							</li>

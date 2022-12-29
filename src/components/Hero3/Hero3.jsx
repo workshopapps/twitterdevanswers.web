@@ -14,8 +14,10 @@ function Hero3() {
 						immediately. You also get rewarded when you provide correct answers
 						to questions.
 					</p>
-					<Link to="/how-it-works">
-						<button type="button">Get Started</button>
+					<Link to="/dashboard" style={{ cursor: 'pointer' }}>
+						<button style={{ cursor: 'pointer' }} type="button">
+							Get Started
+						</button>
 					</Link>
 				</div>
 				<div className={styles.heroImg}>
