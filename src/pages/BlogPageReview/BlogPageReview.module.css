@@ -156,6 +156,17 @@
 .GridCard::-webkit-scrollbar {
 	display: none;
 }
+.urlPathMobile {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+	gap: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #303030;
+
+}
 
 @media (max-width: 1260px) {
 	.GridCard {
@@ -212,6 +223,9 @@
 	.blog_image {
 		height: 260px;
 	}
+	.blognav{
+		display: none
+	}
 }
 @media (max-width: 430px) {
 	.blognav {
@@ -229,4 +243,9 @@
 		margin-top: 1rem;
 		justify-content: space-between;
 	}
+}
+@media only screen and (min-width: 500px) {
+    .urlPathMobile {
+        display: none
+    }
 }

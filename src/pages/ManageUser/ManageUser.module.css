@@ -1,280 +1,420 @@
 .container {
-	padding: 3em 1.3em;
-	font-family: 'Nunito', sans-serif;
+    padding: 3em 1.3em;
+    font-family: 'Nunito', sans-serif;
 }
+
 .container .urlPath {
-	color: #303030;
-	padding: 0.5em 0em;
+	display : flex ;
+    color: #303030;
+    padding: 0.5em 0em;
 }
+
 .container .urlPath a {
-	text-decoration: none;
-	color: #303030;
-	font-weight: 600;
+    text-decoration: none;
+    color: #303030;
+    font-weight: 600;
 }
+
 .container .userName {
-	color: #303030;
-	font-size: 1.7rem;
-	font-weight: 600;
+    color: #303030;
+    font-size: 1.7rem;
+    font-weight: 600;
 }
+
 .container .activityWrapper {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0.75em 0em;
-	margin: 1em 0em 0em 0em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75em 0em;
+    margin: 1em 0em 0em 0em;
 }
+
 .container .activityWrapper h3:nth-child(1) {
-	flex: 0 0 32%;
+    flex: 0 0 32%;
 }
+
 .container .activityWrapper h3:nth-child(2) {
-	flex: 0 0 48%;
+    flex: 0 0 48%;
 }
+
 .container .activityWrapper p {
-	font-size: 1rem;
-	font-weight: 400;
+    font-size: 1rem;
+    font-weight: 400;
 }
+
 .container .activityWrapper button {
-	background: none;
-	border: none;
-	outline: none;
-	cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
+
 .container .detailsWrapper {
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
-@media (max-width: 800px) {
-	.container .detailsWrapper {
-		flex-direction: column;
+
+@media only screen and (max-width: 800px) {
+	.adminUrlPath{
+		display : none
 	}
+	
+    .container .detailsWrapper {
+        flex-direction: column;
+    }
+
+    .bioWrapperImg {
+        display: none
+    }
+
+    .container .bioWrapper div {
+        margin: -20px 0;
+        padding: -30px 20px
+    }
+
+    .container .bioWrapper div span {
+        margin: 0;
+        padding: 0
+    }
+
+    .container .bioWrapper div h4 {
+        margin: 0;
+        padding: 0
+    }
+
+    .adminUserWrap {
+        width: 100%;
+        margin: 0 auto;
+        padding:   0;
+        display: flex;
+        align-items: center;
+    }
+
+    .adminUserWrap span {
+        width: 40%;
+        text-align: left;
+    }
+
+    .adminUserWrap h4 {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #1F1F1F;
+    }
+	.urlPathMobile img{ 
+		display: block;
+		display: inline;
+		display: flex
+	}
+	.bioWrapperImg {
+		display: none
+	}
+	.mobileNameWrap img {
+		display: block
+	}
+	.mobileNameWrap span{
+		display : block
+	}
+	
+
 }
+
 .container .detailsWrapper .infoWrapper {
-	flex: 0 0 36%;
-	padding: 1.8em 2em;
-	border: 0.5px solid rgba(51, 51, 51, 0.5);
-	border-radius: 12px;
-	margin: 0.8em 0em;
+    flex: 0 0 36%;
+    padding: 1.8em 2em;
+    border: 0.5px solid rgba(51, 51, 51, 0.5);
+    border-radius: 12px;
+    margin: 0.8em 0em;
 }
+
 .container .detailsWrapper .walletInfo {
-	flex: 0 0 60%;
+    flex: 0 0 60%;
 }
+
 .container .detailsWrapper .walletInfo .accountHeading {
-	font-size: 1.2rem;
-	font-weight: 700;
-	color: #303030;
-	padding: 0em 0em 1em 0em;
-	flex: 0 0 40%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #303030;
+    padding: 0em 0em 1em 0em;
+    flex: 0 0 40%;
 }
+
 .container .detailsWrapper .walletInfo .descriptionWrapper {
-	display: flex;
-	justify-content: space-between;
-	flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
+
 .container .detailsWrapper .walletInfo .descriptionWrapper .description {
-	font-size: 1rem;
-	font-weight: 400;
+    font-size: 1rem;
+    font-weight: 400;
 }
+
 .container .detailsWrapper .walletInfo .descriptionWrapper .dropdown {
-	display: flex;
-	flex-direction: column;
-	min-width: 180px;
-	padding: 0.5em 0em;
-	background: #ffffff;
-	border: 1px solid rgba(51, 51, 51, 0.2);
-	box-shadow: 2px 3px 8px rgba(20, 20, 20, 0.05),
-		0px 0px 0px rgba(20, 20, 20, 0.05);
-	border-radius: 4px;
-	position: absolute;
-	margin-top: 5em;
-	right: 4%;
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    padding: 0.5em 0em;
+    background: #ffffff;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    box-shadow: 2px 3px 8px rgba(20, 20, 20, 0.05),
+        0px 0px 0px rgba(20, 20, 20, 0.05);
+    border-radius: 4px;
+    position: absolute;
+    margin-top: 5em;
+    right: 4%;
 }
+
 .container .detailsWrapper .walletInfo .descriptionWrapper .dropdown button {
-	cursor: pointer;
-	background: none;
-	padding: 1em;
-	border: none;
+    cursor: pointer;
+    background: none;
+    padding: 1em;
+    border: none;
 }
-.container
-	.detailsWrapper
-	.walletInfo
-	.descriptionWrapper
-	.dropdown
-	button:nth-child(3) {
-	border-top: 1px solid rgba(51, 51, 51, 0.2);
-	color: #ed6d47;
+
+.container .detailsWrapper .walletInfo .descriptionWrapper .dropdown button:nth-child(3) {
+    border-top: 1px solid rgba(51, 51, 51, 0.2);
+    color: #ed6d47;
 }
+
 .container .detailsWrapper .walletInfo .walletSpecs {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
+
 .container .detailsWrapper .walletInfo .walletSpecs article {
-	flex: 0 0 47%;
-	background: #f6f0ff;
-	border: 1px solid rgba(51, 51, 51, 0.5);
-	border-radius: 12px;
-	padding: 2em 0em 0em;
-	margin: 1em 0em;
+    flex: 0 0 47%;
+    background: #f6f0ff;
+    border: 1px solid rgba(51, 51, 51, 0.5);
+    border-radius: 12px;
+    padding: 2em 0em 0em;
+    margin: 1em 0em;
 }
+
 .container .detailsWrapper .walletInfo .walletSpecs article h4 {
-	font-size: 1rem;
-	padding: 0.8em 1em 3em 1em;
-	color: #303030;
-	letter-spacing: 0.02em;
+    font-size: 1rem;
+    padding: 0.8em 1em 3em 1em;
+    color: #303030;
+    letter-spacing: 0.02em;
 }
+
 .container .detailsWrapper .walletInfo .walletSpecs article div {
-	display: flex;
-	border-top: 0.5px solid rgba(51, 51, 51, 0.5);
-	padding: 1em 2.5em 1em 1.5em;
-	justify-content: space-between;
-	align-items: center;
+    display: flex;
+    border-top: 0.5px solid rgba(51, 51, 51, 0.5);
+    padding: 1em 2.5em 1em 1.5em;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .container .detailsWrapper .walletInfo .walletSpecs article div h5 {
-	font-size: 1.5rem;
-	font-weight: 600;
-	color: #303030;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #303030;
 }
+
 .container .detailsWrapper .walletInfo .walletSpecs article div h5 span {
-	font-size: 0.9rem;
-	font-weight: 400;
-	padding-left: 0.75em;
-	color: #303030;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding-left: 0.75em;
+    color: #303030;
 }
+
 .container .accountHeading {
-	font-size: 1.2rem;
-	font-weight: 700;
-	color: #303030;
-	padding: 0em 0em 1em 0em;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #303030;
+    padding: 0em 0em 1em 0em;
 }
+
 .container .bioWrapper div {
-	padding: 0.9em 0em;
+    padding: 0.9em 0em;
 }
+
 .container .bioWrapper div span {
-	color: #6a6a6a;
-	font-size: 1rem;
-	padding: 0.8em 0em;
+    color: #6a6a6a;
+    font-size: 1rem;
+    padding: 0.8em 0em;
 }
+
 .container .bioWrapper div h4 {
-	color: #1f1f1f;
-	font-weight: 400;
-	font-size: 1rem;
+    color: #1f1f1f;
+    font-weight: 400;
+    font-size: 1rem;
 }
+
 .container .bioWrapper .btn {
-	padding: 0.8em 1em;
-	background: #f6f0ff;
-	color: #1f1f1f;
-	font-weight: 400;
-	border-radius: 2px;
-	border: none;
-	margin: 1em 0em;
+    width: 150px;
+    height: 50px;
+    background: #E2D9F2;
+    border-radius: 3px;
+    border: none;
+    padding: 7px 10px;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #492B7C; 
+	margin : 10px 0
+
 }
 
 .overlay {
-	position: absolute;
-	background: rgba(0, 0, 0, 0.8);
-	min-height: 180vh;
-	max-width: 100vw;
-	left: 0;
-	right: 0;
-	top: 0;
-	z-index: 2;
-	padding: 6em 1em;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    min-height: 180vh;
+    max-width: 100vw;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    padding: 6em 1em;
 }
 
 .response {
-	text-align: center;
+    text-align: center;
 }
 
 .response p {
-	margin: 1em 0em;
+    margin: 1em 0em;
 }
 
 .modal {
-	position: relative;
-	background: white;
-	border-radius: 7px;
-	padding: 2em;
-	right: 0;
-	left: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	min-height: 60%;
-	max-width: 400px;
-	margin: 0 auto;
-	border: 1px solid #989898;
+    position: relative;
+    background: white;
+    border-radius: 7px;
+    padding: 2em;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60%;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #989898;
 }
+
 .modal .top {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
 .modal .top h5 {
-	font-size: 1rem;
+    font-size: 1rem;
 }
+
 .modal .top button {
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: 1em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1em;
 }
+
 .modal .body {
-	color: #535353;
-	padding: 1em 2em 1em 0em;
+    color: #535353;
+    padding: 1em 2em 1em 0em;
 }
+
 .modal .buttonWrapper {
-	display: flex;
-	justify-content: space-between;
-	max-width: 60%;
-	align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    max-width: 60%;
+    align-self: flex-end;
 }
+
 .modal .buttonWrapper button {
-	padding: 0.8em 1.2em;
-	cursor: pointer;
+    padding: 0.8em 1.2em;
+    cursor: pointer;
 }
+
 .modal .buttonWrapper button:nth-child(1) {
-	margin-right: 1.5em;
-	border: 1px solid #303030;
-	color: #303030;
-	border-radius: 4px;
-	background: transparent;
+    margin-right: 1.5em;
+    border: 1px solid #303030;
+    color: #303030;
+    border-radius: 4px;
+    background: transparent;
 }
+
 .modal .buttonWrapper button:nth-child(2) {
-	border: none;
-	color: #ffffff;
-	border-radius: 4px;
-	background: #ed6d47;
+    border: none;
+    color: #ffffff;
+    border-radius: 4px;
+    background: #ed6d47;
 }
 
 .modalButton {
-	padding: 1em;
-	color: #ffffff;
-	align-self: flex-end;
-	border-radius: 4px;
-	border: none;
-	cursor: pointer;
-	margin-right: 1.5em;
+    padding: 1em;
+    color: #ffffff;
+    align-self: flex-end;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-right: 1.5em;
 }
 
 .modalSubmit {
-	background: #1d1dd8;
-	color: #ffffff;
+    background: #1d1dd8;
+    color: #ffffff;
 }
 
 .modalCancel {
-	background: red;
-	color: #ffffff;
+    background: red;
+    color: #ffffff;
 }
 
 .styledButton {
-	padding: 0.8em 1.2em;
-	cursor: pointer;
-	border: none;
-	border-top: 1px solid rgba(51, 51, 51, 0.2);
-	background-color: #ed6d47;
-	color: #ffffff;
-	border-radius: 8px;
-	outline: none;
-	margin: 1em 0em;
+    padding: 0.8em 1.2em;
+    cursor: pointer;
+    border: none;
+    border-top: 1px solid rgba(51, 51, 51, 0.2);
+    background-color: #ed6d47;
+    color: #ffffff;
+    border-radius: 8px;
+    outline: none;
+    margin: 1em 0em;
+}
+
+.mobileNameWrap {
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+    gap: 10px;
+}
+
+
+
+
+
+
+.urlPathMobile {
+	text-decoration: none;
+    color: #303030;
+    font-weight: 600;
+	display: flex;
+	align-items: center;
+
+}
+@media only screen and (min-width: 800px) {
+	.mobileNameWrap img {
+		width: 95px;
+		height: 95px;
+		border-radius: 95px;
+		display: none
+	}
+	.mobileNameWrap span{
+		display : none
+	}
+	
+	.mobileNameWrap div h1 {
+		font-weight: 300;
+		font-size: 14px;
+		margin: 5px auto;
+		line-height: 24px;
+	}
+	.urlPathMobile  img{ 
+		display: none
+	}
 }
