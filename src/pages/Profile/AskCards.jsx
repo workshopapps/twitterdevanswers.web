@@ -52,7 +52,7 @@ function AskCards() {
 			setUsers(await getUser());
 		})();
 	}, []);
-	const askCard = questions.map((question) => (
+	const askCard = questions.reverse().map((question) => (
 		<div className={styles.cardContainer} key={question.question_id}>
 			<Link to={`/profile/${question.owner_id}`}>
 				<img

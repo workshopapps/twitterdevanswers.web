@@ -2,6 +2,7 @@
 // /* eslint-disable no-undef */
 // /* eslint-disable no-unused-vars */
 import React, { memo, useEffect, useState } from 'react';
+import axios from 'axios';
 import { PropTypes } from 'prop-types';
 import { FaEllipsisV } from 'react-icons/fa';
 import avatar from '../../../assets/dashboard/user.png';
@@ -32,6 +33,8 @@ function ReplyCard({
 		useMessenger();
 	const { modal, showModal } = useModal();
 
+	let tokenValue = 0
+
 	// get user
 	useEffect(() => {
 		const fetchUser = async () => {
@@ -49,10 +52,30 @@ function ReplyCard({
 		fetchUser();
 	}, []);
 
+	    // Admin Transaction Pay
+		const payAllTransaction = async (amount, id) => {
+			try {
+				const url = 'https://api.devask.hng.tech/admin/transactions/answer/pay';
+				const data = { 
+					amount,
+					question_id: id,
+					commission: 10 
+				};
+				const config = { 'content-type': 'application/json' };
+				const response = await axios.post(url, data, config);
+				console.log(response.data);
+			} catch (error) {
+				console.error(error);
+			}
+		}
+
 	const handleCheck = async () => {
 		if (isAnswered) {
 			setMsg('satisfactory answer already selected');
 			showModal();
+			tokenValue = JSON.parse(localStorage.getItem('tokenValue'));
+			payAllTransaction(tokenValue, questionId);
+			localStorage.removeItem("tokenValue");
 			return;
 		}
 

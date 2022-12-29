@@ -28,7 +28,10 @@ export default function InternalHeader() {
 	const {
 		state: { user },
 	} = useContext(AppContext);
+	const { state } = useContext(AppContext);
 
+	console.log(user);
+	console.log(state.userData.image_url);
 	// prevent scroll if sidenav is open
 	// const [active, setActive] = useState(true);
 
@@ -250,11 +253,16 @@ export default function InternalHeader() {
 								className={styles.avatar}
 								// aria-hidden={active}
 							>
-								<img src={avatar} alt="avatar" />
+								<img
+									src={
+										state.userData.image_url ? state.userData.image_url : avatar
+									}
+									alt=""
+								/>
 							</NavLink>
 							<div className={styles.profile}>
 								<div className={styles.nameStatus}>
-									<p>{user?.userName}</p>
+									<p>{user?.username}</p>
 									{/* <span onChange={handleLastSeen()}>{userState}</span> */}
 								</div>
 								{/* <span className={styles.lastseen}>{lastSeen}</span> */}
