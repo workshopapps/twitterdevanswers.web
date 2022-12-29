@@ -1,8 +1,12 @@
 .settingsweld {
 	display: flex;
-	justify-content: space-between;
-	padding: 30px;
+	padding: 50px;
 	margin-bottom: 500px;
+	gap: 40px;
+	color: #303030;
+}
+.settingsweld h3 {
+	margin-bottom: 20px;
 }
 
 .settingsyouraccount {
@@ -11,6 +15,7 @@
 	align-items: center;
 	padding: 10px;
 	cursor: pointer;
+	margin-block: 15px;
 }
 
 .settings_accountinfo {
@@ -37,6 +42,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	border: 1px solid #ececfb;
 }
 .settings_div_acc a,
 .settings_div a {
@@ -46,7 +52,7 @@
 .settings_div_acc {
 	background-color: #f6f0ff;
 	padding: 10px;
-	width: 646px;
+	width: 700px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -55,7 +61,7 @@
 .settings_div:hover {
 	background-color: #f6f0ff;
 	padding: 10px;
-	width: 646px;
+	width: 700px;
 }
 
 .changepassword {
@@ -96,7 +102,11 @@
 .logout {
 	color: red;
 	font-weight: bold;
-	padding: 10px;
+	padding: 10px 6px;
+}
+
+.logout a {
+	text-decoration: none;
 }
 
 .deactivate {

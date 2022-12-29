@@ -14,7 +14,7 @@ function Hero3() {
 						immediately. You also get rewarded when you provide correct answers
 						to questions.
 					</p>
-					<Link to="/how-it-works">
+					<Link to="/login">
 						<button type="button">Get Started</button>
 					</Link>
 				</div>

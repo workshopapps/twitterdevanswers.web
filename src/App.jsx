@@ -20,6 +20,7 @@ import SignUp from './pages/AuthPage/SignUp';
 import Tags from './pages/Tags';
 import SuccessSign from './pages/SuccessSign/index';
 import ForgotPassword from './pages/ForgotPassword/index';
+import VerifyAccount from './pages/VerifyAccount/index';
 import ResetPassword from './pages/ResetPassword/index';
 import Help from './pages/Help';
 import HowItWorks from './pages/HowItWorks';
@@ -48,7 +49,11 @@ import AdminSignUp from './pages/AdminSignUp';
 import AdminSignIn from './pages/AdminSignIn';
 import AdminBlogPage from './pages/AdminBlogPage';
 import UsersSuggestion from './pages/UsersSuggestion';
+<<<<<<< HEAD
 import EditAcccount from './pages/EditAccount/index';
+=======
+import EditProfile from './pages/EditProfile/EditProfile';
+>>>>>>> c8694b5cba0740438e5e710b8fa2cdfdffc1c86a
 
 function App() {
 	const {
@@ -79,9 +84,18 @@ function App() {
 						<Route path="sign-up" element={<SignUp />} />
 						<Route path="sucess-sign" element={<SuccessSign />} />
 						<Route path="forgot-password" element={<ForgotPassword />} />
+<<<<<<< HEAD
 						<Route path="forgot-password/:token" element={<ResetPassword />} />
+=======
+						<Route path="verify-account" element={<VerifyAccount />} />
+						<Route
+							path="password-recovery/:token"
+							element={<ResetPassword />}
+						/>
+>>>>>>> c8694b5cba0740438e5e710b8fa2cdfdffc1c86a
 
 						<Route element={<ProtectedRoutes />}>
+							<Route path="/edit-profile" element={<EditProfile />} />
 							<Route path="/dashboard" element={<NewDashboard />} />
 							<Route path="/question-page/:id" element={<QuestionPage />} />
 							<Route path="profile/:username" element={<Profile />} />
@@ -96,9 +110,18 @@ function App() {
 							<Route path="contact" element={<Contact />} />
 							<Route path="submit-blog" element={<SubmitBlog />} />
 							<Route path="/blog-submit-review" element={<BlogPageReview />} />
-							<Route path="/blog-submit-review/:id" element={<UserBlogReview />} />
-							<Route path="notification-settings" element={<NotificationSettings />} />
-							<Route path="/privacyandsafety-settings" element={<PrivacyandSafetySettings />}/>
+							<Route
+								path="/blog-submit-review/:id"
+								element={<UserBlogReview />}
+							/>
+							<Route
+								path="notification-settings"
+								element={<NotificationSettings />}
+							/>
+							<Route
+								path="/privacyandsafety-settings"
+								element={<PrivacyandSafetySettings />}
+							/>
 							<Route path="manage-user/:username" element={<ManageUser />} />
 							<Route path="admin-dashboard" element={<AdminDashboard />} />
 							<Route path="admin-signup" element={<AdminSignUp />} />

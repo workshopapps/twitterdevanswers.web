@@ -117,6 +117,13 @@ li {
 
 .avatar {
 	position: relative;
+	width: 50px;
+	border-radius: 50%;
+}
+
+.avatar img{
+	width: 50px;
+	border-radius: 50%;
 }
 
 .avatar::after {

@@ -30,7 +30,7 @@ function PostQuestion() {
 	const [questionData, setQuestionData] = useState({
 		id: '',
 		title: '',
-		text: '',
+		detail: '',
 		description: '',
 		tag: '',
 		token: 0,
@@ -99,9 +99,22 @@ function PostQuestion() {
 			...prevState,
 			token: tokenValue,
 		}));
+		if (questionData.token < state.userData.account_balance) {
 		setIsTokensOpen(!isTokensOpen);
+		localStorage.setItem('tokenValue', tokenValue)
+	} else {
+			setIsTokenError('Insufficient token balance...');
+		}
+
 	};
 
+	// 		if (questionData.tokenValue <= state.userData.account_balance) {
+	// else {
+	// 			setIsTokenError('insufficient token balance');
+	// 		}
+	// 	};
+	// console.log(state.userData.account_balance)
+	// console.log(questionData.token)
 	const handleTokenRemoval = () => {
 		setQuestionData((prevState) => ({
 			...prevState,
@@ -168,11 +181,25 @@ function PostQuestion() {
 			questionData.title !== '' &&
 			questionData.detail !== '' &&
 			questionData.description !== '' &&
+			questionData.token !== '' &&
 			questionData.tag !== ''
 		) {
 			setIsModalOpen(true);
 			handleClickScroll();
 		}
+		if (questionData.token > state.userData.account_balance) {
+			setIsTokenError('insufficient token balance');
+		}
+	};
+	const handleDiscard = () => {
+		setQuestionData({
+			id: '',
+			title: '',
+			detail: '',
+			description: '',
+			tag: '',
+			token: 0,
+		});
 	};
 
 	const handleNextDetail = () => {
@@ -196,27 +223,27 @@ function PostQuestion() {
 	};
 
 	const deductAllTransaction = async (token, questionId) => {
-        try {
-            const deduct = {
-                url: 'https://api.devask.tech/admin/transactions/question/deduct',
-                method: 'POST',
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-                data: {
-                    amount: token,
-                    question_id: questionId ,
-                    commission: 10
-                }
-            };
-            const deductedTransaction = await axios(deduct);
-            console.log('deducted',deductedTransaction);
-        } catch (err) {
-            // setIsError(false);
-			console.log('err', err)
-        }
-    }
+		try {
+			const deduct = {
+				url: 'https://api.devask.tech/admin/transactions/question/deduct',
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+				},
+				data: {
+					amount: token,
+					question_id: questionId,
+					commission: 10,
+				},
+			};
+			const deductedTransaction = await axios(deduct);
+			console.log('deducted', deductedTransaction);
+		} catch (err) {
+			// setIsError(false);
+			console.log('err', err);
+		}
+	};
 
 	const postNewQuestion = async () => {
 		const details = {
@@ -247,8 +274,8 @@ function PostQuestion() {
 			);
 			if (data) {
 				setIsSuccessful(true);
-				console.log('data', data)
-				deductAllTransaction(questionData.token, data.data.id)
+				console.log('data', data);
+				deductAllTransaction(questionData.token, data.data.id);
 				setTimeout(() => {
 					navigate('/dashboard');
 				}, 5000);
@@ -258,7 +285,6 @@ function PostQuestion() {
 		}
 	};
 
-	
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		postNewQuestion();
@@ -308,12 +334,14 @@ function PostQuestion() {
 
 										<div>
 											<h3 className={styles.modalHeader}>Details</h3>
-											<p className={styles.modalBody}>{questionData.title}</p>
+											<p className={styles.modalBody}>{questionData.detail}</p>
 										</div>
 
 										<div>
 											<h3 className={styles.modalHeader}>Description</h3>
-											<p className={styles.modalBody}>{questionData.title}</p>
+											<p className={styles.modalBody}>
+												{questionData.description}
+											</p>
 										</div>
 
 										<div>
@@ -594,7 +622,11 @@ function PostQuestion() {
 								Review your question
 							</button>
 
-							<button className={styles.discard} type="button">
+							<button
+								className={styles.discard}
+								type="button"
+								onClick={handleDiscard}
+							>
 								Discard draft
 							</button>
 						</div>
