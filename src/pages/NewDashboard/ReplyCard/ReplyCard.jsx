@@ -2,6 +2,7 @@
 // /* eslint-disable no-undef */
 // /* eslint-disable no-unused-vars */
 import React, { memo, useEffect, useState } from 'react';
+import axios from 'axios';
 import { PropTypes } from 'prop-types';
 import { FaEllipsisV } from 'react-icons/fa';
 import avatar from '../../../assets/dashboard/user.png';
@@ -52,35 +53,27 @@ function ReplyCard({
 	}, []);
 
 	    // Admin Transaction Pay
-		const payAllTransaction = async (amount, idQuestion) => {
-			let payTransaction = null;
-			try{
-				const pay = {
-					url: 'https://api.devask.hng.tech/admin/transactions/answer/pay',
-					method: 'POST',
-					headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json'
-					},
-					data: {
-						amount,
-						idQuestion,
-						commission: 10
-					}
+		const payAllTransaction = async (amount, id) => {
+			try {
+				const url = 'https://api.devask.hng.tech/admin/transactions/answer/pay';
+				const data = { 
+					amount,
+					question_id: id,
+					commission: 10 
 				};
-				payTransaction = await axios(pay);
-				console.log('pay', payTransaction)
-			} catch(err) {
-				setIsError(false);
+				const config = { 'content-type': 'application/json' };
+				const response = await axios.post(url, data, config);
+				console.log(response.data);
+			} catch (error) {
+				console.error(error);
 			}
-			return payTransaction   
 		}
 
 	const handleCheck = async () => {
 		if (isAnswered) {
 			setMsg('satisfactory answer already selected');
 			showModal();
-			tokenValue = localStorage.getItem('tokenValue');
+			tokenValue = JSON.parse(localStorage.getItem('tokenValue'));
 			payAllTransaction(tokenValue, questionId);
 			localStorage.removeItem("tokenValue");
 			return;

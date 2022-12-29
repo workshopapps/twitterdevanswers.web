@@ -102,6 +102,9 @@ function PostQuestion() {
 		localStorage.setItem('tokenValue', tokenValue)
 		if (questionData.token < state.userData.account_balance) {
 		setIsTokensOpen(!isTokensOpen);
+		} else {
+			setIsTokenError('Insufficient Token Balance')
+		}
 	};
 
 	const handleTokenRemoval = () => {
