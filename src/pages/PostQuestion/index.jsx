@@ -101,6 +101,7 @@ function PostQuestion() {
 		}));
 		if (questionData.token < state.userData.account_balance) {
 		setIsTokensOpen(!isTokensOpen);
+		localStorage.setItem('tokenValue', tokenValue)
 	} else {
 			setIsTokenError('Insufficient token balance...');
 		}
