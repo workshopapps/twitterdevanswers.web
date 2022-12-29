@@ -39,10 +39,13 @@ function BlogPage() {
 
 	return (
 		<div className={styles.main}>
-			<nav className={styles.blognav}>
-				<h4>Admin Dashboard</h4>
-				<img src={rightWay} alt="rightWay" />
-				<h4>Blog</h4>
+			<nav className={styles.blognavWrap}>
+				<div className={styles.blognav}>
+					<h4>Admin Dashboard</h4>
+					<img src={rightWay} alt="rightWay" />
+					<h4>Blog</h4>
+				</div>
+				<Link to="/blog-submit-review" className={styles.urlPathMobile}><img src="/assets/privacySettingsLeft.svg" alt="img" /> <span>Blog</span></Link>
 			</nav>
 
 			{/* <div className={styles.search}>

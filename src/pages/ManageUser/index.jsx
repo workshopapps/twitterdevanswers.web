@@ -2,13 +2,14 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import styles from './ManageUser.module.css';
+import { CardSkeleton, WalletCardSkeleton } from './Skeleton/CardSkeleton';
 
 function ManageUser() {
 	const navigate = useNavigate();
 
 	const [isShow, setIsShow] = useState(false);
 	const [isModalShow, setIsModalShow] = useState(false);
-
+	const [loadingUsers, setLoadingUsers] = useState(true);
 	const [user, setUser] = useState({});
 	const [isError, setIsError] = useState(true);
 	const [errorText, setErrorText] = useState('Error...');
@@ -26,12 +27,12 @@ function ManageUser() {
 		const userId = id;
 		try {
 			const response = await axios.get(`https://api.devask.tech/user/wallet/view/${userId}`);
-			const { balance} = response.data;
+			const { balance } = response.data;
 			const totalSpent = response.data.total_spent;
 			const totalEarned = response.data.total_earned;
 
 			console.log('response', response)
-			setView((prev) =>({
+			setView((prev) => ({
 				...prev,
 				currentBalance: balance,
 				totalEarned,
@@ -41,10 +42,12 @@ function ManageUser() {
 		} catch (e) {
 			console.log('e', e)
 		}
-}
+	}
 
 	useEffect(() => {
+
 		const getUser = async () => {
+			setLoadingUsers(true);
 			const headers = {
 				Authorization: `Bearer ${session.user.access_token}`,
 				'Content-Type': 'application/json',
@@ -61,11 +64,13 @@ function ManageUser() {
 				if (data) {
 					setUser(data.data.data);
 					viewUserWallet(data.data.data.user_id);
-				
+					setLoadingUsers(false);
+
 				}
 			} catch (err) {
 				setIsError(false);
 				setErrorText('No data found');
+				setLoadingUsers(false);
 			}
 		};
 
@@ -73,7 +78,7 @@ function ManageUser() {
 	}, []);
 
 
-	
+
 	const handleDelete = async (userValue) => {
 		const headers = {
 			Authorization: `Bearer ${session.user.access_token}`,
@@ -149,36 +154,44 @@ function ManageUser() {
 
 
 	// useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         viewUserWallet(user.user_id);
-    //     }, 3000);
-    //     return () => clearInterval(interval);
-    // }, []);
+	//     const interval = setInterval(() => {
+	//         viewUserWallet(user.user_id);
+	//     }, 3000);
+	//     return () => clearInterval(interval);
+	// }, []);
 
 	return (
 		<section className={styles.container}>
 			{isError ? (
 				<>
 					<div className={styles.urlPath}>
-						<Link to="/admin-dashboard">Admin Dashboard</Link> /
-						<Link to={`/manage-user/${username}`}> Manage User</Link>
+						<Link to="/admin-dashboard" className={styles.adminUrlPath} >Admin Dashboard / </Link>
+						<Link to={`/manage-user/${username}`} className={styles.urlPathMobile}><img src="/assets/privacySettingsLeft.svg" alt="img" /> Manage User</Link>
 					</div>
 
-					<h1 className={styles.userName}>
-						{user.first_name &&
-							`${user.first_name
-								.slice(0, 1)
-								.toUpperCase()}${user.first_name.slice(1)} ${user.last_name
-								.slice(0, 1)
-								.toUpperCase()}${user.last_name.slice(1)}`}
-					</h1>
+					<div className={styles.mobileNameWrap}>
+						<img src="/manage-pic.svg" alt="Manage Pic" />
+						<div>
+							<h1 className={styles.userName}>
+								{user.first_name &&
+									`${user.first_name
+										.slice(0, 1)
+										.toUpperCase()}${user.first_name.slice(1)} ${user.last_name
+											.slice(0, 1)
+											.toUpperCase()}${user.last_name.slice(1)}`}
+							</h1>
+							<span>Last active on {new Date(user.date_joined).toDateString()} </span>
+						</div>
+
+					</div>
 					{/* <p>Last active on 16 March 2022 </p> */}
 
 					<section className={styles.detailsWrapper}>
 						<div className={styles.infoWrapper}>
 							<h3 className={styles.accountHeading}>Account details</h3>
-							<article className={styles.bioWrapper}>
-								<img src="/manage-pic.svg" alt="Manage Pic" />
+							{loadingUsers ? <CardSkeleton cards={1} /> : <article className={styles.bioWrapper}>
+
+								<img src="/manage-pic.svg" alt="Manage Pic" className={styles.bioWrapperImg} />
 
 								{/* <div>
 									<span>First name</span>
@@ -189,7 +202,7 @@ function ManageUser() {
 												.toUpperCase()}${user.first_name.slice(1)}`}
 									</h4>
 								</div> */}
-{/* 
+								{/* 
 								<div>
 									<span>Last name</span>
 									<h4>
@@ -199,25 +212,33 @@ function ManageUser() {
 												.toUpperCase()}${user.last_name.slice(1)}`}
 									</h4>
 								</div> */}
-								<div>
+								<div className={styles.adminUserWrap}>
+									<span>First name</span>
+									<h4>{user.first_name}</h4>
+								</div>
+								<div className={styles.adminUserWrap}>
+									<span>Last name</span>
+									<h4>{user.last_name}</h4>
+								</div>
+								<div className={styles.adminUserWrap}>
 									<span>Username</span>
 									<h4>{user.username}</h4>
 								</div>
 
-								<div>
+								<div className={styles.adminUserWrap}>
 									<span>Email address</span>
 									<h4>{user.email}</h4>
 								</div>
 
-								{/* <div>
+								<div className={styles.adminUserWrap}>
 									<span>Date of Birth</span>
 									<h4>{user.date_of_birth}</h4>
-								</div> */}
+								</div>
 
-								{/* <button type="button" className={styles.btn}>
+								<button type="button" className={styles.btn}>
 									Suggest changes
-								</button> */}
-							</article>
+								</button>
+							</article>}
 						</div>
 
 						<div className={styles.walletInfo}>
@@ -263,17 +284,21 @@ function ManageUser() {
 								)}
 							</div>
 
-							<div className={styles.walletSpecs}>
-								<article>
-									<h4>Current balance</h4>
+							
+								{loadingUsers ? <WalletCardSkeleton cards={4} /> :
+								<div className={styles.walletSpecs}>
+									<article>
+										<h4>Current balance</h4>
 
-									<div>
-										<h5>
-											{view.currentBalance} <span>Tokens</span>
-										</h5>
-										<img src="/arrow-right.svg" alt="Right arrow" />
-									</div>
-								</article>
+										<div>
+											<h5>
+												{view.currentBalance} <span>Tokens</span>
+											</h5>
+											<img src="/arrow-right.svg" alt="Right arrow" />
+										</div>
+									</article>
+								
+
 
 								<article>
 									<h4>Total Commissioned</h4>
@@ -307,7 +332,7 @@ function ManageUser() {
 										<img src="/arrow-right.svg" alt="Right arrow" />
 									</div>
 								</article>
-							</div>
+							</div>}
 						</div>
 					</section>
 				</>

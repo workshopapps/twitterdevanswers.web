@@ -1,0 +1,24 @@
+.card {
+	width: 100%;
+	padding: 24px;
+	display: block;
+	gap: 26px;
+	border: 1px solid #ececfb;
+	border-radius: 8px;
+	margin : 30px auto
+}
+
+.rightCol {
+	width: 100%;
+}
+.walletcard{
+	width:40%;
+	display:inline-block;
+	padding : 30px ;
+	margin: 0 30px;
+	border: 1px solid #ececfb;
+	border-radius: 8px;
+}
+.walletrightCol {
+	width: 100%
+}

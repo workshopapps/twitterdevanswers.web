@@ -105,14 +105,17 @@ function UserBlogReview() {
 
 	return (
 		<div className={styles.userblog}>
-			<nav className={styles.usernav}>
-				<h4>Admin Dashboard</h4>
-				<img src={rightWay} alt="rightWay" />
-				<Link to="/blog-submit-review">
-					<h4>Blog</h4>
-				</Link>
-				<img src={rightWay} alt="rightWay" />
-				<h4 className={styles.userreview}>User blog review</h4>
+			<nav className={styles.usernavWrap}>
+				<div className={styles.usernav}>
+					<h4>Admin Dashboard</h4>
+					<img src={rightWay} alt="rightWay" />
+					<Link to="/blog-submit-review">
+						<h4>Blog</h4>
+					</Link>
+					<img src={rightWay} alt="rightWay" />
+					<h4 className={styles.userreview}>User blog review</h4>
+				</div>
+				<Link to="/blog-submit-review" className={styles.urlPathMobile}><img src="/assets/privacySettingsLeft.svg" alt="img" /> <span>User blog review</span></Link>
 			</nav>
 
 			<h1>{blog.title}</h1>
