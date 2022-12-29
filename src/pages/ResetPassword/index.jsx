@@ -25,6 +25,7 @@ function ResetPassword() {
             
         } catch (error) {
             setResponse("Could not send request. Please try again!");
+			console.log(error)
         }
     }
 	

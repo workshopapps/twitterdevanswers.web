@@ -61,9 +61,21 @@
   display: flex;
   justify-content: space-evenly;
 }
-.Bronze, .Silver, .Gold{
+.Free, .Standard{
     width: 30%;
-    min-height: 476px;
+    min-height: 710px;
+    padding-left: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+    border: none;
+    border-radius: 24px;
+} 
+
+.Premium{
+    width: 30%;
+    min-height: 710px;
     padding-left: 4%;
     display: flex;
     flex-direction: column;
@@ -73,14 +85,52 @@
     border-radius: 24px;
     background-color: #F6F0FF;
 }
+.FreeSectionA, .StandardSectionA, .PremiumSectionA{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  height: 40%;
+}
+.FreeSectionA h1, .StandardSectionA h1, .PremiumSectionA h1{
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.FreeSectionB, .StandardSectionB, .PremiumSectionB{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 60%;
+}
+.Free img{
+  width: 108px;
+  height: 36px;
+  align-items: center;
+}
 
-.Bronze button, .Silver button, .Gold button{
+
+.Standard img, .Premium img{
+  width: 182px;
+  height: 36px;
+  align-items: center;
+}
+
+.Free button, .Standard button, .Premium button{
     width: 72%;
     height: 42px;
     border-radius: 4px;
     border: none;
     background-color: #492B7C;
     color: white;
+    align-self: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
 }
 .PriceBoxSection i, .PriceBoxSection li{
   opacity: 60%;

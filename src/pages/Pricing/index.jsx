@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import arr from "../../assets/pricing-images/arr.png"
-import discount from "../../assets/pricing-images/price.png"
-import styles from "./style.module.css"
+import arr from "../../assets/pricing-images/arr.png";
+import discount from "../../assets/pricing-images/price.png";
+import Free from "../../assets/pricing-images/free.png";
+import Standard from "../../assets/pricing-images/standard.png";
+import Premium from "../../assets/pricing-images/premium.png";
+import styles from "./style.module.css";
 
 function Pricing () {
     const [monthly, setMonthly] = useState(true);
     const [yearly, setYearly] = useState(false);
-    const [subscribeBronze, setSubscribeBronze] = useState("Subscribe");
-    const [subscribeSilver, setSubscribeSilver] = useState("Subscribe");
-    const [subscribeGold, setSubscribeGold] = useState("Subscribe");
 
     function togglePlanA(){
             setMonthly(!monthly);
@@ -18,30 +18,7 @@ function Pricing () {
             setYearly(!yearly);
             setMonthly(true);
     }
-    function handleSubscribeBronze(){
-        if (subscribeBronze === "Subscribe"){
-            setSubscribeBronze("Subscribed");
-        } 
-        if (subscribeBronze !== "Subscribe"){
-            setSubscribeBronze("Subscribe")
-        }
-    }
-    function handleSubscribeSilver(){
-        if (subscribeSilver === "Subscribe"){
-            setSubscribeSilver("Subscribed");
-        } 
-        if (subscribeSilver !== "Subscribe"){
-            setSubscribeBronze("Subscribe")
-        }
-    }
-    function handleSubscribeGold(){
-        if (subscribeGold === "Subscribe"){
-            setSubscribeGold("Subscribed");
-        } 
-        if (subscribeGold !== "Subscribe"){
-            setSubscribeGold("Subscribe")
-        }
-    }
+
 
     return (
         <div>
@@ -54,7 +31,6 @@ function Pricing () {
                 <img className={styles.Arrow} src={arr} alt="arrow" />
             </section>
         <section className={styles.Slider}>
-
             <span>Monthly</span>
            <form className={styles.ToggleDiv}>
             { monthly &&
@@ -71,38 +47,56 @@ function Pricing () {
         </section>
         </div>
         <section className={styles.PriceBoxSection}>
-                <div className={styles.Bronze}>
-                    <h1>Bronze</h1>
-                    <i>For one user</i>
-                    <p>Perfect to test out our features</p>
-                    <button type="submit" onClick={handleSubscribeBronze}>{subscribeBronze}</button>
-                    <p>Includes:</p>
-                        <li>&#9745; Get up to 20 Starter Votes</li>
-                        <li>&#9745; Free 6 Questions</li>
-                        <li>&#9745; Access to Premium Posts</li>
+                <div className={styles.Free}>
+                    <section className={styles.FreeSectionA}>
+                    <img src={Free} alt="free" />
+                    <h1>$0</h1>
+                    <li>NO CREDIT CARD REQUIRED</li>
+                    <li>Everything you need as an individual to get your questions answered.</li>
+                    </section>
+                    <section className={styles.FreeSectionB}>
+                    <button type="submit">Get Started</button>
+                        <li>&#10003; Free 100 tokens</li>
+                        <li>&#10003; Ask and answer questions</li>
+                        <li>&#10003; Intelligent search across all content types</li>
+                        <li>&#10003; Personalized recommendation for uncovering knowledge</li>
 
+                 </section>
                 </div>
-                <div className={styles.Silver}>
-                <h1>Silver</h1>
-                    <i>For one user</i>
-                    <p>Perfect to test out our features</p>
-                    <button type="submit" onClick={handleSubscribeSilver}>{subscribeSilver}</button>
-                    <p>Includes:</p>
-                        <li>&#9745; Get up to 20 Starter Votes</li>
-                        <li>&#9745; Free 6 Questions</li>
-                        <li>&#9745; Access to Premium Posts</li>
-
+                <div className={styles.Standard}>
+                    <section className={styles.StandardSectionA}>
+                <img src={Standard} alt="standard" />
+                <h1>$20</h1>
+                <li>PER MONTH</li>
+                <li>Everything you need as an individual to get your questions answered.</li>
+                </section>
+                <section className={styles.StandardSectionB}>
+                    <button type="submit">Get Started</button>
+                        <li>&#10003; Free 100 tokens</li>
+                        <li>&#10003; Ask and answer questions</li>
+                        <li>&#10003; Comment, like and reply posts</li>
+                        <li>&#10003; Intelligent search across all content types</li>
+                        <li>&#10003; Personalized recommendation for uncovering knowledge</li>
+                        <li>&#10003; Join and create communities</li>
+                </section>
                 </div>
-                <div className={styles.Gold}>
-                <h1>Gold</h1>
-                    <i>For one user</i>
-                    <p>Perfect to test out our features</p>
-                    <button type="submit" onClick={handleSubscribeGold}>{subscribeGold}</button>
-                    <p>Includes:</p>
-                        <li>&#9745; Get up to 20 Starter Votes</li>
-                        <li>&#9745; Free 6 Questions</li>
-                        <li>&#9745; Access to Premium Posts</li>
-
+                <div className={styles.Premium}>
+                    <section className={styles.PremiumSectionA}>
+                <img src={Premium} alt="premium" />
+                <h1>$200</h1>
+                <li>PER YEAR</li>
+                <li>Everything you need as an individual to get your questions answered.</li>
+                </section>
+                <section className={styles.PremiumSectionB}>
+                    <button type="submit">Get Started</button>
+                        <li>&#10003; Free 100 tokens</li>
+                        <li>&#10003; Ask and answer questions</li>
+                        <li>&#10003; Comment, like and reply posts</li>
+                        <li>&#10003; Intelligent search across all content types</li>
+                        <li>&#10003; Personalized recommendation for uncovering knowledge</li>
+                        <li>&#10003; Join and create communities</li>
+                        <li>&#10003; Receive and send direct messages</li>
+                </section>
                 </div>
             </section>
             </main>
