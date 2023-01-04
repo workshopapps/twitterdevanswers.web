@@ -36,7 +36,6 @@ import Security from './pages/Security/Security';
 import Contact from './pages/Contact/index';
 import ProtectedRoutes from './ProtectedRoutes';
 import InternalHeader from './components/InternalHeader/InternalHeader';
-// import InternalFooter from './components/InternalFooter/InternalFooter';
 import Privacy from './pages/Privacy/Privacy';
 import SubmitBlog from './pages/SubmitBlog';
 import NotificationSettings from './pages/NotificationSettings/index';
@@ -83,7 +82,7 @@ function App() {
 						<Route path="forgot-password" element={<ForgotPassword />} />
 						<Route path="verify-account" element={<VerifyAccount />} />
 						<Route
-							path="password-recovery/:token"
+							path="forgot-password/:token"
 							element={<ResetPassword />}
 						/>
 						<Route path="/dashboard" element={<NewDashboard />} />
